@@ -20,3 +20,5 @@ https://github.com/UKPLab/plms-graph2text
 https://github.com/rikdz/GraphWriter
 https://github.com/thu-coai/JointGT
 https://github.com/acolas1/GAP_COLING2022
+
+http://attempto.ifi.uzh.ch/site/docs/writing_owl_in_ace.html
