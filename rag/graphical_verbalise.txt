@@ -1,0 +1,350 @@
+The class "Conference" in the CMT ontology is a subclass of the general class "Thing" in the OWL ontology.
+The statement "cmt:memberOfConference rdf:type owl:ObjectProperty" can be verbalized as "The property 'memberOfConference' in the CMT ontology is of type 'ObjectProperty' according to the OWL ontology."
+The range of the property "finalizePaperAssignment" in the CMT ontology is "Conference" in the conference ontology.
+The statement "cmt:Administrator rdfs:subClassOf cmt:User" can be verbalized as "An Administrator is a subclass of User in the CMT ontology."
+The statement "cmt:addedBy owl:inverseOf cmt:addProgramCommitteeMember" can be verbalized as "The 'addedBy' property in the CMT ontology is the inverse of the 'addProgramCommitteeMember' property in the CMT ontology."
+The statement "cmt:assignedByAdministrator rdf:type owl:ObjectProperty" can be verbalized as "The property 'assignedByAdministrator' in the CMT ontology is of type 'ObjectProperty' in the OWL ontology."
+The property "cmt:name" is of type "owl:DatatypeProperty".
+The statement is "cmt:startReviewerBidding is an object property."
+The range of the property "hasBid" in the CMT ontology is "Bid".
+The statement "cmt:enableVirtualMeeting owl:inverseOf cmt:virtualMeetingEnabledBy" can be verbalized as "Enabling virtual meetings is the inverse of being enabled by virtual meetings in the CMT ontology."
+The statement "cmt:writePaper rdf:type owl:InverseFunctionalProperty" can be verbalized as "The property 'writePaper' in the CMT ontology is an inverse functional property."
+The statement "cmt:rejectedBy owl:inverseOf cmt:rejectPaper" can be verbalized as "The 'rejectedBy' property in the CMT ontology is the inverse of the 'rejectPaper' property in the CMT ontology."
+The range of the property "adjustedBy" in the CMT ontology is "Reviewer".
+The statement "cmt:assignedByAdministrator owl:inverseOf cmt:assignReviewer" can be verbalized as "The assignment made by an administrator is the inverse of the action of assigning a reviewer."
+The statement is "The preference in the CMT ontology is disjoint with the bid in the CMT ontology."
+The range of the property "printHardcopyMailingManifests" in the CMT ontology is "Conference".
+The statement is "The hardcopy mailing manifests are printed by the inverse of printHardcopyMailingManifests."
+The range of the property "hasConflictOfInterest" in the CMT ontology is "Document".
+The property "hasAuthor" in the CMT ontology is of type "owl:FunctionalProperty".
+The statement "cmt:hasProgramCommitteeMember owl:inverseOf cmt:memberOfProgramCommittee" can be verbalized as "The property 'hasProgramCommitteeMember' is the inverse of the property 'memberOfProgramCommittee' in the CMT ontology."
+The statement "cmt:assignReviewer rdf:type owl:ObjectProperty" can be verbalized as "The assignReviewer property in the CMT ontology is of type ObjectProperty in the OWL ontology."
+The domain of the property "reviewsPerPaper" in the CMT ontology is the "Conference".
+The range of the property "addProgramCommitteeMember" in the CMT ontology is "ProgramCommitteeMember" from the CMT ontology.
+The range of the property "writtenBy" in the CMT ontology is "Reviewer".
+The range of the property "enterReviewCriteria" in the CMT ontology is "Conference".
+The statement is "The paperID has a domain of Paper in the CMT ontology."
+The review is written by the CMT.
+The domain of the property "assignExternalReviewer" in the CMT ontology is "Reviewer".
+The statement "cmt:Acceptance rdfs:subClassOf cmt:Decision" can be verbalized as "The concept of 'Acceptance' is a subclass of the concept of 'Decision' in the CMT ontology."
+The property "reviewsPerPaper" in the CMT ontology is of type "DatatypeProperty".
+The review criteria entered by a conference.
+The domain of the property "hasDecision" in the CMT ontology is the class "Paper".
+The statement "cmt:hasAuthor rdf:type owl:ObjectProperty" can be verbalized as "The property 'hasAuthor' in the CMT ontology is of type 'ObjectProperty' in the OWL ontology."
+The prefix "cmt" refers to the CMT ontology, and the prefix "owl" refers to the OWL ontology language. The statement "cmt:ProgramCommittee owl:disjointWith cmt:Document" can be verbalized as "The concept of 'ProgramCommittee' in the CMT ontology is disjoint with the concept of 'Document' in the CMT ontology."
+The statement "cmt:hasConferenceMember rdf:type owl:ObjectProperty" can be verbalized as "The property 'hasConferenceMember' in the CMT ontology is of type 'ObjectProperty' in the OWL ontology."
+The class "Co-author" in the CMT ontology is of type "owl:Class".
+The statement "cmt:Document owl:disjointWith cmt:Person" can be verbalized as "The concept of 'Document' in the CMT ontology is disjoint with the concept of 'Person' in the CMT ontology."
+The property "maxPapers" in the CMT ontology is an owl:FunctionalProperty.
+The statement "cmt:title rdf:type owl:DatatypeProperty" can be verbalized as "The property 'title' in the CMT ontology is a datatype property."
+The reviewer bidding started by a conference.
+The range of the property "addedBy" in the CMT ontology is "Administrator".
+The class "Review" in the CMT ontology is of type "owl:Class".
+The statement is "The printing of hardcopy mailing manifests is the inverse of being printed by hardcopy mailing manifests."
+The Program Committee of CMT is disjoint with the Decision in CMT.
+The range of the property "hardcopyMailingManifestsPrintedBy" in the CMT ontology is an "Administrator".
+The statement "cmt:Rejection owl:disjointWith cmt:Acceptance" can be verbalized as "The concept of rejection in the CMT ontology is disjoint with the concept of acceptance in the CMT ontology."
+The class "ConferenceChair" is a subclass of "ConferenceMember" in the CMT ontology.
+The statement is "The domain of the property setMaxPapers is Administrator in the CMT ontology."
+The paper assignment tools run by the CMT ontology are inversely related to the running of paper assignment tools.
+The statement "cmt:virtualMeetingEnabledBy owl:inverseOf cmt:enableVirtualMeeting" can be verbalized as "The property 'virtualMeetingEnabledBy' is the inverse of the property 'enableVirtualMeeting' in the CMT ontology."
+The domain of the property "hasSubjectArea" in the CMT ontology is "Paper".
+The class "ConferenceMember" in the CMT ontology is a subclass of the class "Person" in the CMT ontology.
+The hardcopy mailing manifests are printed by the Conference.
+The domain of the property "siteURL" in the CMT ontology is the class "Conference" in the CMT ontology.
+The class "ExternalReviewer" in the CMT ontology is of type "owl:Class".
+The preference in the CMT ontology is disjoint with the conference in the CMT ontology.
+The domain of the property "addProgramCommitteeMember" in the CMT ontology is an "Administrator" in the CMT ontology.
+The Conference Chair in the CMT ontology is disjoint with the Associated Chair in the CMT ontology.
+The class "Person" in the CMT ontology is an instance of the OWL class.
+The statement "cmt:siteURL rdf:type owl:DatatypeProperty" verbalised is "The site URL of CMT is a datatype property."
+The statement "cmt:co-writePaper rdf:type owl:ObjectProperty" can be verbalized as "The co-writePaper property in the CMT ontology is of type ObjectProperty in the OWL ontology."
+The range of the property "acceptedBy" in the CMT ontology is an "Administrator".
+The domain of the property "hasConflictOfInterest" in the CMT ontology is a person.
+The class "ProgramCommitteeMember" is a subclass of the class "ConferenceMember".
+The class "ExternalReviewer" in the CMT ontology is a subclass of the class "Person" in the CMT ontology.
+The range of the property "cmt:name" is a string.
+The ontology prefix "cmt" represents the CMT ontology, and the prefix "conference" represents the Conference ontology. The statement "cmt:Conference owl:disjointWith cmt:Document" can be verbalized as "The concept of a conference in the CMT ontology is disjoint with the concept of a document in the CMT ontology."
+The ontology prefix "cmt" is disjoint with the ontology prefix "conference".
+The statement "cmt:Rejection rdfs:subClassOf cmt:Decision" can be verbalized as "The class 'Rejection' in the CMT ontology is a subclass of the class 'Decision' in the CMT ontology."
+The statement "cmt:adjustBid rdf:type owl:ObjectProperty" can be verbalized as "The adjustBid property in the CMT ontology is of type ObjectProperty in the OWL ontology."
+The statement "cmt:assignReviewer owl:inverseOf cmt:assignedByAdministrator" can be verbalized as "Assigning a reviewer is the inverse of being assigned by an administrator in the CMT ontology."
+The statement "cmt:memberOfProgramCommittee rdf:type owl:ObjectProperty" can be verbalized as "The property 'memberOfProgramCommittee' in the CMT ontology is an object property according to the OWL ontology."
+The ontology prefix "cmt" represents the CMT ontology, and the prefix "conference" represents the Conference ontology. The verbalized statement is "The concept of a conference in the CMT ontology is disjoint with the concept of a decision in the CMT ontology."
+The class "cmt:acceptPaper" has the domain "cmt:Administrator".
+The class "ProgramCommitteeMember" in the CMT ontology is a subclass of the class "Person".
+The class "PaperFullVersion" in the CMT ontology is a subclass of the class "Paper" in the CMT ontology.
+The statement "cmt:Decision owl:disjointWith cmt:Document" can be verbalized as "The concept of 'Decision' in the CMT ontology is disjoint with the concept of 'Document' in the CMT ontology."
+The class "Co-author" in the CMT ontology is a subclass of the class "Author".
+The range of the property "siteURL" in the CMT ontology is any URI.
+The domain of the property "writePaper" in the CMT ontology is an "Author".
+The statement "cmt:Reviewer rdfs:subClassOf cmt:ConferenceMember" can be verbalized as "A Reviewer is a subclass of Conference Member in the CMT ontology."
+The statement "cmt:hasProgramCommitteeMember rdf:type owl:ObjectProperty" can be verbalized as "The property 'hasProgramCommitteeMember' in the CMT ontology is an object property."
+The preference of CMT is disjoint with the program committee of CMT.
+The statement "cmt:writeReview rdf:type owl:ObjectProperty" can be verbalized as "The property 'writeReview' in the CMT ontology is an object property."
+The range of the property "paperAssignmentToolsRunBy" in the CMT ontology is an "Administrator".
+The statement "cmt:paperID rdf:type owl:FunctionalProperty" can be verbalized as "The property 'paperID' in the CMT ontology is a functional property."
+The range of the property "co-writePaper" in the CMT ontology is "Paper".
+The statement "cmt:hasConflictOfInterest rdf:type owl:ObjectProperty" can be verbalized as "The property 'hasConflictOfInterest' in the CMT ontology is of type 'ObjectProperty' in the OWL ontology."
+The domain of the property "cmt:title" in the CMT ontology is "cmt:Paper".
+The range of the property "writeReview" in the CMT ontology is "Review".
+The property "hasDecision" in the CMT ontology is a functional property.
+The Associated Chair of CMT is disjoint with the Conference Chair of CMT.
+The review criteria entered by CMT is the inverse of entering review criteria.
+The range of the property "cmt:title" is a string.
+The domain of the property "detailsEnteredBy" in the CMT ontology is "Conference".
+The class "Meta-Review" in the CMT ontology is of type "owl:Class".
+The range of the property "hasDecision" in the CMT ontology is the class "Decision" in the CMT ontology.
+The Chairman of the CMT ontology is a class in the OWL ontology.
+The statement "cmt:memberOfConference owl:inverseOf cmt:hasConferenceMember" can be verbalized as "A member belongs to a conference if and only if the conference has that member."
+The statement "cmt:adjustBid rdf:type owl:InverseFunctionalProperty" can be verbalized as "The property 'adjustBid' in the CMT ontology is an inverse functional property."
+The logoURL property belongs to the CMT ontology and its domain is the Conference class.
+The subject area of CMT is a class in the ontology.
+The acceptance of a CMT ontology is disjoint with the rejection of a CMT ontology.
+The statement "cmt:hasDecision rdf:type owl:ObjectProperty" can be verbalized as "The property 'hasDecision' in the CMT ontology is an object property."
+The statement is "The finalizePaperAssignment property has a domain of Administrator in the CMT ontology."
+The statement "cmt:logoURL rdf:type owl:DatatypeProperty" can be verbalized as "The logoURL property in the CMT ontology is of type DatatypeProperty."
+The statement "cmt:rejectPaper rdf:type owl:ObjectProperty" can be verbalized as "The rejectPaper property in the CMT ontology is of type ObjectProperty."
+The property "cmt:name" is an owl:FunctionalProperty.
+The property "adjustedBy" from the CMT ontology is of type "owl:FunctionalProperty".
+The range of the property "reviewCriteriaEnteredBy" in the CMT ontology is an "Administrator" in the CMT ontology.
+The property "rejectedBy" in the CMT ontology is of type "owl:FunctionalProperty".
+The statement "cmt:hasConferenceMember owl:inverseOf cmt:memberOfConference" can be verbalized as "The property 'hasConferenceMember' in the CMT ontology is the inverse of the property 'memberOfConference' in the CMT ontology."
+The statement "cmt:assignExternalReviewer rdf:type owl:ObjectProperty" can be verbalized as "The assignExternalReviewer property in the CMT ontology is of type ObjectProperty in the OWL ontology."
+The range of the property "readPaper" in the CMT ontology is the class "Paper" in the CMT ontology.
+The domain of the property "submitPaper" in the CMT ontology is an "Author."
+The statement "cmt:paperAssignmentFinalizedBy rdf:type owl:ObjectProperty" can be verbalized as "The paper assignment is finalized by the CMT ontology as an object property."
+The range of the property "readByMeta-Reviewer" in the CMT ontology is "Meta-Reviewer" from the CMT ontology.
+The statement "cmt:writeReview rdf:type owl:InverseFunctionalProperty" can be verbalized as "The property 'writeReview' in the CMT ontology is an inverse functional property."
+The statement "cmt:Person owl:disjointWith cmt:Bid" can be verbalized as "A person in the CMT ontology is not the same as a bid in the CMT ontology."
+The class "User" in the CMT ontology is a subclass of the class "Person" in the CMT ontology.
+The CMT ontology has a datatype property called "acceptsHardcopySubmissions".
+The range of the property "cmt:date" in the CMT ontology is "xsd:date".
+The statement "cmt:hasSubjectArea rdf:type owl:ObjectProperty" can be verbalized as "The property 'hasSubjectArea' in the CMT ontology is of type 'ObjectProperty' in the OWL ontology."
+The statement "cmt:assignedTo owl:inverseOf cmt:hasBeenAssigned" can be verbalized as "The assignedTo property in the CMT ontology is the inverse of the hasBeenAssigned property in the CMT ontology."
+The property "writtenBy" in the CMT ontology is of type "owl:FunctionalProperty".
+The domain of the property "hasBid" in the CMT ontology is the class "Paper".
+The class "Meta-Review" in the CMT ontology is a subclass of the class "Review" in the CMT ontology.
+The range of the property "email" in the CMT ontology is a string data type.
+The domain of the property "enterReviewCriteria" in the CMT ontology is an administrator.
+The statement "cmt:runPaperAssignmentTools rdf:type owl:ObjectProperty" can be verbalized as "The runPaperAssignmentTools property in the CMT ontology is of type ObjectProperty."
+The program committee member is added by the inverse of the "addProgramCommitteeMember" property in the CMT ontology.
+The statement "cmt:writtenBy rdf:type owl:ObjectProperty" can be verbalized as "The property 'writtenBy' in the CMT ontology is of type 'ObjectProperty' in the OWL ontology."
+The statement "cmt:AuthorNotReviewer owl:disjointWith cmt:Reviewer" can be verbalized as "An author in the CMT ontology is not the same as a reviewer in the CMT ontology."
+The range of the property "submitPaper" in the CMT ontology is the class "Paper".
+The range of the property "hasProgramCommitteeMember" in the CMT ontology is "ProgramCommitteeMember".
+The property "cmt:title" is a functional property.
+The statement "cmt:rejectPaper rdf:type owl:InverseFunctionalProperty" can be verbalized as "The property 'rejectPaper' in the CMT ontology is an inverse functional property."
+The property "hasBeenAssigned" in the CMT ontology has the domain of "Reviewer".
+The preference in the CMT ontology is disjoint with the person in the CMT ontology.
+The statement is "The property 'setMaxPapers' is of type 'ObjectProperty' in the CMT ontology."
+The statement "cmt:runPaperAssignmentTools owl:inverseOf cmt:paperAssignmentToolsRunBy" can be verbalized as "The action of running paper assignment tools is the inverse of being run by paper assignment tools in the CMT ontology."
+The statement "cmt:assignExternalReviewer rdf:type owl:InverseFunctionalProperty" can be verbalized as "The property 'assignExternalReviewer' in the CMT ontology is an inverse functional property."
+The range of the property "hasConferenceMember" in the CMT ontology is "ConferenceMember" from the CMT ontology.
+The CMT ontology's prefix is "cmt" and the Conference ontology's prefix is "conference". The statement to be verbalized is "The ProgramCommittee in the CMT ontology is disjoint with the Preference in the CMT ontology."
+The class "ConferenceChair" in the CMT ontology is an instance of the OWL class.
+The ontology prefix "cmt" represents the CMT ontology, and the prefix "conference" represents the Conference ontology. The verbalized statement is "The document in the CMT ontology is disjoint with the bid in the CMT ontology."
+The paper rejection in the CMT ontology is represented by the statement "cmt:rejectPaper owl:inverseOf cmt:rejectedBy."
+The class "Preference" in the CMT ontology is of type "owl:Class".
+The class "Person" in the CMT ontology is disjoint with the class "Conference" in the CMT ontology.
+The statement "cmt:submitPaper rdf:type owl:ObjectProperty" can be verbalized as "The submitPaper property in the CMT ontology is of type ObjectProperty in the OWL ontology."
+The class "Author" in the CMT ontology is a subclass of the class "User".
+The statement "cmt:acceptsHardcopySubmissions rdfs:range xsd:boolean" can be verbalized as "The acceptsHardcopySubmissions property in the CMT ontology has a range of boolean values."
+The property "addedBy" in the CMT ontology is of type "owl:FunctionalProperty".
+The ontology prefix "cmt" represents the CMT ontology, and the prefix "conference" represents the Conference ontology. The verbalized statement is "The concept of Conference in the CMT ontology is disjoint with the concept of Person in the CMT ontology."
+The class "ProgramCommitteeMember" from the CMT ontology is an instance of the OWL class.
+The range of the property "enableVirtualMeeting" in the CMT ontology is "Conference".
+The statement "cmt:Person owl:disjointWith cmt:Preference" can be verbalized as "A person in the CMT ontology is not the same as a preference in the CMT ontology."
+The statement "cmt:markConflictOfInterest rdf:type owl:ObjectProperty" can be verbalized as "The property 'markConflictOfInterest' in the CMT ontology is of type 'ObjectProperty' in the OWL ontology."
+The statement "cmt:email rdf:type owl:DatatypeProperty" can be verbalized as "The property 'email' in the CMT ontology is a datatype property."
+The domain of the property "readByReviewer" in the CMT ontology is "Paper".
+The property "addedBy" in the CMT ontology is of type "owl:ObjectProperty".
+The domain of the property "acceptedBy" in the CMT ontology is "Paper".
+The statement "cmt:virtualMeetingEnabledBy rdf:type owl:ObjectProperty" can be verbalized as "The property 'virtualMeetingEnabledBy' in the CMT ontology is of type 'ObjectProperty' in the OWL ontology."
+The statement "cmt:hasAuthor owl:inverseOf cmt:writePaper" can be verbalized as "The property 'hasAuthor' in the CMT ontology is the inverse of the property 'writePaper' in the CMT ontology."
+The range of the property "assignedByReviewer" in the CMT ontology is "Reviewer".
+The statement "cmt:Decision owl:disjointWith cmt:Person" can be verbalized as "A decision in the CMT ontology is disjoint with a person in the CMT ontology."
+The statement "cmt:hasBeenAssigned owl:inverseOf cmt:assignedTo" can be verbalized as "The property 'hasBeenAssigned' is the inverse of the property 'assignedTo' in the CMT ontology."
+The statement is "cmt:printHardcopyMailingManifests is an object property."
+The class "ConferenceMember" from the CMT ontology is an instance of the OWL class.
+The range of the property "memberOfConference" in the CMT ontology is the class "Conference" in the CMT ontology.
+The class "Decision" in the CMT ontology is of type "owl:Class".
+The class "PaperAbstract" in the CMT ontology is a subclass of the class "Paper".
+The class "Author" in the CMT ontology is a subclass of the class "ConferenceMember".
+The ontology prefix "cmt" represents the CMT ontology, and the prefix "conference" represents the Conference ontology. The statement "cmt:ExternalReviewer owl:disjointWith cmt:Reviewer" can be verbalized as "The concept of an external reviewer in the CMT ontology is disjoint with the concept of a reviewer in the CMT ontology."
+The statement is "The class 'readByMeta-Reviewer' has the domain 'Paper' in the CMT ontology."
+The class "Reviewer" in the CMT ontology is an instance of the OWL class.
+The statement is "The class 'Person' in the CMT ontology is disjoint with the class 'ProgramCommittee' in the CMT ontology."
+The statement is "The domain of the property 'readPaper' in the CMT ontology is the class 'Reviewer'."
+The statement "cmt:hasCo-author owl:inverseOf cmt:co-writePaper" can be verbalized as "The property 'hasCo-author' is the inverse of the property 'co-writePaper' in the CMT ontology."
+The property "assignedByReviewer" in the CMT ontology is of type "owl:FunctionalProperty".
+The range of the property "rejectedBy" in the CMT ontology is the administrator of CMT.
+The ontology prefix "cmt" represents the CMT ontology, and the prefix "conference" represents the Conference ontology. The verbalized statement is "The document in the CMT ontology is disjoint with the conference in the CMT ontology."
+The range of the property "startReviewerBidding" in the CMT ontology is the "Conference" class in the Conference ontology.
+The preference in the CMT ontology is disjoint with the document in the CMT ontology.
+The statement "cmt:assignedByReviewer owl:inverseOf cmt:assignExternalReviewer" can be verbalized as "The property 'assignedByReviewer' in the CMT ontology is the inverse of the property 'assignExternalReviewer' in the CMT ontology."
+The statement "cmt:endReview rdf:type owl:ObjectProperty" can be verbalized as "The property 'endReview' in the CMT ontology is an object property."
+The statement "cmt:Reviewer rdfs:subClassOf cmt:User" can be verbalized as "A Reviewer is a subclass of User in the CMT ontology."
+The range of the property "markConflictOfInterest" in the CMT ontology is "Paper" in the CMT ontology.
+The ontology prefix "cmt" represents the CMT ontology, and the prefix "conference" represents the Conference ontology. The verbalized statement is "The class 'Bid' from the CMT ontology is disjoint with the class 'Conference' from the CMT ontology."
+The preference in the CMT ontology is disjoint with the decision in the CMT ontology.
+The statement "cmt:hasBid rdf:type owl:ObjectProperty" can be verbalized as "The property 'hasBid' in the CMT ontology is an object property."
+The ontology prefix "cmt" represents the CMT ontology, and the prefix "conference" represents the Conference ontology. The verbalized statement is "The class Document in the CMT ontology is disjoint with the class Preference in the CMT ontology."
+The range of the property "hasCo-author" in the CMT ontology is the class "Co-author".
+The domain of the property "maxPapers" in the CMT ontology is "ProgramCommitteeMember" in the CMT ontology.
+The statement "cmt:assignedByReviewer rdf:type owl:ObjectProperty" can be verbalized as "The property 'assignedByReviewer' in the CMT ontology is of type 'ObjectProperty' in the OWL ontology."
+The domain of the property "cmt:date" in the CMT ontology is "cmt:Conference."
+The statement "cmt:reviewerBiddingStartedBy owl:inverseOf cmt:startReviewerBidding" can be verbalized as "The reviewer bidding is started by the inverse of starting the reviewer bidding."
+The range of the property "endReview" in the CMT ontology is "Review".
+The class "ProgramCommitteeChair" in the CMT ontology is of type "owl:Class".
+The statement "cmt:ProgramCommitteeMember owl:disjointWith cmt:AuthorNotReviewer" can be verbalized as "A program committee member in the CMT ontology is disjoint with an author who is not a reviewer in the CMT ontology."
+The statement "cmt:finalizePaperAssignment rdf:type owl:ObjectProperty" can be verbalized as "The finalizePaperAssignment property in the CMT ontology is of type ObjectProperty."
+The statement "cmt:acceptedBy owl:inverseOf cmt:acceptPaper" can be verbalized as "The acceptedBy property in the CMT ontology is the inverse of the acceptPaper property in the CMT ontology."
+The domain of the property "adjustedBy" in the CMT ontology is "Bid".
+The class "Acceptance" in the CMT ontology is an instance of the OWL class.
+The range of the property "adjustBid" in the CMT ontology is the class "Bid" in the CMT ontology.
+The class "Conference" in the CMT ontology is an instance of the OWL class.
+The domain of the property "co-writePaper" in the CMT ontology is "Co-author" in the CMT ontology.
+The range of the property "readByReviewer" in the CMT ontology is "Reviewer".
+The range of the property "reviewsPerPaper" in the CMT ontology is an integer.
+The statement "cmt:readPaper rdf:type owl:ObjectProperty" can be verbalized as "The 'readPaper' property in the CMT ontology is an object property."
+The range of the property "acceptPaper" in the CMT ontology is "Paper".
+The domain of the property "memberOfProgramCommittee" in the CMT ontology is "ProgramCommitteeMember" in the CMT ontology.
+The range of the property "hasBeenAssigned" in the CMT ontology is "Paper".
+The ontology prefix "cmt" represents the CMT ontology, and the prefix "conference" represents the Conference ontology. The statement "cmt:Document owl:disjointWith cmt:ProgramCommittee" can be verbalized as "The concept of 'Document' in the CMT ontology is disjoint with the concept of 'ProgramCommittee' in the CMT ontology."
+The statement "cmt:enterConferenceDetails rdf:type owl:ObjectProperty" can be verbalized as "The property 'enterConferenceDetails' in the CMT ontology is of type 'ObjectProperty' in the OWL ontology."
+The CMT ontology has a prefix "cmt" and the Conference ontology has a prefix "conference". The statement "cmt:acceptsHardcopySubmissions rdf:type owl:FunctionalProperty" can be verbalized as "The property 'acceptsHardcopySubmissions' in the CMT ontology is a functional property."
+The class "Meta-Reviewer" in the CMT ontology is a subclass of the class "Reviewer" in the CMT ontology.
+The class "Paper" in the CMT ontology is an instance of the OWL class.
+The statement "cmt:assignExternalReviewer owl:inverseOf cmt:assignedByReviewer" can be verbalized as "Assigning an external reviewer is the inverse of being assigned by a reviewer in the CMT ontology."
+The paper assignment tools run by CMT are an object property.
+The range of the property "runPaperAssignmentTools" in the CMT ontology is "Conference" from the Conference ontology.
+The class "Bid" from the CMT ontology is disjoint with the class "ProgramCommittee" from the CMT ontology.
+The property "acceptedBy" in the CMT ontology is of type "owl:FunctionalProperty".
+The class "Meta-Reviewer" in the CMT ontology is of type "owl:Class".
+The statement "cmt:hasBeenAssigned rdf:type owl:ObjectProperty" can be verbalized as "The property 'hasBeenAssigned' in the CMT ontology is of type 'ObjectProperty' in the OWL ontology."
+The domain of the property "writtenBy" in the CMT ontology is "Review".
+The domain of the property "hasProgramCommitteeMember" in the CMT ontology is the "ProgramCommittee".
+The statement "cmt:enterReviewCriteria rdf:type owl:ObjectProperty" can be verbalized as "The 'enterReviewCriteria' property in the CMT ontology is of type 'ObjectProperty' in the OWL ontology."
+The property "hasBid" in the CMT ontology is an inverse functional property.
+The statement "cmt:co-writePaper owl:inverseOf cmt:hasCo-author" can be verbalized as "The concept of co-writing a paper in the CMT ontology is the inverse of having a co-author in the CMT ontology."
+The domain of the property "paperAssignmentFinalizedBy" in the CMT ontology is "Conference".
+The statement "cmt:readByReviewer rdf:type owl:ObjectProperty" can be verbalized as "The property 'readByReviewer' in the CMT ontology is an object property."
+The statement "cmt:acceptedBy rdf:type owl:ObjectProperty" can be verbalized as "The property 'acceptedBy' in the CMT ontology is of type 'ObjectProperty' in the OWL ontology."
+The property "readByMeta-Reviewer" from the CMT ontology is of type "owl:FunctionalProperty".
+The class "AuthorNotReviewer" in the CMT ontology is a subclass of the class "Author".
+The Program Committee of CMT is disjoint with the Bid in the CMT ontology.
+The class "AuthorNotReviewer" from the CMT ontology is of type "owl:Class".
+The class "Rejection" in the CMT ontology is an instance of the OWL class.
+The class "PaperFullVersion" from the CMT ontology is an instance of the OWL class.
+The statement "cmt:User rdf:type owl:Class" can be verbalized as "The class 'User' in the CMT ontology is of type 'owl:Class'."
+The range of the property "assignedByAdministrator" in the CMT ontology is "Administrator".
+The domain of the property "rejectPaper" in the CMT ontology is the "Administrator".
+The statement "cmt:readByMeta-Reviewer rdf:type owl:ObjectProperty" can be verbalized as "The property 'readByMeta-Reviewer' in the CMT ontology is of type 'ObjectProperty' in the OWL ontology."
+The paper assignment is finalized by the CMT ontology, and this is the inverse of the action to finalize the paper assignment.
+The domain of the property "assignedByReviewer" in the CMT ontology is an "ExternalReviewer".
+The reviewer in the CMT ontology is disjoint with the external reviewer in the CMT ontology.
+The domain of the property "enableVirtualMeeting" in the CMT ontology is an administrator.
+The range of the property "detailsEnteredBy" in the CMT ontology is an "Administrator" in the CMT ontology.
+The domain of the property "endReview" in the CMT ontology is the ProgramCommitteeChair.
+The class "AssociatedChair" in the CMT ontology is a subclass of the class "ConferenceMember" in the CMT ontology.
+The Conference ontology states that the concept of a Conference is disjoint with the concept of a Bid in the CMT ontology.
+The range of the property "assignExternalReviewer" in the CMT ontology is an "ExternalReviewer" in the CMT ontology.
+The conference details are entered by the CMT.
+The property "reviewsPerPaper" in the CMT ontology is of type "owl:FunctionalProperty".
+The statement "cmt:acceptedBy rdf:type owl:InverseFunctionalProperty" can be verbalized as "The property 'acceptedBy' in the CMT ontology is an inverse functional property."
+The domain of the property "runPaperAssignmentTools" in the CMT ontology is an "Administrator".
+The statement "cmt:memberOfProgramCommittee owl:inverseOf cmt:hasProgramCommitteeMember" can be verbalized as "Being a member of the program committee is the inverse of having a program committee member."
+The statement "cmt:writtenBy owl:inverseOf cmt:writeReview" can be verbalized as "The 'writtenBy' property in the CMT ontology is the inverse of the 'writeReview' property."
+The paper assignment is finalized by the finalize paper assignment.
+The range of the property "memberOfProgramCommittee" in the CMT ontology is the class "ProgramCommittee" in the CMT ontology.
+The details entered by CMT are the inverse of entering conference details.
+The program committee of CMT is disjoint with the conference of CMT.
+The statement "cmt:Review rdfs:subClassOf cmt:Document" can be verbalized as "A review is a subclass of a document in the CMT ontology."
+The statement "cmt:Decision owl:disjointWith cmt:Bid" can be verbalized as "The concept of 'Decision' in the CMT ontology is disjoint with the concept of 'Bid' in the CMT ontology."
+The class "ProgramCommitteeChair" is a subclass of the class "ProgramCommitteeMember" in the CMT ontology.
+The class "Bid" from the CMT ontology is disjoint with the class "Person" from the CMT ontology.
+The class "Person" in the CMT ontology is disjoint with the class "Document" in the CMT ontology.
+The domain of the property "virtualMeetingEnabledBy" in the CMT ontology is "Conference".
+The statement is "cmt:addProgramCommitteeMember is an object property."
+The domain of the property "startReviewerBidding" in the CMT ontology is an "Administrator".
+The range of the property "hasAuthor" in the CMT ontology is "Author".
+The property "reviewCriteriaEnteredBy" in the CMT ontology is of type "owl:ObjectProperty".
+The class "Bid" in the CMT ontology is an instance of the OWL class.
+The domain of the property "hasConferenceMember" in the CMT ontology is the class "Conference."
+The domain of the property "rejectedBy" in the CMT ontology is "Paper".
+The domain of the property "hasCo-author" in the CMT ontology is the class "Paper".
+The statement "cmt:Person owl:disjointWith cmt:Decision" can be verbalized as "A person in the CMT ontology is not the same as a decision in the CMT ontology."
+The statement "cmt:acceptPaper rdf:type owl:FunctionalProperty" can be verbalized as "The property 'acceptPaper' in the CMT ontology is a functional property."
+The statement "cmt:siteURL rdf:type owl:FunctionalProperty" can be verbalized as "The property 'siteURL' in the CMT ontology is a functional property."
+The domain of the property "assignedTo" in the CMT ontology is "Paper".
+The statement "cmt:reviewerBiddingStartedBy rdf:type owl:ObjectProperty" can be verbalized as "The property 'reviewerBiddingStartedBy' in the CMT ontology is an object property."
+The domain of the property "assignedByAdministrator" in the CMT ontology is "Reviewer".
+The statement is "The domain of the property 'assignReviewer' in the CMT ontology is an 'Administrator' in the CMT ontology."
+The bid adjustment in the CMT ontology is the inverse of being adjusted by.
+The statement "cmt:writePaper owl:inverseOf cmt:hasAuthor" can be verbalized as "Writing a paper is the inverse of having an author in the CMT ontology."
+The domain of the property "email" in the CMT ontology is "Person".
+The object property "hardcopyMailingManifestsPrintedBy" in the CMT ontology is of type "owl:ObjectProperty".
+The range of the property "enterConferenceDetails" in the CMT ontology is "Conference".
+The statement "cmt:acceptPaper rdf:type owl:ObjectProperty" can be verbalized as "The acceptPaper property in the CMT ontology is of type ObjectProperty in the OWL ontology."
+The domain of the property "addedBy" in the CMT ontology is a "ProgramCommitteeMember".
+The range of the property "paperAssignmentFinalizedBy" in the CMT ontology is an "Administrator".
+The reviewer bidding process in the CMT ontology starts when a reviewer begins the bidding process.
+The ontology prefix "cmt" represents the CMT ontology, and the prefix "conference" represents the Conference ontology. The verbalized statement is "The Conference in the CMT ontology is disjoint with the Preference in the CMT ontology."
+The property "maxPapers" in the CMT ontology is of type "DatatypeProperty".
+The domain of the property "printHardcopyMailingManifests" in the CMT ontology is an "Administrator".
+The class "Decision" from the CMT ontology is disjoint with the class "Conference" from the CMT ontology.
+The class "ProgramCommittee" in the CMT ontology is an instance of the OWL class.
+The statement "cmt:addProgramCommitteeMember rdf:type owl:InverseFunctionalProperty" verbalized is "The 'addProgramCommitteeMember' property in the 'cmt' ontology is an inverse functional property."
+The statement "cmt:Author rdf:type owl:Class" can be verbalized as "The class 'Author' in the CMT ontology is of type 'owl:Class'."
+The statement "cmt:adjustedBy owl:inverseOf cmt:adjustBid" can be verbalized as "The property 'adjustedBy' in the CMT ontology is the inverse of the property 'adjustBid' in the CMT ontology."
+The range of the property "logoURL" in the CMT ontology is any URI.
+The ontology prefix "cmt" represents the CMT ontology, and the prefix "owl" represents the OWL ontology language. The statement "cmt:Bid owl:disjointWith cmt:Document" can be verbalized as "The concept of 'Bid' in the CMT ontology is disjoint with the concept of 'Document' in the CMT ontology."
+The statement "cmt:Decision owl:disjointWith cmt:Preference" can be verbalized as "The concept of 'Decision' in the CMT ontology is disjoint with the concept of 'Preference' in the CMT ontology."
+The ontology prefix "cmt" represents the CMT ontology, and the prefix "conference" represents the Conference ontology. The verbalized statement is "The document in the CMT ontology is disjoint with the decision in the CMT ontology."
+The statement "cmt:Review owl:disjointWith cmt:Paper" can be verbalized as "A review is disjoint with a paper in the CMT ontology."
+The ontology prefix "cmt" represents the CMT ontology, and the prefix "conference" represents the Conference ontology. The verbalized statement is "The concept of a paper in the CMT ontology is disjoint with the concept of a review in the CMT ontology."
+The Conference ontology and the ProgramCommittee ontology in the CMT ontology are disjoint.
+The range of the property "rejectPaper" in the CMT ontology is "Paper".
+The paper read by CMT is inversely read by a reviewer.
+The ontology prefix "cmt" represents the CMT ontology, and the prefix "conference" represents the Conference ontology. The statement "cmt:Bid owl:disjointWith cmt:Decision" can be verbalized as "The concept of 'Bid' in the CMT ontology is disjoint with the concept of 'Decision' in the CMT ontology."
+The domain of the property "memberOfConference" in the CMT ontology is "ConferenceMember".
+The paper assignment tools run by the CMT ontology are associated with the domain of the Conference ontology.
+The property "cmt:date" is a datatype property.
+The statement "cmt:acceptPaper rdf:type owl:InverseFunctionalProperty" can be verbalized as "The property 'acceptPaper' in the CMT ontology is an inverse functional property."
+The domain of the property "hasAuthor" in the CMT ontology is the class "Paper".
+The range of the property "assignedTo" in the CMT ontology is "Reviewer".
+The range of the property "writePaper" in the CMT ontology is the class "Paper" in the CMT ontology.
+The range of the property "setMaxPapers" in the CMT ontology is "ProgramCommitteeMember" in the CMT ontology.
+The statement "cmt:logoURL rdf:type owl:FunctionalProperty" can be verbalized as "The property 'logoURL' in the CMT ontology is a functional property."
+The class "Decision" from the CMT ontology is disjoint with the class "ProgramCommittee" from the CMT ontology.
+The statement "cmt:Chairman rdfs:subClassOf cmt:Person" can be verbalized as "The class 'Chairman' in the CMT ontology is a subclass of the class 'Person' in the CMT ontology."
+The paper acceptance in the CMT ontology is the inverse of being accepted by CMT.
+The statement is "The CMT ontology states that 'acceptsHardcopySubmissions' has a domain of 'Conference'."
+The class "PaperAbstract" in the CMT ontology is an instance of the OWL class.
+The property "detailsEnteredBy" in the CMT ontology is of type "owl:ObjectProperty".
+The review criteria entered by CMT is the inverse of entering review criteria.
+The statement "cmt:readByReviewer owl:inverseOf cmt:readPaper" can be verbalized as "Reading by a reviewer is the inverse of reading a paper in the CMT ontology."
+The range of the property "maxPapers" in the CMT ontology is an integer.
+The statement "cmt:writePaper rdf:type owl:ObjectProperty" can be verbalized as "The concept 'writePaper' in the CMT ontology is an object property."
+The class "enterConferenceDetails" in the CMT ontology is associated with the domain "Administrator".
+The range of the property "reviewerBiddingStartedBy" in the CMT ontology is "Administrator".
+The statement "cmt:paperID rdf:type owl:DatatypeProperty" can be verbalized as "The paperID property in the CMT ontology is of type DatatypeProperty."
+The reviewer in the CMT ontology is disjoint with the author who is not a reviewer in the CMT ontology.
+The statement "cmt:adjustedBy rdf:type owl:ObjectProperty" can be verbalized as "The property 'adjustedBy' in the CMT ontology is of type 'ObjectProperty' in the OWL ontology."
+The statement "cmt:enableVirtualMeeting rdf:type owl:ObjectProperty" can be verbalized as "The enableVirtualMeeting property in the CMT ontology is of type ObjectProperty in the OWL ontology."
+The statement "cmt:rejectedBy rdf:type owl:ObjectProperty" can be verbalized as "The property 'rejectedBy' in the CMT ontology is of type 'ObjectProperty' in the OWL ontology."
+The statement is "The class 'AuthorNotReviewer' from the 'cmt' ontology is disjoint with the class 'ProgramCommitteeMember' from the 'cmt' ontology."
+The statement "cmt:hasCo-author rdf:type owl:ObjectProperty" can be verbalized as "The property 'hasCo-author' in the CMT ontology is of type 'ObjectProperty' in the OWL ontology."
+The domain of the property "adjustBid" in the CMT ontology is "Reviewer".
+The range of the property "hasSubjectArea" in the CMT ontology is the class "SubjectArea" in the CMT ontology.
+The range of the property "paperID" in the CMT ontology is an unsigned long data type.
+The statement "cmt:assignedTo rdf:type owl:ObjectProperty" can be verbalized as "The assignedTo property in the CMT ontology is of type ObjectProperty in the OWL ontology."
+The range of the property "virtualMeetingEnabledBy" in the CMT ontology is an "Administrator".
+The class "Document" in the CMT ontology is an instance of the OWL class.
+The Program Committee in the CMT ontology is disjoint with the Person in the CMT ontology.
+The class "AssociatedChair" in the CMT ontology is of type "owl:Class".
+The class "Paper" in the CMT ontology is a subclass of the class "Document" in the CMT ontology.
+The class "Administrator" in the CMT ontology is an instance of the OWL class.
+The statement is "The domain of the property 'writeReview' in the CMT ontology is 'Reviewer'."
+The range of the property "assignReviewer" in the CMT ontology is "Reviewer".

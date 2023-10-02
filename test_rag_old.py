@@ -1,5 +1,10 @@
+import util
+import os
 import dotenv
 import pandas as pd
+import rdflib
+import csv
+import json
 from langchain.prompts import ChatPromptTemplate
 from langchain.chat_models import ChatOpenAI
 from langchain.embeddings import OpenAIEmbeddings
@@ -7,17 +12,8 @@ from langchain.schema.output_parser import StrOutputParser
 from langchain.schema.runnable import RunnablePassthrough
 from langchain.vectorstores import FAISS
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-import rdflib
-import csv
-import util
-import os
-from langchain.output_parsers import PydanticOutputParser
-from pydantic import BaseModel, Field
-import json
 
-recurSplitter = RecursiveCharacterTextSplitter(chunk_size=100,
-                                               chunk_overlap=20,
-                                               length_function=len)
+recurSplitter = RecursiveCharacterTextSplitter(chunk_size=100, chunk_overlap=20, length_function=len)
 
 alignCell = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignmentCell')
 alignEntity1 = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignmententity1')
@@ -32,16 +28,18 @@ def find_alignment(align_path, o1_path, o2_path, y_true_path):
     o2 = rdflib.Graph().parse(o2_path)
     o1_base_iri = util.find_uri(o1)
     o2_base_iri = util.find_uri(o2)
-    l1 = len(o1_base_iri)
-    l2 = len(o2_base_iri)
+    o1_prefix = rdflib.Namespace(o1_base_iri)
+    o2_prefix = rdflib.Namespace(o2_base_iri)
+    o1.bind("cmt", o1_prefix)
+    o2.bind("conference", o2_prefix)
     # create true csv
     util.create_document(y_true_path, header=['Entity1', 'Entity2'])
     # write alignment into csv
     with open(y_true_path, "a+", newline='') as f1:
         writer = csv.writer(f1)
         for s in align.subjects(rdflib.RDF.type, alignCell):
-            e1 = align.value(s, alignEntity1, None)[l1:]
-            e2 = align.value(s, alignEntity2, None)[l2:]
+            e1 = o1.namespace_manager.qname(str(align.value(s, alignEntity1, None)))
+            e2 = o2.namespace_manager.qname(str(align.value(s, alignEntity2, None)))
             list_pair = [e1, e2]
             writer.writerow(list_pair)
 
@@ -51,33 +49,65 @@ def find_all_entities(o1_path, o2_path):
     o2 = rdflib.Graph().parse(o2_path)
     o1_base_iri = util.find_uri(o1)
     o2_base_iri = util.find_uri(o2)
-    l1 = len(o1_base_iri)
-    l2 = len(o2_base_iri)
+    o1_prefix = rdflib.Namespace(o1_base_iri)
+    o2_prefix = rdflib.Namespace(o2_base_iri)
+    o1.bind("cmt", o1_prefix)
+    o2.bind("conference", o2_prefix)
     # add entities into list
     e1_list_class = list()
     e2_list_class = list()
     for x in o1.subjects(rdflib.RDF.type, rdflib.OWL.Class):
-        if x[l1:] and "#" in x:
-            e1_list_class.append(x[l1:])
+        if x and "#" in x:
+            e1_list_class.append(o1.namespace_manager.qname(str(x)))
     for y in o2.subjects(rdflib.RDF.type, rdflib.OWL.Class):
-        if y[l2:] and "#" in y:
-            e2_list_class.append(y[l2:])
+        if y and "#" in y:
+            e2_list_class.append(o2.namespace_manager.qname(str(y)))
     e1_list_property = list()
     e2_list_property = list()
     for x in o1.subjects(rdflib.RDF.type, rdflib.OWL.ObjectProperty):
-        if x[l1:] and "#" in x:
-            e1_list_property.append(x[l1:])
+        if x and "#" in x:
+            e1_list_property.append(o1.namespace_manager.qname(str(x)))
     for x in o1.subjects(rdflib.RDF.type, rdflib.OWL.DatatypeProperty):
-        if x[l1:] and "#" in x:
-            e1_list_property.append(x[l1:])
+        if x and "#" in x:
+            e1_list_property.append(o1.namespace_manager.qname(str(x)))
     for y in o2.subjects(rdflib.RDF.type, rdflib.OWL.ObjectProperty):
-        if y[l2:] and "#" in y:
-            e2_list_property.append(y[l2:])
+        if y and "#" in y:
+            e2_list_property.append(o2.namespace_manager.qname(str(y)))
     for y in o2.subjects(rdflib.RDF.type, rdflib.OWL.DatatypeProperty):
-        if y[l2:] and "#" in y:
-            e2_list_property.append(y[l2:])
+        if y and "#" in y:
+            e2_list_property.append(o2.namespace_manager.qname(str(y)))
+
+    print("e1_list_class", e1_list_class)
+    print("e2_list_class", e2_list_class)
+    print("e1_list_property", e1_list_property)
+    print("e2_list_property", e2_list_property)
 
     return e1_list_class, e2_list_class, e1_list_property, e2_list_property
+
+
+def compare_entities(list_source, list_target):
+    # compare entities
+    for e1 in list_source:
+        for e2 in list_target:
+            content = chain.invoke(
+                "Think step by step."
+                "result: Is " + e1 + "equivalent to " + e2 + "? Answer True if yes, False if not or unknown."
+                "confidence: give a confidence score between 0 and 1 based on similarity."
+                "Format the output as JSON with the following keys: result, confidence."
+            )
+            print(e1, e2, content)
+            # https://towardsdatascience.com/use-langchains-output-parser-with-chatgpt-for-structured-outputs-cf536f692685
+            try:
+                json_object = json.loads(content)
+                # save to predict.csv
+                threshold = 1
+                if json_object["result"] and json_object["confidence"] >= threshold:
+                    with open(predict_path, "a+", newline='') as f1:
+                        writer = csv.writer(f1)
+                        list_pair = [e1, e2]
+                        writer.writerow(list_pair)
+            except:
+                print("wrong content", content)
 
 
 def common_member(a, b):
@@ -109,7 +139,6 @@ def calculate_metrics(true_path, predict_path):
 
 
 if __name__ == '__main__':
-
     # file path
     o1_path = "cmt-conference/component/source.xml"
     o2_path = "cmt-conference/component/target.xml"
@@ -117,8 +146,9 @@ if __name__ == '__main__':
     predict_path = "predict.csv"
     true_path = "true.csv"
 
-    # find entities and alignment
+    # find true value
     find_alignment(align_path, o1_path, o2_path, true_path)
+    # find all entities
     e1_list_class, e2_list_class, e1_list_property, e2_list_property = find_all_entities(o1_path, o2_path)
 
     # load openai API
@@ -126,13 +156,14 @@ if __name__ == '__main__':
     os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 
     # load external knowledge
-    with open('graphical.txt') as spc:
-        txt_spc = spc.read()
-    graphical_docs = recurSplitter.create_documents([txt_spc])
-    with open('initial.txt') as init:
+    with open('initial_verbalise.txt') as init:
         txt_init = init.read()
     initial_docs = recurSplitter.create_documents([txt_init])
-    documents = graphical_docs + initial_docs
+    with open('graphical_verbalise.txt') as graph:
+        txt_graph = graph.read()
+    graphical_docs = recurSplitter.create_documents([txt_graph])
+    # combine two documents
+    documents = initial_docs + graphical_docs
     # save to vector database
     vectorstore = FAISS.from_documents(documents, embedding=OpenAIEmbeddings())
     retriever = vectorstore.as_retriever()
@@ -143,12 +174,7 @@ if __name__ == '__main__':
        Question: {question}
        """
     prompt = ChatPromptTemplate.from_template(template)
-    model = ChatOpenAI(temperature=1)
-    # from langchain.llms import GPT4All
-    # model = GPT4All(
-    #     model="D:\PycharmProjects\ontology-llm\ggml-model-gpt4all-falcon-q4_0.bin",
-    #     max_tokens=2048,
-    # )
+    model = ChatOpenAI(temperature=0)
     chain = (
             {"context": retriever, "question": RunnablePassthrough()}
             | prompt
@@ -156,33 +182,11 @@ if __name__ == '__main__':
             | StrOutputParser()
     )
 
-    # create predict csv
+    # find predict value
     util.create_document(predict_path, header=['Entity1', 'Entity2'])
-
-    # compare entities
-    for e1 in e1_list_class:
-        for e2 in e2_list_class:
-            content = chain.invoke(
-                "Think step by step. "
-                "result: Is " + util.cleaning(e1) + "equivalent to " + util.cleaning(
-                    e2) + "? Answer True if yes, False if not or unknown."
-                          "confidence: give a confidence score between 0 and 1 based on similarity."
-                          " Format the output as JSON with the following keys: result, confidence."
-            )
-            print(e1, e2, content)
-            # https://towardsdatascience.com/use-langchains-output-parser-with-chatgpt-for-structured-outputs-cf536f692685
-            try:
-                json_object = json.loads(content)
-                # save to predict.csv
-                threshold = 1
-                if json_object["result"] and json_object["confidence"] >= threshold:
-                    with open(predict_path, "a+", newline='') as f1:
-                        writer = csv.writer(f1)
-                        list_pair = [e1, e2]
-                        writer.writerow(list_pair)
-            except:
-                print("wrong content", content)
-
+    compare_entities(e1_list_class, e2_list_class)
+    compare_entities(e1_list_property, e2_list_property)
+    # compare true and predict value
     print(calculate_metrics(true_path, predict_path))
 
     # print(chain.invoke(
