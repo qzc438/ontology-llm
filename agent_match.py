@@ -35,6 +35,8 @@ o2.bind("conference", o2_prefix)
 # prefix + name to name
 # name to uri  + name
 
+# read document
+# read github
 
 def split_input(input_string: str):
     return input_string.split(",")
@@ -179,6 +181,7 @@ def check_equivalence_vector_space(e1: str, e2: str):
     )
     tools = [tool_retriever]
     agent_retriever = create_conversational_retrieval_agent(llm, tools, verbose=True)
+    # https: // arxiv.org / pdf / 2309.03409.pdf
     answer = agent_retriever({"input": "Is " + e1 + "equivalent to " + e2 + "? "
                             "Take a deep breath and work on this problem step-by-step."})
     return answer
