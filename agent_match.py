@@ -31,6 +31,11 @@ o1.bind("cmt", o1_prefix)
 o2.bind("conference", o2_prefix)
 
 
+# name to prefix + name
+# prefix + name to name
+# name to uri  + name
+
+
 def split_input(input_string: str):
     return input_string.split(",")
 
@@ -90,7 +95,7 @@ def retrieve_complete_lexical_information(entity: str, label: str):
 def check_equivalence(e1_sentence: str, e2_sentence: str):
     prompt = PromptTemplate(
         input_variables=["e1_sentence", "e2_sentence"],
-        template="Object 1: {e1_sentence} Object 2: {e2_sentence} Is Object 1 equivalent to Object 2?",
+        template="Entity 1: {e1_sentence} Entity 2: {e2_sentence} Is Entity 1 equivalent to Entity 2?",
     )
     chain = LLMChain(llm=llm, prompt=prompt)
     answer = chain.run({
@@ -204,8 +209,13 @@ if __name__ == '__main__':
         ),
     ]
     agent_executor = create_conversational_retrieval_agent(llm, tools, verbose=True)
+    # compare two different terms
     # input_prompt = "Please match cmt:ExternalReviewer and conference:Paper. You can use initial matching, lexical-matching, or graphical matching."
+    # compare same terms
     # input_prompt = "Please match cmt:Paper and conference:Paper. You can use initial matching, lexical-matching, or graphical matching."
+    # compare two similar terms
+    # input_prompt = "Please match cmt:Chairman and conference:Chair. You can use initial matching, lexical-matching, or graphical matching."
+    # LLM can determine which tools to use, based on the description
     input_prompt = "Please match cmt:SubjectArea and conference:Topic."
     result = agent_executor({"input": input_prompt})
     output = result['output']
