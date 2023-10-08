@@ -2,7 +2,7 @@ import dotenv
 import os
 import rdflib
 import util
-import agent_rag
+import agent_rag_old
 from langchain.llms import OpenAI
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
