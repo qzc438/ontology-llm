@@ -12,8 +12,8 @@ pip install python-dotenv
 pip install deeponto  
 pip install google-api-python-client  
 pip install wikipedia  
-pip install pyenchant
-pip install tiktoken 
+pip install pyenchant  
+pip install tiktoken  
 
 2. Useful Links:
 https://github.com/kyrolabs/awesome-langchain  
@@ -25,18 +25,15 @@ https://towardsdatascience.com/billion-scale-semantic-similarity-search-with-fai
 https://github.com/UKPLab/plms-graph2text  
 https://github.com/rikdz/GraphWriter  
 https://github.com/thu-coai/JointGT  
-https://github.com/acolas1/GAP_COLING2022
+https://github.com/acolas1/GAP_COLING2022  
 http://attempto.ifi.uzh.ch/site/docs/writing_owl_in_ace.html  
 https://github.com/pinecone-io/examples/blob/master/learn/generation/langchain/handbook/07-langchain-tools.ipynb  
 
 3. Database:
-https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/main/cloud-sql/postgres/pgvector/notebooks/pgvector_gen_ai_demo.ipynb
+https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/main/cloud-sql/postgres/pgvector/notebooks/pgvector_gen_ai_demo.ipynb  
 
-psql –version
-sudo -u postgres psql
-alter user postgres password 'postgres'
+psql –version  
+sudo -u postgres psql  
+alter user postgres password 'postgres'  
 
-pip3 install chardet
-
-https://github.com/RcppCore/Rcpp/issues/770#issuecomment-346716808
-
+sudo apt install postgresql-15-pgvector  
