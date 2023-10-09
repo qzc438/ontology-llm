@@ -11,6 +11,7 @@ def find_uri(ontology):
             return namespace
     return ""
 
+
 def uri_to_prefix_name(uri, ontology):
     return ontology.namespace_manager.qname(str(uri))
 
@@ -21,6 +22,7 @@ def prefix_name_to_uri(name, prefix):
 
 def prefix_name_to_name(prefix_name):
     return prefix_name.split(":")[-1]
+
 
 def create_folder(path):
     isExists = os.path.exists(path)
