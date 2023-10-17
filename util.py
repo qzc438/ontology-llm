@@ -3,6 +3,7 @@ import csv
 import re
 import enchant
 import rdflib
+import pandas as pd
 
 
 def find_uri(ontology):
@@ -97,3 +98,30 @@ def cleaning(name):
     name = change_british_to_american(name)
     # name = name.replace(" ", " and ")
     return name
+
+
+def calculate_metrics(true_path, predict_path):
+    df_true = pd.read_csv(true_path, encoding="Windows-1250")
+    df_predict = pd.read_csv(predict_path, encoding="Windows-1250")
+    if df_predict.empty:
+        return [0, 0, 0]
+    else:
+        list_true = df_true.values.tolist()
+        list_predict = df_predict.values.tolist()
+        common = common_member(list_true, list_predict)
+        # print("common", common)
+        ra = len(common)
+        # print("ra", ra)
+        r = len(df_true)
+        # print("r", r)
+        a = len(df_predict)
+        # print("a", a)
+        precision = ra / a
+        recall = ra / r
+        f1 = 2 * (precision * recall) / (precision + recall)
+        return ["%.2f" % (precision * 100), "%.2f" % (recall * 100), "%.2f" % (f1 * 100)]
+
+
+def common_member(a, b):
+    result = [i for i in a if i in b]
+    return result

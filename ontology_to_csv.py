@@ -3,19 +3,13 @@ import os
 import dotenv
 import rdflib
 import csv
+import torch
 import pandas as pd
 
-import torch
 from langchain.chat_models import ChatOpenAI
-from langchain.embeddings import OpenAIEmbeddings
 from langchain.agents import Tool, initialize_agent, AgentType
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.vectorstores import FAISS
-from langchain.agents.agent_toolkits import create_retriever_tool
-
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
-
 
 # load api
 dotenv.load_dotenv()
@@ -131,33 +125,6 @@ def find_all_entities():
     return e1_list_class, e2_list_class, e1_list_property, e2_list_property
 
 
-def calculate_metrics(true_path, predict_path):
-    df_true = pd.read_csv(true_path, encoding="Windows-1250")
-    df_predict = pd.read_csv(predict_path, encoding="Windows-1250")
-    if df_predict.empty:
-        return [0, 0, 0]
-    else:
-        list_true = df_true.values.tolist()
-        list_predict = df_predict.values.tolist()
-        common = common_member(list_true, list_predict)
-        # print("common", common)
-        ra = len(common)
-        # print("ra", ra)
-        r = len(df_true)
-        # print("r", r)
-        a = len(df_predict)
-        # print("a", a)
-        precision = ra / a
-        recall = ra / r
-        f1 = 2 * (precision * recall) / (precision + recall)
-        return ["%.2f" % (precision * 100), "%.2f" % (recall * 100), "%.2f" % (f1 * 100)]
-
-
-def common_member(a, b):
-    result = [i for i in a if i in b]
-    return result
-
-
 def split_input(input_string: str):
     return input_string.split(",")
 
@@ -231,7 +198,7 @@ def save_information_to_csv(path, entity_list, source_or_target, entity_type, on
     with open(path, "a+", newline='') as f1:
         for entity in entity_list:
             writer = csv.writer(f1)
-            list_information = [source_or_target, entity, entity_type, initial_matching(entity), lexical_matching(entity, prefix), graphical_matching(entity, ontology, prefix)]
+            list_information = [entity, source_or_target, entity_type, initial_matching(entity), lexical_matching(entity, prefix), graphical_matching(entity, ontology, prefix)]
             writer.writerow(list_information)
 
 
@@ -250,8 +217,8 @@ if __name__ == '__main__':
     # find all entities
     e1_list_class, e2_list_class, e1_list_property, e2_list_property = find_all_entities()
     # find predict value
-    csv_path = "ontology.csv"
-    header = ['source_or_target', 'entity', 'entity_type', 'initial_matching', 'lexical_matching', 'graphical_matching']
+    csv_path = "ontology_matching.csv"
+    header = ['entity', 'source_or_target', 'entity_type', 'initial_matching', 'lexical_matching', 'graphical_matching']
     util.create_document(csv_path, header=header)
     save_information_to_csv(csv_path, e1_list_class, "Source", "Class", o1, o1_prefix)
     save_information_to_csv(csv_path, e2_list_class, "Target", "Class", o2, o2_prefix)
