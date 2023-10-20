@@ -3,6 +3,7 @@ import os
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 from langchain.chat_models import ChatOpenAI
+import json
 
 
 def verbalise_sentence(input_file_path, output_file_path):
@@ -16,8 +17,9 @@ def verbalise_sentence(input_file_path, output_file_path):
         input_variables=["sentence"],
         template="cmt: is the prefix of cmt ontology. "
                  "conference: is the prefix of conference ontology. "
-                 "Please verbalise the statement {sentence}."
-                 "Think step by step. Only answer verbalised sentence."
+                 "Please verbalise the following sentence: {sentence}."
+                 "answer: the verbalised sentence. "
+                 "Format the output as JSON with the following keys:answer."
     )
     chain = LLMChain(llm=llm, prompt=prompt)
     # generate results
@@ -25,7 +27,10 @@ def verbalise_sentence(input_file_path, output_file_path):
         with open(input_file_path, "r") as input_file, open(output_file_path, "w") as output_file:
             for line in input_file:
                 processed_line = chain.run(line)
-                output_file.write(processed_line)
+                processed_line_json = json.loads(processed_line)
+                answer = processed_line_json['answer']
+                print("answer:", answer)
+                output_file.write(answer)
                 output_file.write('\n')
         print(f"Processed lines written to '{output_file_path}'.")
     except FileNotFoundError:

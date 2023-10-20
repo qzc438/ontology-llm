@@ -20,7 +20,7 @@ from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 from langchain.callbacks.manager import CallbackManager
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
-import customer_templete
+import test_customer_template
 
 # check GPU
 print("GPU:", torch.cuda.is_available())

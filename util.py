@@ -13,16 +13,19 @@ def find_uri(ontology):
     return ""
 
 
-def uri_to_prefix_name(uri, ontology):
-    return ontology.namespace_manager.qname(str(uri))
+def uri_to_prefix_name(uri, prefix):
+    return prefix + ":" + str(uri).split("#")[-1]
 
 
-def prefix_name_to_uri(name, prefix):
-    return rdflib.URIRef(prefix[name.split(":")[-1]])
+def uri_to_name(uri):
+    return str(uri).split("#")[-1]
 
 
 def prefix_name_to_name(prefix_name):
     return prefix_name.split(":")[-1]
+
+# def prefix_name_to_uri(name, prefix):
+#     return rdflib.URIRef(prefix[name.split(":")[-1]])
 
 
 def create_folder(path):
@@ -111,11 +114,11 @@ def calculate_metrics(true_path, predict_path):
         common = common_member(list_true, list_predict)
         # print("common", common)
         ra = len(common)
-        # print("ra", ra)
+        print("ra", ra)
         r = len(df_true)
-        # print("r", r)
+        print("r", r)
         a = len(df_predict)
-        # print("a", a)
+        print("a", a)
         precision = ra / a
         recall = ra / r
         f1 = 2 * (precision * recall) / (precision + recall)

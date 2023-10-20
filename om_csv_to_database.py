@@ -12,6 +12,12 @@ from langchain.embeddings import OpenAIEmbeddings
 
 # load the csv file
 df = pd.read_csv("ontology_matching.csv")
+df = df.fillna('')
+
+# define OpenAI API
+dotenv.load_dotenv()
+os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
+embeddings_service = OpenAIEmbeddings()
 
 
 async def create_ontology_matching_table():
@@ -20,12 +26,9 @@ async def create_ontology_matching_table():
     # drop table if it already exists
     await conn.execute("DROP TABLE IF EXISTS ontology_matching CASCADE;")
     # create table schema
-    await conn.execute('''CREATE TABLE ontology_matching(entity TEXT PRIMARY KEY,
-                                                        source_or_target TEXT,
-                                                        entity_type TEXT,
-                                                        initial_matching TEXT,
-                                                        lexical_matching TEXT,
-                                                        graphical_matching TEXT);''')
+    await conn.execute('''CREATE TABLE ontology_matching 
+    (entity TEXT PRIMARY KEY, source_or_target TEXT, entity_type TEXT, 
+    initial_matching TEXT, lexical_matching TEXT, graphical_matching TEXT);''')
     # add csv data into table
     tuples = list(df.itertuples(index=False))
     await conn.copy_records_to_table(
@@ -37,10 +40,6 @@ async def create_ontology_matching_table():
 
 # create embedding table, solve the token issue
 async def create_embedding_table(table_name):
-    # define OpenAI API
-    dotenv.load_dotenv()
-    os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
-    embeddings_service = OpenAIEmbeddings()
     # define splitter
     text_splitter = RecursiveCharacterTextSplitter(
         separators=[".", "\n"],
@@ -58,7 +57,7 @@ async def create_embedding_table(table_name):
             r = {"entity": entity, "content": s.page_content}
             chunked.append(r)
 
-    # helper function to retry failed API requests with exponential backoff
+    # retry failed API requests with exponential backoff
     def retry_with_backoff(func, *args, retry_delay=5, backoff_factor=2, **kwargs):
         max_attempts = 10
         retries = 0
@@ -89,19 +88,16 @@ async def create_embedding_table(table_name):
     await conn.execute("CREATE EXTENSION IF NOT EXISTS vector;")
     await register_vector(conn)
     # drop table if exists
-    await conn.execute("DROP TABLE IF EXISTS {table_name};".format(table_name=table_name))
+    await conn.execute(f"DROP TABLE IF EXISTS {table_name};")
     # create the embedding table to store vector embeddings
-    sql = '''CREATE TABLE {table_name} (entity TEXT NOT NULL REFERENCES ontology_matching(entity),
-                                        content TEXT,
-                                        embedding vector(1536));'''.format(table_name=table_name)
+    sql = f'''CREATE TABLE {table_name} 
+    (entity TEXT NOT NULL REFERENCES ontology_matching(entity), content TEXT, embedding vector(1536));'''
     await conn.execute(sql)
     # store all the generated embeddings back into the database
     for index, row in matching_embeddings.iterrows():
         await conn.execute(
-            "INSERT INTO {table_name} (entity, content, embedding) VALUES ($1, $2, $3);".format(table_name=table_name),
-            row["entity"],
-            row["content"],
-            np.array(row["embedding"]),
+            f"INSERT INTO {table_name} (entity, content, embedding) VALUES ($1, $2, $3);",
+            row["entity"], row["content"], np.array(row["embedding"]),
         )
     await conn.close()
 
