@@ -1,26 +1,32 @@
-import om_ontology_to_csv
+import config
 import util
-import csv
+import om_ontology_to_csv
+
 import re
 import logging
 import pandas as pd
+import collections
+import json
+import csv
+
 import psycopg2
 from pgvector.psycopg2 import register_vector
-from langchain.chat_models import ChatOpenAI
-from langchain.embeddings import OpenAIEmbeddings
+
 from langchain.agents import Tool, initialize_agent, AgentType
 from langchain.agents.agent_toolkits import create_conversational_retrieval_agent
 
-# define generated variables
+# define entity metadata
 content = ""
 source_or_target = ""
 entity_type = ""
-# define user variables
-similarity_threshold = 0.8
-num_matches = 50
+# define search variables
+similarity_threshold = config.similarity_threshold
+num_matches = config.num_matches
+top_k = config.top_k
+context = config.context
 # define result files
-predict_path = "rag/predict.csv"
-true_path = "rag/true.csv"
+predict_path = config.predict_path
+true_path = config.true_path
 
 
 def create_log(message):
@@ -52,7 +58,7 @@ def entity_matching(entity, table_name):
     create_log(f"metadata: {content}, {source_or_target}, {entity_type}, {similarity_threshold}, {num_matches}")
 
     # embed the content
-    embeddings_service = OpenAIEmbeddings()
+    embeddings_service = config.embeddings_service
     content_embedding = embeddings_service.embed_query(content)
     # find similar entities to the query using cosine similarity search
     # over all vector embeddings. This new feature is provided by `pgvector`.
@@ -87,28 +93,33 @@ def entity_matching(entity, table_name):
     return matches
 
 
-def define_llm():
-    llm = ChatOpenAI(temperature=0)
-    return llm
-
-
 def define_tools():
     tools = [
         Tool(
-            name="initial-matching",
+            name="initial_matching",
             func=initial_matching,
             description="useful for when you need initial matching."
         ),
         Tool(
-            name="lexical-matching",
+            name="lexical_matching",
             func=lexical_matching,
             description="useful for when you need lexical matching."
         ),
         Tool(
-            name="graphical-matching",
+            name="graphical_matching",
             func=graphical_matching,
             description="useful for when you need graphical matching."
         ),
+        Tool(
+            name="reciprocal_rank_fusion",
+            func=reciprocal_rank_fusion,
+            description="useful for when you need use reciprocal rank fusion."
+        ),
+        # Tool(
+        #     name="ontology-matching",
+        #     func=ontology_matching,
+        #     description="useful for when you need to find equivalent matching."
+        # ),
     ]
     return tools
 
@@ -124,7 +135,7 @@ def initial_matching(entity):
     initial_matches = pd.DataFrame(initial_matching)
     initial_matches.drop_duplicates(['entity'], inplace=True)
     if len(initial_matches) != 0:
-        return initial_matches['entity'].head(5).values.tolist()
+        return initial_matches['entity'].head(top_k).values.tolist()
     else:
         return None
 
@@ -134,7 +145,7 @@ def lexical_matching(entity):
     lexical_matches = pd.DataFrame(lexical_matching)
     lexical_matches.drop_duplicates(['entity'], inplace=True)
     if len(lexical_matches) != 0:
-        return lexical_matches['entity'].head(5).values.tolist()
+        return lexical_matches['entity'].head(top_k).values.tolist()
     else:
         return None
 
@@ -144,19 +155,37 @@ def graphical_matching(entity):
     graphical_matches = pd.DataFrame(graphical_matching)
     graphical_matches.drop_duplicates(['entity'], inplace=True)
     if len(graphical_matches) != 0:
-        return graphical_matches['entity'].head(5).values.tolist()
+        return graphical_matches['entity'].head(top_k).values.tolist()
     else:
         return None
 
 
-def find_most_relevant_entity(sentence):
-    pattern = r'\[(.*?)\]'
-    match = re.search(pattern, sentence)
-    if match:
-        extracted_text = match.group(1)
-        return extracted_text
-    else:
-        return None
+def reciprocal_rank_fusion(*rankings):
+    # Create a dictionary to store the reciprocal ranks for each item
+    reciprocal_ranks = collections.defaultdict(float)
+
+    # Compute the reciprocal ranks for each item in each ranking
+    for i, ranking in enumerate(rankings):
+        if ranking:
+            for j, item in enumerate(ranking):
+                reciprocal_rank = 1 / (j + 1)  # Reciprocal rank for the item
+                reciprocal_ranks[item] += reciprocal_rank
+
+    # Sort the items based on their summed reciprocal ranks in descending order
+    fused_ranking = sorted(reciprocal_ranks.keys(), key=lambda item: reciprocal_ranks[item], reverse=True)
+
+    return fused_ranking
+
+
+# def ontology_matching(entity):
+#     ranking1 = initial_matching(entity)
+#     print(ranking1)
+#     ranking2 = lexical_matching(entity)
+#     print(ranking2)
+#     ranking3 = graphical_matching(entity)
+#     print(ranking3)
+#     fused_ranking = reciprocal_rank_fusion(ranking1, ranking2, ranking3)
+#     return fused_ranking
 
 
 def extract_yes_no(text):
@@ -176,7 +205,7 @@ if __name__ == '__main__':
     logger.addHandler(fileHandler)
 
     # define llm
-    llm = define_llm()
+    llm = config.llm
     # define tools
     tools = define_tools()
     # define agents
@@ -188,47 +217,47 @@ if __name__ == '__main__':
     # find entity matching
     util.create_document(predict_path, header=['Entity1', 'Entity2'])
     for entity in e1_list:
-    # for entity in ["cmt:finalizePaperAssignment"]:
-    # for entity in ["cmt:Person"]:
-    # for entity in ["cmt:SubjectArea"]:
-    # for entity in ["cmt:Chairman"]:
+    # for entity in ["http://cmt#Person"]:
+    # for entity in ["http://cmt#SubjectArea"]:
+    # for entity in ["http://cmt#Chairman"]:
+    # for entity in ["http://cmt#finalizePaperAssignment"]:
         entity = util.uri_to_prefix_name(entity, "source")
-        prompt_summary = (f"What is equivalent to {entity}? "
-                          f"Consider initial matching, lexical matching, and graphical matching."
-                          f"Select the most relevant one. "
-                          f"Answer only the most relevant one in [].")
+        prompt_summary = f"Please find the equivalent entity to the following entity in the enclosed '': '{entity}' " \
+                         "Consider initial matching, lexical matching, and graphical matching. " \
+                         "Format the answer as JSON."
+
         result = agent({"input": prompt_summary})
-        create_log(result['output'])
-        predict_entity = find_most_relevant_entity(result['output'])
-    #     # check initial matching
-    #     prompt_initial = f"What is equivalent to {entity}? Consider initial matching."
-    #     result_initial = agent({"input": prompt_initial})
-    #     # check lexical matching
-    #     prompt_lexical = f"What is equivalent to {entity}? Consider lexical matching."
-    #     result_lexical = agent({"input": prompt_lexical})
-    #     # check graphical matching
-    #     prompt_graphical = f"What is equivalent to {entity}? Consider graphical matching."
-    #     result_graphical = agent({"input": prompt_graphical})
-    #     # summarise the result
-    #     prompt_summary = f"Select the most relevant one."\
-    #                      "answer: most relevant one."\
-    #                      "Format the output as JSON with the following key: answer"
-    #     result = agent({"input": prompt_summary})
-        # show results
-        create_log(f"entity: {entity}, predict_entity: {predict_entity}")
-        if predict_entity:
-            # refine the matching, a new chain
+        # print(result['output'])
+
+        # summary the matching
+        output_json = json.loads(result['output'])
+        initial_matching = output_json['initial_matching']
+        lexical_matching = output_json['lexical_matching']
+        graphical_matching = output_json['graphical_matching']
+        predict_entity_list = reciprocal_rank_fusion(initial_matching, lexical_matching, graphical_matching)
+        print("entity:", entity)
+        print("predict_entity_list:", predict_entity_list)
+        create_log(f"entity: {entity}, predict_entity_list: {predict_entity_list}")
+
+        # refine the matching
+        for predict_entity in predict_entity_list:
             prompt_refine_question = (
-                "Is {entity} similar to {predict_entity} in the context of research conference? Note {entity} is similar to {predict_entity} if they exactly match."
-                .format(entity=util.prefix_name_to_name(entity), predict_entity=util.prefix_name_to_name(predict_entity)))
+                # Is Entity 1 different/distinct from Entity 2
+                "Is {entity} equivalent to {predict_entity} in the context of {context}? "
+                "Note {entity} is equivalent to {predict_entity} if they exactly match."
+                .format(context=context, entity=util.prefix_name_to_name(entity),
+                        predict_entity=util.prefix_name_to_name(predict_entity)))
             result_refine = llm.predict(prompt_refine_question)
+            print("result_refine", result_refine)
             create_log(f"prompt_refine_question: {prompt_refine_question}")
             create_log(f"result_refine: {result_refine}")
-            if extract_yes_no(result_refine) == "yes":
+            if extract_yes_no(result_refine) == ("y"
+                                                 "es"):
                 with open(predict_path, "a+", newline='') as f:
                     writer = csv.writer(f)
                     list_pair = [entity, predict_entity]
                     writer.writerow(list_pair)
+                break
 
     # evaluation
     print(util.calculate_metrics(true_path, predict_path))

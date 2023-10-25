@@ -1,23 +1,18 @@
-import asyncio
-import asyncpg
+import config
+
 import time
-import dotenv
-import os
 import numpy as np
 import pandas as pd
 
+import asyncio
+import asyncpg
 from pgvector.asyncpg import register_vector
+
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.embeddings import OpenAIEmbeddings
 
 # load the csv file
-df = pd.read_csv("ontology_matching.csv")
+df = pd.read_csv(config.csv_path)
 df = df.fillna('')
-
-# define OpenAI API
-dotenv.load_dotenv()
-os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
-embeddings_service = OpenAIEmbeddings()
 
 
 async def create_ontology_matching_table():
@@ -75,7 +70,7 @@ async def create_embedding_table(table_name):
     batch_size = 5
     for i in range(0, len(chunked), batch_size):
         request = [x["content"] for x in chunked[i: i + batch_size]]
-        response = retry_with_backoff(embeddings_service.embed_documents, request)
+        response = retry_with_backoff(config.embeddings_service.embed_documents, request)
         # Store the retrieved vector embeddings for each chunk back
         for x, e in zip(chunked[i: i + batch_size], response):
             x["embedding"] = e

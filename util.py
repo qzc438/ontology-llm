@@ -24,6 +24,11 @@ def uri_to_name(uri):
 def prefix_name_to_name(prefix_name):
     return prefix_name.split(":")[-1]
 
+
+def name_to_prefix_name(name, prefix):
+    return prefix + ":" + name
+
+
 # def prefix_name_to_uri(name, prefix):
 #     return rdflib.URIRef(prefix[name.split(":")[-1]])
 

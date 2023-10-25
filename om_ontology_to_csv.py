@@ -1,51 +1,36 @@
+import config
 import util
-import os
-import dotenv
+
 import rdflib
 import csv
 import json
 import torch
 
-from langchain.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 
 # customer settings
+o1_path = config.o1_path
+o2_path = config.o2_path
+align_path = config.align_path
+context = config.context
+is_code = config.is_code
 
-o1_path = "cmt-conference/component/source.xml"
-o2_path = "cmt-conference/component/target.xml"
-align_path = "cmt-conference/component/reference.xml"
-context = "conference"
-
-# o1_path = "anatomy/mouse-human-suite/component/source.xml"
-# o2_path = "anatomy/mouse-human-suite/component/target.xml"
-# align_path = "anatomy/mouse-human-suite/component/reference.xml"
-# context = "anatomy"
-
-# load api
-dotenv.load_dotenv()
-os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
-
-# general settings
-predict_path = "rag/predict.csv"
-true_path = "rag/true.csv"
-alignCell = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignmentCell')
-alignEntity1 = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignmententity1')
-alignEntity2 = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignmententity2')
-
+# load true
+true_path = config.true_path
+alignCell = config.alignCell
+alignEntity1 = config.alignEntity1
+alignEntity2 = config.alignEntity2
+# load ontology
 o1 = rdflib.Graph().parse(o1_path, format="xml")
 o2 = rdflib.Graph().parse(o2_path, format="xml")
 o1_prefix = "source"
 o2_prefix = "target"
-
-
-def define_llm():
-    llm = ChatOpenAI(temperature=0)
-    return llm
+# intermediate csv file
+csv_path = config.csv_path
 
 
 def find_alignment(align_path, true_path):
-    # here entity is prefix name
     # load alignment file
     align = rdflib.Graph().parse(align_path)
     # create true csv
@@ -54,9 +39,13 @@ def find_alignment(align_path, true_path):
     with open(true_path, "a+", newline='') as f1:
         writer = csv.writer(f1)
         for s in align.subjects(rdflib.RDF.type, alignCell):
-            e1 = util.uri_to_prefix_name(align.value(s, alignEntity1, None), o1_prefix)
-            e2 = util.uri_to_prefix_name(align.value(s, alignEntity2, None), o2_prefix)
-            list_pair = [e1, e2]
+            e1_uri = align.value(s, alignEntity1, None)
+            e2_uri = align.value(s, alignEntity2, None)
+            e1_name = get_entity_name(e1_uri, o1)
+            e2_name = get_entity_name(e2_uri, o2)
+            e1_prefix_name = util.name_to_prefix_name(e1_name, o1_prefix)
+            e2_prefix_name = util.name_to_prefix_name(e2_name, o2_prefix)
+            list_pair = [e1_prefix_name, e2_prefix_name]
             writer.writerow(list_pair)
 
 
@@ -93,76 +82,101 @@ def find_all_entities():
     return e1_list_class, e2_list_class, e1_list_property, e2_list_property
 
 
-def initial_matching(entity):
-    # here entity is name only
-    return util.cleaning(util.uri_to_name(entity))
-
-
-def lexical_matching(entity, ontology):
+def get_entity_label(entity, ontology):
     entity_label = ""
-    for s, p, o in ontology.triples((entity, rdflib.RDFS.comment, None)):
-        entity_label = entity_label + str(o)
     for s, p, o in ontology.triples((entity, rdflib.RDFS.label, None)):
-        entity_label = entity_label + str(o)
-    print("entity_label:", entity_label)
-    entity_lexical = retrieve_complete_lexical_information(entity, entity_label)
-    print("entity_lexical:", entity_lexical)
-    return entity_lexical
+        entity_label = str(o)
+    return entity_label
 
 
-def retrieve_complete_lexical_information(entity, entity_label):
-    # here entity is name only
-    entity_name = util.uri_to_name(entity)
-    llm = define_llm()
-    if entity_label:
+def get_entity_name(entity, ontology):
+    if is_code:
+        entity_name = get_entity_label(entity, ontology)
+    else:
+        entity_name = util.uri_to_name(entity)
+    return entity_name
+
+
+def initial_information(entity, ontology):
+    entity_name = get_entity_name(entity, ontology)
+    llm = config.llm
+    prompt = PromptTemplate(
+        input_variables=["entity_name"],
+        template="Please normalise the following entity: {entity_name}. "
+                 "Use lowercase and split the words using white space. "
+                 "answer: only return the normalised entity only. "
+                 "Format the output as JSON with the following keys: answer. "
+    )
+    chain = LLMChain(llm=llm, prompt=prompt)
+    entity_initial = chain.run({
+        'entity_name': entity_name,
+    }).strip()
+    entity_initial_json = json.loads(entity_initial)
+    answer = entity_initial_json['answer']
+    print("entity_initial:", answer)
+    return answer
+
+
+def lexical_information(entity, ontology):
+    entity_name = get_entity_name(entity, ontology)
+    entity_info = ""
+    for s, p, o in ontology.triples((entity, rdflib.RDFS.comment, None)):
+        entity_info = entity_info + str(o)
+    for s, p, o in ontology.triples((entity, rdflib.RDFS.label, None)):
+        entity_info = entity_info + str(o)
+    print("entity_info:", entity_info)
+
+    llm = config.llm
+    if entity_info:
         prompt = PromptTemplate(
-            input_variables=["entity", "context", "background"],
-            template="{entity} refers to {background}. Determine whether {entity} is a unique identifier or code."
-                     "If {entity} is not a unique identifier or code, in the context of {context}, what is the meaning of {entity}? "
-                     "If {entity} is a unique identifier or code, in the context of {context}, what is the meaning of {background}?",
+            input_variables=["entity_name", "entity_info", "context"],
+            template="{entity_name} is {entity_info}. "
+                     "In the context of {context}, what is the meaning of {entity_name}?"
         )
         chain = LLMChain(llm=llm, prompt=prompt)
-        lexical_information = chain.run({
-            'entity': entity_name,
-            'background': entity_label,
+        answer = chain.run({
+            'entity_name': entity_name,
+            'entity_info': entity_info,
             'context': context,
         }).strip()
     else:
         prompt = PromptTemplate(
-            input_variables=["entity", "context"],
-            template="In the context of {context}, what is the meaning of {entity}? "
+            input_variables=["entity_name", "context"],
+            template="In the context of {context}, what is the meaning of {entity_name}? "
         )
         chain = LLMChain(llm=llm, prompt=prompt)
-        lexical_information = chain.run({
-            'entity': entity_name,
-            'background': entity_label,
+        answer = chain.run({
+            'entity_name': entity_name,
             'context': context,
         }).strip()
 
-    return lexical_information
+    print("entity_lexical:", answer)
+    return answer
 
 
-def graphical_matching(entity, ontology):
+def graphical_information(entity, ontology):
     # here entity is name only
     with open('graphical_entity.txt', 'w') as f:
         for s, p, o in ontology.triples((entity, None, None)):
             if "#" in s and "#" in p and "#" in o:
                 if str(p).split("#")[-1] != "type":
-                    sub = util.uri_to_name(s)
-                    pre = util.uri_to_name(p)
-                    obj = util.uri_to_name(o)
+                    sub = get_entity_name(s, ontology)
+                    pre = get_entity_name(p, ontology)
+                    obj = get_entity_name(o, ontology)
                     f.write("%s %s %s." % (sub, pre, obj))
                     f.write('\n')
-    return verbalise_sentence('graphical_entity.txt')
+    answer = verbalise_sentence('graphical_entity.txt')
+    print("entity_graphical:", answer)
+    return answer
 
 
 def verbalise_sentence(input_file_path):
-    llm = define_llm()
+    llm = config.llm
     prompt = PromptTemplate(
         input_variables=["sentence"],
-        template="Please verbalise the following sentence: {sentence}."
-                 "answer: the verbalised sentence."
-                 "Format the output as JSON with the following keys: answer."
+        template="Please verbalise the following sentence: {sentence}. "
+                 "answer: only return the verbalised sentence only. "
+                 "Format the output as JSON with the following keys: answer. "
     )
     chain = LLMChain(llm=llm, prompt=prompt)
     output = ""
@@ -178,11 +192,26 @@ def verbalise_sentence(input_file_path):
 def save_information_to_csv(path, entity_list, source_or_target, entity_type, ontology, prefix):
     with open(path, "a+", newline='') as f1:
         for entity in entity_list:
+            entity_name = get_entity_name(entity, ontology)
             writer = csv.writer(f1)
-            list_information = [util.uri_to_prefix_name(entity, prefix), source_or_target, entity_type,
-                                initial_matching(entity), lexical_matching(entity, ontology),
-                                graphical_matching(entity, ontology)]
+            list_information = [util.name_to_prefix_name(entity_name, prefix), source_or_target, entity_type,
+                                initial_information(entity, ontology), lexical_information(entity, ontology),
+                                graphical_information(entity, ontology)]
             writer.writerow(list_information)
+
+
+# def check_name_or_code(entity):
+#     llm = define_llm()
+#     prompt = PromptTemplate(
+#         input_variables=["entity"],
+#         template="Is {entity} a unique identifier or code?"
+#                  "Please answer True if yes, False if not or unknown."
+#     )
+#     chain = LLMChain(llm=llm, prompt=prompt)
+#     output = chain.run({
+#         'entity': entity,
+#     }).strip()
+#     return output
 
 
 if __name__ == '__main__':
@@ -193,7 +222,6 @@ if __name__ == '__main__':
     # find all entities
     e1_list_class, e2_list_class, e1_list_property, e2_list_property = find_all_entities()
     # find predict value
-    csv_path = "ontology_matching.csv"
     header = ['entity', 'source_or_target', 'entity_type', 'initial_matching', 'lexical_matching', 'graphical_matching']
     util.create_document(csv_path, header=header)
     save_information_to_csv(csv_path, e1_list_class, "Source", "Class", o1, o1_prefix)
