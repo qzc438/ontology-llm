@@ -108,7 +108,7 @@ def cleaning(name):
     return name
 
 
-def calculate_metrics(true_path, predict_path):
+def calculate_metrics(true_path, predict_path, alignment, result_path):
     df_true = pd.read_csv(true_path, encoding="Windows-1250")
     df_predict = pd.read_csv(predict_path, encoding="Windows-1250")
     if df_predict.empty:
@@ -127,6 +127,14 @@ def calculate_metrics(true_path, predict_path):
         precision = ra / a
         recall = ra / r
         f1 = 2 * (precision * recall) / (precision + recall)
+        # write to file
+        create_document(result_path, header=['Alignment', 'Precision', 'Recall', 'F1'])
+        with open(result_path, "a+", newline='') as f:
+            writer = csv.writer(f)
+            result = ["%.2f" % (precision * 100), "%.2f" % (recall * 100), "%.2f" % (f1 * 100)]
+            result = [alignment] + result
+            writer.writerow(result)
+        # print results
         return ["%.2f" % (precision * 100), "%.2f" % (recall * 100), "%.2f" % (f1 * 100)]
 
 

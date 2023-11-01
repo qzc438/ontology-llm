@@ -2,8 +2,8 @@ import rdflib
 import util
 
 if __name__ == '__main__':
-    o1 = rdflib.Graph().parse("cmt-conference/component/source.xml", format="xml")
-    o2 = rdflib.Graph().parse("cmt-conference/component/target.xml", format="xml")
+    o1 = rdflib.Graph().parse("data/conference/cmt-conference/component/source.xml", format="xml")
+    o2 = rdflib.Graph().parse("data/conference/cmt-conference/component/target.xml", format="xml")
     o1_base_iri = util.find_uri(o1)
     o2_base_iri = util.find_uri(o2)
     l1 = len(o1_base_iri)

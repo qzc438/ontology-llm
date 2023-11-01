@@ -21,13 +21,13 @@ if __name__ == '__main__':
     chain = LLMChain(llm=llm, prompt=prompt)
 
     # find all entities
-    o1_path = "cmt-conference/component/source.xml"
-    o2_path = "cmt-conference/component/target.xml"
+    o1_path = "data/conference/cmt-conference/component/source.xml"
+    o2_path = "data/conference/cmt-conference/component/target.xml"
 
     e1_list_class, e2_list_class, e1_list_property, e2_list_property = agent_match.find_all_entities(o1_path, o2_path)
 
-    o1 = rdflib.Graph().parse("cmt-conference/component/source.xml", format="xml")
-    o2 = rdflib.Graph().parse("cmt-conference/component/target.xml", format="xml")
+    o1 = rdflib.Graph().parse("data/conference/cmt-conference/component/source.xml", format="xml")
+    o2 = rdflib.Graph().parse("data/conference/cmt-conference/component/target.xml", format="xml")
     o1_base_iri = util.find_uri(o1)
     o2_base_iri = util.find_uri(o2)
     l1 = len(o1_base_iri)

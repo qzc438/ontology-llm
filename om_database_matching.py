@@ -40,11 +40,14 @@ def entity_matching(entity, table_name):
     register_vector(conn)
     # find content, source_or_target, entity_type
     cursor = conn.cursor()
-    sql = f"select {table_name}, source_or_target, entity_type from ontology_matching where entity = (%s);"
+    sql = f'''select m.embedding, o.source_or_target, o.entity_type 
+              from ontology_matching o, {table_name} m
+              where o.entity = m.entity 
+              and o.entity = (%s);'''
     cursor.execute(sql, (entity,))
     result = cursor.fetchone()
     # set content value
-    content = result[0]
+    content_embedding = result[0].tolist()
     # set source_or_target value
     if result[1] == "Source":
         source_or_target = "Target"
@@ -55,11 +58,8 @@ def entity_matching(entity, table_name):
         entity_type = "Class"
     else:
         entity_type = "Property"
-    create_log(f"metadata: {content}, {source_or_target}, {entity_type}, {similarity_threshold}, {num_matches}")
+    create_log(f"metadata: {entity}, {source_or_target}, {entity_type}, {similarity_threshold}, {num_matches}")
 
-    # embed the content
-    embeddings_service = config.embeddings_service
-    content_embedding = embeddings_service.embed_query(content)
     # find similar entities to the query using cosine similarity search
     # over all vector embeddings. This new feature is provided by `pgvector`.
     sql = f'''WITH vector_matches AS (
@@ -72,7 +72,7 @@ def entity_matching(entity, table_name):
                 SELECT o.entity, v.similarity as similarity FROM ontology_matching o, vector_matches v
                 WHERE o.entity IN (SELECT entity FROM vector_matches)
                 AND o.entity =  v.entity
-                AND source_or_target = (%s) AND entity_type = (%s)'''
+                AND source_or_target = (%s) AND entity_type = (%s);'''
     cursor.execute(sql, (similarity_threshold, num_matches, source_or_target, entity_type))
     # define matches for results
     matches = []
@@ -251,8 +251,7 @@ if __name__ == '__main__':
             print("result_refine", result_refine)
             create_log(f"prompt_refine_question: {prompt_refine_question}")
             create_log(f"result_refine: {result_refine}")
-            if extract_yes_no(result_refine) == ("y"
-                                                 "es"):
+            if extract_yes_no(result_refine) == "yes":
                 with open(predict_path, "a+", newline='') as f:
                     writer = csv.writer(f)
                     list_pair = [entity, predict_entity]
@@ -260,7 +259,7 @@ if __name__ == '__main__':
                 break
 
     # evaluation
-    print(util.calculate_metrics(true_path, predict_path))
+    print(util.calculate_metrics(true_path, predict_path, config.alignment, config.result_path))
 
 # if __name__ == '__main__':
 #     loop = asyncio.get_event_loop()

@@ -8,19 +8,13 @@ import pandas as pd
 import torch
 from langchain.chat_models import ChatOpenAI
 from langchain.embeddings import OpenAIEmbeddings
-from langchain.chains import LLMChain
-from langchain.prompts import PromptTemplate
-from langchain.agents import Tool, initialize_agent, AgentType, LLMSingleActionAgent, AgentExecutor
+from langchain.agents import Tool, initialize_agent, AgentType
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import FAISS
 from langchain.agents.agent_toolkits import create_retriever_tool
 
-from langchain.llms import LlamaCpp
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
-from langchain.callbacks.manager import CallbackManager
-from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
-import test_customer_template
 
 # check GPU
 print("GPU:", torch.cuda.is_available())
@@ -30,9 +24,9 @@ dotenv.load_dotenv()
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 
 # load path
-o1_path = "cmt-conference/component/source.xml"
-o2_path = "cmt-conference/component/target.xml"
-align_path = "cmt-conference/component/reference.xml"
+o1_path = "data/conference/cmt-conference/component/source.xml"
+o2_path = "data/conference/cmt-conference/component/target.xml"
+align_path = "data/conference/cmt-conference/component/reference.xml"
 predict_path = "rag/predict.csv"
 true_path = "rag/true.csv"
 alignCell = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignmentCell')

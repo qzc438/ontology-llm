@@ -112,9 +112,9 @@ def calculate_metrics(true_path, predict_path):
 if __name__ == '__main__':
 
     # file path
-    o1_path = "cmt-conference/component/source.xml"
-    o2_path = "cmt-conference/component/target.xml"
-    align_path = "cmt-conference/component/reference.xml"
+    o1_path = "data/conference/cmt-conference/component/source.xml"
+    o2_path = "data/conference/cmt-conference/component/target.xml"
+    align_path = "data/conference/cmt-conference/component/reference.xml"
     predict_path = "rag/predict.csv"
     true_path = "rag/true.csv"
 

@@ -91,7 +91,7 @@ def get_entity_label(entity, ontology):
 
 def get_entity_name(entity, ontology):
     if is_code:
-        entity_name = get_entity_label(entity, ontology)
+        entity_name = get_entity_label(entity, ontology) or util.uri_to_name(entity)
     else:
         entity_name = util.uri_to_name(entity)
     return entity_name
@@ -102,19 +102,19 @@ def initial_information(entity, ontology):
     llm = config.llm
     prompt = PromptTemplate(
         input_variables=["entity_name"],
-        template="Please normalise the following entity: {entity_name}. "
+        template="Normalise the following entity: {entity_name}. "
                  "Use lowercase and split the words using white space. "
-                 "answer: only return the normalised entity only. "
-                 "Format the output as JSON with the following keys: answer. "
+                 "entity_initial: only return the normalised entity. "
+                 "Format the output as JSON with the following keys: entity_initial. "
     )
     chain = LLMChain(llm=llm, prompt=prompt)
-    entity_initial = chain.run({
+    answer = chain.run({
         'entity_name': entity_name,
     }).strip()
-    entity_initial_json = json.loads(entity_initial)
-    answer = entity_initial_json['answer']
-    print("entity_initial:", answer)
-    return answer
+    entity_initial_json = json.loads(answer)
+    entity_initial = entity_initial_json['entity_initial']
+    print("entity_initial:", entity_initial)
+    return entity_initial
 
 
 def lexical_information(entity, ontology):
@@ -157,11 +157,15 @@ def lexical_information(entity, ontology):
 def graphical_information(entity, ontology):
     # here entity is name only
     with open('graphical_entity.txt', 'w') as f:
-        for s, p, o in ontology.triples((entity, None, None)):
+        query_subject = list(ontology.triples((entity, None, None)))
+        query_property = list(ontology.triples((None, entity, None)))
+        query_object = list(ontology.triples((None, None, entity)))
+        combined_results = query_subject + query_property + query_object
+        for s, p, o in combined_results:
             if "#" in s and "#" in p and "#" in o:
-                if str(p).split("#")[-1] != "type":
+                if str(p).split("#")[-1] != "type" and str(o).split("#")[-1] != "Thing":
                     sub = get_entity_name(s, ontology)
-                    pre = get_entity_name(p, ontology)
+                    pre = str(p).split("#")[-1]
                     obj = get_entity_name(o, ontology)
                     f.write("%s %s %s." % (sub, pre, obj))
                     f.write('\n')
@@ -174,9 +178,9 @@ def verbalise_sentence(input_file_path):
     llm = config.llm
     prompt = PromptTemplate(
         input_variables=["sentence"],
-        template="Please verbalise the following sentence: {sentence}. "
-                 "answer: only return the verbalised sentence only. "
-                 "Format the output as JSON with the following keys: answer. "
+        template="Verbalise the following triples: {sentence}. "
+                 "entity_graphical: only return the verbalised sentence. "
+                 "Format the output as JSON with the following keys: entity_graphical. "
     )
     chain = LLMChain(llm=llm, prompt=prompt)
     output = ""
@@ -184,7 +188,7 @@ def verbalise_sentence(input_file_path):
         for line in input_file:
             processed_line = chain.run(line)
             processed_line_json = json.loads(processed_line)
-            answer = processed_line_json['answer']
+            answer = processed_line_json['entity_graphical']
             output += answer + ' '
     return output
 
