@@ -1,0 +1,12 @@
+Entity1,Entity2
+source:Document,target:Document
+source:ConferenceMember,target:Conference_Participant
+source:Author,target:Paper_Author
+source:writtenBy,target:reviewWrittenBy
+source:hasBeenAssigned,target:reviewerOfPaper
+source:Person,target:Person
+source:Conference,target:Conference
+source:assignedTo,target:hasReviewer
+source:Review,target:Review
+source:Paper,target:Paper
+source:PaperFullVersion,target:Regular_Paper

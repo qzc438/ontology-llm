@@ -1,0 +1,17 @@
+Entity1,Entity2
+source:ProgramCommitteeChair,target:Chair_PC
+source:writePaper,target:writes
+source:Author,target:Author
+source:ConferenceMember,target:Member
+source:Administrator,target:Administrator
+source:title,target:hasTitle
+source:SubjectArea,target:Topic
+source:PaperFullVersion,target:Paper
+source:hasBeenAssigned,target:reviewes
+source:hasAuthor,target:writtenBy
+source:Conference,target:Conference
+source:ProgramCommitteeMember,target:Member_PC
+source:hasSubjectArea,target:dealsWith
+source:Person,target:Person
+source:Paper,target:Contribution
+source:email,target:hasEmail

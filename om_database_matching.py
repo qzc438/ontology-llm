@@ -8,12 +8,25 @@ import pandas as pd
 import collections
 import json
 import csv
+import rdflib
 
 import psycopg2
 from pgvector.psycopg2 import register_vector
 
 from langchain.agents import Tool, initialize_agent, AgentType
 from langchain.agents.agent_toolkits import create_conversational_retrieval_agent
+
+# customer settings
+o1_path = config.o1_path
+o2_path = config.o2_path
+align_path = config.align_path
+context = config.context
+is_code = config.is_code
+
+o1 = config.o1
+o2 = config.o2
+o1_prefix = config.o1_prefix
+o2_prefix = config.o2_prefix
 
 # define entity metadata
 content = ""
@@ -40,57 +53,67 @@ def entity_matching(entity, table_name):
     register_vector(conn)
     # find content, source_or_target, entity_type
     cursor = conn.cursor()
-    sql = f'''select m.embedding, o.source_or_target, o.entity_type 
+    sql = f'''select m.embedding, o.source_or_target, o.entity_type
               from ontology_matching o, {table_name} m
-              where o.entity = m.entity 
+              where o.entity = m.entity
               and o.entity = (%s);'''
+    # sql = f"select {table_name}, source_or_target, entity_type from ontology_matching where entity = (%s);"
     cursor.execute(sql, (entity,))
     result = cursor.fetchone()
-    # set content value
-    content_embedding = result[0].tolist()
-    # set source_or_target value
-    if result[1] == "Source":
-        source_or_target = "Target"
-    else:
-        source_or_target = "Source"
-    # set entity_type value
-    if result[2] == "Class":
-        entity_type = "Class"
-    else:
-        entity_type = "Property"
-    create_log(f"metadata: {entity}, {source_or_target}, {entity_type}, {similarity_threshold}, {num_matches}")
+    # print("result", result)
+    if result:
+        # set content value
+        content_embedding = result[0].tolist()
+        # content = result[0]
+        # set source_or_target value
+        if result[1] == "Source":
+            source_or_target = "Target"
+        else:
+            source_or_target = "Source"
+        # set entity_type value
+        if result[2] == "Class":
+            entity_type = "Class"
+        else:
+            entity_type = "Property"
+        create_log(f"metadata: {entity}, {source_or_target}, {entity_type}, {similarity_threshold}, {num_matches}")
 
-    # find similar entities to the query using cosine similarity search
-    # over all vector embeddings. This new feature is provided by `pgvector`.
-    sql = f'''WITH vector_matches AS (
-                  SELECT entity, 1 - (embedding <=> '{content_embedding}') AS similarity
-                  FROM {table_name}
-                  WHERE 1 - (embedding <=> '{content_embedding}') >%s
-                  ORDER BY similarity DESC
-                  LIMIT %s
+        # embeddings_service = config.embeddings_service
+        # content_embedding = embeddings_service.embed_query(content)
+
+        # find similar entities to the query using cosine similarity search
+        # over all vector embeddings. This new feature is provided by `pgvector`.
+        sql = f'''WITH vector_matches AS (
+                      SELECT entity, 1 - (embedding <=> '{content_embedding}') AS similarity
+                      FROM {table_name}
+                      WHERE 1 - (embedding <=> '{content_embedding}') >%s
+                    )
+                    SELECT o.entity, v.similarity as similarity FROM ontology_matching o, vector_matches v
+                    WHERE o.entity IN (SELECT entity FROM vector_matches)
+                    AND o.entity =  v.entity
+                    AND o.source_or_target = (%s) AND o.entity_type = (%s)
+                    ORDER BY v.similarity DESC
+                    LIMIT %s;
+                    '''
+        cursor.execute(sql, (similarity_threshold, source_or_target, entity_type, num_matches))
+        # define matches for results
+        matches = []
+        result = cursor.fetchall()
+        if len(result) != 0:
+            # store results into matches
+            for r in result:
+                matches.append(
+                    {
+                        "entity": r[0],
+                        table_name: r[1],
+                    }
                 )
-                SELECT o.entity, v.similarity as similarity FROM ontology_matching o, vector_matches v
-                WHERE o.entity IN (SELECT entity FROM vector_matches)
-                AND o.entity =  v.entity
-                AND source_or_target = (%s) AND entity_type = (%s);'''
-    cursor.execute(sql, (similarity_threshold, num_matches, source_or_target, entity_type))
-    # define matches for results
-    matches = []
-    result = cursor.fetchall()
-    if len(result) != 0:
-        # store results into matches
-        for r in result:
-            matches.append(
-                {
-                    "entity": r[0],
-                    table_name: r[1],
-                }
-            )
-    # close connection
-    conn.close()
-    create_log(f"matches: {matches}")
-    # return matches
-    return matches
+        # close connection
+        conn.close()
+        create_log(f"matches: {matches}")
+        # return matches
+        return matches
+    else:
+        return None
 
 
 def define_tools():
@@ -160,20 +183,14 @@ def graphical_matching(entity):
         return None
 
 
-def reciprocal_rank_fusion(*rankings):
-    # Create a dictionary to store the reciprocal ranks for each item
+def reciprocal_rank_fusion(*rankings, b=60):
     reciprocal_ranks = collections.defaultdict(float)
-
-    # Compute the reciprocal ranks for each item in each ranking
     for i, ranking in enumerate(rankings):
         if ranking:
             for j, item in enumerate(ranking):
-                reciprocal_rank = 1 / (j + 1)  # Reciprocal rank for the item
+                reciprocal_rank = 1 / (j + 1)
                 reciprocal_ranks[item] += reciprocal_rank
-
-    # Sort the items based on their summed reciprocal ranks in descending order
     fused_ranking = sorted(reciprocal_ranks.keys(), key=lambda item: reciprocal_ranks[item], reverse=True)
-
     return fused_ranking
 
 
@@ -221,26 +238,36 @@ if __name__ == '__main__':
     # for entity in ["http://cmt#SubjectArea"]:
     # for entity in ["http://cmt#Chairman"]:
     # for entity in ["http://cmt#finalizePaperAssignment"]:
-        entity = util.uri_to_prefix_name(entity, "source")
-        prompt_summary = f"Please find the equivalent entity to the following entity in the enclosed '': '{entity}' " \
-                         "Consider initial matching, lexical matching, and graphical matching. " \
-                         "Format the answer as JSON."
+    # for entity in ["http://confOf#Banquet"]:
+        entity_name = om_ontology_to_csv.get_entity_name(entity, o1)
+        entity = util.uri_to_prefix_name(entity_name, "source")
 
-        result = agent({"input": prompt_summary})
+        # prompt_summary = f"Please find the equivalent entity to the following entity: '{entity}' " \
+        #                  "Use initial matching, lexical matching, and graphical matching. " \
+        #                  "Format the output as JSON."
+        #
+        # result = agent({"input": prompt_summary})
         # print(result['output'])
+        # # summary the matching
+        # output_json = json.loads(result['output'])
+        # initial_matching_result = output_json['initial_matching']
+        # lexical_matching_result = output_json['lexical_matching']
+        # graphical_matching_result = output_json['graphical_matching']
+        # predict_entity_list = reciprocal_rank_fusion(initial_matching_result, lexical_matching_result, graphical_matching_result)
+        # print("entity:", entity)
+        # print("predict_entity_list:", predict_entity_list)
+        # create_log(f"entity: {entity}, predict_entity_list: {predict_entity_list}")
 
-        # summary the matching
-        output_json = json.loads(result['output'])
-        initial_matching = output_json['initial_matching']
-        lexical_matching = output_json['lexical_matching']
-        graphical_matching = output_json['graphical_matching']
-        predict_entity_list = reciprocal_rank_fusion(initial_matching, lexical_matching, graphical_matching)
+        initial_matching_result = initial_matching(entity)
+        lexical_matching_result = lexical_matching(entity)
+        graphical_matching_result = graphical_matching(entity)
+        predict_entity_list = reciprocal_rank_fusion(initial_matching_result, lexical_matching_result, graphical_matching_result)
         print("entity:", entity)
         print("predict_entity_list:", predict_entity_list)
         create_log(f"entity: {entity}, predict_entity_list: {predict_entity_list}")
 
-        # refine the matching
-        for predict_entity in predict_entity_list:
+        # refine the matching, restrict to top_k for now
+        for predict_entity in predict_entity_list[:top_k]:
             prompt_refine_question = (
                 # Is Entity 1 different/distinct from Entity 2
                 "Is {entity} equivalent to {predict_entity} in the context of {context}? "

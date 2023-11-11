@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+         xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+         xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+         xmlns:alext='http://exmo.inrialpes.fr/align/ext/1.0/'
+         xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'>
+<Alignment>
+  <xml>yes</xml>
+  <level>0</level>
+  <type>?*</type>
+  <alext:method>fr.inrialpes.exmo.align.impl.method.MyMethod</alext:method>
+  <alext:time>3590</alext:time>
+  <onto1>
+    <Ontology rdf:about="http://dbpedia.org/ontology/">
+      <location>file:dbpedia_2016-10.owl</location>
+      <formalism>
+        <Formalism align:name="OWL2.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+      </formalism>
+    </Ontology>
+  </onto1>
+  <onto2>
+    <Ontology rdf:about="http://ekaw">
+      <location>file:ekaw.owl</location>
+      <formalism>
+        <Formalism align:name="OWL2.0" align:uri="http://www.w3.org/2002/07/owl#"/>
+      </formalism>
+    </Ontology>
+  </onto2>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/AcademicConference'/>
+      <entity2 rdf:resource='http://ekaw#Event'/>
+      <relation>=</relation>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Location'/>
+      <entity2 rdf:resource='http://ekaw#Location'/>
+      <relation>=</relation>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/Organisation'/>
+      <entity2 rdf:resource='http://ekaw#Organisation'/>
+      <relation>=</relation>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/University'/>
+      <entity2 rdf:resource='http://ekaw#University'/>
+      <relation>=</relation>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource='http://dbpedia.org/ontology/isPartOf'/>
+      <entity2 rdf:resource='http://ekaw#partOf'/>
+      <relation>=</relation>
+    </Cell>
+  </map>
+  </Alignment>
+</rdf:RDF>

@@ -1,0 +1,15 @@
+Entity1,Entity2
+source:Passive_conference_participant,target:Listener
+source:Active_conference_participant,target:Speaker
+source:Reviewer,target:Reviewer
+source:Person,target:Person
+source:Regular_author,target:Author
+source:Conference_fees,target:Fee
+source:Tutorial,target:Tutorial
+source:contributes,target:write
+source:Review,target:Review
+source:Conference_document,target:Document
+source:Conference_part,target:Conference_activity
+source:Submitted_contribution,target:Submission
+source:Camera_ready_contribution,target:Final_manuscript
+source:Conference_proceedings,target:Publication

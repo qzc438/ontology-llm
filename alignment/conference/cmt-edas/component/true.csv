@@ -1,0 +1,14 @@
+Entity1,Entity2
+source:Person,target:Person
+source:Conference,target:Conference
+source:Author,target:Author
+source:Reviewer,target:Reviewer
+source:hasConferenceMember,target:hasMember
+source:memberOfConference,target:isMemberOf
+source:ConferenceChair,target:ConferenceChair
+source:Review,target:Review
+source:Document,target:Document
+source:Paper,target:Paper
+source:hasAuthor,target:isWrittenBy
+source:hasBeenAssigned,target:isReviewing
+source:assignedTo,target:isReviewedBy

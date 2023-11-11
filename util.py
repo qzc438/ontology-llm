@@ -128,7 +128,7 @@ def calculate_metrics(true_path, predict_path, alignment, result_path):
         recall = ra / r
         f1 = 2 * (precision * recall) / (precision + recall)
         # write to file
-        create_document(result_path, header=['Alignment', 'Precision', 'Recall', 'F1'])
+        # create_document(result_path, header=['Alignment', 'Precision', 'Recall', 'F1'])
         with open(result_path, "a+", newline='') as f:
             writer = csv.writer(f)
             result = ["%.2f" % (precision * 100), "%.2f" % (recall * 100), "%.2f" % (f1 * 100)]

@@ -1,0 +1,16 @@
+Entity1,Entity2
+source:Conference_participant,target:Participant
+source:has_an_email,target:hasEmail
+source:Poster,target:Poster
+source:Organization,target:Organization
+source:Topic,target:Topic
+source:Workshop,target:Workshop
+source:Paper,target:Paper
+source:Person,target:Person
+source:Conference_contribution,target:Contribution
+source:Tutorial,target:Tutorial
+source:Conference_volume,target:Conference
+source:has_a_track-workshop-tutorial_topic,target:hasTopic
+source:Regular_author,target:Author
+source:has_the_last_name,target:hasSurname
+source:has_the_first_name,target:hasFirstName

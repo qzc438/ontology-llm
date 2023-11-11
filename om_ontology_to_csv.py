@@ -22,10 +22,10 @@ alignCell = config.alignCell
 alignEntity1 = config.alignEntity1
 alignEntity2 = config.alignEntity2
 # load ontology
-o1 = rdflib.Graph().parse(o1_path, format="xml")
-o2 = rdflib.Graph().parse(o2_path, format="xml")
-o1_prefix = "source"
-o2_prefix = "target"
+o1 = config.o1
+o2 = config.o2
+o1_prefix = config.o1_prefix
+o2_prefix = config.o2_prefix
 # intermediate csv file
 csv_path = config.csv_path
 
@@ -186,10 +186,17 @@ def verbalise_sentence(input_file_path):
     output = ""
     with open(input_file_path, "r") as input_file:
         for line in input_file:
+            # split_text = [sentence for sentence in line.split(".") if sentence]
+            # for text in split_text:
             processed_line = chain.run(line)
-            processed_line_json = json.loads(processed_line)
-            answer = processed_line_json['entity_graphical']
-            output += answer + ' '
+            try:
+                processed_line_json = json.loads(processed_line)
+                answer = processed_line_json['entity_graphical']
+                output += answer + ' '
+            except json.JSONDecodeError as e:
+                print(f"Cannot verbalise the sentence. JSON is invalid: {e}")
+                output += line + ' '
+                continue
     return output
 
 
