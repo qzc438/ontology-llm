@@ -1,0 +1,583 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment'
+	 xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#' 
+	 xmlns:xsd='http://www.w3.org/2001/XMLSchema#' 
+	 alignmentSource='AgreementMakerLight'>
+
+<Alignment>
+	<xml>yes</xml>
+	<level>0</level>
+	<type>11</type>
+	<onto1>http://codata.jp/OML-MaterialInformation</onto1>
+	<onto2>http://emmo.info/emmo</onto2>
+	<uri1>http://codata.jp/OML-MaterialInformation</uri1>
+	<uri2>http://emmo.info/emmo</uri2>
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Energy"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_31ec09ba_1713_42cb_83c7_b38bf6f9ced2"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Illuminance"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_b51fbd00_a857_4132_9711_0ef70e7bdd20"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Density"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_06448f64_8db6_4304_8b2c_e785dba82044"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#LuminousFlux"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_e2ee1c98_497a_4f66_b4ed_5711496a848e"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#MagneticFlux"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_3b931698_937e_49be_ab1b_36fa52d91181"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Acceleration"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_e37ac288_aa60_415a_8cb7_c375724ac8e1"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Area"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_96f39f77_44dc_491b_8fa7_30d887fe0890"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Torus"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/perceptual#EMMO_86060335_31c2_4820_b433_27c64aea0366"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Volume"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_f1a51559_aa3d_43a0_9327_918039f0dfed"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Mixture"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/materials#EMMO_ec2c8ac8_98c5_4c74_b85b_ff8e8ca6655c"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Length"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_cd2cd0de_e0cc_4ef1_b27e_2e88db027bac"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#PlanckConstant"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_76cc4efc_231e_42b4_be83_2547681caed6"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Permittivity"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_0ee5779e_d798_4ee5_9bfe_c392d5bea112"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#MagneticFieldStrength"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_b4895f75_41c8_4fd9_b6d6_4d5f7c99c423"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#AmountOfSubstance"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_8159c26a_494b_4fa0_9959_10888f152298"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#SpeedOfLight_in_vacuum"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_99296e55_53f7_4333_9e06_760ad175a1b9"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Entropy"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_9bbab0be_f9cc_4f46_9f46_0fd271911b79"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Vacuum"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/physicalistic#EMMO_3c218fbe_60c9_4597_8bcf_41eb1773af1f"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Sphere"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/perceptual#EMMO_d7bf784a_db94_4dd9_861c_54f262846fbf"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Atom"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/materials#EMMO_eb77076b_a104_42ac_a065_798b2d2809ad"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Pressure"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Physical"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/top/physical#EMMO_c5ddfdba_c074_4aa4_ad6b_1ac4942d300d"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Equation"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/math#EMMO_e56ee3eb_7609_4ae1_8bed_51974f0960a6"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Permeability"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_09663630_1b84_4202_91e6_e641104f579e"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#PhysicalQuantity"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/metrology#EMMO_02c0621e_a527_4790_8a0f_2bb51973c819"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#ElectricResistance"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_e88f75d6_9a17_4cfc_bdf7_43d7cea5a9a1"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#CurrentDensity"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_7c8007b0_58a7_4486_bf1c_4772852caca0"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#RefractiveIndex"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_5eedba4d_105b_44d8_b1bc_e33606276ea2"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#PhysicalConstant"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/metrology#EMMO_b953f2b1_c8d1_4dd9_b630_d3ef6580c2bb"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Symbol"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/perceptual#EMMO_a1083d0a_c1fb_471f_8e20_a98f881ad527"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#ElectricInductance"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_04cc9451_5306_45d0_8554_22cee4d6e785"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Frequency"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_852b4ab8_fc29_4749_a8c7_b92d4fca7d5a"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Luminance"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_97589322_710c_4af4_9431_1e5027f2be42"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#MagneticFluxDensity"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_961d1aba_f75e_4411_aaa4_457f7516ed6b"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Mass"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_ed4af7ae_63a2_497e_bb88_2309619ea405"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Speed"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_81369540_1b0e_471b_9bae_6801af22800e"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#LuminousIntensity"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_50bf79a6_a48b_424d_9d2c_813bd631231a"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Gas"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/materials#EMMO_04f2a2d5_e799_4692_a654_420e76f5acc1"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#ElectricConductance"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_ffb73b1e_5786_43e4_a964_cb32ac7affb7"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Momentum"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_43776fc9_d712_4571_85f0_72183678039a"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Time"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_d4f7d378_5e3b_468a_baa1_a7e98358cda7"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#SolidSolution"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/materials#EMMO_5e77f00d_5c0a_44e7_baf1_2c2a4cb5b3ae"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Force"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_1f087811_06cb_42d5_90fb_25d0e7e068ef"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Power"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_09b9021b_f97b_43eb_b83d_0a764b472bc2"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Liquid"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/materials#EMMO_7509da43_56b1_4d7f_887a_65d1663df4ba"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#ThermodynamicTemperature"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_affe07e4_e9bc_4852_86c6_69e26182a17f"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#ElectricPotential"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_4f2d3939_91b1_4001_b8ab_7d19074bf845"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#ElectricCharge"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_1604f495_328a_4f28_9962_f4cc210739dd"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#ElectricCurrent"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_c995ae70_3b84_4ebb_bcfc_69e6a281bb88"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#SolidAngle"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_e7c9f7fd_e534_4441_88fe_1fec6cb20f26"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#PlaneAngle"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_f3dd74c0_f480_49e8_9764_33b78638c235"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.8316</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#ElectricCapacitance"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_99dba333_0dbd_4f75_8841_8c0f97fd58e2"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.8316</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Concentration"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_d5be1faf_0c56_4f5a_9b78_581e6dee949f"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.8118</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#AbsorbedDoseRate"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_8e5dd473_808b_4a8a_b7cd_63068c12ff57"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.6724</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#MagneticMoment"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_81e767f1_59b1_4d7a_bf69_17f322241831"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.66</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Circles"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/perceptual#EMMO_b2a234a8_579a_422c_9305_b8f7e72c76cd"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Base"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/metrology#EMMO_acaaa124_3dde_48b6_86e6_6ec6f364f408"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#ElectricalConductivity"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_cde4368c_1d4d_4c94_8548_604749523c6d"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#ElectricalResistivity"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_e150fa8d_06dc_4bb8_bf95_04e2aea529c1"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#SI_units"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/siunits#EMMO_feb03a8a_bbb6_4918_a891_46713ef557f4"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#CGS_units"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/units-extension#EMMO_52e4cb25_da39_45e2_a6db_063ec5730499"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#WaveNumber"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_d859588d_44dc_4614_bc75_5fcd0058acc8"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Foams"/>
+			<entity2 rdf:resource="http://emmo.info/emmo/middle/materials#EMMO_1f5e3e7e_72c9_40d4_91dd_ae432d7b7018"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+</Alignment>
+</rdf:RDF>

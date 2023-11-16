@@ -17,7 +17,7 @@ os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
 o1_path = "../data/conference/cmt-conference/component/source.xml"
 o2_path = "../data/conference/cmt-conference/component/target.xml"
 align_path = "../data/conference/cmt-conference/component/reference.xml"
-predict_path = "predict.csv"
+predict_path = "predict_target.csv"
 true_path = "true.csv"
 
 # find all entities

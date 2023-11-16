@@ -1,0 +1,1039 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://codata.jp/OML-MaterialInformation-reduced"
+     xml:base="http://codata.jp/OML-MaterialInformation-reduced"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://codata.jp/OML-MaterialInformation-reduced"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#EndingTemperature -->
+
+    <owl:ObjectProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#EndingTemperature"/>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#Environment -->
+
+    <owl:ObjectProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#Environment">
+        <rdfs:range rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Environment"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#HeatTreatmentProcess -->
+
+    <owl:ObjectProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#HeatTreatmentProcess">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#CarburizingAndNitrizing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#HoldingTime -->
+
+    <owl:ObjectProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#HoldingTime"/>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#Pre-HeatingTemperature -->
+
+    <owl:ObjectProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#Pre-HeatingTemperature">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Welding"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#Pressure -->
+
+    <owl:ObjectProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#Pressure">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#EnvironmentalPressure"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#ProcessingTemperature -->
+
+    <owl:ObjectProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#ProcessingTemperature"/>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#RawMaterial -->
+
+    <owl:ObjectProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#RawMaterial">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#ManufacturingProcess"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#Temperature -->
+
+    <owl:ObjectProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#Temperature">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#EnvironmentalTemperature"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#UnitDimension -->
+
+    <owl:ObjectProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#UnitDimension">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Environment"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#UnitSystem -->
+
+    <owl:ObjectProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#UnitSystem">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Environment"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#Atmosphere -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#Atmosphere">
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>Air</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>Argon</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>Hydrogen</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first>Nitrogen</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first>Others</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first>Vacuum</rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#CoolingMethod -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#CoolingMethod">
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>AirCooling</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>FurnaceCooling</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>OilQuench</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first>WaterQuench</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#CoolingRate -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#CoolingRate"/>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#DeoxidationProcess -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#DeoxidationProcess">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#IngotFormProcess"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#Dimension_Depth -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#Dimension_Depth">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Welding"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#Dimension_Width -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#Dimension_Width">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Welding"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#FurnaceCapacity -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#FurnaceCapacity">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#IngotFormProcess"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#GrooveGeometry -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#GrooveGeometry">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Welding"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#IngotSize -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#IngotSize">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#IngotFormProcess"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#JointShape -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#JointShape">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Welding"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#LayerMethod -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#LayerMethod">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Welding"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>ButtJoint</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>C-joint</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>L-joint</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first>Others</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first>T-joint</rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#MelthedWeight -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#MelthedWeight">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#IngotFormProcess"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#MethodOfManufacture -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#MethodOfManufacture">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#IngotFormProcess"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#Normination -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#Normination">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#CarburizingAndNitrizing"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#NumberOfPath -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#NumberOfPath"/>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#ProcessImage -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#ProcessImage"/>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#ProcessingAndThermalHistory -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#ProcessingAndThermalHistory">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#IngotFormProcess"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#ProducedCondition -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#ProducedCondition">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#ManufacturingProcess"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#ProductFromAndSize -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#ProductFromAndSize">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#IngotFormProcess"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#ReductionRatio -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#ReductionRatio">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#IngotFormProcess"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#RefiningProcess -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#RefiningProcess">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#IngotFormProcess"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#Thickness -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#Thickness">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#IngotFormProcess"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#TypeOfCastingAndSize -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#TypeOfCastingAndSize">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#IngotFormProcess"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#TypeOfHeatTreatment -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#TypeOfHeatTreatment">
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>Anneal</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>GrainBoundaryPrecipitation</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>Normalize</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first>Quench</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first>Solution</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first>StressRelease</rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                        <rdf:first>Temper</rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                <rdf:first>others</rdf:first>
+                                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#TypeOfManufacturing -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#TypeOfManufacturing">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#ManufacturingProcess"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#TypeOfMeasurement -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#TypeOfMeasurement"/>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#WeldingMethod -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#WeldingMethod">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Welding"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#WeldingRod -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#WeldingRod">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Welding"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#WorkingRate -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#WorkingRate"/>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#typeOfGas -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#typeOfGas">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Gas"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>Air</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>Ar</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>CarrierGas</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first>H</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first>H2S</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first>He</rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                        <rdf:first>N</rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                <rdf:first>O</rdf:first>
+                                                                                <rdf:rest>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                        <rdf:first>Other</rdf:first>
+                                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                    </rdf:Description>
+                                                                                </rdf:rest>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#typeOfIrradiation -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#typeOfIrradiation">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Irradiation"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>Electron</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>Ion</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>Light</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first>Neutron</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first>Proton</rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#typeOfLiquid -->
+
+    <owl:DatatypeProperty rdf:about="http://codata.jp/OML-MaterialInformation-reduced#typeOfLiquid">
+        <rdfs:domain rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Liquid"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>SeaWater</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>Water</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#Atmosphere -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#Atmosphere">
+        <rdfs:subClassOf rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Environment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#CarburizingAndNitrizing -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#CarburizingAndNitrizing">
+        <rdfs:subClassOf rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#ManufacturingProcess"/>
+    </owl:Class>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#ConcentrationOfSolvent -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#ConcentrationOfSolvent">
+        <rdfs:subClassOf rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Environment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#Conductivity -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#Conductivity">
+        <rdfs:subClassOf rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Environment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#Contents -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#Contents">
+        <rdfs:subClassOf rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Environment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#CorrosionPotential -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#CorrosionPotential">
+        <rdfs:subClassOf rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Environment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#Current -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#Current">
+        <rdfs:subClassOf rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Environment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#CurrentDensity -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#CurrentDensity">
+        <rdfs:subClassOf rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Environment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#DissolvedOxygen -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#DissolvedOxygen">
+        <rdfs:subClassOf rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Environment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#ElectricPotential -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#ElectricPotential">
+        <rdfs:subClassOf rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Environment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#Electrolyte -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#Electrolyte">
+        <rdfs:subClassOf rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Environment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#Environment -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#Environment"/>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#EnvironmentalPressure -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#EnvironmentalPressure">
+        <rdfs:subClassOf rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Environment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#EnvironmentalTemperature -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#EnvironmentalTemperature">
+        <rdfs:subClassOf rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Environment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#Equation -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#Equation"/>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#FlowRate -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#FlowRate">
+        <rdfs:subClassOf rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Environment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#FlowState -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#FlowState">
+        <rdfs:subClassOf rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Environment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#Gas -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#Gas">
+        <rdfs:subClassOf rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Atmosphere"/>
+    </owl:Class>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#HoldingTime -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#HoldingTime">
+        <rdfs:subClassOf rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Environment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#Humidity -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#Humidity">
+        <rdfs:subClassOf rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Environment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#IngotFormProcess -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#IngotFormProcess">
+        <rdfs:subClassOf rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#ManufacturingProcess"/>
+    </owl:Class>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#Irradiation -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#Irradiation">
+        <rdfs:subClassOf rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Environment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#IrradiationEnergy -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#IrradiationEnergy">
+        <rdfs:subClassOf rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Environment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#IrradiationTime -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#IrradiationTime">
+        <rdfs:subClassOf rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Environment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#Liquid -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#Liquid">
+        <rdfs:subClassOf rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Atmosphere"/>
+    </owl:Class>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#Loading -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#Loading">
+        <rdfs:subClassOf rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Environment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#ManufacturingProcess -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#ManufacturingProcess"/>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#Solvent -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#Solvent">
+        <rdfs:subClassOf rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Environment"/>
+    </owl:Class>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#Symbol -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#Symbol">
+        <rdfs:subClassOf rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Equation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#Vacuum -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#Vacuum">
+        <rdfs:subClassOf rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Atmosphere"/>
+    </owl:Class>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#Welding -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#Welding">
+        <rdfs:subClassOf rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#ManufacturingProcess"/>
+    </owl:Class>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#pH -->
+
+    <owl:Class rdf:about="http://codata.jp/OML-MaterialInformation-reduced#pH">
+        <rdfs:subClassOf rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Environment"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#Vacuum_4 -->
+
+    <owl:NamedIndividual rdf:about="http://codata.jp/OML-MaterialInformation-reduced#Vacuum_4">
+        <rdf:type rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Vacuum"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#gas-Air -->
+
+    <owl:NamedIndividual rdf:about="http://codata.jp/OML-MaterialInformation-reduced#gas-Air">
+        <rdf:type rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Gas"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#gas-Ar -->
+
+    <owl:NamedIndividual rdf:about="http://codata.jp/OML-MaterialInformation-reduced#gas-Ar">
+        <rdf:type rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Gas"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#gas-CarrierGas -->
+
+    <owl:NamedIndividual rdf:about="http://codata.jp/OML-MaterialInformation-reduced#gas-CarrierGas">
+        <rdf:type rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Gas"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#gas-H -->
+
+    <owl:NamedIndividual rdf:about="http://codata.jp/OML-MaterialInformation-reduced#gas-H">
+        <rdf:type rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Gas"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#gas-H2S -->
+
+    <owl:NamedIndividual rdf:about="http://codata.jp/OML-MaterialInformation-reduced#gas-H2S">
+        <rdf:type rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Gas"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#gas-He -->
+
+    <owl:NamedIndividual rdf:about="http://codata.jp/OML-MaterialInformation-reduced#gas-He">
+        <rdf:type rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Gas"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#gas-N -->
+
+    <owl:NamedIndividual rdf:about="http://codata.jp/OML-MaterialInformation-reduced#gas-N">
+        <rdf:type rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Gas"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#gas-O -->
+
+    <owl:NamedIndividual rdf:about="http://codata.jp/OML-MaterialInformation-reduced#gas-O">
+        <rdf:type rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Gas"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#gas-Other -->
+
+    <owl:NamedIndividual rdf:about="http://codata.jp/OML-MaterialInformation-reduced#gas-Other">
+        <rdf:type rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Gas"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#irradiation-Electron -->
+
+    <owl:NamedIndividual rdf:about="http://codata.jp/OML-MaterialInformation-reduced#irradiation-Electron">
+        <rdf:type rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Irradiation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#irradiation-Ion -->
+
+    <owl:NamedIndividual rdf:about="http://codata.jp/OML-MaterialInformation-reduced#irradiation-Ion">
+        <rdf:type rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Irradiation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#irradiation-Light -->
+
+    <owl:NamedIndividual rdf:about="http://codata.jp/OML-MaterialInformation-reduced#irradiation-Light">
+        <rdf:type rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Irradiation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#irradiation-Neutron -->
+
+    <owl:NamedIndividual rdf:about="http://codata.jp/OML-MaterialInformation-reduced#irradiation-Neutron">
+        <rdf:type rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Irradiation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#irradiation-Proton -->
+
+    <owl:NamedIndividual rdf:about="http://codata.jp/OML-MaterialInformation-reduced#irradiation-Proton">
+        <rdf:type rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Irradiation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#liquid-SeaWater -->
+
+    <owl:NamedIndividual rdf:about="http://codata.jp/OML-MaterialInformation-reduced#liquid-SeaWater">
+        <rdf:type rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Liquid"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://codata.jp/OML-MaterialInformation-reduced#liquid-Water -->
+
+    <owl:NamedIndividual rdf:about="http://codata.jp/OML-MaterialInformation-reduced#liquid-Water">
+        <rdf:type rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Liquid"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

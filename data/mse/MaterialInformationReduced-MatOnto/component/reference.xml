@@ -1,0 +1,223 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment'
+	 xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#' 
+	 xmlns:xsd='http://www.w3.org/2001/XMLSchema#' 
+	 alignmentSource='AgreementMakerLight'>
+
+<Alignment>
+	<xml>yes</xml>
+	<level>0</level>
+	<type>??</type>
+	<onto1>http://codata.jp/OML-MaterialInformation-reduced</onto1>
+	<onto2>http://matonto.org/ontologies/matonto</onto2>
+	<uri1>http://codata.jp/OML-MaterialInformation-reduced</uri1>
+	<uri2>http://matonto.org/ontologies/matonto</uri2>
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Solvent"/>
+			<entity2 rdf:resource="http://ontology.dumontierlab.com/Solvent"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#pH"/>
+			<entity2 rdf:resource="http://ontology.dumontierlab.com/pH"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#CurrentDensity"/>
+			<entity2 rdf:resource="http://ontology.dumontierlab.com/ElectricCurrentDensity"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>=</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Contents"/>
+			<entity2 rdf:resource="http://www.ifomis.org/bfo/1.0/snap#Object"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#IrradiationTime"/>
+			<entity2 rdf:resource="http://ontology.dumontierlab.com/Time"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Current"/>
+			<entity2 rdf:resource="http://ontology.dumontierlab.com/ElectricCurrent"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&gt;</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#EnvironmentalTemperature"/>
+			<entity2 rdf:resource="http://ontology.dumontierlab.com/Temperature"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#EnvironmentalPressure"/>
+			<entity2 rdf:resource="http://ontology.dumontierlab.com/Pressure"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#ConcentrationOfSolvent"/>
+			<entity2 rdf:resource="http://ontology.dumontierlab.com/Concentration"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#DissolvedOxygen"/>
+			<entity2 rdf:resource="http://ontology.dumontierlab.com/Solute"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Electrolyte"/>
+			<entity2 rdf:resource="http://ontology.dumontierlab.com/Compound"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#HoldingTime"/>
+			<entity2 rdf:resource="http://ontology.dumontierlab.com/Time"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#IrradiationEnergy"/>
+			<entity2 rdf:resource="http://ontology.dumontierlab.com/Energy"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Atmosphere"/>
+			<entity2 rdf:resource="http://www.ifomis.org/bfo/1.0/snap#ObjectAggregate"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Environment"/>
+			<entity2 rdf:resource="http://www.ifomis.org/bfo/1.0/span#SpatiotemporalRegion"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#ManufacturingProcess"/>
+			<entity2 rdf:resource="http://www.ifomis.org/bfo/1.0/span#Process"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#CorrosionPotential"/>
+			<entity2 rdf:resource="http://ontology.dumontierlab.com/MeasuredProperty"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Conductivity"/>
+			<entity2 rdf:resource="http://ontology.dumontierlab.com/MeasuredProperty"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#ElectricPotential"/>
+			<entity2 rdf:resource="http://ontology.dumontierlab.com/MeasuredProperty"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#FlowState"/>
+			<entity2 rdf:resource="http://ontology.dumontierlab.com/MeasuredProperty"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#FlowRate"/>
+			<entity2 rdf:resource="http://ontology.dumontierlab.com/MeasuredProperty"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Irradiation"/>
+			<entity2 rdf:resource="http://ontology.dumontierlab.com/MeasuredProperty"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+
+	<map>
+		<Cell>
+			<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Humidity"/>
+			<entity2 rdf:resource="http://ontology.dumontierlab.com/MeasuredProperty"/>
+			<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+			<relation>&lt;</relation>
+		</Cell>
+	</map>
+
+</Alignment>
+</rdf:RDF>

@@ -38,7 +38,8 @@ num_matches = config.num_matches
 top_k = config.top_k
 context = config.context
 # define result files
-predict_path = config.predict_path
+predict_source_path = config.predict_source_path
+predict_target_path = config.predict_target_path
 true_path = config.true_path
 
 
@@ -231,16 +232,69 @@ if __name__ == '__main__':
     # find all entities
     e1_list_class, e2_list_class, e1_list_property, e2_list_property = om_ontology_to_csv.find_all_entities()
     e1_list = e1_list_class + e1_list_property
+    e2_list = e2_list_class + e2_list_property
     # find entity matching
-    util.create_document(predict_path, header=['Entity1', 'Entity2'])
+
+    util.create_document(predict_source_path, header=['Entity1', 'Entity2'])
     for entity in e1_list:
-    # for entity in ["http://cmt#Person"]:
-    # for entity in ["http://cmt#SubjectArea"]:
-    # for entity in ["http://cmt#Chairman"]:
-    # for entity in ["http://cmt#finalizePaperAssignment"]:
-    # for entity in ["http://confOf#Banquet"]:
+    # # for entity in ["http://cmt#Person"]:
+    # # for entity in ["http://cmt#SubjectArea"]:
+    # # for entity in ["http://cmt#Chairman"]:
+    # # for entity in ["http://cmt#finalizePaperAssignment"]:
+    # # for entity in ["http://confOf#Banquet"]:
         entity_name = om_ontology_to_csv.get_entity_name(entity, o1)
         entity = util.uri_to_prefix_name(entity_name, "source")
+
+        # prompt_summary = f"Please find the equivalent entity to the following entity: '{entity}' " \
+        #                  "Use initial matching, lexical matching, and graphical matching. " \
+        #                  "Format the output as JSON."
+        #
+        # result = agent({"input": prompt_summary})
+        # print(result['output'])
+        # # summary the matching
+        # output_json = json.loads(result['output'])
+        # initial_matching_result = output_json['initial_matching']
+        # lexical_matching_result = output_json['lexical_matching']
+        # graphical_matching_result = output_json['graphical_matching']
+        # predict_entity_list = reciprocal_rank_fusion(initial_matching_result, lexical_matching_result, graphical_matching_result)
+        # print("entity:", entity)
+        # print("predict_entity_list:", predict_entity_list)
+        # create_log(f"entity: {entity}, predict_entity_list: {predict_entity_list}")
+
+        initial_matching_result = initial_matching(entity)
+        lexical_matching_result = lexical_matching(entity)
+        graphical_matching_result = graphical_matching(entity)
+        predict_entity_list = reciprocal_rank_fusion(initial_matching_result, lexical_matching_result,
+                                                     graphical_matching_result)
+        print("entity:", entity)
+        print("predict_entity_list:", predict_entity_list)
+        create_log(f"entity: {entity}, predict_entity_list: {predict_entity_list}")
+
+        # refine the matching, restrict to top_k for now
+        for predict_entity in predict_entity_list[:top_k]:
+            prompt_refine_question = (
+                # Is Entity 1 different/distinct from Entity 2
+                "Is {entity} equivalent to {predict_entity} in the context of {context}? Consider the meaning only."
+                .format(context=context, entity=util.prefix_name_to_name(entity),
+                        predict_entity=util.prefix_name_to_name(predict_entity)))
+            result_refine = llm.predict(prompt_refine_question)
+            print("result_refine", result_refine)
+            create_log(f"prompt_refine_question: {prompt_refine_question}")
+            create_log(f"result_refine: {result_refine}")
+            if extract_yes_no(result_refine) == "yes":
+                with open(predict_source_path, "a+", newline='') as f:
+                    writer = csv.writer(f)
+                    list_pair = [entity, predict_entity]
+                    writer.writerow(list_pair)
+                break
+
+    # evaluation
+    print(util.calculate_metrics(true_path, predict_source_path, config.alignment+"source", config.result_path))
+
+    util.create_document(predict_target_path, header=['Entity2', 'Entity1'])
+    for entity in e2_list:
+        entity_name = om_ontology_to_csv.get_entity_name(entity, o2)
+        entity = util.uri_to_prefix_name(entity_name, "target")
 
         # prompt_summary = f"Please find the equivalent entity to the following entity: '{entity}' " \
         #                  "Use initial matching, lexical matching, and graphical matching. " \
@@ -270,8 +324,7 @@ if __name__ == '__main__':
         for predict_entity in predict_entity_list[:top_k]:
             prompt_refine_question = (
                 # Is Entity 1 different/distinct from Entity 2
-                "Is {entity} equivalent to {predict_entity} in the context of {context}? "
-                "Note {entity} is equivalent to {predict_entity} if they exactly match."
+                "Is {entity} equivalent to {predict_entity} in the context of {context}? Consider the meaning only."
                 .format(context=context, entity=util.prefix_name_to_name(entity),
                         predict_entity=util.prefix_name_to_name(predict_entity)))
             result_refine = llm.predict(prompt_refine_question)
@@ -279,15 +332,24 @@ if __name__ == '__main__':
             create_log(f"prompt_refine_question: {prompt_refine_question}")
             create_log(f"result_refine: {result_refine}")
             if extract_yes_no(result_refine) == "yes":
-                with open(predict_path, "a+", newline='') as f:
+                with open(predict_target_path, "a+", newline='') as f:
                     writer = csv.writer(f)
                     list_pair = [entity, predict_entity]
                     writer.writerow(list_pair)
                 break
 
     # evaluation
-    print(util.calculate_metrics(true_path, predict_path, config.alignment, config.result_path))
+    print(util.calculate_metrics(true_path, predict_target_path, config.alignment+"target", config.result_path))
 
+    df_source = pd.read_csv(config.predict_source_path)
+    df_target = pd.read_csv(config.predict_target_path)
+    df_merge = pd.merge(df_source, df_target, on=['Entity1', 'Entity2'])
+    df_merge.to_csv(config.predict_path, index=False)
+
+    print(util.calculate_metrics(config.true_path, config.predict_path, config.alignment, config.result_path))
+
+
+# async function
 # if __name__ == '__main__':
 #     loop = asyncio.get_event_loop()
 #     loop.run_until_complete(main())
@@ -297,7 +359,7 @@ if __name__ == '__main__':
 #     e1_list_class, e2_list_class, e1_list_property, e2_list_property = ontology_to_csv.find_all_entities()
 #     e1_list = e1_list_class + e1_list_property
 #     # find entity matching
-#     predict_path = "rag/predict.csv"
+#     predict_path = "rag/predict_target.csv"
 #     util.create_document(predict_path, header=['Entity1', 'Entity2'])
 #
 # for entity in e1_list:

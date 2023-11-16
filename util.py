@@ -114,10 +114,7 @@ def calculate_metrics(true_path, predict_path, alignment, result_path):
     if df_predict.empty:
         return [0, 0, 0]
     else:
-        list_true = df_true.values.tolist()
-        list_predict = df_predict.values.tolist()
-        common = common_member(list_true, list_predict)
-        # print("common", common)
+        common = pd.merge(df_true, df_predict, on=['Entity1', 'Entity2'])
         ra = len(common)
         print("ra", ra)
         r = len(df_true)

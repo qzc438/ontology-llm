@@ -99,7 +99,7 @@ def compare_entities(list_source, list_target):
             # https://towardsdatascience.com/use-langchains-output-parser-with-chatgpt-for-structured-outputs-cf536f692685
             try:
                 json_object = json.loads(content)
-                # save to predict.csv
+                # save to predict_target.csv
                 threshold = 1
                 if json_object["result"] and json_object["confidence"] >= threshold:
                     with open(predict_path, "a+", newline='') as f1:
@@ -143,7 +143,7 @@ if __name__ == '__main__':
     o1_path = "../data/conference/cmt-conference/component/source.xml"
     o2_path = "../data/conference/cmt-conference/component/target.xml"
     align_path = "../data/conference/cmt-conference/component/reference.xml"
-    predict_path = "predict.csv"
+    predict_path = "predict_target.csv"
     true_path = "true.csv"
 
     # find true value

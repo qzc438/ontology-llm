@@ -115,7 +115,7 @@ if __name__ == '__main__':
     o1_path = "../data/conference/cmt-conference/component/source.xml"
     o2_path = "../data/conference/cmt-conference/component/target.xml"
     align_path = "../data/conference/cmt-conference/component/reference.xml"
-    predict_path = "rag/predict.csv"
+    predict_path = "rag/predict_target.csv"
     true_path = "rag/true.csv"
 
     # find true value

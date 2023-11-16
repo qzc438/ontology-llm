@@ -8,8 +8,8 @@ from langchain.embeddings import OpenAIEmbeddings
 
 # customer settings
 
-# is_code = False
-# context = "conference"
+is_code = False
+context = "conference"
 # alignment = "conference/cmt-conference/component/"
 # alignment = "conference/cmt-confof/component/"
 # alignment = "conference/cmt-edas/component/"
@@ -17,6 +17,7 @@ from langchain.embeddings import OpenAIEmbeddings
 # alignment = "conference/cmt-iasted/component/"
 # alignment = "conference/cmt-sigkdd/component/"
 # alignment = "conference/conference-confof/component/"
+
 # alignment = "conference/conference-edas/component/"
 # alignment = "conference/conference-ekaw/component/"
 # alignment = "conference/conference-iasted/component/"
@@ -36,9 +37,13 @@ from langchain.embeddings import OpenAIEmbeddings
 # alignment = "conference/dbpedia-confof/component/"
 
 
+# is_code = True
+# context = "anatomy"
+# alignment = "anatomy/mouse-human-suite/component/"
+
 is_code = True
-context = "anatomy"
-alignment = "anatomy/mouse-human-suite/component/"
+context = "material sciences and engineering"
+alignment = "mse/MaterialInformation-EMMO/component/"
 
 # common settings
 data_folder = "data/" + alignment
@@ -48,6 +53,8 @@ align_path = data_folder + "reference.xml"
 align_folder = "alignment/" + alignment
 util.create_folder(align_folder)
 csv_path = align_folder + "ontology_matching.csv"
+predict_source_path = align_folder + "predict_source.csv"
+predict_target_path = align_folder + "predict_target.csv"
 predict_path = align_folder + "predict.csv"
 true_path = align_folder + "true.csv"
 result_path = "result.csv"
