@@ -22,15 +22,37 @@ def custom_sort(row):
         return (name,)
 
 
-def draw_and_save(input_csv, output_png, threshold):
-    # Choose a colormap and the number of colors to sample
+def draw_and_save(input_csv, output_png, threshold, f1_number, legend_y, long_color):
+
+    # Choose a colormap
     cmap_name = 'tab20'
     num_colors = 20
     # Get a list of colors from the colormap
-    colors_list = get_cmap_colors(cmap_name, num_colors)
+    colors_list_20 = get_cmap_colors(cmap_name, num_colors)
     # Convert colors to a list of hex color codes
-    colors_hex_list = ['#' + ''.join(f'{int(c * 255):02X}' for c in color[:3]) for color in colors_list]
-    colors_hex_list.remove('#D62728')
+    colors_hex_list_20 = ['#' + ''.join(f'{int(c * 255):02X}' for c in color[:3]) for color in colors_list_20]
+    # delete similar colors
+    # colors_hex_list_20.remove('#FF7F0E')
+    # colors_hex_list_20.remove('#FFBB78')
+    colors_hex_list_20.remove('#D62728')
+    colors_hex_list_20.remove('#FF9896')
+    colors_hex_list_20.remove('#7F7F7F')
+    colors_hex_list_20.remove('#C7C7C7')
+    # Print the hex color codes
+    # for color_hex in colors_hex_list:
+    #     print(color_hex)
+
+    # Choose a colormap
+    cmap_name = 'tab10'
+    num_colors = 10
+    # Get a list of colors from the colormap
+    colors_list_10 = get_cmap_colors(cmap_name, num_colors)
+    # Convert colors to a list of hex color codes
+    colors_hex_list_10 = ['#' + ''.join(f'{int(c * 255):02X}' for c in color[:3]) for color in colors_list_10]
+    # delete similar colors
+    # colors_hex_list_10.remove('#FF7F0E')
+    colors_hex_list_10.remove('#D62728')
+    colors_hex_list_10.remove('#7F7F7F')
     # Print the hex color codes
     # for color_hex in colors_hex_list:
     #     print(color_hex)
@@ -40,7 +62,7 @@ def draw_and_save(input_csv, output_png, threshold):
     # Read the csv file
     df = pd.read_csv(input_csv)
     # filter
-    df = df[(df['Precision'] > threshold) & (df['Recall'] > threshold)]
+    df = df[(df['Precision'] >= threshold) & (df['Recall'] >= threshold)]
     # sort
     df = df.iloc[df.apply(custom_sort, axis=1).argsort()]
     # df = df.sort_values(by='Name', key=lambda col: col.apply(lambda x: (x, '') if x == new_matcher else ('', x)))
@@ -54,19 +76,22 @@ def draw_and_save(input_csv, output_png, threshold):
     # Create a scatter plot
     plt.figure(figsize=(3.5, 3))
 
-    marker_size = 80
+    marker_size = 100
     marker_offset = 0
 
     # plot precision and recall
     for i, (rec, prec, name) in enumerate(zip(recall, precision, names)):
         if name == new_matcher:
-            plt.scatter(rec, prec - marker_offset, s=marker_size * 2, marker='*', label=f'{name}', color='#D62728')
+            plt.scatter(rec, prec - marker_offset, s=marker_size * 2, marker='*', label=f'{name}', color='#D62728', zorder=2)
         else:
-            plt.scatter(rec, prec - marker_offset, s=marker_size, marker='^', label=f'{name}', color=colors_hex_list[i-1])
+            if long_color:
+                plt.scatter(rec, prec - marker_offset, s=marker_size, marker='^', label=f'{name}', color=colors_hex_list_20[i-1], zorder=1)
+            else:
+                plt.scatter(rec, prec - marker_offset, s=marker_size, marker='^', label=f'{name}', color=colors_hex_list_10[i-1], zorder=1)
         # plt.text(rec-0.01, prec-0.05, f'{name}', fontsize=12)
 
     # Calculate and plot the iso-F1 curves
-    f1_levels = np.linspace(0.1, 0.9, num=5)
+    f1_levels = np.linspace(0.1, 0.9, num=f1_number)
     for f1 in f1_levels:
         x = np.linspace(0.001, 1, 1000)
         y = f1 * x / (2 * x - f1)
@@ -75,15 +100,14 @@ def draw_and_save(input_csv, output_png, threshold):
         plt.annotate('F1={0:0.1f}'.format(f1), xy=(x[-10], y[-10]), textcoords="offset points", xytext=(25, -3),
                      ha='center')
 
-    plt.xlim([threshold, 1.0])
-    plt.ylim([threshold, 1.0])
-    # Set the ticks on the x-axis and y-axis
+    plt.xlim([threshold, 1])
+    plt.ylim([threshold, 1.1])
     # plt.xticks(np.arange(threshold, 1.01, 0.1))
     # plt.yticks(np.arange(threshold, 1.01, 0.1))
     plt.xlabel('Recall')
     plt.ylabel('Precision')
     # plt.title('Precision-Recall Scatter Plot with iso-F1 Curves')
-    plt.legend(loc='upper left', bbox_to_anchor=(-0.7, 1), frameon=False)
+    plt.legend(loc='upper left', bbox_to_anchor=(-0.8, legend_y), frameon=False)
     # title_font = FontProperties(weight='bold')
     # plt.legend(title="System Name", title_fontproperties=title_font, loc='upper right', bbox_to_anchor=(1.4, 1), frameon=False)
     # plt.subplots_adjust(left=0)
@@ -99,6 +123,9 @@ def draw_and_save(input_csv, output_png, threshold):
 
 
 if __name__ == '__main__':
-    # draw_and_save('conference_track.csv', 'conference.png', 0.3)
-    draw_and_save('anatomy_benchmark/result_filter.csv', 'anatomy-filter.png', 0)
-    draw_and_save('anatomy_benchmark/result.csv', 'anatomy.png', 0.5)
+    draw_and_save('conference_track.csv', 'fig/conference.png', -0.1, 5, 1.1, True)
+    draw_and_save('benchmark_anatomy/result_filter.csv', 'fig/anatomy-filter.png', -0.1, 5, 1, True)
+    draw_and_save('benchmark_anatomy/result.csv', 'fig/anatomy.png', -0.1, 5, 1, True)
+    draw_and_save('benchmark_mse/firstTestCase/result.csv', 'fig/mse-1.png', -0.1, 5, 0.75, False)
+    draw_and_save('benchmark_mse/secondTestCase/result.csv', 'fig/mse-2.png', -0.1, 5, 0.75, False)
+    draw_and_save('benchmark_mse/thirdTestCase/result.csv', 'fig/mse-3.png', -0.1, 5, 0.75, False)

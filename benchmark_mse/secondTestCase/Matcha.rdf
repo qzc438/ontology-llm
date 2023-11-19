@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+	<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment'
+	xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+	xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+	xmlns:alext='http://exmo.inrialpes.fr/align/ext/1.0/'
+>
+
+	<Alignment>
+		<xml>yes</xml>
+		<level>0</level>
+		<type>??</type>
+		<onto1>
+			<Ontology rdf:about="http://codata.jp/OML-MaterialInformation">
+				<location>/tmp/MELT-fileupload9703251020581222514/source-670067304108745281.rdf</location>
+			</Ontology>
+		</onto1>
+		<onto2>
+			<Ontology rdf:about="http://matonto.org/ontologies/matonto">
+				<location>/tmp/MELT-fileupload9703251020581222514/target-8311656611167820866.rdf</location>
+			</Ontology>
+		</onto2>
+		<map>
+			<Cell>
+				<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Value"/>
+				<entity2 rdf:resource="http://ontology.dumontierlab.com/hasValue"/>
+				<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+				<relation>=</relation>
+			</Cell>
+		</map>
+		<map>
+			<Cell>
+				<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Temperature"/>
+				<entity2 rdf:resource="http://matonto.org/ontologies/matonto#hasTemperature"/>
+				<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+				<relation>=</relation>
+			</Cell>
+		</map>
+		<map>
+			<Cell>
+				<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Pressure"/>
+				<entity2 rdf:resource="http://matonto.org/ontologies/matonto#hasPressure"/>
+				<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+				<relation>=</relation>
+			</Cell>
+		</map>
+		<map>
+			<Cell>
+				<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Property"/>
+				<entity2 rdf:resource="http://ontology.dumontierlab.com/hasAtomicProperty"/>
+				<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.7943478260869565</measure>
+				<relation>=</relation>
+			</Cell>
+		</map>
+		<map>
+			<Cell>
+				<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#CommonName"/>
+				<entity2 rdf:resource="http://matonto.org/ontologies/matonto#hasName"/>
+				<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.714</measure>
+				<relation>=</relation>
+			</Cell>
+		</map>
+		<map>
+			<Cell>
+				<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#ChemicalFormula"/>
+				<entity2 rdf:resource="http://matonto.org/ontologies/matonto#hasChemicalSymbol"/>
+				<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.6440272235688981</measure>
+				<relation>=</relation>
+			</Cell>
+		</map>
+	</Alignment>
+</rdf:RDF>

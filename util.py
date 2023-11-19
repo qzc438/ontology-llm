@@ -14,11 +14,19 @@ def find_uri(ontology):
 
 
 def uri_to_prefix_name(uri, prefix):
-    return prefix + ":" + str(uri).split("#")[-1]
+    uri_str = str(uri)
+    if "#" in uri_str:
+        return prefix + ":" + str(uri).split("#")[-1]
+    else:
+        return prefix + ":" + str(uri).split("/")[-1]
 
 
 def uri_to_name(uri):
-    return str(uri).split("#")[-1]
+    uri_str = str(uri)
+    if "#" in uri_str:
+        return uri_str.split("#")[-1]
+    else:
+        return uri_str.split("/")[-1]
 
 
 def prefix_name_to_name(prefix_name):
@@ -114,25 +122,32 @@ def calculate_metrics(true_path, predict_path, alignment, result_path):
     if df_predict.empty:
         return [0, 0, 0]
     else:
-        common = pd.merge(df_true, df_predict, on=['Entity1', 'Entity2'])
+        list_true = df_true.values.tolist()
+        list_predict = df_predict.values.tolist()
+        common = common_member(list_true, list_predict)
+        # common = pd.merge(df_true, df_predict, on=['Entity1', 'Entity2'])
+        # print(common)
         ra = len(common)
         print("ra", ra)
-        r = len(df_true)
-        print("r", r)
-        a = len(df_predict)
-        print("a", a)
-        precision = ra / a
-        recall = ra / r
-        f1 = 2 * (precision * recall) / (precision + recall)
-        # write to file
-        # create_document(result_path, header=['Alignment', 'Precision', 'Recall', 'F1'])
-        with open(result_path, "a+", newline='') as f:
-            writer = csv.writer(f)
-            result = ["%.2f" % (precision * 100), "%.2f" % (recall * 100), "%.2f" % (f1 * 100)]
-            result = [alignment] + result
-            writer.writerow(result)
-        # print results
-        return ["%.2f" % (precision * 100), "%.2f" % (recall * 100), "%.2f" % (f1 * 100)]
+        if ra == 0:
+            return [0, 0, 0]
+        else:
+            r = len(df_true)
+            print("r", r)
+            a = len(df_predict)
+            print("a", a)
+            precision = ra / a
+            recall = ra / r
+            f1 = 2 * (precision * recall) / (precision + recall)
+            # write to file
+            # create_document(result_path, header=['Alignment', 'Precision', 'Recall', 'F1'])
+            with open(result_path, "a+", newline='') as f:
+                writer = csv.writer(f)
+                result = ["%.2f" % (precision * 100), "%.2f" % (recall * 100), "%.2f" % (f1 * 100)]
+                result = [alignment] + result
+                writer.writerow(result)
+            # print results
+            return ["%.2f" % (precision * 100), "%.2f" % (recall * 100), "%.2f" % (f1 * 100)]
 
 
 def common_member(a, b):

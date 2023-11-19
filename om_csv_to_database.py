@@ -12,7 +12,10 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 # load the csv file
 df = pd.read_csv(config.csv_path)
+# remove null
 df = df.fillna('')
+# remove duplicate
+df = df.drop_duplicates(subset='entity')
 
 
 async def create_ontology_matching_table():

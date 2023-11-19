@@ -8,8 +8,8 @@ from langchain.embeddings import OpenAIEmbeddings
 
 # customer settings
 
-is_code = False
-context = "conference"
+# is_code = False
+# context = "conference"
 # alignment = "conference/cmt-conference/component/"
 # alignment = "conference/cmt-confof/component/"
 # alignment = "conference/cmt-edas/component/"
@@ -36,14 +36,24 @@ context = "conference"
 
 # alignment = "conference/dbpedia-confof/component/"
 
-
 # is_code = True
 # context = "anatomy"
 # alignment = "anatomy/mouse-human-suite/component/"
 
-is_code = True
+# context = "material sciences and engineering"
+# alignment = "mse/MaterialInformation-EMMO/component/"
+# o1_is_code = False
+# o2_is_code = True
+
 context = "material sciences and engineering"
-alignment = "mse/MaterialInformation-EMMO/component/"
+alignment = "mse/MaterialInformation-MatOnto/component/"
+o1_is_code = False
+o2_is_code = False
+
+# context = "material sciences and engineering"
+# alignment = "mse/MaterialInformationReduced-MatOnto/component/"
+# o1_is_code = False
+# o2_is_code = False
 
 # common settings
 data_folder = "data/" + alignment

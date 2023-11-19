@@ -41,3 +41,5 @@ sudo apt install postgresql-15-pgvector
 visualisation:
 https://joernhees.de/blog/2010/07/22/precision-recall-diagrams-including-fmeasure/
 https://towardsai.net/p/l/precision-recall-curve
+
+Call huanyu for approval for trivial reference

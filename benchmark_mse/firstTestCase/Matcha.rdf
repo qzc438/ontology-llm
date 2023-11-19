@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+	<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment'
+	xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+	xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+	xmlns:alext='http://exmo.inrialpes.fr/align/ext/1.0/'
+>
+
+	<Alignment>
+		<xml>yes</xml>
+		<level>0</level>
+		<type>*?</type>
+		<onto1>
+			<Ontology rdf:about="http://codata.jp/OML-MaterialInformation-reduced">
+				<location>/tmp/MELT-fileupload9703251020581222514/source-1603927382865189151.rdf</location>
+			</Ontology>
+		</onto1>
+		<onto2>
+			<Ontology rdf:about="http://matonto.org/ontologies/matonto">
+				<location>/tmp/MELT-fileupload9703251020581222514/target-2915457945399541679.rdf</location>
+			</Ontology>
+		</onto2>
+		<map>
+			<Cell>
+				<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Pressure"/>
+				<entity2 rdf:resource="http://matonto.org/ontologies/matonto#hasPressure"/>
+				<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+				<relation>=</relation>
+			</Cell>
+		</map>
+		<map>
+			<Cell>
+				<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Temperature"/>
+				<entity2 rdf:resource="http://matonto.org/ontologies/matonto#hasTemperature"/>
+				<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+				<relation>=</relation>
+			</Cell>
+		</map>
+		<map>
+			<Cell>
+				<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#UnitSystem"/>
+				<entity2 rdf:resource="http://ontology.dumontierlab.com/hasUnit"/>
+				<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.8064</measure>
+				<relation>=</relation>
+			</Cell>
+		</map>
+		<map>
+			<Cell>
+				<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#UnitSystem"/>
+				<entity2 rdf:resource="http://ontology.dumontierlab.com/isUnitOf"/>
+				<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.8064</measure>
+				<relation>=</relation>
+			</Cell>
+		</map>
+	</Alignment>
+</rdf:RDF>

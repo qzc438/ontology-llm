@@ -21,7 +21,8 @@ o1_path = config.o1_path
 o2_path = config.o2_path
 align_path = config.align_path
 context = config.context
-is_code = config.is_code
+o1_is_code = config.o1_is_code
+o2_is_code = config.o2_is_code
 
 o1 = config.o1
 o2 = config.o2
@@ -242,7 +243,7 @@ if __name__ == '__main__':
     # # for entity in ["http://cmt#Chairman"]:
     # # for entity in ["http://cmt#finalizePaperAssignment"]:
     # # for entity in ["http://confOf#Banquet"]:
-        entity_name = om_ontology_to_csv.get_entity_name(entity, o1)
+        entity_name = om_ontology_to_csv.get_entity_name(entity, o1, o1_is_code)
         entity = util.uri_to_prefix_name(entity_name, "source")
 
         # prompt_summary = f"Please find the equivalent entity to the following entity: '{entity}' " \
@@ -293,7 +294,7 @@ if __name__ == '__main__':
 
     util.create_document(predict_target_path, header=['Entity2', 'Entity1'])
     for entity in e2_list:
-        entity_name = om_ontology_to_csv.get_entity_name(entity, o2)
+        entity_name = om_ontology_to_csv.get_entity_name(entity, o2, o2_is_code)
         entity = util.uri_to_prefix_name(entity_name, "target")
 
         # prompt_summary = f"Please find the equivalent entity to the following entity: '{entity}' " \

@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+	<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment'
+	xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+	xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+	xmlns:alext='http://exmo.inrialpes.fr/align/ext/1.0/'
+>
+
+	<Alignment>
+		<xml>yes</xml>
+		<level>0</level>
+		<type>??</type>
+		<onto1>
+			<Ontology rdf:about="http://codata.jp/OML-MaterialInformation">
+				<location>/tmp/MELT-fileupload9703251020581222514/source-6671115486470266205.rdf</location>
+			</Ontology>
+		</onto1>
+		<onto2>
+			<Ontology rdf:about="http://emmo.info/emmo">
+				<location>/tmp/MELT-fileupload9703251020581222514/target-5838836080405249291.rdf</location>
+			</Ontology>
+		</onto2>
+		<map>
+			<Cell>
+				<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Property"/>
+				<entity2 rdf:resource="http://emmo.info/emmo/middle/properties#EMMO_e1097637_70d2_4895_973f_2396f04fa204"/>
+				<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</measure>
+				<relation>=</relation>
+			</Cell>
+		</map>
+		<map>
+			<Cell>
+				<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Pressure"/>
+				<entity2 rdf:resource="http://emmo.info/emmo/middle/isq#EMMO_50a44256_9dc5_434b_bad4_74a4d9a29989"/>
+				<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+				<relation>=</relation>
+			</Cell>
+		</map>
+		<map>
+			<Cell>
+				<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Equation"/>
+				<entity2 rdf:resource="http://emmo.info/emmo/middle/math#EMMO_e56ee3eb_7609_4ae1_8bed_51974f0960a6"/>
+				<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.9306</measure>
+				<relation>=</relation>
+			</Cell>
+		</map>
+		<map>
+			<Cell>
+				<entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Atmosphere"/>
+				<entity2 rdf:resource="http://emmo.info/emmo/middle/materials#EMMO_87ac88ff_8379_4f5a_8c7b_424a8fff1ee8"/>
+				<measure rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.6204</measure>
+				<relation>=</relation>
+			</Cell>
+		</map>
+	</Alignment>
+</rdf:RDF>
