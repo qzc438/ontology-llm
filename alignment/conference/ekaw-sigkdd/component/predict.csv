@@ -1,0 +1,15 @@
+Entity1,Entity2
+source:Person,target:Person
+source:Paper,target:Paper
+source:Abstract,target:Abstract
+source:Document,target:Document
+source:Paper_Author,target:Author_of_paper
+source:Review,target:Review
+source:Organising_Agency,target:Organizing_Committee
+source:Conference,target:Conference
+source:PC_Chair,target:Program_Chair
+source:PC_Member,target:Program_Committee_member
+source:OC_Member,target:Organizing_Committee_member
+source:Invited_Speaker,target:Invited_Speaker
+source:presentationOfPaper,target:presentation
+source:locationOf,target:City_of_conference

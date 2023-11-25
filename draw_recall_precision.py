@@ -23,7 +23,6 @@ def custom_sort(row):
 
 
 def draw_and_save(input_csv, output_png, threshold, f1_number, legend_y, long_color):
-
     # Choose a colormap
     cmap_name = 'tab20'
     num_colors = 20
@@ -82,12 +81,15 @@ def draw_and_save(input_csv, output_png, threshold, f1_number, legend_y, long_co
     # plot precision and recall
     for i, (rec, prec, name) in enumerate(zip(recall, precision, names)):
         if name == new_matcher:
-            plt.scatter(rec, prec - marker_offset, s=marker_size * 2, marker='*', label=f'{name}', color='#D62728', zorder=2)
+            plt.scatter(rec, prec - marker_offset, s=marker_size * 2, marker='*', label=f'{name}', color='#D62728',
+                        zorder=2)
         else:
             if long_color:
-                plt.scatter(rec, prec - marker_offset, s=marker_size, marker='^', label=f'{name}', color=colors_hex_list_20[i-1], zorder=1)
+                plt.scatter(rec, prec - marker_offset, s=marker_size, marker='^', label=f'{name}',
+                            color=colors_hex_list_20[i - 1], zorder=1)
             else:
-                plt.scatter(rec, prec - marker_offset, s=marker_size, marker='^', label=f'{name}', color=colors_hex_list_10[i-1], zorder=1)
+                plt.scatter(rec, prec - marker_offset, s=marker_size, marker='^', label=f'{name}',
+                            color=colors_hex_list_10[i - 1], zorder=1)
         # plt.text(rec-0.01, prec-0.05, f'{name}', fontsize=12)
 
     # Calculate and plot the iso-F1 curves
@@ -107,7 +109,8 @@ def draw_and_save(input_csv, output_png, threshold, f1_number, legend_y, long_co
     plt.xlabel('Recall')
     plt.ylabel('Precision')
     # plt.title('Precision-Recall Scatter Plot with iso-F1 Curves')
-    plt.legend(loc='upper left', bbox_to_anchor=(-0.8, legend_y), frameon=False)
+    wrapped_labels = [label.replace(" ", "\n") for label in names]
+    plt.legend(wrapped_labels, loc='upper left', bbox_to_anchor=(-0.8, legend_y), frameon=False)
     # title_font = FontProperties(weight='bold')
     # plt.legend(title="System Name", title_fontproperties=title_font, loc='upper right', bbox_to_anchor=(1.4, 1), frameon=False)
     # plt.subplots_adjust(left=0)
@@ -123,9 +126,10 @@ def draw_and_save(input_csv, output_png, threshold, f1_number, legend_y, long_co
 
 
 if __name__ == '__main__':
-    draw_and_save('conference_track.csv', 'fig/conference.png', -0.1, 5, 1.1, True)
-    draw_and_save('benchmark_anatomy/result_filter.csv', 'fig/anatomy-filter.png', -0.1, 5, 1, True)
-    draw_and_save('benchmark_anatomy/result.csv', 'fig/anatomy.png', -0.1, 5, 1, True)
-    draw_and_save('benchmark_mse/firstTestCase/result.csv', 'fig/mse-1.png', -0.1, 5, 0.75, False)
-    draw_and_save('benchmark_mse/secondTestCase/result.csv', 'fig/mse-2.png', -0.1, 5, 0.75, False)
-    draw_and_save('benchmark_mse/thirdTestCase/result.csv', 'fig/mse-3.png', -0.1, 5, 0.75, False)
+    draw_and_save('conference_benchmark.csv', 'fig_result/conference.png', -0.1, 5, 1.05, True)
+    draw_and_save('dbpedia_benchmark.csv', 'fig_result/conference-dbpedia.png', -0.1, 5, 1, False)
+    draw_and_save('benchmark_anatomy/result_filter.csv', 'fig_result/anatomy-filter.png', -0.1, 5, 1, True)
+    draw_and_save('benchmark_anatomy/result.csv', 'fig_result/anatomy.png', -0.1, 5, 1, True)
+    draw_and_save('benchmark_mse/firstTestCase/result.csv', 'fig_result/mse-1.png', -0.1, 5, 1, False)
+    draw_and_save('benchmark_mse/secondTestCase/result.csv', 'fig_result/mse-2.png', -0.1, 5, 1, False)
+    draw_and_save('benchmark_mse/thirdTestCase/result.csv', 'fig_result/mse-3.png', -0.1, 5, 1, False)

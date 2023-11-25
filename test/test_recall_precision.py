@@ -28,7 +28,7 @@ colors_hex_list.remove('#D62728')
 new_matcher = "Agent-OM*"
 
 # Read the csv file
-df = pd.read_csv('../conference_track.csv')
+df = pd.read_csv('../conference_benchmark.csv')
 df = df.sort_values(by='Name', key=lambda col: col.apply(lambda x: (x, '') if x == new_matcher else ('', x)))
 precision = df['Precision'].values
 recall = df['Recall'].values

@@ -8,8 +8,9 @@ from langchain.embeddings import OpenAIEmbeddings
 
 # customer settings
 
-# is_code = False
-# context = "conference"
+context = "conference"
+o1_is_code = False
+o2_is_code = False
 # alignment = "conference/cmt-conference/component/"
 # alignment = "conference/cmt-confof/component/"
 # alignment = "conference/cmt-edas/component/"
@@ -17,13 +18,11 @@ from langchain.embeddings import OpenAIEmbeddings
 # alignment = "conference/cmt-iasted/component/"
 # alignment = "conference/cmt-sigkdd/component/"
 # alignment = "conference/conference-confof/component/"
-
 # alignment = "conference/conference-edas/component/"
 # alignment = "conference/conference-ekaw/component/"
 # alignment = "conference/conference-iasted/component/"
 # alignment = "conference/conference-sigkdd/component/"
 # alignment = "conference/confof-edas/component/"
-
 # alignment = "conference/confof-ekaw/component/"
 # alignment = "conference/confof-iasted/component/"
 # alignment = "conference/confof-sigkdd/component/"
@@ -35,6 +34,8 @@ from langchain.embeddings import OpenAIEmbeddings
 # alignment = "conference/iasted-sigkdd/component/"
 
 # alignment = "conference/dbpedia-confof/component/"
+# alignment = "conference/dbpedia-ekaw/component/"
+alignment = "conference/dbpedia-sigkdd/component/"
 
 # is_code = True
 # context = "anatomy"
@@ -45,10 +46,10 @@ from langchain.embeddings import OpenAIEmbeddings
 # o1_is_code = False
 # o2_is_code = True
 
-context = "material sciences and engineering"
-alignment = "mse/MaterialInformation-MatOnto/component/"
-o1_is_code = False
-o2_is_code = False
+# context = "material sciences and engineering"
+# alignment = "mse/MaterialInformation-MatOnto/component/"
+# o1_is_code = False
+# o2_is_code = False
 
 # context = "material sciences and engineering"
 # alignment = "mse/MaterialInformationReduced-MatOnto/component/"
