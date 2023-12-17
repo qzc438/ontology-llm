@@ -1,5 +1,4 @@
 Entity1,Entity2
-source:Meta-Reviewer,target:Review_expertise
 source:Reviewer,target:Reviewer
 source:Person,target:Person
 source:Document,target:Paper
@@ -19,11 +18,10 @@ source:Author,target:Regular_author
 source:Co-author,target:Contribution_co-author
 source:PaperAbstract,target:Extended_abstract
 source:PaperFullVersion,target:Paper
-source:assignedByReviewer,target:has_been_assigned_a_review_reference
+source:assignedByReviewer,target:belongs_to_reviewers
 source:hasConferenceMember,target:has_members
 source:memberOfConference,target:belong_to_a_conference_volume
 source:assignReviewer,target:has_been_assigned_a_review_reference
-source:assignedByAdministrator,target:is_given_by
 source:co-writePaper,target:contributes
 source:hasBeenAssigned,target:has_been_assigned_a_review_reference
 source:assignedTo,target:has_been_assigned_a_review_reference

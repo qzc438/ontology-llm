@@ -18,8 +18,8 @@ llm = ChatOpenAI(model_name='gpt-4', temperature=0)
 # prompt = "Is SubjectArea equivalent to Topic in the context of conference? Consider the meaning only."
 # print(llm.predict(prompt))
 #
-# prompt = "Is http://mouse.owl\#MA_0000270 equivalent to http://human.owl\#NCI_C33736 in the context of anatomy? Consider the meaning only."
-# print(llm.predict(prompt))
+prompt = "Is http://mouse.owl\#MA_0000270 equivalent to http://human.owl\#NCI_C33736 in the context of anatomy? Consider the meaning only."
+print(llm.predict(prompt))
 #
 # prompt = "Is mouse:MA_0000270 equivalent to human:NCI_C33736 in the context of anatomy? Consider the meaning only."
 # print(llm.predict(prompt))
@@ -30,10 +30,10 @@ llm = ChatOpenAI(model_name='gpt-4', temperature=0)
 # prompt = " Is MA_0000270 equivalent to NCI_C33736 in the context of anatomy? Consider the meaning only."
 # print(llm.predict(prompt))
 
-prompt = "Is track equivalent to category?"
-print(llm.predict(prompt))
-prompt = "Is track equivalent to category in the context of conference?"
-print(llm.predict(prompt))
+# prompt = "Is track equivalent to category?"
+# print(llm.predict(prompt))
+# prompt = "Is track equivalent to category in the context of conference?"
+# print(llm.predict(prompt))
 
 # prompt = "We know A is equivalent to B. Is A equivalent to B?"
 # print(llm.predict(prompt))

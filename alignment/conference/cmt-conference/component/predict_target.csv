@@ -10,11 +10,12 @@ target:Conference_contributor,source:Author
 target:Contribution_co-author,source:Co-author
 target:Conference_contribution,source:Paper
 target:Co-chair,source:ConferenceChair
+target:Committee,source:ProgramCommittee
 target:Committee_member,source:ConferenceMember
 target:Abstract,source:PaperAbstract
 target:Extended_abstract,source:PaperAbstract
 target:Conference_proceedings,source:Conference
-target:Conference_document,source:Paper
+target:Conference_document,source:Document
 target:Camera_ready_contribution,source:PaperFullVersion
 target:Accepted_contribution,source:Acceptance
 target:Program_committee,source:ProgramCommittee
@@ -25,7 +26,7 @@ target:Track,source:SubjectArea
 target:Rejected_contribution,source:Rejection
 target:Review,source:Review
 target:Topic,source:SubjectArea
-target:Registeered_applicant,source:User
+target:Registeered_applicant,source:ConferenceMember
 target:Track-workshop_chair,source:ProgramCommitteeChair
 target:has_a_submitted_contribution,source:submitPaper
 target:has_authors,source:hasAuthor
@@ -35,6 +36,6 @@ target:is_part_of_conference_volumes,source:memberOfConference
 target:invites_co-reviewers,source:assignReviewer
 target:invited_by,source:addedBy
 target:has_members,source:hasConferenceMember
-target:is_submitted_at,source:submitPaper
+target:reviews,source:writeReview
 target:belong_to_a_conference_volume,source:memberOfConference
-target:has_a_URL,source:siteURL
+target:is_an_ending_date,source:endReview

@@ -18,6 +18,7 @@ df = df.fillna('')
 df = df.drop_duplicates(subset='entity')
 
 
+# create traditional table
 async def create_ontology_matching_table():
     # create connection
     conn = await asyncpg.connect('postgresql://postgres:postgres@127.0.0.1/ontology')

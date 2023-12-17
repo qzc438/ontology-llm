@@ -13,7 +13,7 @@ import rdflib
 import psycopg2
 from pgvector.psycopg2 import register_vector
 
-from langchain.agents import Tool, initialize_agent, AgentType
+from langchain.agents import Tool
 from langchain.agents.agent_toolkits import create_conversational_retrieval_agent
 
 # customer settings
@@ -149,9 +149,8 @@ def define_tools():
     return tools
 
 
-def define_agents(llm, tools):
+def define_agent(llm, tools):
     agent = create_conversational_retrieval_agent(llm, tools, verbose=True)
-    # agent = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True, handle_parsing_errors=True)
     return agent
 
 
@@ -228,14 +227,14 @@ if __name__ == '__main__':
     # define tools
     tools = define_tools()
     # define agents
-    agent = define_agents(llm, tools)
+    agent = define_agent(llm, tools)
 
     # find all entities
     e1_list_class, e2_list_class, e1_list_property, e2_list_property = om_ontology_to_csv.find_all_entities()
     e1_list = e1_list_class + e1_list_property
     e2_list = e2_list_class + e2_list_property
-    # find entity matching
 
+    # find entity matching
     util.create_document(predict_source_path, header=['Entity1', 'Entity2'])
     for entity in e1_list:
     # # for entity in ["http://cmt#Person"]:
@@ -246,30 +245,29 @@ if __name__ == '__main__':
         entity_name = om_ontology_to_csv.get_entity_name(entity, o1, o1_is_code)
         entity = util.uri_to_prefix_name(entity_name, "source")
 
-        # prompt_summary = f"Please find the equivalent entity to the following entity: '{entity}' " \
-        #                  "Use initial matching, lexical matching, and graphical matching. " \
-        #                  "Format the output as JSON."
-        #
-        # result = agent({"input": prompt_summary})
-        # print(result['output'])
-        # # summary the matching
-        # output_json = json.loads(result['output'])
-        # initial_matching_result = output_json['initial_matching']
-        # lexical_matching_result = output_json['lexical_matching']
-        # graphical_matching_result = output_json['graphical_matching']
+        prompt_summary = f"Please find the equivalent entity to the following entity: '{entity}' " \
+                         "Use initial matching, lexical matching, and graphical matching. " \
+                         "Format the output as JSON."
+
+        result = agent({"input": prompt_summary})
+        print(result['output'])
+        # summary the matching
+        output_json = json.loads(result['output'])
+        initial_matching_result = output_json['initial_matching']
+        lexical_matching_result = output_json['lexical_matching']
+        graphical_matching_result = output_json['graphical_matching']
+        predict_entity_list = reciprocal_rank_fusion(initial_matching_result, lexical_matching_result, graphical_matching_result)
+        print("entity:", entity)
+        print("predict_entity_list:", predict_entity_list)
+        create_log(f"entity: {entity}, predict_entity_list: {predict_entity_list}")
+
+        # initial_matching_result = initial_matching(entity)
+        # lexical_matching_result = lexical_matching(entity)
+        # graphical_matching_result = graphical_matching(entity)
         # predict_entity_list = reciprocal_rank_fusion(initial_matching_result, lexical_matching_result, graphical_matching_result)
         # print("entity:", entity)
         # print("predict_entity_list:", predict_entity_list)
         # create_log(f"entity: {entity}, predict_entity_list: {predict_entity_list}")
-
-        initial_matching_result = initial_matching(entity)
-        lexical_matching_result = lexical_matching(entity)
-        graphical_matching_result = graphical_matching(entity)
-        predict_entity_list = reciprocal_rank_fusion(initial_matching_result, lexical_matching_result,
-                                                     graphical_matching_result)
-        print("entity:", entity)
-        print("predict_entity_list:", predict_entity_list)
-        create_log(f"entity: {entity}, predict_entity_list: {predict_entity_list}")
 
         # refine the matching, restrict to top_k for now
         for predict_entity in predict_entity_list[:top_k]:
@@ -297,29 +295,29 @@ if __name__ == '__main__':
         entity_name = om_ontology_to_csv.get_entity_name(entity, o2, o2_is_code)
         entity = util.uri_to_prefix_name(entity_name, "target")
 
-        # prompt_summary = f"Please find the equivalent entity to the following entity: '{entity}' " \
-        #                  "Use initial matching, lexical matching, and graphical matching. " \
-        #                  "Format the output as JSON."
-        #
-        # result = agent({"input": prompt_summary})
-        # print(result['output'])
-        # # summary the matching
-        # output_json = json.loads(result['output'])
-        # initial_matching_result = output_json['initial_matching']
-        # lexical_matching_result = output_json['lexical_matching']
-        # graphical_matching_result = output_json['graphical_matching']
-        # predict_entity_list = reciprocal_rank_fusion(initial_matching_result, lexical_matching_result, graphical_matching_result)
-        # print("entity:", entity)
-        # print("predict_entity_list:", predict_entity_list)
-        # create_log(f"entity: {entity}, predict_entity_list: {predict_entity_list}")
+        prompt_summary = f"Please find the equivalent entity to the following entity: '{entity}' " \
+                         "Use initial matching, lexical matching, and graphical matching. " \
+                         "Format the output as JSON."
 
-        initial_matching_result = initial_matching(entity)
-        lexical_matching_result = lexical_matching(entity)
-        graphical_matching_result = graphical_matching(entity)
+        result = agent({"input": prompt_summary})
+        print(result['output'])
+        # summary the matching
+        output_json = json.loads(result['output'])
+        initial_matching_result = output_json['initial_matching']
+        lexical_matching_result = output_json['lexical_matching']
+        graphical_matching_result = output_json['graphical_matching']
         predict_entity_list = reciprocal_rank_fusion(initial_matching_result, lexical_matching_result, graphical_matching_result)
         print("entity:", entity)
         print("predict_entity_list:", predict_entity_list)
         create_log(f"entity: {entity}, predict_entity_list: {predict_entity_list}")
+
+        # initial_matching_result = initial_matching(entity)
+        # lexical_matching_result = lexical_matching(entity)
+        # graphical_matching_result = graphical_matching(entity)
+        # predict_entity_list = reciprocal_rank_fusion(initial_matching_result, lexical_matching_result, graphical_matching_result)
+        # print("entity:", entity)
+        # print("predict_entity_list:", predict_entity_list)
+        # create_log(f"entity: {entity}, predict_entity_list: {predict_entity_list}")
 
         # refine the matching, restrict to top_k for now
         for predict_entity in predict_entity_list[:top_k]:
@@ -348,55 +346,3 @@ if __name__ == '__main__':
     df_merge.to_csv(config.predict_path, index=False)
 
     print(util.calculate_metrics(config.true_path, config.predict_path, config.alignment, config.result_path))
-
-
-# async function
-# if __name__ == '__main__':
-#     loop = asyncio.get_event_loop()
-#     loop.run_until_complete(main())
-
-# async def main():
-#     # find all entities
-#     e1_list_class, e2_list_class, e1_list_property, e2_list_property = ontology_to_csv.find_all_entities()
-#     e1_list = e1_list_class + e1_list_property
-#     # find entity matching
-#     predict_path = "rag/predict_target.csv"
-#     util.create_document(predict_path, header=['Entity1', 'Entity2'])
-#
-# for entity in e1_list:
-#     print("entity", entity)
-#     initial_matching = await entity_matching(entity, "initial_matching")
-#     lexical_matching = await entity_matching(entity, "lexical_matching")
-#     graphical_matching = await entity_matching(entity, "graphical_matching")
-#     initial_matches = pd.DataFrame(initial_matching)
-#     initial_matches.drop_duplicates(['entity'], inplace=True)
-#     lexical_matches = pd.DataFrame(lexical_matching)
-#     lexical_matches.drop_duplicates(['entity'], inplace=True)
-#     graphical_matches = pd.DataFrame(graphical_matching)
-#     graphical_matches.drop_duplicates(['entity'], inplace=True)
-#
-#     merged_df = initial_matches
-#     if lexical_matches.empty:
-#         merged_df = merged_df.copy()
-#         merged_df['lexical_matching'] = np.nan
-#     else:
-#         merged_df = pd.merge(merged_df, lexical_matches, on='entity', how='outer')
-#     if graphical_matches.empty:
-#         merged_df = merged_df.copy()
-#         merged_df['graphical_matching'] = np.nan
-#     else:
-#         merged_df = pd.merge(merged_df, graphical_matches, on='entity', how='outer')
-#
-#     merged_df.fillna(0, inplace=True)
-#     merged_df['overall_matching'] = merged_df[
-#         ['initial_matching', 'lexical_matching', 'graphical_matching']].mean(axis=1)
-#     merged_df.sort_values(by=['overall_matching'], ascending=False, inplace=True)
-#     predict_entity = merged_df['entity'].head(1).values[0]
-#     print(entity, predict_entity)
-#     with open(predict_path, "a+", newline='') as f:
-#         writer = csv.writer(f)
-#         list_pair = [entity, predict_entity]
-#         writer.writerow(list_pair)
-# # evaluation
-# true_path = "rag/true.csv"
-# print(util.calculate_metrics(true_path, predict_path))

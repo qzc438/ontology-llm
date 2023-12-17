@@ -8,9 +8,9 @@ from langchain.embeddings import OpenAIEmbeddings
 
 # customer settings
 
-context = "conference"
-o1_is_code = False
-o2_is_code = False
+# context = "conference"
+# o1_is_code = False
+# o2_is_code = False
 # alignment = "conference/cmt-conference/component/"
 # alignment = "conference/cmt-confof/component/"
 # alignment = "conference/cmt-edas/component/"
@@ -35,11 +35,12 @@ o2_is_code = False
 
 # alignment = "conference/dbpedia-confof/component/"
 # alignment = "conference/dbpedia-ekaw/component/"
-alignment = "conference/dbpedia-sigkdd/component/"
+# alignment = "conference/dbpedia-sigkdd/component/"
 
-# is_code = True
-# context = "anatomy"
-# alignment = "anatomy/mouse-human-suite/component/"
+context = "anatomy"
+o1_is_code = True
+o2_is_code = True
+alignment = "anatomy/mouse-human-suite/component/"
 
 # context = "material sciences and engineering"
 # alignment = "mse/MaterialInformation-EMMO/component/"
@@ -79,7 +80,7 @@ o2_prefix = "target"
 dotenv.load_dotenv()
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 # load api related components
-llm = ChatOpenAI(model_name='gpt-3.5-turbo', temperature=0)
+llm = ChatOpenAI(model_name='gpt-4', temperature=0)
 embeddings_service = OpenAIEmbeddings()
 
 # mapping settings

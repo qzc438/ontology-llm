@@ -4,10 +4,11 @@ import util
 import rdflib
 import csv
 import json
-import torch
 
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
+from langchain.agents.agent_toolkits import create_conversational_retrieval_agent
+from langchain.tools import Tool
 
 labelEntity = rdflib.term.URIRef('http://www.w3.org/2004/02/skos/core#prefLabel')
 
@@ -24,13 +25,48 @@ true_path = config.true_path
 alignCell = config.alignCell
 alignEntity1 = config.alignEntity1
 alignEntity2 = config.alignEntity2
+
 # load ontology
 o1 = config.o1
 o2 = config.o2
 o1_prefix = config.o1_prefix
 o2_prefix = config.o2_prefix
+
+# load llm
+llm = config.llm
+
 # intermediate csv file
 csv_path = config.csv_path
+# intermediate variables
+ontology = None
+ontology_is_code = None
+ontology_prefix = None
+
+
+def define_tools():
+    tools = [
+        Tool(
+            name="initial_retriever",
+            func=initial_information,
+            description="useful for when you need initial information."
+        ),
+        Tool(
+            name="lexical_retriever",
+            func=lexical_information,
+            description="useful for when you need lexical information."
+        ),
+        Tool(
+            name="graphical_retriever",
+            func=graphical_information,
+            description="useful for when you need graphical information."
+        ),
+    ]
+    return tools
+
+
+def define_agent(llm, tools):
+    agent = create_conversational_retrieval_agent(llm, tools, verbose=True)
+    return agent
 
 
 def find_alignment(align_path, true_path):
@@ -86,27 +122,25 @@ def find_all_entities():
 
 def get_entity_label(entity, ontology):
     entity_label = ""
-    results_rdfs = set(ontology.triples((entity, rdflib.RDFS.label, None)))
-    results_skos = set(ontology.triples((entity, labelEntity, None)))
+    results_rdfs = set(ontology.triples((rdflib.URIRef(entity), rdflib.RDFS.label, None)))
+    results_skos = set(ontology.triples((rdflib.URIRef(entity), labelEntity, None)))
     combined_results = results_rdfs.union(results_skos)
-    # for s, p, o in ontology.triples((entity, rdflib.RDFS.label, None)) or ontology.triples((entity, labelEntity, None)):
     for s, p, o in combined_results:
         entity_label = str(o)
     # print(entity_label)
     return entity_label
 
 
-def get_entity_name(entity, ontology, entity_is_code):
-    if entity_is_code:
+def get_entity_name(entity, ontology, ontology_is_code):
+    if ontology_is_code:
         entity_name = get_entity_label(entity, ontology) or util.uri_to_name(entity)
     else:
         entity_name = util.uri_to_name(entity)
     return entity_name
 
 
-def initial_information(entity, ontology, ontology_is_code):
+def initial_information(entity):
     entity_name = get_entity_name(entity, ontology, ontology_is_code)
-    llm = config.llm
     prompt = PromptTemplate(
         input_variables=["entity_name"],
         template="Normalise the following entity: {entity_name}. "
@@ -124,16 +158,15 @@ def initial_information(entity, ontology, ontology_is_code):
     return entity_initial
 
 
-def lexical_information(entity, ontology, ontology_is_code):
+def lexical_information(entity):
     entity_name = get_entity_name(entity, ontology, ontology_is_code)
     entity_info = ""
-    for s, p, o in ontology.triples((entity, rdflib.RDFS.comment, None)):
+    for s, p, o in ontology.triples((rdflib.URIRef(entity), rdflib.RDFS.comment, None)):
         entity_info = entity_info + str(o)
-    for s, p, o in ontology.triples((entity, rdflib.RDFS.label, None)):
+    for s, p, o in ontology.triples((rdflib.URIRef(entity), rdflib.RDFS.label, None)):
         entity_info = entity_info + str(o)
     print("entity_info:", entity_info)
 
-    llm = config.llm
     if entity_info:
         prompt = PromptTemplate(
             input_variables=["entity_name", "entity_info", "context"],
@@ -161,12 +194,12 @@ def lexical_information(entity, ontology, ontology_is_code):
     return answer
 
 
-def graphical_information(entity, ontology, ontology_is_code):
+def graphical_information(entity):
     # here entity is name only
     with open('graphical_entity.txt', 'w') as f:
-        query_subject = list(ontology.triples((entity, None, None)))
-        query_property = list(ontology.triples((None, entity, None)))
-        query_object = list(ontology.triples((None, None, entity)))
+        query_subject = list(ontology.triples((rdflib.URIRef(entity), None, None)))
+        query_property = list(ontology.triples((None, rdflib.URIRef(entity), None)))
+        query_object = list(ontology.triples((None, None, rdflib.URIRef(entity))))
         combined_results = query_subject + query_property + query_object
         for s, p, o in combined_results:
             if "#" in s and "#" in p and "#" in o:
@@ -182,7 +215,6 @@ def graphical_information(entity, ontology, ontology_is_code):
 
 
 def verbalise_sentence(input_file_path):
-    llm = config.llm
     prompt = PromptTemplate(
         input_variables=["sentence"],
         template="Verbalise the following triples: {sentence}. "
@@ -207,19 +239,28 @@ def verbalise_sentence(input_file_path):
     return output
 
 
-def save_information_to_csv(path, entity_list, source_or_target, entity_type, ontology, prefix, ontology_is_code):
+def save_information_to_csv(path, entity_list, source_or_target, entity_type):
     with open(path, "a+", newline='') as f1:
         for entity in entity_list:
-            entity_name = get_entity_name(entity, ontology, ontology_is_code)
+            prompt = f": Retrieve the information of the following entity: {entity}." \
+                        "Consider initial information, lexical information, and graphical information." \
+                        "Format the output as JSON with the following key: entity_initial, entity_lexical, entity_graphical."
+            tools = define_tools()
+            agent_executor = define_agent(llm, tools)
+            result = agent_executor({"input": prompt})
+            print(result['output'])
+            output_json = json.loads(result['output'])
+            entity_initial = output_json['entity_initial']
+            entity_lexical = output_json['entity_lexical']
+            entity_graphical = output_json['entity_graphical']
             writer = csv.writer(f1)
-            list_information = [util.name_to_prefix_name(entity_name, prefix), source_or_target, entity_type,
-                                initial_information(entity, ontology, ontology_is_code),
-                                lexical_information(entity, ontology, ontology_is_code),
-                                graphical_information(entity, ontology, ontology_is_code)]
+            entity_name = get_entity_name(entity, ontology, ontology_is_code)
+            list_information = [util.name_to_prefix_name(entity_name, ontology_prefix), source_or_target, entity_type,
+                                entity_initial, entity_lexical, entity_graphical]
             writer.writerow(list_information)
 
+# you can also use llm to check is code or not
 # def check_name_or_code(entity):
-#     llm = define_llm()
 #     prompt = PromptTemplate(
 #         input_variables=["entity"],
 #         template="Is {entity} a unique identifier or code?"
@@ -233,8 +274,6 @@ def save_information_to_csv(path, entity_list, source_or_target, entity_type, on
 
 
 if __name__ == '__main__':
-    # check GPU
-    print("GPU:", torch.cuda.is_available())
     # find true value
     find_alignment(align_path, true_path)
     # find all entities
@@ -242,7 +281,11 @@ if __name__ == '__main__':
     # find predict value
     header = ['entity', 'source_or_target', 'entity_type', 'initial_matching', 'lexical_matching', 'graphical_matching']
     util.create_document(csv_path, header=header)
-    save_information_to_csv(csv_path, e1_list_class, "Source", "Class", o1, o1_prefix, o1_is_code)
-    save_information_to_csv(csv_path, e2_list_class, "Target", "Class", o2, o2_prefix, o2_is_code)
-    save_information_to_csv(csv_path, e1_list_property, "Source", "Property", o1, o1_prefix, o1_is_code)
-    save_information_to_csv(csv_path, e2_list_property, "Target", "Property", o2, o2_prefix, o2_is_code)
+    ontology, ontology_prefix, ontology_is_code = o1, o1_prefix, o1_is_code
+    save_information_to_csv(csv_path, e1_list_class, "Source", "Class")
+    save_information_to_csv(csv_path, e1_list_property, "Source", "Property")
+    ontology, ontology_prefix, ontology_is_code = o2, o2_prefix, o2_is_code
+    save_information_to_csv(csv_path, e2_list_class, "Target", "Class")
+    save_information_to_csv(csv_path, e2_list_property, "Target", "Property")
+
+
