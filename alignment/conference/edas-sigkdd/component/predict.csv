@@ -3,7 +3,6 @@ source:Review,target:Review
 source:Paper,target:Paper
 source:Document,target:Document
 source:Conference,target:Conference
-source:Sponsorship,target:Sponzor
 source:Person,target:Person
 source:Place,target:Place
 source:ConferenceChair,target:Program_Chair
@@ -11,10 +10,10 @@ source:Author,target:Author
 source:Presenter,target:Speaker
 source:TPCMember,target:Program_Committee_member
 source:ConferenceVenuePlace,target:Conference_hall
-source:AccommodationPlace,target:Hotel
-source:providedBy,target:payed_by
 source:endDate,target:End_of_conference
-source:startDate,target:Date
+source:startDate,target:Start_of_conference
 source:hasName,target:Name
+source:hasCity,target:City_of_conference
 source:hasEmail,target:E-mail
 source:hasCostAmount,target:Price
+source:hasSubmissionDeadline,target:submit_until

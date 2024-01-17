@@ -1,8 +1,8 @@
 Entity1,Entity2
-source:Conductivity,target:Conduction
 source:Current,target:ElectricCurrent
 source:CurrentDensity,target:ElectricCurrentDensity
 source:Gas,target:GasPhase
 source:Liquid,target:LiquidPhase
 source:Solvent,target:Solvent
-source:Pressure,target:hasPressure
+source:pH,target:pH
+source:RefiningProcess,target:transformationOf

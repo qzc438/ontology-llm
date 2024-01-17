@@ -2,12 +2,14 @@ Entity1,Entity2
 source:Reviewer,target:Reviewer
 source:Person,target:Person
 source:Document,target:Document
-source:Conference,target:Conference_activity
-source:ConferenceChair,target:Session_chair
-source:ConferenceMember,target:Delegate
+source:ProgramCommittee,target:Technical_commitee
 source:Acceptance,target:Accepting_manuscript
+source:Rejection,target:Refusing_manuscript
 source:Review,target:Review
+source:Paper,target:Publication
 source:Author,target:Author
+source:PaperFullVersion,target:Final_manuscript
 source:assignedTo,target:is_given_to
 source:writtenBy,target:is_writen_by
 source:date,target:is_dated_on
+source:email,target:send

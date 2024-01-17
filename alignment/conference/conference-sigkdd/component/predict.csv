@@ -1,10 +1,10 @@
 Entity1,Entity2
+source:Passive_conference_participant,target:Listener
 source:Person,target:Person
+source:Regular_author,target:Author
 source:Committee,target:Committee
 source:Abstract,target:Abstract
-source:Important_dates,target:Deadline_Paper_Submission
 source:Invited_speaker,target:Invited_Speaker
-source:Conference_document,target:Document
 source:Program_committee,target:Program_Committee
 source:Organizing_committee,target:Organizing_Committee
 source:Conference,target:Conference
@@ -13,8 +13,5 @@ source:Chair,target:General_Chair
 source:Review,target:Review
 source:Organizer,target:Organizator
 source:Conference_fees,target:Fee
-source:gives_presentations,target:presentation
-source:is_given_by,target:awarded_by
-source:has_a_name,target:Name
-source:is_an_ending_date,target:End_of_conference
+source:is_a_full_paper_submission_date,target:submit_until
 source:is_a_starting_date,target:Start_of_conference

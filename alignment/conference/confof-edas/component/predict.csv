@@ -1,4 +1,6 @@
 Entity1,Entity2
+source:Trip,target:Excursion
+source:Banquet,target:ConferenceDinner
 source:Reception,target:Reception
 source:Social_event,target:SocialEvent
 source:Event,target:ConferenceEvent
@@ -7,13 +9,13 @@ source:Person,target:Person
 source:Topic,target:Topic
 source:Country,target:Country
 source:Paper,target:Paper
+source:Submission_event,target:CallForManuscripts
 source:Workshop,target:Workshop
 source:Conference,target:Conference
+source:Participant,target:Attendee
 source:Member_PC,target:TPCMember
-source:Chair_PC,target:SessionChair
 source:Author,target:Author
 source:hasCity,target:hasCity
-source:reviewes,target:hasReviewHistory
 source:hasTopic,target:hasTopic
 source:writtenBy,target:isWrittenBy
 source:hasCountry,target:hasCountry

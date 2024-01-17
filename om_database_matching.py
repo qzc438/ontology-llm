@@ -1,4 +1,4 @@
-import config
+import run_config as config
 import util
 import om_ontology_to_csv
 
@@ -245,9 +245,9 @@ if __name__ == '__main__':
         entity_name = om_ontology_to_csv.get_entity_name(entity, o1, o1_is_code)
         entity = util.uri_to_prefix_name(entity_name, "source")
 
-        prompt_summary = f"Please find the equivalent entity to the following entity: '{entity}' " \
+        prompt_summary = f"Please find the equivalent entity to the following entity in the enclosed single quote: '{entity}' " \
                          "Use initial matching, lexical matching, and graphical matching. " \
-                         "Format the output as JSON."
+                         "Format the output as JSON. Only contain the mathing results."
 
         result = agent({"input": prompt_summary})
         print(result['output'])
@@ -295,9 +295,9 @@ if __name__ == '__main__':
         entity_name = om_ontology_to_csv.get_entity_name(entity, o2, o2_is_code)
         entity = util.uri_to_prefix_name(entity_name, "target")
 
-        prompt_summary = f"Please find the equivalent entity to the following entity: '{entity}' " \
+        prompt_summary = f"Please find the equivalent entity to the following entity in the enclosed single quote: '{entity}' " \
                          "Use initial matching, lexical matching, and graphical matching. " \
-                         "Format the output as JSON."
+                         "Format the output as JSON. Only contain the mathing results."
 
         result = agent({"input": prompt_summary})
         print(result['output'])

@@ -1,14 +1,13 @@
 Entity1,Entity2
 source:Banquet,target:Dinner_banquet
+source:Event,target:Activity
 source:City,target:City
 source:Person,target:Person
+source:Paper,target:Publication
 source:Registration_of_participants_event,target:Registration
 source:Submission_event,target:Submission
-source:Camera_Ready_event,target:Camera_ready_manuscript_deadline
 source:Tutorial,target:Tutorial
-source:Working_event,target:Activity
-source:Chair_PC,target:Session_chair
 source:Author,target:Author
+source:follows,target:is_held_after
 source:writtenBy,target:is_writen_by
 source:location,target:is_situated_in
-source:starts_on,target:is_dated_on

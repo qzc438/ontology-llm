@@ -10,9 +10,11 @@ alignRelation = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heteroge
 
 labelEntity = rdflib.term.URIRef('http://www.w3.org/2004/02/skos/core#prefLabel')
 
+# anatomy
 # o1_path = "data/anatomy/mouse-human-suite/component/source.xml"
 # o2_path = "data/anatomy/mouse-human-suite/component/target.xml"
 
+# mse
 o1_path = "data/mse/MaterialInformation-EMMO/component/source.xml"
 o2_path = "data/mse/MaterialInformation-EMMO/component/target.xml"
 

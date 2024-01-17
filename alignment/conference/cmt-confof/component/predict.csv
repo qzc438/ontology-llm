@@ -4,12 +4,11 @@ source:Conference,target:Conference
 source:ConferenceMember,target:Member
 source:ProgramCommitteeMember,target:Member_PC
 source:SubjectArea,target:Topic
-source:Chairman,target:Chair_PC
 source:Paper,target:Paper
 source:Author,target:Author
 source:Administrator,target:Administrator
+source:hasSubjectArea,target:hasTopic
 source:writtenBy,target:writtenBy
-source:writeReview,target:reviewes
 source:date,target:starts_on
 source:email,target:contactEmail
-source:title,target:hasTitle
+source:siteURL,target:hasHomePage

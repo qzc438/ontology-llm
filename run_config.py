@@ -8,9 +8,9 @@ from langchain.embeddings import OpenAIEmbeddings
 
 # customer settings
 
-# context = "conference"
-# o1_is_code = False
-# o2_is_code = False
+context = "conference"
+o1_is_code = False
+o2_is_code = False
 # alignment = "conference/cmt-conference/component/"
 # alignment = "conference/cmt-confof/component/"
 # alignment = "conference/cmt-edas/component/"
@@ -31,16 +31,16 @@ from langchain.embeddings import OpenAIEmbeddings
 # alignment = "conference/edas-sigkdd/component/"
 # alignment = "conference/ekaw-iasted/component/"
 # alignment = "conference/ekaw-sigkdd/component/"
-# alignment = "conference/iasted-sigkdd/component/"
+alignment = "conference/iasted-sigkdd/component/"
 
 # alignment = "conference/dbpedia-confof/component/"
 # alignment = "conference/dbpedia-ekaw/component/"
 # alignment = "conference/dbpedia-sigkdd/component/"
 
-context = "anatomy"
-o1_is_code = True
-o2_is_code = True
-alignment = "anatomy/mouse-human-suite/component/"
+# context = "anatomy"
+# o1_is_code = True
+# o2_is_code = True
+# alignment = "anatomy/mouse-human-suite/component/"
 
 # context = "material sciences and engineering"
 # alignment = "mse/MaterialInformation-EMMO/component/"

@@ -1,21 +1,43 @@
-IMPORTANT NOTICE: do not share, because OPENAI API is exposed in multi_vectorstore_with_openai.ipynb and multi_vectorstore_with_openai-OM.ipynb  
+### IMPORTANT NOTICE:  
+(1) Do not share, because OPENAI API is exposed in multi_vectorstore_with_openai.ipynb and multi_vectorstore_with_openai-OM.ipynb  
+(2) Call Huanyu for approval for trivial reference
 
-1. Packages:
-pip install pandas  
-pip install langchain[all]  
-pip install openai  
-pip install rdflib  
-pip install faiss-gpu   
-pip install pypdf  
-pip install sentence-transformers  
-pip install python-dotenv  
-pip install deeponto  
-pip install google-api-python-client  
-pip install wikipedia  
-pip install pyenchant  
-pip install tiktoken  
+### Run All: `python run_config.py`  
+(1) om_ontology_to_csv.py  
+(2) om_csv_to_database.py  
+(3) om_database_matching.py  
 
-2. Useful Links:
+### Benchmark:  
+(1) conference: `python generate_conference_benchmark.py`  
+(2) anatomy & mse: `python generate_other_benchmark.py` 
+
+### Visualisation: `python draw_recall_precision.py`  
+(1) https://joernhees.de/blog/2010/07/22/precision-recall-diagrams-including-fmeasure/  
+(2) https://towardsai.net/p/l/precision-recall-curve  
+
+### Install Packages:  
+(1) pip install pandas  
+(2) pip install langchain[all]  
+(3) pip install openai  
+(4) pip install rdflib  
+(5) pip install sentence-transformers   
+(6) pip install python-dotenv  
+(7) pip install pyenchant  
+(8) pip install tiktoken  
+(9) pip install google-api-python-client  
+(10) pip install wikipedia  
+(11) pip install faiss-gpu  
+(12) pip install deeponto  
+(13) pip install pypdf
+
+### Install Database:  
+(1) psql –version  
+(2) sudo -u postgres psql  
+(3) alter user postgres password 'postgres'  
+(4) sudo apt install postgresql-15-pgvector  
+Example: https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/main/cloud-sql/postgres/pgvector/notebooks/pgvector_gen_ai_demo.ipynb  
+
+### Other Useful Links:  
 https://github.com/kyrolabs/awesome-langchain  
 https://python.langchain.com/docs/integrations/vectorstores/faiss  
 https://github.com/insightbuilder/python_de_learners_data/blob/main/code_script_notebooks/projects/LLM_practical_appln/multiFileEmbedFaiss.ipynb  
@@ -28,18 +50,3 @@ https://github.com/thu-coai/JointGT
 https://github.com/acolas1/GAP_COLING2022  
 http://attempto.ifi.uzh.ch/site/docs/writing_owl_in_ace.html  
 https://github.com/pinecone-io/examples/blob/master/learn/generation/langchain/handbook/07-langchain-tools.ipynb  
-
-3. Database:
-https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/main/cloud-sql/postgres/pgvector/notebooks/pgvector_gen_ai_demo.ipynb  
-
-psql –version  
-sudo -u postgres psql  
-alter user postgres password 'postgres'  
-
-sudo apt install postgresql-15-pgvector  
-
-visualisation:
-https://joernhees.de/blog/2010/07/22/precision-recall-diagrams-including-fmeasure/
-https://towardsai.net/p/l/precision-recall-curve
-
-Call huanyu for approval for trivial reference
