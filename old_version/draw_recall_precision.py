@@ -1,0 +1,139 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+import matplotlib.cm as cm
+from matplotlib.font_manager import FontProperties
+
+
+# plt.style.use('tableau-colorblind10')
+# colors = ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'w']
+
+def get_cmap_colors(cmap_name, num_colors):
+    cmap = plt.get_cmap(cmap_name)
+    colors = cmap(np.linspace(0, 1, num_colors))
+    return colors
+
+
+def custom_sort(row):
+    name = row['Name'].lower()
+    if name == 'Agent-OM'.lower():  # 'A' and 'a' will both be matched
+        return ('',)  # tuples are sorted lexicographically, an empty string comes before anything
+    else:
+        return (name,)
+
+
+def draw_and_save(input_csv, output_png, threshold, f1_number, legend_y, long_color):
+    # Choose a colormap
+    cmap_name = 'tab20'
+    num_colors = 20
+    # Get a list of colors from the colormap
+    colors_list_20 = get_cmap_colors(cmap_name, num_colors)
+    # Convert colors to a list of hex color codes
+    colors_hex_list_20 = ['#' + ''.join(f'{int(c * 255):02X}' for c in color[:3]) for color in colors_list_20]
+    # delete similar colors
+    # colors_hex_list_20.remove('#FF7F0E')
+    # colors_hex_list_20.remove('#FFBB78')
+    colors_hex_list_20.remove('#D62728')
+    colors_hex_list_20.remove('#FF9896')
+    colors_hex_list_20.remove('#7F7F7F')
+    colors_hex_list_20.remove('#C7C7C7')
+    # Print the hex color codes
+    # for color_hex in colors_hex_list:
+    #     print(color_hex)
+
+    # Choose a colormap
+    cmap_name = 'tab10'
+    num_colors = 10
+    # Get a list of colors from the colormap
+    colors_list_10 = get_cmap_colors(cmap_name, num_colors)
+    # Convert colors to a list of hex color codes
+    colors_hex_list_10 = ['#' + ''.join(f'{int(c * 255):02X}' for c in color[:3]) for color in colors_list_10]
+    # delete similar colors
+    # colors_hex_list_10.remove('#FF7F0E')
+    colors_hex_list_10.remove('#D62728')
+    colors_hex_list_10.remove('#7F7F7F')
+    # Print the hex color codes
+    # for color_hex in colors_hex_list:
+    #     print(color_hex)
+
+    new_matcher = "Agent-OM"
+
+    # Read the csv file
+    df = pd.read_csv(input_csv)
+    # filter
+    df = df[(df['Precision'] >= threshold) & (df['Recall'] >= threshold)]
+    # sort
+    df = df.iloc[df.apply(custom_sort, axis=1).argsort()]
+    # df = df.sort_values(by='Name', key=lambda col: col.apply(lambda x: (x, '') if x == new_matcher else ('', x)))
+    df['Precision'] = df['Precision'] / 100
+    df['Recall'] = df['Recall'] / 100
+    precision = df['Precision'].values
+    recall = df['Recall'].values
+    names = df['Name'].values
+    # print(precision)
+
+    # Create a scatter plot
+    plt.figure(figsize=(3.5, 3))
+
+    marker_size = 100
+    marker_offset = 0
+
+    # plot precision and recall
+    for i, (rec, prec, name) in enumerate(zip(recall, precision, names)):
+        if name == new_matcher:
+            plt.scatter(rec, prec - marker_offset, s=marker_size * 2, marker='*', label=f'{name}', color='#D62728',
+                        zorder=2)
+        else:
+            if long_color:
+                plt.scatter(rec, prec - marker_offset, s=marker_size, marker='^', label=f'{name}',
+                            color=colors_hex_list_20[i - 1], zorder=1)
+            else:
+                plt.scatter(rec, prec - marker_offset, s=marker_size, marker='^', label=f'{name}',
+                            color=colors_hex_list_10[i - 1], zorder=1)
+        # plt.text(rec-0.01, prec-0.05, f'{name}', fontsize=12)
+
+    # Calculate and plot the iso-F1 curves
+    f1_levels = np.linspace(0.1, 0.9, num=f1_number)
+    for f1 in f1_levels:
+        x = np.linspace(0.001, 1, 1000)
+        y = f1 * x / (2 * x - f1)
+        valid_idx = np.where(y >= 0)  # valid indices where y is non-negative
+        plt.plot(x[valid_idx], y[valid_idx], color='black', alpha=0.3, linestyle='--')
+        plt.annotate('F1={0:0.1f}'.format(f1), xy=(x[-10], y[-10]), textcoords="offset points", xytext=(25, -3),
+                     ha='center')
+
+    plt.xlim([threshold, 1])
+    plt.ylim([threshold, 1.1])
+    # plt.xticks(np.arange(threshold, 1.01, 0.1))
+    # plt.yticks(np.arange(threshold, 1.01, 0.1))
+    plt.xlabel('Recall')
+    plt.ylabel('Precision')
+    # plt.title('Precision-Recall Scatter Plot with iso-F1 Curves')
+    wrapped_labels = [label.replace(" ", "\n") for label in names]
+    plt.legend(wrapped_labels, loc='upper left', bbox_to_anchor=(-0.8, legend_y), frameon=False)
+    # title_font = FontProperties(weight='bold')
+    # plt.legend(title="System Name", title_fontproperties=title_font, loc='upper right', bbox_to_anchor=(1.4, 1), frameon=False)
+    # plt.subplots_adjust(left=0)
+
+    # ax2 = plt.twinx()
+    # ax2.set_ylabel('F1', labelpad=25)
+    # ax2.set_yticks([])
+
+    # save the plot
+    plt.savefig(output_png, bbox_inches='tight', pad_inches=0.1)
+    # Show the plot
+    plt.show()
+
+
+if __name__ == '__main__':
+    draw_and_save('conference_benchmark.csv', 'result_fig/conference-2022.png', -0.1, 5, 1.05, True)
+    draw_and_save('dbpedia_benchmark.csv', 'result_fig/conference-dbpedia-2022.png', -0.1, 5, 1, False)
+    draw_and_save('anatomy/result_filter.csv', 'result_fig/anatomy-filter-2022.png', -0.1, 5, 1, True)
+    draw_and_save('anatomy/result.csv', 'result_fig/anatomy-2022.png', -0.1, 5, 1, True)
+    draw_and_save('mse/firstTestCase/result.csv', 'result_fig/mse-1-2022.png', -0.1, 5, 1, False)
+    draw_and_save('mse/secondTestCase/result.csv', 'result_fig/mse-2-2022.png', -0.1, 5, 1, False)
+    draw_and_save('mse/thirdTestCase/result.csv', 'result_fig/mse-3-2022.png', -0.1, 5, 1, False)
+
+    draw_and_save('benchmark_2023/mse/firstTestCase/result.csv', 'benchmark_2023_fig/mse-1-2023.png', -0.1, 5, 1, False)
+    draw_and_save('benchmark_2023/mse/secondTestCase/result.csv', 'benchmark_2023_fig/mse-2-2023.png', -0.1, 5, 1, False)
+    draw_and_save('benchmark_2023/mse/thirdTestCase/result.csv', 'benchmark_2023_fig/mse-3-2023.png', -0.1, 5, 1, False)

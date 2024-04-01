@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns="http://knowledgeweb.semanticweb.org/heterogeneity/alignment"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+<Alignment>
+  <xml>yes</xml>
+  <level>0</level>
+  <type>??</type>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#AmountOfSubstance"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/AmountOfSubstance"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9884893669576492</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Liquid"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/LiquidPhase"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.6035850621753989</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#ElectricCurrent"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/ElectricCurrent"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9801</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#ThermalConductivity"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/ThermalConductivity"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9801</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#MolarEnergy"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/MolarEnergy"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9801</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#ChemicalFormula"/>
+      <entity2 rdf:resource="http://matonto.org/ontologies/matonto#hasChemicalSymbol"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.6440272235688981</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Density"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Density"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9896684846175039</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Radiance"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Radiance"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9879257371157044</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#LuminousFlux"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/LuminousFlux"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9881472023558898</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#WaveNumber"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Wavenumber"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9702989999999999</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#ElectricCapacitance"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Capacitance"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.6131629295095045</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#MassDensity"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/VolumeDensity"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9306</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#HeatCapacity"/>
+      <entity2 rdf:resource="http://matonto.org/ontologies/matonto#HeatCapacity"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9801</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#MagneticFlux"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/MagneticFlux"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9801</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Atom"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Atom"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9801</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#ElectricInductance"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Inductance"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.6131629295095045</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Temperature"/>
+      <entity2 rdf:resource="http://matonto.org/ontologies/matonto#hasTemperature"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Permittivity"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Permittivity"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9861014894560357</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Property"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/hasAtomicProperty"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.8271428571428572</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#ElectricFieldStrength"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/ElectricFieldStrength"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9801</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Volume"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Volume"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9872852596421701</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Ca"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Cation"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9702989999999999</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#NickelAlloy"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Nickel"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.6247688540492998</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#ElementalSubstance"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Element"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.6130080000000001</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Value"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/hasValue"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Power"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Power"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9801</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#TitaniumAlloy"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Titanium"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.655776</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#DynamicViscosity"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/DynamicViscosityUnit"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.7314748061530129</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#LuminousIntensity"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/LuminousIntensity"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9880387431967845</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Base"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Base"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9888581362519665</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Irradiation"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Radiation"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.7056720000000001</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#AngularAcceleration"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/AngularAcceleration"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9867645054756353</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Time"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Time"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9861014894560357</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#TungstenAlloy"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Tungsten"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.635686870013605</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#SpecificEntropy"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/SpecificEntropy"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9801</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Acceleration"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Acceleration"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9880108049327925</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Irradiance"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Irradiance"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9879257371157044</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Mixture"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Mixture"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9801</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#SpecificHeatCapacity"/>
+      <entity2 rdf:resource="http://matonto.org/ontologies/matonto#SpecificHeat"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.8811</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Solvent"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Solvent"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9894623719274919</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Force"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Force"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9841741424023529</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#MagneticFluxDensity"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/MagneticFluxDensity"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9801</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#LinearMassDensity"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/LinearDensity"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.6653245792892151</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#MagneticFieldStrength"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/MagneticFieldStrength"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9801</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#ZincAlloy"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Zinc"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.635686870013605</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Illuminance"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Illuminance"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9879257371157044</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#ElectricPotentialDifference"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/PotentialDifference"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.7494853334180336</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#MomentOfForce"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/MomentOfForce"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9801</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#ElectricCharge"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/ElectricCharge"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9801</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Length"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Length"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9861014894560357</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Area"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Area"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9801</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Compound"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Compound"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.988184814507981</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#SolidAngle"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/SolidAngle"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9870048316988936</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Energy"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Energy"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9858464457952011</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#PureSubstance"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/PureSubstance"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9899132327032654</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#YoungsModulus"/>
+      <entity2 rdf:resource="http://matonto.org/ontologies/matonto#YoungsModulus"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9801</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Exposure"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Exposure"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9879257371157044</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Entropy"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Entropy"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9895625023162089</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#ThermalExpansionCoefficient"/>
+      <entity2 rdf:resource="http://matonto.org/ontologies/matonto#ThermalExpansion"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.6873612601102558</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#ElectricFluxDensity"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/ElectricFluxDensity"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9801</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#CurrentDensity"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/ElectricCurrentDensity"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.6567631655602131</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#RadiantIntensity"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/RadiantIntensity"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9880108049327925</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#CopperAlloy"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Copper"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.635686870013605</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#EnergyDensity"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/EnergyDensity"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9877708470268679</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#MolarEntropy"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/MolarEntropy"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9801</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#SpecificEnergy"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/SpecificEnergy"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9801</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#ShearModulus"/>
+      <entity2 rdf:resource="http://matonto.org/ontologies/matonto#ShearModulus"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9801</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Frequency"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Frequency"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9861014894560357</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#ElectricConductance"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/ElectricConductance"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9801</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#BerylliumAlloy"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Beryllium"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.635686870013605</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#SurfaceTension"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/SurfaceTension"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9875590304698619</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#MagnesiumAlloy"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Magnesium"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.6247688540492998</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#AbsorbedDoseRate"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/AbsorbedDoseRate"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9801</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#CommonName"/>
+      <entity2 rdf:resource="http://matonto.org/ontologies/matonto#hasName"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.714</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Permeability"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Permeability"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9879257371157044</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#PlaneAngle"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/PlaneAngle"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9861717760379725</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#ElectricChargeDensity"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/ElectricChargeDensity"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9801</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Pressure"/>
+      <entity2 rdf:resource="http://matonto.org/ontologies/matonto#hasPressure"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">1.0</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#ElectricResistance"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/ElectricResistance"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9801</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Luminance"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Luminance"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9879257371157044</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#BulkModulus"/>
+      <entity2 rdf:resource="http://matonto.org/ontologies/matonto#BulkModulus"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9860473348972851</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Concentration"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Concentration"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9885623983596751</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Alloy"/>
+      <entity2 rdf:resource="http://matonto.org/ontologies/matonto#Alloy"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9801</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Mass"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Mass"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9881060571642347</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#SpecificVolume"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/SpecificVolume"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9801</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#pH"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/pH"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.9801</measure>
+    </Cell>
+  </map>
+  <map>
+    <Cell>
+      <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation#Conductivity"/>
+      <entity2 rdf:resource="http://ontology.dumontierlab.com/Conduction"/>
+      <relation>=</relation>
+      <measure rdf:datatype="xsd:float">0.6899904000000001</measure>
+    </Cell>
+  </map>
+</Alignment>
+</rdf:RDF>

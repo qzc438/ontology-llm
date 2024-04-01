@@ -24,22 +24,22 @@ if __name__ == '__main__':
     # df_source = pd.read_csv('alignment/conference/cmt-conference/component/predict_source.csv')
     # df_target = pd.read_csv('alignment/conference/cmt-conference/component/predict_target.csv')
     # df_common = pd.merge(df_source, df_target, on=['Entity1', 'Entity2'])
-    # df_common.to_csv("alignment/conference/cmt-conference/component/predict.csv", index=False)
+    # df_common.to_csv("alignment/conference/cmt-conference/component/Agent-OM.csv", index=False)
     # util.calculate_metrics('alignment/conference/cmt-conference/component/true.csv',
-    #                        'alignment/conference/cmt-conference/component/predict.csv',
+    #                        'alignment/conference/cmt-conference/component/Agent-OM.csv',
     #                        'conference_merge', 'result.csv')
 
     # df_source = pd.read_csv('alignment/anatomy/mouse-human-suite/component/predict_source.csv')
     # df_target = pd.read_csv('alignment/anatomy/mouse-human-suite/component/predict_target.csv')
     # df_common = pd.merge(df_source, df_target, on=['Entity1', 'Entity2'])
-    # df_common.to_csv("alignment/anatomy/mouse-human-suite/component/predict.csv", index=False)
+    # df_common.to_csv("alignment/anatomy/mouse-human-suite/component/Agent-OM.csv", index=False)
     # util.calculate_metrics('alignment/anatomy/mouse-human-suite/component/true.csv',
-    #                        'alignment/anatomy/mouse-human-suite/component/predict.csv',
+    #                        'alignment/anatomy/mouse-human-suite/component/Agent-OM.csv',
     #                        'anatomy_merge', 'result.csv')
 
     # generate_filtered_csv('alignment/anatomy/mouse-human-suite/component/true.csv',
     #                       'alignment/anatomy/mouse-human-suite/component/true_filtered.csv')
-    # generate_filtered_csv('alignment/anatomy/mouse-human-suite/component/predict.csv',
+    # generate_filtered_csv('alignment/anatomy/mouse-human-suite/component/Agent-OM.csv',
     #                       'alignment/anatomy/mouse-human-suite/component/predict_filtered.csv')
     # util.calculate_metrics('alignment/anatomy/mouse-human-suite/component/true_filtered.csv',
     #                        'alignment/anatomy/mouse-human-suite/component/predict_filtered.csv',
@@ -52,47 +52,47 @@ if __name__ == '__main__':
     # df_source = pd.read_csv('alignment/conference/cmt-conference/component/predict_source.csv')
     # df_target = pd.read_csv('alignment/conference/cmt-conference/component/predict_target.csv')
     # df_common = pd.merge(df_source, df_target, on=['Entity1', 'Entity2'])
-    # df_common.to_csv("alignment/conference/cmt-conference/component/predict.csv", index=False)
+    # df_common.to_csv("alignment/conference/cmt-conference/component/Agent-OM.csv", index=False)
     # util.calculate_metrics('alignment/conference/cmt-conference/component/true.csv',
-    #                        'alignment/conference/cmt-conference/component/predict.csv',
+    #                        'alignment/conference/cmt-conference/component/Agent-OM.csv',
     #                        'alignment/conference/cmt-conference/', 'result.csv')
 
     # df_source = pd.read_csv('alignment/conference/cmt-confof/component/predict_source.csv')
     # df_target = pd.read_csv('alignment/conference/cmt-confof/component/predict_target.csv')
     # df_common = pd.merge(df_source, df_target, on=['Entity1', 'Entity2'])
-    # df_common.to_csv("alignment/conference/cmt-confof/component/predict.csv", index=False)
+    # df_common.to_csv("alignment/conference/cmt-confof/component/Agent-OM.csv", index=False)
     # util.calculate_metrics('alignment/conference/cmt-confof/component/true.csv',
-    #                        'alignment/conference/cmt-confof/component/predict.csv',
+    #                        'alignment/conference/cmt-confof/component/Agent-OM.csv',
     #                        'alignment/conference/cmt-confof/', 'result.csv')
 
     # df_source = pd.read_csv('alignment/conference/cmt-edas/component/predict_source.csv')
     # df_target = pd.read_csv('alignment/conference/cmt-edas/component/predict_target.csv')
     # df_common = pd.merge(df_source, df_target, on=['Entity1', 'Entity2'])
-    # df_common.to_csv("alignment/conference/cmt-edas/component/predict.csv", index=False)
+    # df_common.to_csv("alignment/conference/cmt-edas/component/Agent-OM.csv", index=False)
     # util.calculate_metrics('alignment/conference/cmt-edas/component/true.csv',
-    #                        'alignment/conference/cmt-edas/component/predict.csv',
+    #                        'alignment/conference/cmt-edas/component/Agent-OM.csv',
     #                        'alignment/conference/cmt-edas/', 'result.csv')
 
     # df_source = pd.read_csv('alignment/conference/cmt-ekaw/component/predict_source.csv')
     # df_target = pd.read_csv('alignment/conference/cmt-ekaw/component/predict_target.csv')
     # df_common = pd.merge(df_source, df_target, on=['Entity1', 'Entity2'])
-    # df_common.to_csv("alignment/conference/cmt-ekaw/component/predict.csv", index=False)
+    # df_common.to_csv("alignment/conference/cmt-ekaw/component/Agent-OM.csv", index=False)
     # util.calculate_metrics('alignment/conference/cmt-ekaw/component/true.csv',
-    #                        'alignment/conference/cmt-ekaw/component/predict.csv',
+    #                        'alignment/conference/cmt-ekaw/component/Agent-OM.csv',
     #                        'alignment/conference/cmt-ekaw/', 'result.csv')
 
     # df_source = pd.read_csv('alignment/conference/cmt-ekaw/component/predict_source.csv')
     # df_target = pd.read_csv('alignment/conference/cmt-ekaw/component/predict_target.csv')
     # df_common = pd.merge(df_source, df_target, on=['Entity1', 'Entity2'])
-    # df_common.to_csv("alignment/conference/cmt-ekaw/component/predict.csv", index=False)
+    # df_common.to_csv("alignment/conference/cmt-ekaw/component/Agent-OM.csv", index=False)
     # util.calculate_metrics('alignment/conference/cmt-ekaw/component/true.csv',
-    #                        'alignment/conference/cmt-ekaw/component/predict.csv',
+    #                        'alignment/conference/cmt-ekaw/component/Agent-OM.csv',
     #                        'alignment/conference/cmt-ekaw/', 'result.csv')
 
     df_source = pd.read_csv('../alignment/conference/cmt-iasted/component/predict_source.csv')
     df_target = pd.read_csv('../alignment/conference/cmt-iasted/component/predict_target.csv')
     df_common = pd.merge(df_source, df_target, on=['Entity1', 'Entity2'])
-    df_common.to_csv("alignment/conference/cmt-iasted/component/predict.csv", index=False)
+    df_common.to_csv("alignment/conference/cmt-iasted/component/Agent-OM.csv", index=False)
     util.calculate_metrics('../alignment/conference/cmt-iasted/component/true.csv',
-                           'alignment/conference/cmt-iasted/component/predict.csv',
+                           'alignment/conference/cmt-iasted/component/Agent-OM.csv',
                            'alignment/conference/cmt-iasted/', 'result.csv')

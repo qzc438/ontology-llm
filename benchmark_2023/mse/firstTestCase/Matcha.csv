@@ -1,0 +1,12 @@
+Entity1,Entity2
+source:pH,target:pH
+source:UnitSystem,target:isUnitOf
+source:Pressure,target:hasPressure
+source:Temperature,target:hasTemperature
+source:ConcentrationOfSolvent,target:Concentration
+source:Conductivity,target:Conduction
+source:Solvent,target:Solvent
+source:UnitSystem,target:hasUnit
+source:Liquid,target:LiquidPhase
+source:CurrentDensity,target:ElectricCurrentDensity
+source:Irradiation,target:Radiation

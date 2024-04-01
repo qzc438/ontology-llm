@@ -47,18 +47,18 @@ def define_tools():
     tools = [
         Tool(
             name="initial_retriever",
-            func=initial_information,
-            description="useful for when you need initial information."
+            func=entity_initial,
+            description="useful for when you need entity initial."
         ),
         Tool(
             name="lexical_retriever",
-            func=lexical_information,
-            description="useful for when you need lexical information."
+            func=entity_lexical,
+            description="useful for when you need entity lexical."
         ),
         Tool(
             name="graphical_retriever",
-            func=graphical_information,
-            description="useful for when you need graphical information."
+            func=entity_graphical,
+            description="useful for when you need entity graphical."
         ),
     ]
     return tools
@@ -112,10 +112,10 @@ def find_all_entities():
     for y in o2.subjects(rdflib.RDF.type, rdflib.OWL.DatatypeProperty):
         if y and ("#" in y or "/" in y):
             e2_list_property.append(y)
-    print("e1_list_class", len(e1_list_class), e1_list_class)
-    print("e2_list_class", len(e2_list_class), e2_list_class)
-    print("e1_list_property", len(e1_list_property), e1_list_property)
-    print("e2_list_property", len(e2_list_property), e2_list_property)
+    print("e1_list_class:", len(e1_list_class))
+    print("e2_list_class:", len(e2_list_class))
+    print("e1_list_property:", len(e1_list_property))
+    print("e2_list_property:", len(e2_list_property))
 
     return e1_list_class, e2_list_class, e1_list_property, e2_list_property
 
@@ -139,26 +139,34 @@ def get_entity_name(entity, ontology, ontology_is_code):
     return entity_name
 
 
-def initial_information(entity):
+def entity_initial(entity):
     entity_name = get_entity_name(entity, ontology, ontology_is_code)
+    # answer = util.cleaning(entity_name) + ""
+    # return answer
     prompt = PromptTemplate(
         input_variables=["entity_name"],
-        template="Normalise the following entity: {entity_name}. "
-                 "Use lowercase and split the words using white space. "
-                 "entity_initial: only return the normalised entity. "
-                 "Format the output as JSON with the following keys: entity_initial. "
+        template="Normalise the following name enclosed by a pair of double quotes: \"{entity_name}\". "
+                 "Use white spaces to split compound words. "
+                 "Output the normalized form only."
+                 # "Format the output as JSON with the following keys: entity\_initial. "
+                 # You cannot change to lower case because the agent will change to upper case automatically
+                 # Please do not use key, otherwise error. json.decoder.JSONDecodeError: output end with "," and cannot transfer to json.
     )
     chain = LLMChain(llm=llm, prompt=prompt)
+    # answer = chain.run({
+    #     'entity_name': entity_name,
+    # }).strip()
     answer = chain.run({
         'entity_name': entity_name,
     }).strip()
-    entity_initial_json = json.loads(answer)
-    entity_initial = entity_initial_json['entity_initial']
-    print("entity_initial:", entity_initial)
-    return entity_initial
+    # print("answer:", answer)
+    # entity_initial_json = json.loads(answer)
+    # entity_initial = entity_initial_json['entity_initial']
+    print("entity_initial:", answer)
+    return answer
 
 
-def lexical_information(entity):
+def entity_lexical(entity):
     entity_name = get_entity_name(entity, ontology, ontology_is_code)
     entity_info = ""
     for s, p, o in ontology.triples((rdflib.URIRef(entity), rdflib.RDFS.comment, None)):
@@ -194,7 +202,7 @@ def lexical_information(entity):
     return answer
 
 
-def graphical_information(entity):
+def entity_graphical(entity):
     # here entity is name only
     with open('graphical_entity.txt', 'w') as f:
         query_subject = list(ontology.triples((rdflib.URIRef(entity), None, None)))
@@ -211,15 +219,18 @@ def graphical_information(entity):
                     f.write('\n')
     answer = verbalise_sentence('graphical_entity.txt')
     print("entity_graphical:", answer)
-    return answer
+    if answer:
+        return answer
+    else:
+        return ""
 
 
 def verbalise_sentence(input_file_path):
     prompt = PromptTemplate(
         input_variables=["sentence"],
-        template="Verbalise the following triples: {sentence}. "
-                 "entity_graphical: only return the verbalised sentence. "
-                 "Format the output as JSON with the following keys: entity_graphical. "
+        template="Verbalise the following sentence and end up with a full stop: {sentence}. "
+                 # "Format the output as JSON with the following keys: entity\_graphical. "
+                 "Output the verbalised sentence only."
     )
     chain = LLMChain(llm=llm, prompt=prompt)
     output = ""
@@ -229,8 +240,9 @@ def verbalise_sentence(input_file_path):
             # for text in split_text:
             processed_line = chain.run(line)
             try:
-                processed_line_json = json.loads(processed_line)
-                answer = processed_line_json['entity_graphical']
+                # processed_line_json = json.loads(processed_line)
+                # answer = processed_line_json['entity_graphical']
+                answer = processed_line
                 output += answer + ' '
             except json.JSONDecodeError as e:
                 print(f"Cannot verbalise the sentence. JSON is invalid: {e}")
@@ -242,22 +254,31 @@ def verbalise_sentence(input_file_path):
 def save_information_to_csv(path, entity_list, source_or_target, entity_type):
     with open(path, "a+", newline='') as f1:
         for entity in entity_list:
-            prompt = f": Retrieve the information of the following entity: {entity}." \
-                        "Consider initial information, lexical information, and graphical information." \
-                        "Format the output as JSON with the following key: entity_initial, entity_lexical, entity_graphical."
+        # for entity in ["http://mouse.owl#MA_0001941"]:
+        # for entity in ["http://mouse.owl#MA_0001844"]:
+        # for entity in ["http://human.owl#NCI_C12220"]:
+            prompt = f": Retrieve the information of the following entity enclosed with a pair of double quotes: \"{entity}\"." \
+                        "Consider entity initial, entity lexical, and entity graphical." \
+                        "Format the output as JSON enclosed with a pair of curly braces with the following keys: entity_initial, entity_lexical, entity_graphical." \
+                        "Output the JSON only." \
+
             tools = define_tools()
             agent_executor = define_agent(llm, tools)
             result = agent_executor({"input": prompt})
             print(result['output'])
-            output_json = json.loads(result['output'])
-            entity_initial = output_json['entity_initial']
-            entity_lexical = output_json['entity_lexical']
-            entity_graphical = output_json['entity_graphical']
-            writer = csv.writer(f1)
-            entity_name = get_entity_name(entity, ontology, ontology_is_code)
-            list_information = [util.name_to_prefix_name(entity_name, ontology_prefix), source_or_target, entity_type,
-                                entity_initial, entity_lexical, entity_graphical]
-            writer.writerow(list_information)
+            if result['output']:
+                output_json = json.loads(result['output'])
+                entity_initial = output_json['entity_initial']
+                entity_lexical = output_json['entity_lexical']
+                if 'entity_graphical' in output_json:
+                    entity_graphical = output_json['entity_graphical']
+                else:
+                    entity_graphical = ""
+                writer = csv.writer(f1)
+                entity_name = get_entity_name(entity, ontology, ontology_is_code)
+                list_information = [util.name_to_prefix_name(entity_name, ontology_prefix), source_or_target, entity_type,
+                                    entity_initial, entity_lexical, entity_graphical]
+                writer.writerow(list_information)
 
 # you can also use llm to check is code or not
 # def check_name_or_code(entity):

@@ -1,3 +1,4 @@
+import sys
 import util
 import rdflib
 import dotenv
@@ -7,7 +8,6 @@ from langchain.chat_models import ChatOpenAI
 from langchain.embeddings import OpenAIEmbeddings
 
 # customer settings
-
 context = "conference"
 o1_is_code = False
 o2_is_code = False
@@ -30,8 +30,12 @@ o2_is_code = False
 # alignment = "conference/edas-iasted/component/"
 # alignment = "conference/edas-sigkdd/component/"
 # alignment = "conference/ekaw-iasted/component/"
-# alignment = "conference/ekaw-sigkdd/component/"
-alignment = "conference/iasted-sigkdd/component/"
+alignment = "conference/ekaw-sigkdd/component/"
+# alignment = "conference/iasted-sigkdd/component/"
+
+# activate when execute run_conference_series
+# if os.environ.get('alignment'):
+#     alignment = os.environ['alignment']
 
 # alignment = "conference/dbpedia-confof/component/"
 # alignment = "conference/dbpedia-ekaw/component/"
@@ -42,20 +46,40 @@ alignment = "conference/iasted-sigkdd/component/"
 # o2_is_code = True
 # alignment = "anatomy/mouse-human-suite/component/"
 
-# context = "material sciences and engineering"
+# e1_list_class: 2744
+# e2_list_class: 3304
+# e1_list_property: 3
+# e2_list_property: 2
+
+# context = "materials science"
 # alignment = "mse/MaterialInformation-EMMO/component/"
 # o1_is_code = False
 # o2_is_code = True
 
-# context = "material sciences and engineering"
+# e1_list_class: 545
+# e2_list_class: 450
+# e1_list_property: 98
+# e2_list_property: 33
+
+# context = "materials science"
 # alignment = "mse/MaterialInformation-MatOnto/component/"
 # o1_is_code = False
 # o2_is_code = False
 
-# context = "material sciences and engineering"
+# e1_list_class: 545
+# e2_list_class: 847
+# e1_list_property: 98
+# e2_list_property: 95
+
+# context = "materials science"
 # alignment = "mse/MaterialInformationReduced-MatOnto/component/"
 # o1_is_code = False
 # o2_is_code = False
+
+# e1_list_class: 32
+# e2_list_class: 847
+# e1_list_property: 43
+# e2_list_property: 95
 
 # common settings
 data_folder = "data/" + alignment
@@ -65,11 +89,17 @@ align_path = data_folder + "reference.xml"
 align_folder = "alignment/" + alignment
 util.create_folder(align_folder)
 csv_path = align_folder + "ontology_matching.csv"
+predict_source_path_no_validation = align_folder + "predict_source_no_validation.csv"
+predict_target_path_no_validation = align_folder + "predict_target_no_validation.csv"
+predict_path_no_validation = align_folder + "predict_no_validation.csv"
 predict_source_path = align_folder + "predict_source.csv"
 predict_target_path = align_folder + "predict_target.csv"
 predict_path = align_folder + "predict.csv"
 true_path = align_folder + "true.csv"
 result_path = "result.csv"
+
+# matching without using vector database
+llm_only_path = align_folder + "llm_only.csv"
 
 o1 = rdflib.Graph().parse(o1_path, format="xml")
 o2 = rdflib.Graph().parse(o2_path, format="xml")
@@ -80,7 +110,9 @@ o2_prefix = "target"
 dotenv.load_dotenv()
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 # load api related components
-llm = ChatOpenAI(model_name='gpt-4', temperature=0)
+# llm = ChatOpenAI(model_name='gpt-4', temperature=0)
+llm = ChatOpenAI(model_name='gpt-3.5-turbo', temperature=0)
+# llm = ChatOpenAI(model_name='gpt-4-0125-preview', temperature=0)
 embeddings_service = OpenAIEmbeddings()
 
 # mapping settings
@@ -89,11 +121,15 @@ alignEntity1 = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogen
 alignEntity2 = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignmententity2')
 
 # search settings
-similarity_threshold = 0.8
+similarity_threshold = 0.95
 num_matches = 50
 top_k = 5
 
 if __name__ == '__main__':
+    # if len(sys.argv) > 1:
+    #     alignment = str(sys.argv[1])
+    # print("alignment received:", alignment)
+
     script_sequence = [
         "om_ontology_to_csv.py",
         "om_csv_to_database.py",

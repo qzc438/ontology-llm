@@ -34,7 +34,7 @@ def prefix_name_to_name(prefix_name):
 
 
 def name_to_prefix_name(name, prefix):
-    return prefix + ":" + name
+    return prefix + ":" + str(name.replace("'", ""))
 
 
 # def prefix_name_to_uri(name, prefix):
@@ -110,9 +110,9 @@ def cleaning(name):
     # if no symbols, it is a camel case and change it to snake case
     if " " not in name:
         name = change_to_snake_case(name)
-    name = name.lower()
-    name = change_british_to_american(name)
-    # name = name.replace(" ", " and ")
+    # name = name.lower()
+    # name = change_british_to_american(name)
+    # capitalized_name = ' '.join(word.capitalize() for word in name.split())
     return name
 
 
@@ -125,17 +125,19 @@ def calculate_metrics(true_path, predict_path, alignment, result_path):
         # list_true = df_true.values.tolist()
         # list_predict = df_predict.values.tolist()
         # common = common_member(list_true, list_predict)
-        common = pd.merge(df_true, df_predict, on=['Entity1', 'Entity2'])
+        common = pd.merge(df_true, df_predict, on=['Entity1', 'Entity2'], how="inner")
+        # Remove any duplicate rows in the common
+        common = common.drop_duplicates()
         # print(common)
         ra = len(common)
-        print("ra", ra)
+        print("ra:", ra)
         if ra == 0:
             return [0, 0, 0]
         else:
             r = len(df_true)
-            print("r", r)
+            print("r:", r)
             a = len(df_predict)
-            print("a", a)
+            print("a:", a)
             precision = ra / a
             recall = ra / r
             f1 = 2 * (precision * recall) / (precision + recall)
@@ -153,3 +155,38 @@ def calculate_metrics(true_path, predict_path, alignment, result_path):
 def common_member(a, b):
     result = [i for i in a if i in b]
     return result
+
+
+if __name__ == '__main__':
+    # calculate_metrics("alignment/mse/MaterialInformation-EMMO/component/true.csv",
+    #                   "alignment/mse/MaterialInformation-EMMO/component/predict_no_validation.csv",
+    #                   "", "")
+
+    df1 = pd.read_csv("benchmark_2022/mse/thirdTestCase/LogMap.csv")
+    df2 = pd.read_csv("alignment/mse/MaterialInformation-EMMO/component/predict.csv")
+    #
+    result_df = pd.merge(df1, df2, on=["Entity1", "Entity2"], how="inner")
+    # Remove any duplicate rows in the resulting DataFrame
+    result_df = result_df.drop_duplicates()
+    #
+    print(len(result_df))
+    #
+    # result_df.to_csv('test.csv', index=False)
+    #
+    # Use an outer join with an indicator to find differences
+    diff_df = pd.merge(df1, df2, on=["Entity1", "Entity2"], how='outer', indicator=True)
+
+    # Filter rows that are either only in df1 or only in df2
+    diff_df1_only = diff_df[diff_df['_merge'] == 'left_only']
+    diff_df2_only = diff_df[diff_df['_merge'] == 'right_only']
+
+    # Show the differences
+    print("Rows in df1 not in df2:")
+    print(diff_df1_only)
+
+    print("Rows in df2 not in df1:")
+    print(diff_df2_only)
+
+    print(cleaning("Al"))
+
+
