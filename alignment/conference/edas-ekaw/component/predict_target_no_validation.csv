@@ -11,7 +11,6 @@ target:Paper_Author,source:Author
 target:Social_Event,source:SocialEvent
 target:Submitted_Paper,source:AcceptedPaper
 target:Review,source:Review
-target:Organisation,source:Organization
 target:Location,source:Place
 target:Workshop_Session,source:Workshop
 target:Workshop,source:Workshop
@@ -20,4 +19,5 @@ target:Conference_Banquet,source:ConferenceDinner
 target:Session_Chair,source:SessionChair
 target:Presenter,source:Presenter
 target:writtenBy,source:isWrittenBy
+target:reviewOfPaper,source:isReviewing
 target:locationOf,source:isLocationOf

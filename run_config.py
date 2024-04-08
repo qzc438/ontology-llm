@@ -1,4 +1,3 @@
-import sys
 import util
 import rdflib
 import dotenv
@@ -8,9 +7,11 @@ from langchain.chat_models import ChatOpenAI
 from langchain.embeddings import OpenAIEmbeddings
 
 # customer settings
-context = "conference"
-o1_is_code = False
-o2_is_code = False
+
+# conference track
+# context = "conference"
+# o1_is_code = False
+# o2_is_code = False
 # alignment = "conference/cmt-conference/component/"
 # alignment = "conference/cmt-confof/component/"
 # alignment = "conference/cmt-edas/component/"
@@ -30,42 +31,49 @@ o2_is_code = False
 # alignment = "conference/edas-iasted/component/"
 # alignment = "conference/edas-sigkdd/component/"
 # alignment = "conference/ekaw-iasted/component/"
-alignment = "conference/ekaw-sigkdd/component/"
+# alignment = "conference/ekaw-sigkdd/component/"
 # alignment = "conference/iasted-sigkdd/component/"
 
 # activate when execute run_conference_series
 # if os.environ.get('alignment'):
 #     alignment = os.environ['alignment']
 
+# dbpedia result is not included in the paper
 # alignment = "conference/dbpedia-confof/component/"
 # alignment = "conference/dbpedia-ekaw/component/"
 # alignment = "conference/dbpedia-sigkdd/component/"
 
+# anatomy track
 # context = "anatomy"
 # o1_is_code = True
 # o2_is_code = True
 # alignment = "anatomy/mouse-human-suite/component/"
 
+# metadata
 # e1_list_class: 2744
 # e2_list_class: 3304
 # e1_list_property: 3
 # e2_list_property: 2
 
+# mse Test Case 3
 # context = "materials science"
 # alignment = "mse/MaterialInformation-EMMO/component/"
 # o1_is_code = False
 # o2_is_code = True
 
+# metadata
 # e1_list_class: 545
 # e2_list_class: 450
 # e1_list_property: 98
 # e2_list_property: 33
 
-# context = "materials science"
-# alignment = "mse/MaterialInformation-MatOnto/component/"
-# o1_is_code = False
-# o2_is_code = False
+# mse Test Case 2
+context = "materials science"
+alignment = "mse/MaterialInformation-MatOnto/component/"
+o1_is_code = False
+o2_is_code = False
 
+# metadata
 # e1_list_class: 545
 # e2_list_class: 847
 # e1_list_property: 98
@@ -76,6 +84,7 @@ alignment = "conference/ekaw-sigkdd/component/"
 # o1_is_code = False
 # o2_is_code = False
 
+# metadata
 # e1_list_class: 32
 # e2_list_class: 847
 # e1_list_property: 43
@@ -110,9 +119,8 @@ o2_prefix = "target"
 dotenv.load_dotenv()
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 # load api related components
-# llm = ChatOpenAI(model_name='gpt-4', temperature=0)
 llm = ChatOpenAI(model_name='gpt-3.5-turbo', temperature=0)
-# llm = ChatOpenAI(model_name='gpt-4-0125-preview', temperature=0)
+# llm = ChatOpenAI(model_name='gpt-4', temperature=0)
 embeddings_service = OpenAIEmbeddings()
 
 # mapping settings
@@ -121,14 +129,11 @@ alignEntity1 = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogen
 alignEntity2 = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignmententity2')
 
 # search settings
-similarity_threshold = 0.95
+similarity_threshold = 0.90
+top_k = 3
 num_matches = 50
-top_k = 5
 
 if __name__ == '__main__':
-    # if len(sys.argv) > 1:
-    #     alignment = str(sys.argv[1])
-    # print("alignment received:", alignment)
 
     script_sequence = [
         "om_ontology_to_csv.py",

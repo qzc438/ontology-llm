@@ -1,0 +1,96 @@
+### Debugging Tips and Tricks:
+
+#### 1. Fix torch.cuda.is_available() = false:
+```cmd
+sudo apt-get purge nvidia-*
+sudo apt-get update
+sudo apt-get autoremove
+sudo apt --fix-broken install
+```
+
+#### 2. Fix the results of Conference Track are not inline with the OAEI results:
+(1) Remove the mappings different from the equivalence.  
+(2) Remove non-distinct mappings that appear twice.  
+(3) Removed all mappings between oboInOwl name spaced concepts.  
+For example, the following 8 mappings need to be removed from Agent-OM results:
+```
+<map>
+    <Cell>
+        <entity1 rdf:resource="http://www.geneontology.org/formats/oboInOwl#Subset"/>
+        <entity2 rdf:resource="http://www.geneontology.org/formats/oboInOwl#Subset"/>
+        <measure rdf:datatype="xsd:float">1.0</measure>
+        <relation>=</relation>
+    </Cell>
+</map>
+
+<map>
+    <Cell>
+        <entity1 rdf:resource="http://www.geneontology.org/formats/oboInOwl#Synonym"/>
+        <entity2 rdf:resource="http://www.geneontology.org/formats/oboInOwl#Synonym"/>
+        <measure rdf:datatype="xsd:float">1.0</measure>
+        <relation>=</relation>
+        </Cell>
+</map>
+
+<map>
+    <Cell>
+        <entity1 rdf:resource="http://www.geneontology.org/formats/oboInOwl#DbXref"/>
+        <entity2 rdf:resource="http://www.geneontology.org/formats/oboInOwl#DbXref"/>
+        <measure rdf:datatype="xsd:float">1.0</measure>
+        <relation>=</relation>
+    </Cell>
+</map>
+
+<map>
+    <Cell>
+        <entity1 rdf:resource="http://www.geneontology.org/formats/oboInOwl#ObsoleteClass"/>
+        <entity2 rdf:resource="http://www.geneontology.org/formats/oboInOwl#ObsoleteClass"/>
+        <measure rdf:datatype="xsd:float">1.0</measure>
+        <relation>=</relation>
+    </Cell>
+</map>
+
+<map>
+    <Cell>
+        <entity1 rdf:resource="http://www.geneontology.org/formats/oboInOwl#SynonymType"/>
+        <entity2 rdf:resource="http://www.geneontology.org/formats/oboInOwl#SynonymType"/>
+        <measure rdf:datatype="xsd:float">1.0</measure>
+        <relation>=</relation>
+    </Cell>
+</map>
+
+<map>
+    <Cell>
+        <entity1 rdf:resource="http://www.geneontology.org/formats/oboInOwl#Definition"/>
+        <entity2 rdf:resource="http://www.geneontology.org/formats/oboInOwl#Definition"/>
+        <measure rdf:datatype="xsd:float">1.0</measure>
+        <relation>=</relation>
+    </Cell>
+</map>
+
+<map>
+    <Cell>
+        <entity1 rdf:resource="http://www.geneontology.org/formats/oboInOwl#ObsoleteProperty"/>
+        <entity2 rdf:resource="http://www.geneontology.org/formats/oboInOwl#ObsoleteProperty"/>
+        <measure rdf:datatype="xsd:float">1.0</measure>
+        <relation>=</relation>
+    </Cell>
+</map>
+
+<map>
+    <Cell>
+        <entity1 rdf:resource="http://mouse.owl#UNDEFINED_part_of"/>
+        <entity2 rdf:resource="http://human.owl#UNDEFINED_part_of"/>
+        <measure rdf:datatype="xsd:float">1.0</measure>
+        <relation>=</relation>
+    </Cell>
+</map>
+```
+
+#### 3. Fix the results of MSE Track Test Case 1 are not inline with the OAEI results:
+This track also contains the subsumption mappings in the reference alignment file `reference-old.xml`.  
+We set all subsumption mappings as None and reproduce the reference alignment file `reference.xml`.
+
+#### 4. Fix the results of Matcha is unreproducible:
+Unlike other systems, the root IRI of Matcha's mapping file is `xmlns="http://knowledgeweb.semanticweb.org/heterogeneity/alignment#"`.  
+We remove the character `"#"` the root IRI of the mapping file `xmlns="http://knowledgeweb.semanticweb.org/heterogeneity/alignment"`.

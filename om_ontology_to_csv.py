@@ -48,17 +48,17 @@ def define_tools():
         Tool(
             name="initial_retriever",
             func=entity_initial,
-            description="useful for when you need entity initial."
+            description="Useful for when you need entity initial."
         ),
         Tool(
             name="lexical_retriever",
             func=entity_lexical,
-            description="useful for when you need entity lexical."
+            description="Useful for when you need entity lexical."
         ),
         Tool(
             name="graphical_retriever",
             func=entity_graphical,
-            description="useful for when you need entity graphical."
+            description="Useful for when you need entity graphical."
         ),
     ]
     return tools
@@ -257,14 +257,17 @@ def save_information_to_csv(path, entity_list, source_or_target, entity_type):
         # for entity in ["http://mouse.owl#MA_0001941"]:
         # for entity in ["http://mouse.owl#MA_0001844"]:
         # for entity in ["http://human.owl#NCI_C12220"]:
-            prompt = f": Retrieve the information of the following entity enclosed with a pair of double quotes: \"{entity}\"." \
-                        "Consider entity initial, entity lexical, and entity graphical." \
-                        "Format the output as JSON enclosed with a pair of curly braces with the following keys: entity_initial, entity_lexical, entity_graphical." \
-                        "Output the JSON only." \
-
+            prompt = f"Retrieve the information of the following entity enclosed with a pair of double quotes: \"{entity}\". " \
+                    "Consider entity initial, entity lexical, and entity graphical. " \
+                    "Format the output as JSON enclosed with a pair of curly braces with the following keys: entity_initial, entity_lexical, entity_graphical. " \
+                    "Output the JSON only."
+            print("retrieving prompt:", prompt)
+            # define tools
             tools = define_tools()
-            agent_executor = define_agent(llm, tools)
-            result = agent_executor({"input": prompt})
+            # define agent
+            agent = define_agent(llm, tools)
+            # execute agent
+            result = agent({"input": prompt})
             print(result['output'])
             if result['output']:
                 output_json = json.loads(result['output'])
@@ -280,17 +283,16 @@ def save_information_to_csv(path, entity_list, source_or_target, entity_type):
                                     entity_initial, entity_lexical, entity_graphical]
                 writer.writerow(list_information)
 
+
 # you can also use llm to check is code or not
 # def check_name_or_code(entity):
 #     prompt = PromptTemplate(
 #         input_variables=["entity"],
-#         template="Is {entity} a unique identifier or code?"
-#                  "Please answer True if yes, False if not or unknown."
+#         template="Is {entity} a unique identifier or code? Please answer True if yes, False if not or unknown."
 #     )
+#     llm = config.llm
 #     chain = LLMChain(llm=llm, prompt=prompt)
-#     output = chain.run({
-#         'entity': entity,
-#     }).strip()
+#     output = chain.run({'entity': entity}).strip()
 #     return output
 
 

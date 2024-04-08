@@ -53,7 +53,7 @@ if __name__ == '__main__':
             e2_name = om_ontology_to_csv.get_entity_name(e2, o2, o2_is_code)
             entity_2 = util.uri_to_prefix_name(e2_name, "target")
             prompt_refine_question = (
-                "In the context of {context}, is \"{entity_1}\" equivalent to \"{entity_2}\"? "
+                "Is \"{entity_1} In the context of {context} \" equivalent to \"{entity_2} in the context of {context}\"? "
                 "Consider only the meaning and not the formatting."
                 "Answer yes or no. Give a short explanation."
                 .format(context=context, entity_1=util.prefix_name_to_name(entity_1),

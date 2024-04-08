@@ -171,7 +171,7 @@ if __name__ == '__main__':
     #
     print(len(result_df))
     #
-    # result_df.to_csv('test.csv', index=False)
+    # result_df.to_csv('test_function.csv', index=False)
     #
     # Use an outer join with an indicator to find differences
     diff_df = pd.merge(df1, df2, on=["Entity1", "Entity2"], how='outer', indicator=True)

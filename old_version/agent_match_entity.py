@@ -401,7 +401,7 @@ if __name__ == '__main__':
     # # compare predict and true
     # print(calculate_metrics(true_path, predict_path))
 
-    # test data
+    # test_function data
     # compare two different terms
     # input_prompt = "Please match cmt:ExternalReviewer and conference:Paper. You can use initial matching, lexical-matching, or graphical matching."
     # compare same terms

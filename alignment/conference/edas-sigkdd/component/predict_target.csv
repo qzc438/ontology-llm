@@ -3,12 +3,12 @@ target:Place,source:Place
 target:Document,source:Document
 target:Author,source:Author
 target:Conference,source:Conference
+target:Sponzor,source:Sponsorship
 target:Person,source:Person
 target:Program_Chair,source:ConferenceChair
 target:Review,source:Review
-target:Speaker,source:Presenter
 target:Paper,source:Paper
 target:Author_of_paper,source:Author
-target:Name,source:hasFirstName
+target:Name_of_conference,source:hasName
 target:Start_of_conference,source:startDate
 target:End_of_conference,source:endDate

@@ -24,6 +24,7 @@ target:Posterior_Wall_of_the_Hypopharynx,source:hypopharynx
 target:Cervical_Esophagus,source:esophagus
 target:Thoracic_Esophagus,source:esophagus
 target:Abdominal_Esophagus,source:esophagus
+target:Upper_Third_of_the_Esophagus,source:esophagus
 target:Cardia,source:stomach cardiac region
 target:Fundus_of_the_Stomach,source:stomach fundus
 target:Body_of_Stomach,source:stomach body
@@ -35,6 +36,7 @@ target:Duodenum,source:duodenum
 target:Ascending_Colon,source:ascending colon
 target:Descending_Colon,source:descending colon
 target:Head_of_the_Pancreas,source:pancreas head
+target:Body_of_the_Pancreas,source:pancreas
 target:Body_of_the_Pancreas,source:pancreas body
 target:Tail_of_the_Pancreas,source:pancreas tail
 target:Pancreatic_Duct,source:pancreatic duct
@@ -70,13 +72,11 @@ target:Prepuce,source:prepuce
 target:Glans_Penis,source:glans penis
 target:Body_of_the_Penis,source:penis
 target:Epididymis,source:epididymis
-target:Spermatic_Cord,source:internal spermatic vein
 target:Bladder_Trigone,source:urinary bladder trigone
 target:Lateral_Wall_of_the_Bladder,source:urinary bladder wall
 target:Anterior_Wall_of_the_Bladder,source:urinary bladder wall
 target:Posterior_Wall_of_the_Bladder,source:urinary bladder wall
 target:Bladder_Neck,source:urinary bladder neck
-target:Ureteric_Orifice,source:ureteric tip
 target:Paraurethral_Gland,source:bulbourethral gland
 target:Conjunctiva,source:conjunctiva
 target:Cornea,source:cornea
@@ -175,6 +175,7 @@ target:Amygdala,source:amygdala
 target:Brain_Stem,source:brainstem
 target:Medulla_Oblongata,source:medulla oblongata
 target:Cortex,source:cerebral cortex
+target:Cortex,source:neocortex region
 target:Hippocampus,source:hippocampus region
 target:Cerebellum,source:cerebellum
 target:Corpus_Callosum,source:corpus callosum
@@ -239,13 +240,16 @@ target:Islet_of_Langerhans,source:pancreatic islet
 target:Leydig_Cell,source:testis interstitial tissue
 target:Muscle_Cell,source:muscle tissue
 target:Follicular_Dendritic_Cell,source:lymph node secondary follicle
+target:Follicular_Dendritic_Cell,target:Lymph_Node_Lymphoid_Follicle
 target:Preganglionic_Autonomic_Fiber,source:autonomic ganglion
+target:Preganglionic_Autonomic_Fiber,target:Autonomic_Ganglion
 target:Hair_Cell,source:inner ear epithelium
-target:Type_I_Hair_Cell,source:spiral organ
 target:Vestibular_Hair_Cell,source:inner ear epithelium
 target:Olfactory_Receptor_Neuron,source:olfactory receptor nerve
 target:Photoreceptor_Cell,source:retina photoreceptor layer
+target:Photoreceptor_Cell,target:Layer_of_the_Rods_and_Cones
 target:Photoreceptors_Vertebrate,source:retina photoreceptor layer
+target:Photoreceptors_Vertebrate,target:Layer_of_the_Rods_and_Cones
 target:Rod,source:retina photoreceptor layer
 target:Rod_Outer_Segment,source:retina photoreceptor layer outer segment
 target:Posterior_Horn_Cell,source:spinal cord dorsal horn
@@ -254,6 +258,7 @@ target:Retinal_Ganglion_Cell,source:retina ganglion cell layer
 target:Postganglionic_Parasympathetic_Fiber,source:parasympathetic ganglion
 target:Purkinje_s_Cell,source:cerebellum purkinje cell layer
 target:Abdominal_Cavity,source:peritoneal cavity
+target:Abdominal_Cavity,target:Peritoneal_Cavity
 target:Abducens_Nerve,source:abducens VI nerve
 target:Adrenal_Gland,source:adrenal gland
 target:Anterior_Chamber_of_the_Eye,source:eye anterior chamber
@@ -264,7 +269,7 @@ target:Upper_Extremity,source:arm
 target:Arteriole,source:arteriole
 target:Autonomic_Nervous_System,source:autonomic nervous system
 target:Basilar_Artery,source:basilar artery
-target:Intrahepatic_Bile_Duct,source:intralobular bile duct
+target:Intrahepatic_Bile_Duct,source:bile duct intrahepatic part
 target:Biliary_Tract,source:biliary tract
 target:Blood_Vessel,source:blood vessel
 target:Body_Region,source:anatomic region
@@ -284,6 +289,7 @@ target:Choroid_Plexus,source:choroid plexus
 target:Clavicle,source:clavicle
 target:Coccyx,source:coccygeal vertebra
 target:Cochlear_Nerve,source:vestibulocochlear VIII nerve
+target:Cochlear_Nerve,target:Vestibulocochlear_Nerve
 target:Common_Bile_Duct,source:common bile duct
 target:Corneal_Stroma,source:corneal stroma
 target:Cranial_Nerve,source:cranial nerve
@@ -305,11 +311,15 @@ target:Femur,source:femur
 target:Fibula,source:fibula
 target:Ganglion,source:ganglion
 target:Autonomic_Ganglion,source:autonomic ganglion
+target:Geniculate_Ganglion,source:cranial ganglion
 target:Geniculate_Ganglion,source:facial VII ganglion
+target:Geniculate_Ganglion,target:Ganglion
 target:Male_Reproductive_System,source:male reproductive system
 target:Glossopharyngeal_Nerve,source:glossopharyngeal IX nerve
 target:Glottis,source:larynx
+target:Glottis,target:Larynx
 target:Gonad,source:gonad
+target:Inguinal_Region,source:inguinal fat pad
 target:Heart,source:heart
 target:Cardiac_Atrium,source:heart atrium
 target:Cardiac_Valve,source:heart valve
@@ -323,10 +333,11 @@ target:Intestine,source:intestine
 target:Iris,source:iris
 target:Jugular_Vein,source:jugular vein
 target:Renal_Cortex,source:kidney cortex
+target:Renal_Cortex,source:outer renal cortex
 target:Renal_Medulla,source:kidney medulla
 target:Lower_Extremity,source:lower leg
 target:Crystalline_Lens,source:lens
-target:Lumbar_Vertebra,source:lumbar vertebra
+target:Lumbar_Vertebra,source:lumbar vertebra 1
 target:Lymph_Node,source:lymph node
 target:Lymphatic_System,source:lymphoid system
 target:Metacarpal_Bone,source:metacarpal bone
@@ -338,6 +349,7 @@ target:Nose,source:nose
 target:Occipital_Bone,source:occipital bone
 target:Oculomotor_Nerve,source:oculomotor III nerve
 target:Olfactory_Nerve,source:olfactory I nerve
+target:Olfactory_Nerve,source:olfactory receptor nerve
 target:Optic_Disc,source:optic disc
 target:Optic_Nerve,source:optic II nerve
 target:Oropharynx,source:oropharynx
@@ -349,14 +361,17 @@ target:Pelvis,source:pelvis
 target:Peripheral_Nerve,source:peripheral nerve
 target:Peritoneal_Cavity,source:peritoneal cavity
 target:Peritoneum,source:peritoneal cavity
+target:Peritoneum,source:peritoneal cavity lining
 target:Peyer_s_Patch,source:peyers patch
 target:Anterior_Lobe_of_the_Pituitary_Gland,source:adenohypophysis
-target:Posterior_Lobe_of_the_Pituitary_Gland,source:pituitary gland
+target:Posterior_Lobe_of_the_Pituitary_Gland,source:neurohypophysis
 target:Pulmonary_Artery,source:pulmonary artery
 target:Pulmonary_Valve,source:pulmonary valve
 target:Pulmonary_Vein,source:pulmonary vein
 target:Radius_Bone,source:radius
+target:Radius_Bone,target:Radius_Bone
 target:Renal_Artery,source:renal artery
+target:Renal_Artery,source:right renal artery
 target:Respiratory_System,source:respiratory system
 target:Rib,source:rib
 target:Scapula,source:scapula
@@ -396,6 +411,7 @@ target:Vertebral_Artery,source:vertebral artery
 target:Vestibular_Nerve,source:vestibulocochlear VIII nerve
 target:Vestibular_Nucleus,source:vestibular VIII nucleus
 target:Vocal_Cord,source:larynx
+target:Vocal_Cord,target:Larynx
 target:Tibial_Artery,source:tibial artery
 target:Anterior_Tibial_Artery,source:anterior tibial artery
 target:Posterior_Tibial_Artery,source:posterior tibial artery
@@ -446,6 +462,7 @@ target:Right_Coronary_Artery,source:right coronary artery
 target:Posterior_Spinal_Artery,source:spinal artery
 target:Venous_Sinus,source:venous sinus
 target:Cardiac_Vein,source:great vein of heart
+target:Cardiac_Vein,source:vein
 target:Great_Cardiac_Vein,source:great vein of heart
 target:Coronary_Vein,source:great vein of heart
 target:Brachial_Vein,source:brachial vein
@@ -463,7 +480,7 @@ target:Lumbar_Spinal_Cord,source:spinal cord
 target:Sacral_Spinal_Cord,source:spinal cord
 target:Oculomotor_Nucleus,source:oculomotor III nucleus
 target:Facial_Nerve_Nucleus,source:facial VII nucleus
-target:Hypoglossal_Nucleus,source:prepositus hypoglossal nucleus
+target:Hypoglossal_Nucleus,source:hypoglossal XII nucleus
 target:Posterior_Chamber_of_the_Eye,source:eye posterior chamber
 target:Palpebral_Conjunctiva,source:palpebral conjunctiva
 target:Bulbar_Conjunctiva,source:palpebral conjunctiva
@@ -480,42 +497,48 @@ target:Lumbar_Spinal_Nerve_Root,source:lower back nerve
 target:Sacral_Spinal_Nerve_Root,source:lower back nerve
 target:Renal_Calyx,source:kidney calyx
 target:Corneal_Epithelium,source:corneal epithelium
+target:Nerve_Plexus,source:nerve plexus
 target:Nerve_Plexus,source:spinal nerve plexus
-target:Intrapulmonary_Bronchus,source:terminal bronchus
 target:Vertebra,source:vertebra
+target:Dorsal_Motor_Nucleus,source:dorsal motor nucleus of vagus X nerve
 target:Dorsal_Motor_Nucleus,source:dorsal tegmental nucleus
 target:Gut_Associated_Lymphoid_Tissue,source:gut associated lymphoid tissue
 target:Mammary_Epithelium,source:mammary gland epithelium
 target:Intrathecal_Space,source:spinal cord central canal
-target:Neuroendocrine_System,source:neuroendocrine gland
+target:Neuroendocrine_System,source:endocrine system
 target:Duct,source:efferent duct
 target:Neuro-Ocular_System,source:visual system
 target:Exocrine_System,source:exocrine system
-target:Trachea_and_Bronchus,source:main bronchus
+target:Trachea_and_Bronchus,source:trachea
 target:Gut_Epithelium,source:gastrointestinal system epithelium
 target:Connective_and_Soft_Tissue,source:connective tissue
 target:Ascending_Spinal_Cord_Tract,source:spinal cord dorsal column
 target:Pontine_Base,source:pons
 target:Breast,source:thoracic mammary gland
 target:Intracranial_Artery,source:cerebral artery
+target:Intracranial_Artery,source:internal carotid artery
 target:Bone_of_the_Lower_Extremity,source:lower leg bone
+target:Bone_of_the_Upper_Extremity,source:arm
 target:Bone_of_the_Upper_Extremity,source:upper arm bone
 target:Interval_Lymph_Node,source:lymph node
 target:Alveolus,source:alveolus
 target:Lobule,source:portal lobule
 target:Splenic_Red_Pulp,source:spleen red pulp
 target:Splenic_White_Pulp,source:spleen white pulp
+target:Spinal_Cord_Tract,source:spinal cord
 target:Vestibulocochlear_Nerve,source:vestibulocochlear VIII nerve
 target:Vertebral_Column,source:vertebral column
 target:Major_Salivary_Gland,source:major salivary gland
+target:Smooth_Muscle_Tissue_Cell,source:smooth muscle
 target:Smooth_Muscle_Tissue_Cell,source:smooth muscle tissue
 target:Cardiocyte,source:cardiac muscle tissue
 target:Ependymocyte,source:brain ependyma
 target:Endocardium,source:heart endocardium
 target:Pericardium,source:pericardium
+target:Specialized_Epithelial_Cell,source:cavity lining
 target:Brunner_s_Gland,source:brunners gland
 target:Male_Genital_Organ,source:male reproductive gland/organ
-target:Eye_Part,source:eye
+target:Eye_Part,source:eye surface
 target:Skin_Part,source:skin
 target:Heart_Part,source:heart myocardium
 target:Pancreas_Part,source:pancreas body
@@ -542,6 +565,7 @@ target:Muscle,source:muscle
 target:Special_Sense_Organ_System,source:sensory organ system
 target:Sensory_Ganglion,source:sensory ganglion
 target:Back,source:back
+target:Neck,source:head/neck
 target:Neck,source:neck
 target:Ileocecal_Valve,source:ileocaecal junction
 target:Solitary_Nucleus,source:solitary tract nucleus
@@ -555,15 +579,18 @@ target:Bone_Tissue,source:bone
 target:Acinar_Cell,source:pancreatic acinus
 target:Ependyma,source:brain ependyma
 target:Internal_Capsule,source:internal capsule
+target:Internal_Capsule,target:Internal_Capsule
 target:Alveolar_Wall,source:alveolar wall
 target:Apex_of_the_Prostate,source:prostate gland anterior lobe
 target:Anterior_Surface_of_the_Prostate,source:prostate gland anterior lobe
 target:Surface_of_the_Prostate,source:prostate gland
 target:Lateral_Lobe_of_the_Prostate,source:prostate gland dorsolateral lobe
-target:Posterior_Lobe_of_the_Prostate,source:prostate gland lobe
+target:Posterior_Lobe_of_the_Prostate,source:prostate gland dorsolateral lobe
 target:Middle_Lobe_of_the_Prostate,source:prostate gland lobe
 target:Posterior_Surface_of_the_Prostate,source:prostate gland
 target:Prostatic_Glandular_Tissue,source:prostate gland
+target:Prostatic_Glandular_Tissue,source:prostate gland epithelium
+target:Prostatic_Glandular_Tissue,source:prostate gland secretion
 target:Mucosal_Tissue_of_Human_Prostate,source:prostate gland epithelium
 target:Prostatic_Muscular_Tissue,source:prostate gland smooth muscle
 target:Prostatic_Portion_of_the_Male_Urethra,source:prostatic urethra
@@ -577,7 +604,7 @@ target:Olfactory_Epithelial_Cell,source:nasal cavity olfactory epithelium
 target:Ganglion_Cell,source:retina ganglion cell layer
 target:Cuboidal_Cell,source:cuboidal oviduct epithelium
 target:Mesangial_Cell,source:mesangium
-target:Juxtaglomerular_Cell,source:part of afferent arteriole forming juxtaglomerular complex
+target:Juxtaglomerular_Cell,source:juxtaglomerular complex
 target:Epicardium,source:visceral serous pericardium
 target:Mucosa,source:intestine mucosa
 target:Submucosa,source:small intestine submucosa
@@ -596,6 +623,7 @@ target:Glomerulus,source:glomerulus
 target:Lymph,source:lymph
 target:Breast_Milk,source:mammary gland milk
 target:Mucus,source:nasal mucus
+target:Pancreatic_Secretion,source:exocrine pancreas secretion
 target:Pancreatic_Secretion,source:pancreas secretion
 target:Lung_Surfactant,source:lung surfactant
 target:Saliva,source:saliva
@@ -625,6 +653,7 @@ target:Anatomic_Sites,source:anatomic region
 target:Respiratory_System_Fluid_or_Secretion,source:respiratory system fluid/secretion
 target:Shoulder,source:shoulder
 target:Chest,source:chest
+target:Chest,target:Chest
 target:Anatomic_Border,source:anatomic region
 target:Cavity,source:cavity lining
 target:Cardiovascular_System_Part,source:cardiovascular system
@@ -714,10 +743,10 @@ target:Axis_of_the_Vertebra,source:cervical vertebra 2
 target:Basal_Domain_of_the_Epithelium,source:esophagus basal epithelium
 target:Basal_Lamina,source:trachea basal lamina
 target:Basal_Lamina_Collagen,source:bronchus basal lamina
-target:Basal_Lamina_of_the_Vascular_Endothelium,source:blood vessel endothelium
+target:Basal_Lamina_Collagen,source:trachea basal lamina
 target:Basal_Layer_of_the_Endometrium,source:endometrium
 target:Base_of_the_Pericardium,source:pericardium
-target:Basilar_Artery_Branch,source:posterior cerebral artery
+target:Basilar_Artery_Branch,source:basilar artery
 target:Basilar_Membrane_of_the_Membranous_Canal_of_the_Cochlea,source:basilar membrane
 target:Basilic_Vein,source:basilic vein
 target:Beta_Cell,source:pancreatic islet
@@ -731,7 +760,8 @@ target:Bladder_Tissue,source:urinary bladder wall
 target:Bladder_Transitional_Cell,source:urinary bladder urothelium
 target:Bladder_Transitional_Cell_Epithelium,source:urinary bladder urothelium
 target:Blood_Capillary,source:capillary
-target:Blood_Vessel_Tissue,source:blood vessel endothelium
+target:Blood_Vessel_Tissue,source:blood vessel
+target:Blood_Vessel_Tissue,source:blood vessel smooth muscle
 target:Body_of_the_Corpus_Callosum,source:corpus callosum
 target:Body_of_the_Epididymis,source:epididymis
 target:Body_of_the_Lateral_Ventricle,source:lateral ventricle
@@ -743,6 +773,7 @@ target:Brain_Infundibulum,source:infundibulum
 target:Bronchial_Artery,source:bronchial artery
 target:Bronchial_Epithelium,source:bronchus epithelium
 target:Bronchial_Lymph_Node,source:bronchus associated lymphoid tissue
+target:Bronchial_Lymph_Node,source:lymph node
 target:Bronchial_Tree,source:left lung bronchiole
 target:Bronchus-Associated_Lymphoid_Tissue,source:bronchus associated lymphoid tissue
 target:Brown_Adipose_Tissue,source:brown fat
@@ -754,7 +785,7 @@ target:C4_Vertebra,source:cervical vertebra 4
 target:C5_Vertebra,source:cervical vertebra 5
 target:C6_Vertebra,source:cervical vertebra 6
 target:C7_Vertebra,source:cervical vertebra 7
-target:CA1_Field_of_the_Cornu_Ammonis,source:hippocampus CA2
+target:CA1_Field_of_the_Cornu_Ammonis,source:hippocampus CA1
 target:CA2_Field_of_the_Cornu_Ammonis,source:hippocampus CA2
 target:CA3_Field_of_the_Cornu_Ammonis,source:hippocampus CA3
 target:CA4_Field_of_the_Cornu_Ammonis,source:hippocampus CA4
@@ -767,13 +798,14 @@ target:Canine_Tooth,source:incisor
 target:Capsular_Ligament,source:joint fibrous capsule
 target:Cardia_Gland,source:stomach glandular region mucous membrane
 target:Cardia_Orifice,source:stomach cardiac region
-target:Carpal_Joint,source:radio-carpal joint
+target:Carpal_Joint,source:carpus
 target:Carpus_Bone,source:carpal bone
 target:Cartilage_Matrix,source:cartilage
 target:Cartilagenous_Tissue,source:cartilage
 target:Cell_of_the_Epidermis,source:epidermis
+target:Cementocyte,source:cementum
 target:Cementum,source:cementum
-target:Central_Artery,source:internal carotid artery
+target:Central_Artery,source:cerebral artery
 target:Central_Vein,source:median vein
 target:Centromedian_Nucleus_of_the_Thalamus,source:central medial nucleus
 target:Cephalic_Vein,source:cephalic vein
@@ -798,6 +830,7 @@ target:Ciliary_Muscle,source:ciliary muscle
 target:Ciliary_Process,source:ciliary body
 target:Ciliated_Bronchial_Epithelial_Cell,source:bronchiole epithelium
 target:Circular_Ligament_of_the_Tooth,source:periodontal ligament
+target:Circular_Sulcus,source:spiral sulcus
 target:Circumvallate_Papilla,source:circumvallate papilla
 target:Classic_Lobule,source:portal lobule
 target:Claustrum,source:claustrum
@@ -826,6 +859,7 @@ target:Connecting_Segment_of_the_Photoreceptor_Cell,source:retina photoreceptor 
 target:Connective_Tissue_Fiber,source:connective tissue
 target:Connective_Tissue_Proper,source:connective tissue
 target:Continuous_Capillary,source:capillary
+target:Continuous_Capillary,source:capillary endothelium
 target:Corneoscleral_Coat,source:sclera
 target:Corniculate_Cartilage,source:corniculate cartilage
 target:Cornu_Ammonis,source:hippocampus CA2
@@ -835,7 +869,7 @@ target:Corpus_Callosum_Cistern,source:corpus callosum
 target:Corpus_Spongiosum,source:penis erectile tissue
 target:Cortical_Arch,source:cortical arch
 target:Cortical_Cell_Layer,source:cortical layer I
-target:Cortical_Nephron,source:kidney cortex
+target:Cortical_Nephron,source:nephron
 target:Cortical_Vein,source:kidney subcortical veins
 target:Costal_Cartilage,source:costal cartilage
 target:Costochondral_Joint,source:costochondral joint
@@ -858,7 +892,6 @@ target:Cuneiform_Cartilage,source:larynx cartilage
 target:Cystic_Duct,source:cystic duct
 target:Decidua,source:decidua
 target:Decidua_Capsularis,source:decidua
-target:Decidua_Parietalis,source:decidua
 target:Deep_Abdominal_Muscle,source:anterior abdominal wall muscle
 target:Deep_Cervical_Lymph_Node,source:cervical lymph node
 target:Deep_Circumflex_Iliac_Artery,source:iliac circumflex artery
@@ -869,7 +902,8 @@ target:Deep_Femoral_Artery_Branch,source:profunda femoris artery
 target:Deep_Intracranial_Venous_System,source:cerebral vein
 target:Deep_Lymphatic_Vessel,source:lymphatic vessel
 target:Deep_Middle_Cerebral_Vein,source:cerebral vein
-target:Deep_Palmar_Artery,source:ulnar artery palmar branch
+target:Deep_Palmar_Artery,source:proper palmal digital arteries
+target:Deep_Palmar_Vein,source:common palmar digital vein
 target:Deep_Palmar_Vein,source:proper palmal vein
 target:Deep_Vein,source:vein
 target:Deltoid,source:deltoid
@@ -880,6 +914,7 @@ target:Dentin,source:dentin
 target:Descending_Aorta,source:descending aorta
 target:Descending_Limb_of_the_Henle_s_Loop,source:loop of henle descending limb
 target:Diagonal_Branch_of_the_Anterior_Descending_Artery,source:left coronary artery
+target:Diaphysis_of_the_Bone,source:long bone metaphysis
 target:Diarthrosis,source:synovial joint
 target:Digastric_Muscle,source:digastric
 target:Dilator_Pupillae_Muscle,source:dilatator pupillae
@@ -892,7 +927,6 @@ target:Dorsal_Root_of_the_Spinal_Nerve,source:dorsal root ganglion
 target:Dorsalis_Pedis_Artery,source:dorsal artery of foot
 target:Dorsalis_Pedis_Artery_Branch,source:dorsal artery of foot
 target:Dorsomedial_Nucleus_of_the_Thalamus,source:dorsal thalamus
-target:Dorsum_of_the_Tongue,source:tongue
 target:Duct_of_the_Epididymis,source:epididymal duct
 target:Duct_of_the_Gartner,source:vas deferens
 target:Duct_Salivary_Gland_System,source:salivary duct
@@ -900,16 +934,19 @@ target:Dura_Mater,source:dura mater
 target:Eccrine_Sweat_Gland,source:sweat gland
 target:Efferent_Ductule,source:efferent duct
 target:Elastic_Cartilage,source:elastic cartilage
+target:Elbow_Joint,source:elbow
 target:Elbow_Joint,source:elbow joint
 target:Ellipsoid_Portion_of_the_Inner_Segment_of_the_Photoreceptor_Cell,source:retina photoreceptor layer inner segment
 target:Enamel,source:enamel
 target:Endocrine_Cell_and_Neuroendocrine_Cell,source:neuroendocrine gland
 target:Endocrine_Ovary,source:endocrine gland
+target:Endocrine_Ovary,source:female reproductive gland
+target:Endocrine_Ovary,source:ovary
 target:Endocrine_Pancreas,source:endocrine pancreas
-target:Endocrine_Sex_Organ,source:gonad
+target:Endocrine_Sex_Organ,source:reproductive organ
 target:Endocrine_Testis,source:male reproductive gland
 target:Endolymph,source:endolymph
-target:Endometrial_Cavity,source:endometrium
+target:Endometrial_Cavity,source:endometrium luminal epithelium
 target:Endometrial_Cell,source:endometrium
 target:Endometrial_Stroma,source:endometrium stroma
 target:Endothelium_of_the_Glomerular_Capillary,source:glomerular capillary endothelium
@@ -919,7 +956,7 @@ target:Epiphysis_of_the_Bone,source:long bone epiphysis
 target:Epitympanic_Recess,source:tubotympanic recess
 target:Erector_Muscle_of_the_Hair,source:arrector pili smooth muscle
 target:Esophageal_Gland,source:esophagus secretion
-target:Esophageal_Glandular_Cell,source:esophagus mucosa
+target:Esophageal_Glandular_Cell,source:esophagus secretion
 target:Esophageal_Mucosa,source:esophagus mucosa
 target:Esophageal_Muscular_Coat,source:esophagus smooth muscle circular layer
 target:Esophageal_Muscularis_Mucosa,source:esophagus muscularis mucosa
@@ -941,7 +978,7 @@ target:External_Jugular_Vein,source:external jugular vein
 target:External_Malleolar_Artery,source:peroneal artery
 target:External_Nose,source:nose
 target:External_Oblique_Muscle,source:obliquus externus abdominis
-target:External_Plantar_Artery,source:medial plantar artery
+target:External_Plantar_Artery,source:proper plantar digital arteries
 target:External_Pterygoid_Muscle,source:pterygoid medialis
 target:External_Pyramidal_Cell_Layer,source:hippocampus pyramidal layer
 target:Extraglomerular_Mesangial_Cell,source:extraglomerular mesangium
@@ -955,7 +992,7 @@ target:Fasciculata_Zone,source:adrenal gland zona fasciculata
 target:Female_Genital_System_Fluid_or_Secretion,source:female reproductive system fluid/secretion
 target:Female_Prepuce,source:prepuce
 target:Female_Urethra,source:female urethra
-target:Femoral_Artery_Branch,source:femoral artery
+target:Femoral_Artery_Branch,source:medial femoral artery
 target:Fenestrated_Capillary,source:capillary endothelium
 target:Fibrocartilage,source:fibrocartilage
 target:Filiform_Papilla,source:filiform papilla
@@ -974,7 +1011,7 @@ target:Fourth_Portion_of_the_Duodenum,source:duodenum
 target:Frontal_Bone,source:frontal bone
 target:Frontal_Gyrus,source:frontal cortex
 target:Frontal_Horn_of_the_Lateral_Ventricle,source:lateral ventricle
-target:Frontal_Nerve,source:trigeminal V nerve ophthalmic division
+target:Frontal_Sulcus,source:frontal cortex
 target:Frontopolar_Artery,source:frontal artery
 target:Functional_Layer_of_the_Endometrium,source:endometrium
 target:Fundic_Gland,source:stomach glandular region
@@ -982,6 +1019,7 @@ target:Fungiform_Papilla,source:fungiform papilla
 target:Fusiform_Cell,source:fusiform nucleus
 target:Gallbladder_Body,source:gall bladder
 target:Gallbladder_Fundus,source:gall bladder
+target:Gallbladder_Neck,source:cystic duct
 target:Gallbladder_Neck,source:gall bladder
 target:Ganglion_Cell_Layer,source:retina ganglion cell layer
 target:Ganglionic_Layer,source:retina ganglion cell layer
@@ -1004,7 +1042,6 @@ target:Genu_of_the_Corpus_Callosum,source:corpus callosum
 target:Germinal_Epithelium,source:ovary germinal epithelium
 target:Gingiva,source:gingiva
 target:Gland_of_Krause,source:lacrimal gland
-target:Gland_of_Moll,source:skin apocrine gland
 target:Glans_Clitoris,source:clitoris
 target:Glomerular_Basement_Membrane,source:glomerular capillary basement membrane
 target:Glomerular_Capillary,source:glomerular capillary
@@ -1017,12 +1054,12 @@ target:Growing_Follicle,source:ovary growing follicle
 target:Gyrus_Longus_Insulae,source:insular cortex
 target:Hair_Bulb,source:coat hair bulb
 target:Hair_Follicle_Infundibulum,source:hair follicle
-target:Hair_Follicle_Isthmus,source:hair follicle
 target:Hair_Root,source:coat hair bulb
 target:Hand,source:hand
 target:Head_and_Neck_Muscle,source:head/neck muscle
 target:Head_of_the_Epididymis,source:epididymis
 target:Head_of_the_Femur,source:femur
+target:Head_of_the_Femur,source:hip
 target:Head_of_the_Fibula,source:fibula
 target:Head_of_the_Humerus,source:humerus
 target:Head_of_the_Tibia,source:tibia
@@ -1030,12 +1067,16 @@ target:Hematopoietic_Cell,source:hematopoietic system
 target:Hemisphere_of_the_Cerebellum,source:cerebellar hemisphere
 target:Hemorrhoidal_Plexus,source:venous plexus
 target:Hepatic_Artery,source:hepatic artery
+target:Hepatic_Duct,source:bile duct
+target:Hepatic_Duct,source:common hepatic duct
 target:Hepatic_Duct,source:hepatic duct
 target:Hepatic_Lobule,source:liver lobule
 target:Hepatic_Sinusoid,source:liver sinusoid
 target:Hepatic_Stellate_Cell,source:liver perisinusoidal space
 target:Hepatic_Tissue,source:liver parenchyma
-target:Hepatogastric_Ligament,source:gastro-splenic ligament
+target:Hepatic_Vein,source:hepatic portal vein
+target:Hepatogastric_Ligament,source:lesser omentum
+target:High_Endothelial_Venule,source:lymph node endothelium
 target:High_Endothelial_Venule,source:venule endothelium
 target:Epencephalon,source:forebrain
 target:Hip_Joint,source:hip joint
@@ -1044,9 +1085,10 @@ target:Hymen,source:vaginal hymen
 target:Hyoepiglottic_Ligament,source:larynx ligament
 target:Hyoid_Bone,source:hyoid bone
 target:Hyoid_Muscle,source:mylohyoid
+target:Hyoid_Muscle,source:thyrohyoid
 target:Ileo-colic_Artery,source:ileocolic artery
 target:Iliac_Lymph_Node,source:lymph node
-target:Iliacus,source:iliopsoas
+target:Iliacus,source:iliacus
 target:Iliocostal_Muscle,source:iliocostalis thoracis
 target:Iliopsoas_Muscle,source:iliopsoas
 target:Ilium,source:ilium
@@ -1074,8 +1116,8 @@ target:Inner_Plexiform_Layer,source:retina inner plexiform layer
 target:Inner_Rod_of_the_Corti,source:spiral organ
 target:Inner_Segment_of_the_Photoreceptor_Cell,source:retina photoreceptor layer inner segment
 target:Inner_Wall_of_the_Vestibule,source:vestibular labyrinth
-target:Innominate_Artery,source:brachiocephalic trunk
-target:Innominate_Artery_Branch,source:brachiocephalic trunk
+target:Innominate_Artery,source:right subclavian artery
+target:Innominate_Artery_Branch,source:right subclavian artery
 target:Innominate_Vein,source:subclavian vein
 target:Insula,source:insular cortex
 target:Interatrial_Septum,source:atrial septum
@@ -1093,13 +1135,14 @@ target:Internal_Calcanean_Artery,source:medial plantar artery
 target:Internal_Carotid_Artery,source:internal carotid artery
 target:Internal_Carotid_Artery_Branch,source:internal carotid artery
 target:Internal_Cerebral_Vein,source:cerebral vein
+target:Internal_Cerebral_Vein,source:inferior cerebral vein
 target:Internal_Circumflex_Artery,source:iliac circumflex artery
-target:Internal_Cuneiform_Bone_of_the_Foot,source:intermediate cuneiform
+target:Internal_Cuneiform_Bone_of_the_Foot,source:medial cuneiform
 target:Internal_Geniculate_Body,source:lateral geniculate nucleus
 target:Internal_Granular_Layer,source:cerebellum internal granule cell layer
 target:Internal_Iliac_Artery,source:internal iliac artery
 target:Internal_Iliac_Artery_Branch,source:internal iliac artery
-target:Internal_Iliac_Vein,source:iliac vein
+target:Internal_Iliac_Vein,source:internal iliac vein
 target:Internal_Intercostal_Muscle,source:intercostales internus
 target:Internal_Jugular_Vein,source:internal jugular vein
 target:Internal_Malleolar_Artery,source:medial plantar artery
@@ -1109,6 +1152,7 @@ target:Internal_Nare,source:internal naris
 target:Internal_Oblique_Muscle,source:obliquus internus abdominis
 target:Internal_Plantar_Artery,source:medial plantar artery
 target:Internal_Pterygoid_Muscle,source:pterygoid medialis
+target:Internal_Pubic_Artery,source:internal iliac artery
 target:Internal_Wall_of_the_Tympanum,source:tympanic membrane
 target:Interphalangeal_Joint_of_the_Hand,source:metacarpo-phalangeal joint
 target:Interventricular_Septum,source:ventricular septum
@@ -1117,7 +1161,6 @@ target:Intracranial_Venous_System,source:venous system
 target:Intralaminar_Nucleus,source:intralaminar thalamic group
 target:Intra-thoracic_Lymph_Node,source:lymph node
 target:Irregular_Dense_Connective_Tissue,source:connective tissue
-target:Irregular_Tubule,source:renal tubule
 target:Ischium,source:ischium
 target:Islet_Cell,source:pancreatic islet
 target:Thyroid_Gland_Isthmus,source:thyroid gland isthmus
@@ -1125,20 +1168,20 @@ target:Joint_of_the_Pelvic_Girdle,source:joint of girdle
 target:Juxtaglomerular_Apparatus,source:juxtaglomerular complex
 target:Juxtamedullary_Nephron,source:juxtamedullary renal corpuscle
 target:Kidney_Lower_Lobe,source:left kidney
+target:Knee_Joint,source:knee
 target:Knee_Joint,source:knee joint
 target:L1_Vertebra,source:lumbar vertebra 1
 target:L2_Vertebra,source:lumbar vertebra 2
 target:L3_Vertebra,source:lumbar vertebra 3
 target:L4_Vertebra,source:lumbar vertebra 4
 target:L5_Vertebra,source:lumbar vertebra 5
-target:Labial_Salivary_Gland,source:minor salivary gland
+target:Labial_Salivary_Gland,source:major salivary gland
+target:Labial_Salivary_Gland,source:salivary gland
 target:Lacrimal_Apparatus,source:lacrimal apparatus
 target:Lacrimal_Bone,source:lacrimal bone
 target:Lacrimal_Canaliculus,source:lacrimal canaliculus
-target:Lacrimal_Nerve,source:trigeminal V nerve ophthalmic division
 target:Lacrimal_Sac,source:lacrimal sac
 target:Lactiferous_Duct,source:lactiferous duct
-target:Lamina_Lucida,source:trachea basal lamina
 target:Lamina_Propria,source:trachea lamina propria
 target:Lamina_Rara_Interna,source:reticular lamina
 target:Lamina_Spiralis_Ossea,source:osseus spiral lamina
@@ -1156,9 +1199,9 @@ target:Lateral_Posterior_Nucleus_of_the_Thalamus,source:ventral posterior thalam
 target:Lateral_Rectus_Muscle,source:lateral rectus extraocular muscle
 target:Lateral_Surface_of_the_Liver,source:liver left lateral lobe
 target:Lateral_Surface_of_the_Prostate,source:prostate gland dorsolateral lobe
-target:Lateral_Thyrohyoid_Ligament,source:larynx ligament
-target:Lateral_Vestibular_Nucleus,source:lateral cerebellar nucleus
+target:Lateral_Vestibular_Nucleus,source:spinal vestibular nucleus
 target:Layer_of_the_Ophthalmic_Nerve_Fibers,source:retina nerve fiber layer
+target:Layer_of_the_Ophthalmic_Nerve_Fibers,source:trigeminal V nerve ophthalmic division
 target:Layer_of_the_Rods_and_Cones,source:retina photoreceptor layer
 target:Left_Cerebral_Hemisphere,source:cerebral hemisphere
 target:Left_Common_Carotid_Artery,source:left common carotid artery
@@ -1198,7 +1241,7 @@ target:Long_Bone,source:limb long bone
 target:Long_Saphenous_Vein,source:saphenous vein
 target:Loop_of_Henle,source:loop of henle
 target:Loose_Connective_Tissue,source:connective tissue
-target:Lower_Gastrointestinal_Tract,source:gastrointestinal system
+target:Lower_Gastrointestinal_Tract,source:bowel
 target:Lower_Respiratory_System,source:lower respiratory tract
 target:Lumbar_Artery,source:ilio-lumbar artery
 target:Lumbar_Nerve,source:lower back nerve
@@ -1217,15 +1260,18 @@ target:Lymph_Node_Hilum,source:lymph node
 target:Lymph_Node_Medullary_Portion,source:lymph node medulla
 target:Lymph_Node_Sinus,source:lymph node
 target:Lymph_Node_Tissue,source:lymph node
+target:Lymph_Node_Tissue,source:lymphoid tissue
 target:Lymph_Node_Trabecula,source:lymph node trabeculum
 target:Lymphatic_Capillary,source:lymphatic vessel
 target:Lymphatic_Vessel,source:lymphatic vessel
 target:Lymphoid_Follicle,source:lymph node follicle
+target:Lymphoid_Follicle,source:spleen lymphoid follicle
 target:Macula_Densa,source:macula densa
 target:Macula_Lutea,source:macula
 target:Macula_of_Saccule,source:macula of saccule
 target:Macula_of_Utricle,source:macula of utricle
 target:Male_Prepuce,source:male preputial gland
+target:Male_Prepuce,source:penis foreskin
 target:Male_Urethra,source:male urethra
 target:Malleus,source:malleus
 target:Mamillary_Body,source:mammillary body
@@ -1238,14 +1284,17 @@ target:Median_Cephalic_Vein,source:cephalic vein
 target:Median_Vein,source:median vein
 target:Mediastinal_Lymph_Node,source:lymph node
 target:Meibomian_Gland,source:meibomian gland
-target:Membrane_of_the_Brain_or_Spinal_Cord,source:dura mater
+target:Membrane_of_the_Brain_or_Spinal_Cord,source:brain meninges
 target:Vestibular_Membrane,source:vestibular membrane
 target:Membranous_Canal_of_the_Cochlea,source:osseus cochlear canal
 target:Membranous_Labyrinth,source:membranous labyrinth
+target:Membranous_Urethra,source:male membranous urethra
 target:Membranous_Urethra,source:membranous urethra
 target:Meningeal_Layer_of_the_Dura_Mater,source:dura mater
+target:Meningeal_Layer_of_the_Dura_Mater,source:spinal cord dura mater
 target:Meningothelial_Cell,source:brain meninges
 target:Mesangium,source:mesangium
+target:Mesentery,source:gastrointestinal system mesentery
 target:Mesentery,source:small intestine mesentery
 target:Mesothelial_Cell,source:mesothelium
 target:Mesothelium,source:mesothelium
@@ -1253,7 +1302,7 @@ target:Metacarpophalangeal_Joint,source:metacarpo-phalangeal joint
 target:Metatarsal_Artery,source:medial tarsal artery
 target:Metatarsophalangeal_Joint,source:metacarpo-phalangeal joint
 target:Microvillus,source:small intestine villus
-target:Midcortical_Nephron,source:nephron
+target:Midcortical_Nephron,source:renal cortex tubule
 target:Middle_Cerebral_Artery_Branch,source:middle cerebral artery
 target:Middle_Constrictor_Muscle,source:constrictor muscle of pharynx superior
 target:Middle_Cuneiform_Bone_of_the_Foot,source:medial cuneiform
@@ -1262,29 +1311,31 @@ target:Middle_Frontal_Gyrus,source:frontal cortex
 target:Middle_Hemorrhoidal_Artery,source:inferior rectal artery
 target:Middle_Occipital_Convolution,source:occipital cortex
 target:Middle_Temporal_Convolution,source:temporal cortex
-target:Middle_Thyrohyoid_Ligament,source:larynx ligament
 target:Minor_Salivary_Gland,source:minor salivary gland
 target:Modiolus,source:modiolus
 target:Molar_Tooth,source:molar
 target:Mons_Pubis,source:pubis
 target:Motor_Nucleus_of_the_Trigeminal_Nerve,source:trigeminal V motor nucleus
 target:Mucous_Salivary_Gland,source:salivary gland
+target:Muscle_and_Fasciae_of_the_Thorax,source:thorax connective tissue
 target:Muscle_and_Fasciae_of_the_Thorax,source:thorax muscle
 target:Muscle_of_the_Coccyx,source:tail bone
 target:Muscle_of_the_Mastication,source:masseter
 target:Muscle_of_the_Tympanum,source:tensor tympani
+target:Muscularis_Mucosa,source:intestine muscularis mucosa
 target:Muscularis_Mucosa,source:small intestine muscularis mucosa
 target:Musculus_Latissimus_Dorsi,source:latissimus dorsi
 target:Myoid_Portion_of_the_Inner_Segment_of_the_Photoreceptor_Cell,source:retina photoreceptor layer inner segment
 target:Nail,source:nail
 target:Nasal_Bone,source:nasal bone
-target:Nasal_Muscle,source:nasal turbinate
 target:Nasal_Septum,source:nasal septum
 target:Nasolacrimal_Duct,source:nasolacrimal duct
 target:Navicular_Bone,source:navicular
 target:Neck_Muscle,source:neck muscle
 target:Neck_of_the_Humerus,source:humerus
+target:Neural_Retina,source:neural retinal epithelium
 target:Neural_Retina,source:retina
+target:Neural_Retina,source:retina layer
 target:Nostril,source:naris
 target:Nucleus_of_the_Mesencephalic_Tract_of_the_Trigeminal_Nerve,source:trigeminal V mesencephalic nucleus
 target:Nucleus_of_the_Solitary_Tract,source:solitary tract nucleus
@@ -1303,7 +1354,7 @@ target:Olfactory_Mucosa,source:nasal cavity olfactory epithelium
 target:Olfactory_Sulcus,source:olfactory lobe
 target:Olfactory_Tract,source:olfactory tract
 target:Omentum,source:lesser omentum
-target:Opening_of_the_Pulmonary_Vein,source:left pulmonary vein
+target:Opening_of_the_Pulmonary_Vein,source:pulmonary vein
 target:Opening_of_the_Vena_Cava,source:vena cava
 target:Ophthalmic_Nerve,source:trigeminal V nerve ophthalmic division
 target:Opthalmic_Artery,source:ophthalmic artery
@@ -1313,18 +1364,21 @@ target:Organ_of_Corti,source:spiral organ
 target:Organ_of_the_Special_Sense,source:sensory organ
 target:Orifice_of_the_Eustachian_Tube,source:auditory tube
 target:Osseous_Labyrinth,source:bony labyrinth
+target:Osseous_Labyrinth,source:osseus labyrinth vestibule
 target:Otolymph,source:otolymph
 target:Outer_Enamel_Epithelium,source:enamel
 target:Outer_Hair_Cell_of_the_Organ_of_the_Corti,source:spiral organ
 target:Outer_Limiting_Membrane,source:retina external limiting lamina
 target:Outer_Nuclear_Layer_of_Retina,source:retina outer nuclear layer
+target:Outer_Plexiform_Layer,source:olfactory bulb external plexiform layer
 target:Outer_Plexiform_Layer,source:retina outer plexiform layer
 target:Outer_Segment_of_the_Photoreceptor_Cell,source:retina photoreceptor layer outer segment
 target:Outer_Wall_of_the_Vestibule,source:osseus labyrinth vestibule
 target:Ovarian_Artery,source:ovarian artery
 target:Ovarian_Follicle,source:ovary follicle
-target:Ovarian_Tissue,source:female reproductive gland
+target:Ovarian_Tissue,source:ovary
 target:Palatal_Muscle,source:soft palate
+target:Palate_Bone,source:palate
 target:Palate_Bone,source:palatine bone
 target:Palatine_Salivary_Gland,source:palatine gland
 target:Palatine_Tonsil,source:palatine tonsil
@@ -1363,6 +1417,7 @@ target:Perineum,source:perineum
 target:Periodontium,source:periodontal ligament
 target:Periosteal_Layer_of_the_Dura_Mater,source:dura mater
 target:Perisinusoidal_Space,source:liver perisinusoidal space
+target:Peritoneal_Mesothelial_Cell,source:mesothelium
 target:Peritoneal_Mesothelial_Cell,source:visceral mesothelium
 target:Peroneal_Artery,source:peroneal artery
 target:Phalanx,source:phalanx
@@ -1386,7 +1441,7 @@ target:Postcapillary_Venule,source:venule
 target:Postcentral_Gyrus,source:primary somatosensory cortex
 target:Postcentral_Sulcus,source:primary somatosensory cortex
 target:Posterior_Auricular_Vein,source:caudal auricular vein
-target:Posterior_Carpal_Artery,source:ulnar artery palmar branch
+target:Posterior_Carpal_Artery,source:dorsal metacarpal artery
 target:Posterior_Cerebral_Artery_Branch,source:posterior cerebral artery
 target:Posterior_Choroidal_Artery,source:choroidal blood vessel
 target:Posterior_Circulation_Intracranial_Artery,source:posterior cerebral artery
@@ -1468,21 +1523,23 @@ target:S2_Vertebra,source:sacral vertebra 2
 target:S3_Vertebra,source:sacral vertebra 3
 target:S4_Vertebra,source:sacral vertebra 4
 target:S5_Vertebra,source:cervical vertebra 5
+target:S5_Vertebra,source:sacral vertebra 4
 target:Saccule,source:macula of saccule
 target:Sacral_Bone,source:sacral vertebra
 target:Sacral_Nerve,source:lumbosacral plexus
-target:Sacrococcygeal_Joint,source:coccygeal vertebra
 target:Sacroiliac_Joint,source:sacroiliac joint
 target:Sacrum,source:sacral vertebra
 target:Salivary_Gland_Tissue,source:salivary gland
-target:Salpingopharyngeus,source:pharynx muscle
+target:Salivary_Gland_Tissue,source:salivary gland epithelium
+target:Salpingopharyngeus,source:constrictor muscle of pharynx
 target:Saphenous_Vein,source:saphenous vein
 target:Sartorius_Muscle,source:sartorius
-target:Scalene_Muscle,source:neck muscle
+target:Scalene_Muscle,source:scalenus medius
 target:Sebaceous_Gland,source:sebaceous gland
 target:Sebaceous_Gland_Duct,source:sebaceous gland
 target:Sebaceous_Gland_of_the_Eyelash,source:eye sebaceous gland
 target:Second_Portion_of_the_Duodenum,source:duodenum
+target:Eye_Segment,source:eye anterior segment
 target:Eye_Segment,source:eye posterior segment
 target:Segmental_Bronchus,source:segmental bronchus
 target:Semicircular_Canal,source:semicircular canal
@@ -1545,7 +1602,6 @@ target:Stratum_Lucidum,source:epidermis stratum lucidum
 target:Stratum_Papillare,source:dermis papillary layer
 target:Stratum_Reticulare,source:dermis reticular layer
 target:Striated_Muscle_Tissue_Cell,source:striated muscle tissue
-target:Stylopharyngeus,source:pharynx muscle
 target:Subcapsular_Epithelium_of_the_Lens,source:lens epithelium
 target:Subclavian_Artery,source:subclavian artery
 target:Subcutis,source:subcutaneous adipose tissue
@@ -1582,8 +1638,9 @@ target:Superior_Palpebral_Fold,source:upper eyelid
 target:Superior_Parathyroid_Gland,source:parathyroid gland
 target:Superior_Parietal_Convolution,source:parietal cortex
 target:Superior_Profunda_Artery,source:profunda brachii artery
+target:Superior_Profunda_Artery,source:profunda femoris artery
 target:Superior_Rectus_Muscle,source:superior rectus extraocular muscle
-target:Superior_Semicircular_Canal,source:osseus semicircular canal
+target:Superior_Semicircular_Canal,source:posterior semicircular canal
 target:Superior_Surface_of_the_Liver,source:liver
 target:Superior_Temporal_Convolution,source:temporal cortex
 target:Superior_Temporal_Gyrus,source:temporal cortex
@@ -1592,11 +1649,12 @@ target:Superior_Vena_Cava_Opening,source:superior vena cava
 target:Superior_Vestibular_Nucleus,source:medial vestibular nucleus
 target:Suprachorioid_Lamina,source:posterior limiting lamina
 target:Supra-orbital_Vein,source:supraorbital vein
+target:Suprarenal_Artery,source:superior suprarenal artery
 target:Suprarenal_Artery,source:suprarenal artery
 target:Supraspinatus,source:supraspinatus
 target:Sweat_Gland,source:sweat gland
 target:Sweat_Gland_Duct,source:sweat gland
-target:Synarthrosis,source:fibrous joint
+target:Synarthrosis,source:synchondrosis
 target:Synovial_Fluid,source:synovial fluid
 target:Systemic_Vein,source:venous system
 target:T1_Vertebra,source:thoracic vertebra 1
@@ -1613,9 +1671,10 @@ target:T8_Vertebra,source:thoracic vertebra 8
 target:T9_Vertebra,source:thoracic vertebra 9
 target:Tail_of_the_Epididymis,source:epididymis
 target:Tarsal_Artery,source:medial tarsal artery
-target:Tarsal_Joint,source:foot joint
+target:Tarsal_Joint,source:tarsal bone
 target:Tarsal_Plate,source:superior eyelid tarsus
 target:Tarsus_Bone,source:tarsal bone
+target:Tarsus_Bone,source:tarsus
 target:Taste_Pore,source:taste bud
 target:Tear,source:tear
 target:Tectorial_Membrane,source:tectorial membrane
@@ -1652,6 +1711,7 @@ target:Thyroid_Gland_Follicular_Cell,source:thyroid gland follicle
 target:Thyroid_Gland_Lobe,source:thyroid gland lobe
 target:Thyroid_Gland_Tissue,source:thyroid gland parenchyma
 target:Tibial_Vein,source:tibial vein
+target:Toe,source:foot
 target:Toe,source:foot digit
 target:Toe_Joint,source:foot joint
 target:Toe_Nail,source:nail
@@ -1667,9 +1727,9 @@ target:Tuber_Cinereum,source:tuberal area
 target:Tunica_Intima,source:blood vessel endothelium
 target:Tunica_Vasculosa,source:tunica vasculosa plexus
 target:Ulnar_Artery_Branch,source:ulnar artery
+target:Ulnar_Artery_Branch,source:ulnar artery palmar branch
 target:Undersurface_of_the_Frontal_Lobe,source:frontal association cortex
-target:Undersurface_of_the_Temporal_Lobe,source:temporal cortex
-target:Upper_Gastrointestinal_Tract,source:gastrointestinal system
+target:Upper_Gastrointestinal_Tract,source:foregut
 target:Upper_Respiratory_System,source:upper respiratory tract
 target:Urinary_Space,source:urinary space
 target:Urothelial_Cell,source:urinary bladder urothelium
@@ -1681,16 +1741,18 @@ target:Cardiac_Valve_Cusp,source:heart valve
 target:Vascular_Smooth_Muscle_Tissue,source:blood vessel smooth muscle
 target:Vascular_System,source:vascular system
 target:Great_Cerebral_Vein_of_Galen,source:cerebral vein
-target:Vein_of_the_Head_or_Neck,source:jugular vein
+target:Vein_of_the_Head_or_Neck,source:internal jugular vein
 target:Venous_System,source:venous system
 target:Ventral_Horn_of_the_Spinal_Cord,source:spinal cord ventral horn
 target:Ventral_Nerve_Root,source:spinal cord ventral column
 target:Ventroanterior_Nucleus_of_the_Thalamus,source:ventral thalamus
 target:Ventrolateral_Nucleus_of_the_Thalamus,source:ventral thalamus
+target:Ventroposterior_Lateral_Nucleus_of_the_Thalamus,source:ventral posterior thalamic group
 target:Ventroposterior_Lateral_Nucleus_of_the_Thalamus,source:ventral thalamus
 target:Ventroposterior_Medial_Nucleus_of_the_Thalamus,source:ventral thalamus
 target:Vermis,source:cerebellar vermis
 target:Vertebral_Artery_Branch,source:vertebral artery
+target:Vertebral_Bone,source:vertebra
 target:Vertebral_Bone,source:vertebral body
 target:Vertebral_Canal,source:vertebra neural canal
 target:Vestibular_Ganglion,source:vestibulocochlear VIII ganglion
@@ -1702,6 +1764,7 @@ target:Visceral_Pleura,source:visceral pleura
 target:Visceral_Striated_Muscle_Tissue,source:striated muscle tissue
 target:Vitreous_Body,source:vitreous body
 target:Vitreous_Chamber,source:vitreous chamber
+target:Vocalis_Muscle,source:laryngeal intrinsic muscle
 target:Vocalis_Muscle,source:larynx muscle
 target:Vomer,source:vomer bone
 target:White_Adipose_Tissue,source:adipose tissue
@@ -1756,6 +1819,7 @@ target:Head_and_Neck_Part,source:head/neck
 target:Integumentary_System_Part,source:integumental system
 target:Diaphragm_Part,source:diaphragm
 target:Organ_of_Special_Sense_Part,source:sensory organ
+target:Lower_Extremity_Part,source:leg
 target:Lower_Extremity_Part,source:lower leg
 target:Opening_of_the_Thorax,source:thorax
 target:Tonsil_Part,source:tonsil
@@ -1766,14 +1830,16 @@ target:Hilar_Portion_of_the_Left_Hepatic_Duct,source:hilar part of left hepatic 
 target:Hilar_Portion_of_the_Right_Hepatic_Duct,source:hilar part of right hepatic duct
 target:Marginal_Zone_B-Lymphocyte,source:spleen marginal zone
 target:Fore-Brain,source:forebrain
-target:Digit,source:foot digit
+target:Digit,source:hand digit
 target:Hind-Brain,source:hindbrain
 target:Hematopoietic_and_Lymphatic_System,source:hematopoietic system
-target:Hematopoietic_and_Lymphatic_System_Part,source:hematopoietic system
+target:Hematopoietic_and_Lymphatic_System,source:hemolymphoid system
+target:Hematopoietic_and_Lymphatic_System_Part,source:hemolymphoid system
 target:Hematopoietic_and_Lymphoid_Tissue,source:lymphoid tissue
 target:Subsegmental_Bronchus,source:segmental bronchus
 target:Subsegmental_Bronchus_of_Left_Lung,source:segmental bronchus
 target:Subsegmental_Bronchus_of_Right_Lung,source:right lung bronchiole
+target:Subsegmental_Bronchus_of_Right_Lung,source:segmental bronchus
 target:Wall_of_Body_of_Uterus,source:myometrium
 target:Visual_Pathway,source:visual system
 target:Subependymal_Tissue,source:lateral ventricle subependymal layer
@@ -1811,7 +1877,9 @@ target:Neuroendocrine_Tissue,source:neuroendocrine gland
 target:Postero-Lateral_Part_of_the_Prostate,source:prostate gland dorsolateral lobe
 target:Skeletal_Muscle_Cell,source:skeletal muscle tissue
 target:Cartilage_Cell,source:cartilage
+target:Cartilage_Cell,source:cellular cartilage
 target:Jaw,source:jaw
+target:Jaw,source:upper jaw
 target:Upper_Jaw,source:upper jaw
 target:Lower_Jaw,source:lower jaw
 target:Lumbosacral_Region,source:lower back
@@ -1865,6 +1933,7 @@ target:Fourth_Ventricle_Ependyma,source:fourth ventricle ependyma
 target:Gingival_Epithelium,source:gingival epithelium
 target:Intestinal_Epithelium,source:intestine epithelium
 target:Intestinal_Mucosa,source:intestine mucosa
+target:Intestinal_Serosal_Surface,source:intestine serosa
 target:Intestinal_Serosal_Surface,source:small intestine serosa
 target:Intestinal_Smooth_Muscle_Tissue,source:intestine smooth muscle
 target:Laryngeal_Mucous_Salivary_Gland,source:larynx mucous gland
@@ -1875,11 +1944,13 @@ target:Choroid_Plexus_Epithelium_of_the_Lateral_Ventricle,source:lateral ventric
 target:Lateral_Ventricle_Ependyma,source:lateral ventricle ependyma
 target:Left_Lung_Alveolar_Duct,source:left lung alveolar duct
 target:Left_Lung_Alveolus,source:left lung alveolus
+target:Left_Lung_Bronchiole,source:left lung bronchiole
 target:Left_Lung_Bronchiole,source:left lung respiratory bronchiole
 target:Hilar_Area_of_the_Left_Lung,source:left lung hilus
 target:Left_Lung_Respiratory_Bronchiole,source:left lung respiratory bronchiole
 target:Left_Lung_Terminal_Bronchiole,source:left lung terminal bronchiole
 target:Lower_Respiratory_Tract_Cartilage,source:lower respiratory tract cartilage
+target:Lymphatic_Vessel_Endothelium,source:lymph node endothelium
 target:Lymphatic_Vessel_Endothelium,source:lymphatic vessel endothelium
 target:Lymphatic_Vessel_Smooth_Muscle_Tissue,source:lymphatic vessel smooth muscle
 target:Nasal_Cavity_Epithelium,source:nasal cavity epithelium
@@ -1887,12 +1958,14 @@ target:Nasal_Cavity_Respiratory_Epithelium,source:nasal cavity respiratory epith
 target:Nasopharynx_Epithelium,source:nasopharynx epithelium
 target:Oropharynx_Epithelium,source:oropharynx epithelium
 target:Ovarian_Capsule,source:ovary capsule
+target:Intercalated_Duct_of_the_Pancreas,source:pancreatic duct
 target:Pancreatic_Acinus,source:pancreatic acinus
 target:Penis_Erectile_Tissue,source:penis erectile tissue
 target:Prepuce_Epithelium,source:prepuce epithelium
 target:Renal_Tubule_Basement_Membrane,source:renal tubule basement membrane
 target:Renal_Tubule,source:renal tubule
 target:Renal_Tubule_Epithelium,source:renal tubule epithelium
+target:Right_Lung_Alveolar_Duct,source:left lung alveolar duct
 target:Right_Lung_Alveolar_Duct,source:right lung alveolar duct
 target:Right_Lung_Alveolus,source:right lung alveolus
 target:Right_Lung_Bronchiole,source:right lung bronchiole
@@ -1916,7 +1989,7 @@ target:Trachea_Submucosa,source:trachea submucosa
 target:Tympanic_Epithelium,source:tympanic epithelium
 target:Urethra_Epithelium,source:urethra epithelium
 target:Urethra_Transitional_Cell_Epithelium,source:urethra epithelium
-target:Urethral_Gland,source:bulbourethral gland
+target:Urethral_Gland,source:urethra gland
 target:Uterus_Serosal_Surface,source:uterus serosa
 target:Vaginal_Epithelium,source:vagina epithelium
 target:Vaginal_Squamous_Epithelium,source:vagina squamous epithelium
@@ -1936,10 +2009,11 @@ target:Right_Ureter,source:right ureter
 target:Retina_Layer,source:retina layer
 target:Arterial_System_Endothelium,source:arterial system endothelium
 target:Arterial_System_Smooth_Muscle_Tissue,source:arterial system smooth muscle
-target:Cerebral_Arachnoid_Membrane,source:arachnoid mater
+target:Cerebral_Arachnoid_Membrane,source:brain arachnoid matter
 target:Cerebral_Dura_Mater,source:brain dura mater
 target:Cerebral_Gray_Matter,source:cerebral grey matter
 target:Brain_White_Matter,source:brain white matter
+target:Brain_Pia_Mater,source:brain pia mater
 target:Brain_Pia_Mater,source:pia mater
 target:Brain_Nucleus,source:brain nucleus
 target:Cerebral_White_Matter,source:cerebral white matter
@@ -1956,6 +2030,8 @@ target:Intervertebral_Disc,source:intervertebral disc
 target:Joint_of_the_Rib,source:joint of rib
 target:Vertebral_Joint,source:joint of vertebral body
 target:Liver_Lobe,source:liver lobe
+target:Liver_Lobe,source:liver middle lobe
+target:Liver_Lobe,source:liver right lobe
 target:Lower_Eyelid,source:lower eyelid
 target:Upper_Eyelid,source:upper eyelid
 target:Lower_Jaw_Tooth,source:lower jaw tooth
@@ -1995,6 +2071,7 @@ target:Parasympathetic_Ganglion,source:parasympathetic ganglion
 target:Submandibular_Ganglion,source:submandibular ganglion
 target:Labium,source:labium
 target:Gluteus_Maximus,source:gluteus maximus
+target:Urethralis,source:urethra muscle
 target:Urethralis,source:urethralis
 target:Posterior_Tooth,source:lower jaw molar
 target:Pulp_Horn,source:dental pulp
@@ -2007,6 +2084,7 @@ target:Inferior_Pancreatico-Duodenal_Vein,source:inferior pancreatico-duodenal v
 target:Left_Renal_Vein,source:left renal vein
 target:Right_Renal_Vein,source:right renal vein
 target:Left_Spermatic_Vein,source:left internal spermatic vein
+target:Left_Spermatic_Vein,source:left spermatic vein
 target:Right_Spermatic_Vein,source:right spermatic vein
 target:Internal_Thoracic_Vein,source:internal thoracic vein
 target:Deep_Temporal_Vein,source:deep temporal vein
@@ -2257,13 +2335,16 @@ target:Vastus_Lateralis,source:vastus lateralis
 target:Soleus,source:soleus
 target:Tibialis,source:tibialis muscle
 target:Tibialis_Caudalis,source:tibialis caudalis
+target:Tibialis_Cranialis,source:tibialis caudalis
 target:Tibialis_Cranialis,source:tibilais cranialis
 target:Subcostal_Vein,source:subcostal vein
 target:Right_Subcostal_Vein,source:subcostal vein
 target:Left_Subcostal_Vein,source:subcostal vein
 target:Submental_Vein,source:submental vein
 target:Suprarenal_Vein,source:suprarenal vein
+target:Right_Suprarenal_Vein,source:inferior suprarenal vein
 target:Right_Suprarenal_Vein,source:suprarenal vein
+target:Left_Suprarenal_Vein,source:inferior suprarenal vein
 target:Left_Suprarenal_Vein,source:suprarenal vein
 target:Temporal_Vein,source:temporal vein
 target:Thoracic_Vein,source:thoracic vein

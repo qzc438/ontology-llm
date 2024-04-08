@@ -1,5 +1,5 @@
 Entity1,Entity2
-source:Conference_participant,target:Person
+source:Conference_participant,target:Attendee
 source:Person,target:Person
 source:Reviewer,target:Reviewer
 source:Conference_document,target:Document
@@ -13,3 +13,4 @@ source:Topic,target:Topic
 source:has_a_location,target:hasLocation
 source:has_an_email,target:hasEmail
 source:has_the_first_name,target:hasFirstName
+source:has_the_last_name,target:hasLastName

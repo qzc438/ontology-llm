@@ -1,3 +1,6 @@
+from langchain.agents.agent_toolkits import create_conversational_retrieval_agent
+from langchain.tools import Tool
+
 import run_config as config
 
 import time
@@ -9,6 +12,9 @@ import asyncpg
 from pgvector.asyncpg import register_vector
 
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+
+# load llm
+llm = config.llm
 
 # load the csv file
 df = pd.read_csv(config.csv_path)
@@ -101,7 +107,7 @@ async def create_embedding_table(table_name):
     await conn.close()
 
 
-async def main():
+async def async_initialize_database():
     # create database
     await create_ontology_matching_table()
     await create_embedding_table("initial_matching")
@@ -109,6 +115,37 @@ async def main():
     await create_embedding_table("graphical_matching")
 
 
+# create a variable to receive argument
+def initialize_database(file):
+    # Create a new event loop
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+
+    # Now run the async_initialize_database coroutine using the event loop
+    loop.run_until_complete(async_initialize_database())
+
+    # Close the loop
+    loop.close()
+
+
+def define_tools():
+    tools = [
+        Tool(
+            name="save_to_database",
+            func=initialize_database,
+            description="Useful for when you need save the file to database."
+        ),
+    ]
+    return tools
+
+
+def define_agent(llm, tools):
+    agent = create_conversational_retrieval_agent(llm, tools, verbose=True)
+    return agent
+
+
 if __name__ == '__main__':
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(main())
+    tools = define_tools()
+    agent = define_agent(llm, tools)
+    prompt = f"Please save the file to database."
+    result = agent({"input": prompt})

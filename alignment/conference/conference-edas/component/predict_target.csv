@@ -6,9 +6,11 @@ target:Topic,source:Topic
 target:Organization,source:Organization
 target:Conference,source:Conference
 target:Person,source:Person
+target:Attendee,source:Conference_participant
 target:Reviewer,source:Reviewer
 target:CallForPapers,source:Call_for_paper
 target:Workshop,source:Workshop
 target:hasLocation,source:has_a_location
 target:hasFirstName,source:has_the_first_name
 target:hasEmail,source:has_an_email
+target:hasLastName,source:has_the_last_name
