@@ -68,10 +68,10 @@ from langchain.embeddings import OpenAIEmbeddings
 # e2_list_property: 33
 
 # mse Test Case 2
-# context = "materials science"
-# alignment = "mse/MaterialInformation-MatOnto/component/"
-# o1_is_code = False
-# o2_is_code = False
+context = "materials science"
+alignment = "mse/MaterialInformation-MatOnto/component/"
+o1_is_code = False
+o2_is_code = False
 
 # metadata
 # e1_list_class: 545
@@ -80,10 +80,10 @@ from langchain.embeddings import OpenAIEmbeddings
 # e2_list_property: 95
 
 # mse Test Case 1
-context = "materials science"
-alignment = "mse/MaterialInformationReduced-MatOnto/component/"
-o1_is_code = False
-o2_is_code = False
+# context = "materials science"
+# alignment = "mse/MaterialInformationReduced-MatOnto/component/"
+# o1_is_code = False
+# o2_is_code = False
 
 # metadata
 # e1_list_class: 32

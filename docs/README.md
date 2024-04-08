@@ -10,8 +10,8 @@ This repository contains the source code, resources, and instructions to reprodu
 
 ### 1. Install Databases:
 - Install PostgreSQL: https://www.postgresql.org/download/  
-- Install pgvector: https://github.com/pgvector/pgvector  
 - (Optional) Install pgAdmin: https://www.pgadmin.org/download/  
+- Install pgvector: https://github.com/pgvector/pgvector
 ```
 psql –version
 sudo -u postgres psql
@@ -80,6 +80,7 @@ For example, if you would like to set the similarity_threshold = 0.80 and top_k 
 ```python
 similarity_threshold = 0.80
 top_k = 3
+
 # num_matches is a variable to limit the results in the database
 # you can select any number to fit your database (the default setting is 50)
 num_matches = 50
