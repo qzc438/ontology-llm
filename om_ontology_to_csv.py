@@ -141,24 +141,22 @@ def get_entity_name(entity, ontology, ontology_is_code):
 
 def entity_initial(entity):
     entity_name = get_entity_name(entity, ontology, ontology_is_code)
-    # answer = util.cleaning(entity_name) + ""
-    # return answer
     prompt = PromptTemplate(
         input_variables=["entity_name"],
         template="Normalise the following name enclosed by a pair of double quotes: \"{entity_name}\". "
                  "Use white spaces to split compound words. "
                  "Output the normalized form only."
-                 # "Format the output as JSON with the following keys: entity\_initial. "
                  # You cannot change to lower case because the agent will change to upper case automatically
+                 # "Format the output as JSON with the following keys: entity\_initial. "
                  # Please do not use key, otherwise error. json.decoder.JSONDecodeError: output end with "," and cannot transfer to json.
     )
     chain = LLMChain(llm=llm, prompt=prompt)
-    # answer = chain.run({
-    #     'entity_name': entity_name,
-    # }).strip()
     answer = chain.run({
         'entity_name': entity_name,
     }).strip()
+    # answer = chain.run({
+    #     'entity_name': entity_name,
+    # }).strip()
     # print("answer:", answer)
     # entity_initial_json = json.loads(answer)
     # entity_initial = entity_initial_json['entity_initial']
@@ -229,21 +227,21 @@ def verbalise_sentence(input_file_path):
     prompt = PromptTemplate(
         input_variables=["sentence"],
         template="Verbalise the following sentence and end up with a full stop: {sentence}. "
-                 # "Format the output as JSON with the following keys: entity\_graphical. "
                  "Output the verbalised sentence only."
+                 # "Format the output as JSON with the following keys: entity\_graphical."
     )
     chain = LLMChain(llm=llm, prompt=prompt)
     output = ""
     with open(input_file_path, "r") as input_file:
         for line in input_file:
+            processed_line = chain.run(line)
             # split_text = [sentence for sentence in line.split(".") if sentence]
             # for text in split_text:
-            processed_line = chain.run(line)
             try:
-                # processed_line_json = json.loads(processed_line)
-                # answer = processed_line_json['entity_graphical']
                 answer = processed_line
                 output += answer + ' '
+                # processed_line_json = json.loads(processed_line)
+                # answer = processed_line_json['entity_graphical']
             except json.JSONDecodeError as e:
                 print(f"Cannot verbalise the sentence. JSON is invalid: {e}")
                 output += line + ' '

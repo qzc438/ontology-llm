@@ -1,9 +1,8 @@
-import sys
-
 import run_config as config
 import util
 import om_ontology_to_csv
 
+import sys
 import re
 import logging
 import pandas as pd
@@ -217,14 +216,11 @@ def reciprocal_rank_fusion_all_with_grouped_scores_exclude_none(*rankings):
             if item is None:  # Skip None values
                 continue
             reciprocal_ranks[item] += 1 / position
-
-    # Sort by reciprocal rank value, then by item lexicographically for tie-breaking
+    # sort by reciprocal rank value, then by item lexicographically for tie-breaking
     fused_ranking_with_scores = sorted(reciprocal_ranks.items(), key=lambda x: (-x[1], x[0]))
-
-    # Group items by their score
+    # group items by their score
     grouped_items_by_score = [(score, [item for item, _ in items]) for score, items in
                               groupby(fused_ranking_with_scores, key=lambda x: x[1])]
-
     return grouped_items_by_score
 
 
@@ -235,7 +231,7 @@ def find_most_relevant_entity(entity):
 
     # invoke find_all_matching_candidate
     output_json = find_all_matching_candidate(entity)
-    # Prepare rankings, wrapping string values in lists and filtering out None values
+    # prepare rankings, wrapping string values in lists and filtering out None values
     rankings = [value if isinstance(value, list) else [value] for value in output_json.values() if value is not None]
 
     if rankings:
@@ -294,16 +290,13 @@ if __name__ == '__main__':
     fileHandler.setFormatter(logFormatter)
     logger.addHandler(fileHandler)
 
-    # Update parameter1 based on provided arguments
+    # update parameter1 based on provided arguments
     if len(sys.argv) > 1:
         similarity_threshold = float(sys.argv[1])
         alignment = alignment + "-" + sys.argv[1] + "-"
-        predict_source_path_no_validation = config.predict_source_path_no_validation.replace(".csv", "") + "-" + str(
-            sys.argv[1]) + ".csv"
-        predict_target_path_no_validation = config.predict_target_path_no_validation.replace(".csv", "") + "-" + str(
-            sys.argv[1]) + ".csv"
-        predict_path_no_validation = config.predict_path_no_validation.replace(".csv", "") + "-" + str(
-            sys.argv[1]) + ".csv"
+        predict_source_path_no_validation = config.predict_source_path_no_validation.replace(".csv", "") + "-" + str(sys.argv[1]) + ".csv"
+        predict_target_path_no_validation = config.predict_target_path_no_validation.replace(".csv", "") + "-" + str(sys.argv[1]) + ".csv"
+        predict_path_no_validation = config.predict_path_no_validation.replace(".csv", "") + "-" + str(sys.argv[1]) + ".csv"
         predict_source_path = config.predict_source_path.replace(".csv", "") + "-" + str(sys.argv[1]) + ".csv"
         predict_target_path = config.predict_target_path.replace(".csv", "") + "-" + str(sys.argv[1]) + ".csv"
         predict_path = config.predict_path.replace(".csv", "") + "-" + str(sys.argv[1]) + ".csv"
@@ -361,7 +354,7 @@ if __name__ == '__main__':
     # Remove any duplicate rows in the common
     df_merge_no_validation = df_merge_no_validation.drop_duplicates()
     df_merge_no_validation.to_csv(predict_path_no_validation, index=False)
-
+    # evaluation
     print(util.calculate_metrics(true_path, predict_path_no_validation, alignment + "no_validation", result_path))
 
     df_source = pd.read_csv(predict_source_path)
@@ -370,5 +363,5 @@ if __name__ == '__main__':
     # Remove any duplicate rows in the common
     df_merge = df_merge.drop_duplicates()
     df_merge.to_csv(predict_path, index=False)
-
+    # evaluation
     print(util.calculate_metrics(true_path, predict_path, alignment, result_path))

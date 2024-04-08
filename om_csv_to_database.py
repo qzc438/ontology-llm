@@ -1,6 +1,3 @@
-from langchain.agents.agent_toolkits import create_conversational_retrieval_agent
-from langchain.tools import Tool
-
 import run_config as config
 
 import time
@@ -12,6 +9,8 @@ import asyncpg
 from pgvector.asyncpg import register_vector
 
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.agents.agent_toolkits import create_conversational_retrieval_agent
+from langchain.tools import Tool
 
 # load llm
 llm = config.llm
@@ -22,6 +21,22 @@ df = pd.read_csv(config.csv_path)
 df = df.fillna('')
 # remove duplicate
 df = df.drop_duplicates(subset='entity')
+
+
+def define_tools():
+    tools = [
+        Tool(
+            name="save_to_database",
+            func=initialize_database,
+            description="Useful for when you need save the file to database."
+        ),
+    ]
+    return tools
+
+
+def define_agent(llm, tools):
+    agent = create_conversational_retrieval_agent(llm, tools, verbose=True)
+    return agent
 
 
 # create traditional table
@@ -81,7 +96,7 @@ async def create_embedding_table(table_name):
     for i in range(0, len(chunked), batch_size):
         request = [x["content"] for x in chunked[i: i + batch_size]]
         response = retry_with_backoff(config.embeddings_service.embed_documents, request)
-        # Store the retrieved vector embeddings for each chunk back
+        # store the retrieved vector embeddings for each chunk back
         for x, e in zip(chunked[i: i + batch_size], response):
             x["embedding"] = e
     # store the generated embeddings in a pandas dataframe
@@ -117,31 +132,13 @@ async def async_initialize_database():
 
 # create a variable to receive argument
 def initialize_database(file):
-    # Create a new event loop
+    # create a new event loop
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
-
-    # Now run the async_initialize_database coroutine using the event loop
+    # now run the async_initialize_database coroutine using the event loop
     loop.run_until_complete(async_initialize_database())
-
-    # Close the loop
+    # close the loop
     loop.close()
-
-
-def define_tools():
-    tools = [
-        Tool(
-            name="save_to_database",
-            func=initialize_database,
-            description="Useful for when you need save the file to database."
-        ),
-    ]
-    return tools
-
-
-def define_agent(llm, tools):
-    agent = create_conversational_retrieval_agent(llm, tools, verbose=True)
-    return agent
 
 
 if __name__ == '__main__':

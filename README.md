@@ -137,8 +137,7 @@ Our new visualisation is inspired by the following references:
 We have created [an official guideline for debugging tips and tricks for this project] (DEBUGGING.md).
 
 ### Code References:
-https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/main/cloud-sql/postgres/pgvector/notebooks/pgvector_gen_ai_demo.ipynb  
-We have maintained a copy in the folder `code_references`.
+https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/main/cloud-sql/postgres/pgvector/notebooks/pgvector_gen_ai_demo.ipynb (a copy cam be found in the folder `code_references`)
 
 ### Acknowledgements:
 The authors claim no responsibility for the AI-generated content, which does not express the views of the authors.
