@@ -1,19 +1,17 @@
-# Agent-OM: Leveraging LLM Agents for Ontology Matching
-
 ## TODO:
 Call Huanyu for approval for trivial reference.
 
 ## Important Notice:
-This repository contains the source code, resources, and instructions to reproduce the experiments for the PVLDB 2025 paper.  
+This repository contains the source code, resources, and instructions to reproduce the experiments for the PVLDB 2025 paper: `Agent-OM: Leveraging LLM Agents for Ontology Matching` 
 - For technical issues, please submit a GitHub Issue.  
 - For feature discussion or potential extensions, please join our discussion group: https://groups.google.com/g/agent-om
 
 ## Quick Start:
 
-### 1. Install Database:
+### 1. Install Databases:
 - Install PostgreSQL: https://www.postgresql.org/download/  
-- (Optional) Install pgAdmin: https://www.pgadmin.org/download/  
 - Install pgvector: https://github.com/pgvector/pgvector  
+- (Optional) Install pgAdmin: https://www.pgadmin.org/download/  
 ```
 psql –version
 sudo -u postgres psql
@@ -41,18 +39,18 @@ pip install faiss-gpu
 pip install deeponto  
 pip install pypdf
 ```
-- Version control: Please check the file `requirement.txt`.
+- Versions: please check the file `requirement.txt`.
 
 ### 3. Setup OpenAI API:
-Create a file named as `.env` and write:
+- Your OpenAI API key can be found in this link: https://platform.openai.com/api-keys
+- Create a file named as `.env` and write:
 ```python
 OPENAI_API_KEY="YOUR_OPENAI_API_KEY"
 ```
-Your OpenAI API key can be found in this link: https://platform.openai.com/api-keys
 
 ### 4. Setup Matching Task:
 
-- Set your alignment in the `run_config.py`: context, o1_is_code, o2_is_code, and alignment.  
+- Set your alignment in the file `run_config.py`: context, o1_is_code, o2_is_code, and alignment.  
 For example, if you would like to run the CMT-Conference alignment, then the settings are:
 ```python
 context = "conference"
@@ -60,7 +58,7 @@ alignment = "conference/cmt-conference/component/"
 o1_is_code = False
 o2_is_code = False
 ```
-Alternatively, you can uncomment the following code in the file `om_ontology_to_csv.py` to use LLMs setting the variables o1_is_code and o2_is_code.
+- (Optional) You can uncomment the following code in the file `om_ontology_to_csv.py` to use LLMs setting the variables o1_is_code and o2_is_code.
 ```python
 import run_config as config
 from langchain.prompts import PromptTemplate
@@ -77,14 +75,15 @@ def check_name_or_code(entity):
     return output
 ```
 
-- Set your matching hyperparameter in the `run_config.py`: similarity_threshold and top_k.  
+- Set your matching hyperparameters in the file `run_config.py`: similarity_threshold and top_k.  
 For example, if you would like to set the similarity_threshold = 0.80 and top_k = 3, then the settings are:
 ```python
 similarity_threshold = 0.80
 top_k = 3
+# num_matches is a variable to limit the results in the database
+# you can select any number to fit your database (the default setting is 50)
 num_matches = 50
 ```
-Note that num_matches is a variable to limit the results in the database, you can select any number to fit your database (the default setting is 50).
 
 ### 5. Run Experiment:
 Run the script: `python run_config.py`.  
@@ -94,7 +93,7 @@ The evaluation of the experiment will be stored in the file `result.csv`.
 ## Repository Structure:
 
 ### 1. Data:
-Stored in the data folder, including the three OAEI tracks: conference, anatomy, and mse.
+- `data`: store the data from three OAEI tracks: conference, anatomy, and mse.
 
 ### 2. Experiment:
 - `om_ontology_to_csv.py`: Retrival Agent Part 1.  
@@ -132,7 +131,8 @@ step = -0.05
 - `generate_anatomy_mse_benchmark.py`: generate the OAEI Anatomy Track and MSE Track results.  
 - `benchmark_2022`: compare Agent-OM with OAEI 2022 results.  
 - `benchmark_2023`: compare Agent-OM with OAEI 2023 results.  
-You may find a slight different for each run, it is because: https://community.openai.com/t/run-same-query-many-times-different-results/140588
+You may find a slight different for each run, it is because:  
+https://community.openai.com/t/run-same-query-many-times-different-results/140588
 
 ### 4. Visualisation:
 - `draw_benchmark.ipynb`: visualise the result of benchmark.  
@@ -144,10 +144,10 @@ Our new visualisation is inspired by the following references:
 - https://towardsai.net/p/l/precision-recall-curve
 
 ## Debugging Log:
-We have created [a debugging log for this project] (docs/LOG.md).
+We have created a debugging log for this project. [Click the link here](docs/LOG.md).
 
 ## Code References:
-A copy can be found in the `code_references` folder.
+A copy can be found in the `code_references`.
 - https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/main/cloud-sql/postgres/pgvector/notebooks/pgvector_gen_ai_demo.ipynb 
 
 
