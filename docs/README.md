@@ -86,9 +86,9 @@ num_matches = 50
 ```
 
 ### 5. Run Experiment:
-Run the script: `python run_config.py`.  
-The result of the experiment will be stored in the folder `alignment`.  
-The evaluation of the experiment will be stored in the file `result.csv`.  
+- Run the script: `python run_config.py`.  
+- The result of the experiment will be stored in the folder `alignment`.  
+- The evaluation of the experiment will be stored in the file `result.csv`.  
 
 ## Repository Structure:
 
@@ -144,7 +144,7 @@ Our new visualisation is inspired by the following references:
 - https://towardsai.net/p/l/precision-recall-curve
 
 ## Debugging Log:
-We have created a debugging log for this project. [Click the link here](docs/LOG.md).
+We have created a debugging log for this project. [Click the link here](LOG.md).
 
 ## Code References:
 A copy can be found in the `code_references`.
