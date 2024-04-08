@@ -1,8 +1,10 @@
 ## TODO:
 Call Huanyu for approval for trivial reference.
 
+## Agent-OM: Leveraging LLM Agents for Ontology Matching
+This repository contains the source code, resources, and instructions to reproduce the experiments for the PVLDB 2025 paper.
+
 ## Important Notice:
-This repository contains the source code, resources, and instructions to reproduce the experiments for the PVLDB 2025 paper: `Agent-OM: Leveraging LLM Agents for Ontology Matching` 
 - For technical issues, please submit a GitHub Issue.  
 - For feature discussion or potential extensions, please join our discussion group: https://groups.google.com/g/agent-om
 
@@ -153,7 +155,7 @@ A copy can be found in the `code_references`.
 
 
 ## Acknowledgements:
-- The authors claim no responsibility for the AI-generated content, which does not express the views of the authors.  
+- The authors claim no responsibility for the AI-generated content in this repository, which does not express the views of the authors.  
 - The authors would like to thank the organisers of the Ontology Alignment Evaluation Initiative (OAEI) Conference Track, Anatomy Track, and MSE Track, for helpful advice on reproducing the benchmarks used in this paper.  
 - The authors would like to thank Associate Professor Alice Richardson of the Statistical Support Network, Australian National University, for helpful advice on the statistical analysis in this paper.  
 - The authors would like to thank the Commonwealth Scientific and Industrial Research Organisation (CSIRO) for supporting this project.  
