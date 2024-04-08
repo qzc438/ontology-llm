@@ -1,8 +1,10 @@
 import subprocess
 
-# starting and ending values
+# starting value
 start = 1.00
+# ending value
 end = 0.50
+# step value
 step = -0.05
 
 # set the parameter value you want to use

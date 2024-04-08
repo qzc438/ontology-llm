@@ -1,2 +1,16 @@
 Entity1,Entity2
-source:Pressure,target:Pressure
+source:ConcentrationOfSolvent,target:Concentration
+source:Conductivity,target:ElectricConductance
+source:Conductivity,target:ThermalConductivity
+source:Contents,target:ChemicalSubstance
+source:Current,target:ElectricCurrent
+source:CurrentDensity,target:ElectricCurrentDensity
+source:ElectricPotential,target:ElectricCurrent
+source:Environment,target:Exposure
+source:EnvironmentalTemperature,target:Temperature
+source:Gas,target:GasPhase
+source:Irradiation,target:Radiation
+source:IrradiationEnergy,target:Irradiance
+source:Liquid,target:LiquidPhase
+source:Solvent,target:Solvent
+source:pH,target:pH
