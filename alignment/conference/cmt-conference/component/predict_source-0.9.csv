@@ -1,12 +1,10 @@
 Entity1,Entity2
 source:Reviewer,target:Reviewer
 source:Person,target:Person
-source:Document,target:Conference_document
+source:Document,target:Paper
+source:Preference,target:Review_preference
 source:ProgramCommittee,target:Program_committee
 source:Conference,target:Conference
-source:ConferenceChair,target:Chair
+source:ConferenceChair,target:Co-chair
 source:ConferenceMember,target:Conference_participant
-source:Review,target:Review
-source:Paper,target:Paper
-source:PaperAbstract,target:Abstract
-source:email,target:has_an_email
+source:AssociatedChair,target:Co-chair

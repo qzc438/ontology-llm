@@ -1,1 +1,5 @@
-hasSubjectArea range SubjectArea.
+Invited_talk disjointWith Poster.
+Invited_talk disjointWith Regular_contribution.
+Invited_talk subClassOf Presentation.
+Regular_contribution disjointWith Invited_talk.
+Poster disjointWith Invited_talk.

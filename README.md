@@ -2,11 +2,11 @@
 Call Huanyu for approval for trivial reference.
 
 ## Agent-OM: Leveraging LLM Agents for Ontology Matching
-- This repository contains the source code, resources, and instructions to reproduce the experiments for the PVLDB 2025 paper.
+- This repository contains the source code to reproduce the experiments.
 - The preprint of the paper is currently available at arXiv: https://arxiv.org/abs/2312.00326
 
 ## Important Notice:
-- For technical inquires, please submit a GitHub Issue.  
+- For technical inquiries, please submit a GitHub issue.
 - For feature discussion or potential extensions, please join our discussion group: https://groups.google.com/g/agent-om
 
 ## Quick Start:
@@ -18,12 +18,11 @@ Call Huanyu for approval for trivial reference.
 ```
 psql –version
 sudo -u postgres psql
-alter user postgres password 'postgres'  
-sudo apt install postgresql-15-pgvector  
+alter user postgres password 'postgres'
+sudo apt install postgresql-15-pgvector
 ```
 
 ### 2. Install Packages:
-- Required packages:
 ```
 pip install langchain==0.1.14
 pip install langchain-openai==0.1.1
@@ -35,11 +34,13 @@ pip install tiktoken==0.6.0
 pip install asyncpg==0.28.0
 pip install psycopg2_binary==2.9.9
 pip install pgvector==0.1.8
+pip install matplotlib==3.8.4
+pip install notebook
+jupyter server extension enable ipyparallel
 ```
-- Versions: please check the file `requirement.txt`.
 
 ### 3. Setup OpenAI API:
-- Your OpenAI API key can be found in this link: https://platform.openai.com/api-keys
+- Your OpenAI API key can be found at this link: https://platform.openai.com/api-keys
 - Create a file named as `.env` and write:
 ```python
 OPENAI_API_KEY="YOUR_OPENAI_API_KEY"
@@ -68,7 +69,7 @@ def check_name_or_code(entity):
     )
     llm = config.llm
     chain = LLMChain(llm=llm, prompt=prompt)
-    output = chain.run({'entity': entity}).strip()
+    output = chain.invoke({'entity': entity})['text']
     return output
 ```
 
@@ -77,7 +78,8 @@ For example, if you would like to set the similarity_threshold = 0.80 and top_k 
 ```python
 similarity_threshold = 0.80
 top_k = 3
-
+```
+```python
 # num_matches is a variable to limit the results in the database
 # you can select any number to fit your database (the default setting is 50)
 num_matches = 50
@@ -98,23 +100,23 @@ num_matches = 50
 - `om_csv_to_database.py`: Retrival Agent Part 2.
 - `om_data_base_matching.py`: Matching Agent.
 - `run_config.py`: main function of the project.
-- `run_series_conference.py`: run all the conference alignment at one time.
+- `run_series_conference.py`: run all the conference alignments at one time.
 - `run_series_similarity.py`: run different similarity thresholds for one alignment at one time.
 - `util.py`: util component of the project.
 - `alignment`: store experiment results.
-- `llm_matching.py`: examples using purely LLMs (without agent) for general matching tasks.
-- `llm_om.py`: an example of using purely LLMs (without agent) for ontology matching.
+- `llm_matching.py`: examples using purely LLMs (without agents) for general matching tasks.
+- `llm_om.py`: an example of using purely LLMs (without agents) for ontology matching.
 
 FAQ(s):  
-(1) Why Retrival Agent has two parts `om_ontology_to_csv.py` and `om_csv_to_database.py`?  
-Answer: You can simply combine these two parts together. We decompose this into two parts to make it easy to debug the issue may happen in the database storge.  
+(1) Why the Retrival Agent has two parts `om_ontology_to_csv.py` and `om_csv_to_database.py`?  
+Answer: You can simply combine these two parts together. We decompose this into two parts to make it easy to debug the issue that may happen in the database storage.  
 (2) How to use the file`run_series_conference.py`?  
 Answer: Please uncomment the following code in the file `run_config.py`:
 
 ```python
 import os
 
-if os.environ.get('../alignment'):
+if os.environ.get('alignment'):
     alignment = os.environ['alignment']
 ```
 (3) How to use the file`run_series_similarity.py`?  
@@ -132,25 +134,26 @@ step = -0.05
 - `benchmark_2022`: compare Agent-OM with OAEI 2022 results.
 - `benchmark_2023`: compare Agent-OM with OAEI 2023 results.
 
-You may find a slight different for each run, it is because:  
+You may find a slight difference for each run, it is because:  
 https://community.openai.com/t/run-same-query-many-times-different-results/140588
 
 ### 4. Visualisation:
-- `draw_benchmark.ipynb`: visualise the result of benchmark.
-- `draw_ablation_study.ipynb`: visualise the result of ablation study.
+- `draw_benchmark.ipynb`: visualise the result of the evaluation.
+- `draw_ablation_study.ipynb`: visualise the result of the ablation study.
 - `result_fig`: store visualisation results.
 
 Our new visualisation is inspired by the following references:  
-- https://joernhees.de/blog/2010/07/22/precision-recall-diagrams-including-fmeasure/  
+- https://joernhees.de/blog/2010/07/22/precision-recall-diagrams-including-fmeasure/
 - https://towardsai.net/p/l/precision-recall-curve
 
 ## Debugging Log:
-We have created a debugging log for this project. [Click the link here](LOG.md).
+We have created a debugging log for this project. [Click the link here.](LOG.md)
 
 ## Code References:
-A copy can be found in the `references_code`.
-- https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/main/cloud-sql/postgres/pgvector/notebooks/pgvector_gen_ai_demo.ipynb 
+- https://api.python.langchain.com/en/latest/langchain_api_reference.html
+- https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/main/cloud-sql/postgres/pgvector/notebooks/pgvector_gen_ai_demo.ipynb
 
+A copy can be found in the `references_code`.
 
 ## Acknowledgements:
 - AI-generated content is labelled as "AI-generated content". The authors claim no responsibility for the AI-generated content marked in this paper, which does not express the views of the authors.

@@ -151,17 +151,17 @@ def entity_initial(entity):
                  # Please do not use key, otherwise error. json.decoder.JSONDecodeError: output end with "," and cannot transfer to json.
     )
     chain = LLMChain(llm=llm, prompt=prompt)
-    answer = chain.run({
+    answer = chain.invoke({
         'entity_name': entity_name,
-    }).strip()
+    })
     # answer = chain.run({
     #     'entity_name': entity_name,
     # }).strip()
     # print("answer:", answer)
     # entity_initial_json = json.loads(answer)
     # entity_initial = entity_initial_json['entity_initial']
-    print("entity_initial:", answer)
-    return answer
+    print("entity_initial:", answer['text'])
+    return answer['text']
 
 
 def entity_lexical(entity):
@@ -180,24 +180,24 @@ def entity_lexical(entity):
                      "In the context of {context}, what is the meaning of {entity_name}?"
         )
         chain = LLMChain(llm=llm, prompt=prompt)
-        answer = chain.run({
+        answer = chain.invoke({
             'entity_name': entity_name,
             'entity_info': entity_info,
             'context': context,
-        }).strip()
+        })
     else:
         prompt = PromptTemplate(
             input_variables=["entity_name", "context"],
             template="In the context of {context}, what is the meaning of {entity_name}? "
         )
         chain = LLMChain(llm=llm, prompt=prompt)
-        answer = chain.run({
+        answer = chain.invoke({
             'entity_name': entity_name,
             'context': context,
-        }).strip()
+        })
 
-    print("entity_lexical:", answer)
-    return answer
+    print("entity_lexical:", answer['text'])
+    return answer['text']
 
 
 def entity_graphical(entity):
@@ -234,11 +234,13 @@ def verbalise_sentence(input_file_path):
     output = ""
     with open(input_file_path, "r") as input_file:
         for line in input_file:
-            processed_line = chain.run(line)
+            processed_line = chain.invoke(line)
             # split_text = [sentence for sentence in line.split(".") if sentence]
             # for text in split_text:
             try:
-                answer = processed_line
+                print("processed_line", processed_line)
+                print(type(processed_line))
+                answer = processed_line['text']
                 output += answer + ' '
                 # processed_line_json = json.loads(processed_line)
                 # answer = processed_line_json['entity_graphical']
@@ -265,7 +267,7 @@ def save_information_to_csv(path, entity_list, source_or_target, entity_type):
             # define agent
             agent = define_agent(llm, tools)
             # execute agent
-            result = agent({"input": prompt})
+            result = agent.invoke({"input": prompt})
             print(result['output'])
             if result['output']:
                 output_json = json.loads(result['output'])
@@ -290,7 +292,7 @@ def save_information_to_csv(path, entity_list, source_or_target, entity_type):
 #     )
 #     llm = config.llm
 #     chain = LLMChain(llm=llm, prompt=prompt)
-#     output = chain.run({'entity': entity}).strip()
+#     output = chain.invoke({'entity': entity})['text']
 #     return output
 
 

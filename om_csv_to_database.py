@@ -145,4 +145,4 @@ if __name__ == '__main__':
     tools = define_tools()
     agent = define_agent(llm, tools)
     prompt = f"Please save the file to database."
-    result = agent({"input": prompt})
+    result = agent.invoke({"input": prompt})
