@@ -49,21 +49,22 @@ if __name__ == '__main__':
     average_recall = df['Recall'].mean()
     average_f1 = df['F1'].mean()
     print(f"{average_precision:.2f}", f"{average_recall:.2f}", f"{average_f1:.2f}")
-    # Add Agent-OM results into the benchmark
+
     benchmark_file = 'benchmark_2022/conference/conference_benchmark.csv'
-    # Initialize an empty list to hold rows that don't match the search_name
+    # initialize an empty list to hold rows that don't match the search_name
     rows_to_keep = []
     with open(benchmark_file, mode='r', newline='') as f:
         reader = csv.DictReader(f)
         for row in reader:
             if row["Name"] != "Agent-OM":
-                # Only add rows that don't match the search_name
+                # only add rows that don't match the search_name
                 rows_to_keep.append(row)
-    # Write the rows that don't match the search_name back to the CSV file
+    # write the rows that don't match the search_name back to the CSV file
     with open(benchmark_file, mode='w', newline='') as f:
         writer = csv.DictWriter(f, fieldnames=rows_to_keep[0].keys())
         writer.writeheader()
         writer.writerows(rows_to_keep)
+    # add Agent-OM results into the benchmark
     with open(benchmark_file, "a+", newline='') as f:
         writer = csv.writer(f)
         result = ["%.2f" % (average_precision), "%.2f" % (average_recall), "%.2f" % (average_f1)]
@@ -99,21 +100,22 @@ if __name__ == '__main__':
     average_recall = df['Recall'].mean()
     average_f1 = df['F1'].mean()
     print(f"{average_precision:.2f}", f"{average_recall:.2f}", f"{average_f1:.2f}")
-    # Add Agent-OM results into the benchmark
+
     benchmark_file = 'benchmark_2023/conference/conference_benchmark.csv'
-    # Initialize an empty list to hold rows that don't match the search_name
+    # initialize an empty list to hold rows that don't match the search_name
     rows_to_keep = []
     with open(benchmark_file, mode='r', newline='') as f:
         reader = csv.DictReader(f)
         for row in reader:
             if row["Name"] != "Agent-OM":
-                # Only add rows that don't match the search_name
+                # only add rows that don't match the search_name
                 rows_to_keep.append(row)
-    # Write the rows that don't match the search_name back to the CSV file
+    # write the rows that don't match the search_name back to the CSV file
     with open(benchmark_file, mode='w', newline='') as f:
         writer = csv.DictWriter(f, fieldnames=rows_to_keep[0].keys())
         writer.writeheader()
         writer.writerows(rows_to_keep)
+    # add Agent-OM results into the benchmark
     with open(benchmark_file, "a+", newline='') as f:
         writer = csv.writer(f)
         result = ["%.2f" % (average_precision), "%.2f" % (average_recall), "%.2f" % (average_f1)]

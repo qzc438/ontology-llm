@@ -126,13 +126,13 @@ def draw_and_save(input_csv, output_png, threshold, f1_number, legend_y, long_co
 
 
 if __name__ == '__main__':
-    draw_and_save('conference_benchmark.csv', 'result_fig/conference-2022.png', -0.1, 5, 1.05, True)
-    draw_and_save('dbpedia_benchmark.csv', 'result_fig/conference-dbpedia-2022.png', -0.1, 5, 1, False)
-    draw_and_save('anatomy/result_filter.csv', 'result_fig/anatomy-filter-2022.png', -0.1, 5, 1, True)
-    draw_and_save('anatomy/result.csv', 'result_fig/anatomy-2022.png', -0.1, 5, 1, True)
-    draw_and_save('mse/firstTestCase/result.csv', 'result_fig/mse-1-2022.png', -0.1, 5, 1, False)
-    draw_and_save('mse/secondTestCase/result.csv', 'result_fig/mse-2-2022.png', -0.1, 5, 1, False)
-    draw_and_save('mse/thirdTestCase/result.csv', 'result_fig/mse-3-2022.png', -0.1, 5, 1, False)
+    draw_and_save('conference_benchmark.csv', 'result_figure/conference-2022.png', -0.1, 5, 1.05, True)
+    draw_and_save('dbpedia_benchmark.csv', 'result_figure/conference-dbpedia-2022.png', -0.1, 5, 1, False)
+    draw_and_save('anatomy/result_filter.csv', 'result_figure/anatomy-filter-2022.png', -0.1, 5, 1, True)
+    draw_and_save('anatomy/result.csv', 'result_figure/anatomy-2022.png', -0.1, 5, 1, True)
+    draw_and_save('mse/firstTestCase/result.csv', 'result_figure/mse-1-2022.png', -0.1, 5, 1, False)
+    draw_and_save('mse/secondTestCase/result.csv', 'result_figure/mse-2-2022.png', -0.1, 5, 1, False)
+    draw_and_save('mse/thirdTestCase/result.csv', 'result_figure/mse-3-2022.png', -0.1, 5, 1, False)
 
     draw_and_save('benchmark_2023/mse/firstTestCase/result.csv', 'benchmark_2023_fig/mse-1-2023.png', -0.1, 5, 1, False)
     draw_and_save('benchmark_2023/mse/secondTestCase/result.csv', 'benchmark_2023_fig/mse-2-2023.png', -0.1, 5, 1, False)

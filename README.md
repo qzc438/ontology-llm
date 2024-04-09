@@ -2,17 +2,18 @@
 Call Huanyu for approval for trivial reference.
 
 ## Agent-OM: Leveraging LLM Agents for Ontology Matching
-This repository contains the source code, resources, and instructions to reproduce the experiments for the PVLDB 2025 paper.
+- This repository contains the source code, resources, and instructions to reproduce the experiments for the PVLDB 2025 paper.
+- The preprint of the paper is currently available at arXiv: https://arxiv.org/abs/2312.00326
 
 ## Important Notice:
-- For technical issues, please submit a GitHub Issue.  
+- For technical inquires, please submit a GitHub Issue.  
 - For feature discussion or potential extensions, please join our discussion group: https://groups.google.com/g/agent-om
 
 ## Quick Start:
 
 ### 1. Install Databases:
-- Install PostgreSQL: https://www.postgresql.org/download/  
-- (Optional) Install pgAdmin: https://www.pgadmin.org/download/  
+- Install PostgreSQL: https://www.postgresql.org/download/
+- (Optional) Install pgAdmin: https://www.pgadmin.org/download/
 - Install pgvector: https://github.com/pgvector/pgvector
 ```
 psql –version
@@ -52,7 +53,7 @@ OPENAI_API_KEY="YOUR_OPENAI_API_KEY"
 
 ### 4. Setup Matching Task:
 
-- Set your alignment in the file `run_config.py`: context, o1_is_code, o2_is_code, and alignment.  
+- Set your alignment in the file `run_config.py`: `context`, `o1_is_code`, `o2_is_code`, and `alignment`.  
 For example, if you would like to run the CMT-Conference alignment, then the settings are:
 ```python
 context = "conference"
@@ -60,7 +61,7 @@ alignment = "conference/cmt-conference/component/"
 o1_is_code = False
 o2_is_code = False
 ```
-- (Optional) You can uncomment the following code in the file `om_ontology_to_csv.py` to use LLMs setting the variables o1_is_code and o2_is_code.
+- (Optional) You can uncomment the following code in the file `om_ontology_to_csv.py` to use LLMs setting the variables `o1_is_code` and `o2_is_code`.
 ```python
 import run_config as config
 from langchain.prompts import PromptTemplate
@@ -77,7 +78,7 @@ def check_name_or_code(entity):
     return output
 ```
 
-- Set your matching hyperparameters in the file `run_config.py`: similarity_threshold and top_k.  
+- Set your matching hyperparameters in the file `run_config.py`: `similarity_threshold` and `top_k`.  
 For example, if you would like to set the similarity_threshold = 0.80 and top_k = 3, then the settings are:
 ```python
 similarity_threshold = 0.80
@@ -89,26 +90,26 @@ num_matches = 50
 ```
 
 ### 5. Run Experiment:
-- Run the script: `python run_config.py`.  
-- The result of the experiment will be stored in the folder `alignment`.  
-- The evaluation of the experiment will be stored in the file `result.csv`.  
+- Run the script: `python run_config.py`.
+- The result of the experiment will be stored in the folder `alignment`.
+- The evaluation of the experiment will be stored in the file `result.csv`.
 
 ## Repository Structure:
 
 ### 1. Data:
-- `data`: store the data from three OAEI tracks: conference, anatomy, and mse.
+- `data`: store the data from three OAEI tracks: Conference Track, Anatomy Track, and MSE Track.
 
 ### 2. Experiment:
-- `om_ontology_to_csv.py`: Retrival Agent Part 1.  
-- `om_csv_to_database.py`: Retrival Agent Part 2.  
-- `om_data_base_matching.py`: Matching Agent.  
-- `run_config.py`: main function of the project.  
-- `run_series_conference.py`: run all the conference alignment at one time.  
-- `run_series_similarity.py`: run different similarity thresholds for one alignment at one time.  
+- `om_ontology_to_csv.py`: Retrival Agent Part 1.
+- `om_csv_to_database.py`: Retrival Agent Part 2.
+- `om_data_base_matching.py`: Matching Agent.
+- `run_config.py`: main function of the project.
+- `run_series_conference.py`: run all the conference alignment at one time.
+- `run_series_similarity.py`: run different similarity thresholds for one alignment at one time.
 - `util.py`: util component of the project.
-- `alignment`: store experiment results.  
-- `llm_matching.py`: examples using purely LLMs (without agent) for general matching tasks.  
-- `llm_om.py`: an example of using purely LLMs (without agent) for ontology matching.  
+- `alignment`: store experiment results.
+- `llm_matching.py`: examples using purely LLMs (without agent) for general matching tasks.
+- `llm_om.py`: an example of using purely LLMs (without agent) for ontology matching.
 
 FAQ(s):  
 (1) Why Retrival Agent has two parts `om_ontology_to_csv.py` and `om_csv_to_database.py`?  
@@ -117,7 +118,8 @@ Answer: You can simply combine these two parts together. We decompose this into 
 Answer: Please uncomment the following code in the file `run_config.py`:
 ```python
 import os
-if os.environ.get('../alignment'):
+
+if os.environ.get('alignment'):
     alignment = os.environ['alignment']
 ```
 (3) How to use the file`run_series_similarity.py`?  
@@ -130,17 +132,17 @@ step = -0.05
 ```
 
 ### 3. Evaluation:
-- `generate_conference_benchmark.py`: generate the OAEI Conference Track results.  
-- `generate_anatomy_mse_benchmark.py`: generate the OAEI Anatomy Track and MSE Track results.  
-- `benchmark_2022`: compare Agent-OM with OAEI 2022 results.  
-- `benchmark_2023`: compare Agent-OM with OAEI 2023 results.  
+- `generate_conference_benchmark.py`: generate the OAEI Conference Track results.
+- `generate_anatomy_mse_benchmark.py`: generate the OAEI Anatomy Track and MSE Track results.
+- `benchmark_2022`: compare Agent-OM with OAEI 2022 results.
+- `benchmark_2023`: compare Agent-OM with OAEI 2023 results.
 You may find a slight different for each run, it is because:  
 https://community.openai.com/t/run-same-query-many-times-different-results/140588
 
 ### 4. Visualisation:
-- `draw_benchmark.ipynb`: visualise the result of benchmark.  
-- `draw_ablation_study.ipynb`: visualise the result of ablation study.  
-- `result_fig`: store visualisation results.  
+- `draw_benchmark.ipynb`: visualise the result of benchmark.
+- `draw_ablation_study.ipynb`: visualise the result of ablation study.
+- `result_fig`: store visualisation results.
 
 Our new visualisation is inspired by the following references:  
 - https://joernhees.de/blog/2010/07/22/precision-recall-diagrams-including-fmeasure/  
@@ -150,15 +152,15 @@ Our new visualisation is inspired by the following references:
 We have created a debugging log for this project. [Click the link here](LOG.md).
 
 ## Code References:
-A copy can be found in the `code_references`.
+A copy can be found in the `references_code`.
 - https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/main/cloud-sql/postgres/pgvector/notebooks/pgvector_gen_ai_demo.ipynb 
 
 
 ## Acknowledgements:
-- The authors claim no responsibility for the AI-generated content in this repository, which does not express the views of the authors.  
-- The authors would like to thank the organisers of the Ontology Alignment Evaluation Initiative (OAEI) Conference Track, Anatomy Track, and MSE Track, for helpful advice on reproducing the benchmarks used in this paper.  
-- The authors would like to thank Associate Professor Alice Richardson of the Statistical Support Network, Australian National University, for helpful advice on the statistical analysis in this paper.  
-- The authors would like to thank the Commonwealth Scientific and Industrial Research Organisation (CSIRO) for supporting this project.  
+- The authors claim no responsibility for the AI-generated content in this repository, which does not express the views of the authors.
+- The authors would like to thank the organisers of the Ontology Alignment Evaluation Initiative (OAEI) Conference Track, Anatomy Track, and MSE Track, for helpful advice on reproducing the benchmarks used in this paper.
+- The authors would like to thank Associate Professor Alice Richardson of the Statistical Support Network, Australian National University, for helpful advice on the statistical analysis in this paper.
+- The authors would like to thank the Commonwealth Scientific and Industrial Research Organisation (CSIRO) for supporting this project.
 
 ## Licence:
 
