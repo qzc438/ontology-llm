@@ -159,7 +159,7 @@ A copy can be found in the `references_code`.
 
 
 ## Acknowledgements:
-- The authors claim no responsibility for the AI-generated content in this repository, which does not express the views of the authors.
+- AI-generated content is labelled as "AI-generated content". The authors claim no responsibility for the AI-generated content marked in this paper, which does not express the views of the authors.
 - The authors would like to thank the organisers of the Ontology Alignment Evaluation Initiative (OAEI) Conference Track, Anatomy Track, and MSE Track, for helpful advice on reproducing the benchmarks used in this paper.
 - The authors would like to thank Associate Professor Alice Richardson of the Statistical Support Network, Australian National University, for helpful advice on the statistical analysis in this paper.
 - The authors would like to thank the Commonwealth Scientific and Industrial Research Organisation (CSIRO) for supporting this project.
