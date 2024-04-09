@@ -308,5 +308,3 @@ if __name__ == '__main__':
     ontology, ontology_prefix, ontology_is_code = o2, o2_prefix, o2_is_code
     save_information_to_csv(csv_path, e2_list_class, "Target", "Class")
     save_information_to_csv(csv_path, e2_list_property, "Target", "Property")
-
-

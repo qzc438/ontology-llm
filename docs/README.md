@@ -25,22 +25,16 @@ sudo apt install postgresql-15-pgvector
 ### 2. Install Packages:
 - Required packages:
 ```
-pip install pandas  
-pip install langchain[all]  
-pip install openai  
-pip install rdflib  
-pip install sentence-transformers   
-pip install python-dotenv  
-pip install pyenchant  
-pip install tiktoken  
-```
-- Optional packages:
-```
-pip install google-api-python-client  
-pip install wikipedia  
-pip install faiss-gpu  
-pip install deeponto  
-pip install pypdf
+pip install langchain==0.1.14
+pip install langchain-openai==0.1.1
+pip install pandas==2.0.3
+pip install rdflib==7.0.0
+pip install python-dotenv==1.0.1
+pip install pyenchant==3.2.2
+pip install tiktoken==0.6.0
+pip install asyncpg==0.28.0
+pip install psycopg2_binary==2.9.9
+pip install pgvector==0.1.8
 ```
 - Versions: please check the file `requirement.txt`.
 

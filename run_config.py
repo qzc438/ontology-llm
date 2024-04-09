@@ -3,16 +3,17 @@ import rdflib
 import dotenv
 import os
 import subprocess
-from langchain.chat_models import ChatOpenAI
-from langchain.embeddings import OpenAIEmbeddings
+
+from langchain_openai import ChatOpenAI
+from langchain_openai import OpenAIEmbeddings
 
 # customer settings
 
 # conference track
-# context = "conference"
-# o1_is_code = False
-# o2_is_code = False
-# alignment = "conference/cmt-conference/component/"
+context = "conference"
+o1_is_code = False
+o2_is_code = False
+alignment = "conference/cmt-conference/component/"
 # alignment = "conference/cmt-confof/component/"
 # alignment = "conference/cmt-edas/component/"
 # alignment = "conference/cmt-ekaw/component/"
@@ -68,10 +69,10 @@ from langchain.embeddings import OpenAIEmbeddings
 # e2_list_property: 33
 
 # mse Test Case 2
-context = "materials science"
-alignment = "mse/MaterialInformation-MatOnto/component/"
-o1_is_code = False
-o2_is_code = False
+# context = "materials science"
+# alignment = "mse/MaterialInformation-MatOnto/component/"
+# o1_is_code = False
+# o2_is_code = False
 
 # metadata
 # e1_list_class: 545
@@ -130,7 +131,7 @@ alignEntity1 = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogen
 alignEntity2 = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignmententity2')
 
 # search settings
-similarity_threshold = 0.90
+similarity_threshold = 0.95
 top_k = 3
 num_matches = 50
 
