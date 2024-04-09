@@ -49,7 +49,7 @@ if __name__ == '__main__':
                 "Answer yes or no. Give a short explanation."
                 .format(context=context, entity_1=util.prefix_name_to_name(entity_1),
                         entity_2=util.prefix_name_to_name(entity_2)))
-            result_refine = llm.invoke(prompt_refine_question)['content']
+            result_refine = llm.invoke(prompt_refine_question).content
             print("result_refine", result_refine)
             if extract_yes_no(result_refine) == "yes":
                 with open(llm_only_path, "a+", newline='') as f:

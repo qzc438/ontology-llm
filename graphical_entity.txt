@@ -1,4 +1,2 @@
-has_authors domain Conference_document.
-has_authors range Person.
-has_authors inverseOf contributes.
-contributes inverseOf has_authors.
+is_a_starting_date domain Important_dates.
+is_a_starting_date range date.

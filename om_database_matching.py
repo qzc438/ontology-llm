@@ -261,7 +261,8 @@ def find_most_relevant_entity(entity):
                         "Consider only the context meaning and not the formatting."
                         "Answer yes or no. Give a short explanation."
                         .format(context=context, entity_name=entity_name, predict_entity_name=predict_entity_name))
-                    result_refine = llm.invoke(prompt_refine_question)['content']
+
+                    result_refine = llm.invoke(prompt_refine_question).content
                     print("result_refine:", result_refine)
                     create_log(f"prompt_refine_question: {prompt_refine_question}")
                     create_log(f"result_refine: {result_refine}")

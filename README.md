@@ -153,7 +153,7 @@ We have created a debugging log for this project. [Click the link here.](docs/LO
 - https://api.python.langchain.com/en/latest/langchain_api_reference.html
 - https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/main/cloud-sql/postgres/pgvector/notebooks/pgvector_gen_ai_demo.ipynb
 
-A copy can be found in the `references_code`.
+A copy can be found in the `code_references`.
 
 ## Acknowledgements:
 - AI-generated content is labelled as "AI-generated content". The authors claim no responsibility for the AI-generated content marked in this paper, which does not express the views of the authors.
