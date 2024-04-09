@@ -147,7 +147,7 @@ Our new visualisation is inspired by the following references:
 - https://towardsai.net/p/l/precision-recall-curve
 
 ## Debugging Log:
-We have created a debugging log for this project. [Click the link here.](LOG.md)
+We have created a debugging log for this project. [Click the link here.](docs/LOG.md)
 
 ## Code References:
 - https://api.python.langchain.com/en/latest/langchain_api_reference.html

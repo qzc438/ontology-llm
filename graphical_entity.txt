@@ -1,5 +1,4 @@
-Invited_talk disjointWith Poster.
-Invited_talk disjointWith Regular_contribution.
-Invited_talk subClassOf Presentation.
-Regular_contribution disjointWith Invited_talk.
-Poster disjointWith Invited_talk.
+has_authors domain Conference_document.
+has_authors range Person.
+has_authors inverseOf contributes.
+contributes inverseOf has_authors.
