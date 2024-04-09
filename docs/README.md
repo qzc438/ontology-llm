@@ -116,10 +116,11 @@ FAQ(s):
 Answer: You can simply combine these two parts together. We decompose this into two parts to make it easy to debug the issue may happen in the database storge.  
 (2) How to use the file`run_series_conference.py`?  
 Answer: Please uncomment the following code in the file `run_config.py`:
+
 ```python
 import os
 
-if os.environ.get('alignment'):
+if os.environ.get('../alignment'):
     alignment = os.environ['alignment']
 ```
 (3) How to use the file`run_series_similarity.py`?  
@@ -135,7 +136,7 @@ step = -0.05
 - `generate_conference_benchmark.py`: generate the OAEI Conference Track results.
 - `generate_anatomy_mse_benchmark.py`: generate the OAEI Anatomy Track and MSE Track results.
 - `benchmark_2022`: compare Agent-OM with OAEI 2022 results.
-- `benchmark_2023`: compare Agent-OM with OAEI 2023 results.
+- `benchmark_2023`: compare Agent-OM with OAEI 2023 results.  
 You may find a slight different for each run, it is because:  
 https://community.openai.com/t/run-same-query-many-times-different-results/140588
 
