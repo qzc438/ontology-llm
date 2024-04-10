@@ -34,6 +34,8 @@ pip install tiktoken==0.6.0
 pip install asyncpg==0.28.0
 pip install psycopg2_binary==2.9.9
 pip install pgvector==0.1.8
+```
+```
 pip install matplotlib==3.8.4
 pip install notebook
 jupyter server extension enable ipyparallel
@@ -111,7 +113,7 @@ FAQ(s):
 (1) Why the Retrival Agent has two parts `om_ontology_to_csv.py` and `om_csv_to_database.py`?  
 Answer: You can simply combine these two parts together. We decompose this into two parts to make it easy to debug the issue that may happen in the database storage.  
 (2) How to use the file`run_series_conference.py`?  
-Answer: Please uncomment the following code in the file `run_config.py`:
+Answer: Please uncomment the following code in the file `run_config.py`.
 
 ```python
 import os
