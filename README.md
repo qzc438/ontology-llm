@@ -89,7 +89,7 @@ For example, if you would like to set the similarity_threshold = 0.80 and top_k 
 similarity_threshold = 0.80
 top_k = 3
 ```
-`num_matches` performs a "limit" function the database. We set 50 here, but you can adjust this number to fit your database storage.
+- (Optional) `num_matches` performs a "limit" function the database. We set 50 here, but you can adjust this number to fit your database storage.
 ```python
 num_matches = 50
 ```
