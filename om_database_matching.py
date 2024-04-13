@@ -183,12 +183,13 @@ def graphical_matching(entity):
 
 
 def find_all_matching_candidate(entity):
-    prompt_summary = f"Please find the equivalent entity to the following entity enclosed by a pair of double quotes: \"{entity}\". " \
+    prompt_summary = f"Find the equivalent entity to the following entity enclosed by a pair of double quotes: \"{entity}\". " \
                      "Consider initial matching, lexical matching, and graphical matching. " \
                      "Format the output as JSON enclosed by a pair of curly braces with the following keys: initial_matching, lexical_matching, graphical_matching. " \
-                     "Set value as a list if you find multiple matching results in initial matching, lexical matching, or graphical matching. "\
+                     "Set value as a list enclosed by a pair of square brackets if you find multiple matching results in initial matching, lexical matching, or graphical matching. "\
                      "Set a null value if you cannot find any matching results in initial matching, lexical matching, or graphical matching. " \
-                     "Output the JSON only."
+                     "Output the JSON only. " \
+                     "Do not include any markdown formatting outside of the JSON structure."
     print("matching prompt:", prompt_summary)
     # define tools
     tools = define_tools()
@@ -256,9 +257,16 @@ def find_most_relevant_entity(entity):
                     candidates_with_validation_and_merge.append(predict_entity)
                     continue
                 else:
+                    # prompt_refine_question = (
+                    #     "Is \"{entity_name} in the context of {context}\" equivalent to \"{predict_entity_name} in the context of {context}\"? "
+                    #     "Consider only the context meaning and not the formatting. "
+                    #     "Answer yes or no. Give a short explanation."
+                    #     .format(context=context, entity_name=entity_name, predict_entity_name=predict_entity_name))
+
                     prompt_refine_question = (
-                        "Is \"{entity_name} in the context of {context}\" equivalent to \"{predict_entity_name} in the context of {context}\"? "
-                        "Consider only the context meaning and not the formatting."
+                        "Question: Is \"{entity_name}\" equivalent to \"{predict_entity_name}\"?\n"
+                        "Context: {context}\n"
+                        "Answer this question using the information given in the context above. "
                         "Answer yes or no. Give a short explanation."
                         .format(context=context, entity_name=entity_name, predict_entity_name=predict_entity_name))
 

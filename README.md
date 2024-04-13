@@ -2,7 +2,7 @@
 Call Huanyu for approval for trivial reference.
 
 ## Agent-OM: Leveraging LLM Agents for Ontology Matching
-- This repository contains the source code to reproduce the experiments.
+- This repository contains the source code linked to the paper.
 - The preprint of the paper is currently available at arXiv: https://arxiv.org/abs/2312.00326
 
 ## Important Notice:
@@ -38,7 +38,7 @@ pip install pgvector==0.1.8
 ```
 pip install matplotlib==3.8.4
 pip install notebook
-jupyter server extension enable ipyparallel
+pip install ipyparallel
 ```
 
 ### 3. Setup OpenAI API:
@@ -48,8 +48,17 @@ jupyter server extension enable ipyparallel
 OPENAI_API_KEY="YOUR_OPENAI_API_KEY"
 ```
 
-### 4. Setup Matching Task:
+### 4. Setup Large Language Model (LLM):
+- Set the LLM in the file `run_config.py`: `llm_model_name`.
+```python
+# GPT-3.5
+llm_model_name = 'gpt-3.5-turbo'
+# Agent-OM also supports GPT-4, but our experiments are based on 'gpt-3.5-turbo'
+# GPT-4
+# llm_model_name = 'gpt-4-turbo'
+```
 
+### 5. Setup Matching Task:
 - Set your alignment in the file `run_config.py`: `context`, `o1_is_code`, `o2_is_code`, and `alignment`.  
 For example, if you would like to run the CMT-Conference alignment, then the settings are:
 ```python
@@ -74,20 +83,18 @@ def check_name_or_code(entity):
     output = chain.invoke({'entity': entity})['text']
     return output
 ```
-
 - Set your matching hyperparameters in the file `run_config.py`: `similarity_threshold` and `top_k`.  
 For example, if you would like to set the similarity_threshold = 0.80 and top_k = 3, then the settings are:
 ```python
 similarity_threshold = 0.80
 top_k = 3
 ```
+`num_matches` performs a "limit" function the database. We set 50 here, but you can adjust this number to fit your database storage.
 ```python
-# num_matches is a variable to limit the results in the database
-# you can select any number to fit your database (the default setting is 50)
 num_matches = 50
 ```
 
-### 5. Run Experiment:
+### 6. Run Experiment:
 - Run the script: `python run_config.py`.
 - The result of the experiment will be stored in the folder `alignment`.
 - The evaluation of the experiment will be stored in the file `result.csv`.
@@ -149,13 +156,13 @@ Our new visualisation is inspired by the following references:
 - https://towardsai.net/p/l/precision-recall-curve
 
 ## Debugging Log:
-We have created a debugging log for this project. [Click the link here.](docs/LOG.md)
+We have created a debugging log for this project. [Click the link here.](docs/DEBUGGING_LOG)
 
 ## Code References:
 - https://api.python.langchain.com/en/latest/langchain_api_reference.html
-- https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/main/cloud-sql/postgres/pgvector/notebooks/pgvector_gen_ai_demo.ipynb
+- https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/main/cloud-sql/postgres/pgvector/notebooks/pgvector_gen_ai_demo.ipynb (a copy can be found in the `code_references`)
 
-A copy can be found in the `code_references`.
+This repository is prepared for the PVLDB 2025 submission. The original version of this work can be found in: https://github.com/qzc438/ontology-llm (access will be made available on request)
 
 ## Acknowledgements:
 - AI-generated content is labelled as "AI-generated content". The authors claim no responsibility for the AI-generated content marked in this paper, which does not express the views of the authors.

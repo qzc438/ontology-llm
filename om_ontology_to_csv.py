@@ -145,7 +145,7 @@ def entity_initial(entity):
         input_variables=["entity_name"],
         template="Normalise the following name enclosed by a pair of double quotes: \"{entity_name}\". "
                  "Use white spaces to split compound words. "
-                 "Output the normalized form only."
+                 "Output the normalised form only."
                  # You cannot change to lower case because the agent will change to upper case automatically
                  # "Format the output as JSON with the following keys: entity\_initial. "
                  # Please do not use key, otherwise error. json.decoder.JSONDecodeError: output end with "," and cannot transfer to json.
@@ -188,7 +188,7 @@ def entity_lexical(entity):
     else:
         prompt = PromptTemplate(
             input_variables=["entity_name", "context"],
-            template="In the context of {context}, what is the meaning of {entity_name}? "
+            template="In the context of {context}, what is the meaning of {entity_name}?"
         )
         chain = LLMChain(llm=llm, prompt=prompt)
         answer = chain.invoke({
@@ -239,28 +239,29 @@ def verbalise_sentence(input_file_path):
             # for text in split_text:
             try:
                 print("processed_line", processed_line)
-                print(type(processed_line))
-                answer = processed_line['text']
-                output += answer + ' '
+                answer = processed_line['text'] + " "
+                output += answer
                 # processed_line_json = json.loads(processed_line)
                 # answer = processed_line_json['entity_graphical']
             except json.JSONDecodeError as e:
                 print(f"Cannot verbalise the sentence. JSON is invalid: {e}")
                 output += line + ' '
                 continue
-    return output
+    return output.strip()
 
 
 def save_information_to_csv(path, entity_list, source_or_target, entity_type):
     with open(path, "a+", newline='') as f1:
         for entity in entity_list:
+        # for entity in ["http://conference#Organization`"]:
         # for entity in ["http://mouse.owl#MA_0001941"]:
         # for entity in ["http://mouse.owl#MA_0001844"]:
         # for entity in ["http://human.owl#NCI_C12220"]:
             prompt = f"Retrieve the information of the following entity enclosed with a pair of double quotes: \"{entity}\". " \
                     "Consider entity initial, entity lexical, and entity graphical. " \
                     "Format the output as JSON enclosed with a pair of curly braces with the following keys: entity_initial, entity_lexical, entity_graphical. " \
-                    "Output the JSON only."
+                    "Output the JSON only. "\
+                    "Do not include any markdown formatting outside of the JSON structure."
             print("retrieving prompt:", prompt)
             # define tools
             tools = define_tools()

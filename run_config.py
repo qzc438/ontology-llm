@@ -9,6 +9,7 @@ from langchain_openai import OpenAIEmbeddings
 
 # customer settings
 
+# alignment settings
 # conference track
 context = "conference"
 o1_is_code = False
@@ -92,6 +93,11 @@ alignment = "conference/cmt-conference/component/"
 # e1_list_property: 43
 # e2_list_property: 95
 
+# search settings
+similarity_threshold = 0.95
+top_k = 3
+num_matches = 50
+
 # common settings
 data_folder = "data/" + alignment
 o1_path = data_folder + "source.xml"
@@ -120,20 +126,18 @@ o2_prefix = "target"
 # load api
 dotenv.load_dotenv()
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
-# load api related components
-llm = ChatOpenAI(model_name='gpt-3.5-turbo', temperature=0)
-# llm = ChatOpenAI(model_name='gpt-4', temperature=0)
+# load llm model name
+llm_model_name = 'gpt-3.5-turbo'
+# llm_model_name = 'gpt-4-turbo'
+
+# load llm
+llm = ChatOpenAI(model_name=llm_model_name, temperature=0)
 embeddings_service = OpenAIEmbeddings()
 
 # mapping settings
 alignCell = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignmentCell')
 alignEntity1 = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignmententity1')
 alignEntity2 = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignmententity2')
-
-# search settings
-similarity_threshold = 0.95
-top_k = 3
-num_matches = 50
 
 if __name__ == '__main__':
 

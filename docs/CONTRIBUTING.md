@@ -29,7 +29,7 @@ All types of contributions are encouraged and valued. See the [Table of Contents
 ## Code of Conduct
 
 This project and everyone participating in it is governed by the
-[Agent-OM Code of Conduct](https://github.com/qzc438/ontology-llm/blob/master/docs/CODE_OF_CONDUCT.md).
+[Agent-OM Code of Conduct](https://github.com/qzc438/ontology-llm/blob/master/CODE_OF_CONDUCT.md).
 By participating, you are expected to uphold this code. Please report unacceptable behavior
 to <qzc438@gmail.com>.
 

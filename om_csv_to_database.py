@@ -28,7 +28,7 @@ def define_tools():
         Tool(
             name="save_to_database",
             func=initialize_database,
-            description="Useful for when you need save the file to database."
+            description="Useful for when you need run the save."
         ),
     ]
     return tools
@@ -144,5 +144,5 @@ def initialize_database(file):
 if __name__ == '__main__':
     tools = define_tools()
     agent = define_agent(llm, tools)
-    prompt = f"Please save the file to database."
+    prompt = f"Run the save."
     result = agent.invoke({"input": prompt})
