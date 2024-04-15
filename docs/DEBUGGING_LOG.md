@@ -1,6 +1,6 @@
 ### Debugging Tips and Tricks:
 
-#### 1. Fix torch.cuda.is_available() = false:
+#### 1. How to fix *torch.cuda.is_available() = false*?
 ```cmd
 sudo apt-get purge nvidia-*
 sudo apt-get update
@@ -8,10 +8,10 @@ sudo apt-get autoremove
 sudo apt --fix-broken install
 ```
 
-#### 2. Fix the results of Conference Track are not in line with the OAEI results:
+#### 2. How to when the results of Conference Track are not in line with the OAEI results?
 - Remove the mappings different from the equivalence.  
-- Remove non-distinct mappings that appear twice.  
-- Removed all mappings between oboInOwl name-spaced concepts.  
+- Remove the non-distinct mappings that appear twice.  
+- Remove all mappings between oboInOwl name-spaced concepts.  
 For example, the following 8 mappings need to be removed from Agent-OM results:
 ```
 <map>
@@ -87,10 +87,10 @@ For example, the following 8 mappings need to be removed from Agent-OM results:
 </map>
 ```
 
-#### 3. Fix the results of MSE Track Test Case 1 are not in line with the OAEI results:
+#### 3. How to fix the results so that the MSE Track Test Case 1 are in line with the OAEI results?
 - This track also contains the subsumption mappings in the reference alignment file `reference-old.xml`.
 - We set all subsumption mappings to None and reproduce the reference alignment file `reference.xml`.
 
-#### 4. Fix the results of Matcha that are unreproducible:
+#### 4. How to fix the results of Matcha that are unreproducible?
 - Unlike other systems, the root IRI of Matcha's mapping file is `xmlns="http://knowledgeweb.semanticweb.org/heterogeneity/alignment#"`.
 - We remove the character `"#"` the root IRI of the mapping file `xmlns="http://knowledgeweb.semanticweb.org/heterogeneity/alignment"`.

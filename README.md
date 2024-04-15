@@ -2,8 +2,8 @@
 Call Huanyu for approval for trivial reference.
 
 ## Agent-OM: Leveraging LLM Agents for Ontology Matching
-- This repository contains the source code linked to the paper.
 - The preprint of the paper is currently available at arXiv: https://arxiv.org/abs/2312.00326
+- This repository contains the source code linked to the paper. The original version of this work can be found in: https://github.com/qzc438/ontology-llm (access will be made available on request)
 
 ## Important Notice:
 - For technical inquiries, please submit a GitHub issue.
@@ -13,7 +13,7 @@ Call Huanyu for approval for trivial reference.
 
 ### 1. Install Databases:
 - Install PostgreSQL: https://www.postgresql.org/download/
-- (Optional) Install pgAdmin: https://www.pgadmin.org/download/
+- Install pgAdmin: https://www.pgadmin.org/download/ (Optional for GUI access to database) 
 - Install pgvector: https://github.com/pgvector/pgvector
 ```
 psql –version
@@ -22,7 +22,10 @@ alter user postgres password 'postgres'
 sudo apt install postgresql-15-pgvector
 ```
 
-### 2. Install Packages:
+### 2. Install Python:
+- Python 3.10.12: https://www.python.org/downloads/release/python-31012/
+
+### 3. Install Python Packages:
 ```
 pip install langchain==0.1.14
 pip install langchain-openai==0.1.1
@@ -41,14 +44,14 @@ pip install notebook
 pip install ipyparallel
 ```
 
-### 3. Setup OpenAI API:
-- Your OpenAI API key can be found at this link: https://platform.openai.com/api-keys
+### 4. Setup OpenAI API:
+- You will need an OpenAI API key to interact with GPT models: https://platform.openai.com/api-keys
 - Create a file named as `.env` and write:
-```python
-OPENAI_API_KEY="YOUR_OPENAI_API_KEY"
+```plaintext
+OPENAI_API_KEY = <YOUR_OPENAI_API_KEY>
 ```
 
-### 4. Setup Large Language Model (LLM):
+### 5. Setup Large Language Model (LLM):
 - Set the LLM in the file `run_config.py`: `llm_model_name`.
 ```python
 # GPT-3.5
@@ -58,7 +61,7 @@ llm_model_name = 'gpt-3.5-turbo'
 # llm_model_name = 'gpt-4-turbo'
 ```
 
-### 5. Setup Matching Task:
+### 6. Setup Matching Task:
 - Set your alignment in the file `run_config.py`: `context`, `o1_is_code`, `o2_is_code`, and `alignment`.  
 For example, if you would like to run the CMT-Conference alignment, then the settings are:
 ```python
@@ -89,7 +92,7 @@ For example, if you would like to set the similarity_threshold = 0.80 and top_k 
 similarity_threshold = 0.80
 top_k = 3
 ```
-- (Optional) `num_matches` performs a "limit" function the database. We set 50 here, but you can adjust this number to fit your database storage.
+- (Optional) `num_matches` is a parameter performs a "limit" function on the database queries. We set 50 here, but you can adjust this number to fit your database memory.
 ```python
 num_matches = 50
 ```
@@ -105,8 +108,8 @@ num_matches = 50
 - `data`: store the data from three OAEI tracks: Conference Track, Anatomy Track, and MSE Track.
 
 ### 2. Experiment:
-- `om_ontology_to_csv.py`: Retrival Agent Part 1.
-- `om_csv_to_database.py`: Retrival Agent Part 2.
+- `om_ontology_to_csv.py`: Retrieval Agent Part 1.
+- `om_csv_to_database.py`: Retrieval Agent Part 2.
 - `om_data_base_matching.py`: Matching Agent.
 - `run_config.py`: main function of the project.
 - `run_series_conference.py`: run all the conference alignments at one time.
@@ -117,18 +120,17 @@ num_matches = 50
 - `llm_om.py`: an example of using purely LLMs (without agents) for ontology matching.
 
 FAQ(s):  
-(1) Why the Retrival Agent has two parts `om_ontology_to_csv.py` and `om_csv_to_database.py`?  
+(1) Why does the Retrieval Agent have two parts `om_ontology_to_csv.py` and `om_csv_to_database.py`?  
 Answer: You can simply combine these two parts together. We decompose this into two parts to make it easy to debug the issue that may happen in the database storage.  
-(2) How to use the file`run_series_conference.py`?  
+(2) How do I use the file`run_series_conference.py`?  
 Answer: Please uncomment the following code in the file `run_config.py`.
-
 ```python
 import os
 
 if os.environ.get('alignment'):
     alignment = os.environ['alignment']
 ```
-(3) How to use the file`run_series_similarity.py`?  
+(3) How do I use the file`run_series_similarity.py`?  
 Answer: Please set the variables in the file `run_series_similarity.py`.  
 For example, if you would like to check the similarities [1.00, 0.95, ..., 0.55, 0.50], then the settings are:
 ```python
@@ -158,11 +160,9 @@ Our new visualisation is inspired by the following references:
 ## Debugging Log:
 We have created a debugging log for this project. [Click the link here.](docs/DEBUGGING_LOG.md)
 
-## Code References:
-- https://api.python.langchain.com/en/latest/langchain_api_reference.html
-- https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/main/cloud-sql/postgres/pgvector/notebooks/pgvector_gen_ai_demo.ipynb (a copy can be found in the `code_references`)
-
-This repository is prepared for the PVLDB 2025 submission. The original version of this work can be found in: https://github.com/qzc438/ontology-llm (access will be made available on request)
+## Code Acknowledgements:
+- The LangChain API is used for generating LLM agents: https://api.python.langchain.com/en/latest/langchain_api_reference.html
+- Our data-driven application architecture is inspired by: https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/main/cloud-sql/postgres/pgvector/notebooks/pgvector_gen_ai_demo.ipynb (a copy can be found in the `code_references`)
 
 ## Acknowledgements:
 - AI-generated content is labelled as "AI-generated content". The authors claim no responsibility for the AI-generated content marked in this paper, which does not express the views of the authors.
