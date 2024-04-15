@@ -1,4 +1,6 @@
-### Debugging Tips and Tricks:
+### Debugging Log:
+
+- [X] Release source code [April 15, 2024]
 
 #### 1. How to fix *torch.cuda.is_available() = false*?
 ```cmd
@@ -8,7 +10,7 @@ sudo apt-get autoremove
 sudo apt --fix-broken install
 ```
 
-#### 2. How to when the results of Conference Track are not in line with the OAEI results?
+#### 2. How to fix the results so that the Anatomy Track are in line with the OAEI results?
 - Remove the mappings different from the equivalence.  
 - Remove the non-distinct mappings that appear twice.  
 - Remove all mappings between oboInOwl name-spaced concepts.  

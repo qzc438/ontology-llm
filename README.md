@@ -13,7 +13,7 @@ Call Huanyu for approval for trivial reference.
 
 ### 1. Install Databases:
 - Install PostgreSQL: https://www.postgresql.org/download/
-- Install pgAdmin: https://www.pgadmin.org/download/ (Optional for GUI access to database) 
+- Install pgAdmin: https://www.pgadmin.org/download/ (optional for GUI access to the database) 
 - Install pgvector: https://github.com/pgvector/pgvector
 ```
 psql –version
@@ -23,7 +23,7 @@ sudo apt install postgresql-15-pgvector
 ```
 
 ### 2. Install Python:
-- Python 3.10.12: https://www.python.org/downloads/release/python-31012/
+- Python 3.10: https://www.python.org/downloads/release/python-31012/ (recommend version 3.10.12)
 
 ### 3. Install Python Packages:
 ```
@@ -162,7 +162,7 @@ We have created a debugging log for this project. [Click the link here.](docs/DE
 
 ## Code Acknowledgements:
 - The LangChain API is used for generating LLM agents: https://api.python.langchain.com/en/latest/langchain_api_reference.html
-- Our data-driven application architecture is inspired by: https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/main/cloud-sql/postgres/pgvector/notebooks/pgvector_gen_ai_demo.ipynb (a copy can be found in the `code_references`)
+- Our data-driven application architecture is inspired by: https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/main/cloud-sql/postgres/pgvector/notebooks/pgvector_gen_ai_demo.ipynb (a copy can be found in the `code_acknowledgements`)
 
 ## Acknowledgements:
 - AI-generated content is labelled as "AI-generated content". The authors claim no responsibility for the AI-generated content marked in this paper, which does not express the views of the authors.
