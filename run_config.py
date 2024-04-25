@@ -45,7 +45,7 @@ alignment = "conference/cmt-conference/component/"
 # alignment = "conference/dbpedia-ekaw/component/"
 # alignment = "conference/dbpedia-sigkdd/component/"
 
-# anatomy track
+# # anatomy track
 # context = "anatomy"
 # o1_is_code = True
 # o2_is_code = True
@@ -57,17 +57,18 @@ alignment = "conference/cmt-conference/component/"
 # e1_list_property: 3
 # e2_list_property: 2
 
-# mse Test Case 3
+# mse track
+# mse Test Case 1
 # context = "materials science"
-# alignment = "mse/MaterialInformation-EMMO/component/"
+# alignment = "mse/MaterialInformationReduced-MatOnto/component/"
 # o1_is_code = False
-# o2_is_code = True
+# o2_is_code = False
 
 # metadata
-# e1_list_class: 545
-# e2_list_class: 450
-# e1_list_property: 98
-# e2_list_property: 33
+# e1_list_class: 32
+# e2_list_class: 847
+# e1_list_property: 43
+# e2_list_property: 95
 
 # mse Test Case 2
 # context = "materials science"
@@ -81,20 +82,20 @@ alignment = "conference/cmt-conference/component/"
 # e1_list_property: 98
 # e2_list_property: 95
 
-# mse Test Case 1
+# mse Test Case 3
 # context = "materials science"
-# alignment = "mse/MaterialInformationReduced-MatOnto/component/"
+# alignment = "mse/MaterialInformation-EMMO/component/"
 # o1_is_code = False
-# o2_is_code = False
+# o2_is_code = True
 
 # metadata
-# e1_list_class: 32
-# e2_list_class: 847
-# e1_list_property: 43
-# e2_list_property: 95
+# e1_list_class: 545
+# e2_list_class: 450
+# e1_list_property: 98
+# e2_list_property: 33
 
 # search settings
-similarity_threshold = 0.95
+similarity_threshold = 0.90
 top_k = 3
 num_matches = 50
 
@@ -114,30 +115,29 @@ predict_target_path = align_folder + "predict_target.csv"
 predict_path = align_folder + "predict.csv"
 true_path = align_folder + "true.csv"
 result_path = "result.csv"
-
-# matching without using vector database
+# path for matching without using agents
 llm_only_path = align_folder + "llm_only.csv"
-
+# reference file settings
+alignCell = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignmentCell')
+alignEntity1 = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignmententity1')
+alignEntity2 = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignmententity2')
+# load ontology
 o1 = rdflib.Graph().parse(o1_path, format="xml")
 o2 = rdflib.Graph().parse(o2_path, format="xml")
 o1_prefix = "source"
 o2_prefix = "target"
-
-# load api
+# load api key
 dotenv.load_dotenv()
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
-# load llm model name
+# load llm
 llm_model_name = 'gpt-3.5-turbo'
 # llm_model_name = 'gpt-4-turbo'
-
-# load llm
 llm = ChatOpenAI(model_name=llm_model_name, temperature=0)
+# load embedding
 embeddings_service = OpenAIEmbeddings()
 
-# mapping settings
-alignCell = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignmentCell')
-alignEntity1 = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignmententity1')
-alignEntity2 = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignmententity2')
+# database connection
+connection_string = 'postgresql://postgres:postgres@127.0.0.1/ontology'
 
 if __name__ == '__main__':
 

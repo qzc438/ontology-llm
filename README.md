@@ -70,34 +70,18 @@ alignment = "conference/cmt-conference/component/"
 o1_is_code = False
 o2_is_code = False
 ```
-- (Optional) You can uncomment the following code in the file `om_ontology_to_csv.py` to use LLMs setting the variables `o1_is_code` and `o2_is_code`.
-```python
-import run_config as config
-from langchain.prompts import PromptTemplate
-from langchain.chains import LLMChain
-
-def check_name_or_code(entity):
-    prompt = PromptTemplate(
-        input_variables=["entity"],
-        template="Is {entity} a unique identifier or code? Please answer True if yes, False if not or unknown."
-    )
-    llm = config.llm
-    chain = LLMChain(llm=llm, prompt=prompt)
-    output = chain.invoke({'entity': entity})['text']
-    return output
-```
 - Set your matching hyperparameters in the file `run_config.py`: `similarity_threshold` and `top_k`.  
 For example, if you would like to set the similarity_threshold = 0.80 and top_k = 3, then the settings are:
 ```python
 similarity_threshold = 0.80
 top_k = 3
 ```
-- (Optional) `num_matches` is a parameter performs a "limit" function on the database queries. We set 50 here, but you can adjust this number to fit your database memory.
+- `num_matches` is a parameter performs a "limit" function on the database queries. We set 50 here, but you can adjust this number to fit your database memory.
 ```python
 num_matches = 50
 ```
 
-### 6. Run Experiment:
+### 7. Run Experiment:
 - Run the script: `python run_config.py`.
 - The result of the experiment will be stored in the folder `alignment`.
 - The evaluation of the experiment will be stored in the file `result.csv`.
@@ -126,7 +110,6 @@ Answer: You can simply combine these two parts together. We decompose this into 
 Answer: Please uncomment the following code in the file `run_config.py`.
 ```python
 import os
-
 if os.environ.get('alignment'):
     alignment = os.environ['alignment']
 ```
@@ -158,11 +141,11 @@ Our new visualisation is inspired by the following references:
 - https://towardsai.net/p/l/precision-recall-curve
 
 ## Debugging Log:
-We have created a debugging log for this project. [Click the link here.](docs/DEBUGGING_LOG.md)
+We have created a debugging log for this project. [Click the link here.](useful_doc/DEBUGGING_LOG.md)
 
 ## Code Acknowledgements:
 - The LangChain API is used for generating LLM agents: https://api.python.langchain.com/en/latest/langchain_api_reference.html
-- Our data-driven application architecture is inspired by: https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/main/cloud-sql/postgres/pgvector/notebooks/pgvector_gen_ai_demo.ipynb (a copy can be found in the `code_acknowledgements`)
+- Our data-driven application architecture is inspired by: https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/main/cloud-sql/postgres/pgvector/notebooks/pgvector_gen_ai_demo.ipynb (a copy can be found in the `acknowledgement`)
 
 ## Acknowledgements:
 - AI-generated content is labelled as "AI-generated content". The authors claim no responsibility for the AI-generated content marked in this paper, which does not express the views of the authors.

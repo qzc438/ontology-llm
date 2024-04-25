@@ -1,2 +1,5 @@
-is_a_starting_date domain Important_dates.
-is_a_starting_date range date.
+was_an_organizing_committee_of range Conference_volume.
+was_an_organizing_committee_of inverseOf has_an_organizing_committee.
+was_an_organizing_committee_of subPropertyOf was_a_committee_of.
+was_an_organizing_committee_of domain Organizing_committee.
+has_an_organizing_committee inverseOf was_an_organizing_committee_of.

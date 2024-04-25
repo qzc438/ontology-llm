@@ -10,6 +10,10 @@ from langchain.chains import LLMChain
 from langchain.agents.agent_toolkits import create_conversational_retrieval_agent
 from langchain.tools import Tool
 
+from langchain.output_parsers import ResponseSchema
+from langchain.output_parsers import StructuredOutputParser
+from langchain_core.prompts import ChatPromptTemplate
+
 labelEntity = rdflib.term.URIRef('http://www.w3.org/2004/02/skos/core#prefLabel')
 
 # customer settings
@@ -46,19 +50,19 @@ ontology_prefix = None
 def define_tools():
     tools = [
         Tool(
-            name="initial_retriever",
-            func=entity_initial,
-            description="Useful for when you need entity initial."
+            name="syntactic_retriever",
+            func=syntactic_retriever,
+            description="Useful for when you need syntactic retriever."
         ),
         Tool(
             name="lexical_retriever",
-            func=entity_lexical,
-            description="Useful for when you need entity lexical."
+            func=lexical_retriever,
+            description="Useful for when you need lexical retriever."
         ),
         Tool(
             name="graphical_retriever",
-            func=entity_graphical,
-            description="Useful for when you need entity graphical."
+            func=graphical_retriever,
+            description="Useful for when you need graphical retriever."
         ),
     ]
     return tools
@@ -80,11 +84,11 @@ def find_alignment(align_path, true_path):
         for s in align.subjects(rdflib.RDF.type, alignCell):
             e1_uri = align.value(s, alignEntity1, None)
             e2_uri = align.value(s, alignEntity2, None)
-            e1_name = get_entity_name(e1_uri, o1, o1_is_code)
-            e2_name = get_entity_name(e2_uri, o2, o2_is_code)
-            e1_prefix_name = util.name_to_prefix_name(e1_name, o1_prefix)
-            e2_prefix_name = util.name_to_prefix_name(e2_name, o2_prefix)
-            list_pair = [e1_prefix_name, e2_prefix_name]
+            # e1_name = get_entity_name(e1_uri, o1, o1_is_code)
+            # e2_name = get_entity_name(e2_uri, o2, o2_is_code)
+            # e1_prefix_name = util.name_to_prefix_name(e1_name, o1_prefix)
+            # e2_prefix_name = util.name_to_prefix_name(e2_name, o2_prefix)
+            list_pair = [e1_uri, e2_uri]
             writer.writerow(list_pair)
 
 
@@ -112,6 +116,12 @@ def find_all_entities():
     for y in o2.subjects(rdflib.RDF.type, rdflib.OWL.DatatypeProperty):
         if y and ("#" in y or "/" in y):
             e2_list_property.append(y)
+    # sort each list
+    e1_list_class.sort()
+    e2_list_class.sort()
+    e1_list_property.sort()
+    e2_list_property.sort()
+    # check each list
     print("e1_list_class:", len(e1_list_class))
     print("e2_list_class:", len(e2_list_class))
     print("e1_list_property:", len(e1_list_property))
@@ -139,32 +149,22 @@ def get_entity_name(entity, ontology, ontology_is_code):
     return entity_name
 
 
-def entity_initial(entity):
+def syntactic_retriever(entity):
     entity_name = get_entity_name(entity, ontology, ontology_is_code)
     prompt = PromptTemplate(
         input_variables=["entity_name"],
-        template="Normalise the following name enclosed by a pair of double quotes: \"{entity_name}\". "
-                 "Use white spaces to split compound words. "
-                 "Output the normalised form only."
-                 # You cannot change to lower case because the agent will change to upper case automatically
-                 # "Format the output as JSON with the following keys: entity\_initial. "
-                 # Please do not use key, otherwise error. json.decoder.JSONDecodeError: output end with "," and cannot transfer to json.
+        template="Convert the following name to a lowercase, space-separated format: {entity_name}.\n"
+                 "Output the converted name only.\n"
     )
     chain = LLMChain(llm=llm, prompt=prompt)
     answer = chain.invoke({
         'entity_name': entity_name,
     })
-    # answer = chain.run({
-    #     'entity_name': entity_name,
-    # }).strip()
-    # print("answer:", answer)
-    # entity_initial_json = json.loads(answer)
-    # entity_initial = entity_initial_json['entity_initial']
-    print("entity_initial:", answer['text'])
+    print("syntactic_retriever:", answer['text'])
     return answer['text']
 
 
-def entity_lexical(entity):
+def lexical_retriever(entity):
     entity_name = get_entity_name(entity, ontology, ontology_is_code)
     entity_info = ""
     for s, p, o in ontology.triples((rdflib.URIRef(entity), rdflib.RDFS.comment, None)):
@@ -196,13 +196,14 @@ def entity_lexical(entity):
             'context': context,
         })
 
-    print("entity_lexical:", answer['text'])
+    print("lexical_retriever:", answer['text'])
     return answer['text']
 
 
-def entity_graphical(entity):
+def graphical_retriever(entity):
+    file_name = 'graphical_entity.txt'
     # here entity is name only
-    with open('graphical_entity.txt', 'w') as f:
+    with open(file_name, 'w') as f:
         query_subject = list(ontology.triples((rdflib.URIRef(entity), None, None)))
         query_property = list(ontology.triples((None, rdflib.URIRef(entity), None)))
         query_object = list(ontology.triples((None, None, rdflib.URIRef(entity))))
@@ -215,34 +216,26 @@ def entity_graphical(entity):
                     obj = get_entity_name(o, ontology, ontology_is_code)
                     f.write("%s %s %s." % (sub, pre, obj))
                     f.write('\n')
-    answer = verbalise_sentence('graphical_entity.txt')
-    print("entity_graphical:", answer)
-    if answer:
-        return answer
-    else:
-        return ""
+    answer = verbalise_sentence(file_name)
+    print("graphical_information:", answer)
+    return answer
 
 
 def verbalise_sentence(input_file_path):
     prompt = PromptTemplate(
         input_variables=["sentence"],
-        template="Verbalise the following sentence and end up with a full stop: {sentence}. "
+        template="Verbalise the following sentence and end with a full stop: {sentence}.\n"
                  "Output the verbalised sentence only."
-                 # "Format the output as JSON with the following keys: entity\_graphical."
     )
     chain = LLMChain(llm=llm, prompt=prompt)
     output = ""
     with open(input_file_path, "r") as input_file:
         for line in input_file:
             processed_line = chain.invoke(line)
-            # split_text = [sentence for sentence in line.split(".") if sentence]
-            # for text in split_text:
             try:
-                print("processed_line", processed_line)
+                print("processed_line:", processed_line)
                 answer = processed_line['text'] + " "
                 output += answer
-                # processed_line_json = json.loads(processed_line)
-                # answer = processed_line_json['entity_graphical']
             except json.JSONDecodeError as e:
                 print(f"Cannot verbalise the sentence. JSON is invalid: {e}")
                 output += line + ' '
@@ -253,36 +246,62 @@ def verbalise_sentence(input_file_path):
 def save_information_to_csv(path, entity_list, source_or_target, entity_type):
     with open(path, "a+", newline='') as f1:
         for entity in entity_list:
-        # for entity in ["http://conference#Organization`"]:
+        # for entity in ["http://cmt#User"]:
+        # for entity in ["http://cmt#Bid"]:
+        # for entity in ["http://cmt#Chairman"]:
         # for entity in ["http://mouse.owl#MA_0001941"]:
         # for entity in ["http://mouse.owl#MA_0001844"]:
         # for entity in ["http://human.owl#NCI_C12220"]:
-            prompt = f"Retrieve the information of the following entity enclosed with a pair of double quotes: \"{entity}\". " \
-                    "Consider entity initial, entity lexical, and entity graphical. " \
-                    "Format the output as JSON enclosed with a pair of curly braces with the following keys: entity_initial, entity_lexical, entity_graphical. " \
-                    "Output the JSON only. "\
-                    "Do not include any markdown formatting outside of the JSON structure."
+            # define template
+            syntactic_retriever = ResponseSchema(name="syntactic_retriever", description="syntactic retriever results")
+            lexical_retriever = ResponseSchema(name="lexical_retriever", description="lexical retriever results")
+            graphical_retriever = ResponseSchema(name="graphical_retriever", description="graphical retriever results")
+            response_schema = [syntactic_retriever, lexical_retriever, graphical_retriever]
+            output_parser = StructuredOutputParser.from_response_schemas(response_schema)
+            format_instructions = output_parser.get_format_instructions()
+            # print(format_instructions)
+            template = """
+                       Retrieve the information about {entity}.
+                       Use syntactic retriever, lexical retriever, and graphical retriever.
+                       {format_instructions}
+                       Set value as "N/A" if you cannot find results syntactic retriever, lexical retriever, or graphical retriever.
+                       """
+            prompt_template = ChatPromptTemplate.from_template(template)
+            # combine template with format instructions
+            prompt = prompt_template.format_messages(entity=entity, format_instructions=format_instructions)
             print("retrieving prompt:", prompt)
+            # print("retrieving prompt:", prompt[0].content)
             # define tools
             tools = define_tools()
             # define agent
             agent = define_agent(llm, tools)
             # execute agent
             result = agent.invoke({"input": prompt})
-            print(result['output'])
-            if result['output']:
-                output_json = json.loads(result['output'])
-                entity_initial = output_json['entity_initial']
-                entity_lexical = output_json['entity_lexical']
-                if 'entity_graphical' in output_json:
-                    entity_graphical = output_json['entity_graphical']
-                else:
-                    entity_graphical = ""
-                writer = csv.writer(f1)
-                entity_name = get_entity_name(entity, ontology, ontology_is_code)
-                list_information = [util.name_to_prefix_name(entity_name, ontology_prefix), source_or_target, entity_type,
-                                    entity_initial, entity_lexical, entity_graphical]
-                writer.writerow(list_information)
+            output = result['output']
+            # print("output:", output)
+            # clean comments in json string
+            cleaned_lines = []
+            for line in output.splitlines():
+                cleaned_line = line.split('//')[0].rstrip()
+                if cleaned_line:  # avoid adding empty lines
+                    cleaned_lines.append(cleaned_line)
+            clean_output = '\n'.join(cleaned_lines)
+            # convert string to dictionary
+            output_dict = output_parser.parse(clean_output)
+            print("output_dict:", output_dict)
+            # deal with ```json
+            # if output.startswith("```json") and output.endswith("```"):
+            #     output = output[7:-3].strip()
+            # output_dict = json.loads(output)
+
+            # save information
+            syntactic_information = output_dict['syntactic_retriever']
+            lexical_information = output_dict['lexical_retriever']
+            graphical_information = output_dict['graphical_retriever']
+            writer = csv.writer(f1)
+            list_information = [entity, source_or_target, entity_type,
+                                syntactic_information, lexical_information, graphical_information]
+            writer.writerow(list_information)
 
 
 # you can also use llm to check is code or not
@@ -293,7 +312,7 @@ def save_information_to_csv(path, entity_list, source_or_target, entity_type):
 #     )
 #     llm = config.llm
 #     chain = LLMChain(llm=llm, prompt=prompt)
-#     output = chain.invoke({'entity': entity})['text']
+#     output = chain.invoke({'entity': entity, })['text']
 #     return output
 
 
@@ -303,7 +322,7 @@ if __name__ == '__main__':
     # find all entities
     e1_list_class, e2_list_class, e1_list_property, e2_list_property = find_all_entities()
     # find predict value
-    header = ['entity', 'source_or_target', 'entity_type', 'initial_matching', 'lexical_matching', 'graphical_matching']
+    header = ['entity', 'source_or_target', 'entity_type', 'syntactic_matching', 'lexical_matching', 'graphical_matching']
     util.create_document(csv_path, header=header)
     ontology, ontology_prefix, ontology_is_code = o1, o1_prefix, o1_is_code
     save_information_to_csv(csv_path, e1_list_class, "Source", "Class")

@@ -7,7 +7,6 @@ import re
 import logging
 import pandas as pd
 import collections
-import json
 import csv
 
 import psycopg2
@@ -17,6 +16,10 @@ from langchain.agents import Tool
 from langchain.agents.agent_toolkits import create_conversational_retrieval_agent
 
 from itertools import groupby
+
+from langchain.output_parsers import ResponseSchema
+from langchain.output_parsers import StructuredOutputParser
+from langchain_core.prompts import ChatPromptTemplate
 
 alignment = config.alignment
 result_path = config.result_path
@@ -51,22 +54,52 @@ predict_target_path = config.predict_target_path
 predict_path = config.predict_path
 true_path = config.true_path
 
+# database connection
+connection_string = config.connection_string
+
 
 def create_log(message):
     logger = logging.getLogger('agent_log')
     logger.critical(message)
 
 
+def find_entity_id(entity, source_or_target):
+    conn = psycopg2.connect(connection_string)
+    register_vector(conn)
+    cursor = conn.cursor()
+    sql = f'''SELECT o.entity_id FROM ontology_matching o
+              WHERE o.entity = (%s) and o.source_or_target = (%s)'''
+    cursor.execute(sql, (entity, source_or_target))
+    result = cursor.fetchone()
+    print("entity_id:", result[0])
+    conn.close()
+    return result[0]
+
+
+def find_entity(entity_id):
+    # print("entity_id:", entity_id)
+    conn = psycopg2.connect(connection_string)
+    register_vector(conn)
+    cursor = conn.cursor()
+    sql = f'''SELECT o.entity FROM ontology_matching o
+              WHERE o.entity_id = (%s)'''
+    cursor.execute(sql, (entity_id,))
+    result = cursor.fetchone()
+    # print("entity:", result[0])
+    conn.close()
+    return result[0]
+
+
 def entity_matching(entity, table_name):
     # create connection
-    conn = psycopg2.connect('postgresql://postgres:postgres@127.0.0.1/ontology')
+    conn = psycopg2.connect(connection_string)
     register_vector(conn)
     # find content, source_or_target, entity_type
     cursor = conn.cursor()
     sql = f'''select m.embedding, o.source_or_target, o.entity_type
               from ontology_matching o, {table_name} m
-              where o.entity = m.entity
-              and o.entity = (%s);'''
+              where o.entity_id = m.entity_id
+              and o.entity_id = (%s);'''
     # sql = f"select {table_name}, source_or_target, entity_type from ontology_matching where entity = (%s);"
     cursor.execute(sql, (entity,))
     result = cursor.fetchone()
@@ -87,19 +120,16 @@ def entity_matching(entity, table_name):
             entity_type = "Property"
         create_log(f"metadata: {entity}, {source_or_target}, {entity_type}, {similarity_threshold}, {num_matches}")
 
-        # embeddings_service = config.embeddings_service
-        # content_embedding = embeddings_service.embed_query(content)
-
         # find similar entities to the query using cosine similarity search
         # over all vector embeddings. This new feature is provided by `pgvector`.
         sql = f'''WITH vector_matches AS (
-                      SELECT entity, 1 - (embedding <=> '{content_embedding}') AS similarity
+                      SELECT entity_id, 1 - (embedding <=> '{content_embedding}') AS similarity
                       FROM {table_name}
                       WHERE 1 - (embedding <=> '{content_embedding}') >= %s
                     )
-                    SELECT o.entity, v.similarity as similarity FROM ontology_matching o, vector_matches v
-                    WHERE o.entity IN (SELECT entity FROM vector_matches)
-                    AND o.entity =  v.entity
+                    SELECT o.entity_id, v.similarity as similarity FROM ontology_matching o, vector_matches v
+                    WHERE o.entity_id IN (SELECT entity_id FROM vector_matches)
+                    AND o.entity_id =  v.entity_id
                     AND o.source_or_target = (%s) AND o.entity_type = (%s)
                     ORDER BY v.similarity DESC
                     LIMIT %s;
@@ -121,6 +151,7 @@ def entity_matching(entity, table_name):
         conn.close()
         create_log(f"matching type: {table_name}, matches: {matches}")
         # return matches
+        # print("matches:", matches)
         return matches
     else:
         return None
@@ -129,9 +160,9 @@ def entity_matching(entity, table_name):
 def define_tools():
     tools = [
         Tool(
-            name="initial_matching",
-            func=initial_matching,
-            description="Useful for when you need initial matching."
+            name="syntactic_matching",
+            func=syntactic_matching,
+            description="Useful for when you need syntactic matching."
         ),
         Tool(
             name="lexical_matching",
@@ -152,12 +183,12 @@ def define_agent(llm, tools):
     return agent
 
 
-def initial_matching(entity):
-    initial_matching = entity_matching(entity, "initial_matching")
-    initial_matches = pd.DataFrame(initial_matching)
-    initial_matches.drop_duplicates(['entity'], inplace=True)
-    if len(initial_matches) != 0:
-        return initial_matches['entity'].head(top_k).values.tolist()
+def syntactic_matching(entity):
+    syntactic_matching = entity_matching(entity, "syntactic_matching")
+    syntactic_matches = pd.DataFrame(syntactic_matching)
+    syntactic_matches.drop_duplicates(['entity'], inplace=True)
+    if len(syntactic_matches) != 0:
+        return syntactic_matches['entity'].head(top_k).values.tolist()
     else:
         return None
 
@@ -183,24 +214,50 @@ def graphical_matching(entity):
 
 
 def find_all_matching_candidate(entity):
-    prompt_summary = f"Find the equivalent entity to the following entity enclosed by a pair of double quotes: \"{entity}\". " \
-                     "Consider initial matching, lexical matching, and graphical matching. " \
-                     "Format the output as JSON enclosed by a pair of curly braces with the following keys: initial_matching, lexical_matching, graphical_matching. " \
-                     "Set value as a list enclosed by a pair of square brackets if you find multiple matching results in initial matching, lexical matching, or graphical matching. "\
-                     "Set a null value if you cannot find any matching results in initial matching, lexical matching, or graphical matching. " \
-                     "Output the JSON only. " \
-                     "Do not include any markdown formatting outside of the JSON structure."
-    print("matching prompt:", prompt_summary)
+    syntactic_matching = ResponseSchema(name="syntactic_matching", description="syntactic matching results", type="list")
+    lexical_matching= ResponseSchema(name="lexical_matching", description="lexical matching results", type="list")
+    graphical_matching = ResponseSchema(name="graphical_matching", description="graphical matching results", type="list")
+    response_schema = [syntactic_matching, lexical_matching, graphical_matching]
+    output_parser = StructuredOutputParser.from_response_schemas(response_schema)
+    format_instructions = output_parser.get_format_instructions()
+    # print(format_instructions)
+    template = """
+               Find the equivalent entity to the following entity: {entity}.
+               Consider syntactic matching, lexical matching, and graphical matching.
+               {format_instructions}
+               Set value as "N/A" if you cannot find matching results in syntactic matching, lexical matching, or graphical matching.
+               """
+    prompt_template = ChatPromptTemplate.from_template(template)
+    # combine template with format instructions
+    prompt = prompt_template.format_messages(entity=entity, format_instructions=format_instructions)
+    print("matching prompt:", prompt)
+    # print("matching prompt:", prompt[0].content)
+
     # define tools
     tools = define_tools()
     # define agent
     agent = define_agent(llm, tools)
     # execute agent
-    result = agent.invoke({"input": prompt_summary})
-    print(result['output'])
-    # summary the matching
-    output_json = json.loads(result['output'])
-    return output_json
+    result = agent.invoke({"input": prompt})
+    output = result['output']
+    # print("output:", output)
+    # clean comments in json string
+    cleaned_lines = []
+    for line in output.splitlines():
+        cleaned_line = line.split('//')[0].rstrip()
+        if cleaned_line:  # avoid adding empty lines
+            cleaned_lines.append(cleaned_line)
+    clean_output = '\n'.join(cleaned_lines)
+    # print("clean_output:", clean_output)
+    # convert string to dictionary
+    output_dict = output_parser.parse(clean_output)
+    print("output_dict:", output_dict)
+    # deal with ```json
+    # if output.startswith("```json") and output.endswith("```"):
+    #     output = output[7:-3].strip()
+    # output_dict = json.loads(output)
+
+    return output_dict
 
 
 def extract_yes_no(text):
@@ -214,7 +271,7 @@ def reciprocal_rank_fusion_all_with_grouped_scores_exclude_none(*rankings):
         if not isinstance(ranking, (list, tuple)):
             ranking = [ranking]
         for position, item in enumerate(ranking, start=1):
-            if item is None:  # Skip None values
+            if item is None:  # skip None values
                 continue
             reciprocal_ranks[item] += 1 / position
     # sort by reciprocal rank value, then by item lexicographically for tie-breaking
@@ -226,14 +283,13 @@ def reciprocal_rank_fusion_all_with_grouped_scores_exclude_none(*rankings):
 
 
 def find_most_relevant_entity(entity):
-
     candidates_without_validation_and_merge = list()
     candidates_with_validation_and_merge = list()
 
     # invoke find_all_matching_candidate
     output_json = find_all_matching_candidate(entity)
     # prepare rankings, wrapping string values in lists and filtering out None values
-    rankings = [value if isinstance(value, list) else [value] for value in output_json.values() if value is not None]
+    rankings = [value if isinstance(value, list) else [value] for value in output_json.values() if value != "N/A"]
 
     if rankings:
         # call the reciprocal rank fusion function with the processed rankings
@@ -245,30 +301,30 @@ def find_most_relevant_entity(entity):
         # without validation, select the first one
         scores, predict_entities = predict_entity_list[0]
         for predict_entity in predict_entities:
-            candidates_without_validation_and_merge.append(predict_entity)
+            candidates_without_validation_and_merge.append(find_entity(predict_entity))
 
         # with validation
         for scores, predict_entities in predict_entity_list[:top_k]:
             # predict_entities.append("target:TieBreakingTest")
             for predict_entity in predict_entities:
-                entity_name = util.prefix_name_to_name(entity)
-                predict_entity_name = util.prefix_name_to_name(predict_entity)
+                entity_name = (util.uri_to_name(find_entity(entity)))
+                predict_entity_name = util.uri_to_name(find_entity(predict_entity))
                 if util.cleaning(entity_name).casefold() == util.cleaning(predict_entity_name).casefold():
-                    candidates_with_validation_and_merge.append(predict_entity)
+                    candidates_with_validation_and_merge.append(find_entity(predict_entity))
                     continue
                 else:
+                    prompt_refine_question = (
+                        "Question: Is \"{entity_name}\" equivalent to \"{predict_entity_name}\"?\n"
+                        "Context: {context}\n"
+                        "Answer the question within the context.\n"
+                        "Answer yes or no. Give a short explanation."
+                        .format(context=context, entity_name=entity_name, predict_entity_name=predict_entity_name))
+
                     # prompt_refine_question = (
                     #     "Is \"{entity_name} in the context of {context}\" equivalent to \"{predict_entity_name} in the context of {context}\"? "
                     #     "Consider only the context meaning and not the formatting. "
                     #     "Answer yes or no. Give a short explanation."
                     #     .format(context=context, entity_name=entity_name, predict_entity_name=predict_entity_name))
-
-                    prompt_refine_question = (
-                        "Question: Is \"{entity_name}\" equivalent to \"{predict_entity_name}\"?\n"
-                        "Context: {context}\n"
-                        "Answer this question using the information given in the context above. "
-                        "Answer yes or no. Give a short explanation."
-                        .format(context=context, entity_name=entity_name, predict_entity_name=predict_entity_name))
 
                     result_refine = llm.invoke(prompt_refine_question).content
                     print("result_refine:", result_refine)
@@ -276,7 +332,7 @@ def find_most_relevant_entity(entity):
                     create_log(f"result_refine: {result_refine}")
 
                     if extract_yes_no(result_refine) == "yes":
-                        candidates_with_validation_and_merge.append(predict_entity)
+                        candidates_with_validation_and_merge.append(find_entity(predict_entity))
 
             print("candidates_with_validation_and_merge:", candidates_with_validation_and_merge)
             if candidates_with_validation_and_merge:
@@ -320,9 +376,13 @@ if __name__ == '__main__':
     util.create_document(predict_source_path_no_validation, header=['Entity1', 'Entity2'])
     util.create_document(predict_source_path, header=['Entity1', 'Entity2'])
     for entity in e1_list:
-        entity_name = om_ontology_to_csv.get_entity_name(entity, o1, o1_is_code)
-        entity = util.uri_to_prefix_name(entity_name, "source")
-        candidates_without_validation_and_merge, candidates_with_validation_and_merge = find_most_relevant_entity(entity)
+    # for entity in ["http://cmt#Bid"]:
+    # for entity in ["http://cmt#Conference"]:
+    # for entity in ["http://mouse.owl#MA_0000007"]:
+    # for entity in ["http://mouse.owl#MA_0000013"]:
+    # for entity in ["http://mouse.owl#MA_0000096"]:
+        entity_id = find_entity_id(entity, "Source")
+        candidates_without_validation_and_merge, candidates_with_validation_and_merge = find_most_relevant_entity(entity_id)
         for candidate in candidates_without_validation_and_merge:
             with open(predict_source_path_no_validation, "a+", newline='') as f:
                 writer = csv.writer(f)
@@ -340,9 +400,8 @@ if __name__ == '__main__':
     util.create_document(predict_target_path_no_validation, header=['Entity2', 'Entity1'])
     util.create_document(predict_target_path, header=['Entity2', 'Entity1'])
     for entity in e2_list:
-        entity_name = om_ontology_to_csv.get_entity_name(entity, o2, o2_is_code)
-        entity = util.uri_to_prefix_name(entity_name, "target")
-        candidates_without_validation_and_merge, candidates_with_validation_and_merge = find_most_relevant_entity(entity)
+        entity_id = find_entity_id(entity, "Target")
+        candidates_without_validation_and_merge, candidates_with_validation_and_merge = find_most_relevant_entity(entity_id)
         for candidate in candidates_without_validation_and_merge:
             with open(predict_target_path_no_validation, "a+", newline='') as f:
                 writer = csv.writer(f)

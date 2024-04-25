@@ -96,3 +96,7 @@ For example, the following 8 mappings need to be removed from Agent-OM results:
 #### 4. How to fix the results of Matcha that are unreproducible?
 - Unlike other systems, the root IRI of Matcha's mapping file is `xmlns="http://knowledgeweb.semanticweb.org/heterogeneity/alignment#"`.
 - We remove the character `"#"` the root IRI of the mapping file `xmlns="http://knowledgeweb.semanticweb.org/heterogeneity/alignment"`.
+
+#### 5. How to fix the LLM output formatting error?
+- We recommend using the output-parsers: https://python.plainenglish.io/langchain-in-chains-7-output-parsers-e1a2cdd40cd3
+- For the NULL value, we suggest using "N/A", as "None" or "Null" will miss the "," afterward in the JSON format.

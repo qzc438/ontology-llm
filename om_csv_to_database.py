@@ -1,3 +1,4 @@
+import util
 import run_config as config
 
 import time
@@ -12,16 +13,21 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.agents.agent_toolkits import create_conversational_retrieval_agent
 from langchain.tools import Tool
 
-# load llm
-llm = config.llm
-
 # load the csv file
 df = pd.read_csv(config.csv_path)
 # remove null
 df = df.fillna('')
 # remove duplicate
 df = df.drop_duplicates(subset='entity')
+# create id column
+df['entity_id'] = df['source_or_target'].astype(str) + "-" + df['entity_type'].astype(str) + "-" + df['entity'].apply(util.uri_to_name)
+print(df.head(5))
 
+# load llm
+llm = config.llm
+
+# database connection
+connection_string = config.connection_string
 
 def define_tools():
     tools = [
@@ -42,13 +48,13 @@ def define_agent(llm, tools):
 # create traditional table
 async def create_ontology_matching_table():
     # create connection
-    conn = await asyncpg.connect('postgresql://postgres:postgres@127.0.0.1/ontology')
+    conn = await asyncpg.connect(connection_string)
     # drop table if it already exists
     await conn.execute("DROP TABLE IF EXISTS ontology_matching CASCADE;")
     # create table schema
     await conn.execute('''CREATE TABLE ontology_matching 
-    (entity TEXT PRIMARY KEY, source_or_target TEXT, entity_type TEXT, 
-    initial_matching TEXT, lexical_matching TEXT, graphical_matching TEXT);''')
+    (entity_id VARCHAR(1024) PRIMARY KEY, entity TEXT, source_or_target TEXT, entity_type TEXT, 
+    syntactic_matching TEXT, lexical_matching TEXT, graphical_matching TEXT);''')
     # add csv data into table
     tuples = list(df.itertuples(index=False))
     await conn.copy_records_to_table(
@@ -70,11 +76,11 @@ async def create_embedding_table(table_name):
     # define chunk
     chunked = []
     for index, row in df.iterrows():
-        entity = row["entity"]
+        entity_id = row["entity_id"]
         matching = row[table_name]
         splits = text_splitter.create_documents([matching])
         for s in splits:
-            r = {"entity": entity, "content": s.page_content}
+            r = {"entity_id": entity_id, "content": s.page_content}
             chunked.append(r)
 
     # retry failed API requests with exponential backoff
@@ -103,7 +109,7 @@ async def create_embedding_table(table_name):
     matching_embeddings = pd.DataFrame(chunked)
 
     # create connection
-    conn = await asyncpg.connect('postgresql://postgres:postgres@127.0.0.1/ontology')
+    conn = await asyncpg.connect(connection_string)
     # add vector extension
     await conn.execute("CREATE EXTENSION IF NOT EXISTS vector;")
     await register_vector(conn)
@@ -111,13 +117,13 @@ async def create_embedding_table(table_name):
     await conn.execute(f"DROP TABLE IF EXISTS {table_name};")
     # create the embedding table to store vector embeddings
     sql = f'''CREATE TABLE {table_name} 
-    (entity TEXT NOT NULL REFERENCES ontology_matching(entity), content TEXT, embedding vector(1536));'''
+    (entity_id VARCHAR(1024) NOT NULL REFERENCES ontology_matching(entity_id), content TEXT, embedding vector(1536));'''
     await conn.execute(sql)
     # store all the generated embeddings back into the database
     for index, row in matching_embeddings.iterrows():
         await conn.execute(
-            f"INSERT INTO {table_name} (entity, content, embedding) VALUES ($1, $2, $3);",
-            row["entity"], row["content"], np.array(row["embedding"]),
+            f"INSERT INTO {table_name} (entity_id, content, embedding) VALUES ($1, $2, $3);",
+            row["entity_id"], row["content"], np.array(row["embedding"]),
         )
     await conn.close()
 
@@ -125,7 +131,7 @@ async def create_embedding_table(table_name):
 async def async_initialize_database():
     # create database
     await create_ontology_matching_table()
-    await create_embedding_table("initial_matching")
+    await create_embedding_table("syntactic_matching")
     await create_embedding_table("lexical_matching")
     await create_embedding_table("graphical_matching")
 
@@ -135,7 +141,7 @@ def initialize_database(file):
     # create a new event loop
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
-    # now run the async_initialize_database coroutine using the event loop
+    # run the async_initialize_database coroutine using the event loop
     loop.run_until_complete(async_initialize_database())
     # close the loop
     loop.close()

@@ -41,9 +41,9 @@ with open('rag/lexical.txt', 'w') as f:
     # for e in e1_list_class + e2_list_class + e1_list_property + e2_list_property:
     #     user_input = "What is meaning of " + e.split(":")[-1] + " in the context of conference?"
     #     print("user_input:", user_input)
-    #     docs = web_research_retriever.get_relevant_documents(user_input)
+    #     useful_doc = web_research_retriever.get_relevant_documents(user_input)
     #     chain = load_qa_chain(llm, chain_type="stuff")
-    #     output = chain({"input_documents": docs, "question": user_input}, return_only_outputs=True)
+    #     output = chain({"input_documents": useful_doc, "question": user_input}, return_only_outputs=True)
     #     text = output['output_text']
     #     print("output:", text)
     #     f.write("%s means %s." % (e, text))
