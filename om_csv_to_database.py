@@ -1,5 +1,5 @@
-import util
 import run_config as config
+import util
 
 import time
 import numpy as np
@@ -13,14 +13,17 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.agents.agent_toolkits import create_conversational_retrieval_agent
 from langchain.tools import Tool
 
+# null value
+null_value = config.null_value
+
 # load the csv file
 df = pd.read_csv(config.csv_path)
-# remove null
-df = df.fillna('')
-# remove duplicate
-df = df.drop_duplicates(subset='entity')
 # create id column
 df['entity_id'] = df['source_or_target'].astype(str) + "-" + df['entity_type'].astype(str) + "-" + df['entity'].apply(util.uri_to_name)
+# remove null and duplicate
+df = df.fillna('')
+df.replace(null_value, "", inplace=True)
+df = df.drop_duplicates(subset='entity_id')
 print(df.head(5))
 
 # load llm
@@ -32,9 +35,9 @@ connection_string = config.connection_string
 def define_tools():
     tools = [
         Tool(
-            name="save_to_database",
+            name="save_csv_to_database",
             func=initialize_database,
-            description="Useful for when you need run the save."
+            description="Useful for when you need save csv to database."
         ),
     ]
     return tools
@@ -150,5 +153,6 @@ def initialize_database(file):
 if __name__ == '__main__':
     tools = define_tools()
     agent = define_agent(llm, tools)
-    prompt = f"Run the save."
+    csv_name = config.csv_path
+    prompt = f"Save {csv_name} to database."
     result = agent.invoke({"input": prompt})

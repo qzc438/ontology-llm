@@ -8,6 +8,10 @@ from langchain_openai import ChatOpenAI
 from langchain_openai import OpenAIEmbeddings
 
 # customer settings
+# search settings
+similarity_threshold = 0.90
+top_k = 3
+num_matches = 50
 
 # alignment settings
 # conference track
@@ -45,7 +49,7 @@ alignment = "conference/cmt-conference/component/"
 # alignment = "conference/dbpedia-ekaw/component/"
 # alignment = "conference/dbpedia-sigkdd/component/"
 
-# # anatomy track
+# anatomy track
 # context = "anatomy"
 # o1_is_code = True
 # o2_is_code = True
@@ -94,12 +98,9 @@ alignment = "conference/cmt-conference/component/"
 # e1_list_property: 98
 # e2_list_property: 33
 
-# search settings
-similarity_threshold = 0.90
-top_k = 3
-num_matches = 50
 
 # common settings
+# folder settings
 data_folder = "data/" + alignment
 o1_path = data_folder + "source.xml"
 o2_path = data_folder + "target.xml"
@@ -121,11 +122,13 @@ llm_only_path = align_folder + "llm_only.csv"
 alignCell = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignmentCell')
 alignEntity1 = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignmententity1')
 alignEntity2 = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignmententity2')
+
 # load ontology
 o1 = rdflib.Graph().parse(o1_path, format="xml")
 o2 = rdflib.Graph().parse(o2_path, format="xml")
 o1_prefix = "source"
 o2_prefix = "target"
+
 # load api key
 dotenv.load_dotenv()
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
@@ -133,16 +136,25 @@ os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 llm_model_name = 'gpt-3.5-turbo'
 # llm_model_name = 'gpt-4-turbo'
 llm = ChatOpenAI(model_name=llm_model_name, temperature=0)
+
 # load embedding
 embeddings_service = OpenAIEmbeddings()
 
 # database connection
 connection_string = 'postgresql://postgres:postgres@127.0.0.1/ontology'
 
+# hand null value in LLM
+# null_value = "Placeholder"
+
+# null_value = "None"
+# null_value = "Not Available"
+null_value = "N/A"
+
+
 if __name__ == '__main__':
 
     script_sequence = [
-        "om_ontology_to_csv.py",
+        "om_ontology_to_csv_1.py",
         "om_csv_to_database.py",
         "om_database_matching.py",
     ]

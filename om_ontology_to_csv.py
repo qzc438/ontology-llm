@@ -14,8 +14,6 @@ from langchain.output_parsers import ResponseSchema
 from langchain.output_parsers import StructuredOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 
-labelEntity = rdflib.term.URIRef('http://www.w3.org/2004/02/skos/core#prefLabel')
-
 # customer settings
 o1_path = config.o1_path
 o2_path = config.o2_path
@@ -39,12 +37,27 @@ o2_prefix = config.o2_prefix
 # load llm
 llm = config.llm
 
+# null value
+null_value = config.null_value
+
 # intermediate csv file
 csv_path = config.csv_path
+
 # intermediate variables
 ontology = None
 ontology_is_code = None
 ontology_prefix = None
+
+# you can also use llm to check is code or not
+# def check_name_or_code(entity):
+#     prompt = PromptTemplate(
+#         input_variables=["entity"],
+#         template="Is {entity} a unique identifier or code? Please answer True if yes, False if not or unknown."
+#     )
+#     llm = config.llm
+#     chain = LLMChain(llm=llm, prompt=prompt)
+#     output = chain.invoke({'entity': entity, })['text']
+#     return output
 
 
 def define_tools():
@@ -126,14 +139,13 @@ def find_all_entities():
     print("e2_list_class:", len(e2_list_class))
     print("e1_list_property:", len(e1_list_property))
     print("e2_list_property:", len(e2_list_property))
-
     return e1_list_class, e2_list_class, e1_list_property, e2_list_property
 
 
 def get_entity_label(entity, ontology):
     entity_label = ""
     results_rdfs = set(ontology.triples((rdflib.URIRef(entity), rdflib.RDFS.label, None)))
-    results_skos = set(ontology.triples((rdflib.URIRef(entity), labelEntity, None)))
+    results_skos = set(ontology.triples((rdflib.URIRef(entity), rdflib.SKOS.prefLabel, None)))
     combined_results = results_rdfs.union(results_skos)
     for s, p, o in combined_results:
         entity_label = str(o)
@@ -153,54 +165,67 @@ def syntactic_retriever(entity):
     entity_name = get_entity_name(entity, ontology, ontology_is_code)
     prompt = PromptTemplate(
         input_variables=["entity_name"],
-        template="Convert the following name to a lowercase, space-separated format: {entity_name}.\n"
+        template="Name: {entity_name}\n"
+                 "Instruction: Use white space to split the compound words.\n"
+                 "Change uppercase to lowercase.\n"
+                 "Convert the name using the instruction.\n"
                  "Output the converted name only.\n"
     )
     chain = LLMChain(llm=llm, prompt=prompt)
     answer = chain.invoke({
         'entity_name': entity_name,
     })
+    # print
     print("syntactic_retriever:", answer['text'])
     return answer['text']
 
 
 def lexical_retriever(entity):
     entity_name = get_entity_name(entity, ontology, ontology_is_code)
-    entity_info = ""
-    for s, p, o in ontology.triples((rdflib.URIRef(entity), rdflib.RDFS.comment, None)):
-        entity_info = entity_info + str(o)
+    # extract extra information
+    extra_information_set = set()
     for s, p, o in ontology.triples((rdflib.URIRef(entity), rdflib.RDFS.label, None)):
-        entity_info = entity_info + str(o)
-    print("entity_info:", entity_info)
-
-    if entity_info:
+        extra_information_set.add(str(o))
+    for s, p, o in ontology.triples((rdflib.URIRef(entity), rdflib.RDFS.comment, None)):
+        extra_information_set.add(str(o))
+    for s, p, o in ontology.triples((rdflib.URIRef(entity), rdflib.SKOS.definition, None)):
+        extra_information_set.add(str(o))
+    extra_information = ' '.join(extra_information_set)
+    print("extra_information:", extra_information)
+    # create different prompts based on extra information
+    if extra_information:
         prompt = PromptTemplate(
             input_variables=["entity_name", "entity_info", "context"],
-            template="{entity_name} is {entity_info}. "
-                     "In the context of {context}, what is the meaning of {entity_name}?"
+            template="Question: What is the meaning of {entity_name}?\n"
+                     "Context: {context}\n"
+                     "Extra Information: {extra_information}\n"
+                     "Answer the question within the context and use the extra information."
         )
         chain = LLMChain(llm=llm, prompt=prompt)
         answer = chain.invoke({
             'entity_name': entity_name,
-            'entity_info': entity_info,
             'context': context,
+            'extra_information': extra_information,
         })
     else:
         prompt = PromptTemplate(
-            input_variables=["entity_name", "context"],
-            template="In the context of {context}, what is the meaning of {entity_name}?"
+            input_variables=["entity_name", "entity_info", "context"],
+            template="Question: What is the meaning of {entity_name}?\n"
+                     "Context: {context}\n"
+                     "Answer the question within the context."
         )
         chain = LLMChain(llm=llm, prompt=prompt)
         answer = chain.invoke({
             'entity_name': entity_name,
             'context': context,
         })
-
+    # print
     print("lexical_retriever:", answer['text'])
     return answer['text']
 
 
 def graphical_retriever(entity):
+    # define file name
     file_name = 'graphical_entity.txt'
     # here entity is name only
     with open(file_name, 'w') as f:
@@ -216,9 +241,12 @@ def graphical_retriever(entity):
                     obj = get_entity_name(o, ontology, ontology_is_code)
                     f.write("%s %s %s." % (sub, pre, obj))
                     f.write('\n')
+    # verbalise the triples
     answer = verbalise_sentence(file_name)
-    print("graphical_information:", answer)
-    return answer
+    # print
+    print("graphical_retriever:", answer)
+    # handle no graphical information
+    return answer if answer else null_value
 
 
 def verbalise_sentence(input_file_path):
@@ -228,34 +256,35 @@ def verbalise_sentence(input_file_path):
                  "Output the verbalised sentence only."
     )
     chain = LLMChain(llm=llm, prompt=prompt)
-    output = ""
+    sentence_list = list()
     with open(input_file_path, "r") as input_file:
         for line in input_file:
             processed_line = chain.invoke(line)
             try:
                 print("processed_line:", processed_line)
-                answer = processed_line['text'] + " "
-                output += answer
+                answer = processed_line['text']
+                sentence_list.append(answer)
             except json.JSONDecodeError as e:
-                print(f"Cannot verbalise the sentence. JSON is invalid: {e}")
-                output += line + ' '
+                print(f"Cannot verbalise the sentence: {e}")
+                sentence_list.append(line)
                 continue
-    return output.strip()
+    sentences = " ".join(sentence_list)
+    return sentences
 
 
 def save_information_to_csv(path, entity_list, source_or_target, entity_type):
     with open(path, "a+", newline='') as f1:
         for entity in entity_list:
-        # for entity in ["http://cmt#User"]:
-        # for entity in ["http://cmt#Bid"]:
-        # for entity in ["http://cmt#Chairman"]:
+        # for entity in ["http://cmt#User"]: # test keyword
+        # for entity in ["http://cmt#Meta-Reviewer"]: # test extra information
+        # for entity in ["http://conference#Organization"]: # test null value
         # for entity in ["http://mouse.owl#MA_0001941"]:
         # for entity in ["http://mouse.owl#MA_0001844"]:
         # for entity in ["http://human.owl#NCI_C12220"]:
             # define template
-            syntactic_retriever = ResponseSchema(name="syntactic_retriever", description="syntactic retriever results")
-            lexical_retriever = ResponseSchema(name="lexical_retriever", description="lexical retriever results")
-            graphical_retriever = ResponseSchema(name="graphical_retriever", description="graphical retriever results")
+            syntactic_retriever = ResponseSchema(name="syntactic_retriever", description="syntactic retriever")
+            lexical_retriever = ResponseSchema(name="lexical_retriever", description="lexical retriever")
+            graphical_retriever = ResponseSchema(name="graphical_retriever", description="graphical retriever")
             response_schema = [syntactic_retriever, lexical_retriever, graphical_retriever]
             output_parser = StructuredOutputParser.from_response_schemas(response_schema)
             format_instructions = output_parser.get_format_instructions()
@@ -264,13 +293,12 @@ def save_information_to_csv(path, entity_list, source_or_target, entity_type):
                        Retrieve the information about {entity}.
                        Use syntactic retriever, lexical retriever, and graphical retriever.
                        {format_instructions}
-                       Set value as "N/A" if you cannot find results syntactic retriever, lexical retriever, or graphical retriever.
                        """
             prompt_template = ChatPromptTemplate.from_template(template)
             # combine template with format instructions
             prompt = prompt_template.format_messages(entity=entity, format_instructions=format_instructions)
-            print("retrieving prompt:", prompt)
-            # print("retrieving prompt:", prompt[0].content)
+            print("retrieve prompt:", prompt[0].content)
+
             # define tools
             tools = define_tools()
             # define agent
@@ -286,6 +314,7 @@ def save_information_to_csv(path, entity_list, source_or_target, entity_type):
                 if cleaned_line:  # avoid adding empty lines
                     cleaned_lines.append(cleaned_line)
             clean_output = '\n'.join(cleaned_lines)
+
             # convert string to dictionary
             output_dict = output_parser.parse(clean_output)
             print("output_dict:", output_dict)
@@ -299,21 +328,8 @@ def save_information_to_csv(path, entity_list, source_or_target, entity_type):
             lexical_information = output_dict['lexical_retriever']
             graphical_information = output_dict['graphical_retriever']
             writer = csv.writer(f1)
-            list_information = [entity, source_or_target, entity_type,
-                                syntactic_information, lexical_information, graphical_information]
+            list_information = [entity, source_or_target, entity_type, syntactic_information, lexical_information, graphical_information]
             writer.writerow(list_information)
-
-
-# you can also use llm to check is code or not
-# def check_name_or_code(entity):
-#     prompt = PromptTemplate(
-#         input_variables=["entity"],
-#         template="Is {entity} a unique identifier or code? Please answer True if yes, False if not or unknown."
-#     )
-#     llm = config.llm
-#     chain = LLMChain(llm=llm, prompt=prompt)
-#     output = chain.invoke({'entity': entity, })['text']
-#     return output
 
 
 if __name__ == '__main__':
@@ -321,9 +337,10 @@ if __name__ == '__main__':
     find_alignment(align_path, true_path)
     # find all entities
     e1_list_class, e2_list_class, e1_list_property, e2_list_property = find_all_entities()
-    # find predict value
+    # create csv
     header = ['entity', 'source_or_target', 'entity_type', 'syntactic_matching', 'lexical_matching', 'graphical_matching']
     util.create_document(csv_path, header=header)
+    # find predict value
     ontology, ontology_prefix, ontology_is_code = o1, o1_prefix, o1_is_code
     save_information_to_csv(csv_path, e1_list_class, "Source", "Class")
     save_information_to_csv(csv_path, e1_list_property, "Source", "Property")
