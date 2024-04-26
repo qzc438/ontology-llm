@@ -45,11 +45,11 @@ def find_alignment(align_path, true_path, o1_is_code, o2_is_code):
             if str(relation) == "=":
                 e1_uri = align.value(s, alignEntity1, None)
                 e2_uri = align.value(s, alignEntity2, None)
-                e1_name = get_entity_name(e1_uri, o1, o1_is_code)
-                e2_name = get_entity_name(e2_uri, o2, o2_is_code)
-                e1_prefix_name = util.name_to_prefix_name(e1_name, o1_prefix)
-                e2_prefix_name = util.name_to_prefix_name(e2_name, o2_prefix)
-                list_pair = [e1_prefix_name, e2_prefix_name]
+                # e1_name = get_entity_name(e1_uri, o1, o1_is_code)
+                # e2_name = get_entity_name(e2_uri, o2, o2_is_code)
+                # e1_prefix_name = util.name_to_prefix_name(e1_name, o1_prefix)
+                # e2_prefix_name = util.name_to_prefix_name(e2_name, o2_prefix)
+                list_pair = [e1_uri, e2_uri]
                 writer.writerow(list_pair)
     # Find duplicates
     df = pd.read_csv(true_path)

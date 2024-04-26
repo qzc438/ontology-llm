@@ -144,17 +144,17 @@ embeddings_service = OpenAIEmbeddings()
 connection_string = 'postgresql://postgres:postgres@127.0.0.1/ontology'
 
 # hand null value in LLM
-# null_value = "Placeholder"
+null_value = "Placeholder"
 
 # null_value = "None"
 # null_value = "Not Available"
-null_value = "N/A"
+# null_value = "N/A"
 
 
 if __name__ == '__main__':
 
     script_sequence = [
-        "om_ontology_to_csv_1.py",
+        "om_ontology_to_csv.py",
         "om_csv_to_database.py",
         "om_database_matching.py",
     ]

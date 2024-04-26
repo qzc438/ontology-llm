@@ -1,5 +1,5 @@
 import run_config as config
-import om_ontology_to_csv_1
+import om_ontology_to_csv
 import util
 
 import sys
@@ -363,7 +363,7 @@ if __name__ == '__main__':
     print("similarity:", similarity_threshold)
 
     # find all entities
-    e1_list_class, e2_list_class, e1_list_property, e2_list_property = om_ontology_to_csv_1.find_all_entities()
+    e1_list_class, e2_list_class, e1_list_property, e2_list_property = om_ontology_to_csv.find_all_entities()
     e1_list = e1_list_class + e1_list_property
     e2_list = e2_list_class + e2_list_property
 
