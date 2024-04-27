@@ -94,7 +94,7 @@ num_matches = 50
 ### 2. Experiment:
 - `om_ontology_to_csv.py`: Retrieval Agent Part 1.
 - `om_csv_to_database.py`: Retrieval Agent Part 2.
-- `om_data_base_matching.py`: Matching Agent.
+- `om_database_matching.py`: Matching Agent.
 - `run_config.py`: main function of the project.
 - `run_series_conference.py`: run all the conference alignments at one time.
 - `run_series_similarity.py`: run different similarity thresholds for one alignment at one time.
@@ -141,11 +141,12 @@ Our new visualisation is inspired by the following references:
 - https://towardsai.net/p/l/precision-recall-curve
 
 ## Debugging Log:
-We have created a debugging log for this project. [Click the link here.](useful_doc/DEBUGGING_LOG.md)
+We have created a debugging log for this project. [Click the link here.](DEBUGGING_LOG.md)
 
 ## Code Acknowledgements:
 - The LangChain API is used for generating LLM agents: https://api.python.langchain.com/en/latest/langchain_api_reference.html
-- Our data-driven application architecture is inspired by: https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/main/cloud-sql/postgres/pgvector/notebooks/pgvector_gen_ai_demo.ipynb (a copy can be found in the `acknowledgement`)
+- Our data-driven application architecture is inspired by: https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/main/cloud-sql/postgres/pgvector/notebooks/pgvector_gen_ai_demo.ipynb
+- The LLM output parsers is instructed by: https://medium.com/python-in-plain-english/langchain-in-chains-7-output-parsers-e1a2cdd40cd3
 
 ## Acknowledgements:
 - AI-generated content is labelled as "AI-generated content". The authors claim no responsibility for the AI-generated content marked in this paper, which does not express the views of the authors.
