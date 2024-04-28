@@ -2,6 +2,7 @@
 
 - [X] Release initial source code [Sep 19, 2023]
 - [X] Fix JSON output issue [Apr 25, 2024]
+- [X] Fix NULL output issue [Apr 25, 2024]
 
 #### 1. How to fix *torch.cuda.is_available() = false*?
 ```cmd

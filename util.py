@@ -37,10 +37,6 @@ def name_to_prefix_name(name, prefix):
     return prefix + ":" + str(name.replace("'", ""))
 
 
-# def prefix_name_to_uri(name, prefix):
-#     return rdflib.URIRef(prefix[name.split(":")[-1]])
-
-
 def create_folder(path):
     isExists = os.path.exists(path)
     if not isExists:
@@ -126,7 +122,7 @@ def calculate_metrics(true_path, predict_path, alignment, result_path):
         # list_predict = df_predict.values.tolist()
         # common = common_member(list_true, list_predict)
         common = pd.merge(df_true, df_predict, on=['Entity1', 'Entity2'], how="inner")
-        # Remove any duplicate rows in the common
+        # remove any duplicate rows in the common
         common = common.drop_duplicates()
         # print(common)
         ra = len(common)
@@ -164,29 +160,25 @@ if __name__ == '__main__':
 
     df1 = pd.read_csv("benchmark_2022/mse/thirdTestCase/LogMap.csv")
     df2 = pd.read_csv("alignment/mse/MaterialInformation-EMMO/component/predict.csv")
-    #
-    result_df = pd.merge(df1, df2, on=["Entity1", "Entity2"], how="inner")
-    # Remove any duplicate rows in the resulting DataFrame
-    result_df = result_df.drop_duplicates()
-    #
-    print(len(result_df))
-    #
-    # result_df.to_csv('test_function.csv', index=False)
-    #
-    # Use an outer join with an indicator to find differences
-    diff_df = pd.merge(df1, df2, on=["Entity1", "Entity2"], how='outer', indicator=True)
 
-    # Filter rows that are either only in df1 or only in df2
+    result_df = pd.merge(df1, df2, on=["Entity1", "Entity2"], how="inner")
+    # remove any duplicate rows in the resulting DataFrame
+    result_df = result_df.drop_duplicates()
+    print(len(result_df))
+    result_df.to_csv('test_function.csv', index=False)
+
+    # use an outer join with an indicator to find differences
+    diff_df = pd.merge(df1, df2, on=["Entity1", "Entity2"], how='outer', indicator=True)
+    # filter rows that are either only in df1 or only in df2
     diff_df1_only = diff_df[diff_df['_merge'] == 'left_only']
     diff_df2_only = diff_df[diff_df['_merge'] == 'right_only']
-
-    # Show the differences
+    # show the differences
     print("Rows in df1 not in df2:")
     print(diff_df1_only)
-
     print("Rows in df2 not in df1:")
     print(diff_df2_only)
 
+    # test cleaning
     print(cleaning("Al"))
 
 

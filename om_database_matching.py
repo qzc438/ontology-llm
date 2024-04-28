@@ -287,15 +287,15 @@ def reciprocal_rank_fusion_all_with_grouped_scores_exclude_none(*rankings):
 
 
 def find_most_relevant_entity(entity):
-    # create list
-    candidates_without_validation_and_merge = list()
-    candidates_with_validation_and_merge = list()
-
     # invoke find_all_matching_candidate
     output_json = find_all_matching_candidate(entity)
     # prepare rankings, wrapping string values in lists and filtering out None values
     rankings = [value if isinstance(value, list) else [value] for value in output_json.values() if value != [null_value]]
     print("rankings:", rankings)
+
+    # create list
+    candidates_without_validation_and_merge = list()
+    candidates_with_validation_and_merge = list()
 
     if rankings:
         # call the reciprocal rank fusion function with the processed rankings
@@ -328,7 +328,6 @@ def find_most_relevant_entity(entity):
                             .format(context=context, entity_name=entity_name, predict_entity_name=predict_entity_name))
                         result_refine = llm.invoke(prompt_refine_question).content
                         print("result_refine:", result_refine)
-                        create_log(f"prompt_refine_question: {prompt_refine_question}")
                         create_log(f"result_refine: {result_refine}")
                         if extract_yes_no(result_refine) == "yes":
                             candidates_with_validation_and_merge.append(find_entity(predict_entity))
@@ -336,11 +335,11 @@ def find_most_relevant_entity(entity):
                 if candidates_with_validation_and_merge:
                     break
 
+    create_log("\n")
     return candidates_without_validation_and_merge, candidates_with_validation_and_merge
 
 
 if __name__ == '__main__':
-
     # create logger
     logger = logging.getLogger('agent_log')
     # create file handler

@@ -32,6 +32,7 @@ llm = config.llm
 # database connection
 connection_string = config.connection_string
 
+
 def define_tools():
     tools = [
         Tool(
