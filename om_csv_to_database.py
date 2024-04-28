@@ -1,5 +1,6 @@
 import run_config as config
 import util
+import om_ontology_to_csv
 
 import time
 import numpy as np
@@ -14,7 +15,7 @@ from langchain.agents.agent_toolkits import create_conversational_retrieval_agen
 from langchain.tools import Tool
 
 # null value
-null_value = config.null_value
+null_value_sentence = config.null_value_sentence
 
 # load the csv file
 df = pd.read_csv(config.csv_path)
@@ -22,7 +23,7 @@ df = pd.read_csv(config.csv_path)
 df['entity_id'] = df['source_or_target'].astype(str) + "-" + df['entity_type'].astype(str) + "-" + df['entity'].apply(util.uri_to_name)
 # remove null and duplicate
 df = df.fillna('')
-df.replace(null_value, "", inplace=True)
+df.replace(null_value_sentence, "", inplace=True)
 df = df.drop_duplicates(subset='entity_id')
 print(df.head(5))
 

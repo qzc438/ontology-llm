@@ -1,13 +1,10 @@
-## TODO:
-Call Huanyu for approval for trivial reference.
-
 ## Agent-OM: Leveraging LLM Agents for Ontology Matching
 - The preprint of the paper is currently available at arXiv: https://arxiv.org/abs/2312.00326
 - This repository contains the source code linked to the paper. The original version of this work can be found in: https://github.com/qzc438/ontology-llm (access will be made available on request)
 
 ## Important Notice:
 - For technical inquiries, please submit a GitHub issue.
-- For feature discussion or potential extensions, please join our discussion group: https://groups.google.com/g/agent-om
+- For feature discussion or potential extensions, please join our foundation model discussion group: https://groups.google.com/g/agent-om
 
 ## Quick Start:
 
@@ -37,6 +34,7 @@ pip install tiktoken==0.6.0
 pip install asyncpg==0.28.0
 pip install psycopg2_binary==2.9.9
 pip install pgvector==0.1.8
+pip install JSON-minify==0.3.0
 ```
 ```
 pip install matplotlib==3.8.4
@@ -103,7 +101,7 @@ num_matches = 50
 - `llm_matching.py`: examples using purely LLMs (without agents) for general matching tasks.
 - `llm_om.py`: an example of using purely LLMs (without agents) for ontology matching.
 
-FAQ(s):  
+Frequently Asked Questions (FAQs):  
 (1) Why does the Retrieval Agent have two parts `om_ontology_to_csv.py` and `om_csv_to_database.py`?  
 Answer: You can simply combine these two parts together. We decompose this into two parts to make it easy to debug the issue that may happen in the database storage.  
 (2) How do I use the file`run_series_conference.py`?  
@@ -143,6 +141,9 @@ Our new visualisation is inspired by the following references:
 ## Debugging Log:
 We have created a debugging log for this project. [Click the link here.](DEBUGGING_LOG.md)
 
+## Prompt Instruction:
+We have created a prompt instruction for this project. [Click the link here.](PROMPT_INSTRUCTION.md)
+
 ## Code Acknowledgements:
 - The LangChain API is used for generating LLM agents: https://api.python.langchain.com/en/latest/langchain_api_reference.html
 - Our data-driven application architecture is inspired by: https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/main/cloud-sql/postgres/pgvector/notebooks/pgvector_gen_ai_demo.ipynb
@@ -150,7 +151,7 @@ We have created a debugging log for this project. [Click the link here.](DEBUGGI
 
 ## Acknowledgements:
 - AI-generated content is labelled as "AI-generated content". The authors claim no responsibility for the AI-generated content marked in this paper, which does not express the views of the authors.
-- The authors would like to thank the organisers of the Ontology Alignment Evaluation Initiative (OAEI) Conference Track, Anatomy Track, and MSE Track, for helpful advice on reproducing the benchmarks used in this paper.
+- The authors would like to thank the organisers of Ontology Alignment Evaluation Initiative (OAEI) 2022 and 2023 Conference Track (Ondřej Zamazal and Lu Zhou), Anatomy Track (Mina Abd Nikooie Pour, Huanyu Li, Ying Li and Patrick Lambrix), and MSE Track (Engy Nasr and Martin Huschka), for helpful advice on reproducing the benchmarks used in this paper.
 - The authors would like to thank Associate Professor Alice Richardson of the Statistical Support Network, Australian National University, for helpful advice on the statistical analysis in this paper.
 - The authors would like to thank the Commonwealth Scientific and Industrial Research Organisation (CSIRO) for supporting this project.
 

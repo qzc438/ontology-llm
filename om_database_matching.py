@@ -55,7 +55,7 @@ true_path = config.true_path
 llm = config.llm
 
 # null value
-null_value = config.null_value
+null_value_matching = config.null_value_matching
 
 # database connection
 connection_string = config.connection_string
@@ -126,7 +126,7 @@ def entity_matching(entity, table_name):
             entity_type = "Class"
         elif result[2] == "Property":
             entity_type = "Property"
-        create_log(f"metadata: {entity}, {source_or_target}, {entity_type}, {similarity_threshold}, {num_matches}")
+        create_log(f"entity: {entity}, {source_or_target}, {entity_type}, {similarity_threshold}, {num_matches}")
 
         # find similar entities to the query using cosine similarity search
         # over all vector embeddings. This new feature is provided by `pgvector`.
@@ -197,7 +197,7 @@ def syntactic_matching(entity):
     if len(syntactic_matches) != 0:
         return syntactic_matches['entity'].head(top_k).values.tolist()
     else:
-        return [null_value]
+        return [null_value_matching]
 
 
 def lexical_matching(entity):
@@ -207,7 +207,7 @@ def lexical_matching(entity):
     if len(lexical_matches) != 0:
         return lexical_matches['entity'].head(top_k).values.tolist()
     else:
-        return [null_value]
+        return [null_value_matching]
 
 
 def graphical_matching(entity):
@@ -217,7 +217,7 @@ def graphical_matching(entity):
     if len(graphical_matches) != 0:
         return graphical_matches['entity'].head(top_k).values.tolist()
     else:
-        return [null_value]
+        return [null_value_matching]
 
 
 def find_all_matching_candidate(entity):
@@ -229,8 +229,9 @@ def find_all_matching_candidate(entity):
     format_instructions = output_parser.get_format_instructions()
     # print(format_instructions)
     template = """
-               Find the equivalent entity to the following entity: {entity}.
-               Consider syntactic matching, lexical matching, and graphical matching.
+               Find syntactic matching to the entity: {entity}
+               Find lexical matching to the entity: {entity}
+               Find graphical matching to the entity: {entity}
                {format_instructions}
                """
     prompt_template = ChatPromptTemplate.from_template(template)
@@ -247,16 +248,9 @@ def find_all_matching_candidate(entity):
     output = result['output']
     # print("output:", output)
     # clean comments in json string
-    cleaned_lines = []
-    for line in output.splitlines():
-        cleaned_line = line.split('//')[0].rstrip()
-        if cleaned_line:  # avoid adding empty lines
-            cleaned_lines.append(cleaned_line)
-    clean_output = '\n'.join(cleaned_lines)
-    # print("clean_output:", clean_output)
-
+    json_no_comments = re.sub(r'//.*', '', output)
     # convert string to dictionary
-    output_dict = output_parser.parse(clean_output)
+    output_dict = output_parser.parse(json_no_comments)
     print("output_dict:", output_dict)
     # deal with ```json
     # if output.startswith("```json") and output.endswith("```"):
@@ -286,11 +280,11 @@ def reciprocal_rank_fusion_all_with_grouped_scores_exclude_none(*rankings):
     return grouped_items_by_score
 
 
-def find_most_relevant_entity(entity):
+def find_most_relevant_entity(entity, source_or_target):
     # invoke find_all_matching_candidate
     output_json = find_all_matching_candidate(entity)
     # prepare rankings, wrapping string values in lists and filtering out None values
-    rankings = [value if isinstance(value, list) else [value] for value in output_json.values() if value != [null_value]]
+    rankings = [value if isinstance(value, list) else [value] for value in output_json.values() if value != [null_value_matching]]
     print("rankings:", rankings)
 
     # create list
@@ -314,10 +308,17 @@ def find_most_relevant_entity(entity):
             for scores, predict_entities in predict_entity_list[:top_k]:
                 # predict_entities.append("target:TieBreakingTest")
                 for predict_entity in predict_entities:
-                    entity_name = (util.uri_to_name(find_entity(entity)))
-                    predict_entity_name = util.uri_to_name(find_entity(predict_entity))
+                    # find entity name
+                    if source_or_target == "Source":
+                        entity_name = om_ontology_to_csv.get_entity_name(find_entity(entity), o1, o1_is_code)
+                        predict_entity_name = om_ontology_to_csv.get_entity_name(find_entity(predict_entity), o2, o2_is_code)
+                    else:
+                        entity_name = om_ontology_to_csv.get_entity_name(find_entity(entity), o2, o2_is_code)
+                        predict_entity_name = om_ontology_to_csv.get_entity_name(find_entity(predict_entity), o1, o1_is_code)
+                    # compare entity name
                     if util.cleaning(entity_name).casefold() == util.cleaning(predict_entity_name).casefold():
                         candidates_with_validation_and_merge.append(find_entity(predict_entity))
+                        create_log(f"result_refine_without_prompt: {predict_entity_name}")
                         continue
                     else:
                         prompt_refine_question = (
@@ -328,14 +329,14 @@ def find_most_relevant_entity(entity):
                             .format(context=context, entity_name=entity_name, predict_entity_name=predict_entity_name))
                         result_refine = llm.invoke(prompt_refine_question).content
                         print("result_refine:", result_refine)
-                        create_log(f"result_refine: {result_refine}")
+                        create_log(f"result_refine_with_prompt: {result_refine}")
                         if extract_yes_no(result_refine) == "yes":
                             candidates_with_validation_and_merge.append(find_entity(predict_entity))
                 print("candidates_with_validation_and_merge:", candidates_with_validation_and_merge)
                 if candidates_with_validation_and_merge:
                     break
 
-    create_log("\n")
+    create_log(f"entity: {entity}, matching has been completed.\n")
     return candidates_without_validation_and_merge, candidates_with_validation_and_merge
 
 
@@ -369,13 +370,14 @@ if __name__ == '__main__':
     # find matching from source ontology
     util.create_document(predict_source_path_no_validation, header=['Entity1', 'Entity2'])
     util.create_document(predict_source_path, header=['Entity1', 'Entity2'])
+    # e1_list = ["http://cmt#Bid"]
+    # e1_list = ["http://cmt#PaperFullVersion"]
+    # e1_list = ["http://mouse.owl#MA_0000013"] # test entity name
+    # e1_list = ["http://mouse.owl#MA_0000096"] # test one null value
+    # e1_list = ["http://mouse.owl#MA_0001017"] # test all null value
     for entity in e1_list:
-    # for entity in ["http://cmt#Bid"]: # test null value
-    # for entity in ["http://cmt#PaperFullVersion"]: # test null value
-    # for entity in ["http://mouse.owl#MA_0000013"]:
-    # for entity in ["http://mouse.owl#MA_0000096"]:
         entity_id = find_entity_id(entity, "Source")
-        candidates_without_validation_and_merge, candidates_with_validation_and_merge = find_most_relevant_entity(entity_id)
+        candidates_without_validation_and_merge, candidates_with_validation_and_merge = find_most_relevant_entity(entity_id, "Source")
         for candidate in candidates_without_validation_and_merge:
             with open(predict_source_path_no_validation, "a+", newline='') as f:
                 writer = csv.writer(f)
@@ -393,9 +395,10 @@ if __name__ == '__main__':
     # find matching from target ontology
     util.create_document(predict_target_path_no_validation, header=['Entity2', 'Entity1'])
     util.create_document(predict_target_path, header=['Entity2', 'Entity1'])
+    # e2_list = ["http://human.owl#NCI_C32727"] # test not a json format
     for entity in e2_list:
         entity_id = find_entity_id(entity, "Target")
-        candidates_without_validation_and_merge, candidates_with_validation_and_merge = find_most_relevant_entity(entity_id)
+        candidates_without_validation_and_merge, candidates_with_validation_and_merge = find_most_relevant_entity(entity_id, "Target")
         for candidate in candidates_without_validation_and_merge:
             with open(predict_target_path_no_validation, "a+", newline='') as f:
                 writer = csv.writer(f)

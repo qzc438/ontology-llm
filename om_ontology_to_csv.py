@@ -1,6 +1,7 @@
 import run_config as config
 import util
 
+import re
 import rdflib
 import csv
 import json
@@ -38,7 +39,7 @@ o2_prefix = config.o2_prefix
 llm = config.llm
 
 # null value
-null_value = config.null_value
+null_value_sentence = config.null_value_sentence
 
 # intermediate csv file
 csv_path = config.csv_path
@@ -47,6 +48,28 @@ csv_path = config.csv_path
 ontology = None
 ontology_is_code = None
 ontology_prefix = None
+
+
+def define_tools():
+    tools = [
+        Tool(
+            name="syntactic_retrieving",
+            func=syntactic_retrieving,
+            description="Useful for when you need syntactic retrieving."
+        ),
+        Tool(
+            name="lexical_retrieving",
+            func=lexical_retrieving,
+            description="Useful for when you need lexical retrieving."
+        ),
+        Tool(
+            name="graphical_retrieving",
+            func=graphical_retrieving,
+            description="Useful for when you need graphical retrieving."
+        ),
+    ]
+    return tools
+
 
 # you can also use llm to check is code or not
 # def check_name_or_code(entity):
@@ -58,27 +81,6 @@ ontology_prefix = None
 #     chain = LLMChain(llm=llm, prompt=prompt)
 #     output = chain.invoke({'entity': entity, })['text']
 #     return output
-
-
-def define_tools():
-    tools = [
-        Tool(
-            name="syntactic_retriever",
-            func=syntactic_retriever,
-            description="Useful for when you need syntactic retriever."
-        ),
-        Tool(
-            name="lexical_retriever",
-            func=lexical_retriever,
-            description="Useful for when you need lexical retriever."
-        ),
-        Tool(
-            name="graphical_retriever",
-            func=graphical_retriever,
-            description="Useful for when you need graphical retriever."
-        ),
-    ]
-    return tools
 
 
 def define_agent(llm, tools):
@@ -103,6 +105,16 @@ def find_alignment(align_path, true_path):
             # e2_prefix_name = util.name_to_prefix_name(e2_name, o2_prefix)
             list_pair = [e1_uri, e2_uri]
             writer.writerow(list_pair)
+    # read old csv
+    with open(true_path, "r") as f:
+        reader = csv.reader(f)
+        data = list(reader)
+    # sort data
+    sorted_data = sorted(data, key=lambda x: x[0])
+    # write new csv
+    with open(true_path, "w", newline='') as f:
+        writer = csv.writer(f)
+        writer.writerows(sorted_data)
 
 
 def find_all_entities():
@@ -161,26 +173,24 @@ def get_entity_name(entity, ontology, ontology_is_code):
     return entity_name
 
 
-def syntactic_retriever(entity):
+# syntactic_retrieving
+def syntactic_retrieving(entity):
     entity_name = get_entity_name(entity, ontology, ontology_is_code)
     prompt = PromptTemplate(
         input_variables=["entity_name"],
-        template="Name: {entity_name}\n"
-                 "Instruction: Use white space to split the compound words.\n"
-                 "Change uppercase to lowercase.\n"
-                 "Convert the name using the instruction.\n"
-                 "Output the converted name only.\n"
+        template="Normalise the following name: {entity_name}\n"
+                 "Use a lowercase, space-separate format.\n"
     )
     chain = LLMChain(llm=llm, prompt=prompt)
     answer = chain.invoke({
         'entity_name': entity_name,
     })
     # print
-    print("syntactic_retriever:", answer['text'])
+    print("syntactic_retrieving:", answer['text'])
     return answer['text']
 
 
-def lexical_retriever(entity):
+def lexical_retrieving(entity):
     entity_name = get_entity_name(entity, ontology, ontology_is_code)
     # extract extra information
     extra_information_set = set()
@@ -220,11 +230,11 @@ def lexical_retriever(entity):
             'context': context,
         })
     # print
-    print("lexical_retriever:", answer['text'])
+    print("lexical_retrieving:", answer['text'])
     return answer['text']
 
 
-def graphical_retriever(entity):
+def graphical_retrieving(entity):
     # define file name
     file_name = 'graphical_entity.txt'
     # here entity is name only
@@ -244,16 +254,15 @@ def graphical_retriever(entity):
     # verbalise the triples
     answer = verbalise_sentence(file_name)
     # print
-    print("graphical_retriever:", answer)
+    print("graphical_retrieving:", answer)
     # handle no graphical information
-    return answer if answer else null_value
+    return answer if answer else null_value_sentence
 
 
 def verbalise_sentence(input_file_path):
     prompt = PromptTemplate(
         input_variables=["sentence"],
-        template="Verbalise the following sentence and end with a full stop: {sentence}.\n"
-                 "Output the verbalised sentence only."
+        template="Verbalise the following sentence: {sentence}.\n"
     )
     chain = LLMChain(llm=llm, prompt=prompt)
     sentence_list = list()
@@ -273,25 +282,27 @@ def verbalise_sentence(input_file_path):
 
 
 def save_information_to_csv(path, entity_list, source_or_target, entity_type):
+    # entity_list = ["http://cmt#User"] # test keyword
+    # entity_list = ["http://cmt#Meta-Reviewer"] # test extra information
+    # entity_list = ["http://conference#Organization"] # test null value
+    # entity_list = ["http://www.geneontology.org/formats/oboInOwl#DbXref"]  # test null value
+    # entity_list = ["http://mouse.owl#MA_0000006`"] # test head/neck
+    # entity_list = ["http://mouse.owl#MA_0001844"]
+    # entity_list = ["http://human.owl#NCI_C12220"]
     with open(path, "a+", newline='') as f1:
         for entity in entity_list:
-        # for entity in ["http://cmt#User"]: # test keyword
-        # for entity in ["http://cmt#Meta-Reviewer"]: # test extra information
-        # for entity in ["http://conference#Organization"]: # test null value
-        # for entity in ["http://mouse.owl#MA_0001941"]:
-        # for entity in ["http://mouse.owl#MA_0001844"]:
-        # for entity in ["http://human.owl#NCI_C12220"]:
             # define template
-            syntactic_retriever = ResponseSchema(name="syntactic_retriever", description="syntactic retriever")
-            lexical_retriever = ResponseSchema(name="lexical_retriever", description="lexical retriever")
-            graphical_retriever = ResponseSchema(name="graphical_retriever", description="graphical retriever")
-            response_schema = [syntactic_retriever, lexical_retriever, graphical_retriever]
+            syntactic_retrieving = ResponseSchema(name="syntactic_retrieving", description="syntactic retrieving")
+            lexical_retrieving = ResponseSchema(name="lexical_retrieving", description="lexical retrieving")
+            graphical_retrieving = ResponseSchema(name="graphical_retrieving", description="graphical retrieving")
+            response_schema = [syntactic_retrieving, lexical_retrieving, graphical_retrieving]
             output_parser = StructuredOutputParser.from_response_schemas(response_schema)
             format_instructions = output_parser.get_format_instructions()
             # print(format_instructions)
             template = """
-                       Retrieve the information about {entity}.
-                       Use syntactic retriever, lexical retriever, and graphical retriever.
+                       Find syntactic retrieving about the entity: {entity}
+                       Find lexical retrieving about the entity: {entity}
+                       Find graphical retrieving about the entity: {entity}
                        {format_instructions}
                        """
             prompt_template = ChatPromptTemplate.from_template(template)
@@ -308,15 +319,9 @@ def save_information_to_csv(path, entity_list, source_or_target, entity_type):
             output = result['output']
             # print("output:", output)
             # clean comments in json string
-            cleaned_lines = []
-            for line in output.splitlines():
-                cleaned_line = line.split('//')[0].rstrip()
-                if cleaned_line:  # avoid adding empty lines
-                    cleaned_lines.append(cleaned_line)
-            clean_output = '\n'.join(cleaned_lines)
-
+            json_no_comments = re.sub(r'//.*', '', output)
             # convert string to dictionary
-            output_dict = output_parser.parse(clean_output)
+            output_dict = output_parser.parse(json_no_comments)
             print("output_dict:", output_dict)
             # deal with ```json
             # if output.startswith("```json") and output.endswith("```"):
@@ -324,9 +329,9 @@ def save_information_to_csv(path, entity_list, source_or_target, entity_type):
             # output_dict = json.loads(output)
 
             # save information
-            syntactic_information = output_dict['syntactic_retriever']
-            lexical_information = output_dict['lexical_retriever']
-            graphical_information = output_dict['graphical_retriever']
+            syntactic_information = output_dict['syntactic_retrieving']
+            lexical_information = output_dict['lexical_retrieving']
+            graphical_information = output_dict['graphical_retrieving']
             writer = csv.writer(f1)
             list_information = [entity, source_or_target, entity_type, syntactic_information, lexical_information, graphical_information]
             writer.writerow(list_information)

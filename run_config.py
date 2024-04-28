@@ -3,6 +3,7 @@ import rdflib
 import dotenv
 import os
 import subprocess
+import uuid
 
 from langchain_openai import ChatOpenAI
 from langchain_openai import OpenAIEmbeddings
@@ -144,11 +145,14 @@ embeddings_service = OpenAIEmbeddings()
 connection_string = 'postgresql://postgres:postgres@127.0.0.1/ontology'
 
 # hand null value in LLM
-null_value = "Placeholder"
-
+null_value_sentence = "Information is not available."
+null_value_matching = "Entity-Dummy"
+# null_value = "Dummy"
+# null_value = "Placeholder"
+# null_value = "N/A"
 # null_value = "None"
 # null_value = "Not Available"
-# null_value = "N/A"
+# null_value = "Missing"
 
 
 if __name__ == '__main__':

@@ -12,3 +12,4 @@
 - https://github.com/acolas1/GAP_COLING2022  
 - http://attempto.ifi.uzh.ch/site/docs/writing_owl_in_ace.html  
 - https://github.com/pinecone-io/examples/blob/master/learn/generation/langchain/handbook/07-langchain-tools.ipynb  
+- https://medium.com/techiediaries-com/removing-comments-from-json-with-python-3525d44e1d48
