@@ -373,22 +373,20 @@ if __name__ == '__main__':
     for entity in e1_list:
     # for entity in ["http://cmt#Bid"]: # test null value
     # for entity in ["http://cmt#PaperFullVersion"]: # test null value
-    # for entity in ["http://mouse.owl#MA_0000007"]:
     # for entity in ["http://mouse.owl#MA_0000013"]:
     # for entity in ["http://mouse.owl#MA_0000096"]:
         entity_id = find_entity_id(entity, "Source")
-        if find_most_relevant_entity(entity_id):
-            candidates_without_validation_and_merge, candidates_with_validation_and_merge = find_most_relevant_entity(entity_id)
-            for candidate in candidates_without_validation_and_merge:
-                with open(predict_source_path_no_validation, "a+", newline='') as f:
-                    writer = csv.writer(f)
-                    list_pair = [entity, candidate]
-                    writer.writerow(list_pair)
-            for candidate in candidates_with_validation_and_merge:
-                with open(predict_source_path, "a+", newline='') as f:
-                    writer = csv.writer(f)
-                    list_pair = [entity, candidate]
-                    writer.writerow(list_pair)
+        candidates_without_validation_and_merge, candidates_with_validation_and_merge = find_most_relevant_entity(entity_id)
+        for candidate in candidates_without_validation_and_merge:
+            with open(predict_source_path_no_validation, "a+", newline='') as f:
+                writer = csv.writer(f)
+                list_pair = [entity, candidate]
+                writer.writerow(list_pair)
+        for candidate in candidates_with_validation_and_merge:
+            with open(predict_source_path, "a+", newline='') as f:
+                writer = csv.writer(f)
+                list_pair = [entity, candidate]
+                writer.writerow(list_pair)
     # evaluation
     print(util.calculate_metrics(true_path, predict_source_path_no_validation, alignment + "source_no_validation", result_path))
     print(util.calculate_metrics(true_path, predict_source_path, alignment + "source", result_path))

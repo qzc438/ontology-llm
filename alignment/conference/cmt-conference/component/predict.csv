@@ -1,8 +1,9 @@
 Entity1,Entity2
 http://cmt#Acceptance,http://conference#Accepted_contribution
-http://cmt#Author,http://conference#Regular_author
 http://cmt#Co-author,http://conference#Contribution_co-author
 http://cmt#Conference,http://conference#Conference
+http://cmt#ConferenceChair,http://conference#Chair
+http://cmt#ConferenceMember,http://conference#Conference_participant
 http://cmt#Document,http://conference#Conference_document
 http://cmt#Paper,http://conference#Paper
 http://cmt#PaperAbstract,http://conference#Abstract
@@ -13,8 +14,8 @@ http://cmt#Rejection,http://conference#Rejected_contribution
 http://cmt#Review,http://conference#Review
 http://cmt#Reviewer,http://conference#Reviewer
 http://cmt#SubjectArea,http://conference#Topic
+http://cmt#email,http://conference#has_an_email
 http://cmt#hasBeenAssigned,http://conference#has_been_assigned_a_review_reference
-http://cmt#hasConferenceMember,http://conference#has_members
 http://cmt#memberOfProgramCommittee,http://conference#was_a_program_committee_of
 http://cmt#name,http://conference#has_a_name
 http://cmt#siteURL,http://conference#has_a_URL

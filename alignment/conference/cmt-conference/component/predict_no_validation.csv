@@ -5,6 +5,7 @@ http://cmt#Author,http://conference#Publisher
 http://cmt#Co-author,http://conference#Contribution_co-author
 http://cmt#Conference,http://conference#Conference
 http://cmt#ConferenceChair,http://conference#Co-chair
+http://cmt#ConferenceMember,http://conference#Conference_participant
 http://cmt#Document,http://conference#Conference_document
 http://cmt#Paper,http://conference#Paper
 http://cmt#Person,http://conference#Person
@@ -16,10 +17,10 @@ http://cmt#Reviewer,http://conference#Reviewer
 http://cmt#SubjectArea,http://conference#Topic
 http://cmt#assignedByReviewer,http://conference#belongs_to_reviewers
 http://cmt#date,http://conference#has_a_date_of_issue
-http://cmt#date,http://conference#has_important_dates
 http://cmt#email,http://conference#has_an_email
 http://cmt#hasAuthor,http://conference#has_authors
 http://cmt#hasBeenAssigned,http://conference#has_been_assigned_a_review_reference
+http://cmt#hasCo-author,http://conference#has_authors
 http://cmt#hasConferenceMember,http://conference#has_members
 http://cmt#hasProgramCommitteeMember,http://conference#has_a_program_committee
 http://cmt#name,http://conference#has_a_name

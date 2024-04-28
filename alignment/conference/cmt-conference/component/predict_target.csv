@@ -2,7 +2,7 @@ Entity2,Entity1
 http://conference#Abstract,http://cmt#PaperAbstract
 http://conference#Accepted_contribution,http://cmt#Acceptance
 http://conference#Active_conference_participant,http://cmt#ConferenceMember
-http://conference#Chair,http://cmt#AssociatedChair
+http://conference#Chair,http://cmt#ConferenceChair
 http://conference#Co-chair,http://cmt#ConferenceChair
 http://conference#Committee,http://cmt#ProgramCommittee
 http://conference#Committee_member,http://cmt#ProgramCommitteeMember
@@ -13,6 +13,7 @@ http://conference#Conference_participant,http://cmt#ConferenceMember
 http://conference#Conference_www,http://cmt#Conference
 http://conference#Contribution_co-author,http://cmt#Co-author
 http://conference#Extended_abstract,http://cmt#PaperAbstract
+http://conference#Organizer,http://cmt#Administrator
 http://conference#Organizing_committee,http://cmt#ProgramCommittee
 http://conference#Paper,http://cmt#Paper
 http://conference#Person,http://cmt#Person
@@ -29,8 +30,10 @@ http://conference#has_a_URL,http://cmt#siteURL
 http://conference#has_a_commtitee,http://cmt#hasProgramCommitteeMember
 http://conference#has_a_name,http://cmt#name
 http://conference#has_a_program_committee,http://cmt#hasProgramCommitteeMember
+http://conference#has_an_email,http://cmt#email
 http://conference#has_authors,http://cmt#hasAuthor
 http://conference#has_been_assigned_a_review_reference,http://cmt#hasBeenAssigned
-http://conference#has_members,http://cmt#hasConferenceMember
+http://conference#reviews,http://cmt#writeReview
+http://conference#was_a_committee_of,http://cmt#memberOfProgramCommittee
 http://conference#was_a_member_of,http://cmt#memberOfProgramCommittee
 http://conference#was_a_program_committee_of,http://cmt#memberOfProgramCommittee
