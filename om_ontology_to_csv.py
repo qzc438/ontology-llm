@@ -179,7 +179,7 @@ def syntactic_retrieving(entity):
     prompt = PromptTemplate(
         input_variables=["entity_name"],
         template="Normalise the following name: {entity_name}\n"
-                 "Use a lowercase, space-separate format.\n"
+                 "Use a lowercase, white-space-separated format.\n"
     )
     chain = LLMChain(llm=llm, prompt=prompt)
     answer = chain.invoke({
@@ -209,7 +209,7 @@ def lexical_retrieving(entity):
             template="Question: What is the meaning of {entity_name}?\n"
                      "Context: {context}\n"
                      "Extra Information: {extra_information}\n"
-                     "Answer the question within the context and use the extra information."
+                     "Answer the question within the context and using the extra information."
         )
         chain = LLMChain(llm=llm, prompt=prompt)
         answer = chain.invoke({
