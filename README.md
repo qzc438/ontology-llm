@@ -34,7 +34,7 @@ pip install tiktoken==0.6.0
 pip install asyncpg==0.28.0
 pip install psycopg2_binary==2.9.9
 pip install pgvector==0.1.8
-pip install JSON-minify==0.3.0
+pip install commentjson==0.9.0
 ```
 ```
 pip install matplotlib==3.8.4
@@ -149,7 +149,7 @@ We have created a prompt instruction for this project. [Click the link here.](PR
 - Our data-driven application architecture is inspired by: https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/main/cloud-sql/postgres/pgvector/notebooks/pgvector_gen_ai_demo.ipynb
 - The LLM output parsers is instructed by: https://medium.com/python-in-plain-english/langchain-in-chains-7-output-parsers-e1a2cdd40cd3
 
-## Acknowledgements:
+## Author Acknowledgements:
 - AI-generated content is labelled as "AI-generated content". The authors claim no responsibility for the AI-generated content marked in this paper, which does not express the views of the authors.
 - The authors would like to thank the organisers of Ontology Alignment Evaluation Initiative (OAEI) 2022 and 2023 Conference Track (Ondřej Zamazal and Lu Zhou), Anatomy Track (Mina Abd Nikooie Pour, Huanyu Li, Ying Li and Patrick Lambrix), and MSE Track (Engy Nasr and Martin Huschka), for helpful advice on reproducing the benchmarks used in this paper.
 - The authors would like to thank Associate Professor Alice Richardson of the Statistical Support Network, Australian National University, for helpful advice on the statistical analysis in this paper.
