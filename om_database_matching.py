@@ -221,9 +221,9 @@ def graphical_matching(entity):
 
 
 def find_all_matching_candidate(entity):
-    syntactic_matching = ResponseSchema(name="syntactic_matching", description="syntactic matching", type="list")
-    lexical_matching= ResponseSchema(name="lexical_matching", description="lexical matching", type="list")
-    graphical_matching = ResponseSchema(name="graphical_matching", description="graphical matching", type="list")
+    syntactic_matching = ResponseSchema(name="syntactic", description="syntactic matching", type="list")
+    lexical_matching= ResponseSchema(name="lexical", description="lexical matching", type="list")
+    graphical_matching = ResponseSchema(name="graphical", description="graphical matching", type="list")
     response_schema = [syntactic_matching, lexical_matching, graphical_matching]
     output_parser = StructuredOutputParser.from_response_schemas(response_schema)
     format_instructions = output_parser.get_format_instructions()

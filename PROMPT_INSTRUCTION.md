@@ -14,15 +14,14 @@ Output the normalised name only.
 
 #### Complex Prompt:
 - You are always recommended to use JSON to format the output.
-- Do not use ":" for your input. LLMs may consider this symbol as a separator and only return the name only. For example, "source:User" may randomly return as "User".
-- Use "enclosed with a pair of double quotes" to indicate the content of your input. For example, LLMs will consider "{entity}." (with the full stop) as the input from the following prompt:
+- Do not use ":" for your input. LLMs may consider this symbol as a separator and return only the name. For example, "source:User" may randomly return "User".
+- Be careful when using "." along with your input. For example, LLMs will treat "{entity}." (with a full stop) as the input from the following prompt:
 ```
-Retrieve the information about the entity: {entity}.
+Retrieve information about the entity: {entity}.
 ```
-- Specify the type of your input. If your input is name, say "Format the name...". If your input is URI, say "Find the URI..."
-- Specify your input in multiple lines. LLMs may randomly return names only in the lexical retriever and graphical retriever from the following prompt:
+- Do specify your input in multiple lines. For example. LLMs may randomly return only the name in the lexical retriever and graphical retriever from the following prompt:
 ```
-Retrieve the information about the URI enclosed with a pair of double quotes: {entity}.
+Retrieve information about the entity: {entity}
 Use syntactic retriever, lexical retriever, and graphical retriever.
 {format_instructions}
 ```

@@ -292,9 +292,9 @@ def save_information_to_csv(path, entity_list, source_or_target, entity_type):
     with open(path, "a+", newline='') as f1:
         for entity in entity_list:
             # define template
-            syntactic_retrieving = ResponseSchema(name="syntactic_retrieving", description="syntactic retrieving")
-            lexical_retrieving = ResponseSchema(name="lexical_retrieving", description="lexical retrieving")
-            graphical_retrieving = ResponseSchema(name="graphical_retrieving", description="graphical retrieving")
+            syntactic_retrieving = ResponseSchema(name="syntactic", description="syntactic retrieving")
+            lexical_retrieving = ResponseSchema(name="lexical", description="lexical retrieving")
+            graphical_retrieving = ResponseSchema(name="graphical", description="graphical retrieving")
             response_schema = [syntactic_retrieving, lexical_retrieving, graphical_retrieving]
             output_parser = StructuredOutputParser.from_response_schemas(response_schema)
             format_instructions = output_parser.get_format_instructions()
@@ -329,9 +329,9 @@ def save_information_to_csv(path, entity_list, source_or_target, entity_type):
             # output_dict = json.loads(output)
 
             # save information
-            syntactic_information = output_dict['syntactic_retrieving']
-            lexical_information = output_dict['lexical_retrieving']
-            graphical_information = output_dict['graphical_retrieving']
+            syntactic_information = output_dict['syntactic']
+            lexical_information = output_dict['lexical']
+            graphical_information = output_dict['graphical']
             writer = csv.writer(f1)
             list_information = [entity, source_or_target, entity_type, syntactic_information, lexical_information, graphical_information]
             writer.writerow(list_information)
