@@ -1,6 +1,5 @@
 import run_config as config
 import util
-import om_ontology_to_csv
 
 import time
 import numpy as np
@@ -24,7 +23,8 @@ df['entity_id'] = df['source_or_target'].astype(str) + "-" + df['entity_type'].a
 # remove null and duplicate
 df = df.fillna('')
 df.replace(null_value_sentence, "", inplace=True)
-df = df.drop_duplicates(subset='entity_id')
+# entity ID should be unique
+# df = df.drop_duplicates(subset='entity_id')
 print(df.head(5))
 
 # load llm

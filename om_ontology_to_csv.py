@@ -130,16 +130,16 @@ def find_all_entities():
     e1_list_property = list()
     e2_list_property = list()
     for x in o1.subjects(rdflib.RDF.type, rdflib.OWL.ObjectProperty):
-        if x and ("#" in x or "/" in x):
+        if x and ("#" in x or "/" in x) and (x, rdflib.OWL.deprecated, rdflib.Literal(True)) not in o1:
             e1_list_property.append(x)
     for x in o1.subjects(rdflib.RDF.type, rdflib.OWL.DatatypeProperty):
-        if x and ("#" in x or "/" in x):
+        if x and ("#" in x or "/" in x) and (x, rdflib.OWL.deprecated, rdflib.Literal(True)) not in o1:
             e1_list_property.append(x)
     for y in o2.subjects(rdflib.RDF.type, rdflib.OWL.ObjectProperty):
-        if y and ("#" in y or "/" in y):
+        if y and ("#" in y or "/" in y) and (y, rdflib.OWL.deprecated, rdflib.Literal(True)) not in o2:
             e2_list_property.append(y)
     for y in o2.subjects(rdflib.RDF.type, rdflib.OWL.DatatypeProperty):
-        if y and ("#" in y or "/" in y):
+        if y and ("#" in y or "/" in y) and (y, rdflib.OWL.deprecated, rdflib.Literal(True)) not in o2:
             e2_list_property.append(y)
     # sort each list
     e1_list_class.sort()
@@ -179,7 +179,7 @@ def syntactic_retrieving(entity):
     prompt = PromptTemplate(
         input_variables=["entity_name"],
         template="Normalise the following name: {entity_name}\n"
-                 "Use a lowercase, white-space-separated format.\n"
+                 "Use a lowercase and space-separated format.\n"
     )
     chain = LLMChain(llm=llm, prompt=prompt)
     answer = chain.invoke({

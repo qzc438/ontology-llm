@@ -55,7 +55,6 @@ OPENAI_API_KEY = <YOUR_OPENAI_API_KEY>
 # GPT-3.5
 llm_model_name = 'gpt-3.5-turbo'
 # Agent-OM also supports GPT-4, but our experiments are based on 'gpt-3.5-turbo'
-# GPT-4
 # llm_model_name = 'gpt-4-turbo'
 ```
 
@@ -99,7 +98,7 @@ num_matches = 50
 - `util.py`: util component of the project.
 - `alignment`: store experiment results.
 - `llm_matching.py`: examples using purely LLMs (without agents) for general matching tasks.
-- `llm_om.py`: an example of using purely LLMs (without agents) for ontology matching.
+- `llm_om.py`: examples of using purely LLMs (without agents) for ontology matching.
 
 Frequently Asked Questions (FAQs):  
 (1) Why does the Retrieval Agent have two parts `om_ontology_to_csv.py` and `om_csv_to_database.py`?  
@@ -111,7 +110,7 @@ import os
 if os.environ.get('alignment'):
     alignment = os.environ['alignment']
 ```
-(3) How do I use the file`run_series_similarity.py`?  
+(3) How do I use the file `run_series_similarity.py`?  
 Answer: Please set the variables in the file `run_series_similarity.py`.  
 For example, if you would like to check the similarities [1.00, 0.95, ..., 0.55, 0.50], then the settings are:
 ```python
@@ -121,18 +120,18 @@ step = -0.05
 ```
 
 ### 3. Evaluation:
-- `generate_conference_benchmark.py`: generate the OAEI Conference Track results.
-- `generate_anatomy_mse_benchmark.py`: generate the OAEI Anatomy Track and MSE Track results.
-- `benchmark_2022`: compare Agent-OM with OAEI 2022 results.
-- `benchmark_2023`: compare Agent-OM with OAEI 2023 results.
+- `generate_conference_benchmark.py`: generate the results of OAEI Conference Track.
+- `generate_anatomy_mse_benchmark.py`: generate the results of OAEI Anatomy Track and OAEI MSE Track.
+- `benchmark_2022`: compare Agent-OM with the results of OAEI 2022.
+- `benchmark_2023`: compare Agent-OM with the results of OAEI 2023.
 
 You may find a slight difference for each run, it is because:  
 https://community.openai.com/t/run-same-query-many-times-different-results/140588
 
 ### 4. Visualisation:
-- `draw_benchmark.ipynb`: visualise the result of the evaluation.
-- `draw_ablation_study.ipynb`: visualise the result of the ablation study.
-- `result_fig`: store visualisation results.
+- `draw_benchmark.ipynb`: visualise the results of the evaluation.
+- `draw_ablation_study.ipynb`: visualise the results of the ablation study.
+- `result_fig`: store the results of the visualisation.
 
 Our new visualisation is inspired by the following references:  
 - https://joernhees.de/blog/2010/07/22/precision-recall-diagrams-including-fmeasure/

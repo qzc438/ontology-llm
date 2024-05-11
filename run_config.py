@@ -3,7 +3,6 @@ import rdflib
 import dotenv
 import os
 import subprocess
-import uuid
 
 from langchain_openai import ChatOpenAI
 from langchain_openai import OpenAIEmbeddings
@@ -51,10 +50,10 @@ num_matches = 50
 # alignment = "conference/dbpedia-sigkdd/component/"
 
 # anatomy track
-# context = "anatomy"
-# o1_is_code = True
-# o2_is_code = True
-# alignment = "anatomy/mouse-human-suite/component/"
+context = "anatomy"
+o1_is_code = True
+o2_is_code = True
+alignment = "anatomy/mouse-human-suite/component/"
 
 # metadata
 # e1_list_class: 2744
@@ -88,10 +87,10 @@ num_matches = 50
 # e2_list_property: 95
 
 # mse Test Case 3
-context = "materials science"
-alignment = "mse/MaterialInformation-EMMO/component/"
-o1_is_code = False
-o2_is_code = True
+# context = "materials science"
+# alignment = "mse/MaterialInformation-EMMO/component/"
+# o1_is_code = False
+# o2_is_code = True
 
 # metadata
 # e1_list_class: 545

@@ -104,7 +104,7 @@ For example, the following 8 mappings need to be removed from Agent-OM results:
 #### How to define a unique entity ID?
 - Adding the prefixes "source:" and "target:" can distinguish the terms, but LLM considers ":" as a separator, so sometimes it may ignore "source:" and "target:".
 - Using the URI for an entity ID is incorrect because both the source and target ontologies can reuse a term with the same URI.
-- To ensure a unique entity ID, we propose the following structure: [entity_id] = [source_or_target]-[entity_type]-[entity_name].
+- To ensure a unique entity ID, we propose the following structure: `[entity_id] = [source_or_target]-[entity_type]-[entity_name]`
 
 #### How to fix the formatting error in the LLM output?
 - We recommend using the output parsers to avoid generating random results from LLM.
