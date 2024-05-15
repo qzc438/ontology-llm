@@ -91,7 +91,7 @@ For example, the following 8 mappings need to be removed from Agent-OM results:
 ```
 
 #### How to find the trivial reference in the Anatomy Track?
-- Please use the file `trivial.rdf`. This file will be publicly available together with the source ontologies and alignment in OAEI 2024.
+- Please use the file `trivial.rdf`. This file will be publicly available together with the source data in OAEI 2024.
 
 #### How to fix the results so that the MSE Track Test Case 1 are in line with the OAEI results?
 - This track also contains the subsumption mappings in the reference alignment file `reference-old.xml`.
@@ -104,7 +104,7 @@ For example, the following 8 mappings need to be removed from Agent-OM results:
 #### How to define a unique entity ID?
 - Adding the prefixes "source:" and "target:" can distinguish the terms, but LLM considers ":" as a separator, so sometimes it may ignore "source:" and "target:".
 - Using the URI for an entity ID is incorrect because both the source and target ontologies can reuse a term with the same URI.
-- To ensure a unique entity ID, we propose the following structure: `[entity_id] = [source_or_target]-[entity_type]-[entity_name]`
+- To ensure a unique entity ID, we propose the following structure: `[entity_id] = [index+1]-[source_or_target]-[entity_type]-[entity_name]`
 
 #### How to fix the formatting error in the LLM output?
 - We recommend using the output parsers to avoid generating random results from LLM.

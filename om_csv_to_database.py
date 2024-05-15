@@ -19,7 +19,7 @@ null_value_sentence = config.null_value_sentence
 # load the csv file
 df = pd.read_csv(config.csv_path)
 # create id column
-df['entity_id'] = df['source_or_target'].astype(str) + "-" + df['entity_type'].astype(str) + "-" + df['entity'].apply(util.uri_to_name)
+df['entity_id'] = (df.index+1).astype(str) + "-" + df['source_or_target'].astype(str) + "-" + df['entity_type'].astype(str) + "-" + df['entity'].apply(util.uri_to_name)
 # remove null and duplicate
 df = df.fillna('')
 df.replace(null_value_sentence, "", inplace=True)

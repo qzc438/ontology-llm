@@ -50,10 +50,10 @@ num_matches = 50
 # alignment = "conference/dbpedia-sigkdd/component/"
 
 # anatomy track
-context = "anatomy"
-o1_is_code = True
-o2_is_code = True
-alignment = "anatomy/mouse-human-suite/component/"
+# context = "anatomy"
+# o1_is_code = True
+# o2_is_code = True
+# alignment = "anatomy/mouse-human-suite/component/"
 
 # metadata
 # e1_list_class: 2744
@@ -75,10 +75,10 @@ alignment = "anatomy/mouse-human-suite/component/"
 # e2_list_property: 95
 
 # mse Test Case 2
-# context = "materials science"
-# alignment = "mse/MaterialInformation-MatOnto/component/"
-# o1_is_code = False
-# o2_is_code = False
+context = "materials science"
+alignment = "mse/MaterialInformation-MatOnto/component/"
+o1_is_code = False
+o2_is_code = False
 
 # metadata
 # e1_list_class: 545

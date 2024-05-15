@@ -326,6 +326,12 @@ def find_most_relevant_entity(entity, source_or_target):
                             "Context: {context}\n"
                             "Answer the question within the context.\n"
                             "Answer yes or no. Give a short explanation."
+                            # "Entity 1: {entity_name}\n"
+                            # "Entity 2: {predict_entity_name}\n"
+                            # "Question: Are these two entities equivalent?\n"
+                            # "Context: {context}\n"
+                            # "Answer the question within the context.\n"
+                            # "Answer yes or no. Give a short explanation.\n"
                             .format(context=context, entity_name=entity_name, predict_entity_name=predict_entity_name))
                         result_refine = llm.invoke(prompt_refine_question).content
                         print("result_refine:", result_refine)
