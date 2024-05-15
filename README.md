@@ -35,6 +35,7 @@ pip install asyncpg==0.28.0
 pip install psycopg2_binary==2.9.9
 pip install pgvector==0.1.8
 pip install commentjson==0.9.0
+pip install transformers
 ```
 ```
 pip install matplotlib==3.8.4
@@ -42,23 +43,33 @@ pip install notebook
 pip install ipyparallel
 ```
 
-### 4. Setup OpenAI API:
+### 4. Install OLlama: 
+- Documentation: https://python.langchain.com/v0.1/docs/integrations/llms/ollama/
+- Download and install Ollama (Linux): curl -fsSL https://ollama.com/install.sh | sh
+- Download model: ollama pull llama3
+- Install PyTorch (Linux, CUDA11.8): pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+
+### 5. Setup OpenAI API:
 - You will need an OpenAI API key to interact with GPT models: https://platform.openai.com/api-keys
 - Create a file named as `.env` and write:
 ```plaintext
 OPENAI_API_KEY = <YOUR_OPENAI_API_KEY>
 ```
 
-### 5. Setup Large Language Model (LLM):
-- Set the LLM in the file `run_config.py`: `llm_model_name`.
+### 6. Setup Large Language Model (LLM):
+- Set the LLM in the file `run_config.py`: `llm`.
 ```python
-# GPT-3.5
-llm_model_name = 'gpt-3.5-turbo'
-# Agent-OM also supports GPT-4, but our experiments are based on 'gpt-3.5-turbo'
-# llm_model_name = 'gpt-4-turbo'
+from langchain_openai import ChatOpenAI
+from langchain_community.chat_models import ChatOllama
+# load GPT series
+llm = ChatOpenAI(model='gpt-3.5-turbo', temperature=0)
+llm = ChatOpenAI('gpt-4-turbo', temperature=0)
+# load Llama-3 and Phi-3
+llm = ChatOllama(model="llama3", temperature=0)
+llm = ChatOllama(model="phi3", temperature=0)
 ```
 
-### 6. Setup Matching Task:
+### 7. Setup Matching Task:
 - Set your alignment in the file `run_config.py`: `context`, `o1_is_code`, `o2_is_code`, and `alignment`.  
 For example, if you would like to run the CMT-Conference alignment, then the settings are:
 ```python
@@ -78,7 +89,7 @@ top_k = 3
 num_matches = 50
 ```
 
-### 7. Run Experiment:
+### 8. Run Experiment:
 - Run the script: `python run_config.py`.
 - The result of the experiment will be stored in the folder `alignment`.
 - The evaluation of the experiment will be stored in the file `result.csv`.

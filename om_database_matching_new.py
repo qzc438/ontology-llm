@@ -1,3 +1,8 @@
+from operator import itemgetter
+
+from langchain_core.output_parsers import JsonOutputParser
+from langchain_core.tools import tool, render_text_description
+
 import run_config as config
 import om_ontology_to_csv
 import util
@@ -189,8 +194,9 @@ def define_agent(llm, tools):
     agent = create_conversational_retrieval_agent(llm, tools, verbose=True)
     return agent
 
-
-def syntactic_matching(entity):
+@tool
+def syntactic(entity: str) -> list:
+    """Find syntactic matching."""
     syntactic_matching = entity_matching(entity, "syntactic_matching")
     syntactic_matches = pd.DataFrame(syntactic_matching)
     syntactic_matches.drop_duplicates(['entity'], inplace=True)
@@ -200,7 +206,9 @@ def syntactic_matching(entity):
         return [null_value_matching]
 
 
-def lexical_matching(entity):
+@tool
+def lexical(entity: str) -> list:
+    """Find lexical matching."""
     lexical_matching = entity_matching(entity, "lexical_matching")
     lexical_matches = pd.DataFrame(lexical_matching)
     lexical_matches.drop_duplicates(['entity'], inplace=True)
@@ -209,8 +217,9 @@ def lexical_matching(entity):
     else:
         return [null_value_matching]
 
-
-def graphical_matching(entity):
+@tool
+def graphical(entity: str) -> list:
+    """Find graphical matching."""
     graphical_matching = entity_matching(entity, "graphical_matching")
     graphical_matches = pd.DataFrame(graphical_matching)
     graphical_matches.drop_duplicates(['entity'], inplace=True)
@@ -220,43 +229,74 @@ def graphical_matching(entity):
         return [null_value_matching]
 
 
-def find_all_matching_candidate(entity):
-    syntactic_matching = ResponseSchema(name="syntactic", description="syntactic matching", type="list")
-    lexical_matching= ResponseSchema(name="lexical", description="lexical matching", type="list")
-    graphical_matching = ResponseSchema(name="graphical", description="graphical matching", type="list")
-    response_schema = [syntactic_matching, lexical_matching, graphical_matching]
-    output_parser = StructuredOutputParser.from_response_schemas(response_schema)
-    format_instructions = output_parser.get_format_instructions()
-    # print(format_instructions)
-    template = """
-               Find syntactic matching to the entity: {entity}
-               Find lexical matching to the entity: {entity}
-               Find graphical matching to the entity: {entity}
-               {format_instructions}
-               """
-    prompt_template = ChatPromptTemplate.from_template(template)
-    # combine template with format instructions
-    prompt = prompt_template.format_messages(entity=entity, format_instructions=format_instructions)
-    print("matching prompt:", prompt[0].content)
+tools = [syntactic, lexical, graphical]
 
-    # define tools
-    tools = define_tools()
-    # define agent
-    agent = define_agent(llm, tools)
-    # execute agent
-    result = agent.invoke({"input": prompt})
-    output = result['output']
-    # print("output:", output)
-    # clean comments in json string
-    json_no_comments = re.sub(r'//.*', '', output)
-    # convert string to dictionary
-    output_dict = output_parser.parse(json_no_comments)
-    print("output_dict:", output_dict)
-    # deal with ```json
-    # if output.startswith("```json") and output.endswith("```"):
-    #     output = output[7:-3].strip()
-    # output_dict = json.loads(output)
+
+def tool_chain(model_output):
+    tool_map = {tool.name: tool for tool in tools}
+    chosen_tool = tool_map[model_output["name"]]
+    return itemgetter("arguments") | chosen_tool
+
+
+def find_all_matching_candidate(entity):
+    # define combined prompt
+    rendered_tools = render_text_description(tools)
+    system_prompt = f"""You are an assistant that has access to the following set of tools. Here are the names and descriptions for each tool:
+                {rendered_tools}
+                Given the user input, return the name and input of the tool to use. 
+                Return your response as a JSON blob with the keys 'name' and 'arguments'.
+                The value associated with the key 'arguments' should be a dictionary of parameters.
+                """
+    prompt = ChatPromptTemplate.from_messages(
+        [("system", system_prompt), ("user", "{input}")]
+    )
+    # define chain
+    chain = prompt | llm | JsonOutputParser() | tool_chain
+    syntactic_matching = chain.invoke({"input": f"Find syntactic matching about the entity: {entity}"})
+    lexical_matching = chain.invoke({"input": f"Find lexical matching about the entity: {entity}"})
+    graphical_matching = chain.invoke({"input": f"Find graphical matching about the entity: {entity}"})
+    print(syntactic_matching, lexical_matching, graphical_matching)
+    output_dict = {'syntactic_matching': syntactic_matching, 'lexical_matching': lexical_matching, 'graphical_matching': graphical_matching}
     return output_dict
+
+
+
+    # syntactic_matching = ResponseSchema(name="syntactic", description="syntactic matching", type="list")
+    # lexical_matching= ResponseSchema(name="lexical", description="lexical matching", type="list")
+    # graphical_matching = ResponseSchema(name="graphical", description="graphical matching", type="list")
+    # response_schema = [syntactic_matching, lexical_matching, graphical_matching]
+    # output_parser = StructuredOutputParser.from_response_schemas(response_schema)
+    # format_instructions = output_parser.get_format_instructions()
+    # # print(format_instructions)
+    # template = """
+    #            Find syntactic matching to the entity: {entity}
+    #            Find lexical matching to the entity: {entity}
+    #            Find graphical matching to the entity: {entity}
+    #            {format_instructions}
+    #            """
+    # prompt_template = ChatPromptTemplate.from_template(template)
+    # # combine template with format instructions
+    # prompt = prompt_template.format_messages(entity=entity, format_instructions=format_instructions)
+    # print("matching prompt:", prompt[0].content)
+    #
+    # # define tools
+    # tools = define_tools()
+    # # define agent
+    # agent = define_agent(llm, tools)
+    # # execute agent
+    # result = agent.invoke({"input": prompt})
+    # output = result['output']
+    # # print("output:", output)
+    # # clean comments in json string
+    # json_no_comments = re.sub(r'//.*', '', output)
+    # # convert string to dictionary
+    # output_dict = output_parser.parse(json_no_comments)
+    # print("output_dict:", output_dict)
+    # # deal with ```json
+    # # if output.startswith("```json") and output.endswith("```"):
+    # #     output = output[7:-3].strip()
+    # # output_dict = json.loads(output)
+    # return output_dict
 
 
 def extract_yes_no(text):
@@ -376,7 +416,7 @@ if __name__ == '__main__':
     # find matching from source ontology
     util.create_document(predict_source_path_no_validation, header=['Entity1', 'Entity2'])
     util.create_document(predict_source_path, header=['Entity1', 'Entity2'])
-    # e1_list = ["http://cmt#Bid"]
+    # e1_list = ["http://cmt#Bid"] # all null value
     # e1_list = ["http://cmt#PaperFullVersion"]
     # e1_list = ["http://mouse.owl#MA_0000013"] # test entity name
     # e1_list = ["http://mouse.owl#MA_0000096"] # test one null value

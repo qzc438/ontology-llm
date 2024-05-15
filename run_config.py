@@ -5,7 +5,11 @@ import os
 import subprocess
 
 from langchain_openai import ChatOpenAI
+from langchain_mistralai import ChatMistralAI
 from langchain_openai import OpenAIEmbeddings
+from langchain_community.llms import Ollama
+from langchain_experimental.llms.ollama_functions import OllamaFunctions
+from langchain_community.chat_models import ChatOllama
 
 # customer settings
 # search settings
@@ -15,10 +19,10 @@ num_matches = 50
 
 # alignment settings
 # conference track
-# context = "conference"
-# o1_is_code = False
-# o2_is_code = False
-# alignment = "conference/cmt-conference/component/"
+context = "conference"
+o1_is_code = False
+o2_is_code = False
+alignment = "conference/cmt-conference/component/"
 # alignment = "conference/cmt-confof/component/"
 # alignment = "conference/cmt-edas/component/"
 # alignment = "conference/cmt-ekaw/component/"
@@ -50,10 +54,10 @@ num_matches = 50
 # alignment = "conference/dbpedia-sigkdd/component/"
 
 # anatomy track
-context = "anatomy"
-o1_is_code = True
-o2_is_code = True
-alignment = "anatomy/mouse-human-suite/component/"
+# context = "anatomy"
+# o1_is_code = True
+# o2_is_code = True
+# alignment = "anatomy/mouse-human-suite/component/"
 
 # metadata
 # e1_list_class: 2744
@@ -132,10 +136,23 @@ o2_prefix = "target"
 # load api key
 dotenv.load_dotenv()
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
-# load llm
-llm_model_name = 'gpt-3.5-turbo'
-# llm_model_name = 'gpt-4-turbo'
-llm = ChatOpenAI(model_name=llm_model_name, temperature=0)
+os.environ["MISTRAL_API_KEY"] = os.getenv("MISTRAL_API_KEY")
+
+# load GPT
+llm = ChatOpenAI(model='gpt-3.5-turbo', temperature=0)
+# llm = ChatOpenAI('gpt-4-turbo', temperature=0)
+
+# load Ollama
+# llm = ChatOllama(model="llama3", temperature=0)
+# llm = ChatOllama(model="phi3", temperature=0)
+
+# load MistralAI
+# llm = ChatMistralAI(model="mistral-large-latest", temperature=0)
+
+# TBC
+# llm = ChatOllama(model="llama2", temperature=0) # failed
+# llm = Ollama(model="llama3", temperature=0) # need format
+
 
 # load embedding
 embeddings_service = OpenAIEmbeddings()
@@ -143,7 +160,7 @@ embeddings_service = OpenAIEmbeddings()
 # database connection
 connection_string = 'postgresql://postgres:postgres@127.0.0.1/ontology'
 
-# hand null value in LLM
+# handle null value in LLM
 null_value_sentence = "Information is not available."
 null_value_matching = "Entity-Dummy"
 # null_value = "Dummy"
@@ -157,9 +174,9 @@ null_value_matching = "Entity-Dummy"
 if __name__ == '__main__':
 
     script_sequence = [
-        "om_ontology_to_csv.py",
+        "om_ontology_to_csv_new.py",
         "om_csv_to_database.py",
-        "om_database_matching.py",
+        "om_database_matching_new.py",
     ]
     for script in script_sequence:
         subprocess.run(["python", script])

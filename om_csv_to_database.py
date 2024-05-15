@@ -1,3 +1,10 @@
+from operator import itemgetter
+
+from langchain.agents import create_tool_calling_agent, AgentExecutor
+from langchain_core.output_parsers import JsonOutputParser
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.tools import tool, render_text_description
+
 import run_config as config
 import util
 
@@ -10,45 +17,29 @@ import asyncpg
 from pgvector.asyncpg import register_vector
 
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.agents.agent_toolkits import create_conversational_retrieval_agent
-from langchain.tools import Tool
 
 # null value
 null_value_sentence = config.null_value_sentence
 
 # load the csv file
 df = pd.read_csv(config.csv_path)
+# determine the number of digits needed
+num_digits = len(str(df.index.max() + 1))
 # create id column
-df['entity_id'] = df['source_or_target'].astype(str) + "-" + df['entity_type'].astype(str) + "-" + df['entity'].apply(util.uri_to_name)
+df['entity_id'] = (df.index+1).astype(str).str.zfill(num_digits) + "-" + df['source_or_target'].astype(str) + "-" + df['entity_type'].astype(str) + "-" + df['entity'].apply(util.uri_to_name)
 # remove null and duplicate
 df = df.fillna('')
 df.replace(null_value_sentence, "", inplace=True)
 # entity ID should be unique
 # df = df.drop_duplicates(subset='entity_id')
 print(df.head(5))
+print(df.tail(5))
 
 # load llm
 llm = config.llm
 
 # database connection
 connection_string = config.connection_string
-
-
-def define_tools():
-    tools = [
-        Tool(
-            name="save_csv_to_database",
-            func=initialize_database,
-            description="Useful for when you need save csv to database."
-        ),
-    ]
-    return tools
-
-
-def define_agent(llm, tools):
-    agent = create_conversational_retrieval_agent(llm, tools, verbose=True)
-    return agent
-
 
 # create traditional table
 async def create_ontology_matching_table():
@@ -133,7 +124,7 @@ async def create_embedding_table(table_name):
     await conn.close()
 
 
-async def async_initialize_database():
+async def async_save_to_database():
     # create database
     await create_ontology_matching_table()
     await create_embedding_table("syntactic_matching")
@@ -142,19 +133,65 @@ async def async_initialize_database():
 
 
 # create a variable to receive argument
-def initialize_database(file):
+@tool
+def save_to_database():
+    """Save to database."""
     # create a new event loop
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
     # run the async_initialize_database coroutine using the event loop
-    loop.run_until_complete(async_initialize_database())
+    loop.run_until_complete(async_save_to_database())
     # close the loop
     loop.close()
+    return "Save to database successfully."
+
+
+tools = [save_to_database]
+
+def tool_chain(model_output):
+    tool_map = {tool.name: tool for tool in tools}
+    chosen_tool = tool_map[model_output["name"]]
+    return itemgetter("arguments") | chosen_tool
+
+# # Get the prompt to use - can be replaced with any prompt that includes variables "agent_scratchpad" and "input"!
+# prompt = ChatPromptTemplate.from_messages(
+#     [
+#         (
+#             "system",
+#             "You are a helpful assistant. Make sure to only use tools provided.",
+#         ),
+#         ("placeholder", "{chat_history}"),
+#         ("human", "{input}"),
+#         ("placeholder", "{agent_scratchpad}"),
+#     ]
+# )
+# prompt.pretty_print()
+# # Construct the tool calling agent
+# agent = create_tool_calling_agent(llm, tools, prompt)
+# # Create an agent executor by passing in the agent and tools
+# agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
 
 
 if __name__ == '__main__':
-    tools = define_tools()
-    agent = define_agent(llm, tools)
-    csv_name = config.csv_path
-    prompt = f"Save {csv_name} to database."
-    result = agent.invoke({"input": prompt})
+    # csv_name = config.csv_path
+    # prompt = f"Save {csv_name} to database."
+    # result = agent.invoke({"input": prompt})
+
+    # define combined prompt
+    rendered_tools = render_text_description(tools)
+    system_prompt = f"""You are an assistant that has access to the following set of tools. Here are the names and descriptions for each tool:
+                    {rendered_tools}
+                    Given the user input, return the name and input of the tool to use. 
+                    Return your response as a JSON blob with the keys 'name' and 'arguments'.
+                    The value associated with the key 'arguments' should be a dictionary of parameters.
+                    """
+    prompt = ChatPromptTemplate.from_messages(
+        [("system", system_prompt), ("user", "{input}")]
+    )
+    # define chain
+    chain = prompt | llm | JsonOutputParser() | tool_chain
+    result = chain.invoke({"input": f"Save to database."})
+    print("result:", result)
+
+    # agent_executor.invoke({"input": "Save to database"})
+

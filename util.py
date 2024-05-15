@@ -106,8 +106,8 @@ def cleaning(name):
     # if no symbols, it is a camel case and change it to snake case
     if " " not in name:
         name = change_to_snake_case(name)
-    # name = name.lower()
-    # name = change_british_to_american(name)
+    name = name.lower()
+    name = change_british_to_american(name)
     # capitalized_name = ' '.join(word.capitalize() for word in name.split())
     return name
 

@@ -1,30 +1,20 @@
-from langchain.agents import initialize_agent, AgentType, AgentExecutor, create_structured_chat_agent, \
-    create_react_agent
-from langchain import hub
-from langchain_community.tools.tavily_search import TavilySearchResults
-from langchain_core.tools import tool, BaseTool
-
 import run_config as config
 import util
 
-import re
 import rdflib
 import csv
-import json
 
 from langchain.prompts import PromptTemplate
-from langchain.agents.agent_toolkits import create_conversational_retrieval_agent
-from langchain.tools import Tool
-
-from langchain.output_parsers import ResponseSchema
-from langchain.output_parsers import StructuredOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 
-from typing import Optional
-from math import sqrt, cos, sin
+from langchain_core.output_parsers import JsonOutputParser
+from langchain_core.tools import tool, render_text_description
+from operator import itemgetter
+from langchain.agents import AgentExecutor, create_tool_calling_agent
+from langchain import hub
+from langchain_core.messages import AIMessage
+from langchain_core.runnables import Runnable
 
-from math import pi
-from typing import Union
 
 # customer settings
 o1_path = config.o1_path
@@ -62,32 +52,6 @@ ontology_prefix = None
 
 # txt for graphical retrieving
 file_name = 'graphical_entity.txt'
-
-
-def define_tools():
-    tools = [
-        Tool.from_function(
-            name="syntactic_retrieving",
-            func=syntactic_retrieving,
-            description="Useful for when you need syntactic retrieving."
-        ),
-        Tool.from_function(
-            name="lexical_retrieving",
-            func=lexical_retrieving,
-            description="Useful for when you need lexical retrieving."
-        ),
-        Tool.from_function(
-            name="graphical_retrieving",
-            func=graphical_retrieving,
-            description="Useful for when you need graphical retrieving."
-        ),
-    ]
-    return tools
-
-
-def define_agent(llm, tools):
-    agent = create_conversational_retrieval_agent(llm, tools, verbose=True)
-    return agent
 
 
 def find_alignment(align_path, true_path):
@@ -176,23 +140,27 @@ def get_entity_name(entity, ontology, ontology_is_code):
 
 
 # syntactic_retrieving
-def syntactic_retrieving(entity):
+@tool
+def syntactic(entity: str) -> str:
+    """Find syntactic information."""
     entity_name = get_entity_name(entity, ontology, ontology_is_code)
     prompt = PromptTemplate(
         input_variables=["entity_name"],
-        template="Normalise the following name: {entity_name}\n"
-                 "Use a lowercase and space-separated format.\n"
+        template="Normalise the following name into a lowercase, space-separated format: {entity_name}\n "
+                 "Return only the normalised name.\n"
     )
     chain = prompt | llm
     answer = chain.invoke({
         'entity_name': entity_name,
     })
     # print
-    print("syntactic_retrieving:", answer.content)
+    print("syntactic_information:", answer.content)
     return answer.content
 
 
-def lexical_retrieving(entity):
+@tool
+def lexical(entity: str) -> str:
+    """Find lexical information."""
     entity_name = get_entity_name(entity, ontology, ontology_is_code)
     # extract extra information
     extra_information_set = set()
@@ -203,9 +171,9 @@ def lexical_retrieving(entity):
     for s, p, o in ontology.triples((rdflib.URIRef(entity), rdflib.SKOS.definition, None)):
         extra_information_set.add(str(o))
     extra_information = ' '.join(extra_information_set)
-    print("extra_information:", extra_information)
     # create different prompts based on extra information
     if extra_information:
+        print("extra_lexical_information:", extra_information)
         prompt = PromptTemplate(
             input_variables=["entity_name", "entity_info", "context"],
             template="Question: What is the meaning of {entity_name}?\n"
@@ -234,113 +202,93 @@ def lexical_retrieving(entity):
             'context': context,
         })
     # print
-    print("lexical_retrieving:", answer.content)
+    print("lexical_information:", answer.content)
     return answer.content
 
 
-def add_content_triples(s, p, o):
-    sub = get_entity_name(s, ontology, ontology_is_code)
-    pre = get_entity_name(p, ontology, ontology_is_code)
-    obj = get_entity_name(o, ontology, ontology_is_code)
-    with open(file_name, 'a') as f:
-        f.write("%s %s %s." % (sub, pre, obj))
-        f.write('\n')
-
-
-def find_relevant_triples(entity, predicate):
-    for s, p, o in ontology.triples((rdflib.URIRef(entity), predicate, None)):
-        if not isinstance(o, rdflib.BNode):
-            add_content_triples(s, p, o)
-    for s, p, o in ontology.triples((None, predicate, rdflib.URIRef(entity))):
-        add_content_triples(s, p, o)
-
-
-def graphical_retrieving(entity):
-    # clean the file for each entity
-    with open(file_name, 'w') as file:
-        pass
+@tool
+def graphical(entity: str) -> str:
+    """Find graphical information."""
+    # create a subgraph to store entity's graphical information
+    subgraph = rdflib.Graph()
     # write the triples to the txt
     relevant_list = [rdflib.RDFS.subClassOf, rdflib.OWL.disjointWith, rdflib.RDFS.domain, rdflib.RDFS.range]
     for predicate in relevant_list:
-        find_relevant_triples(entity, predicate)
-    # verbalise the triples in the txt
-    answer = read_graphical_text(file_name)
-    # print
-    print("graphical_retrieving:", answer)
-    # handle no graphical information
-    return answer if answer else null_value_sentence
+        for s, p, o in ontology.triples((rdflib.URIRef(entity), predicate, None)):
+            if not isinstance(o, rdflib.BNode) and o != rdflib.OWL.Thing:
+                sub = rdflib.Literal(get_entity_name(s, ontology, ontology_is_code))
+                pre = rdflib.Literal(get_entity_name(p, ontology, ontology_is_code))
+                obj = rdflib.Literal(get_entity_name(o, ontology, ontology_is_code))
+                subgraph.add((sub, p, obj))
+        for s, p, o in ontology.triples((None, predicate, rdflib.URIRef(entity))):
+            sub = rdflib.Literal(get_entity_name(s, ontology, ontology_is_code))
+            pre = rdflib.Literal(get_entity_name(p, ontology, ontology_is_code))
+            obj = rdflib.Literal(get_entity_name(o, ontology, ontology_is_code))
+            subgraph.add((sub, p, obj))
+    # save the subgraph
+    subgraph.serialize(format="turtle", destination=f"subgraph.ttl")
+    # verbalise the subgraph
+    if subgraph:
+        prompt = PromptTemplate(
+            input_variables=["subgraph", "entity"],
+            template="Verbalise the following graph: {subgraph}\n"
+        )
+        chain = prompt | llm
+        answer = chain.invoke({'subgraph': subgraph.serialize(format="turtle"), 'entity': entity})
+        print("graphical_information:", answer.content)
+        return answer.content
+    else:
+        print("semantic_information:", null_value_sentence)
+        return null_value_sentence
 
 
-def read_graphical_text(input_file_path):
-    sentence_list = list()
-    with open(input_file_path, "r") as input_file:
-        for line in input_file:
-            sentence_list.append(line.replace('\n', ''))
-    sentences = " ".join(sentence_list)
-    return sentences
+tools = [syntactic, lexical, graphical]
 
 
-# def graphical_retrieving(entity):
-#     # define file name
-#     file_name = 'graphical_entity.txt'
-#     # here entity is name only
-#     with open(file_name, 'w') as f:
-#         query_subject = list(ontology.triples((rdflib.URIRef(entity), None, None)))
-#         query_property = list(ontology.triples((None, rdflib.URIRef(entity), None)))
-#         query_object = list(ontology.triples((None, None, rdflib.URIRef(entity))))
-#         combined_results = query_subject + query_property + query_object
-#         for s, p, o in combined_results:
-#             if "#" in s and "#" in p and "#" in o:
-#                 if str(p).split("#")[-1] != "type" and str(o).split("#")[-1] != "Thing":
-#                     sub = get_entity_name(s, ontology, ontology_is_code)
-#                     pre = str(p).split("#")[-1]
-#                     obj = get_entity_name(o, ontology, ontology_is_code)
-#                     f.write("%s %s %s." % (sub, pre, obj))
-#                     f.write('\n')
-#     # verbalise the triples
-#     answer = verbalise_sentence(file_name)
-#     # print
-#     print("graphical_retrieving:", answer)
-#     # handle no graphical information
-#     return answer if answer else null_value_sentence
+def tool_chain(model_output):
+    tool_map = {tool.name: tool for tool in tools}
+    chosen_tool = tool_map[model_output["name"]]
+    return itemgetter("arguments") | chosen_tool
 
 
-# def verbalise_sentence(input_file_path):
-#     prompt = PromptTemplate(
-#         input_variables=["sentence"],
-#         template="Verbalise the following sentence: {sentence}\n"
-#     )
-#     chain = prompt | llm
-#     sentence_list = list()
-#     with open(input_file_path, "r") as input_file:
-#         for line in input_file:
-#             processed_line = chain.invoke({"sentence": line})
-#             try:
-#                 print("processed_line:", processed_line)
-#                 answer = processed_line.content
-#                 sentence_list.append(answer)
-#             except json.JSONDecodeError as e:
-#                 print(f"Cannot verbalise the sentence: {e}")
-#                 sentence_list.append(line)
-#                 continue
-#     sentences = " ".join(sentence_list)
-#     return sentences
+# # only work for llm support tool calling
+# always_call_tool_llm = llm.bind_tools(tools, tool_choice="any")
+# tool_map = {tool.name: tool for tool in tools}
+#
+#
+# def call_tools(msg: AIMessage) -> Runnable:
+#     """Simple sequential tool calling helper."""
+#     tool_map = {tool.name: tool for tool in tools}
+#     tool_calls = msg.tool_calls.copy()
+#     for tool_call in tool_calls:
+#         tool_call["output"] = tool_map[tool_call["name"]].invoke(tool_call["args"])
+#     return tool_calls
+#
+#
+# # get the prompt to use - can be replaced with any prompt that includes variables "agent_scratchpad" and "input"!
+# # prompt = hub.pull("hwchase17/openai-tools-agent")
+# prompt = ChatPromptTemplate.from_messages(
+#     [
+#         (
+#             "system",
+#             "You are a helpful assistant. Make sure to only use tools provided to retrieve the information.",
+#         ),
+#         ("placeholder", "{chat_history}"),
+#         ("human", "{input}"),
+#         ("placeholder", "{agent_scratchpad}"),
+#     ]
+# )
+# prompt.pretty_print()
+# # construct the tool calling agent
+# agent = create_tool_calling_agent(llm, tools, prompt)
+# # create an agent executor by passing in the agent and tools
+# agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=True)
 
-
-# you can also use llm to check is code or not
-# def check_name_or_code(entity):
-#     prompt = PromptTemplate(
-#         input_variables=["entity"],
-#         template="Is {entity} a unique identifier or code? Please answer True if yes, False if not or unknown."
-#     )
-#     llm = config.llm
-#     chain = prompt | llm
-#     output = chain.invoke({'entity': entity, }).content
-#     return output
 
 def save_information_to_csv(path, entity_list, source_or_target, entity_type):
     # entity_list = ["http://cmt#User"] # test keyword
     # entity_list = ["http://cmt#Meta-Reviewer"] # test extra information
+    # entity_list = ["http://cmt#acceptedBy"] # return the key "tool" instead of "name"
     # entity_list = ["http://conference#Organization"] # test null value
     # entity_list = ["http://conference#Important_dates"]  # test sentence format
     # entity_list = ["http://www.geneontology.org/formats/oboInOwl#DbXref"]  # test null value
@@ -349,49 +297,41 @@ def save_information_to_csv(path, entity_list, source_or_target, entity_type):
     # entity_list = ["http://human.owl#NCI_C12220"]
     with open(path, "a+", newline='') as f1:
         for entity in entity_list:
-            # define template
-            syntactic_information = ResponseSchema(name="syntactic", description="syntactic")
-            lexical_information = ResponseSchema(name="lexical", description="lexical")
-            graphical_information = ResponseSchema(name="graphical", description="graphical")
-            response_schema = [syntactic_information, lexical_information, graphical_information]
-            output_parser = StructuredOutputParser.from_response_schemas(response_schema)
-            format_instructions = output_parser.get_format_instructions()
-            # print(format_instructions)
-            template = """
-                       Find syntactic retrieving about the entity: {entity}
-                       Find lexical retrieving about the entity: {entity}
-                       Find graphical retrieving about the entity: {entity}
-                       {format_instructions}
-                       """
-            prompt_template = ChatPromptTemplate.from_template(template)
-            # combine template with format instructions
-            prompt = prompt_template.format_messages(entity=entity, format_instructions=format_instructions)
-            print("retrieve prompt:", prompt[0].content)
-            # define tools
-            tools = define_tools()
-            # define agent
-            agent = define_agent(llm, tools)
-            # execute agent
-            result = agent.invoke({"input": prompt})
-            output = result['output']
-            # print("output:", output)
-            # clean comments in json string
-            json_no_comments = re.sub(r'//.*', '', output)
-            # convert string to dictionary
-            output_dict = output_parser.parse(json_no_comments)
-            print("output_dict:", output_dict)
-            # deal with ```json
-            # if output.startswith("```json") and output.endswith("```"):
-            #     output = output[7:-3].strip()
-            # output_dict = json.loads(output)
-
+            # define combined prompt
+            rendered_tools = render_text_description(tools)
+            system_prompt = f"""You are an assistant that has access to the following set of tools. Here are the names and descriptions for each tool:
+            {rendered_tools}
+            Given the user input, return the name and input of the tool to use. 
+            Return your response as a JSON blob with the keys 'name' and 'arguments'.
+            The value associated with the key 'arguments' should be a dictionary of parameters.
+            """
+            prompt = ChatPromptTemplate.from_messages(
+                [("system", system_prompt), ("user", "{input}")]
+            )
+            # define chain
+            chain = prompt | llm | JsonOutputParser() | tool_chain
+            syntactic_information = chain.invoke({"input": f"Find syntactic information about the entity: {entity}"})
+            lexical_information = chain.invoke({"input": f"Find lexical information about the entity: {entity}"})
+            graphical_information = chain.invoke({"input": f"Find graphical information about the entity: {entity}"})
             # save information
-            syntactic_information = output_dict['syntactic']
-            lexical_information = output_dict['lexical']
-            graphical_information = output_dict['graphical']
             writer = csv.writer(f1)
             list_information = [entity, source_or_target, entity_type, syntactic_information, lexical_information, graphical_information]
             writer.writerow(list_information)
+
+            # # only work for llm support tool calling
+            # chain = always_call_tool_llm | call_tools
+            # # find syntactic information
+            # syntactic_query = f"Find syntactic information about the entity: {entity}"
+            # syntactic_result = chain.invoke(syntactic_query)
+            # syntactic_information = syntactic_result[0].get("output")
+            # # find lexical information
+            # lexical_query = f"Find lexical information about the entity: {entity}"
+            # lexical_result = chain.invoke(lexical_query)
+            # lexical_information = lexical_result[0].get("output")
+            # # find graphical information
+            # graphical_query = f"Find graphical information about the entity: {entity}"
+            # graphical_result = chain.invoke(graphical_query)
+            # graphical_information = graphical_result[0].get("output")
 
 
 if __name__ == '__main__':
