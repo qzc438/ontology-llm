@@ -2,8 +2,29 @@ import os
 import csv
 import re
 import enchant
-import rdflib
 import pandas as pd
+import colorama
+
+
+# initialize colorama
+colorama.init(autoreset=True)
+
+
+def print_colored_text(text, color):
+    # define color dictionary
+    colors = {
+        "red": colorama.Fore.RED,
+        "green": colorama.Fore.GREEN,
+        "blue": colorama.Fore.BLUE,
+        "yellow": colorama.Fore.YELLOW,
+        "magenta": colorama.Fore.MAGENTA,
+        "cyan": colorama.Fore.CYAN,
+        "white": colorama.Fore.WHITE,
+        "black": colorama.Fore.BLACK
+    }
+    # print the text in the specified color, reset if color not recognized
+    color_code = colors.get(color, colorama.Fore.RESET)
+    print(color_code + text + colorama.Style.RESET_ALL)
 
 
 def find_uri(ontology):
@@ -112,7 +133,7 @@ def cleaning(name):
     return name
 
 
-def calculate_metrics(true_path, predict_path, alignment, result_path):
+def calculate_metrics(true_path, predict_path, result_path, llm, alignment):
     df_true = pd.read_csv(true_path, encoding="Windows-1250")
     df_predict = pd.read_csv(predict_path, encoding="Windows-1250")
     if df_predict.empty:
@@ -138,11 +159,11 @@ def calculate_metrics(true_path, predict_path, alignment, result_path):
             recall = ra / r
             f1 = 2 * (precision * recall) / (precision + recall)
             # write to file
-            # create_document(result_path, header=['Alignment', 'Precision', 'Recall', 'F1'])
+            # create_document(result_path, header=['LLM', 'Alignment', 'Precision', 'Recall', 'F1'])
             with open(result_path, "a+", newline='') as f:
                 writer = csv.writer(f)
                 result = ["%.2f" % (precision * 100), "%.2f" % (recall * 100), "%.2f" % (f1 * 100)]
-                result = [alignment] + result
+                result = [llm] + [alignment] + result
                 writer.writerow(result)
             # print results
             return ["%.2f" % (precision * 100), "%.2f" % (recall * 100), "%.2f" % (f1 * 100)]

@@ -13,12 +13,10 @@ import itertools
 import psycopg2
 from pgvector.psycopg2 import register_vector
 
-from langchain.agents import Tool
-from langchain.agents.agent_toolkits import create_conversational_retrieval_agent
-
-from langchain.output_parsers import ResponseSchema
-from langchain.output_parsers import StructuredOutputParser
 from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import JsonOutputParser
+from langchain_core.tools import tool, render_text_description
+from operator import itemgetter
 
 # define path
 alignment = config.alignment
@@ -71,6 +69,7 @@ def create_log(message):
     logger.critical(message)
 
 
+# start entity matching tools
 def find_entity_id(entity, source_or_target):
     conn = psycopg2.connect(connection_string)
     register_vector(conn)
@@ -79,7 +78,7 @@ def find_entity_id(entity, source_or_target):
               WHERE o.entity = (%s) and o.source_or_target = (%s)'''
     cursor.execute(sql, (entity, source_or_target))
     result = cursor.fetchone()
-    print("entity_id:", result[0])
+    # print("entity_id:", result[0])
     conn.close()
     return result[0]
 
@@ -164,104 +163,60 @@ def entity_matching(entity, table_name):
         return None
 
 
-def define_tools():
-    tools = [
-        Tool(
-            name="syntactic_matching",
-            func=syntactic_matching,
-            description="Useful for when you need syntactic matching."
-        ),
-        Tool(
-            name="lexical_matching",
-            func=lexical_matching,
-            description="Useful for when you need lexical matching."
-        ),
-        Tool(
-            name="graphical_matching",
-            func=graphical_matching,
-            description="Useful for when you need graphical matching."
-        ),
-    ]
-    return tools
-
-
-def define_agent(llm, tools):
-    agent = create_conversational_retrieval_agent(llm, tools, verbose=True)
-    return agent
-
-
-def syntactic_matching(entity):
+@tool
+def findSyntacticMatching(entity: str) -> list:
+    """Find syntactic matching."""
+    util.print_colored_text(f"Find syntactic matching: {entity}", "green")
     syntactic_matching = entity_matching(entity, "syntactic_matching")
     syntactic_matches = pd.DataFrame(syntactic_matching)
     syntactic_matches.drop_duplicates(['entity'], inplace=True)
     if len(syntactic_matches) != 0:
-        return syntactic_matches['entity'].head(top_k).values.tolist()
+        result = syntactic_matches['entity'].head(top_k).values.tolist()
     else:
-        return [null_value_matching]
+        result = [null_value_matching]
+    print(result)
+    return result
 
 
-def lexical_matching(entity):
+@tool
+def findLexicalMatching(entity: str) -> list:
+    """Find lexical matching."""
+    util.print_colored_text(f"Find lexical matching: {entity}", "yellow")
     lexical_matching = entity_matching(entity, "lexical_matching")
     lexical_matches = pd.DataFrame(lexical_matching)
     lexical_matches.drop_duplicates(['entity'], inplace=True)
     if len(lexical_matches) != 0:
-        return lexical_matches['entity'].head(top_k).values.tolist()
+        result = lexical_matches['entity'].head(top_k).values.tolist()
     else:
-        return [null_value_matching]
+        result = [null_value_matching]
+    print(result)
+    return result
 
 
-def graphical_matching(entity):
+@tool
+def findGraphicalMatching(entity: str) -> list:
+    """Find graphical matching."""
+    util.print_colored_text(f"Find graphical matching: {entity}", "magenta")
     graphical_matching = entity_matching(entity, "graphical_matching")
     graphical_matches = pd.DataFrame(graphical_matching)
     graphical_matches.drop_duplicates(['entity'], inplace=True)
     if len(graphical_matches) != 0:
-        return graphical_matches['entity'].head(top_k).values.tolist()
+        result = graphical_matches['entity'].head(top_k).values.tolist()
     else:
-        return [null_value_matching]
+        result = [null_value_matching]
+    print(result)
+    return result
 
 
+# start ontology matching tools
 def find_all_matching_candidate(entity):
-    syntactic_matching = ResponseSchema(name="syntactic", description="syntactic matching", type="list")
-    lexical_matching= ResponseSchema(name="lexical", description="lexical matching", type="list")
-    graphical_matching = ResponseSchema(name="graphical", description="graphical matching", type="list")
-    response_schema = [syntactic_matching, lexical_matching, graphical_matching]
-    output_parser = StructuredOutputParser.from_response_schemas(response_schema)
-    format_instructions = output_parser.get_format_instructions()
-    # print(format_instructions)
-    template = """
-               Find syntactic matching to the entity: {entity}
-               Find lexical matching to the entity: {entity}
-               Find graphical matching to the entity: {entity}
-               {format_instructions}
-               """
-    prompt_template = ChatPromptTemplate.from_template(template)
-    # combine template with format instructions
-    prompt = prompt_template.format_messages(entity=entity, format_instructions=format_instructions)
-    print("matching prompt:", prompt[0].content)
-
-    # define tools
-    tools = define_tools()
-    # define agent
-    agent = define_agent(llm, tools)
-    # execute agent
-    result = agent.invoke({"input": prompt})
-    output = result['output']
-    # print("output:", output)
-    # clean comments in json string
-    json_no_comments = re.sub(r'//.*', '', output)
-    # convert string to dictionary
-    output_dict = output_parser.parse(json_no_comments)
-    print("output_dict:", output_dict)
-    # deal with ```json
-    # if output.startswith("```json") and output.endswith("```"):
-    #     output = output[7:-3].strip()
-    # output_dict = json.loads(output)
+    # define entity matching
+    chain = create_tool_use_agent(matching_tools, matching_tool_chain)
+    syntactic_matching = chain.invoke({"input": f"Find syntactic matching about the entity: {entity}"})
+    lexical_matching = chain.invoke({"input": f"Find lexical matching about the entity: {entity}"})
+    graphical_matching = chain.invoke({"input": f"Find graphical matching about the entity: {entity}"})
+    output_dict = {'syntactic_matching': syntactic_matching, 'lexical_matching': lexical_matching, 'graphical_matching': graphical_matching}
     return output_dict
-
-
-def extract_yes_no(text):
-    match = re.search(r'\b(?:yes|no)\b', str(text), flags=re.IGNORECASE)
-    return match.group().lower() if match else None
 
 
 def reciprocal_rank_fusion_all_with_grouped_scores_exclude_none(*rankings):
@@ -278,6 +233,11 @@ def reciprocal_rank_fusion_all_with_grouped_scores_exclude_none(*rankings):
     # group items by their score
     grouped_items_by_score = [(score, [item for item, _ in items]) for score, items in itertools.groupby(fused_ranking_with_scores, key=lambda x: x[1])]
     return grouped_items_by_score
+
+
+def extract_yes_no(text):
+    match = re.search(r'\b(?:yes|no)\b', str(text), flags=re.IGNORECASE)
+    return match.group().lower() if match else None
 
 
 def find_most_relevant_entity(entity, source_or_target):
@@ -342,8 +302,129 @@ def find_most_relevant_entity(entity, source_or_target):
                 if candidates_with_validation_and_merge:
                     break
 
+    print(f"entity: {entity}, matching has been completed.\n")
     create_log(f"entity: {entity}, matching has been completed.\n")
     return candidates_without_validation_and_merge, candidates_with_validation_and_merge
+
+
+# start ontology matching tools
+@tool
+def findOntologyMatching():
+    """Find ontology matching."""
+    util.print_colored_text("Find ontology information:", "blue")
+
+    # find all entities
+    e1_list_class, e2_list_class, e1_list_property, e2_list_property = om_ontology_to_csv.find_all_entities()
+    e1_list = e1_list_class + e1_list_property
+    e2_list = e2_list_class + e2_list_property
+
+    # find matching from source ontology
+    util.create_document(predict_source_path_no_validation, header=['Entity1', 'Entity2'])
+    util.create_document(predict_source_path, header=['Entity1', 'Entity2'])
+    # e1_list = ["http://cmt#Bid"] # all null value
+    # e1_list = ["http://cmt#PaperFullVersion"]
+    # e1_list = ["http://mouse.owl#MA_0000013"] # test entity name
+    # e1_list = ["http://mouse.owl#MA_0000096"] # test one null value
+    # e1_list = ["http://mouse.owl#MA_0001017"] # test all null value
+    for entity in e1_list:
+        print("entity1:", entity)
+        entity_id = find_entity_id(entity, "Source")
+        candidates_without_validation_and_merge, candidates_with_validation_and_merge = find_most_relevant_entity(entity_id, "Source")
+        for candidate in candidates_without_validation_and_merge:
+            with open(predict_source_path_no_validation, "a+", newline='') as f:
+                writer = csv.writer(f)
+                list_pair = [entity, candidate]
+                writer.writerow(list_pair)
+        for candidate in candidates_with_validation_and_merge:
+            with open(predict_source_path, "a+", newline='') as f:
+                writer = csv.writer(f)
+                list_pair = [entity, candidate]
+                writer.writerow(list_pair)
+    # evaluation
+    print(util.calculate_metrics(true_path, predict_source_path_no_validation, result_path, llm.model_name, alignment + "source_no_validation"))
+    print(util.calculate_metrics(true_path, predict_source_path, result_path, llm.model_name, alignment + "source"))
+
+    # find matching from target ontology
+    util.create_document(predict_target_path_no_validation, header=['Entity2', 'Entity1'])
+    util.create_document(predict_target_path, header=['Entity2', 'Entity1'])
+    # e2_list = ["http://human.owl#NCI_C32727"] # test not a json format
+    for entity in e2_list:
+        print("entity2:", entity)
+        entity_id = find_entity_id(entity, "Target")
+        candidates_without_validation_and_merge, candidates_with_validation_and_merge = find_most_relevant_entity(
+            entity_id, "Target")
+        for candidate in candidates_without_validation_and_merge:
+            with open(predict_target_path_no_validation, "a+", newline='') as f:
+                writer = csv.writer(f)
+                list_pair = [entity, candidate]
+                writer.writerow(list_pair)
+        for candidate in candidates_with_validation_and_merge:
+            with open(predict_target_path, "a+", newline='') as f:
+                writer = csv.writer(f)
+                list_pair = [entity, candidate]
+                writer.writerow(list_pair)
+    # evaluation
+    print(util.calculate_metrics(true_path, predict_target_path_no_validation, result_path, llm.model_name, alignment + "target_no_validation"))
+    print(util.calculate_metrics(true_path, predict_target_path, result_path, llm.model_name, alignment + "target"))
+
+
+matching_tools = [findSyntacticMatching, findLexicalMatching, findGraphicalMatching, findOntologyMatching]
+
+
+def matching_tool_chain(model_output):
+    tool_map = {tool.name: tool for tool in matching_tools}
+    chosen_tool = tool_map[model_output["name"]]
+    return itemgetter("arguments") | chosen_tool
+
+
+def create_tool_use_agent(tools, tool_chain):
+    # define combined prompt
+    rendered_tools = render_text_description(tools)
+    system_prompt = f"""You are an assistant that has access to the following set of tools. Here are the names and descriptions for each tool:
+               {rendered_tools}
+               Given the user input, return the name and input of the tool to use. 
+               Return your response as a JSON blob with the keys 'name' and 'arguments'.
+               The value associated with the key 'arguments' should be a dictionary of parameters.
+               """
+    prompt = ChatPromptTemplate.from_messages(
+        [("system", system_prompt), ("user", "{input}")]
+    )
+    # define chain
+    chain = prompt | llm | JsonOutputParser() | tool_chain
+    return chain
+
+
+# start ontology refine tools
+@tool
+def findMatchingMerge():
+    """Find matching merge."""
+    # matching merge without validation
+    df_source_no_validation = pd.read_csv(predict_source_path_no_validation)
+    df_target_no_validation = pd.read_csv(predict_target_path_no_validation)
+    df_merge_no_validation = pd.merge(df_source_no_validation, df_target_no_validation, on=['Entity1', 'Entity2'])
+    # Remove any duplicate rows in the common
+    df_merge_no_validation = df_merge_no_validation.drop_duplicates()
+    df_merge_no_validation.to_csv(predict_path_no_validation, index=False)
+    # evaluation
+    print(util.calculate_metrics(true_path, predict_path_no_validation, result_path, llm.model_name, alignment + "no_validation", ))
+    # matching merge with validation
+    df_source = pd.read_csv(predict_source_path)
+    df_target = pd.read_csv(predict_target_path)
+    df_merge = pd.merge(df_source, df_target, on=['Entity1', 'Entity2'])
+    # Remove any duplicate rows in the common
+    df_merge = df_merge.drop_duplicates()
+    df_merge.to_csv(predict_path, index=False)
+    # evaluation
+    print(util.calculate_metrics(true_path, predict_path, result_path, llm.model_name, alignment))
+
+
+ontology_refine_tools = [findMatchingMerge]
+
+
+def ontology_refine_tool_chain(model_output):
+    tool_map = {tool.name: tool for tool in ontology_refine_tools}
+    chosen_tool = tool_map[model_output["name"]]
+    return itemgetter("arguments") | chosen_tool
 
 
 if __name__ == '__main__':
@@ -368,75 +449,12 @@ if __name__ == '__main__':
         predict_path = config.predict_path.replace(".csv", "") + "-" + str(sys.argv[1]) + ".csv"
     print("similarity:", similarity_threshold)
 
-    # find all entities
-    e1_list_class, e2_list_class, e1_list_property, e2_list_property = om_ontology_to_csv.find_all_entities()
-    e1_list = e1_list_class + e1_list_property
-    e2_list = e2_list_class + e2_list_property
 
-    # find matching from source ontology
-    util.create_document(predict_source_path_no_validation, header=['Entity1', 'Entity2'])
-    util.create_document(predict_source_path, header=['Entity1', 'Entity2'])
-    # e1_list = ["http://cmt#Bid"]
-    # e1_list = ["http://cmt#PaperFullVersion"]
-    # e1_list = ["http://mouse.owl#MA_0000013"] # test entity name
-    # e1_list = ["http://mouse.owl#MA_0000096"] # test one null value
-    # e1_list = ["http://mouse.owl#MA_0001017"] # test all null value
-    for entity in e1_list:
-        print("entity1:", entity)
-        entity_id = find_entity_id(entity, "Source")
-        candidates_without_validation_and_merge, candidates_with_validation_and_merge = find_most_relevant_entity(entity_id, "Source")
-        for candidate in candidates_without_validation_and_merge:
-            with open(predict_source_path_no_validation, "a+", newline='') as f:
-                writer = csv.writer(f)
-                list_pair = [entity, candidate]
-                writer.writerow(list_pair)
-        for candidate in candidates_with_validation_and_merge:
-            with open(predict_source_path, "a+", newline='') as f:
-                writer = csv.writer(f)
-                list_pair = [entity, candidate]
-                writer.writerow(list_pair)
-    # evaluation
-    print(util.calculate_metrics(true_path, predict_source_path_no_validation, alignment + "source_no_validation", result_path))
-    print(util.calculate_metrics(true_path, predict_source_path, alignment + "source", result_path))
+    chain = create_tool_use_agent(matching_tools, matching_tool_chain)
+    chain.invoke({"input": f"Find ontology matching."})
 
-    # find matching from target ontology
-    util.create_document(predict_target_path_no_validation, header=['Entity2', 'Entity1'])
-    util.create_document(predict_target_path, header=['Entity2', 'Entity1'])
-    # e2_list = ["http://human.owl#NCI_C32727"] # test not a json format
-    for entity in e2_list:
-        print("entity2:", entity)
-        entity_id = find_entity_id(entity, "Target")
-        candidates_without_validation_and_merge, candidates_with_validation_and_merge = find_most_relevant_entity(entity_id, "Target")
-        for candidate in candidates_without_validation_and_merge:
-            with open(predict_target_path_no_validation, "a+", newline='') as f:
-                writer = csv.writer(f)
-                list_pair = [entity, candidate]
-                writer.writerow(list_pair)
-        for candidate in candidates_with_validation_and_merge:
-            with open(predict_target_path, "a+", newline='') as f:
-                writer = csv.writer(f)
-                list_pair = [entity, candidate]
-                writer.writerow(list_pair)
-    # evaluation
-    print(util.calculate_metrics(true_path, predict_target_path_no_validation, alignment + "target_no_validation", result_path))
-    print(util.calculate_metrics(true_path, predict_target_path, alignment + "target", result_path))
+    chain = create_tool_use_agent(ontology_refine_tools, ontology_refine_tool_chain)
+    chain.invoke({"input": f"Find matching merge."})
 
-    # matching merge without validation
-    df_source_no_validation = pd.read_csv(predict_source_path_no_validation)
-    df_target_no_validation = pd.read_csv(predict_target_path_no_validation)
-    df_merge_no_validation = pd.merge(df_source_no_validation, df_target_no_validation, on=['Entity1', 'Entity2'])
-    # Remove any duplicate rows in the common
-    df_merge_no_validation = df_merge_no_validation.drop_duplicates()
-    df_merge_no_validation.to_csv(predict_path_no_validation, index=False)
-    # evaluation
-    print(util.calculate_metrics(true_path, predict_path_no_validation, alignment + "no_validation", result_path))
 
-    # matching merge with validation
-    df_source = pd.read_csv(predict_source_path)
-    df_target = pd.read_csv(predict_target_path)
-    df_merge = pd.merge(df_source, df_target, on=['Entity1', 'Entity2'])
-    # Remove any duplicate rows in the common
-    df_merge = df_merge.drop_duplicates()
-    df_merge.to_csv(predict_path, index=False)
-    # evaluation
-    print(util.calculate_metrics(true_path, predict_path, alignment, result_path))
+

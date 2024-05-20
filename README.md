@@ -36,6 +36,7 @@ pip install psycopg2_binary==2.9.9
 pip install pgvector==0.1.8
 pip install commentjson==0.9.0
 pip install transformers
+pip install colorama
 ```
 ```
 pip install matplotlib==3.8.4
@@ -63,7 +64,7 @@ from langchain_openai import ChatOpenAI
 from langchain_community.chat_models import ChatOllama
 # load GPT series
 llm = ChatOpenAI(model='gpt-3.5-turbo', temperature=0)
-llm = ChatOpenAI('gpt-4-turbo', temperature=0)
+llm = ChatOpenAI(model='gpt-4-turbo', temperature=0)
 # load Llama-3 and Phi-3
 llm = ChatOllama(model="llama3", temperature=0)
 llm = ChatOllama(model="phi3", temperature=0)

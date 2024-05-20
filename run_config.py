@@ -5,11 +5,10 @@ import os
 import subprocess
 
 from langchain_openai import ChatOpenAI
-from langchain_mistralai import ChatMistralAI
-from langchain_openai import OpenAIEmbeddings
-from langchain_community.llms import Ollama
-from langchain_experimental.llms.ollama_functions import OllamaFunctions
 from langchain_community.chat_models import ChatOllama
+from langchain_mistralai import ChatMistralAI
+
+from langchain_openai import OpenAIEmbeddings
 
 # customer settings
 # search settings
@@ -19,10 +18,10 @@ num_matches = 50
 
 # alignment settings
 # conference track
-context = "conference"
-o1_is_code = False
-o2_is_code = False
-alignment = "conference/cmt-conference/component/"
+# context = "conference"
+# o1_is_code = False
+# o2_is_code = False
+# alignment = "conference/cmt-conference/component/"
 # alignment = "conference/cmt-confof/component/"
 # alignment = "conference/cmt-edas/component/"
 # alignment = "conference/cmt-ekaw/component/"
@@ -54,10 +53,10 @@ alignment = "conference/cmt-conference/component/"
 # alignment = "conference/dbpedia-sigkdd/component/"
 
 # anatomy track
-# context = "anatomy"
-# o1_is_code = True
-# o2_is_code = True
-# alignment = "anatomy/mouse-human-suite/component/"
+context = "anatomy"
+o1_is_code = True
+o2_is_code = True
+alignment = "anatomy/mouse-human-suite/component/"
 
 # metadata
 # e1_list_class: 2744
@@ -79,10 +78,10 @@ alignment = "conference/cmt-conference/component/"
 # e2_list_property: 95
 
 # mse Test Case 2
-context = "materials science"
-alignment = "mse/MaterialInformation-MatOnto/component/"
-o1_is_code = False
-o2_is_code = False
+# context = "materials science"
+# alignment = "mse/MaterialInformation-MatOnto/component/"
+# o1_is_code = False
+# o2_is_code = False
 
 # metadata
 # e1_list_class: 545
@@ -140,7 +139,7 @@ os.environ["MISTRAL_API_KEY"] = os.getenv("MISTRAL_API_KEY")
 
 # load GPT
 llm = ChatOpenAI(model='gpt-3.5-turbo', temperature=0)
-# llm = ChatOpenAI('gpt-4-turbo', temperature=0)
+# llm = ChatOpenAI(model='gpt-4-turbo', temperature=0)
 
 # load Ollama
 # llm = ChatOllama(model="llama3", temperature=0)
@@ -173,10 +172,14 @@ null_value_matching = "Entity-Dummy"
 
 if __name__ == '__main__':
 
+    print("llm:", llm.model_name)
+    print("alignment:", alignment)
+    print("similarity_threshold:", similarity_threshold)
+
     script_sequence = [
-        "om_ontology_to_csv_new.py",
+        "om_ontology_to_csv.py",
         "om_csv_to_database.py",
-        "om_database_matching_new.py",
+        "om_database_matching.py",
     ]
     for script in script_sequence:
         subprocess.run(["python", script])
