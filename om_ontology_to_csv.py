@@ -13,7 +13,7 @@ from operator import itemgetter
 from langchain.agents import AgentExecutor, create_tool_calling_agent
 from langchain import hub
 from langchain_core.messages import AIMessage
-from langchain_core.runnables import Runnable
+from langchain_core.runnables import Runnable, RunnablePassthrough
 
 # customer settings
 o1_path = config.o1_path
@@ -48,6 +48,7 @@ csv_path = config.csv_path
 ontology = None
 ontology_is_code = None
 ontology_prefix = None
+entity_uri = None
 
 
 def find_reference(align_path, true_path):
@@ -103,7 +104,7 @@ def findSyntacticInformation(entity: str) -> str:
     """Find syntactic information."""
     util.print_colored_text(f"Find syntactic information: {entity}", "green")
     # find entity name
-    entity_name = get_entity_name(entity, ontology, ontology_is_code)
+    entity_name = entity
     cleaned_entity_name = util.cleaning(entity_name)
     # print
     print("syntactic_information:", cleaned_entity_name)
@@ -115,7 +116,7 @@ def findLexicalInformation(entity: str) -> str:
     """Find lexical information."""
     util.print_colored_text(f"Find lexical information: {entity}", "yellow")
     # find entity name
-    entity_name = get_entity_name(entity, ontology, ontology_is_code)
+    entity_name = entity
     # extract extra information
     extra_information_set = set()
     for s, p, o in ontology.triples((rdflib.URIRef(entity), rdflib.RDFS.comment, None)):
@@ -132,7 +133,6 @@ def findLexicalInformation(entity: str) -> str:
                      "Context: {context}\n"
                      "Extra Information: {extra_information}\n"
                      "Answer the question within the context and using the extra information.\n"
-                     "Answer starts with \"In the context of {context}, {entity_name} refers to\".\n"
         )
         chain = prompt | llm
         answer = chain.invoke({
@@ -146,7 +146,6 @@ def findLexicalInformation(entity: str) -> str:
             template="Question: What is the meaning of {entity_name}?\n"
                      "Context: {context}\n"
                      "Answer the question within the context."
-                     "Answer starts with \"In the context of {context}, {entity_name} refers to\".\n"
         )
         chain = prompt | llm
         answer = chain.invoke({
@@ -162,6 +161,8 @@ def findLexicalInformation(entity: str) -> str:
 def findGraphicalInformation(entity: str) -> str:
     """Find graphical information."""
     util.print_colored_text(f"Find graphical information: {entity}", "magenta")
+    # find entity uri
+    entity = entity_uri
     # create a subgraph to store entity's graphical information
     subgraph = rdflib.Graph()
     # write the triples to the txt
@@ -237,6 +238,7 @@ def find_all_entities():
 def find_entity_information(path, entity_list, source_or_target, entity_type):
     # entity_list = ["http://cmt#Administrator"] # test graphical information
     # entity_list = ["http://cmt#User"] # test keyword
+    # entity_list = ["http://cmt#Meta-Review"]  # test tool key return
     # entity_list = ["http://cmt#Meta-Reviewer"] # test extra information
     # entity_list = ["http://cmt#acceptedBy"] # return the key "tool" instead of "name"
     # entity_list = ["http://conference#Organization"] # test null value
@@ -247,11 +249,17 @@ def find_entity_information(path, entity_list, source_or_target, entity_type):
     # entity_list = ["http://human.owl#NCI_C12220"]
     with open(path, "a+", newline='') as f1:
         for entity in entity_list:
+            print("entity:", entity)
+            # small models have issues passing the URI, fix by this solution
+            global entity_uri
+            entity_uri = entity
+            # translate to entity name
+            entity_name = get_entity_name(entity, ontology, ontology_is_code)
+            # find information
             chain = create_tool_use_agent(retrieval_tools, retrieval_tool_chain)
-            # print("entity:", entity)
-            syntactic_information = chain.invoke({"input": f"Find syntactic information about the entity: {entity}"})
-            lexical_information = chain.invoke({"input": f"Find lexical information about the entity: {entity}"})
-            graphical_information = chain.invoke({"input": f"Find graphical information about the entity: {entity}"})
+            syntactic_information = chain.invoke({"input": f"Find syntactic information about the entity: {entity_name}"}).get("output", null_value_sentence)
+            lexical_information = chain.invoke({"input": f"Find lexical information about the entity: {entity_name}"}).get("output", null_value_sentence)
+            graphical_information = chain.invoke({"input": f"Find graphical information about the entity: {entity_name}"}).get("output", null_value_sentence)
             # save information
             writer = csv.writer(f1)
             list_information = [entity, source_or_target, entity_type, syntactic_information, lexical_information, graphical_information]
@@ -338,19 +346,37 @@ def retrieval_tool_chain(model_output):
 
 
 def create_tool_use_agent(tools, tool_chain):
+    # try:
+    #     prompt = ChatPromptTemplate.from_messages(
+    #         [
+    #             (
+    #                 "system",
+    #                 "You are a helpful assistant. Make sure to only use tools provided.",
+    #             ),
+    #             ("placeholder", "{chat_history}"),
+    #             ("human", "{input}"),
+    #             ("placeholder", "{agent_scratchpad}"),
+    #         ]
+    #     )
+    #     # construct the tool calling agent
+    #     agent = create_tool_calling_agent(llm, tools, prompt)
+    #     # create an agent executor by passing in the agent and tools
+    #     agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=False)
+    #     return agent_executor
+    # except:
     # define combined prompt
     rendered_tools = render_text_description(tools)
     system_prompt = f"""You are an assistant that has access to the following set of tools. Here are the names and descriptions for each tool:
                {rendered_tools}
                Given the user input, return the name and input of the tool to use. 
                Return your response as a JSON blob with the keys 'name' and 'arguments'.
-               The value associated with the key 'arguments' should be a dictionary of parameters.
+               The value associated with the key 'arguments' is a dictionary of parameters.
                """
     prompt = ChatPromptTemplate.from_messages(
         [("system", system_prompt), ("user", "{input}")]
     )
     # define chain
-    chain = prompt | llm | JsonOutputParser() | tool_chain
+    chain = prompt | llm | JsonOutputParser() | RunnablePassthrough.assign(output=tool_chain)
     return chain
 
 
@@ -358,6 +384,6 @@ if __name__ == '__main__':
     # find true value
     find_reference(align_path, true_path)
     # run retrieve agent - Part 1
-    chain = create_tool_use_agent(retrieval_tools, retrieval_tool_chain)
-    chain.invoke({"input": f"Find ontology information."})
+    agent = create_tool_use_agent(retrieval_tools, retrieval_tool_chain)
+    agent.invoke({"input": f"Find ontology information."})
     # agent_executor.invoke({"input": "Find ontology information."})

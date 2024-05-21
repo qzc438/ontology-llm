@@ -28,16 +28,15 @@ http://cmt#Review,http://conference#Review
 http://cmt#Reviewer,http://conference#Reviewer
 http://cmt#SubjectArea,http://conference#Topic
 http://cmt#User,http://conference#Person
-http://cmt#acceptsHardcopySubmissions,http://conference#is_submitted_at
 http://cmt#addProgramCommitteeMember,http://conference#has_a_program_committee
 http://cmt#addedBy,http://conference#has_members
 http://cmt#assignExternalReviewer,http://conference#invites_co-reviewers
 http://cmt#assignReviewer,http://conference#belongs_to_reviewers
+http://cmt#assignReviewer,http://conference#invites_co-reviewers
 http://cmt#assignedByAdministrator,http://conference#invites_co-reviewers
 http://cmt#assignedByReviewer,http://conference#belongs_to_reviewers
 http://cmt#assignedTo,http://conference#invites_co-reviewers
-http://cmt#date,http://conference#has_a_date_of_issue
-http://cmt#email,http://conference#has_an_email
+http://cmt#date,http://conference#has_workshops
 http://cmt#endReview,http://conference#reviews
 http://cmt#enterReviewCriteria,http://conference#reviews
 http://cmt#hasAuthor,http://conference#has_authors
@@ -53,5 +52,4 @@ http://cmt#name,http://conference#has_a_name
 http://cmt#readByReviewer,http://conference#invites_co-reviewers
 http://cmt#readPaper,http://conference#reviews
 http://cmt#siteURL,http://conference#has_a_URL
-http://cmt#writeReview,http://conference#invited_by
 http://cmt#writeReview,http://conference#reviews

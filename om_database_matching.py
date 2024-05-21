@@ -63,10 +63,19 @@ content = ""
 source_or_target = ""
 entity_type = ""
 
+# create logger
+logger = logging.getLogger('agent_log')
+# create file handler
+fileHandler = logging.FileHandler("agent.log", mode='w')
+logFormatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+fileHandler.setFormatter(logFormatter)
+logger.addHandler(fileHandler)
+
 
 def create_log(message):
     logger = logging.getLogger('agent_log')
-    logger.critical(message)
+    logger.setLevel(logging.INFO)
+    logger.info(message)
 
 
 # start entity matching tools
@@ -167,6 +176,7 @@ def entity_matching(entity, table_name):
 def findSyntacticMatching(entity: str) -> list:
     """Find syntactic matching."""
     util.print_colored_text(f"Find syntactic matching: {entity}", "green")
+    # tool function
     syntactic_matching = entity_matching(entity, "syntactic_matching")
     syntactic_matches = pd.DataFrame(syntactic_matching)
     syntactic_matches.drop_duplicates(['entity'], inplace=True)
@@ -182,6 +192,7 @@ def findSyntacticMatching(entity: str) -> list:
 def findLexicalMatching(entity: str) -> list:
     """Find lexical matching."""
     util.print_colored_text(f"Find lexical matching: {entity}", "yellow")
+    # tool function
     lexical_matching = entity_matching(entity, "lexical_matching")
     lexical_matches = pd.DataFrame(lexical_matching)
     lexical_matches.drop_duplicates(['entity'], inplace=True)
@@ -197,6 +208,7 @@ def findLexicalMatching(entity: str) -> list:
 def findGraphicalMatching(entity: str) -> list:
     """Find graphical matching."""
     util.print_colored_text(f"Find graphical matching: {entity}", "magenta")
+    # tool function
     graphical_matching = entity_matching(entity, "graphical_matching")
     graphical_matches = pd.DataFrame(graphical_matching)
     graphical_matches.drop_duplicates(['entity'], inplace=True)
@@ -281,21 +293,8 @@ def find_most_relevant_entity(entity, source_or_target):
                         create_log(f"result_refine_without_prompt: {predict_entity_name}")
                         continue
                     else:
-                        prompt_refine_question = (
-                            "Question: Is \"{entity_name}\" equivalent to \"{predict_entity_name}\"?\n"
-                            "Context: {context}\n"
-                            "Answer the question within the context.\n"
-                            "Answer yes or no. Give a short explanation."
-                            # "Entity 1: {entity_name}\n"
-                            # "Entity 2: {predict_entity_name}\n"
-                            # "Question: Are these two entities equivalent?\n"
-                            # "Context: {context}\n"
-                            # "Answer the question within the context.\n"
-                            # "Answer yes or no. Give a short explanation.\n"
-                            .format(context=context, entity_name=entity_name, predict_entity_name=predict_entity_name))
-                        result_refine = llm.invoke(prompt_refine_question).content
-                        print("result_refine:", result_refine)
-                        create_log(f"result_refine_with_prompt: {result_refine}")
+                        chain = create_tool_use_agent(matching_tools, matching_tool_chain)
+                        result_refine = chain.invoke({f"input": f"Matching validate with {entity_name} and {predict_entity_name}."})
                         if extract_yes_no(result_refine) == "yes":
                             candidates_with_validation_and_merge.append(find_entity(predict_entity))
                 print("candidates_with_validation_and_merge:", candidates_with_validation_and_merge)
@@ -312,6 +311,7 @@ def find_most_relevant_entity(entity, source_or_target):
 def findOntologyMatching():
     """Find ontology matching."""
     util.print_colored_text("Find ontology information:", "blue")
+    # tool function
 
     # find all entities
     e1_list_class, e2_list_class, e1_list_property, e2_list_property = om_ontology_to_csv.find_all_entities()
@@ -341,8 +341,8 @@ def findOntologyMatching():
                 list_pair = [entity, candidate]
                 writer.writerow(list_pair)
     # evaluation
-    print(util.calculate_metrics(true_path, predict_source_path_no_validation, result_path, llm.model_name, alignment + "source_no_validation"))
-    print(util.calculate_metrics(true_path, predict_source_path, result_path, llm.model_name, alignment + "source"))
+    print(util.calculate_metrics(true_path, predict_source_path_no_validation, result_path, llm, alignment + "source_no_validation"))
+    print(util.calculate_metrics(true_path, predict_source_path, result_path, llm, alignment + "source"))
 
     # find matching from target ontology
     util.create_document(predict_target_path_no_validation, header=['Entity2', 'Entity1'])
@@ -364,11 +364,62 @@ def findOntologyMatching():
                 list_pair = [entity, candidate]
                 writer.writerow(list_pair)
     # evaluation
-    print(util.calculate_metrics(true_path, predict_target_path_no_validation, result_path, llm.model_name, alignment + "target_no_validation"))
-    print(util.calculate_metrics(true_path, predict_target_path, result_path, llm.model_name, alignment + "target"))
+    print(util.calculate_metrics(true_path, predict_target_path_no_validation, result_path, llm, alignment + "target_no_validation"))
+    print(util.calculate_metrics(true_path, predict_target_path, result_path, llm, alignment + "target"))
+
+    # matching merge
+    chain = create_tool_use_agent(matching_tools, matching_tool_chain)
+    chain.invoke({"input": f"Matching merge."})
 
 
-matching_tools = [findSyntacticMatching, findLexicalMatching, findGraphicalMatching, findOntologyMatching]
+# start ontology refine tools
+@tool
+def matchingMerge():
+    """Matching merge."""
+    util.print_colored_text(f"Matching merge:", "cyan")
+    # tool function
+    # matching merge without validation
+    df_source_no_validation = pd.read_csv(predict_source_path_no_validation)
+    df_target_no_validation = pd.read_csv(predict_target_path_no_validation)
+    df_merge_no_validation = pd.merge(df_source_no_validation, df_target_no_validation, on=['Entity1', 'Entity2'])
+    # Remove any duplicate rows in the common
+    df_merge_no_validation = df_merge_no_validation.drop_duplicates()
+    df_merge_no_validation.to_csv(predict_path_no_validation, index=False)
+    # evaluation
+    print(util.calculate_metrics(true_path, predict_path_no_validation, result_path, llm, alignment + "no_validation", ))
+    # matching merge with validation
+    df_source = pd.read_csv(predict_source_path)
+    df_target = pd.read_csv(predict_target_path)
+    df_merge = pd.merge(df_source, df_target, on=['Entity1', 'Entity2'])
+    # Remove any duplicate rows in the common
+    df_merge = df_merge.drop_duplicates()
+    df_merge.to_csv(predict_path, index=False)
+    # evaluation
+    print(util.calculate_metrics(true_path, predict_path, result_path, llm, alignment))
+
+
+@tool
+def matchingValidate(entity_name: str, predict_entity_name: str) -> str:
+    """Matching validate."""
+    util.print_colored_text(f"Matching validate: {entity_name} and {predict_entity_name}", "cyan")
+    # tool function
+    prompt_refine_question = (
+        "Question: Is \"{entity_name}\" often used interchangeably with \"{predict_entity_name}\"?\n"
+        "Context: {context}\n"
+        "Answer the question within the context.\n"
+        "Answer yes or no. Give a short explanation."
+        # "Entity 1: {entity_name}\n"
+        # "Entity 2: {predict_entity_name}\n"
+        # "Question: In the context of {context}, is Entity 1 equivalent to Entity 2?\n"
+        # "Answer the question yes or no. Give a short explanation.\n"
+        .format(context=context, entity_name=entity_name, predict_entity_name=predict_entity_name))
+    result_refine = llm.invoke(prompt_refine_question).content
+    print("result_refine:", result_refine)
+    create_log(f"result_refine_with_prompt: {result_refine}")
+    return result_refine
+
+
+matching_tools = [findSyntacticMatching, findLexicalMatching, findGraphicalMatching, findOntologyMatching, matchingValidate, matchingMerge]
 
 
 def matching_tool_chain(model_output):
@@ -381,11 +432,11 @@ def create_tool_use_agent(tools, tool_chain):
     # define combined prompt
     rendered_tools = render_text_description(tools)
     system_prompt = f"""You are an assistant that has access to the following set of tools. Here are the names and descriptions for each tool:
-               {rendered_tools}
-               Given the user input, return the name and input of the tool to use. 
-               Return your response as a JSON blob with the keys 'name' and 'arguments'.
-               The value associated with the key 'arguments' should be a dictionary of parameters.
-               """
+                   {rendered_tools}
+                   Given the user input, return the name and input of the tool to use. 
+                   Return your response as a JSON blob with the keys 'name' and 'arguments'.
+                   The value associated with the key 'arguments' should be a dictionary of parameters.
+                   """
     prompt = ChatPromptTemplate.from_messages(
         [("system", system_prompt), ("user", "{input}")]
     )
@@ -394,49 +445,7 @@ def create_tool_use_agent(tools, tool_chain):
     return chain
 
 
-# start ontology refine tools
-@tool
-def findMatchingMerge():
-    """Find matching merge."""
-    # matching merge without validation
-    df_source_no_validation = pd.read_csv(predict_source_path_no_validation)
-    df_target_no_validation = pd.read_csv(predict_target_path_no_validation)
-    df_merge_no_validation = pd.merge(df_source_no_validation, df_target_no_validation, on=['Entity1', 'Entity2'])
-    # Remove any duplicate rows in the common
-    df_merge_no_validation = df_merge_no_validation.drop_duplicates()
-    df_merge_no_validation.to_csv(predict_path_no_validation, index=False)
-    # evaluation
-    print(util.calculate_metrics(true_path, predict_path_no_validation, result_path, llm.model_name, alignment + "no_validation", ))
-    # matching merge with validation
-    df_source = pd.read_csv(predict_source_path)
-    df_target = pd.read_csv(predict_target_path)
-    df_merge = pd.merge(df_source, df_target, on=['Entity1', 'Entity2'])
-    # Remove any duplicate rows in the common
-    df_merge = df_merge.drop_duplicates()
-    df_merge.to_csv(predict_path, index=False)
-    # evaluation
-    print(util.calculate_metrics(true_path, predict_path, result_path, llm.model_name, alignment))
-
-
-ontology_refine_tools = [findMatchingMerge]
-
-
-def ontology_refine_tool_chain(model_output):
-    tool_map = {tool.name: tool for tool in ontology_refine_tools}
-    chosen_tool = tool_map[model_output["name"]]
-    return itemgetter("arguments") | chosen_tool
-
-
 if __name__ == '__main__':
-    # create logger
-    logger = logging.getLogger('agent_log')
-    # create file handler
-    fileHandler = logging.FileHandler("agent.log", mode='w')
-    fileHandler.setLevel(logging.INFO)
-    logFormatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    fileHandler.setFormatter(logFormatter)
-    logger.addHandler(fileHandler)
-
     # check similarity: update parameter1 based on provided arguments
     if len(sys.argv) > 1:
         similarity_threshold = float(sys.argv[1])
@@ -448,13 +457,9 @@ if __name__ == '__main__':
         predict_target_path = config.predict_target_path.replace(".csv", "") + "-" + str(sys.argv[1]) + ".csv"
         predict_path = config.predict_path.replace(".csv", "") + "-" + str(sys.argv[1]) + ".csv"
     print("similarity:", similarity_threshold)
-
-
+    # run matching agent
     chain = create_tool_use_agent(matching_tools, matching_tool_chain)
     chain.invoke({"input": f"Find ontology matching."})
-
-    chain = create_tool_use_agent(ontology_refine_tools, ontology_refine_tool_chain)
-    chain.invoke({"input": f"Find matching merge."})
 
 
 

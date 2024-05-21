@@ -18,10 +18,10 @@ num_matches = 50
 
 # alignment settings
 # conference track
-# context = "conference"
-# o1_is_code = False
-# o2_is_code = False
-# alignment = "conference/cmt-conference/component/"
+context = "conference"
+o1_is_code = False
+o2_is_code = False
+alignment = "conference/cmt-conference/component/"
 # alignment = "conference/cmt-confof/component/"
 # alignment = "conference/cmt-edas/component/"
 # alignment = "conference/cmt-ekaw/component/"
@@ -53,10 +53,10 @@ num_matches = 50
 # alignment = "conference/dbpedia-sigkdd/component/"
 
 # anatomy track
-context = "anatomy"
-o1_is_code = True
-o2_is_code = True
-alignment = "anatomy/mouse-human-suite/component/"
+# context = "anatomy"
+# o1_is_code = True
+# o2_is_code = True
+# alignment = "anatomy/mouse-human-suite/component/"
 
 # metadata
 # e1_list_class: 2744
@@ -138,12 +138,13 @@ os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 os.environ["MISTRAL_API_KEY"] = os.getenv("MISTRAL_API_KEY")
 
 # load GPT
-llm = ChatOpenAI(model='gpt-3.5-turbo', temperature=0)
+# llm = ChatOpenAI(model='gpt-3.5-turbo', temperature=0)
 # llm = ChatOpenAI(model='gpt-4-turbo', temperature=0)
 
 # load Ollama
 # llm = ChatOllama(model="llama3", temperature=0)
-# llm = ChatOllama(model="phi3", temperature=0)
+# llm = ChatOllama(model="mixtral", temperature=0)
+llm = ChatOllama(model="phi3", temperature=0)
 
 # load MistralAI
 # llm = ChatMistralAI(model="mistral-large-latest", temperature=0)
@@ -172,7 +173,13 @@ null_value_matching = "Entity-Dummy"
 
 if __name__ == '__main__':
 
-    print("llm:", llm.model_name)
+    if hasattr(llm, 'model'):
+        print("llm:", llm.model)
+
+    # Check if 'llm' has an attribute 'model_name'
+    if hasattr(llm, 'model_name'):
+        print("llm:", llm.model_name)
+
     print("alignment:", alignment)
     print("similarity_threshold:", similarity_threshold)
 
