@@ -142,13 +142,14 @@ os.environ["MISTRAL_API_KEY"] = os.getenv("MISTRAL_API_KEY")
 # llm = ChatOpenAI(model='gpt-4-turbo', temperature=0)
 
 # load large model
-llm = ChatOllama(model="llama3:70b", temperature=0)
+# llm = ChatOllama(model="llama3:70b", temperature=0)
 
 # load Ollama
 # llm = ChatOllama(model="llama3:8b", temperature=0)
 # llm = ChatOllama(model="mistral:7b", temperature=0)
+# llm = ChatOllama(model="gemma:7b", temperature=0)
 # llm = ChatOllama(model="phi3:3.8b", temperature=0)
-# llm = ChatOllama(model="gemma:2b", temperature=0)
+
 
 # load MistralAI
 # llm = ChatMistralAI(model="mistral-large-latest", temperature=0)

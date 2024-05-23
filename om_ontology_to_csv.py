@@ -100,9 +100,9 @@ def get_entity_name(entity, ontology, ontology_is_code):
 
 
 @tool
-def syntactical(entity: str) -> str:
+def syntactic(entity: str) -> str:
     """Retrieve syntactic information."""
-    util.print_colored_text(f"Retrieve syntactical information: {entity}", "green")
+    util.print_colored_text(f"Retrieve syntactic information: {entity}", "green")
     # find entity name
     # entity_name = entity
     entity_name = get_entity_name(entity, ontology, ontology_is_code)
@@ -160,12 +160,12 @@ def lexical(entity: str) -> str:
 
 
 @tool
-def graphical(entity: str) -> str:
-    """Retrieve graphical information."""
-    util.print_colored_text(f"Retrieve graphical information: {entity}", "magenta")
+def semantic(entity: str) -> str:
+    """Retrieve semantic information."""
+    util.print_colored_text(f"Retrieve semantic information: {entity}", "magenta")
     # find entity uri
     entity = entity_uri
-    # create a subgraph to store entity's graphical information
+    # create a subgraph to store entity's semantic information
     subgraph = rdflib.Graph()
     # write the triples to the txt
     relevant_list = [rdflib.RDFS.subClassOf, rdflib.OWL.disjointWith, rdflib.RDFS.domain, rdflib.RDFS.range]
@@ -192,10 +192,10 @@ def graphical(entity: str) -> str:
         )
         chain = prompt | llm
         answer = chain.invoke({'subgraph': subgraph.serialize(format="turtle")})
-        print("graphical_information:", answer.content)
+        print("semantic_information:", answer.content)
         return answer.content
     else:
-        print("graphical_information:", null_value_sentence)
+        print("semantic_information:", null_value_sentence)
         return null_value_sentence
 
 
@@ -238,7 +238,7 @@ def find_all_entities():
 
 
 def find_entity_information(path, entity_list, source_or_target, entity_type):
-    # entity_list = ["http://cmt#Administrator"] # test graphical information
+    # entity_list = ["http://cmt#Administrator"] # test semantic information
     # entity_list = ["http://cmt#User"] # test keyword
     # entity_list = ["http://cmt#AssociatedChair"]
     # entity_list = ["http://cmt#memberOfProgramCommittee"]
@@ -263,15 +263,15 @@ def find_entity_information(path, entity_list, source_or_target, entity_type):
             # entity = get_entity_name(entity, ontology, ontology_is_code)
             # find information
             chain = create_tool_use_agent(retrieval_tools, retrieval_tool_chain)
-            syntactical_prompt = f"Retrieve syntactical information about {entity}"
-            syntactical_information = chain.invoke({"input": syntactical_prompt}).get("output", null_value_sentence)
+            syntactic_prompt = f"Retrieve syntactic information about {entity}"
+            syntactic_information = chain.invoke({"input": syntactic_prompt})
             lexical_prompt = f"Retrieve lexical information about {entity}"
-            lexical_information = chain.invoke({"input": lexical_prompt}).get("output", null_value_sentence)
-            graphical_prompt = f"Retrieve graphical information about {entity}"
-            graphical_information = chain.invoke({"input": graphical_prompt}).get("output", null_value_sentence)
+            lexical_information = chain.invoke({"input": lexical_prompt})
+            semantic_prompt = f"Retrieve semantic information about {entity}"
+            semantic_information = chain.invoke({"input": semantic_prompt})
             # save information
             writer = csv.writer(f1)
-            list_information = [entity, source_or_target, entity_type, syntactical_information, lexical_information, graphical_information]
+            list_information = [entity, source_or_target, entity_type, syntactic_information, lexical_information, semantic_information]
             writer.writerow(list_information)
 
             # # only work for llm support tool calling
@@ -284,10 +284,10 @@ def find_entity_information(path, entity_list, source_or_target, entity_type):
             # lexical_query = f"Find lexical information about the entity: {entity}"
             # lexical_result = chain.invoke(lexical_query)
             # lexical_information = lexical_result[0].get("output")
-            # # find graphical information
-            # graphical_query = f"Find graphical information about the entity: {entity}"
-            # graphical_result = chain.invoke(graphical_query)
-            # graphical_information = graphical_result[0].get("output")
+            # # find semantic information
+            # semantic_query = f"Find semantic information about the entity: {entity}"
+            # semantic_result = chain.invoke(semantic_query)
+            # semantic_information = semantic_result[0].get("output")
 
 
 @tool
@@ -297,7 +297,7 @@ def ontology():
     # find all entities
     e1_list_class, e2_list_class, e1_list_property, e2_list_property = find_all_entities()
     # create csv
-    header = ['entity', 'source_or_target', 'entity_type', 'syntactical_matching', 'lexical_matching', 'graphical_matching']
+    header = ['entity', 'source_or_target', 'entity_type', 'syntactic_matching', 'lexical_matching', 'semantic_matching']
     util.create_document(csv_path, header=header)
     # re-define global variables
     global ontology, ontology_prefix, ontology_is_code
@@ -311,7 +311,7 @@ def ontology():
     find_entity_information(csv_path, e2_list_property, "Target", "Property")
 
 
-retrieval_tools = [syntactical, lexical, graphical, ontology]
+retrieval_tools = [syntactic, lexical, semantic, ontology]
 
 
 def retrieval_tool_chain(model_output):
@@ -377,7 +377,7 @@ def create_tool_use_agent(tools, tool_chain):
     rendered_tools = render_text_description(tools)
     system_prompt = f"""You are an assistant that has access to the following set of tools. Here are the names and descriptions for each tool:
                {rendered_tools}
-               Given the user input, return the name and arguments of the tool to use. 
+               Given the user input, return the name of the tool to use and the arguments passed to the tool.
                Return your response as a JSON blob with the key 'name' and 'arguments'.
                The value associated with the key 'arguments' should be a dictionary of parameters.
                """
@@ -385,7 +385,7 @@ def create_tool_use_agent(tools, tool_chain):
         [("system", system_prompt), ("user", "{input}")]
     )
     # define chain
-    chain = prompt | llm | JsonOutputParser() | RunnablePassthrough.assign(output=tool_chain)
+    chain = prompt | llm | JsonOutputParser() | tool_chain
     return chain
 
 

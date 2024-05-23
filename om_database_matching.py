@@ -175,15 +175,15 @@ def entity_matching(entity, table_name):
 
 
 @tool
-def syntactical(entity: str) -> list:
-    """Syntactical matching."""
-    util.print_colored_text(f"Syntactical matching: {entity}", "green")
+def syntactic(entity: str) -> list:
+    """Syntactic matching."""
+    util.print_colored_text(f"Syntactic matching: {entity}", "green")
     # tool function
-    syntactical_matching = entity_matching(entity, "syntactical_matching")
-    syntactical_matches = pd.DataFrame(syntactical_matching)
-    syntactical_matches.drop_duplicates(['entity'], inplace=True)
-    if len(syntactical_matches) != 0:
-        result = syntactical_matches['entity'].head(top_k).values.tolist()
+    syntactic_matching = entity_matching(entity, "syntactic_matching")
+    syntactic_matches = pd.DataFrame(syntactic_matching)
+    syntactic_matches.drop_duplicates(['entity'], inplace=True)
+    if len(syntactic_matches) != 0:
+        result = syntactic_matches['entity'].head(top_k).values.tolist()
     else:
         result = [null_value_matching]
     print(result)
@@ -207,15 +207,15 @@ def lexical(entity: str) -> list:
 
 
 @tool
-def graphical(entity: str) -> list:
-    """Graphical matching."""
-    util.print_colored_text(f"Graphical matching: {entity}", "magenta")
+def semantic(entity: str) -> list:
+    """Semantic matching."""
+    util.print_colored_text(f"Semantic matching: {entity}", "magenta")
     # tool function
-    graphical_matching = entity_matching(entity, "graphical_matching")
-    graphical_matches = pd.DataFrame(graphical_matching)
-    graphical_matches.drop_duplicates(['entity'], inplace=True)
-    if len(graphical_matches) != 0:
-        result = graphical_matches['entity'].head(top_k).values.tolist()
+    semantic_matching = entity_matching(entity, "semantic_matching")
+    semantic_matches = pd.DataFrame(semantic_matching)
+    semantic_matches.drop_duplicates(['entity'], inplace=True)
+    if len(semantic_matches) != 0:
+        result = semantic_matches['entity'].head(top_k).values.tolist()
     else:
         result = [null_value_matching]
     print(result)
@@ -226,13 +226,13 @@ def graphical(entity: str) -> list:
 def find_all_matching_candidate(entity):
     # define entity matching
     chain = create_tool_use_agent(matching_tools, matching_tool_chain)
-    syntactical_prompt = f"Syntactical matching for {entity}"
-    syntactical_matching = chain.invoke({"input": syntactical_prompt}).get("output")
+    syntactic_prompt = f"Syntactic matching for {entity}"
+    syntactic_matching = chain.invoke({"input": syntactic_prompt})
     lexical_prompt = f"Lexical matching for {entity}"
-    lexical_matching = chain.invoke({"input": lexical_prompt}).get("output")
-    graphical_prompt = f"Graphical matching for {entity}"
-    graphical_matching = chain.invoke({"input": graphical_prompt}).get("output")
-    output_dict = {'syntactical_matching': syntactical_matching, 'lexical_matching': lexical_matching, 'graphical_matching': graphical_matching}
+    lexical_matching = chain.invoke({"input": lexical_prompt})
+    semantic_prompt = f"Semantic matching for {entity}"
+    semantic_matching = chain.invoke({"input": semantic_prompt})
+    output_dict = {'syntactic_matching': syntactic_matching, 'lexical_matching': lexical_matching, 'semantic_matching': semantic_matching}
     return output_dict
 
 
@@ -425,7 +425,7 @@ def validate(a: str, b: str) -> str:
     return result_refine
 
 
-matching_tools = [syntactical, lexical, graphical, ontology, validate, merge]
+matching_tools = [syntactic, lexical, semantic, ontology, validate, merge]
 
 
 def matching_tool_chain(model_output):
@@ -439,7 +439,7 @@ def create_tool_use_agent(tools, tool_chain):
     rendered_tools = render_text_description(tools)
     system_prompt = f"""You are an assistant that has access to the following set of tools. Here are the names and descriptions for each tool:
                     {rendered_tools}
-                    Given the user input, return the name and arguments of the tool to use. 
+                    Given the user input, return the name of the tool to use and the arguments passed to the tool.
                     Return your response as a JSON blob with the key 'name' and 'arguments'.
                     The value associated with the key 'arguments' should be a dictionary of parameters.
                     """
@@ -447,7 +447,7 @@ def create_tool_use_agent(tools, tool_chain):
         [("system", system_prompt), ("user", "{input}")]
     )
     # define chain
-    chain = prompt | llm | JsonOutputParser() | RunnablePassthrough.assign(output=tool_chain)
+    chain = prompt | llm | JsonOutputParser() | tool_chain
     return chain
 
 
