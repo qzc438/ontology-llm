@@ -27,6 +27,12 @@ def print_colored_text(text, color):
     print(color_code + text + colorama.Style.RESET_ALL)
 
 
+def find_model_name(llm):
+    if hasattr(llm, 'model'):
+        return llm.model
+    if hasattr(llm, 'model_name'):
+        return llm.model_name
+
 def find_uri(ontology):
     for ns_prefix, namespace in ontology.namespaces():
         if not ns_prefix:

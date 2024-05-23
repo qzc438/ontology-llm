@@ -100,11 +100,12 @@ def get_entity_name(entity, ontology, ontology_is_code):
 
 
 @tool
-def findSyntacticInformation(entity: str) -> str:
-    """Find syntactic information."""
-    util.print_colored_text(f"Find syntactic information: {entity}", "green")
+def syntactical(entity: str) -> str:
+    """Retrieve syntactic information."""
+    util.print_colored_text(f"Retrieve syntactical information: {entity}", "green")
     # find entity name
-    entity_name = entity
+    # entity_name = entity
+    entity_name = get_entity_name(entity, ontology, ontology_is_code)
     cleaned_entity_name = util.cleaning(entity_name)
     # print
     print("syntactic_information:", cleaned_entity_name)
@@ -112,11 +113,12 @@ def findSyntacticInformation(entity: str) -> str:
 
 
 @tool
-def findLexicalInformation(entity: str) -> str:
-    """Find lexical information."""
-    util.print_colored_text(f"Find lexical information: {entity}", "yellow")
+def lexical(entity: str) -> str:
+    """Retrieve lexical information."""
+    util.print_colored_text(f"Retrieve lexical information: {entity}", "yellow")
     # find entity name
-    entity_name = entity
+    # entity_name = entity
+    entity_name = get_entity_name(entity, ontology, ontology_is_code)
     # extract extra information
     extra_information_set = set()
     for s, p, o in ontology.triples((rdflib.URIRef(entity), rdflib.RDFS.comment, None)):
@@ -158,9 +160,9 @@ def findLexicalInformation(entity: str) -> str:
 
 
 @tool
-def findGraphicalInformation(entity: str) -> str:
-    """Find graphical information."""
-    util.print_colored_text(f"Find graphical information: {entity}", "magenta")
+def graphical(entity: str) -> str:
+    """Retrieve graphical information."""
+    util.print_colored_text(f"Retrieve graphical information: {entity}", "magenta")
     # find entity uri
     entity = entity_uri
     # create a subgraph to store entity's graphical information
@@ -238,9 +240,13 @@ def find_all_entities():
 def find_entity_information(path, entity_list, source_or_target, entity_type):
     # entity_list = ["http://cmt#Administrator"] # test graphical information
     # entity_list = ["http://cmt#User"] # test keyword
+    # entity_list = ["http://cmt#AssociatedChair"]
+    # entity_list = ["http://cmt#memberOfProgramCommittee"]
+    # entity_list = ["http://cmt#endReview"]
     # entity_list = ["http://cmt#Meta-Review"]  # test tool key return
     # entity_list = ["http://cmt#Meta-Reviewer"] # test extra information
     # entity_list = ["http://cmt#acceptedBy"] # return the key "tool" instead of "name"
+    # entity_list = ["http://cmt#hardcopyMailingManifestsPrintedBy"]
     # entity_list = ["http://conference#Organization"] # test null value
     # entity_list = ["http://conference#Important_dates"]  # test sentence format
     # entity_list = ["http://www.geneontology.org/formats/oboInOwl#DbXref"]  # test null value
@@ -254,15 +260,18 @@ def find_entity_information(path, entity_list, source_or_target, entity_type):
             global entity_uri
             entity_uri = entity
             # translate to entity name
-            entity_name = get_entity_name(entity, ontology, ontology_is_code)
+            # entity = get_entity_name(entity, ontology, ontology_is_code)
             # find information
             chain = create_tool_use_agent(retrieval_tools, retrieval_tool_chain)
-            syntactic_information = chain.invoke({"input": f"Find syntactic information about the entity: {entity_name}"}).get("output", null_value_sentence)
-            lexical_information = chain.invoke({"input": f"Find lexical information about the entity: {entity_name}"}).get("output", null_value_sentence)
-            graphical_information = chain.invoke({"input": f"Find graphical information about the entity: {entity_name}"}).get("output", null_value_sentence)
+            syntactical_prompt = f"Retrieve syntactical information about {entity}"
+            syntactical_information = chain.invoke({"input": syntactical_prompt}).get("output", null_value_sentence)
+            lexical_prompt = f"Retrieve lexical information about {entity}"
+            lexical_information = chain.invoke({"input": lexical_prompt}).get("output", null_value_sentence)
+            graphical_prompt = f"Retrieve graphical information about {entity}"
+            graphical_information = chain.invoke({"input": graphical_prompt}).get("output", null_value_sentence)
             # save information
             writer = csv.writer(f1)
-            list_information = [entity, source_or_target, entity_type, syntactic_information, lexical_information, graphical_information]
+            list_information = [entity, source_or_target, entity_type, syntactical_information, lexical_information, graphical_information]
             writer.writerow(list_information)
 
             # # only work for llm support tool calling
@@ -282,13 +291,13 @@ def find_entity_information(path, entity_list, source_or_target, entity_type):
 
 
 @tool
-def findOntologyInformation():
-    """Find ontology information."""
-    util.print_colored_text("Find ontology information:", "blue")
+def ontology():
+    """Retrieve ontology information."""
+    util.print_colored_text("Retrieve ontology information:", "blue")
     # find all entities
     e1_list_class, e2_list_class, e1_list_property, e2_list_property = find_all_entities()
     # create csv
-    header = ['entity', 'source_or_target', 'entity_type', 'syntactic_matching', 'lexical_matching', 'graphical_matching']
+    header = ['entity', 'source_or_target', 'entity_type', 'syntactical_matching', 'lexical_matching', 'graphical_matching']
     util.create_document(csv_path, header=header)
     # re-define global variables
     global ontology, ontology_prefix, ontology_is_code
@@ -302,7 +311,7 @@ def findOntologyInformation():
     find_entity_information(csv_path, e2_list_property, "Target", "Property")
 
 
-retrieval_tools = [findSyntacticInformation, findLexicalInformation, findGraphicalInformation, findOntologyInformation]
+retrieval_tools = [syntactical, lexical, graphical, ontology]
 
 
 def retrieval_tool_chain(model_output):
@@ -311,7 +320,7 @@ def retrieval_tool_chain(model_output):
     return itemgetter("arguments") | chosen_tool
 
 
-# # only work for llm support tool calling
+# # The follow code onlt only work for llm support tool calling
 # always_call_tool_llm = llm.bind_tools(tools, tool_choice="any")
 # tool_map = {tool.name: tool for tool in tools}
 #
@@ -368,9 +377,9 @@ def create_tool_use_agent(tools, tool_chain):
     rendered_tools = render_text_description(tools)
     system_prompt = f"""You are an assistant that has access to the following set of tools. Here are the names and descriptions for each tool:
                {rendered_tools}
-               Given the user input, return the name and input of the tool to use. 
-               Return your response as a JSON blob with the keys 'name' and 'arguments'.
-               The value associated with the key 'arguments' is a dictionary of parameters.
+               Given the user input, return the name and arguments of the tool to use. 
+               Return your response as a JSON blob with the key 'name' and 'arguments'.
+               The value associated with the key 'arguments' should be a dictionary of parameters.
                """
     prompt = ChatPromptTemplate.from_messages(
         [("system", system_prompt), ("user", "{input}")]
@@ -385,5 +394,5 @@ if __name__ == '__main__':
     find_reference(align_path, true_path)
     # run retrieve agent - Part 1
     agent = create_tool_use_agent(retrieval_tools, retrieval_tool_chain)
-    agent.invoke({"input": f"Find ontology information."})
+    agent.invoke({"input": f"Retrieve ontology information."})
     # agent_executor.invoke({"input": "Find ontology information."})

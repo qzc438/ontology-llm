@@ -52,3 +52,10 @@ Is A often used interchangeably with B?
 | e1_list = ["http://cmt#SubjectArea"]     | e2_list = ["http://cmt#Topic"]               |
 | e1_list = ["http://cmt#ConferenceChair"] | e2_list = ["http://cmt#Chair"]               |
 | e1_list = ["http://cmt#Document"]        | e2_list = ["http://cmt#Conference_document"] |
+
+
+Single function name and argument name.
+No special characters ":".
+No keywords "compare" for function description.
+Verb for function description.
+use f() no build-in prompt.

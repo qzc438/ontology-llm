@@ -1,38 +1,5 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-"Meta-Reviewer" rdfs:subClassOf "Reviewer" .
-
-"adjustBid" rdfs:domain "Reviewer" .
-
-"adjustedBy" rdfs:range "Reviewer" .
-
-"assignExternalReviewer" rdfs:domain "Reviewer" .
-
-"assignReviewer" rdfs:range "Reviewer" .
-
-"assignedByAdministrator" rdfs:domain "Reviewer" .
-
-"assignedByReviewer" rdfs:range "Reviewer" .
-
-"assignedTo" rdfs:range "Reviewer" .
-
-"hasBeenAssigned" rdfs:domain "Reviewer" .
-
-"readByReviewer" rdfs:range "Reviewer" .
-
-"readPaper" rdfs:domain "Reviewer" .
-
-"writeReview" rdfs:domain "Reviewer" .
-
-"writtenBy" rdfs:range "Reviewer" .
-
-"AuthorNotReviewer" owl:disjointWith "Reviewer" .
-
-"ExternalReviewer" owl:disjointWith "Reviewer" .
-
-"Reviewer" rdfs:subClassOf "ConferenceMember",
-        "User" ;
-    owl:disjointWith "AuthorNotReviewer",
-        "ExternalReviewer" .
+"was_an_organizing_committee_of" rdfs:domain "Organizing_committee" ;
+    rdfs:range "Conference_volume" .
 

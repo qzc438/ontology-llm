@@ -50,7 +50,7 @@ async def create_ontology_matching_table():
     # create table schema
     await conn.execute('''CREATE TABLE ontology_matching 
     (entity_id VARCHAR(1024) PRIMARY KEY, entity TEXT, source_or_target TEXT, entity_type TEXT, 
-    syntactic_matching TEXT, lexical_matching TEXT, graphical_matching TEXT);''')
+    syntactical_matching TEXT, lexical_matching TEXT, graphical_matching TEXT);''')
     # add csv data into table
     tuples = list(df.itertuples(index=False))
     await conn.copy_records_to_table(
@@ -127,13 +127,13 @@ async def create_embedding_table(table_name):
 async def async_save_to_database():
     # create database
     await create_ontology_matching_table()
-    await create_embedding_table("syntactic_matching")
+    await create_embedding_table("syntactical_matching")
     await create_embedding_table("lexical_matching")
     await create_embedding_table("graphical_matching")
 
 
 @tool
-def saveToDatabase():
+def save():
     """Save to database."""
     util.print_colored_text("Save to database:", "blue")
     # create a new event loop
@@ -146,7 +146,7 @@ def saveToDatabase():
     print("Save to database successfully.")
 
 
-database_tools = [saveToDatabase]
+database_tools = [save]
 
 
 def database_tool_chain(model_output):
@@ -159,11 +159,11 @@ def create_tool_use_agent(tools, tool_chain):
     # define combined prompt
     rendered_tools = render_text_description(tools)
     system_prompt = f"""You are an assistant that has access to the following set of tools. Here are the names and descriptions for each tool:
-               {rendered_tools}
-               Given the user input, return the name and input of the tool to use. 
-               Return your response as a JSON blob with the keys 'name' and 'arguments'.
-               The value associated with the key 'arguments' should be a dictionary of parameters.
-               """
+                    {rendered_tools}
+                    Given the user input, return the name and arguments of the tool to use. 
+                    Return your response as a JSON blob with the key 'name' and 'arguments'.
+                    The value associated with the key 'arguments' should be a dictionary of parameters.
+                    """
     prompt = ChatPromptTemplate.from_messages(
         [("system", system_prompt), ("user", "{input}")]
     )

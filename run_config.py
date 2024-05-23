@@ -141,10 +141,14 @@ os.environ["MISTRAL_API_KEY"] = os.getenv("MISTRAL_API_KEY")
 # llm = ChatOpenAI(model='gpt-3.5-turbo', temperature=0)
 # llm = ChatOpenAI(model='gpt-4-turbo', temperature=0)
 
+# load large model
+llm = ChatOllama(model="llama3:70b", temperature=0)
+
 # load Ollama
-# llm = ChatOllama(model="llama3", temperature=0)
-# llm = ChatOllama(model="mixtral", temperature=0)
-llm = ChatOllama(model="phi3", temperature=0)
+# llm = ChatOllama(model="llama3:8b", temperature=0)
+# llm = ChatOllama(model="mistral:7b", temperature=0)
+# llm = ChatOllama(model="phi3:3.8b", temperature=0)
+# llm = ChatOllama(model="gemma:2b", temperature=0)
 
 # load MistralAI
 # llm = ChatMistralAI(model="mistral-large-latest", temperature=0)
@@ -173,13 +177,7 @@ null_value_matching = "Entity-Dummy"
 
 if __name__ == '__main__':
 
-    if hasattr(llm, 'model'):
-        print("llm:", llm.model)
-
-    # Check if 'llm' has an attribute 'model_name'
-    if hasattr(llm, 'model_name'):
-        print("llm:", llm.model_name)
-
+    print("model_name", util.find_model_name(llm))
     print("alignment:", alignment)
     print("similarity_threshold:", similarity_threshold)
 

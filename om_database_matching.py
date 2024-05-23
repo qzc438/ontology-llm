@@ -16,7 +16,9 @@ from pgvector.psycopg2 import register_vector
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.tools import tool, render_text_description
+from langchain_core.runnables import RunnablePassthrough
 from operator import itemgetter
+
 
 # define path
 alignment = config.alignment
@@ -173,15 +175,15 @@ def entity_matching(entity, table_name):
 
 
 @tool
-def findSyntacticMatching(entity: str) -> list:
-    """Find syntactic matching."""
-    util.print_colored_text(f"Find syntactic matching: {entity}", "green")
+def syntactical(entity: str) -> list:
+    """Syntactical matching."""
+    util.print_colored_text(f"Syntactical matching: {entity}", "green")
     # tool function
-    syntactic_matching = entity_matching(entity, "syntactic_matching")
-    syntactic_matches = pd.DataFrame(syntactic_matching)
-    syntactic_matches.drop_duplicates(['entity'], inplace=True)
-    if len(syntactic_matches) != 0:
-        result = syntactic_matches['entity'].head(top_k).values.tolist()
+    syntactical_matching = entity_matching(entity, "syntactical_matching")
+    syntactical_matches = pd.DataFrame(syntactical_matching)
+    syntactical_matches.drop_duplicates(['entity'], inplace=True)
+    if len(syntactical_matches) != 0:
+        result = syntactical_matches['entity'].head(top_k).values.tolist()
     else:
         result = [null_value_matching]
     print(result)
@@ -189,9 +191,9 @@ def findSyntacticMatching(entity: str) -> list:
 
 
 @tool
-def findLexicalMatching(entity: str) -> list:
-    """Find lexical matching."""
-    util.print_colored_text(f"Find lexical matching: {entity}", "yellow")
+def lexical(entity: str) -> list:
+    """Lexical matching."""
+    util.print_colored_text(f"Lexical matching: {entity}", "yellow")
     # tool function
     lexical_matching = entity_matching(entity, "lexical_matching")
     lexical_matches = pd.DataFrame(lexical_matching)
@@ -205,9 +207,9 @@ def findLexicalMatching(entity: str) -> list:
 
 
 @tool
-def findGraphicalMatching(entity: str) -> list:
-    """Find graphical matching."""
-    util.print_colored_text(f"Find graphical matching: {entity}", "magenta")
+def graphical(entity: str) -> list:
+    """Graphical matching."""
+    util.print_colored_text(f"Graphical matching: {entity}", "magenta")
     # tool function
     graphical_matching = entity_matching(entity, "graphical_matching")
     graphical_matches = pd.DataFrame(graphical_matching)
@@ -224,10 +226,13 @@ def findGraphicalMatching(entity: str) -> list:
 def find_all_matching_candidate(entity):
     # define entity matching
     chain = create_tool_use_agent(matching_tools, matching_tool_chain)
-    syntactic_matching = chain.invoke({"input": f"Find syntactic matching about the entity: {entity}"})
-    lexical_matching = chain.invoke({"input": f"Find lexical matching about the entity: {entity}"})
-    graphical_matching = chain.invoke({"input": f"Find graphical matching about the entity: {entity}"})
-    output_dict = {'syntactic_matching': syntactic_matching, 'lexical_matching': lexical_matching, 'graphical_matching': graphical_matching}
+    syntactical_prompt = f"Syntactical matching for {entity}"
+    syntactical_matching = chain.invoke({"input": syntactical_prompt}).get("output")
+    lexical_prompt = f"Lexical matching for {entity}"
+    lexical_matching = chain.invoke({"input": lexical_prompt}).get("output")
+    graphical_prompt = f"Graphical matching for {entity}"
+    graphical_matching = chain.invoke({"input": graphical_prompt}).get("output")
+    output_dict = {'syntactical_matching': syntactical_matching, 'lexical_matching': lexical_matching, 'graphical_matching': graphical_matching}
     return output_dict
 
 
@@ -294,7 +299,8 @@ def find_most_relevant_entity(entity, source_or_target):
                         continue
                     else:
                         chain = create_tool_use_agent(matching_tools, matching_tool_chain)
-                        result_refine = chain.invoke({f"input": f"Matching validate with {entity_name} and {predict_entity_name}."})
+                        refine_prompt = f"Validate matching for {entity_name} and {predict_entity_name}."
+                        result_refine = chain.invoke({"input": refine_prompt})
                         if extract_yes_no(result_refine) == "yes":
                             candidates_with_validation_and_merge.append(find_entity(predict_entity))
                 print("candidates_with_validation_and_merge:", candidates_with_validation_and_merge)
@@ -308,9 +314,9 @@ def find_most_relevant_entity(entity, source_or_target):
 
 # start ontology matching tools
 @tool
-def findOntologyMatching():
-    """Find ontology matching."""
-    util.print_colored_text("Find ontology information:", "blue")
+def ontology():
+    """Ontology matching."""
+    util.print_colored_text("Ontology matching:", "blue")
     # tool function
 
     # find all entities
@@ -321,7 +327,10 @@ def findOntologyMatching():
     # find matching from source ontology
     util.create_document(predict_source_path_no_validation, header=['Entity1', 'Entity2'])
     util.create_document(predict_source_path, header=['Entity1', 'Entity2'])
-    # e1_list = ["http://cmt#Bid"] # all null value
+    # e1_list = ["http://cmt#printHardcopyMailingManifests"]
+    # e1_list = ["http://cmt#Bid"] # test all null value
+    # e1_list = ["http://cmt#Meta-Reviewer"] # test matching validator
+    # e1_list = ["http://cmt#hasDecision"]
     # e1_list = ["http://cmt#PaperFullVersion"]
     # e1_list = ["http://mouse.owl#MA_0000013"] # test entity name
     # e1_list = ["http://mouse.owl#MA_0000096"] # test one null value
@@ -341,12 +350,14 @@ def findOntologyMatching():
                 list_pair = [entity, candidate]
                 writer.writerow(list_pair)
     # evaluation
-    print(util.calculate_metrics(true_path, predict_source_path_no_validation, result_path, llm, alignment + "source_no_validation"))
-    print(util.calculate_metrics(true_path, predict_source_path, result_path, llm, alignment + "source"))
+    print(util.calculate_metrics(true_path, predict_source_path_no_validation, result_path, util.find_model_name(llm), alignment + "source_no_validation"))
+    print(util.calculate_metrics(true_path, predict_source_path, result_path, util.find_model_name(llm), alignment + "source"))
 
     # find matching from target ontology
     util.create_document(predict_target_path_no_validation, header=['Entity2', 'Entity1'])
     util.create_document(predict_target_path, header=['Entity2', 'Entity1'])
+    # e2_list = ["http://conference#Contribution_co-author"]
+    # e2_list = ["http://conference#Conference"]  # test matching validator
     # e2_list = ["http://human.owl#NCI_C32727"] # test not a json format
     for entity in e2_list:
         print("entity2:", entity)
@@ -364,19 +375,19 @@ def findOntologyMatching():
                 list_pair = [entity, candidate]
                 writer.writerow(list_pair)
     # evaluation
-    print(util.calculate_metrics(true_path, predict_target_path_no_validation, result_path, llm, alignment + "target_no_validation"))
-    print(util.calculate_metrics(true_path, predict_target_path, result_path, llm, alignment + "target"))
+    print(util.calculate_metrics(true_path, predict_target_path_no_validation, result_path, util.find_model_name(llm), alignment + "target_no_validation"))
+    print(util.calculate_metrics(true_path, predict_target_path, result_path, util.find_model_name(llm), alignment + "target"))
 
     # matching merge
     chain = create_tool_use_agent(matching_tools, matching_tool_chain)
-    chain.invoke({"input": f"Matching merge."})
+    chain.invoke({"input": f"Merge matching."})
 
 
 # start ontology refine tools
 @tool
-def matchingMerge():
-    """Matching merge."""
-    util.print_colored_text(f"Matching merge:", "cyan")
+def merge():
+    """Merge matching."""
+    util.print_colored_text(f"Merge matching:", "cyan")
     # tool function
     # matching merge without validation
     df_source_no_validation = pd.read_csv(predict_source_path_no_validation)
@@ -386,7 +397,7 @@ def matchingMerge():
     df_merge_no_validation = df_merge_no_validation.drop_duplicates()
     df_merge_no_validation.to_csv(predict_path_no_validation, index=False)
     # evaluation
-    print(util.calculate_metrics(true_path, predict_path_no_validation, result_path, llm, alignment + "no_validation", ))
+    print(util.calculate_metrics(true_path, predict_path_no_validation, result_path, util.find_model_name(llm), alignment + "no_validation", ))
     # matching merge with validation
     df_source = pd.read_csv(predict_source_path)
     df_target = pd.read_csv(predict_target_path)
@@ -395,31 +406,26 @@ def matchingMerge():
     df_merge = df_merge.drop_duplicates()
     df_merge.to_csv(predict_path, index=False)
     # evaluation
-    print(util.calculate_metrics(true_path, predict_path, result_path, llm, alignment))
+    print(util.calculate_metrics(true_path, predict_path, result_path, util.find_model_name(llm), alignment))
 
 
 @tool
-def matchingValidate(entity_name: str, predict_entity_name: str) -> str:
-    """Matching validate."""
-    util.print_colored_text(f"Matching validate: {entity_name} and {predict_entity_name}", "cyan")
+def validate(a: str, b: str) -> str:
+    """Validate matching."""
+    util.print_colored_text(f"Validate matching: {a} and {b}", "cyan")
     # tool function
-    prompt_refine_question = (
-        "Question: Is \"{entity_name}\" often used interchangeably with \"{predict_entity_name}\"?\n"
-        "Context: {context}\n"
-        "Answer the question within the context.\n"
-        "Answer yes or no. Give a short explanation."
-        # "Entity 1: {entity_name}\n"
-        # "Entity 2: {predict_entity_name}\n"
-        # "Question: In the context of {context}, is Entity 1 equivalent to Entity 2?\n"
-        # "Answer the question yes or no. Give a short explanation.\n"
-        .format(context=context, entity_name=entity_name, predict_entity_name=predict_entity_name))
+    prompt_refine_question = f"""Question: Is {a} often used interchangeably with {b}?
+                            Context: {context}
+                            Answer the question within the context.
+                            Answer yes or no. Give a short explanation.
+                            """
     result_refine = llm.invoke(prompt_refine_question).content
     print("result_refine:", result_refine)
     create_log(f"result_refine_with_prompt: {result_refine}")
     return result_refine
 
 
-matching_tools = [findSyntacticMatching, findLexicalMatching, findGraphicalMatching, findOntologyMatching, matchingValidate, matchingMerge]
+matching_tools = [syntactical, lexical, graphical, ontology, validate, merge]
 
 
 def matching_tool_chain(model_output):
@@ -432,16 +438,16 @@ def create_tool_use_agent(tools, tool_chain):
     # define combined prompt
     rendered_tools = render_text_description(tools)
     system_prompt = f"""You are an assistant that has access to the following set of tools. Here are the names and descriptions for each tool:
-                   {rendered_tools}
-                   Given the user input, return the name and input of the tool to use. 
-                   Return your response as a JSON blob with the keys 'name' and 'arguments'.
-                   The value associated with the key 'arguments' should be a dictionary of parameters.
-                   """
+                    {rendered_tools}
+                    Given the user input, return the name and arguments of the tool to use. 
+                    Return your response as a JSON blob with the key 'name' and 'arguments'.
+                    The value associated with the key 'arguments' should be a dictionary of parameters.
+                    """
     prompt = ChatPromptTemplate.from_messages(
         [("system", system_prompt), ("user", "{input}")]
     )
     # define chain
-    chain = prompt | llm | JsonOutputParser() | tool_chain
+    chain = prompt | llm | JsonOutputParser() | RunnablePassthrough.assign(output=tool_chain)
     return chain
 
 
@@ -459,7 +465,7 @@ if __name__ == '__main__':
     print("similarity:", similarity_threshold)
     # run matching agent
     chain = create_tool_use_agent(matching_tools, matching_tool_chain)
-    chain.invoke({"input": f"Find ontology matching."})
+    chain.invoke({"input": f"Ontology matching."})
 
 
 
