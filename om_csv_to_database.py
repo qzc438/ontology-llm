@@ -133,9 +133,9 @@ async def async_save_to_database():
 
 
 @tool
-def save() -> str:
-    """Save to database."""
-    util.print_colored_text("Save to database:", "blue")
+def ontology() -> str:
+    """Persistent ontology information."""
+    util.print_colored_text("Persistent ontology information:", "blue")
     # create a new event loop
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
@@ -143,10 +143,10 @@ def save() -> str:
     loop.run_until_complete(async_save_to_database())
     # close the loop
     loop.close()
-    return "Save to database successfully."
+    return "Persistent ontology information successfully."
 
 
-database_tools = [save]
+database_tools = [ontology]
 
 
 def database_tool_chain(model_output):
@@ -175,4 +175,4 @@ def create_tool_use_agent(tools, tool_chain):
 if __name__ == '__main__':
     # run retrieve agent - Part 2
     chain = create_tool_use_agent(database_tools, database_tool_chain)
-    chain.invoke({"input": f"Save to database."})
+    chain.invoke({"input": f"Persistent ontology information."})

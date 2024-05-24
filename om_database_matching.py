@@ -349,6 +349,9 @@ def ontology() -> str:
                 writer = csv.writer(f)
                 list_pair = [entity, candidate]
                 writer.writerow(list_pair)
+    # clean anatomy result
+    if config.alignment == "anatomy/mouse-human-suite/component/":
+        util.filter_anatomy()
     # evaluation
     print(util.calculate_metrics(true_path, predict_source_path_no_validation, result_path, util.find_model_name(llm), alignment + "source_no_validation"))
     print(util.calculate_metrics(true_path, predict_source_path, result_path, util.find_model_name(llm), alignment + "source"))
@@ -374,6 +377,9 @@ def ontology() -> str:
                 writer = csv.writer(f)
                 list_pair = [entity, candidate]
                 writer.writerow(list_pair)
+    # clean anatomy result
+    if config.alignment == "anatomy/mouse-human-suite/component/":
+        util.filter_anatomy()
     # evaluation
     print(util.calculate_metrics(true_path, predict_target_path_no_validation, result_path, util.find_model_name(llm), alignment + "target_no_validation"))
     print(util.calculate_metrics(true_path, predict_target_path, result_path, util.find_model_name(llm), alignment + "target"))

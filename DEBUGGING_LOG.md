@@ -12,6 +12,7 @@ sudo apt --fix-broken install
 ```
 
 #### How to fix the results so that the results of Anatomy Track are in line with the OAEI results?
+- Please check the function `filter_anatomy()` in the `util.py`.
 - Remove the mappings that are different from the equivalence.  
 - Remove the non-distinct mappings that appear twice.  
 - Remove all mappings between oboInOwl name-spaced concepts.  

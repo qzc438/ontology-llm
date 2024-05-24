@@ -180,6 +180,25 @@ def common_member(a, b):
     return result
 
 
+def filter_anatomy():
+    csv_path = 'alignment/anatomy/mouse-human-suite/component/predict.csv'
+    # read csv
+    df = pd.read_csv(csv_path)
+    # define the list of values to remove from "Entity1"
+    values_to_remove = ["http://www.geneontology.org/formats/oboInOwl#Subset",
+                        "http://www.geneontology.org/formats/oboInOwl#Synonym",
+                        "http://www.geneontology.org/formats/oboInOwl#DbXref",
+                        "http://www.geneontology.org/formats/oboInOwl#ObsoleteClass",
+                        "http://www.geneontology.org/formats/oboInOwl#SynonymType",
+                        "http://www.geneontology.org/formats/oboInOwl#Definition",
+                        "http://www.geneontology.org/formats/oboInOwl#ObsoleteProperty",
+                        "http://mouse.owl#UNDEFINED_part_of"]
+    # filter
+    filtered_df = df[~df["Entity1"].isin(values_to_remove)]
+    # Step 4: Write the filtered DataFrame back to a new CSV file
+    filtered_df.to_csv(csv_path, index=False)
+
+
 if __name__ == '__main__':
     # calculate_metrics("alignment/mse/MaterialInformation-EMMO/component/true.csv",
     #                   "alignment/mse/MaterialInformation-EMMO/component/predict_no_validation.csv",

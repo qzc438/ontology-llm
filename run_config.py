@@ -23,7 +23,7 @@ os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 os.environ["MISTRAL_API_KEY"] = os.getenv("MISTRAL_API_KEY")
 
 # # load GPT
-# llm = ChatOpenAI(model='gpt-3.5-turbo', temperature=0)
+llm = ChatOpenAI(model='gpt-3.5-turbo', temperature=0)
 # llm = ChatOpenAI(model='gpt-4-turbo', temperature=0)
 # # load MistralAI
 # llm = ChatMistralAI(model="mistral-large-latest", temperature=0)
@@ -37,9 +37,7 @@ os.environ["MISTRAL_API_KEY"] = os.getenv("MISTRAL_API_KEY")
 # llm = ChatOllama(model="gemma:7b", temperature=0)
 # llm = ChatOllama(model="wizardlm2:7b", temperature=0)
 # llm = ChatOllama(model="phi3:3.8b", temperature=0)
-
-# # load MoE
-# llm = ChatOllama(model="mixtral:8x7b", temperature=0)
+# llm = ChatOllama(model="mistral:7b", temperature=0)
 
 # # load llama3 variants
 # llm = ChatOllama(model="llama3:text", temperature=0)
@@ -47,8 +45,11 @@ os.environ["MISTRAL_API_KEY"] = os.getenv("MISTRAL_API_KEY")
 
 # # load multilingual
 # llm = ChatOllama(model="aya:8b", temperature=0)
+# llm = ChatOllama(model="stablelm2:12b", temperature=0)
+
 # # load multimodal
 # llm = ChatOpenAI(model='gpt-4o', temperature=0)
+# llm = ChatOllama(model="llava:7b", temperature=0)
 
 # the following models are currently not working
 # # too slow
@@ -58,7 +59,7 @@ os.environ["MISTRAL_API_KEY"] = os.getenv("MISTRAL_API_KEY")
 # # pass argument value error: JSONDecodeError("Expecting value", s, err.value) from None
 # llm = ChatOllama(model="llama2:7b", temperature=0)
 # # pass URI argument error: json.decoder.JSONDecodeError: Invalid \escape
-# llm = ChatOllama(model="mistral:7b", temperature=0)
+# llm = ChatOllama(model="mixtral:8x7b", temperature=0)
 
 # search settings
 similarity_threshold = 0.90
@@ -201,7 +202,7 @@ null_value_matching = "Entity-Dummy"
 
 if __name__ == '__main__':
 
-    print("model_name", util.find_model_name(llm))
+    print("model_name:", util.find_model_name(llm))
     print("alignment:", alignment)
     print("similarity_threshold:", similarity_threshold)
 
