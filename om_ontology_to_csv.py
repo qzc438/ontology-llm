@@ -397,9 +397,8 @@ if __name__ == '__main__':
     find_reference(align_path, true_path)
     # run retrieve agent - Part 1
     chain = create_tool_use_agent(retrieval_tools, retrieval_tool_chain)
-    # chain.invoke({"input": f"Retrieve ontology information."})
-    # # Chinese
+    chain.invoke({"input": f"Retrieve ontology information."})
+    # # Chinese/French
     # chain.invoke({"input": f"获取本体信息."})
-    # # French
     # chain.invoke({"input": f"Récupérer des informations sur l'ontologie."})
     # agent_executor.invoke({"input": "Find ontology information."})

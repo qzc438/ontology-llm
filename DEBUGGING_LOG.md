@@ -150,4 +150,3 @@ For example, the following 8 mappings need to be removed from Agent-OM results:
 - sudo su
 - apt-get install sqlite3
 - sqlite3 pgadmin4.db "UPDATE USER SET LOCKED = false, LOGIN_ATTEMPTS = 0 WHERE USERNAME = 'user.name@domain.com';" ".exit"
-

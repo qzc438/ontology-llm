@@ -24,8 +24,15 @@ sudo apt install postgresql-15-pgvector
 
 ### 3. Install Python Packages:
 ```
-pip install langchain==0.1.14
-pip install langchain-openai==0.1.1
+pip install langchain==0.2.1
+pip install langchain-openai
+pip install langchain-anthropic
+pip install langchain-google-vertexai
+pip install langchain-mistralai
+pip install langchain_community
+
+```
+```
 pip install pandas==2.0.3
 pip install rdflib==7.0.0
 pip install python-dotenv==1.0.1
@@ -36,7 +43,7 @@ pip install psycopg2_binary==2.9.9
 pip install pgvector==0.1.8
 pip install commentjson==0.9.0
 pip install transformers
-pip install colorama
+pip install colorama==0.4.6
 ```
 ```
 pip install matplotlib==3.8.4
@@ -44,12 +51,12 @@ pip install notebook
 pip install ipyparallel
 ```
 
-### 4. Install OLlama: 
+### 4. Install Ollama: 
 - Documentation: https://python.langchain.com/v0.1/docs/integrations/llms/ollama/
 - Download and install Ollama (Linux): curl -fsSL https://ollama.com/install.sh | sh
-- Download model: ollama pull llama3
+- Download model: ollama pull <MODEL_NAME>
 - Install PyTorch (Linux, CUDA11.8): pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-- Update current OLlama models: https://github.com/ollama/ollama/issues/4589
+- Update current Ollama models: https://github.com/ollama/ollama/issues/4589
 
 ### 5. Setup OpenAI API:
 - You will need an OpenAI API key to interact with GPT models: https://platform.openai.com/api-keys
@@ -181,6 +188,3 @@ This work is licensed under a
 [cc-by-nc-sa]: http://creativecommons.org/licenses/by-nc-sa/4.0/
 [cc-by-nc-sa-image]: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png
 [cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg
-
-
-update model: https://gist.github.com/Tedfulk/24aab8e32e550edf32ceb68a52adf6f7

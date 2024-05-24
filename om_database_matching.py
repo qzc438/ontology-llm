@@ -16,8 +16,8 @@ from pgvector.psycopg2 import register_vector
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.tools import tool, render_text_description
-from langchain_core.runnables import RunnablePassthrough
 from operator import itemgetter
+from langchain_core.runnables import RunnablePassthrough
 
 
 # define path
@@ -295,20 +295,20 @@ def find_most_relevant_entity(entity, source_or_target):
                     # compare entity name
                     if util.cleaning(entity_name).casefold() == util.cleaning(predict_entity_name).casefold():
                         candidates_with_validation_and_merge.append(find_entity(predict_entity))
-                        create_log(f"result_refine_without_prompt: {predict_entity_name}")
+                        create_log(f"result_without_validate: {predict_entity_name}")
                         continue
                     else:
                         chain = create_tool_use_agent(matching_tools, matching_tool_chain)
-                        refine_prompt = f"Validate matching for {entity_name} and {predict_entity_name}."
-                        result_refine = chain.invoke({"input": refine_prompt})
-                        if extract_yes_no(result_refine) == "yes":
+                        validate_prompt = f"Validate matching for {entity_name} and {predict_entity_name}."
+                        validate_result = chain.invoke({"input": validate_prompt})
+                        if extract_yes_no(validate_result) == "yes":
                             candidates_with_validation_and_merge.append(find_entity(predict_entity))
                 print("candidates_with_validation_and_merge:", candidates_with_validation_and_merge)
                 if candidates_with_validation_and_merge:
                     break
 
-    print(f"entity: {entity}, matching has been completed.\n")
-    create_log(f"entity: {entity}, matching has been completed.\n")
+    print(f"entity: {entity}, entity matching has been completed.\n")
+    create_log(f"entity: {entity}, entity matching has been completed.\n")
     return candidates_without_validation_and_merge, candidates_with_validation_and_merge
 
 
@@ -416,15 +416,15 @@ def validate(a: str, b: str) -> str:
     """Validate matching."""
     util.print_colored_text(f"Validate matching: {a} and {b}", "cyan")
     # tool function
-    prompt_refine_question = f"""Question: Is {a} often used interchangeably with {b}?
+    prompt_validate_question = f"""Question: Is {a} often used interchangeably with {b}?
                             Context: {context}
                             Answer the question within the context.
                             Answer yes or no. Give a short explanation.
                             """
-    result_refine = llm.invoke(prompt_refine_question).content
-    print("result_refine:", result_refine)
-    create_log(f"result_refine_with_prompt: {result_refine}")
-    return result_refine
+    result_validate = llm.invoke(prompt_validate_question).content
+    print("result_validate:", result_validate)
+    create_log(f"result_with_validate: {result_validate}")
+    return result_validate
 
 
 matching_tools = [syntactic, lexical, semantic, ontology, validate, merge]
@@ -468,6 +468,3 @@ if __name__ == '__main__':
     # run matching agent
     chain = create_tool_use_agent(matching_tools, matching_tool_chain)
     chain.invoke({"input": f"Ontology matching."})
-
-
-

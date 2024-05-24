@@ -1,15 +1,5 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-"AuthorNotReviewer" rdfs:subClassOf "Author" .
-
-"Co-author" rdfs:subClassOf "Author" .
-
-"hasAuthor" rdfs:range "Author" .
-
-"submitPaper" rdfs:domain "Author" .
-
-"writePaper" rdfs:domain "Author" .
-
-"Author" rdfs:subClassOf "ConferenceMember",
-        "User" .
+"was_an_organizing_committee_of" rdfs:domain "Organizing_committee" ;
+    rdfs:range "Conference_volume" .
 

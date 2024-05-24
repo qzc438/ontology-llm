@@ -23,7 +23,7 @@ os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 os.environ["MISTRAL_API_KEY"] = os.getenv("MISTRAL_API_KEY")
 
 # # load GPT
-# llm = ChatOpenAI(model='gpt-3.5-turbo', temperature=0)
+llm = ChatOpenAI(model='gpt-3.5-turbo', temperature=0)
 # llm = ChatOpenAI(model='gpt-4-turbo', temperature=0)
 # # load MistralAI
 # llm = ChatMistralAI(model="mistral-large-latest", temperature=0)
@@ -44,7 +44,7 @@ os.environ["MISTRAL_API_KEY"] = os.getenv("MISTRAL_API_KEY")
 # llm = ChatOllama(model="llama3:instruct", temperature=0)
 
 # # load multilingual
-llm = ChatOllama(model="aya:8b", temperature=0)
+# llm = ChatOllama(model="aya:8b", temperature=0)
 # # load multimodal
 # llm = ChatOpenAI(model='gpt-4o', temperature=0)
 

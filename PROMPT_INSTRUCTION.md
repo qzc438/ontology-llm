@@ -19,25 +19,32 @@ Change the following name a lowercase and space-separated format: {entity_name}
 - Do not use ":" for your input. LLMs may consider this symbol as a separator and return only the name. For example, "source:User" may randomly return "User".
 - Be careful when using "." along with your input. For example, LLMs will treat "{entity}." (with a full stop) as the input from the following prompt:
 ```
-Find syntactic retrieving about the entity: {entity}.
+Retrieve syntactic information about {entity}.
 ```
 - Do specify your input in multiple lines. For example. LLMs may randomly return only the name in the lexical retriever and graphical retriever from the following prompt:
 ```
-Retrieve information about the entity: {entity}
+Retrieve information about {entity}
 Use syntactic retriever, lexical retriever, and graphical retriever.
 ```
 - We suggest using the following prompt for complex prompt:
 ```
-Find syntactic retrieving about the entity: {entity}
-Find lexical retrieving about the entity: {entity}
-Find graphical retrieving about the entity: {entity}
+Retrieve syntactic information about {entity}
+Retrieve lexical information about {entity}
+Retrieve graphical information about {entity}
 ```
 
 #### Tool Use Prompt:
-- pip install langchainhub
-- https://python.langchain.com/v0.1/docs/use_cases/tool_use/prompting/
-- Add one sentence from https://medium.com/pythoneers/power-up-ollama-chatbots-with-tools-113ed8229a7a
-- Need to be slightly changed, put the word "key" forward
+- Function Declaration:
+  - Single function name and argument name.
+  - Do not use f-strings for build-in prompt.
+  - No special characters ":".
+  - No keywords "compare" for function description.
+  - Verb for function description.
+- Function Prompt:
+  - Main content from: https://python.langchain.com/v0.1/docs/use_cases/tool_use/prompting/
+  - Add one sentence from: https://medium.com/pythoneers/power-up-ollama-chatbots-with-tools-113ed8229a7a
+  - We apply some slight changes to fit different LLM models.
+- It is possible to add tool error handling: https://python.langchain.com/v0.1/docs/use_cases/tool_use/tool_error_handling/
 
 #### Validate Prompt:
 - The equivalence relationship in OM is weak equivalence. Use "equivalent" and "identical" is too strong.
@@ -52,10 +59,3 @@ Is A often used interchangeably with B?
 | e1_list = ["http://cmt#SubjectArea"]     | e2_list = ["http://cmt#Topic"]               |
 | e1_list = ["http://cmt#ConferenceChair"] | e2_list = ["http://cmt#Chair"]               |
 | e1_list = ["http://cmt#Document"]        | e2_list = ["http://cmt#Conference_document"] |
-
-
-Single function name and argument name.
-No special characters ":".
-No keywords "compare" for function description.
-Verb for function description.
-use f() no build-in prompt.
