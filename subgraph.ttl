@@ -1,22 +1,8 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-"Call_for_paper" rdfs:subClassOf "Conference_document" .
+"Acceptance" rdfs:subClassOf "Decision" ;
+    owl:disjointWith "Rejection" .
 
-"Call_for_participation" rdfs:subClassOf "Conference_document" .
-
-"Conference_announcement" rdfs:subClassOf "Conference_document" .
-
-"Conference_contribution" rdfs:subClassOf "Conference_document" .
-
-"Conference_www" rdfs:subClassOf "Conference_document" .
-
-"Information_for_participants" rdfs:subClassOf "Conference_document" .
-
-"Review" rdfs:subClassOf "Conference_document" .
-
-"contributes" rdfs:range "Conference_document" .
-
-"has_a_date_of_issue" rdfs:domain "Conference_document" .
-
-"has_authors" rdfs:domain "Conference_document" .
+"Rejection" owl:disjointWith "Acceptance" .
 

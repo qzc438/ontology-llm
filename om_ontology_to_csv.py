@@ -103,7 +103,7 @@ def get_entity_name(entity, ontology, ontology_is_code):
 def syntactic(entity: str) -> str:
     """Retrieve syntactic information."""
     util.print_colored_text(f"Retrieve syntactic information: {entity}", "green")
-    # find entity name
+    # # find entity name
     # entity_name = entity
     entity_name = get_entity_name(entity, ontology, ontology_is_code)
     cleaned_entity_name = util.cleaning(entity_name)
@@ -116,7 +116,7 @@ def syntactic(entity: str) -> str:
 def lexical(entity: str) -> str:
     """Retrieve lexical information."""
     util.print_colored_text(f"Retrieve lexical information: {entity}", "yellow")
-    # find entity name
+    # # find entity name
     # entity_name = entity
     entity_name = get_entity_name(entity, ontology, ontology_is_code)
     # extract extra information
@@ -163,8 +163,8 @@ def lexical(entity: str) -> str:
 def semantic(entity: str) -> str:
     """Retrieve semantic information."""
     util.print_colored_text(f"Retrieve semantic information: {entity}", "magenta")
-    # find entity uri
-    entity = entity_uri
+    # # find entity uri
+    # entity = entity_uri
     # create a subgraph to store entity's semantic information
     subgraph = rdflib.Graph()
     # write the triples to the txt
@@ -255,12 +255,14 @@ def find_entity_information(path, entity_list, source_or_target, entity_type):
     # entity_list = ["http://human.owl#NCI_C12220"]
     with open(path, "a+", newline='') as f1:
         for entity in entity_list:
-            print("entity:", entity)
-            # small models have issues passing the URI, fix by this solution
-            global entity_uri
-            entity_uri = entity
-            # translate to entity name
+            # # small models sometimes have issues passing the URI
+            # # fix by this solution by only passing the entity name to the model
             # entity = get_entity_name(entity, ontology, ontology_is_code)
+            # # but you still need an uri for semantic matching
+            # global entity_uri
+            # entity_uri = entity
+            # entity = r"{}".format(entity)
+            print("entity:", entity)
             # find information
             chain = create_tool_use_agent(retrieval_tools, retrieval_tool_chain)
             syntactic_prompt = f"Retrieve syntactic information about {entity}"

@@ -1,3 +1,5 @@
+from langchain_community.llms.ollama import Ollama
+
 import util
 import rdflib
 import dotenv
@@ -5,6 +7,8 @@ import os
 import subprocess
 
 from langchain_openai import ChatOpenAI
+from langchain_anthropic import ChatAnthropic
+from langchain_google_vertexai import ChatVertexAI
 from langchain_community.chat_models import ChatOllama
 from langchain_mistralai import ChatMistralAI
 
@@ -141,23 +145,29 @@ os.environ["MISTRAL_API_KEY"] = os.getenv("MISTRAL_API_KEY")
 # llm = ChatOpenAI(model='gpt-3.5-turbo', temperature=0)
 # llm = ChatOpenAI(model='gpt-4-turbo', temperature=0)
 
-# load large model
-# llm = ChatOllama(model="llama3:70b", temperature=0)
-
-# load Ollama
-# llm = ChatOllama(model="llama3:8b", temperature=0)
-# llm = ChatOllama(model="mistral:7b", temperature=0)
-# llm = ChatOllama(model="gemma:7b", temperature=0)
-# llm = ChatOllama(model="phi3:3.8b", temperature=0)
-
-
 # load MistralAI
 # llm = ChatMistralAI(model="mistral-large-latest", temperature=0)
 
-# TBC
-# llm = ChatOllama(model="llama2", temperature=0) # failed
-# llm = Ollama(model="llama3", temperature=0) # need format
+# load Anthropic
+# llm = ChatAnthropic(model="claude-3-sonnet-20240229", temperature=0)
 
+# load Gemini
+# llm = ChatVertexAI(model="gemini-pro", project_id="agent-om")
+
+# load Ollama
+# llm = ChatOllama(model="llama3:8b", temperature=0)
+# llm = ChatOllama(model="gemma:7b", temperature=0)
+# llm = ChatOllama(model="phi3:3.8b", temperature=0)
+
+# currently not working
+# # too slow
+# llm = ChatOllama(model="llama3:70b", temperature=0)
+# # pass argument value error: entity = str
+# llm = ChatOllama(model="gemma:2b", temperature=0)
+# # pass argument value error: JSONDecodeError("Expecting value", s, err.value) from None
+# llm = ChatOllama(model="llama2:7b", temperature=0)
+# # pass URI argument error: json.decoder.JSONDecodeError: Invalid \escape
+# llm = ChatOllama(model="mistral:7b", temperature=0)
 
 # load embedding
 embeddings_service = OpenAIEmbeddings()
