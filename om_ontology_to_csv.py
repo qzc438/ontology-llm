@@ -293,7 +293,7 @@ def find_entity_information(path, entity_list, source_or_target, entity_type):
 
 
 @tool
-def ontology():
+def ontology() -> str:
     """Retrieve ontology information."""
     util.print_colored_text("Retrieve ontology information:", "blue")
     # find all entities
@@ -311,6 +311,7 @@ def ontology():
     ontology, ontology_prefix, ontology_is_code = o2, o2_prefix, o2_is_code
     find_entity_information(csv_path, e2_list_class, "Target", "Class")
     find_entity_information(csv_path, e2_list_property, "Target", "Property")
+    return "Retrieve ontology information successfully."
 
 
 retrieval_tools = [syntactic, lexical, semantic, ontology]
@@ -395,6 +396,10 @@ if __name__ == '__main__':
     # find true value
     find_reference(align_path, true_path)
     # run retrieve agent - Part 1
-    agent = create_tool_use_agent(retrieval_tools, retrieval_tool_chain)
-    agent.invoke({"input": f"Retrieve ontology information."})
+    chain = create_tool_use_agent(retrieval_tools, retrieval_tool_chain)
+    # chain.invoke({"input": f"Retrieve ontology information."})
+    # # Chinese
+    # chain.invoke({"input": f"获取本体信息."})
+    # # French
+    # chain.invoke({"input": f"Récupérer des informations sur l'ontologie."})
     # agent_executor.invoke({"input": "Find ontology information."})

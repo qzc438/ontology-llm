@@ -49,6 +49,7 @@ pip install ipyparallel
 - Download and install Ollama (Linux): curl -fsSL https://ollama.com/install.sh | sh
 - Download model: ollama pull llama3
 - Install PyTorch (Linux, CUDA11.8): pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+- Update current OLlama models: https://github.com/ollama/ollama/issues/4589
 
 ### 5. Setup OpenAI API:
 - You will need an OpenAI API key to interact with GPT models: https://platform.openai.com/api-keys

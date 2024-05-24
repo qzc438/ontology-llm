@@ -1,28 +1,73 @@
 entity,source_or_target,entity_type,syntactic_matching,lexical_matching,semantic_matching
-http://cmt#Acceptance,Source,Class,acceptance,"## Acceptance in the Conference Context
+http://cmt#Acceptance,Source,Class,acceptance,Acceptance means to agree with something or someone.,"The class ""Acceptance"" is a sub-class of the class ""Decision"". 
 
-In the context of conferences, ""acceptance"" can have several different, but related, meanings:
+The class ""Rejection"" is disjoint with the class ""Acceptance"", meaning they have no common instances."
+http://cmt#Administrator,Source,Class,"Sure! Here are the sentences that correspond to the provided triples:
 
-* **Acceptance of a Proposal:** This is the most common usage, referring to the decision by the conference organizers to include your presentation, poster, or workshop in the official program. This typically involves a review process where your proposal is evaluated based on its relevance, originality, and quality. 
-* **Acceptance of an Attendee's Registration:** This refers to the confirmation that your registration for the conference has been processed and that you are officially a participant. This usually involves completing the registration process and paying any required fees.
-* **Acceptance of a Paper or Poster:** This refers to the decision by the program committee to include your research paper or poster in the conference proceedings. This typically involves a peer-review process where your work is evaluated based on its originality, significance, and methodological soundness.
-* **Acceptance of Conference Outcomes:** This refers to the broader impact and recognition of the conference's contributions. This could involve the adoption of new ideas or findings by the academic community, the implementation of conference recommendations by policymakers, or the increased awareness of a particular issue amongst the general public.
+- The prefix rdfs is <http://www.w3.org/2000/01/rdf-schema>.
+- The domain of the ""acceptPaper"" relation is ""Administrator"".
+- The range of the ""acceptedBy"" relation is ""Administrator"".
+- The domain of the ""addProgramCommitteeMember"" relation is ""Administrator"".
+- The range of the ""addedBy"" relation is ""Administrator"".
+- The domain of the ""assignReviewer"" relation is ""Administrator"".
+- The range of the ""assignedByAdministrator"" relation is ""Administrator"".
+- The domain of the ""detailsEnteredBy"" relation is ""Administrator"".
+- The domain of the ""enableVirtualMeeting"" relation is ""Administrator"".
+- The domain of the ""enterConferenceDetails"" relation is ""Administrator"".
+- The domain of the ""enterReviewCriteria"" relation is ""Administrator"".
+- The domain of the ""finalizePaperAssignment"" relation is ""Administrator"".
+- The range of the ""hardcopyMailingManifestsPrintedBy"" relation is ""Administrator"".
+- The range of the ""paperAssignmentFinalizedBy"" relation is ""Administrator"".
+- The range of the ""paperAssignmentToolsRunBy"" relation is ""Administrator"".
+- The domain of the ""printHardcopyMailingManifests"" relation is ""Administrator"".
+- The domain of the ""rejectPaper"" relation is ""Administrator"".
+- The range of the ""rejectedBy"" relation is ""Administrator"".
+- The domain of the ""reviewCriteriaEnteredBy"" relation is ""Administrator"".
+- The range of the ""reviewerBiddingStartedBy"" relation is ""Administrator"".
+- The domain of the ""runPaperAssignmentTools"" relation is ""Administrator"".
+- The domain of the ""setMaxPapers"" relation is ""Administrator"".
+- The domain of the ""startReviewerBidding"" relation is ""Administrator"".
+- The range of the ""virtualMeetingEnabledBy"" relation is ""Administrator"".
+- ""Administrator"" is a sub-class of ""User"".",A person who manages a business or organization,"Sure! Here are the sentences that correspond to the provided triples:
 
-Therefore, understanding the context in which ""acceptance"" is used within a conference setting is crucial to interpreting its meaning accurately. 
+- The prefix rdfs is <http://www.w3.org/2000/01/rdf-schema>.
+- The domain of the ""acceptPaper"" relation is ""Administrator"".
+- The range of the ""acceptedBy"" relation is ""Administrator"".
+- The domain of the ""addProgramCommitteeMember"" relation is ""Administrator"".
+- The range of the ""addedBy"" relation is ""Administrator"".
+- The domain of the ""assignReviewer"" relation is ""Administrator"".
+- The range of the ""assignedByAdministrator"" relation is ""Administrator"".
+- The domain of the ""detailsEnteredBy"" relation is ""Administrator"".
+- The domain of the ""enableVirtualMeeting"" relation is ""Administrator"".
+- The domain of the ""enterConferenceDetails"" relation is ""Administrator"".
+- The domain of the ""enterReviewCriteria"" relation is ""Administrator"".
+- The domain of the ""finalizePaperAssignment"" relation is ""Administrator"".
+- The range of the ""hardcopyMailingManifestsPrintedBy"" relation is ""Administrator"".
+- The range of the ""paperAssignmentFinalizedBy"" relation is ""Administrator"".
+- The range of the ""paperAssignmentToolsRunBy"" relation is ""Administrator"".
+- The domain of the ""printHardcopyMailingManifests"" relation is ""Administrator"".
+- The domain of the ""rejectPaper"" relation is ""Administrator"".
+- The range of the ""rejectedBy"" relation is ""Administrator"".
+- The domain of the ""reviewCriteriaEnteredBy"" relation is ""Administrator"".
+- The range of the ""reviewerBiddingStartedBy"" relation is ""Administrator"".
+- The domain of the ""runPaperAssignmentTools"" relation is ""Administrator"".
+- The domain of the ""setMaxPapers"" relation is ""Administrator"".
+- The domain of the ""startReviewerBidding"" relation is ""Administrator"".
+- The range of the ""virtualMeetingEnabledBy"" relation is ""Administrator"".
+- ""Administrator"" is a sub-class of ""User""."
+http://cmt#AssociatedChair,Source,Class,associated chair,A person who is a member of an organization and has been given a title that indicates they are in charge of something,"The class ""AssociatedChair"" is a sub-class of ""ConferenceMember"". It is distinct from the class ""ConferenceChair""."
+http://cmt#Author,Source,Class,author,A person who writes books,"Sure! Here are the verbalized triples:
 
-For further clarification, you might ask:
+The prefix ""rdfs:"" is defined as <http://www.w3.org/2000/01/rdf-schema>.
 
-* ""Are you referring to the acceptance of my proposal to present at the conference?"" 
-* ""Are you asking if my registration for the conference has been confirmed?""
-* ""Are you curious if my research paper has been accepted for publication in the conference proceedings?"" 
-* ""Are you interested in the broader impact and recognition of this conference?""
+The class ""AuthorNotReviewer"" is a sub-class of the class ""Author"".
 
-By asking these clarifying questions, you can ensure that you fully understand the specific meaning of ""acceptance"" within the context of your conversation.","## Sentences describing the triples:
-**1.** The class ""Rejection"" is completely distinct from the class ""Acceptance"", meaning they do not share any common members.
+The class ""Co-author"" is also a sub-class of the class ""Author"".
 
-**2.** ""Acceptance"" is considered a subclass of the broader class ""Decision"", indicating it inherits all properties of ""Decision"", while also representing a more specific type of decision.
+The class ""hasAuthor"" has the range ""Author"".
 
-**3.** The statement ""Acceptance"" is *disjoint with*  ""Rejection"" further emphasizes that no decision can simultaneously be classified as an ""Acceptance"" and a ""Rejection"". 
+The class ""submitPaper"" has the domain ""Author"".
 
-These three sentences effectively summarize the information conveyed by the triples using natural language. 
-"
+The class ""writePaper"" also has the domain ""Author"".
+
+Finally, the class ""Author"" is a sub-class of both the classes ""ConferenceMember"" and ""User""."

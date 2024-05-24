@@ -314,7 +314,7 @@ def find_most_relevant_entity(entity, source_or_target):
 
 # start ontology matching tools
 @tool
-def ontology():
+def ontology() -> str:
     """Ontology matching."""
     util.print_colored_text("Ontology matching:", "blue")
     # tool function
@@ -381,6 +381,8 @@ def ontology():
     # matching merge
     chain = create_tool_use_agent(matching_tools, matching_tool_chain)
     chain.invoke({"input": f"Merge matching."})
+
+    return "Ontology matching successfully completed."
 
 
 # start ontology refine tools

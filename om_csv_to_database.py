@@ -133,7 +133,7 @@ async def async_save_to_database():
 
 
 @tool
-def save():
+def save() -> str:
     """Save to database."""
     util.print_colored_text("Save to database:", "blue")
     # create a new event loop
@@ -143,7 +143,7 @@ def save():
     loop.run_until_complete(async_save_to_database())
     # close the loop
     loop.close()
-    print("Save to database successfully.")
+    return "Save to database successfully."
 
 
 database_tools = [save]

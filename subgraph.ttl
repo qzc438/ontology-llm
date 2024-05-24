@@ -1,8 +1,15 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-"Acceptance" rdfs:subClassOf "Decision" ;
-    owl:disjointWith "Rejection" .
+"AuthorNotReviewer" rdfs:subClassOf "Author" .
 
-"Rejection" owl:disjointWith "Acceptance" .
+"Co-author" rdfs:subClassOf "Author" .
+
+"hasAuthor" rdfs:range "Author" .
+
+"submitPaper" rdfs:domain "Author" .
+
+"writePaper" rdfs:domain "Author" .
+
+"Author" rdfs:subClassOf "ConferenceMember",
+        "User" .
 
