@@ -10,7 +10,6 @@ from langchain_google_vertexai import ChatVertexAI
 from langchain_mistralai import ChatMistralAI
 from langchain_community.chat_models import ChatOllama
 
-
 from langchain_openai import OpenAIEmbeddings
 
 # customer settings
@@ -21,9 +20,10 @@ from langchain_openai import OpenAIEmbeddings
 dotenv.load_dotenv()
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 os.environ["MISTRAL_API_KEY"] = os.getenv("MISTRAL_API_KEY")
+os.environ["ANTHROPIC_API_KEY"] = os.getenv("ANTHROPIC_API_KEY")
 
 # # load GPT
-llm = ChatOpenAI(model='gpt-3.5-turbo', temperature=0)
+# llm = ChatOpenAI(model='gpt-3.5-turbo', temperature=0)
 # llm = ChatOpenAI(model='gpt-4-turbo', temperature=0)
 # # load MistralAI
 # llm = ChatMistralAI(model="mistral-large-latest", temperature=0)
@@ -36,7 +36,7 @@ llm = ChatOpenAI(model='gpt-3.5-turbo', temperature=0)
 # llm = ChatOllama(model="llama3:8b", temperature=0)
 # llm = ChatOllama(model="gemma:7b", temperature=0)
 # llm = ChatOllama(model="wizardlm2:7b", temperature=0)
-# llm = ChatOllama(model="phi3:3.8b", temperature=0)
+llm = ChatOllama(model="phi3:3.8b", temperature=0)
 # llm = ChatOllama(model="mistral:7b", temperature=0)
 # llm = ChatOllama(model="mixtral:8x7b", temperature=0) # MoE model
 
@@ -176,8 +176,10 @@ predict_target_path = align_folder + "predict_target.csv"
 predict_path = align_folder + "predict.csv"
 true_path = align_folder + "true.csv"
 result_path = "result.csv"
+
 # path for matching without using agents
 llm_only_path = align_folder + "llm_only.csv"
+
 # reference file settings
 alignCell = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignmentCell')
 alignEntity1 = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignmententity1')
@@ -207,12 +209,12 @@ null_value_matching = "Entity-Dummy"
 
 
 if __name__ == '__main__':
-
+    # check metadata
     print("model_name:", util.find_model_name(llm))
     print("alignment:", alignment)
     print("similarity_threshold:", similarity_threshold)
     print()
-
+    # define script sequence
     script_sequence = [
         "om_ontology_to_csv.py",
         "om_csv_to_database.py",

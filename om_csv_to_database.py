@@ -15,7 +15,6 @@ from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.tools import tool, render_text_description
 from operator import itemgetter
-from langchain.agents import create_tool_calling_agent, AgentExecutor
 
 # load llm
 llm = config.llm

@@ -315,7 +315,7 @@ def find_most_relevant_entity(entity, source_or_target):
 # start ontology matching tools
 @tool
 def ontology() -> str:
-    """Ontology matching."""
+    """Perform ontology matching."""
     util.print_colored_text("Ontology matching:", "blue")
     # tool function
 
@@ -349,7 +349,7 @@ def ontology() -> str:
                 writer = csv.writer(f)
                 list_pair = [entity, candidate]
                 writer.writerow(list_pair)
-    # clean anatomy result
+    # clean 8 mappings need to be removed from the anatomy track
     if config.alignment == "anatomy/mouse-human-suite/component/":
         util.filter_anatomy(predict_source_path_no_validation)
         util.filter_anatomy(predict_source_path)
@@ -378,7 +378,7 @@ def ontology() -> str:
                 writer = csv.writer(f)
                 list_pair = [entity, candidate]
                 writer.writerow(list_pair)
-    # clean anatomy result
+    # clean 8 mappings need to be removed from the anatomy track
     if config.alignment == "anatomy/mouse-human-suite/component/":
         util.filter_anatomy(predict_target_path_no_validation)
         util.filter_anatomy(predict_target_path)
@@ -475,4 +475,4 @@ if __name__ == '__main__':
     print("similarity:", similarity_threshold)
     # run matching agent
     chain = create_tool_use_agent(matching_tools, matching_tool_chain)
-    chain.invoke({"input": f"Ontology matching."})
+    chain.invoke({"input": f"Perform ontology matching."})

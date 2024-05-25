@@ -137,7 +137,7 @@ def lexical(entity: str) -> str:
         print("extra_lexical_information:", extra_information)
         prompt = PromptTemplate(
             input_variables=["entity_name", "entity_info", "context"],
-            template="Question: What is the meaning of {entity_name}?\n"
+            template="Question: What is the meaning of \"{entity_name}\"?\n"
                      "Context: {context}\n"
                      "Extra Information: {extra_information}\n"
                      "Answer the question within the context and using the extra information.\n"
@@ -151,7 +151,7 @@ def lexical(entity: str) -> str:
     else:
         prompt = PromptTemplate(
             input_variables=["entity_name", "entity_info", "context"],
-            template="Question: What is the meaning of {entity_name}?\n"
+            template="Question: What is the meaning of \"{entity_name}\"?\n"
                      "Context: {context}\n"
                      "Answer the question within the context.\n"
         )
@@ -275,11 +275,11 @@ def find_entity_information(path, entity_list, source_or_target, entity_type):
             print("entity_name:", entity_name)
             # find information
             chain = create_tool_use_agent(retrieval_tools, retrieval_tool_chain)
-            syntactic_prompt = f"Retrieve syntactic information about {entity_name}"
+            syntactic_prompt = f"Retrieve syntactic information about \"{entity_name}\""
             syntactic_information = chain.invoke({"input": syntactic_prompt})
-            lexical_prompt = f"Retrieve lexical information about {entity_name}"
+            lexical_prompt = f"Retrieve lexical information about \"{entity_name}\""
             lexical_information = chain.invoke({"input": lexical_prompt})
-            semantic_prompt = f"Retrieve semantic information about {entity_name}"
+            semantic_prompt = f"Retrieve semantic information about \"{entity_name}\""
             semantic_information = chain.invoke({"input": semantic_prompt})
             print()
             # save information
