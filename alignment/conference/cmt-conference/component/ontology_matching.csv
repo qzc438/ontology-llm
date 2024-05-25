@@ -1,50 +1,160 @@
 entity,source_or_target,entity_type,syntactic_matching,lexical_matching,semantic_matching
-http://cmt#Acceptance,Source,Class,acceptance," In the context of a conference, acceptance refers to the process of reviewing and evaluating submitted papers or proposals before they are included in the conference program. This typically involves a panel of experts who assess the quality, relevance, and originality of each submission, and decide whether it should be accepted for presentation at the conference. Acceptance is an important part of the academic and professional process, as it helps to ensure that only high-quality work is presented at conferences, and provides an opportunity for researchers and practitioners to share their findings and ideas with others in their field. "," The class ""Acceptance"" is a subclass of the class ""Decision"".
-The class ""Acceptance"" is disjoint with the class ""Rejection"".
-The class ""Rejection"" is disjoint with the class ""Acceptance"". "
-http://cmt#Administrator,Source,Class,administrator," In the context of a conference, an administrator typically refers to someone who is responsible for organizing and managing the event. This may include tasks such as coordinating logistics, handling registration and ticketing, arranging accommodations and transportation for attendees, and ensuring that all aspects of the conference run smoothly. The administrator may also be responsible for communicating with speakers, sponsors, and other stakeholders to ensure that their needs are met and that they have a positive experience at the conference. "," The following sentences correspond to the given triples:
-
-* The acceptPaper predicate has a domain of Administrator.
-* The acceptedBy predicate has a range of Administrator.
-* The addProgramCommitteeMember predicate has a domain of Administrator.
-* The addedBy predicate has a range of Administrator.
-* The assignReviewer predicate has a domain of Administrator.
-* The assignedByAdministrator predicate has a range of Administrator.
-* The detailsEnteredBy predicate has a range of Administrator.
-* The enableVirtualMeeting predicate has a domain of Administrator.
-* The enterConferenceDetails predicate has a domain of Administrator.
-* The enterReviewCriteria predicate has a domain of Administrator.
-* The finalizePaperAssignment predicate has a domain of Administrator.
-* The hardcopyMailingManifestsPrintedBy predicate has a range of Administrator.
-* The paperAssignmentFinalizedBy predicate has a range of Administrator.
-* The paperAssignmentToolsRunBy predicate has a range of Administrator.
-* The printHardcopyMailingManifests predicate has a domain of Administrator.
-* The rejectPaper predicate has a domain of Administrator.
-* The rejectedBy predicate has a range of Administrator.
-* The reviewCriteriaEnteredBy predicate has a range of Administrator.
-* The reviewerBiddingStartedBy predicate has a range of Administrator.
-* The runPaperAssignmentTools predicate has a domain of Administrator.
-* The setMaxPapers predicate has a domain of Administrator.
-* The startReviewerBidding predicate has a domain of Administrator.
-* The virtualMeetingEnabledBy predicate has a range of Administrator.
-* The Administrator class is a subclass of the User class. "
-http://cmt#AssociatedChair,Source,Class,associated chair," In the context of a conference, an ""AssociatedChair"" typically refers to a person who has been assigned to oversee and manage specific aspects or sessions of the conference program. This could include tasks such as coordinating with speakers, managing logistics for the session, or ensuring that the session runs smoothly and on schedule. The AssociatedChair may also be responsible for addressing any issues or concerns that arise during the session, and for working closely with other members of the conference organizing team to ensure the success of the event as a whole. "," The first triple can be verbalised as: ""The class 'AssociatedChair' is a subclass of the class 'ConferenceMember'.""
-
-The second triple can be verbalised as: ""The class 'AssociatedChair' is disjoint with the class 'ConferenceChair'.""
-
-The third triple can be verbalised as: ""The class 'ConferenceChair' is disjoint with the class 'AssociatedChair'."" "
-http://cmt#Author,Source,Class,author," In the context of a conference, an ""Author"" typically refers to someone who has written or contributed to a paper, presentation, or other material that will be presented at the conference. The author(s) may be researchers, academics, professionals, or experts in their respective fields, and they may be presenting their own work or discussing the work of others. In some cases, an ""Author"" may also refer to someone who has organized or is responsible for a particular session or panel at the conference. "," 1. The class ""AuthorNotReviewer"" is a subclass of the class ""Author"".
-2. The class ""Co-author"" is a subclass of the class ""Author"".
-3. The property ""hasAuthor"" has a range of the class ""Author"".
-4. The property ""submitPaper"" has a domain of the class ""Author"".
-5. The property ""writePaper"" has a domain of the class ""Author"".
-6. The class ""Author"" is a subclass of both the class ""ConferenceMember"" and the class ""User"". "
-http://cmt#AuthorNotReviewer,Source,Class,author not reviewer," In the context of a conference, ""AuthorNotReviewer"" typically refers to an author who has submitted a paper for review but is not part of the review process. The term is often used in academic conferences where authors are required to submit their papers for peer review before they can be accepted or rejected.
-
-In this case, ""AuthorNotReviewer"" means that the person in question has written and submitted a paper, but they are not responsible for reviewing other people's papers. This is important because it helps to ensure that the review process is fair and unbiased. The authors of the papers being reviewed should not have any influence on the outcome of the review process, and vice versa.
-
-Therefore, in a conference setting, ""AuthorNotReviewer"" refers to an author who has submitted a paper for review but is not involved in the review process. "," The following sentences represent the given triples:
-
-1. The Program Committee Member class is disjoint with the AuthorNotReviewer class.
-2. The Reviewer class is disjoint with the AuthorNotReviewer class.
-3. The AuthorNotReviewer class is a subclass of the Author class and is disjoint with both the Program Committee Member class and the Reviewer class. "
+http://cmt#Acceptance,Source,Class,acceptance,"In the context of a conference, acceptance refers to the approval or acknowledgment of a presentation, paper, or proposal to be included in the conference program. It signifies that the submission has met the criteria and standards set by the conference organizers and has been deemed suitable for presentation to the attendees. Acceptance in this context is a positive outcome for the submitter, as it allows them to share their work with a wider audience and contribute to the discussions and knowledge exchange at the conference.",Acceptance is a subclass of Decision and is disjoint with Rejection. Rejection is disjoint with Acceptance.
+http://cmt#Administrator,Source,Class,administrator,"In the context of a conference, an administrator is typically someone who is responsible for organizing and managing the logistics of the event. This may include tasks such as coordinating schedules, booking venues, handling registrations, and overseeing the overall operation of the conference. The administrator plays a crucial role in ensuring that the conference runs smoothly and efficiently.","- The action of accepting a paper is associated with the domain of an Administrator.
+- The action of being accepted by someone is associated with the range of an Administrator.
+- The action of adding a Program Committee Member is associated with the domain of an Administrator.
+- The action of being added by someone is associated with the range of an Administrator.
+- The action of assigning a reviewer is associated with the domain of an Administrator.
+- The action of being assigned by an Administrator is associated with the range of an Administrator.
+- The details entered are associated with the range of an Administrator.
+- The action of enabling a virtual meeting is associated with the domain of an Administrator.
+- The action of entering conference details is associated with the domain of an Administrator.
+- The action of entering review criteria is associated with the domain of an Administrator.
+- The action of finalizing paper assignment is associated with the domain of an Administrator.
+- The action of printing hardcopy mailing manifests is associated with the domain of an Administrator.
+- The action of rejecting a paper is associated with the domain of an Administrator.
+- The action of being rejected by someone is associated with the range of an Administrator.
+- The review criteria entered are associated with the range of an Administrator.
+- The action of starting reviewer bidding is associated with the range of an Administrator.
+- The action of running paper assignment tools is associated with the domain of an Administrator.
+- The action of setting the maximum number of papers is associated with the domain of an Administrator.
+- The action of starting reviewer bidding is associated with the domain of an Administrator.
+- The action of enabling virtual meeting is associated with the range of an Administrator.
+- Administrators are a subclass of Users."
+http://cmt#AssociatedChair,Source,Class,associated chair,"In the context of a conference, an AssociatedChair is a position or role that is typically responsible for assisting the Chairperson in organizing and managing the conference. This may involve tasks such as coordinating speakers, scheduling sessions, overseeing logistics, and ensuring the smooth running of the event. The AssociatedChair works closely with the Chairperson to help ensure the success of the conference.","The class ""AssociatedChair"" is a subclass of ""ConferenceMember"" and is disjoint with the class ""ConferenceChair"".
+The class ""ConferenceChair"" is disjoint with the class ""AssociatedChair""."
+http://cmt#Author,Source,Class,author,"In the context of a conference, an author refers to an individual who has written a paper, article, or presentation that is being presented at the conference. The author is typically the person responsible for the content and research presented in the work.","- ""AuthorNotReviewer"" is a subclass of ""Author"".
+- ""Co-author"" is a subclass of ""Author"".
+- The range of ""hasAuthor"" is ""Author"".
+- The domain of ""submitPaper"" is ""Author"".
+- The domain of ""writePaper"" is ""Author"".
+- ""Author"" is a subclass of ""ConferenceMember"" and ""User""."
+http://cmt#AuthorNotReviewer,Source,Class,author not reviewer,"AuthorNotReviewer refers to someone who has submitted a paper or presentation to a conference, but is not participating as a reviewer for other submissions. This individual is solely focused on presenting their own work and does not have the additional responsibility of evaluating and providing feedback on other submissions.","1. Program committee members are disjoint with authors who are not reviewers.
+2. Reviewers are disjoint with authors who are not reviewers.
+3. Authors who are not reviewers are a subclass of authors and are disjoint with program committee members and reviewers."
+http://cmt#Bid,Source,Class,bid,"In the context of a conference, a bid refers to a formal proposal submitted by a company or organization to host the conference in a particular location. The bid typically includes details such as the proposed venue, accommodations, transportation options, and any additional amenities or services that would be provided to conference attendees. The conference organizers will review the bids and select the most suitable location for the event.","- The property ""adjustBid"" has a range of ""Bid"".
+- The property ""adjustedBy"" has a domain of ""Bid"".
+- The property ""hasBid"" has a range of ""Bid"".
+- The class ""Conference"" is disjoint with the class ""Bid"".
+- The class ""Decision"" is disjoint with the class ""Bid"".
+- The class ""Document"" is disjoint with the class ""Bid"".
+- The class ""Person"" is disjoint with the class ""Bid"".
+- The class ""Preference"" is disjoint with the class ""Bid"".
+- The class ""ProgramCommittee"" is disjoint with the class ""Bid"".
+- The class ""Bid"" is disjoint with the classes ""Conference"", ""Decision"", ""Document"", ""Person"", ""Preference"", and ""ProgramCommittee""."
+http://cmt#Chairman,Source,Class,chairman,"In the context of a conference, the Chairman is typically the person who presides over the meeting, ensuring that discussions stay on track, all participants have the opportunity to speak, and decisions are made in an orderly fashion. The Chairman is responsible for maintaining order and facilitating productive discussions among attendees.",The chairman is a subclass of a person.
+http://cmt#Co-author,Source,Class,co author,"In the context of a conference, a co-author refers to someone who has collaborated with another person or group of people to write a paper, article, or presentation that is being presented at the conference. Co-authors share credit for the work and are typically listed together on the publication or presentation.","- The relationship ""co-writePaper"" is defined for instances of the class ""Co-author"".
+- The property ""hasCo-author"" is expected to have values that belong to the class ""Co-author"".
+- The class ""Co-author"" is a subclass of the class ""Author""."
+http://cmt#Conference,Source,Class,conference,"A conference is a formal meeting where people come together to discuss a particular topic, share ideas, and collaborate on projects. It can also refer to a large event where experts in a certain field give presentations and hold discussions.","- The property ""acceptsHardcopySubmissions"" has a domain of ""Conference"".
+- The property ""date"" has a domain of ""Conference"".
+- The property ""detailsEnteredBy"" has a domain of ""Conference"".
+- The property ""enableVirtualMeeting"" has a range of ""Conference"".
+- The property ""enterConferenceDetails"" has a range of ""Conference"".
+- The property ""enterReviewCriteria"" has a range of ""Conference"".
+- The property ""finalizePaperAssignment"" has a range of ""Conference"".
+- The property ""hardcopyMailingManifestsPrintedBy"" has a domain of ""Conference"".
+- The property ""hasConferenceMember"" has a domain of ""Conference"".
+- The property ""logoURL"" has a domain of ""Conference"".
+- The property ""memberOfConference"" has a range of ""Conference"".
+- The property ""paperAssignmentFinalizedBy"" has a domain of ""Conference"".
+- The property ""paperAssignmentToolsRunBy"" has a domain of ""Conference"".
+- The property ""printHardcopyMailingManifests"" has a range of ""Conference"".
+- The property ""reviewCriteriaEnteredBy"" has a domain of ""Conference"".
+- The property ""reviewerBiddingStartedBy"" has a domain of ""Conference"".
+- The property ""reviewsPerPaper"" has a domain of ""Conference"".
+- The property ""runPaperAssignmentTools"" has a range of ""Conference"".
+- The property ""siteURL"" has a domain of ""Conference"".
+- The property ""startReviewerBidding"" has a range of ""Conference"".
+- The property ""virtualMeetingEnabledBy"" has a domain of ""Conference"".
+- The class ""Bid"" is disjoint with the class ""Conference"".
+- The class ""Decision"" is disjoint with the class ""Conference"".
+- The class ""Document"" is disjoint with the class ""Conference"".
+- The class ""Person"" is disjoint with the class ""Conference"".
+- The class ""Preference"" is disjoint with the class ""Conference"".
+- The class ""ProgramCommittee"" is disjoint with the class ""Conference"".
+- The class ""Conference"" is disjoint with the classes ""Bid"", ""Decision"", ""Document"", ""Person"", ""Preference"", and ""ProgramCommittee""."
+http://cmt#ConferenceChair,Source,Class,conference chair,"In the context of a conference, a ConferenceChair refers to the person who is responsible for organizing and overseeing the conference. They are typically in charge of coordinating the various aspects of the event, such as selecting speakers, setting the agenda, and managing logistics. The ConferenceChair plays a crucial role in ensuring that the conference runs smoothly and successfully.","The class ""AssociatedChair"" is disjoint with the class ""ConferenceChair"".
+The class ""ConferenceChair"" is a subclass of ""ConferenceMember"" and is disjoint with the class ""AssociatedChair""."
+http://cmt#ConferenceMember,Source,Class,conference member,"In the context of a conference, a ConferenceMember refers to an individual who is participating in or attending the conference. This could include speakers, presenters, attendees, organizers, sponsors, or any other individuals involved in the conference in some capacity.","- An AssociatedChair is a subclass of ConferenceMember.
+- An Author is a subclass of ConferenceMember.
+- A ConferenceChair is a subclass of ConferenceMember.
+- A ProgramCommitteeMember is a subclass of ConferenceMember.
+- A Reviewer is a subclass of ConferenceMember.
+- The range of hasConferenceMember is ConferenceMember.
+- The domain of memberOfConference is ConferenceMember.
+- ConferenceMember is a subclass of Person."
+http://cmt#Decision,Source,Class,decision,"In the context of a conference, a decision refers to a conclusion or resolution reached after discussing and considering various options or opinions. It is the act of making up one's mind or choosing a course of action based on the information and discussions presented during the conference. Decisions made at a conference can have significant implications and impact the direction or outcome of a project, initiative, or organization.","- Acceptance is a subclass of Decision.
+- Rejection is a subclass of Decision.
+- The range of the property ""hasDecision"" is Decision.
+- Bid is disjoint with Decision.
+- Conference is disjoint with Decision.
+- Document is disjoint with Decision.
+- Person is disjoint with Decision.
+- Preference is disjoint with Decision.
+- ProgramCommittee is disjoint with Decision.
+- Decision is disjoint with Bid, Conference, Document, Person, Preference, and ProgramCommittee."
+http://cmt#Document,Source,Class,document,"In the context of a conference, a document refers to any written or digital material that contains information relevant to the conference proceedings. This can include research papers, presentations, agendas, schedules, and other materials that are distributed to attendees for reference. Documents play a crucial role in ensuring that information is effectively communicated and shared among conference participants.","- Paper is a subclass of Document.
+- Review is a subclass of Document.
+- The range of hasConflictOfInterest is Document.
+- Bid is disjoint with Document.
+- Conference is disjoint with Document.
+- Decision is disjoint with Document.
+- Person is disjoint with Document.
+- Preference is disjoint with Document.
+- ProgramCommittee is disjoint with Document.
+- Document is disjoint with Bid, Conference, Decision, Person, Preference, and ProgramCommittee."
+http://cmt#ExternalReviewer,Source,Class,external reviewer,"In the context of a conference, an External Reviewer is a person who has been designated to review a paper on behalf of another Reviewer. They are not officially listed as a Reviewer for the conference, but they are still responsible for providing feedback and evaluations on the paper assigned to them.","- The range of the property ""assignExternalReviewer"" is ""ExternalReviewer"".
+- The domain of the property ""assignedByReviewer"" is ""ExternalReviewer"".
+- The class ""Reviewer"" is disjoint with the class ""ExternalReviewer"".
+- The class ""ExternalReviewer"" is a subclass of ""Person"" and is disjoint with the class ""Reviewer""."
+http://cmt#Meta-Review,Source,Class,meta review,"In the context of a conference, a meta-review refers to a review of reviews. This means that instead of reviewing individual papers or presentations, a meta-reviewer evaluates the reviews provided by other reviewers for a particular submission. The goal of a meta-review is to ensure consistency and fairness in the review process and to provide an overall assessment of the quality and validity of the reviews received for a particular submission.","A ""Meta-Review"" is a subclass of ""Review""."
+http://cmt#Meta-Reviewer,Source,Class,meta reviewer,The meaning of a Meta-Reviewer in the context of a conference is a special type of reviewer who has the ability to review all the reviews submitted for a particular paper and then provide their own review. The Meta-Reviewer's role is to ensure that the reviews are of high quality and consistent. They may have different questions or criteria compared to regular reviewers. The use of Meta-Reviewers is optional and must be determined before assigning papers for review.,"The property ""readByMeta-Reviewer"" has a range of ""Meta-Reviewer"".
+""Meta-Reviewer"" is a subclass of ""Reviewer""."
+http://cmt#Paper,Source,Class,paper,"In the context of a conference, a paper typically refers to a written document that presents research findings, analysis, or ideas on a specific topic. Presenting a paper at a conference allows researchers to share their work with others in the field, receive feedback, and contribute to the advancement of knowledge in their area of study.","- PaperAbstract is a subclass of Paper.
+- PaperFullVersion is a subclass of Paper.
+- acceptPaper has a range of Paper.
+- acceptedBy has a domain of Paper.
+- assignedTo has a domain of Paper.
+- co-writePaper has a range of Paper.
+- hasAuthor has a domain of Paper.
+- hasBeenAssigned has a range of Paper.
+- hasBid has a domain of Paper.
+- hasCo-author has a domain of Paper.
+- hasDecision has a domain of Paper.
+- hasSubjectArea has a domain of Paper.
+- markConflictOfInterest has a range of Paper.
+- paperID has a domain of Paper.
+- readByMeta-Reviewer has a domain of Paper.
+- readByReviewer has a domain of Paper.
+- readPaper has a range of Paper.
+- rejectPaper has a range of Paper.
+- rejectedBy has a domain of Paper.
+- submitPaper has a range of Paper.
+- title has a domain of Paper.
+- writePaper has a range of Paper.
+- Review is disjoint with Paper.
+- Paper is a subclass of Document and disjoint with Review."
+http://cmt#PaperAbstract,Source,Class,paper abstract,"In the context of a conference, a PaperAbstract refers to a brief summary or description of a research paper or presentation that is submitted to the conference organizers for review. The PaperAbstract typically includes key points, objectives, methodology, and findings of the research paper, providing a snapshot of the content to help conference organizers determine its relevance and quality for inclusion in the conference program.","The class ""PaperAbstract"" is a subclass of the class ""Paper""."
+http://cmt#PaperFullVersion,Source,Class,paper full version,"In the context of a conference, ""PaperFullVersion"" likely refers to a complete and detailed version of a research paper or presentation that has been submitted or presented at the conference. This term may be used to distinguish between a shorter or summarized version of the paper that is presented during the conference and the full, comprehensive version that contains all the details, data, and analysis.","The class ""PaperFullVersion"" is a subclass of the class ""Paper""."
+http://cmt#Person,Source,Class,person,"In the context of a conference, a person refers to an individual attending or participating in the event. This could include speakers, attendees, organizers, volunteers, and any other individuals involved in the conference. Each person plays a role in contributing to the overall success and experience of the conference.","The Chairman is a subclass of Person.
+The ConferenceMember is a subclass of Person.
+The ExternalReviewer is a subclass of Person.
+The ProgramCommitteeMember is a subclass of Person.
+The User is a subclass of Person.
+The email domain is Person.
+The hasConflictOfInterest domain is Person.
+Bid is disjoint with Person.
+Conference is disjoint with Person.
+Decision is disjoint with Person.
+Document is disjoint with Person.
+Preference is disjoint with Person.
+ProgramCommittee is disjoint with Person.
+Person is disjoint with Bid, Conference, Decision, Document, Preference, and ProgramCommittee."
+http://cmt#Preference,Source,Class,preference,"In the context of a conference, preference refers to the act of choosing or favoring one option over another. This could include preferences for session topics, presentation styles, networking opportunities, or any other aspect of the conference experience. Attendees may have different preferences based on their interests, goals, and personal preferences. Organizers may take these preferences into account when planning the conference to ensure that attendees have a positive and engaging experience.","A bid is disjoint with preference.
+A conference is disjoint with preference.
+A decision is disjoint with preference.
+A document is disjoint with preference.
+A person is disjoint with preference.
+A program committee is disjoint with preference.
+Preference is disjoint with bid, conference, decision, document, person, and program committee."

@@ -351,7 +351,8 @@ def ontology() -> str:
                 writer.writerow(list_pair)
     # clean anatomy result
     if config.alignment == "anatomy/mouse-human-suite/component/":
-        util.filter_anatomy()
+        util.filter_anatomy(predict_source_path_no_validation)
+        util.filter_anatomy(predict_source_path)
     # evaluation
     print(util.calculate_metrics(true_path, predict_source_path_no_validation, result_path, util.find_model_name(llm), alignment + "source_no_validation"))
     print(util.calculate_metrics(true_path, predict_source_path, result_path, util.find_model_name(llm), alignment + "source"))
@@ -379,7 +380,8 @@ def ontology() -> str:
                 writer.writerow(list_pair)
     # clean anatomy result
     if config.alignment == "anatomy/mouse-human-suite/component/":
-        util.filter_anatomy()
+        util.filter_anatomy(predict_target_path_no_validation)
+        util.filter_anatomy(predict_target_path)
     # evaluation
     print(util.calculate_metrics(true_path, predict_target_path_no_validation, result_path, util.find_model_name(llm), alignment + "target_no_validation"))
     print(util.calculate_metrics(true_path, predict_target_path, result_path, util.find_model_name(llm), alignment + "target"))
@@ -422,7 +424,7 @@ def validate(a: str, b: str) -> str:
     """Validate matching."""
     util.print_colored_text(f"Validate matching: {a} and {b}", "cyan")
     # tool function
-    prompt_validate_question = f"""Question: Is {a} often used interchangeably with {b}?
+    prompt_validate_question = f"""Question: Is the term "{a}" often used interchangeably with the term"{b}"?
                             Context: {context}
                             Answer the question within the context.
                             Answer yes or no. Give a short explanation.

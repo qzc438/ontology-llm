@@ -175,13 +175,48 @@ def calculate_metrics(true_path, predict_path, result_path, llm, alignment):
             return ["%.2f" % (precision * 100), "%.2f" % (recall * 100), "%.2f" % (f1 * 100)]
 
 
+def calculate_benchmark_metrics(true_path, predict_path, alignment, result_path):
+    df_true = pd.read_csv(true_path, encoding="Windows-1250")
+    df_predict = pd.read_csv(predict_path, encoding="Windows-1250")
+    if df_predict.empty:
+        return [0, 0, 0]
+    else:
+        # list_true = df_true.values.tolist()
+        # list_predict = df_predict.values.tolist()
+        # common = common_member(list_true, list_predict)
+        common = pd.merge(df_true, df_predict, on=['Entity1', 'Entity2'], how="inner")
+        # Remove any duplicate rows in the common
+        common = common.drop_duplicates()
+        # print(common)
+        ra = len(common)
+        print("ra:", ra)
+        if ra == 0:
+            return [0, 0, 0]
+        else:
+            r = len(df_true)
+            print("r:", r)
+            a = len(df_predict)
+            print("a:", a)
+            precision = ra / a
+            recall = ra / r
+            f1 = 2 * (precision * recall) / (precision + recall)
+            # write to file
+            # create_document(result_path, header=['Alignment', 'Precision', 'Recall', 'F1'])
+            with open(result_path, "a+", newline='') as f:
+                writer = csv.writer(f)
+                result = ["%.2f" % (precision * 100), "%.2f" % (recall * 100), "%.2f" % (f1 * 100)]
+                result = [alignment] + result
+                writer.writerow(result)
+            # print results
+            return ["%.2f" % (precision * 100), "%.2f" % (recall * 100), "%.2f" % (f1 * 100)]
+
+
 def common_member(a, b):
     result = [i for i in a if i in b]
     return result
 
 
-def filter_anatomy():
-    csv_path = 'alignment/anatomy/mouse-human-suite/component/predict.csv'
+def filter_anatomy(csv_path):
     # read csv
     df = pd.read_csv(csv_path)
     # define the list of values to remove from "Entity1"

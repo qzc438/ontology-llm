@@ -71,7 +71,7 @@ num_matches = 50
 context = "conference"
 o1_is_code = False
 o2_is_code = False
-alignment = "conference/cmt-conference/component/"
+# alignment = "conference/cmt-conference/component/"
 # alignment = "conference/cmt-confof/component/"
 # alignment = "conference/cmt-edas/component/"
 # alignment = "conference/cmt-ekaw/component/"
@@ -107,6 +107,12 @@ alignment = "conference/cmt-conference/component/"
 # o1_is_code = True
 # o2_is_code = True
 # alignment = "anatomy/mouse-human-suite/component/"
+
+# anatomy track
+# context = "food nutritional composition"
+# o1_is_code = True
+# o2_is_code = True
+# alignment = "food/ciqual-siren/component/"
 
 # metadata
 # e1_list_class: 2744
@@ -205,6 +211,7 @@ if __name__ == '__main__':
     print("model_name:", util.find_model_name(llm))
     print("alignment:", alignment)
     print("similarity_threshold:", similarity_threshold)
+    print()
 
     script_sequence = [
         "om_ontology_to_csv.py",

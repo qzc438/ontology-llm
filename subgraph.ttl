@@ -1,11 +1,1 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-
-"ProgramCommitteeMember" owl:disjointWith "AuthorNotReviewer" .
-
-"Reviewer" owl:disjointWith "AuthorNotReviewer" .
-
-"AuthorNotReviewer" rdfs:subClassOf "Author" ;
-    owl:disjointWith "ProgramCommitteeMember",
-        "Reviewer" .
 

@@ -147,7 +147,7 @@ def lexical(entity: str) -> str:
             input_variables=["entity_name", "entity_info", "context"],
             template="Question: What is the meaning of {entity_name}?\n"
                      "Context: {context}\n"
-                     "Answer the question within the context."
+                     "Answer the question within the context.\n"
         )
         chain = prompt | llm
         answer = chain.invoke({
@@ -234,6 +234,7 @@ def find_all_entities():
     print("e2_list_class:", len(e2_list_class))
     print("e1_list_property:", len(e1_list_property))
     print("e2_list_property:", len(e2_list_property))
+    print()
     return e1_list_class, e2_list_class, e1_list_property, e2_list_property
 
 
@@ -271,6 +272,7 @@ def find_entity_information(path, entity_list, source_or_target, entity_type):
             lexical_information = chain.invoke({"input": lexical_prompt})
             semantic_prompt = f"Retrieve semantic information about {entity}"
             semantic_information = chain.invoke({"input": semantic_prompt})
+            print()
             # save information
             writer = csv.writer(f1)
             list_information = [entity, source_or_target, entity_type, syntactic_information, lexical_information, semantic_information]
