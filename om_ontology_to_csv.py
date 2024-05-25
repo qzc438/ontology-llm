@@ -1,3 +1,5 @@
+import json
+
 import run_config as config
 import util
 
@@ -103,27 +105,31 @@ def get_entity_name(entity, ontology, ontology_is_code):
 def syntactic(entity: str) -> str:
     """Retrieve syntactic information."""
     util.print_colored_text(f"Retrieve syntactic information: {entity}", "green")
+    entity_name = entity
     # # find entity name
-    # entity_name = entity
-    entity_name = get_entity_name(entity, ontology, ontology_is_code)
-    cleaned_entity_name = util.cleaning(entity_name)
-    # print
-    print("syntactic_information:", cleaned_entity_name)
-    return cleaned_entity_name
+    # entity_name = get_entity_name(entity, ontology, ontology_is_code)
+    cleaned_entity_name = util.cleaning(entity_name).strip()
+    # cleaned_entity_name is null for multilingual case
+    if cleaned_entity_name:
+        print("syntactic_information:", cleaned_entity_name)
+        return cleaned_entity_name
+    else:
+        print("syntactic_information:", entity_name)
+        return entity_name
 
 
 @tool
 def lexical(entity: str) -> str:
     """Retrieve lexical information."""
     util.print_colored_text(f"Retrieve lexical information: {entity}", "yellow")
+    entity_name = entity
     # # find entity name
-    # entity_name = entity
-    entity_name = get_entity_name(entity, ontology, ontology_is_code)
+    # entity_name = get_entity_name(entity, ontology, ontology_is_code)
     # extract extra information
     extra_information_set = set()
-    for s, p, o in ontology.triples((rdflib.URIRef(entity), rdflib.RDFS.comment, None)):
+    for s, p, o in ontology.triples((rdflib.URIRef(entity_uri), rdflib.RDFS.comment, None)):
         extra_information_set.add(str(o))
-    for s, p, o in ontology.triples((rdflib.URIRef(entity), rdflib.SKOS.definition, None)):
+    for s, p, o in ontology.triples((rdflib.URIRef(entity_uri), rdflib.SKOS.definition, None)):
         extra_information_set.add(str(o))
     extra_information = ' '.join(extra_information_set)
     # create different prompts based on extra information
@@ -163,8 +169,9 @@ def lexical(entity: str) -> str:
 def semantic(entity: str) -> str:
     """Retrieve semantic information."""
     util.print_colored_text(f"Retrieve semantic information: {entity}", "magenta")
-    # # find entity uri
-    # entity = entity_uri
+    # find entity uri
+    global entity_uri
+    entity = entity_uri
     # create a subgraph to store entity's semantic information
     subgraph = rdflib.Graph()
     # write the triples to the txt
@@ -254,23 +261,25 @@ def find_entity_information(path, entity_list, source_or_target, entity_type):
     # entity_list = ["http://mouse.owl#MA_0000006`"] # test head/neck
     # entity_list = ["http://mouse.owl#MA_0001844"]
     # entity_list = ["http://human.owl#NCI_C12220"]
+    # entity_list = ["http://cmt_cn#c-0108865-3676500"]
     with open(path, "a+", newline='') as f1:
         for entity in entity_list:
-            # # small models sometimes have issues passing the URI
-            # # fix by this solution by only passing the entity name to the model
-            # entity = get_entity_name(entity, ontology, ontology_is_code)
-            # # but you still need an uri for semantic matching
-            # global entity_uri
-            # entity_uri = entity
-            # entity = r"{}".format(entity)
-            print("entity:", entity)
+            # small models sometimes have issues passing the URI argument
+            # error message: json.decoder.JSONDecodeError: Invalid \escape
+            # fix by this solution by passing the entity name to the model
+            # but you still need an uri for semantic information
+            global entity_uri
+            entity_uri = entity
+            entity_name = get_entity_name(entity, ontology, ontology_is_code)
+            print("entity_uri:", entity)
+            print("entity_name:", entity_name)
             # find information
             chain = create_tool_use_agent(retrieval_tools, retrieval_tool_chain)
-            syntactic_prompt = f"Retrieve syntactic information about {entity}"
+            syntactic_prompt = f"Retrieve syntactic information about {entity_name}"
             syntactic_information = chain.invoke({"input": syntactic_prompt})
-            lexical_prompt = f"Retrieve lexical information about {entity}"
+            lexical_prompt = f"Retrieve lexical information about {entity_name}"
             lexical_information = chain.invoke({"input": lexical_prompt})
-            semantic_prompt = f"Retrieve semantic information about {entity}"
+            semantic_prompt = f"Retrieve semantic information about {entity_name}"
             semantic_information = chain.invoke({"input": semantic_prompt})
             print()
             # save information

@@ -1,0 +1,1089 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<rdf:RDF xmlns="http://confOf_ar#" 
+     xml:base="http://confOf_ar" 
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" 
+     xmlns:confOf_ar="http://confOf_ar#" 
+     xmlns:owl="http://www.w3.org/2002/07/owl#" 
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#" 
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"> 
+    <owl:Ontology rdf:about="http://confOf_ar"/> 
+     
+ 
+ 
+    <!--  
+    /////////////////////////////////////////////////////////////////////////////////////// 
+    // 
+    // Annotation properties 
+    // 
+    /////////////////////////////////////////////////////////////////////////////////////// 
+     --> 
+ 
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#label"/> 
+     
+ 
+ 
+    <!--  
+    /////////////////////////////////////////////////////////////////////////////////////// 
+    // 
+    // Object Properties 
+    // 
+    /////////////////////////////////////////////////////////////////////////////////////// 
+     --> 
+ 
+     
+ 
+ 
+    <!-- http://confOf_ar#op-5125834-7060780 --> 
+ 
+    <owl:ObjectProperty rdf:about="http://confOf_ar#op-5125834-7060780"> 
+        <rdfs:label xml:lang="ar">لديه موضوع</rdfs:label> 
+        <rdfs:range rdf:resource="http://confOf_ar#c-9172091-4049531"/> 
+        <rdfs:domain rdf:resource="http://confOf_ar#c-0862020-8340462"/> 
+    </owl:ObjectProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#op-3981823-0046931 --> 
+ 
+    <owl:ObjectProperty rdf:about="http://confOf_ar#op-3981823-0046931"> 
+        <rdfs:label xml:lang="ar">لديه الحدث الإداري ذات الصلة</rdfs:label> 
+        <rdfs:domain rdf:resource="http://confOf_ar#c-0862020-8340462"/> 
+        <rdfs:range rdf:resource="http://confOf_ar#c-7705317-3828803"/> 
+    </owl:ObjectProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#op-6228092-2117973 --> 
+ 
+    <owl:ObjectProperty rdf:about="http://confOf_ar#op-6228092-2117973"> 
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/> 
+        <rdfs:label xml:lang="ar">بتوازي مع</rdfs:label> 
+        <rdfs:range rdf:resource="http://confOf_ar#c-7705317-3828803"/> 
+        <rdfs:domain rdf:resource="http://confOf_ar#c-7705317-3828803"/> 
+        <owl:inverseOf rdf:resource="http://confOf_ar#op-6228092-2117973"/> 
+    </owl:ObjectProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#op-2099965-8528314 --> 
+ 
+    <owl:ObjectProperty rdf:about="http://confOf_ar#op-2099965-8528314"> 
+        <rdfs:label xml:lang="ar">متستخدمة من قبل</rdfs:label> 
+        <rdfs:range rdf:resource="http://confOf_ar#c-7554990-5957094"/> 
+        <rdfs:domain rdf:resource="http://confOf_ar#c-5045922-1723896"/> 
+    </owl:ObjectProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#op-1259732-1416994 --> 
+ 
+    <owl:ObjectProperty rdf:about="http://confOf_ar#op-1259732-1416994"> 
+        <rdfs:label xml:lang="ar">المراجعين</rdfs:label> 
+        <rdfs:range rdf:resource="http://confOf_ar#c-4724962-7476631"/> 
+        <rdfs:domain rdf:resource="http://confOf_ar#c-7975094-2645837"/> 
+    </owl:ObjectProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#op-4430319-1360916 --> 
+ 
+    <owl:ObjectProperty rdf:about="http://confOf_ar#op-4430319-1360916"> 
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/> 
+        <rdfs:label xml:lang="ar">البقاء في البلد</rdfs:label> 
+        <rdfs:range rdf:resource="http://confOf_ar#c-3217626-7724579"/> 
+        <rdfs:domain> 
+            <owl:Class> 
+                <owl:unionOf rdf:parseType="Collection"> 
+                    <rdf:Description rdf:about="http://confOf_ar#c-7554990-5957094"/> 
+                    <rdf:Description rdf:about="http://confOf_ar#c-5045922-1723896"/> 
+                </owl:unionOf> 
+            </owl:Class> 
+        </rdfs:domain> 
+    </owl:ObjectProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#op-2539649-5664936 --> 
+ 
+    <owl:ObjectProperty rdf:about="http://confOf_ar#op-2539649-5664936"> 
+        <rdfs:label xml:lang="ar">البقاء في المدينة</rdfs:label> 
+        <rdfs:range rdf:resource="http://confOf_ar#c-6509469-7705009"/> 
+        <rdfs:domain> 
+            <owl:Class> 
+                <owl:unionOf rdf:parseType="Collection"> 
+                    <rdf:Description rdf:about="http://confOf_ar#c-7554990-5957094"/> 
+                    <rdf:Description rdf:about="http://confOf_ar#c-5045922-1723896"/> 
+                </owl:unionOf> 
+            </owl:Class> 
+        </rdfs:domain> 
+    </owl:ObjectProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#op-7958639-1882166 --> 
+ 
+    <owl:ObjectProperty rdf:about="http://confOf_ar#op-7958639-1882166"> 
+        <rdfs:label xml:lang="ar">خبير في الموضوع</rdfs:label> 
+        <rdfs:range rdf:resource="http://confOf_ar#c-9172091-4049531"/> 
+        <rdfs:domain rdf:resource="http://confOf_ar#c-7975094-2645837"/> 
+    </owl:ObjectProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#op-4279864-5258217 --> 
+ 
+    <owl:ObjectProperty rdf:about="http://confOf_ar#op-4279864-5258217"> 
+        <rdfs:label xml:lang="ar">كتب من قبل الكاتب</rdfs:label> 
+        <rdfs:domain rdf:resource="http://confOf_ar#c-4724962-7476631"/> 
+        <rdfs:range rdf:resource="http://confOf_ar#c-1867912-9455919"/> 
+    </owl:ObjectProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#op-8982626-9416177 --> 
+ 
+    <owl:ObjectProperty rdf:about="http://confOf_ar#op-8982626-9416177"> 
+        <rdfs:label xml:lang="ar">يتعامل مع الموضوع</rdfs:label> 
+        <rdfs:range rdf:resource="http://confOf_ar#c-9172091-4049531"/> 
+        <rdfs:domain rdf:resource="http://confOf_ar#c-4724962-7476631"/> 
+    </owl:ObjectProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#op-4739001-1635608 --> 
+ 
+    <owl:ObjectProperty rdf:about="http://confOf_ar#op-4739001-1635608"> 
+        <rdfs:label xml:lang="ar">يكتب المساهمة</rdfs:label> 
+        <rdfs:range rdf:resource="http://confOf_ar#c-4724962-7476631"/> 
+        <rdfs:domain rdf:resource="http://confOf_ar#c-1867912-9455919"/> 
+        <owl:inverseOf rdf:resource="http://confOf_ar#op-4279864-5258217"/> 
+    </owl:ObjectProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#op-7013698-5998618 --> 
+ 
+    <owl:ObjectProperty rdf:about="http://confOf_ar#op-7013698-5998618"> 
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/> 
+        <rdfs:label xml:lang="ar">يتبع</rdfs:label> 
+        <rdfs:range rdf:resource="http://confOf_ar#c-7705317-3828803"/> 
+        <rdfs:domain rdf:resource="http://confOf_ar#c-7705317-3828803"/> 
+    </owl:ObjectProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#op-6843970-6432039 --> 
+ 
+    <owl:ObjectProperty rdf:about="http://confOf_ar#op-6843970-6432039"> 
+        <rdfs:label xml:lang="ar">دراسة في الجامعة</rdfs:label> 
+        <rdfs:domain rdf:resource="http://confOf_ar#c-6600468-8307220"/> 
+        <rdfs:range rdf:resource="http://confOf_ar#c-7865913-2364546"/> 
+    </owl:ObjectProperty> 
+     
+ 
+ 
+    <!--  
+    /////////////////////////////////////////////////////////////////////////////////////// 
+    // 
+    // Data properties 
+    // 
+    /////////////////////////////////////////////////////////////////////////////////////// 
+     --> 
+ 
+     
+ 
+ 
+    <!-- http://confOf_ar#ent-0231764-5105520 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://confOf_ar#ent-0231764-5105520"> 
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/> 
+        <rdfs:label xml:lang="ar">لديه عنوان </rdfs:label> 
+        <rdfs:domain rdf:resource="http://confOf_ar#c-4724962-7476631"/> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#ent-9289908-4613730 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://confOf_ar#ent-9289908-4613730"> 
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/> 
+        <rdfs:label xml:lang="ar">لديه الاسم الأول</rdfs:label> 
+        <rdfs:domain rdf:resource="http://confOf_ar#c-5045922-1723896"/> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#ent-7808145-7196360 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://confOf_ar#ent-7808145-7196360"> 
+        <rdfs:label xml:lang="ar">لديه ملاحظة</rdfs:label> 
+        <rdfs:domain rdf:resource="http://confOf_ar#c-4724962-7476631"/> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#ent-6422537-2308261 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://confOf_ar#ent-6422537-2308261"> 
+        <rdfs:label xml:lang="ar">لديه الرمز البريدي</rdfs:label> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/> 
+        <rdfs:domain> 
+            <owl:Class> 
+                <owl:unionOf rdf:parseType="Collection"> 
+                    <rdf:Description rdf:about="http://confOf_ar#c-7554990-5957094"/> 
+                    <rdf:Description rdf:about="http://confOf_ar#c-5045922-1723896"/> 
+                </owl:unionOf> 
+            </owl:Class> 
+        </rdfs:domain> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#ent-7558980-2277861 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://confOf_ar#ent-7558980-2277861"> 
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/> 
+        <rdfs:label xml:lang="ar">لديه ملخص</rdfs:label> 
+        <rdfs:domain rdf:resource="http://confOf_ar#c-4724962-7476631"/> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#ent-7044668-1380002 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://confOf_ar#ent-7044668-1380002"> 
+        <rdfs:label xml:lang="ar">حدث يقام في</rdfs:label> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/> 
+        <rdfs:domain> 
+            <owl:Class> 
+                <owl:unionOf rdf:parseType="Collection"> 
+                    <rdf:Description rdf:about="http://confOf_ar#c-0862020-8340462"/> 
+                    <rdf:Description rdf:about="http://confOf_ar#c-3934764-9061319"/> 
+                </owl:unionOf> 
+            </owl:Class> 
+        </rdfs:domain> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#ent-4160679-8832502 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://confOf_ar#ent-4160679-8832502"> 
+        <rdfs:label xml:lang="ar">تحديد أقل عدد من الحدث</rdfs:label> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/> 
+        <rdfs:domain> 
+            <owl:Class> 
+                <owl:unionOf rdf:parseType="Collection"> 
+                    <rdf:Description rdf:about="http://confOf_ar#c-0862020-8340462"/> 
+                    <rdf:Description rdf:about="http://confOf_ar#c-3934764-9061319"/> 
+                </owl:unionOf> 
+            </owl:Class> 
+        </rdfs:domain> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#ent-8871965-5679072 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://confOf_ar#ent-8871965-5679072"> 
+        <rdfs:label xml:lang="ar">لديه الهاتف</rdfs:label> 
+        <rdfs:domain rdf:resource="http://confOf_ar#c-5045922-1723896"/> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#ent-9378143-3864233 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://confOf_ar#ent-9378143-3864233"> 
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/> 
+        <rdfs:label xml:lang="ar">المشارك في المؤتمر لديه التسجيل مبكر</rdfs:label> 
+        <rdfs:domain rdf:resource="http://confOf_ar#c-8228583-9065800"/> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#ent-0126389-7456433 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://confOf_ar#ent-0126389-7456433"> 
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/> 
+        <rdfs:label xml:lang="ar">لديه عنوان</rdfs:label> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/> 
+        <rdfs:domain> 
+            <owl:Class> 
+                <owl:unionOf rdf:parseType="Collection"> 
+                    <rdf:Description rdf:about="http://confOf_ar#c-0862020-8340462"/> 
+                    <rdf:Description rdf:about="http://confOf_ar#c-3934764-9061319"/> 
+                </owl:unionOf> 
+            </owl:Class> 
+        </rdfs:domain> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#ent-2875843-2994773 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://confOf_ar#ent-2875843-2994773"> 
+        <rdfs:label xml:lang="ar">لديه الفاكس</rdfs:label> 
+        <rdfs:domain rdf:resource="http://confOf_ar#c-5045922-1723896"/> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#ent-0292220-6903764 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://confOf_ar#ent-0292220-6903764"> 
+        <rdfs:label xml:lang="ar">لديه كلمات البحث</rdfs:label> 
+        <rdfs:domain rdf:resource="http://confOf_ar#c-4724962-7476631"/> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#ent-4348868-2973535 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://confOf_ar#ent-4348868-2973535"> 
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/> 
+        <rdfs:label xml:lang="ar">تحديد العدد الأقصى من الحدث</rdfs:label> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/> 
+        <rdfs:domain> 
+            <owl:Class> 
+                <owl:unionOf rdf:parseType="Collection"> 
+                    <rdf:Description rdf:about="http://confOf_ar#c-0862020-8340462"/> 
+                    <rdf:Description rdf:about="http://confOf_ar#c-3934764-9061319"/> 
+                </owl:unionOf> 
+            </owl:Class> 
+        </rdfs:domain> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#ent-3072291-5675975 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://confOf_ar#ent-3072291-5675975"> 
+        <rdfs:label xml:lang="ar">لديه اتصال البريد الإلكتروني</rdfs:label> 
+        <rdfs:domain rdf:resource="http://confOf_ar#c-4724962-7476631"/> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#ent-1347165-6894806 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://confOf_ar#ent-1347165-6894806"> 
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/> 
+        <rdfs:label xml:lang="ar">لديه عنوان قصير</rdfs:label> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/> 
+        <rdfs:domain> 
+            <owl:Class> 
+                <owl:unionOf rdf:parseType="Collection"> 
+                    <rdf:Description rdf:about="http://confOf_ar#c-0862020-8340462"/> 
+                    <rdf:Description rdf:about="http://confOf_ar#c-3934764-9061319"/> 
+                </owl:unionOf> 
+            </owl:Class> 
+        </rdfs:domain> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#ent-7335271-1567566 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://confOf_ar#ent-7335271-1567566"> 
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/> 
+        <rdfs:label xml:lang="ar">لديه اللقب</rdfs:label> 
+        <rdfs:domain rdf:resource="http://confOf_ar#c-5045922-1723896"/> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#ent-5699642-9496096 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://confOf_ar#ent-5699642-9496096"> 
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/> 
+        <rdfs:label xml:lang="ar">بدء يوم الحدث</rdfs:label> 
+        <rdfs:domain rdf:resource="http://confOf_ar#c-5209605-2294927"/> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#ent-1045569-4200137 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://confOf_ar#ent-1045569-4200137"> 
+        <rdfs:label xml:lang="ar">البقاء في الشارع</rdfs:label> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/> 
+        <rdfs:domain> 
+            <owl:Class> 
+                <owl:unionOf rdf:parseType="Collection"> 
+                    <rdf:Description rdf:about="http://confOf_ar#c-7554990-5957094"/> 
+                    <rdf:Description rdf:about="http://confOf_ar#c-5045922-1723896"/> 
+                </owl:unionOf> 
+            </owl:Class> 
+        </rdfs:domain> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#ent-1187025-5798138 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://confOf_ar#ent-1187025-5798138"> 
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/> 
+        <rdfs:label xml:lang="ar">انتهاء يوم الحدث</rdfs:label> 
+        <rdfs:domain rdf:resource="http://confOf_ar#c-5209605-2294927"/> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#ent-2195550-7867378 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://confOf_ar#ent-2195550-7867378"> 
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/> 
+        <rdfs:label xml:lang="ar">لديه قيمة ضريبة مضافة</rdfs:label> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/> 
+        <rdfs:domain> 
+            <owl:Class> 
+                <owl:unionOf rdf:parseType="Collection"> 
+                    <rdf:Description rdf:about="http://confOf_ar#c-0862020-8340462"/> 
+                    <rdf:Description rdf:about="http://confOf_ar#c-3934764-9061319"/> 
+                </owl:unionOf> 
+            </owl:Class> 
+        </rdfs:domain> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#ent-1338075-5671778 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://confOf_ar#ent-1338075-5671778"> 
+        <rdfs:label xml:lang="ar">لديه الصفحة الرئيسية</rdfs:label> 
+        <rdfs:domain rdf:resource="http://confOf_ar#c-5045922-1723896"/> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#ent-0492077-3755488 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://confOf_ar#ent-0492077-3755488"> 
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/> 
+        <rdfs:label xml:lang="ar">تحديد عدد الخيار الافتراضي من الحدث </rdfs:label> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/> 
+        <rdfs:domain> 
+            <owl:Class> 
+                <owl:unionOf rdf:parseType="Collection"> 
+                    <rdf:Description rdf:about="http://confOf_ar#c-0862020-8340462"/> 
+                    <rdf:Description rdf:about="http://confOf_ar#c-3934764-9061319"/> 
+                </owl:unionOf> 
+            </owl:Class> 
+        </rdfs:domain> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://confOf_ar#ent-2534398-9760679 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://confOf_ar#ent-2534398-9760679"> 
+        <rdfs:label xml:lang="ar">لديه بريد الكتروني</rdfs:label> 
+        <rdfs:domain rdf:resource="http://confOf_ar#c-5045922-1723896"/> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!--  
+    /////////////////////////////////////////////////////////////////////////////////////// 
+    // 
+    // Classes 
+    // 
+    /////////////////////////////////////////////////////////////////////////////////////// 
+     --> 
+ 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-8228583-9065800 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-8228583-9065800"> 
+        <rdfs:label xml:lang="ar">مشارك</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-5045922-1723896"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-3410727-9011110 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-3410727-9011110"> 
+        <rdfs:label xml:lang="ar">حدث الارسال</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-7705317-3828803"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-5012824-3183223"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-3915519-2693956"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-4405124-5235986"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-9768391-7820417"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-6600468-8307220 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-6600468-8307220"> 
+        <rdfs:label xml:lang="ar">طالب</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-5045922-1723896"/> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#op-6843970-6432039"/> 
+                <owl:someValuesFrom rdf:resource="http://confOf_ar#c-7865913-2364546"/> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#op-6843970-6432039"/> 
+                <owl:allValuesFrom rdf:resource="http://confOf_ar#c-7865913-2364546"/> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-5702701-0515150 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-5702701-0515150"> 
+        <rdfs:label xml:lang="ar">لاشيئ</rdfs:label> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-1586963-0840580 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-1586963-0840580"> 
+        <rdfs:label xml:lang="ar">مأدبة</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-3934764-9061319"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-5885863-7973282"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-0772591-8415185"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-3917342-9258011 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-3917342-9258011"> 
+        <rdfs:label xml:lang="ar">طالب مشارك في المؤتمر</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-8228583-9065800"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-9172091-4049531 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-9172091-4049531"> 
+        <rdfs:label xml:lang="ar">الموضوع</rdfs:label> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-4724962-7476631"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-7554990-5957094"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-5045922-1723896"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-5209605-2294927"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-6509469-7705009"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-3217626-7724579"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-4724962-7476631 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-4724962-7476631"> 
+        <rdfs:label xml:lang="ar">مساهمة</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-5702701-0515150"/> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#ent-3072291-5675975"/> 
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#op-8982626-9416177"/> 
+                <owl:someValuesFrom rdf:resource="http://confOf_ar#c-9172091-4049531"/> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#op-8982626-9416177"/> 
+                <owl:allValuesFrom rdf:resource="http://confOf_ar#c-9172091-4049531"/> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#ent-0231764-5105520"/> 
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#ent-0292220-6903764"/> 
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#ent-7558980-2277861"/> 
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-7554990-5957094"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-5045922-1723896"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-5209605-2294927"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-6509469-7705009"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-3217626-7724579"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-5569344-4487981 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-5569344-4487981"> 
+        <rdfs:label xml:lang="ar">شخص مشارك مع المؤتمر</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-8228583-9065800"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-0862020-8340462 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-0862020-8340462"> 
+        <rdfs:label xml:lang="ar">حدث عملي</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-5209605-2294927"/> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#ent-7044668-1380002"/> 
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#ent-0126389-7456433"/> 
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#ent-0492077-3755488"/> 
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#op-5125834-7060780"/> 
+                <owl:someValuesFrom rdf:resource="http://confOf_ar#c-9172091-4049531"/> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#op-5125834-7060780"/> 
+                <owl:allValuesFrom rdf:resource="http://confOf_ar#c-9172091-4049531"/> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-7705317-3828803"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-3934764-9061319"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-5440227-3758372 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-5440227-3758372"> 
+        <rdfs:label xml:lang="ar">ملصق</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-4724962-7476631"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-5038680-6943053"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-3016107-4283437"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-5885863-7973282 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-5885863-7973282"> 
+        <rdfs:label xml:lang="ar">رحلة</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-3934764-9061319"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-0772591-8415185"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-7705317-3828803 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-7705317-3828803"> 
+        <rdfs:label xml:lang="ar">الحدث الإداري</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-5209605-2294927"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-3934764-9061319"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-5012824-3183223 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-5012824-3183223"> 
+        <rdfs:label xml:lang="ar">حدث نتائج المراجعة </rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-7705317-3828803"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-3915519-2693956"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-4405124-5235986"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-9768391-7820417"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-5038680-6943053 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-5038680-6943053"> 
+        <rdfs:label xml:lang="ar">بحث</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-4724962-7476631"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-3016107-4283437"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-0521105-6961953 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-0521105-6961953"> 
+        <rdfs:label xml:lang="ar">رئيس اللجنة الغلمية</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-5045922-1723896"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-8184851-8689604 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-8184851-8689604"> 
+        <rdfs:label xml:lang="ar">متطوع في المؤتمر</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-5045922-1723896"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-7554990-5957094 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-7554990-5957094"> 
+        <rdfs:label xml:lang="ar">منظمة</rdfs:label> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-5045922-1723896"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-5209605-2294927"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-6509469-7705009"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-3217626-7724579"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-8177838-4906405 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-8177838-4906405"> 
+        <rdfs:label xml:lang="ar">مشارك منتظم في المؤتمر</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-8228583-9065800"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-0772591-8415185 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-0772591-8415185"> 
+        <rdfs:label xml:lang="ar">استقبال</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-3934764-9061319"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-1933050-6153726 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-1933050-6153726"> 
+        <rdfs:label xml:lang="ar">ورشة عمل</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-0862020-8340462"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-4440801-7921036"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-2989178-4162367"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-4440801-7921036 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-4440801-7921036"> 
+        <rdfs:label xml:lang="ar">مؤتمر</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-0862020-8340462"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-2989178-4162367"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-6587892-4374536 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-6587892-4374536"> 
+        <rdfs:label xml:lang="ar">الشركة</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-7554990-5957094"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-7865913-2364546"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-7865913-2364546 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-7865913-2364546"> 
+        <rdfs:label xml:lang="ar">الجامعة</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-7554990-5957094"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-3915519-2693956 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-3915519-2693956"> 
+        <rdfs:label xml:lang="ar">حدث تسجيل الحدث المشاركين</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-7705317-3828803"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-4405124-5235986"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-9768391-7820417"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-4405124-5235986 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-4405124-5235986"> 
+        <rdfs:label xml:lang="ar">حدث المراجعة</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-7705317-3828803"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-9768391-7820417"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-4481908-2093796 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-4481908-2093796"> 
+        <rdfs:label xml:lang="ar">المساعد</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-5045922-1723896"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-5045922-1723896 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-5045922-1723896"> 
+        <rdfs:label xml:lang="ar">شخص</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-5702701-0515150"/> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#op-2099965-8528314"/> 
+                <owl:someValuesFrom rdf:resource="http://confOf_ar#c-7554990-5957094"/> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#ent-9289908-4613730"/> 
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#ent-7335271-1567566"/> 
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#ent-1045569-4200137"/> 
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#op-2539649-5664936"/> 
+                <owl:someValuesFrom rdf:resource="http://confOf_ar#c-6509469-7705009"/> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#op-2099965-8528314"/> 
+                <owl:allValuesFrom rdf:resource="http://confOf_ar#c-7554990-5957094"/> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#op-4430319-1360916"/> 
+                <owl:someValuesFrom rdf:resource="http://confOf_ar#c-3217626-7724579"/> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#ent-2534398-9760679"/> 
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#ent-6422537-2308261"/> 
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-5209605-2294927"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-6509469-7705009"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-3217626-7724579"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-9768391-7820417 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-9768391-7820417"> 
+        <rdfs:label xml:lang="ar">حدث إرسال نسخة بعد اجراء التعديل جاهزة للتصوير</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-7705317-3828803"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-5209605-2294927 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-5209605-2294927"> 
+        <rdfs:label xml:lang="ar">الحدث</rdfs:label> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-6509469-7705009"/> 
+        <owl:disjointWith rdf:resource="http://confOf_ar#c-3217626-7724579"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-3016107-4283437 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-3016107-4283437"> 
+        <rdfs:label xml:lang="ar">بحث قصير</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-4724962-7476631"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-7975094-2645837 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-7975094-2645837"> 
+        <rdfs:label xml:lang="ar">عضو في اللجنة العلمية</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-5045922-1723896"/> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#op-1259732-1416994"/> 
+                <owl:someValuesFrom rdf:resource="http://confOf_ar#c-4724962-7476631"/> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#op-1259732-1416994"/> 
+                <owl:allValuesFrom rdf:resource="http://confOf_ar#c-4724962-7476631"/> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#op-7958639-1882166"/> 
+                <owl:allValuesFrom rdf:resource="http://confOf_ar#c-9172091-4049531"/> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#op-7958639-1882166"/> 
+                <owl:someValuesFrom rdf:resource="http://confOf_ar#c-9172091-4049531"/> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-4110948-1485047 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-4110948-1485047"> 
+        <rdfs:label xml:lang="ar">عامل العلم</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-5045922-1723896"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-2989178-4162367 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-2989178-4162367"> 
+        <rdfs:label xml:lang="ar">البرنامج التعليمي</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-0862020-8340462"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-1086463-2070678 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-1086463-2070678"> 
+        <rdfs:label xml:lang="ar">المشرف</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-5045922-1723896"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-6509469-7705009 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-6509469-7705009"> 
+        <rdfs:label xml:lang="ar">المدينة</rdfs:label> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-3934764-9061319 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-3934764-9061319"> 
+        <rdfs:label xml:lang="ar">الحدث الاجتماعي</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-5209605-2294927"/> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#ent-0126389-7456433"/> 
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#ent-7044668-1380002"/> 
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#ent-0492077-3755488"/> 
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-1867912-9455919 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-1867912-9455919"> 
+        <rdfs:label xml:lang="ar">الكاتب</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://confOf_ar#c-5045922-1723896"/> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#op-4739001-1635608"/> 
+                <owl:someValuesFrom rdf:resource="http://confOf_ar#c-4724962-7476631"/> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://confOf_ar#op-4739001-1635608"/> 
+                <owl:allValuesFrom rdf:resource="http://confOf_ar#c-4724962-7476631"/> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://confOf_ar#c-3217626-7724579 --> 
+ 
+    <owl:Class rdf:about="http://confOf_ar#c-3217626-7724579"> 
+        <rdfs:label xml:lang="ar">بلد</rdfs:label> 
+    </owl:Class> 
+</rdf:RDF> 
+ 
+ 
+ 
+<!-- Generated by the OWL API (version 3.1.0.1592) http://owlapi.sourceforge.net --> 
+ 
+

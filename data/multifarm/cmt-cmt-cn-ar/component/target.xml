@@ -1,0 +1,1099 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY cmt_ar "http://cmt_ar#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://cmt_ar#"
+     xml:base="http://cmt_ar"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:cmt_ar="http://cmt_ar#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://cmt_ar"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#label -->
+
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="&xsd;date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://cmt_ar#op-0077265-3002157 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-0077265-3002157">
+        <rdfs:label xml:lang="ar">لديه عضو</rdfs:label>
+        <rdfs:range rdf:resource="&cmt_ar;c-2220987-5331821"/>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6407650-6197378"/>
+        <owl:inverseOf rdf:resource="&cmt_ar;op-5466717-2620633"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-0124511-1789830 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-0124511-1789830">
+        <rdfs:label xml:lang="ar">تعيين من اجل</rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6855502-1595452"/>
+        <rdfs:range rdf:resource="&cmt_ar;c-6884283-5550269"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-0662627-4814294 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-0662627-4814294">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="ar">يضيف</rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-1708774-9125777"/>
+        <rdfs:range rdf:resource="&cmt_ar;c-7572681-2355237"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-1026354-7274154 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-1026354-7274154">
+        <rdfs:label xml:lang="ar">احالة أدوات البحث مشغل من قبل</rdfs:label>
+        <rdfs:range rdf:resource="&cmt_ar;c-1708774-9125777"/>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6407650-6197378"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-1374410-6089444 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-1374410-6089444">
+        <rdfs:label xml:lang="ar">تحديد مجموعة عدد أقصى من الابحاث المسندة </rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-1708774-9125777"/>
+        <rdfs:range rdf:resource="&cmt_ar;c-7572681-2355237"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-1512138-2288119 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-1512138-2288119">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="ar">لديه مزايدة</rdfs:label>
+        <rdfs:range rdf:resource="&cmt_ar;c-3101760-6220913"/>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6855502-1595452"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-1906733-2277684 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-1906733-2277684">
+        <rdfs:label xml:lang="ar">عضو في اللجنة العلمية</rdfs:label>
+        <rdfs:range rdf:resource="&cmt_ar;c-1232161-0048624"/>
+        <rdfs:domain rdf:resource="&cmt_ar;c-7572681-2355237"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-1942381-2978009 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-1942381-2978009">
+        <rdfs:label xml:lang="ar">اجتماع الظاهري ممكن من قبل</rdfs:label>
+        <rdfs:range rdf:resource="&cmt_ar;c-1708774-9125777"/>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6407650-6197378"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-1947892-8022039 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-1947892-8022039">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="ar">تعديله من قبل</rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-3101760-6220913"/>
+        <rdfs:range rdf:resource="&cmt_ar;c-6884283-5550269"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-2082117-7310815 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-2082117-7310815">
+        <rdfs:label xml:lang="ar">تمكين الاجتماع الظاهري</rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-1708774-9125777"/>
+        <rdfs:range rdf:resource="&cmt_ar;c-6407650-6197378"/>
+        <owl:inverseOf rdf:resource="&cmt_ar;op-1942381-2978009"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-2398058-4371549 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-2398058-4371549">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="ar">ضبط</rdfs:label>
+        <rdfs:range rdf:resource="&cmt_ar;c-3101760-6220913"/>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6884283-5550269"/>
+        <owl:inverseOf rdf:resource="&cmt_ar;op-1947892-8022039"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-2532909-8512587 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-2532909-8512587">
+        <rdfs:label xml:lang="ar">استكمال احالة البحث</rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-1708774-9125777"/>
+        <rdfs:range rdf:resource="&cmt_ar;c-6407650-6197378"/>
+        <owl:inverseOf rdf:resource="&cmt_ar;op-4375254-0101062"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-2621489-2639155 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-2621489-2639155">
+        <rdfs:label xml:lang="ar">بدء تقديم العطاءات المراجع</rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-1708774-9125777"/>
+        <rdfs:range rdf:resource="&cmt_ar;c-6407650-6197378"/>
+        <owl:inverseOf rdf:resource="&cmt_ar;op-6266157-6462507"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-3146868-7245125 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-3146868-7245125">
+        <rdfs:label xml:lang="ar">كاتب مشترك من قبل</rdfs:label>
+        <rdfs:range rdf:resource="&cmt_ar;c-3714057-1039146"/>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6855502-1595452"/>
+        <owl:inverseOf rdf:resource="&cmt_ar;op-7987969-7509674"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-3462160-0135119 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-3462160-0135119">
+        <rdfs:label xml:lang="ar">طباعة نسخة من البريد الالكتروني للمظاهرات</rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-1708774-9125777"/>
+        <rdfs:range rdf:resource="&cmt_ar;c-6407650-6197378"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-3738146-7132581 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-3738146-7132581">
+        <rdfs:label xml:lang="ar">تفاصيل مدخلة من قبل</rdfs:label>
+        <rdfs:range rdf:resource="&cmt_ar;c-1708774-9125777"/>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6407650-6197378"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-3998076-6312950 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-3998076-6312950">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="ar">المراجعة كتابية</rdfs:label>
+        <rdfs:range rdf:resource="&cmt_ar;c-3194825-5346027"/>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6884283-5550269"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-4249215-9846680 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-4249215-9846680">
+        <rdfs:label xml:lang="ar">يعيين</rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-1708774-9125777"/>
+        <rdfs:range rdf:resource="&cmt_ar;c-6884283-5550269"/>
+        <owl:inverseOf rdf:resource="&cmt_ar;op-8681941-3178471"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-4356631-9076520 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-4356631-9076520">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="ar">مسند من قبل مراجع</rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-3945225-6300796"/>
+        <rdfs:range rdf:resource="&cmt_ar;c-6884283-5550269"/>
+        <owl:inverseOf rdf:resource="&cmt_ar;op-9524919-6736172"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-4375254-0101062 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-4375254-0101062">
+        <rdfs:label xml:lang="ar">احالة البحث منتهي من قبل</rdfs:label>
+        <rdfs:range rdf:resource="&cmt_ar;c-1708774-9125777"/>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6407650-6197378"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-4636674-1359847 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-4636674-1359847">
+        <rdfs:label xml:lang="ar">لديه عضو</rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-1232161-0048624"/>
+        <rdfs:range rdf:resource="&cmt_ar;c-7572681-2355237"/>
+        <owl:inverseOf rdf:resource="&cmt_ar;op-1906733-2277684"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-4915323-2210432 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-4915323-2210432">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="ar">كتابته من قبل</rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6855502-1595452"/>
+        <rdfs:range rdf:resource="&cmt_ar;c-8335305-4555146"/>
+        <owl:inverseOf rdf:resource="&cmt_ar;op-6477014-2447390"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-5074777-6797175 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-5074777-6797175">
+        <rdfs:label xml:lang="ar">ارسال البحث</rdfs:label>
+        <rdfs:range rdf:resource="&cmt_ar;c-6855502-1595452"/>
+        <rdfs:domain rdf:resource="&cmt_ar;c-8335305-4555146"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-5466717-2620633 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-5466717-2620633">
+        <rdfs:label xml:lang="ar">عضو المؤتمر</rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-2220987-5331821"/>
+        <rdfs:range rdf:resource="&cmt_ar;c-6407650-6197378"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-5783340-2574236 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-5783340-2574236">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="ar">(... ،تم تقرير (ليكون مقبول، مرفوض</rdfs:label>
+        <rdfs:range rdf:resource="&cmt_ar;c-1031803-6530562"/>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6855502-1595452"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-5894858-9261514 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-5894858-9261514">
+        <rdfs:label xml:lang="ar">وقت إنتهاء مراجعة</rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-0197956-6725851"/>
+        <rdfs:range rdf:resource="&cmt_ar;c-3194825-5346027"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-6147118-8808919 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-6147118-8808919">
+        <rdfs:label xml:lang="ar">نسخة من البريد الالكتروني للمظاهرات مطبوعة من قبل</rdfs:label>
+        <rdfs:range rdf:resource="&cmt_ar;c-1708774-9125777"/>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6407650-6197378"/>
+        <owl:inverseOf rdf:resource="&cmt_ar;op-3462160-0135119"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-6266157-6462507 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-6266157-6462507">
+        <rdfs:label xml:lang="ar">بدأ تقديم العطاءات المراجع من قبل </rdfs:label>
+        <rdfs:range rdf:resource="&cmt_ar;c-1708774-9125777"/>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6407650-6197378"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-6389051-2982777 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-6389051-2982777">
+        <rdfs:label xml:lang="ar">معايير مراجعة أدخلت من قبل</rdfs:label>
+        <rdfs:range rdf:resource="&cmt_ar;c-1708774-9125777"/>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6407650-6197378"/>
+        <owl:inverseOf rdf:resource="&cmt_ar;op-9993047-2293020"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-6438608-6997044 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-6438608-6997044">
+        <rdfs:label xml:lang="ar">تم تعيين</rdfs:label>
+        <rdfs:range rdf:resource="&cmt_ar;c-6855502-1595452"/>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6884283-5550269"/>
+        <owl:inverseOf rdf:resource="&cmt_ar;op-0124511-1789830"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-6477014-2447390 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-6477014-2447390">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="ar">كتابة البحث</rdfs:label>
+        <rdfs:range rdf:resource="&cmt_ar;c-6855502-1595452"/>
+        <rdfs:domain rdf:resource="&cmt_ar;c-8335305-4555146"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-6683020-8838246 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-6683020-8838246">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="ar">كتابته من قبل</rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-3194825-5346027"/>
+        <rdfs:range rdf:resource="&cmt_ar;c-6884283-5550269"/>
+        <owl:inverseOf rdf:resource="&cmt_ar;op-3998076-6312950"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-6776481-7922961 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-6776481-7922961">
+        <rdfs:label xml:lang="ar">قراءة البحث</rdfs:label>
+        <rdfs:range rdf:resource="&cmt_ar;c-6855502-1595452"/>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6884283-5550269"/>
+        <owl:inverseOf rdf:resource="&cmt_ar;op-7141547-2558957"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-6823078-4797319 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-6823078-4797319">
+        <rdfs:label xml:lang="ar">تشغيل أدوات احالة البحث  </rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-1708774-9125777"/>
+        <rdfs:range rdf:resource="&cmt_ar;c-6407650-6197378"/>
+        <owl:inverseOf rdf:resource="&cmt_ar;op-1026354-7274154"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-6930500-2740802 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-6930500-2740802">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="ar">قراءته من قبل مراجع الفوقي</rdfs:label>
+        <rdfs:range rdf:resource="&cmt_ar;c-5605295-3101146"/>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6855502-1595452"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-7141547-2558957 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-7141547-2558957">
+        <rdfs:label xml:lang="ar">قراءته من قبل مراجع</rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6855502-1595452"/>
+        <rdfs:range rdf:resource="&cmt_ar;c-6884283-5550269"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-7376977-4507172 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-7376977-4507172">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="ar">بحث مرفوض</rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-1708774-9125777"/>
+        <rdfs:range rdf:resource="&cmt_ar;c-6855502-1595452"/>
+        <owl:inverseOf rdf:resource="&cmt_ar;op-8508521-5721137"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-7547975-1395694 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-7547975-1395694">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="ar">أضافته من قبل</rdfs:label>
+        <rdfs:range rdf:resource="&cmt_ar;c-1708774-9125777"/>
+        <rdfs:domain rdf:resource="&cmt_ar;c-7572681-2355237"/>
+        <owl:inverseOf rdf:resource="&cmt_ar;op-0662627-4814294"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-7617874-9671290 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-7617874-9671290">
+        <rdfs:label xml:lang="ar">إدخال التفاصيل حول</rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-1708774-9125777"/>
+        <rdfs:range rdf:resource="&cmt_ar;c-6407650-6197378"/>
+        <owl:inverseOf rdf:resource="&cmt_ar;op-3738146-7132581"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-7726218-5131887 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-7726218-5131887">
+        <rdfs:label xml:lang="ar">علامة تضارب المصالح</rdfs:label>
+        <rdfs:range rdf:resource="&cmt_ar;c-6855502-1595452"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cmt_ar;c-3930288-3644648"/>
+                    <rdf:Description rdf:about="&cmt_ar;c-6884283-5550269"/>
+                    <rdf:Description rdf:about="&cmt_ar;c-8335305-4555146"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-7940247-9734251 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-7940247-9734251">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="ar">يقبل</rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-1708774-9125777"/>
+        <rdfs:range rdf:resource="&cmt_ar;c-6855502-1595452"/>
+        <owl:inverseOf rdf:resource="&cmt_ar;op-8625931-9644071"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-7987969-7509674 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-7987969-7509674">
+        <rdfs:label xml:lang="ar">مشترك في الكتابة</rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-3714057-1039146"/>
+        <rdfs:range rdf:resource="&cmt_ar;c-6855502-1595452"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-8508521-5721137 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-8508521-5721137">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="ar">رفض من قبل</rdfs:label>
+        <rdfs:range rdf:resource="&cmt_ar;c-1708774-9125777"/>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6855502-1595452"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-8625931-9644071 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-8625931-9644071">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="ar">قبوله من قبل </rdfs:label>
+        <rdfs:range rdf:resource="&cmt_ar;c-1708774-9125777"/>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6855502-1595452"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-8681941-3178471 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-8681941-3178471">
+        <rdfs:label xml:lang="ar">تعيينه من قبل مشرف </rdfs:label>
+        <rdfs:range rdf:resource="&cmt_ar;c-1708774-9125777"/>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6884283-5550269"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-9193814-5047447 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-9193814-5047447">
+        <rdfs:label xml:lang="ar">لديه موضوع المحور</rdfs:label>
+        <rdfs:range rdf:resource="&cmt_ar;c-0625239-2425775"/>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6855502-1595452"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-9439554-2925691 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-9439554-2925691">
+        <rdfs:label xml:lang="ar">لديه تضارب في المصالح مع احترام</rdfs:label>
+        <rdfs:range rdf:resource="&cmt_ar;c-9476305-1556488"/>
+        <rdfs:domain rdf:resource="&cmt_ar;c-9541928-7173577"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-9524919-6736172 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-9524919-6736172">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="ar">يعيين</rdfs:label>
+        <rdfs:range rdf:resource="&cmt_ar;c-3945225-6300796"/>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6884283-5550269"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_ar#op-9993047-2293020 -->
+
+    <owl:ObjectProperty rdf:about="&cmt_ar;op-9993047-2293020">
+        <rdfs:label xml:lang="ar">إدخال معايير المراجعة</rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-1708774-9125777"/>
+        <rdfs:range rdf:resource="&cmt_ar;c-6407650-6197378"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://cmt_ar#ent-0474024-8645389 -->
+
+    <owl:DatatypeProperty rdf:about="&cmt_ar;ent-0474024-8645389">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="ar">لديه عنوان</rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6855502-1595452"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://cmt_ar#ent-0888652-2952644 -->
+
+    <owl:DatatypeProperty rdf:about="&cmt_ar;ent-0888652-2952644">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="ar">لديه اسم</rdfs:label>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cmt_ar;c-6407650-6197378"/>
+                    <rdf:Description rdf:about="&cmt_ar;c-9541928-7173577"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://cmt_ar#ent-1697241-5302844 -->
+
+    <owl:DatatypeProperty rdf:about="&cmt_ar;ent-1697241-5302844">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="ar">مراجعة/تعليقات لكل بحث</rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6407650-6197378"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://cmt_ar#ent-1721348-6878918 -->
+
+    <owl:DatatypeProperty rdf:about="&cmt_ar;ent-1721348-6878918">
+        <rdfs:label xml:lang="ar">لديه التاريخ</rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6407650-6197378"/>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://cmt_ar#ent-4299333-0273163 -->
+
+    <owl:DatatypeProperty rdf:about="&cmt_ar;ent-4299333-0273163">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="ar">العدد الأقصى من الابحاث المسندة</rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-7572681-2355237"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://cmt_ar#ent-6252776-8181806 -->
+
+    <owl:DatatypeProperty rdf:about="&cmt_ar;ent-6252776-8181806">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="ar">تقبل نسخة المرسلات</rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6407650-6197378"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://cmt_ar#ent-6395384-0777412 -->
+
+    <owl:DatatypeProperty rdf:about="&cmt_ar;ent-6395384-0777412">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="ar">لديه الشعار في رابط</rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6407650-6197378"/>
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://cmt_ar#ent-6629428-4947742 -->
+
+    <owl:DatatypeProperty rdf:about="&cmt_ar;ent-6629428-4947742">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="ar">لديه معرف</rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6855502-1595452"/>
+        <rdfs:range rdf:resource="&xsd;unsignedLong"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://cmt_ar#ent-6657622-4246440 -->
+
+    <owl:DatatypeProperty rdf:about="&cmt_ar;ent-6657622-4246440">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="ar">لديه موقع على رابط</rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-6407650-6197378"/>
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://cmt_ar#ent-9784858-1898461 -->
+
+    <owl:DatatypeProperty rdf:about="&cmt_ar;ent-9784858-1898461">
+        <rdfs:label xml:lang="ar">لديه بريد الكتروني</rdfs:label>
+        <rdfs:domain rdf:resource="&cmt_ar;c-9541928-7173577"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://cmt_ar#c-0197956-6725851 -->
+
+    <owl:Class rdf:about="&cmt_ar;c-0197956-6725851">
+        <rdfs:label xml:lang="ar">رئيس اللجنة العلمية</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&cmt_ar;c-7572681-2355237"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_ar#c-0471234-6892254 -->
+
+    <owl:Class rdf:about="&cmt_ar;c-0471234-6892254">
+        <rdfs:label xml:lang="ar">لاشيء</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_ar#c-0625239-2425775 -->
+
+    <owl:Class rdf:about="&cmt_ar;c-0625239-2425775">
+        <rdfs:label xml:lang="ar">موضوع المحور</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_ar#c-0634254-3328105 -->
+
+    <owl:Class rdf:about="&cmt_ar;c-0634254-3328105">
+        <rdfs:label xml:lang="ar">رئيس المرتبطة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&cmt_ar;c-2220987-5331821"/>
+        <owl:disjointWith rdf:resource="&cmt_ar;c-9634422-4066717"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_ar#c-1031803-6530562 -->
+
+    <owl:Class rdf:about="&cmt_ar;c-1031803-6530562">
+        <rdfs:label xml:lang="ar">قرار</rdfs:label>
+        <owl:disjointWith rdf:resource="&cmt_ar;c-1232161-0048624"/>
+        <owl:disjointWith rdf:resource="&cmt_ar;c-1776859-6098962"/>
+        <owl:disjointWith rdf:resource="&cmt_ar;c-3101760-6220913"/>
+        <owl:disjointWith rdf:resource="&cmt_ar;c-6407650-6197378"/>
+        <owl:disjointWith rdf:resource="&cmt_ar;c-9476305-1556488"/>
+        <owl:disjointWith rdf:resource="&cmt_ar;c-9541928-7173577"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_ar#c-1232161-0048624 -->
+
+    <owl:Class rdf:about="&cmt_ar;c-1232161-0048624">
+        <rdfs:label xml:lang="ar">لجنة العلمية</rdfs:label>
+        <owl:disjointWith rdf:resource="&cmt_ar;c-1776859-6098962"/>
+        <owl:disjointWith rdf:resource="&cmt_ar;c-3101760-6220913"/>
+        <owl:disjointWith rdf:resource="&cmt_ar;c-6407650-6197378"/>
+        <owl:disjointWith rdf:resource="&cmt_ar;c-9476305-1556488"/>
+        <owl:disjointWith rdf:resource="&cmt_ar;c-9541928-7173577"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_ar#c-1708774-9125777 -->
+
+    <owl:Class rdf:about="&cmt_ar;c-1708774-9125777">
+        <rdfs:label xml:lang="ar">مشرف</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&cmt_ar;c-4595043-4384026"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_ar#c-1753052-0526039 -->
+
+    <owl:Class rdf:about="&cmt_ar;c-1753052-0526039">
+        <rdfs:label xml:lang="ar">ملخص البحث</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&cmt_ar;c-6855502-1595452"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_ar#c-1776859-6098962 -->
+
+    <owl:Class rdf:about="&cmt_ar;c-1776859-6098962">
+        <rdfs:label xml:lang="ar">أفضلية</rdfs:label>
+        <owl:disjointWith rdf:resource="&cmt_ar;c-3101760-6220913"/>
+        <owl:disjointWith rdf:resource="&cmt_ar;c-6407650-6197378"/>
+        <owl:disjointWith rdf:resource="&cmt_ar;c-9476305-1556488"/>
+        <owl:disjointWith rdf:resource="&cmt_ar;c-9541928-7173577"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_ar#c-2220987-5331821 -->
+
+    <owl:Class rdf:about="&cmt_ar;c-2220987-5331821">
+        <rdfs:label xml:lang="ar">عضو المؤتمر</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&cmt_ar;c-9541928-7173577"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_ar#c-3101760-6220913 -->
+
+    <owl:Class rdf:about="&cmt_ar;c-3101760-6220913">
+        <rdfs:label xml:lang="ar">مزايدة</rdfs:label>
+        <owl:disjointWith rdf:resource="&cmt_ar;c-6407650-6197378"/>
+        <owl:disjointWith rdf:resource="&cmt_ar;c-9476305-1556488"/>
+        <owl:disjointWith rdf:resource="&cmt_ar;c-9541928-7173577"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_ar#c-3194825-5346027 -->
+
+    <owl:Class rdf:about="&cmt_ar;c-3194825-5346027">
+        <rdfs:label xml:lang="ar">مراجعة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&cmt_ar;c-9476305-1556488"/>
+        <owl:disjointWith rdf:resource="&cmt_ar;c-6855502-1595452"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_ar#c-3714057-1039146 -->
+
+    <owl:Class rdf:about="&cmt_ar;c-3714057-1039146">
+        <rdfs:label xml:lang="ar">الكاتب المشترك</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&cmt_ar;c-8335305-4555146"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_ar#c-3930288-3644648 -->
+
+    <owl:Class rdf:about="&cmt_ar;c-3930288-3644648">
+        <rdfs:label xml:lang="ar">رئيس</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&cmt_ar;c-0197956-6725851"/>
+                    <rdf:Description rdf:about="&cmt_ar;c-0634254-3328105"/>
+                    <rdf:Description rdf:about="&cmt_ar;c-9634422-4066717"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&cmt_ar;c-9541928-7173577"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_ar#c-3945225-6300796 -->
+
+    <owl:Class rdf:about="&cmt_ar;c-3945225-6300796">
+        <rdfs:label xml:lang="ar">المراجع خارجي</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&cmt_ar;c-9541928-7173577"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cmt_ar;op-4356631-9076520"/>
+                <owl:onClass rdf:resource="&cmt_ar;c-0471234-6892254"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&cmt_ar;c-6884283-5550269"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_ar#c-4595043-4384026 -->
+
+    <owl:Class rdf:about="&cmt_ar;c-4595043-4384026">
+        <rdfs:label xml:lang="ar">المستخدم</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&cmt_ar;c-9541928-7173577"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_ar#c-4901776-6249690 -->
+
+    <owl:Class rdf:about="&cmt_ar;c-4901776-6249690">
+        <rdfs:label xml:lang="ar">الكاتب، الذي ليس المراجع</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&cmt_ar;c-8335305-4555146"/>
+        <owl:disjointWith rdf:resource="&cmt_ar;c-6884283-5550269"/>
+        <owl:disjointWith rdf:resource="&cmt_ar;c-7572681-2355237"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_ar#c-5258810-6413397 -->
+
+    <owl:Class rdf:about="&cmt_ar;c-5258810-6413397">
+        <rdfs:label xml:lang="ar">النسخة الكاملة من البحث</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&cmt_ar;c-6855502-1595452"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_ar#c-5515515-7655801 -->
+
+    <owl:Class rdf:about="&cmt_ar;c-5515515-7655801">
+        <rdfs:label xml:lang="ar">مراجعة فوقية</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&cmt_ar;c-3194825-5346027"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_ar#c-5605295-3101146 -->
+
+    <owl:Class rdf:about="&cmt_ar;c-5605295-3101146">
+        <rdfs:label xml:lang="ar">المراجع الفوقي</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&cmt_ar;c-6884283-5550269"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_ar#c-6326453-4709586 -->
+
+    <owl:Class rdf:about="&cmt_ar;c-6326453-4709586">
+        <rdfs:label xml:lang="ar">القبول</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&cmt_ar;c-1031803-6530562"/>
+        <owl:disjointWith rdf:resource="&cmt_ar;c-8895015-9423071"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_ar#c-6407650-6197378 -->
+
+    <owl:Class rdf:about="&cmt_ar;c-6407650-6197378">
+        <rdfs:label xml:lang="ar">مؤتمر</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&cmt_ar;c-0471234-6892254"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cmt_ar;ent-0888652-2952644"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cmt_ar;ent-1721348-6878918"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cmt_ar;ent-1697241-5302844"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&cmt_ar;c-9476305-1556488"/>
+        <owl:disjointWith rdf:resource="&cmt_ar;c-9541928-7173577"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_ar#c-6855502-1595452 -->
+
+    <owl:Class rdf:about="&cmt_ar;c-6855502-1595452">
+        <rdfs:label xml:lang="ar">البحث</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&cmt_ar;c-9476305-1556488"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cmt_ar;op-6930500-2740802"/>
+                <owl:onClass rdf:resource="&cmt_ar;c-0471234-6892254"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cmt_ar;op-5783340-2574236"/>
+                <owl:onClass rdf:resource="&cmt_ar;c-0471234-6892254"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cmt_ar;op-7141547-2558957"/>
+                <owl:onClass rdf:resource="&cmt_ar;c-0471234-6892254"/>
+                <owl:minQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&cmt_ar;op-5783340-2574236"/>
+                <owl:onClass rdf:resource="&cmt_ar;c-0471234-6892254"/>
+                <owl:maxQualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_ar#c-6884283-5550269 -->
+
+    <owl:Class rdf:about="&cmt_ar;c-6884283-5550269">
+        <rdfs:label xml:lang="ar">المراجع</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&cmt_ar;c-2220987-5331821"/>
+        <rdfs:subClassOf rdf:resource="&cmt_ar;c-4595043-4384026"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_ar#c-7572681-2355237 -->
+
+    <owl:Class rdf:about="&cmt_ar;c-7572681-2355237">
+        <rdfs:label xml:lang="ar">عضو في اللجنة العلمية</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&cmt_ar;c-2220987-5331821"/>
+        <rdfs:subClassOf rdf:resource="&cmt_ar;c-9541928-7173577"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_ar#c-8335305-4555146 -->
+
+    <owl:Class rdf:about="&cmt_ar;c-8335305-4555146">
+        <rdfs:label xml:lang="ar">الكاتب </rdfs:label>
+        <rdfs:subClassOf rdf:resource="&cmt_ar;c-2220987-5331821"/>
+        <rdfs:subClassOf rdf:resource="&cmt_ar;c-4595043-4384026"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_ar#c-8895015-9423071 -->
+
+    <owl:Class rdf:about="&cmt_ar;c-8895015-9423071">
+        <rdfs:label xml:lang="ar">الرفض</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&cmt_ar;c-1031803-6530562"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_ar#c-9476305-1556488 -->
+
+    <owl:Class rdf:about="&cmt_ar;c-9476305-1556488">
+        <rdfs:label xml:lang="ar">وثيقة</rdfs:label>
+        <owl:disjointWith rdf:resource="&cmt_ar;c-9541928-7173577"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_ar#c-9541928-7173577 -->
+
+    <owl:Class rdf:about="&cmt_ar;c-9541928-7173577">
+        <rdfs:label xml:lang="ar">شخص</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_ar#c-9634422-4066717 -->
+
+    <owl:Class rdf:about="&cmt_ar;c-9634422-4066717">
+        <rdfs:label xml:lang="ar">رئيس المؤتمر</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&cmt_ar;c-2220987-5331821"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

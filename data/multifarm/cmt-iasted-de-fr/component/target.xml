@@ -1,0 +1,2776 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://iasted_fr#"
+     xml:base="http://iasted_fr"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:iasted="http://iasted#"
+     xmlns:iasted_fr="http://iasted_fr#">
+    <owl:Ontology rdf:about="http://iasted_fr"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#label"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://iasted_fr#op-0030754-5558313 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-0030754-5558313">
+        <rdfs:label xml:lang="fr">est payé à</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-2261486-5925197"/>
+        <rdfs:range rdf:resource="http://iasted_fr#c-7909005-9095109"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-0206543-7504445 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-0206543-7504445">
+        <rdfs:label xml:lang="fr">est utilisé pour</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-6909300-6394915"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_fr#c-2261486-5925197"/>
+                    <rdf:Description rdf:about="http://iasted_fr#c-7233445-8264658"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-0313040-1001176 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-0313040-1001176">
+        <rdfs:label xml:lang="fr">est donné à</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-6909300-6394915"/>
+        <rdfs:range rdf:resource="http://iasted_fr#c-8549275-2053115"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-0522612-7325569 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-0522612-7325569">
+        <rdfs:label xml:lang="fr">est envoyé après</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_fr#c-0047049-0367963"/>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-6909300-6394915"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-1410040-6771887 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-1410040-6771887">
+        <rdfs:label xml:lang="fr">est équipé par</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-0611448-2365413"/>
+        <rdfs:range rdf:resource="http://iasted_fr#c-6909300-6394915"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-1499245-4600419 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-1499245-4600419">
+        <rdfs:label xml:lang="fr">prépare</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_fr#c-6909300-6394915"/>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-8549275-2053115"/>
+        <owl:inverseOf rdf:resource="http://iasted_fr#op-6229890-1258016"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-1536763-8431821 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-1536763-8431821">
+        <rdfs:label xml:lang="fr">est signé par</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-6909300-6394915"/>
+        <rdfs:range rdf:resource="http://iasted_fr#c-8549275-2053115"/>
+        <owl:inverseOf rdf:resource="http://iasted_fr#op-4160673-7268306"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-1628206-0594563 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-1628206-0594563">
+        <rdfs:label xml:lang="fr">est envoyé par</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-6909300-6394915"/>
+        <rdfs:range rdf:resource="http://iasted_fr#c-8549275-2053115"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-1864476-9268210 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-1864476-9268210">
+        <rdfs:label xml:lang="fr">occupe</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-8549275-2053115"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_fr#c-6607590-6394993"/>
+                    <rdf:Description rdf:about="http://iasted_fr#c-7475109-7627187"/>
+                    <rdf:Description rdf:about="http://iasted_fr#c-7909005-9095109"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-2142377-5662357 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-2142377-5662357">
+        <rdfs:label xml:lang="fr">est nécessaire pour</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-6909300-6394915"/>
+        <rdfs:range rdf:resource="http://iasted_fr#c-8549275-2053115"/>
+        <owl:inverseOf rdf:resource="http://iasted_fr#op-6455536-6002248"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-2324004-3315334 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-2324004-3315334">
+        <rdfs:label xml:lang="fr">est écrit par</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-6909300-6394915"/>
+        <rdfs:range rdf:resource="http://iasted_fr#c-8549275-2053115"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-2380138-2494494 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-2380138-2494494">
+        <rdfs:label xml:lang="fr">a lieu après</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_fr#c-0047049-0367963"/>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-7233445-8264658"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-2627938-7096672 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-2627938-7096672">
+        <rdfs:label xml:lang="fr">est payé pour</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-2261486-5925197"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_fr#c-6909300-6394915"/>
+                    <rdf:Description rdf:about="http://iasted_fr#c-7233445-8264658"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-2772714-6978421 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-2772714-6978421">
+        <rdfs:label xml:lang="fr">paie</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_fr#c-2261486-5925197"/>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-8549275-2053115"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-2949151-3420526 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-2949151-3420526">
+        <rdfs:label xml:lang="fr">est utilisé par</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-6909300-6394915"/>
+        <rdfs:range rdf:resource="http://iasted_fr#c-8549275-2053115"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-3224977-6802601 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-3224977-6802601">
+        <rdfs:label xml:lang="fr">est visité par</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_fr#c-8549275-2053115"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_fr#c-6607590-6394993"/>
+                    <rdf:Description rdf:about="http://iasted_fr#c-7475109-7627187"/>
+                    <rdf:Description rdf:about="http://iasted_fr#c-7909005-9095109"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-3242475-9405929 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-3242475-9405929">
+        <rdfs:label xml:lang="fr">est fait à partir de</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_fr#c-6909300-6394915"/>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-6909300-6394915"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-3562986-8241380 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-3562986-8241380">
+        <rdfs:label xml:lang="fr">est présent</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_fr#c-0047049-0367963"/>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-8549275-2053115"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-3795418-4868612 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-3795418-4868612">
+        <rdfs:label xml:lang="fr">est envoyé avant</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_fr#c-0047049-0367963"/>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-6909300-6394915"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-4160673-7268306 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-4160673-7268306">
+        <rdfs:label xml:lang="fr">signe</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_fr#c-6909300-6394915"/>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-8549275-2053115"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-4689538-1355186 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-4689538-1355186">
+        <rdfs:label xml:lang="fr">parle à</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-8549275-2053115"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_fr#c-0047049-0367963"/>
+                    <rdf:Description rdf:about="http://iasted_fr#c-0611448-2365413"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-5069456-1141693 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-5069456-1141693">
+        <rdfs:label xml:lang="fr">est conçu pour</rdfs:label>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_fr#c-0047049-0367963"/>
+                    <rdf:Description rdf:about="http://iasted_fr#c-2261486-5925197"/>
+                    <rdf:Description rdf:about="http://iasted_fr#c-7233445-8264658"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_fr#c-7233445-8264658"/>
+                    <rdf:Description rdf:about="http://iasted_fr#c-8549275-2053115"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-5073161-7917559 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-5073161-7917559">
+        <rdfs:label xml:lang="fr">est connecté à</rdfs:label>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_fr#c-7233445-8264658"/>
+                    <rdf:Description rdf:about="http://iasted_fr#c-8549275-2053115"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_fr#c-0611448-2365413"/>
+                    <rdf:Description rdf:about="http://iasted_fr#c-6909300-6394915"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-5830377-4355172 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-5830377-4355172">
+        <rdfs:label xml:lang="fr">est occupé par</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_fr#c-8549275-2053115"/>
+        <owl:inverseOf rdf:resource="http://iasted_fr#op-1864476-9268210"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_fr#c-6607590-6394993"/>
+                    <rdf:Description rdf:about="http://iasted_fr#c-7475109-7627187"/>
+                    <rdf:Description rdf:about="http://iasted_fr#c-7909005-9095109"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-5936609-7956818 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-5936609-7956818">
+        <rdfs:label xml:lang="fr">est situé dans</rdfs:label>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_fr#c-0611448-2365413"/>
+                    <rdf:Description rdf:about="http://iasted_fr#c-6607590-6394993"/>
+                    <rdf:Description rdf:about="http://iasted_fr#c-7909005-9095109"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_fr#c-0611448-2365413"/>
+                    <rdf:Description rdf:about="http://iasted_fr#c-6607590-6394993"/>
+                    <rdf:Description rdf:about="http://iasted_fr#c-7475109-7627187"/>
+                    <rdf:Description rdf:about="http://iasted_fr#c-7909005-9095109"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-6196483-3379968 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-6196483-3379968">
+        <rdfs:label xml:lang="fr">écrit</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_fr#c-6909300-6394915"/>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-8549275-2053115"/>
+        <owl:inverseOf rdf:resource="http://iasted_fr#op-2324004-3315334"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-6229890-1258016 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-6229890-1258016">
+        <rdfs:label xml:lang="fr">est préparé par</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-6909300-6394915"/>
+        <rdfs:range rdf:resource="http://iasted_fr#c-8549275-2053115"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-6455536-6002248 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-6455536-6002248">
+        <rdfs:label xml:lang="fr">a besoin de</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_fr#c-6909300-6394915"/>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-8549275-2053115"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-6634130-3048554 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-6634130-3048554">
+        <rdfs:label xml:lang="fr">est payé avec</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-2261486-5925197"/>
+        <rdfs:range rdf:resource="http://iasted_fr#c-6909300-6394915"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-6908948-8663913 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-6908948-8663913">
+        <rdfs:label xml:lang="fr">donne</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-8549275-2053115"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_fr#c-6909300-6394915"/>
+                    <rdf:Description rdf:about="http://iasted_fr#c-7233445-8264658"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-6979937-7916442 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-6979937-7916442">
+        <rdfs:label xml:lang="fr">est présent à</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-8549275-2053115"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_fr#c-0047049-0367963"/>
+                    <rdf:Description rdf:about="http://iasted_fr#c-0611448-2365413"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-7070909-3537965 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-7070909-3537965">
+        <rdfs:label xml:lang="fr">est payé par</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-2261486-5925197"/>
+        <rdfs:range rdf:resource="http://iasted_fr#c-8549275-2053115"/>
+        <owl:inverseOf rdf:resource="http://iasted_fr#op-2772714-6978421"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-8197531-4217948 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-8197531-4217948">
+        <rdfs:label xml:lang="fr">a lieu avant</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_fr#c-0047049-0367963"/>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-7233445-8264658"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-8377117-4664902 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-8377117-4664902">
+        <rdfs:label xml:lang="fr">passe par</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-6909300-6394915"/>
+        <rdfs:range rdf:resource="http://iasted_fr#c-7233445-8264658"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-8502713-4498335 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-8502713-4498335">
+        <rdfs:label xml:lang="fr">envoie</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_fr#c-6909300-6394915"/>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-8549275-2053115"/>
+        <owl:inverseOf rdf:resource="http://iasted_fr#op-1628206-0594563"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-9476732-5075803 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-9476732-5075803">
+        <rdfs:label xml:lang="fr">a lieu dans</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-7233445-8264658"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_fr#c-0047049-0367963"/>
+                    <rdf:Description rdf:about="http://iasted_fr#c-0611448-2365413"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-9593649-0507589 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-9593649-0507589">
+        <rdfs:label xml:lang="fr">est donné par</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_fr#c-8549275-2053115"/>
+        <owl:inverseOf rdf:resource="http://iasted_fr#op-6908948-8663913"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_fr#c-6909300-6394915"/>
+                    <rdf:Description rdf:about="http://iasted_fr#c-7233445-8264658"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_fr#op-9760493-4479889 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_fr#op-9760493-4479889">
+        <rdfs:label xml:lang="fr">obtient</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_fr#c-6909300-6394915"/>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-8549275-2053115"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://iasted_fr#ent-6425375-5640253 -->
+
+    <owl:DatatypeProperty rdf:about="http://iasted_fr#ent-6425375-5640253">
+        <rdfs:label xml:lang="fr">est daté du</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-7233445-8264658"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iasted_fr#ent-7995576-1167082 -->
+
+    <owl:DatatypeProperty rdf:about="http://iasted_fr#ent-7995576-1167082">
+        <rdfs:label xml:lang="fr">a quantité de</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-2261486-5925197"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iasted_fr#ent-9641747-5633047 -->
+
+    <owl:DatatypeProperty rdf:about="http://iasted_fr#ent-9641747-5633047">
+        <rdfs:label xml:lang="fr">est fait jusqu'à</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_fr#c-7446694-8638795"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://iasted_fr#c-0047049-0367963 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-0047049-0367963">
+        <rdfs:label xml:lang="fr">Temps</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-0180426-9990719 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-0180426-9990719">
+        <rdfs:label xml:lang="fr">Refus de manuscrit</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-7656366-4247560"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-0261654-8499644 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-0261654-8499644">
+        <rdfs:label xml:lang="fr">Non membre d'IASTED</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-2772714-6978421"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-5218688-2899234"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-0284967-8145363 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-0284967-8145363">
+        <rdfs:label xml:lang="fr">Minibus</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-1986249-1162309"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-0290487-6887828 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-0290487-6887828">
+        <rdfs:label xml:lang="fr">Dîner de gala</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-0913969-4211965"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5069456-1141693"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="http://iasted_fr#c-0772044-6071505"/>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-0295689-5725013 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-0295689-5725013">
+        <rdfs:label xml:lang="fr">Lecteur de cassettes vidéo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-1794515-4066237"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-0362042-3209760 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-0362042-3209760">
+        <rdfs:label xml:lang="fr">Simulation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-2998926-8025065"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-0548882-6473323 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-0548882-6473323">
+        <rdfs:label xml:lang="fr">Session</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-9022031-1800687"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-9476732-5075803"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-3932878-7342900"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-9593649-0507589"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://iasted_fr#c-3698022-6662722"/>
+                            <rdf:Description rdf:about="http://iasted_fr#c-8835333-6455364"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-0595617-6040889 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-0595617-6040889">
+        <rdfs:label xml:lang="fr">Bâtiment de conférence</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-7909005-9095109"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5830377-4355172"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5936609-7956818"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-5151240-5600223"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5936609-7956818"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-9585109-2159078"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-0611448-2365413 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-0611448-2365413">
+        <rdfs:label xml:lang="fr">Lieu</rdfs:label>
+        <!--v2<rdfs:subClassOf rdf:resource="http://iasted_fr#c-5297552-4654504"/>-->
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5936609-7956818"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-5151240-5600223"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5936609-7956818"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-9585109-2159078"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-0772044-6071505 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-0772044-6071505">
+        <rdfs:label xml:lang="fr">Orateur pendant une journée</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-3562986-8241380"/>
+                <!--v2<owl:onClass rdf:resource="http://iasted_fr#c-5297552-4654504"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>-->
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-0791905-5379642 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-0791905-5379642">
+        <rdfs:label xml:lang="fr">Date limite de notification d'acceptation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-7446694-8638795"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-0803024-0057902 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-0803024-0057902">
+        <rdfs:label xml:lang="fr">Publication</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-6909300-6394915"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-3242475-9405929"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-7262127-1739733"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-0913969-4211965 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-0913969-4211965">
+        <rdfs:label xml:lang="fr">Programme social</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-6577784-9465035"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5069456-1141693"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-1187343-0532699 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-1187343-0532699">
+        <rdfs:label xml:lang="fr">Salle de conférence</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-0611448-2365413"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5936609-7956818"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-0595617-6040889"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-1203110-3646755 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-1203110-3646755">
+        <rdfs:label xml:lang="fr">Pause café</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-6577784-9465035"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5069456-1141693"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-1206207-9521087 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-1206207-9521087">
+        <rdfs:label xml:lang="fr">Visite guidée d'une journée complète</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-2769037-4937022"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-9476732-5075803"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-6576643-9485380"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-9476732-5075803"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-3555081-7555269"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5069456-1141693"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-1257856-7001715 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-1257856-7001715">
+        <rdfs:label xml:lang="fr">Jour de conférence</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-0047049-0367963"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5069456-1141693"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-1298943-4090251 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-1298943-4090251">
+        <rdfs:label xml:lang="fr">Frais de voyage supplémentaire</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-5717634-7534620"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-7070909-3537965"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-1820362-0391824"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-2627938-7096672"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-1206207-9521087"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-1315633-2328137 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-1315633-2328137">
+        <rdfs:label xml:lang="fr">Conférence d'une journée</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-1257856-7001715"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-1459958-9730539 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-1459958-9730539">
+        <rdfs:label xml:lang="fr">Frais d'inscription d'auteur participant pour les actes sur support numérique</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-9245772-9961311"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-2627938-7096672"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-8391085-7090023"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-1524438-2872109 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-1524438-2872109">
+        <rdfs:label xml:lang="fr">Chambre d'hôtel simple</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-4826161-8929869"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-1550787-7881655 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-1550787-7881655">
+        <rdfs:label xml:lang="fr">Carte de crédit</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-4370801-0426010"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5069456-1141693"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://iasted_fr#c-4742537-6228595"/>
+                            <rdf:Description rdf:about="http://iasted_fr#c-5717634-7534620"/>
+                            <rdf:Description rdf:about="http://iasted_fr#c-6127539-2386991"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-1794515-4066237 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-1794515-4066237">
+        <rdfs:label xml:lang="fr">Équipement audiovisuel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-6909300-6394915"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-2949151-3420526"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-4601129-9799116"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5936609-7956818"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-3932878-7342900"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5069456-1141693"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2320289-4505171"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-1820362-0391824 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-1820362-0391824">
+        <rdfs:label xml:lang="fr">Guide d'excursion de conférence</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-8377117-4664902"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-1206207-9521087"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-1986249-1162309 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-1986249-1162309">
+        <rdfs:label xml:lang="fr">Véhicule de transport</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-6909300-6394915"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-2949151-3420526"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-1994330-2485086 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-1994330-2485086">
+        <rdfs:label xml:lang="fr">Présentateur</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-6908948-8663913"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-0548882-6473323"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-3698022-6662722"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-4689538-1355186"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-3932878-7342900"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-2087685-2058603 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-2087685-2058603">
+        <rdfs:label xml:lang="fr">Présentation power point</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-7940552-6240385"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-2261486-5925197 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-2261486-5925197">
+        <rdfs:label xml:lang="fr">Argent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-2320289-4505171 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-2320289-4505171">
+        <rdfs:label xml:lang="fr">Auditeur</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-6979937-7916442"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://iasted_fr#c-1187343-0532699"/>
+                            <rdf:Description rdf:about="http://iasted_fr#c-3932878-7342900"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-4160673-7268306"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-5973500-9383288"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-2487600-4750835 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-2487600-4750835">
+        <rdfs:label xml:lang="fr">Représentant</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://iasted_fr#op-6979937-7916442"/>
+                        <owl:someValuesFrom rdf:resource="http://iasted_fr#c-0595617-6040889"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://iasted_fr#op-6979937-7916442"/>
+                        <owl:someValuesFrom rdf:resource="http://iasted_fr#c-1257856-7001715"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://iasted_fr#op-8377117-4664902"/>
+                        <owl:someValuesFrom rdf:resource="http://iasted_fr#c-4463960-7038391"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-8549275-2053115"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-9760493-4479889"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-3804061-8277905"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-1864476-9268210"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-8409291-0556065"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-1864476-9268210"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-9393214-0184120"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-1864476-9268210"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-6673711-3867567"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-2772714-6978421"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-9245772-9961311"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-6455536-6002248"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-3269141-6746139"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-8502713-4498335"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-4759044-7706694"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-2646256-3249810 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-2646256-3249810">
+        <rdfs:label xml:lang="fr">Introduction d'un orateur</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-5581998-5936719"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-2662748-0817179 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-2662748-0817179">
+        <rdfs:label xml:lang="fr">Auteur ayant les actes sur support numérique</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-3698022-6662722"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-9760493-4479889"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-8391085-7090023"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-2769037-4937022 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-2769037-4937022">
+        <rdfs:label xml:lang="fr">Activité ayant lieu après une conférence</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-7233445-8264658"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-2380138-2494494"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-1257856-7001715"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-2795422-0987768 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-2795422-0987768">
+        <rdfs:label xml:lang="fr">Rapport d'examen</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-4029152-2695341"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-2324004-3315334"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-6387312-6032704"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-2881157-7829017 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-2881157-7829017">
+        <rdfs:label xml:lang="fr">Orateur d'un tutoriel</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-6908948-8663913"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-5779890-8644133"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-3698022-6662722"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-4689538-1355186"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-1187343-0532699"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-2927028-1745950 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-2927028-1745950">
+        <rdfs:label xml:lang="fr">Orateur de conférence plénière</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-6908948-8663913"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-9670012-9591617"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-3698022-6662722"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-4689538-1355186"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-1187343-0532699"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-2939529-9544181 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-2939529-9544181">
+        <rdfs:label xml:lang="fr">Transparent</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-4029152-2695341"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-6229890-1258016"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-4601129-9799116"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-2980661-9106781 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-2980661-9106781">
+        <rdfs:label xml:lang="fr">Frais d'hôtel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-5717634-7534620"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-7070909-3537965"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-3361805-0797682"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-2998926-8025065 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-2998926-8025065">
+        <rdfs:label xml:lang="fr">Recherche</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-7656366-4247560"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-3042660-7162476 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-3042660-7162476">
+        <rdfs:label xml:lang="fr">Acceptation de manuscrit</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-7656366-4247560"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-3090612-7656564 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-3090612-7656564">
+        <rdfs:label xml:lang="fr">Actes en format papier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-0803024-0057902"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-3100969-2432672 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-3100969-2432672">
+        <rdfs:label xml:lang="fr">Présentation vidéo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-7940552-6240385"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-3102550-2477414 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-3102550-2477414">
+        <rdfs:label xml:lang="fr">Monnaie</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-3173460-1430156 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-3173460-1430156">
+        <rdfs:label xml:lang="fr">Auteur ayant les actes au format papier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-3698022-6662722"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-9760493-4479889"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-3090612-7656564"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-3225783-0732169 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-3225783-0732169">
+        <rdfs:label xml:lang="fr">Date limite de réservation d'hôtel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-7446694-8638795"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-3269141-6746139 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-3269141-6746139">
+        <rdfs:label xml:lang="fr">Visa</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-4029152-2695341"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-2142377-5662357"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-3341947-6092469 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-3341947-6092469">
+        <rdfs:label xml:lang="fr">Présentation d'orateur</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-0548882-6473323"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-3361805-0797682 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-3361805-0797682">
+        <rdfs:label xml:lang="fr">Maître d'hôtel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://iasted_fr#op-1864476-9268210"/>
+                        <owl:someValuesFrom rdf:resource="http://iasted_fr#c-6284042-6137032"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://iasted_fr#op-2772714-6978421"/>
+                        <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2980661-9106781"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-3555081-7555269 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-3555081-7555269">
+        <rdfs:label xml:lang="fr">Ville d'excursion</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-6607590-6394993"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-3224977-6802601"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-1820362-0391824"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-3555465-6052891 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-3555465-6052891">
+        <rdfs:label xml:lang="fr">Étudiant non orateur</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-2772714-6978421"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-6275655-8508050"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-3592059-2409670"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-3592059-2409670 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-3592059-2409670">
+        <rdfs:label xml:lang="fr">Non orateur</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+        <owl:disjointWith rdf:resource="http://iasted_fr#c-4601129-9799116"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-3623194-3713078 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-3623194-3713078">
+        <rdfs:label xml:lang="fr">Formulaire d'information sur un auteur</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-8354376-0772641"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-0522612-7325569"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-0791905-5379642"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-3698022-6662722 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-3698022-6662722">
+        <rdfs:label xml:lang="fr">Auteur</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-4601129-9799116"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-6908948-8663913"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-8165583-3265102"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-1499245-4600419"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2939529-9544181"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-3804061-8277905 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-3804061-8277905">
+        <rdfs:label xml:lang="fr">Lettre d'invitation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-4029152-2695341"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5069456-1141693"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-3906447-3691960 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-3906447-3691960">
+        <rdfs:label xml:lang="fr">Travailleur non orateur</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-2772714-6978421"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-6863829-2743221"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-3592059-2409670"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-3932878-7342900 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-3932878-7342900">
+        <rdfs:label xml:lang="fr">Salle de session</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-0611448-2365413"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-1410040-6771887"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-1794515-4066237"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5936609-7956818"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-0595617-6040889"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-4029152-2695341 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-4029152-2695341">
+        <rdfs:label xml:lang="fr">Document</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-6909300-6394915"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-4045071-5043786 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-4045071-5043786">
+        <rdfs:label xml:lang="fr">Ville de sponsor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-6607590-6394993"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5830377-4355172"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-8753832-9718220"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-4370801-0426010 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-4370801-0426010">
+        <rdfs:label xml:lang="fr">Carte</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-6909300-6394915"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-4374849-8926470 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-4374849-8926470">
+        <rdfs:label xml:lang="fr">Cocktail de réception</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-6577784-9465035"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5069456-1141693"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-4463960-7038391 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-4463960-7038391">
+        <rdfs:label xml:lang="fr">Inscription</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-6577784-9465035"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5069456-1141693"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-4490912-4566524 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-4490912-4566524">
+        <rdfs:label xml:lang="fr">Manuscrit initial</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-9491444-7772192"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-8377117-4664902"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-0180426-9990719"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-4524499-9665981 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-4524499-9665981">
+        <rdfs:label xml:lang="fr">Taxe de départ</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-4742537-6228595"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5069456-1141693"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-8689257-0549094"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-4597178-7675384 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-4597178-7675384">
+        <rdfs:label xml:lang="fr">Date limite d'inscription</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-7446694-8638795"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-4601129-9799116 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-4601129-9799116">
+        <rdfs:label xml:lang="fr">Orateur</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-6908948-8663913"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-9022031-1800687"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-6196483-3379968"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-7262127-1739733"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-4742537-6228595 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-4742537-6228595">
+        <rdfs:label xml:lang="fr">Taxe</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-2261486-5925197"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-4759044-7706694 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-4759044-7706694">
+        <rdfs:label xml:lang="fr">Formulaire d'inscription</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-8354376-0772641"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-3795418-4868612"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-4597178-7675384"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-1628206-0594563"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-4770107-2284576 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-4770107-2284576">
+        <rdfs:label xml:lang="fr">Pourboire</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-2261486-5925197"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-0030754-5558313"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-6493255-2203711"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-4826161-8929869 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-4826161-8929869">
+        <rdfs:label xml:lang="fr">Chambre d'hôtel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-0611448-2365413"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5069456-1141693"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-3361805-0797682"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5936609-7956818"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-6284042-6137032"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-4955246-0860231 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-4955246-0860231">
+        <rdfs:label xml:lang="fr">Liste de diffusion</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-4029152-2695341"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5069456-1141693"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-4999862-4720192 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-4999862-4720192">
+        <rdfs:label xml:lang="fr">Activité technique</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-6577784-9465035"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-9593649-0507589"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-9518215-0989021"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-5069063-8048839 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-5069063-8048839">
+        <rdfs:label xml:lang="fr">Taxi</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-1986249-1162309"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-5151240-5600223 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-5151240-5600223">
+        <rdfs:label xml:lang="fr">État d'une conférence</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-7475109-7627187"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-3224977-6802601"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-5218688-2899234 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-5218688-2899234">
+        <rdfs:label xml:lang="fr">Frais d'inscription de non membre</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-9245772-9961311"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5069456-1141693"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-0261654-8499644"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-5297552-4654504 -->
+    <!--v2
+    <owl:Class rdf:about="http://iasted_fr#c-5297552-4654504">
+        <rdfs:label xml:lang="fr">null</rdfs:label>
+    </owl:Class>-->
+    
+
+
+    <!-- http://iasted_fr#c-5352653-8907096 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-5352653-8907096">
+        <rdfs:label xml:lang="fr">Location</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-7656366-4247560"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5073161-7917559"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-9713438-5431590"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-5538863-9178083 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-5538863-9178083">
+        <rdfs:label xml:lang="fr">Membre d'IASTED</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-2772714-6978421"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-6672805-9258673"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-5581998-5936719 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-5581998-5936719">
+        <rdfs:label xml:lang="fr">Introduction</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-6577784-9465035"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-5717634-7534620 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-5717634-7534620">
+        <rdfs:label xml:lang="fr">Frais</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-2261486-5925197"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-6634130-3048554"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://iasted_fr#c-1550787-7881655"/>
+                            <rdf:Description rdf:about="http://iasted_fr#c-9340416-5747801"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-5725126-1539739 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-5725126-1539739">
+        <rdfs:label xml:lang="fr">Date limite de dépôt de version finale de manuscrit</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-7446694-8638795"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-5779890-8644133 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-5779890-8644133">
+        <rdfs:label xml:lang="fr">Conférence plénière</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-9593649-0507589"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2927028-1745950"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-9022031-1800687"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-5847190-5498193 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-5847190-5498193">
+        <rdfs:label xml:lang="fr">État d'un sponsor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-7475109-7627187"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-5973500-9383288 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-5973500-9383288">
+        <rdfs:label xml:lang="fr">Registre de participation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-4029152-2695341"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-1536763-8431821"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2320289-4505171"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5936609-7956818"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-3932878-7342900"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-6107704-9189440 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-6107704-9189440">
+        <rdfs:label xml:lang="fr">Présentateur étudiant</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-1994330-2485086"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-6127539-2386991 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-6127539-2386991">
+        <rdfs:label xml:lang="fr">Sponsorisation</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-7070909-3537965"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-8753832-9718220"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-2261486-5925197"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-6247307-3629426 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-6247307-3629426">
+        <rdfs:label xml:lang="fr">Taxe sur la valeur ajoutée</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-4742537-6228595"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-6275655-8508050 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-6275655-8508050">
+        <rdfs:label xml:lang="fr">Frais d'inscription d'étudiant</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-9245772-9961311"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5069456-1141693"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://iasted_fr#c-3555465-6052891"/>
+                            <rdf:Description rdf:about="http://iasted_fr#c-6107704-9189440"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-6284042-6137032 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-6284042-6137032">
+        <rdfs:label xml:lang="fr">Hôtel d'une conférence</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-7909005-9095109"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5936609-7956818"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-5151240-5600223"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5069456-1141693"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-3361805-0797682"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5936609-7956818"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-9585109-2159078"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-6387312-6032704 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-6387312-6032704">
+        <rdfs:label xml:lang="fr">Relecteur</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-6908948-8663913"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2795422-0987768"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-4601129-9799116"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-6493255-2203711 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-6493255-2203711">
+        <rdfs:label xml:lang="fr">Restaurant d'une conférence</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-7909005-9095109"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5936609-7956818"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-9585109-2159078"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5936609-7956818"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-5151240-5600223"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5830377-4355172"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-6545671-4532209 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-6545671-4532209">
+        <rdfs:label xml:lang="fr">Chèque</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-9340416-5747801"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-6576643-9485380 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-6576643-9485380">
+        <rdfs:label xml:lang="fr">Jour de voyage</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-0047049-0367963"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5069456-1141693"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-6577784-9465035 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-6577784-9465035">
+        <rdfs:label xml:lang="fr">Activité ayant lieu pendant une conférence</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-7233445-8264658"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-9476732-5075803"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-5151240-5600223"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-9476732-5075803"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-1257856-7001715"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-6607590-6394993 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-6607590-6394993">
+        <rdfs:label xml:lang="fr">Ville</rdfs:label>
+        <!--v2<rdfs:subClassOf rdf:resource="http://iasted_fr#c-5297552-4654504"/>-->
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5936609-7956818"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-7475109-7627187"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-6672805-9258673 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-6672805-9258673">
+        <rdfs:label xml:lang="fr">Frais d'inscription de membre</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-9245772-9961311"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5069456-1141693"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-5538863-9178083"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-6673711-3867567 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-6673711-3867567">
+        <rdfs:label xml:lang="fr">État d'un présentateur</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-7475109-7627187"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5830377-4355172"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-6770385-5826203 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-6770385-5826203">
+        <rdfs:label xml:lang="fr">Date limite de soumission</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-7446694-8638795"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-6800278-1641341 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-6800278-1641341">
+        <rdfs:label xml:lang="fr">Ordinateur</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-1794515-4066237"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-6825335-9542878 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-6825335-9542878">
+        <rdfs:label xml:lang="fr">Modélisation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-2998926-8025065"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-6863829-2743221 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-6863829-2743221">
+        <rdfs:label xml:lang="fr">Frais d'inscription d'auteur</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-9245772-9961311"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5069456-1141693"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-3592059-2409670"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-6909300-6394915 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-6909300-6394915">
+        <rdfs:label xml:lang="fr">Item</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-7041425-7788285 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-7041425-7788285">
+        <rdfs:label xml:lang="fr">Formulaire de réservation de chambre d'hôtel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-8354376-0772641"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-3795418-4868612"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-3225783-0732169"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-7228313-0020468 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-7228313-0020468">
+        <rdfs:label xml:lang="fr">Chambre d'hôtel double</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-4826161-8929869"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-7233445-8264658 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-7233445-8264658">
+        <rdfs:label xml:lang="fr">Activité</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-7262127-1739733 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-7262127-1739733">
+        <rdfs:label xml:lang="fr">Manuscrit final</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-9491444-7772192"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-8377117-4664902"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-3042660-7162476"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-7446694-8638795 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-7446694-8638795">
+        <rdfs:label xml:lang="fr">Date limite</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-0047049-0367963"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5069456-1141693"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-7475109-7627187 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-7475109-7627187">
+        <rdfs:label xml:lang="fr">État</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-7545265-1758012 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-7545265-1758012">
+        <rdfs:label xml:lang="fr">Présentateur salarié</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-1994330-2485086"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-7656366-4247560 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-7656366-4247560">
+        <rdfs:label xml:lang="fr">Activité ayant lieu avant une conférence</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-7233445-8264658"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-8197531-4217948"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-1257856-7001715"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-7724806-2837359 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-7724806-2837359">
+        <rdfs:label xml:lang="fr">Fuseau horaire</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-7755720-4737926 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-7755720-4737926">
+        <rdfs:label xml:lang="fr">Rétroprojecteur</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-1794515-4066237"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-7848255-8121844 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-7848255-8121844">
+        <rdfs:label xml:lang="fr">Virement bancaire</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-9340416-5747801"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-7902640-7303520 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-7902640-7303520">
+        <rdfs:label xml:lang="fr">Bureau principal</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-0611448-2365413"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-7909005-9095109 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-7909005-9095109">
+        <rdfs:label xml:lang="fr">Bâtiment</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-0611448-2365413"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-7909417-3628726 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-7909417-3628726">
+        <rdfs:label xml:lang="fr">Projecteur LCD</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-1794515-4066237"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-7940552-6240385 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-7940552-6240385">
+        <rdfs:label xml:lang="fr">Présentation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-6577784-9465035"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-8070797-2832388 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-8070797-2832388">
+        <rdfs:label xml:lang="fr">Navette</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-1986249-1162309"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-8165583-3265102 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-8165583-3265102">
+        <rdfs:label xml:lang="fr">Brève introduction de président de session</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-4029152-2695341"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-0313040-1001176"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-8835333-6455364"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-9593649-0507589"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-3698022-6662722"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-8354376-0772641 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-8354376-0772641">
+        <rdfs:label xml:lang="fr">Formulaire</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-4029152-2695341"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-0313040-1001176"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-8391085-7090023 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-8391085-7090023">
+        <rdfs:label xml:lang="fr">Actes en support numérique</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-0803024-0057902"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-8409291-0556065 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-8409291-0556065">
+        <rdfs:label xml:lang="fr">Ville de présentateur</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-6607590-6394993"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5830377-4355172"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-8549275-2053115 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-8549275-2053115">
+        <rdfs:label xml:lang="fr">Personne</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-8593720-5685756 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-8593720-5685756">
+        <rdfs:label xml:lang="fr">Université de présentateur</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-7909005-9095109"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5936609-7956818"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-8409291-0556065"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5936609-7956818"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-6673711-3867567"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-8679616-2487440 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-8679616-2487440">
+        <rdfs:label xml:lang="fr">Réception de manuscrit</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-7656366-4247560"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-8689257-0549094 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-8689257-0549094">
+        <rdfs:label xml:lang="fr">Départ</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-2769037-4937022"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-8753832-9718220 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-8753832-9718220">
+        <rdfs:label xml:lang="fr">Sponsor</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-6908948-8663913"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-6127539-2386991"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-8549275-2053115"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-1864476-9268210"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-5847190-5498193"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-1864476-9268210"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-9885865-2240529"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-1864476-9268210"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-4045071-5043786"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-8835333-6455364 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-8835333-6455364">
+        <rdfs:label xml:lang="fr">Président de session</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-8377117-4664902"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2646256-3249810"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-9760493-4479889"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-8165583-3265102"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-9022031-1800687 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-9022031-1800687">
+        <rdfs:label xml:lang="fr">Conférence</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-6577784-9465035"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5069456-1141693"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2320289-4505171"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-9245772-9961311 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-9245772-9961311">
+        <rdfs:label xml:lang="fr">Frais d'inscription</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-5717634-7534620"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-7070909-3537965"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-2627938-7096672"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-6577784-9465035"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-9340416-5747801 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-9340416-5747801">
+        <rdfs:label xml:lang="fr">Document de paiement</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-4029152-2695341"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5069456-1141693"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://iasted_fr#c-4742537-6228595"/>
+                            <rdf:Description rdf:about="http://iasted_fr#c-5717634-7534620"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-9393214-0184120 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-9393214-0184120">
+        <rdfs:label xml:lang="fr">Maison de présentateur</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-7909005-9095109"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5936609-7956818"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-6673711-3867567"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5830377-4355172"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5936609-7956818"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-8409291-0556065"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-9452078-7040519 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-9452078-7040519">
+        <rdfs:label xml:lang="fr">Présentation d'accueil</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-6577784-9465035"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-9462784-2729114 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-9462784-2729114">
+        <rdfs:label xml:lang="fr">Aéroport de conférence</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-7909005-9095109"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5936609-7956818"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-9585109-2159078"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5936609-7956818"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-5151240-5600223"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-9491444-7772192 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-9491444-7772192">
+        <rdfs:label xml:lang="fr">Soumission</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-4029152-2695341"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-2324004-3315334"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-4601129-9799116"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-9518215-0989021 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-9518215-0989021">
+        <rdfs:label xml:lang="fr">Comité technique</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-8377117-4664902"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-4999862-4720192"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-9585109-2159078 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-9585109-2159078">
+        <rdfs:label xml:lang="fr">Ville de conférence</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-6607590-6394993"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-3224977-6802601"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2487600-4750835"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-9670012-9591617 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-9670012-9591617">
+        <rdfs:label xml:lang="fr">Tutoriel</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-9593649-0507589"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-2881157-7829017"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-9022031-1800687"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-9713438-5431590 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-9713438-5431590">
+        <rdfs:label xml:lang="fr">Voiture</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-1986249-1162309"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-9847623-8412643 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-9847623-8412643">
+        <rdfs:label xml:lang="fr">Frais d'inscription d'auteur participant pour les actes au format papier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-9245772-9961311"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-2627938-7096672"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-3090612-7656564"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_fr#c-9885865-2240529 -->
+
+    <owl:Class rdf:about="http://iasted_fr#c-9885865-2240529">
+        <rdfs:label xml:lang="fr">Maison de société de sponsor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_fr#c-7909005-9095109"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5830377-4355172"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-8753832-9718220"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5936609-7956818"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-4045071-5043786"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_fr#op-5936609-7956818"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_fr#c-5847190-5498193"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://iasted#Cancun -->
+
+    <owl:NamedIndividual rdf:about="http://iasted#Cancun">
+        <rdf:type rdf:resource="http://iasted_fr#c-9585109-2159078"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iasted#Chichen_Itza -->
+
+    <owl:NamedIndividual rdf:about="http://iasted#Chichen_Itza">
+        <rdf:type rdf:resource="http://iasted_fr#c-3555081-7555269"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iasted#Mexico -->
+
+    <owl:NamedIndividual rdf:about="http://iasted#Mexico">
+        <rdf:type rdf:resource="http://iasted_fr#c-5151240-5600223"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iasted#peso -->
+
+    <owl:NamedIndividual rdf:about="http://iasted#peso">
+        <rdf:type rdf:resource="http://iasted_fr#c-3102550-2477414"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.1592) http://owlapi.sourceforge.net -->
+

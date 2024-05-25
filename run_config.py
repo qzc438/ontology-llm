@@ -38,28 +38,22 @@ llm = ChatOpenAI(model='gpt-3.5-turbo', temperature=0)
 # llm = ChatOllama(model="wizardlm2:7b", temperature=0)
 # llm = ChatOllama(model="phi3:3.8b", temperature=0)
 # llm = ChatOllama(model="mistral:7b", temperature=0)
+# llm = ChatOllama(model="mixtral:8x7b", temperature=0) # MoE model
 
 # # load llama3 variants
 # llm = ChatOllama(model="llama3:text", temperature=0)
 # llm = ChatOllama(model="llama3:instruct", temperature=0)
-
-# # load multilingual
-# llm = ChatOllama(model="aya:8b", temperature=0)
-# llm = ChatOllama(model="stablelm2:12b", temperature=0)
-
-# # load multimodal
-# llm = ChatOpenAI(model='gpt-4o', temperature=0)
-# llm = ChatOllama(model="llava:7b", temperature=0)
 
 # the following models are currently not working
 # # too slow
 # llm = ChatOllama(model="llama3:70b", temperature=0)
 # # pass argument value error: entity = str
 # llm = ChatOllama(model="gemma:2b", temperature=0)
-# # pass argument value error: JSONDecodeError("Expecting value", s, err.value) from None
+# # pass argument value error: entity = "John"
 # llm = ChatOllama(model="llama2:7b", temperature=0)
-# # pass URI argument error: json.decoder.JSONDecodeError: Invalid \escape
-# llm = ChatOllama(model="mixtral:8x7b", temperature=0)
+# # multilingual models
+# llm = ChatOllama(model="aya:8b", temperature=0)
+# llm = ChatOllama(model="stablelm2:12b", temperature=0)
 
 # search settings
 similarity_threshold = 0.90
@@ -68,9 +62,9 @@ num_matches = 50
 
 # alignment settings
 # conference track
-context = "conference"
-o1_is_code = False
-o2_is_code = False
+# context = "conference"
+# o1_is_code = False
+# o2_is_code = False
 # alignment = "conference/cmt-conference/component/"
 # alignment = "conference/cmt-confof/component/"
 # alignment = "conference/cmt-edas/component/"
@@ -103,16 +97,22 @@ o2_is_code = False
 # alignment = "conference/dbpedia-sigkdd/component/"
 
 # anatomy track
-# context = "anatomy"
-# o1_is_code = True
-# o2_is_code = True
-# alignment = "anatomy/mouse-human-suite/component/"
+context = "anatomy"
+o1_is_code = True
+o2_is_code = True
+alignment = "anatomy/mouse-human-suite/component/"
 
-# anatomy track
+# food track
 # context = "food nutritional composition"
 # o1_is_code = True
 # o2_is_code = True
 # alignment = "food/ciqual-siren/component/"
+
+# multifarm track
+# context = "conference"
+# o1_is_code = True
+# o2_is_code = True
+# alignment = "multifarm/cmt-cmt-cn-en/component/"
 
 # metadata
 # e1_list_class: 2744

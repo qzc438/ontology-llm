@@ -1,0 +1,876 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<rdf:RDF xmlns="http://sigkdd_ar#" 
+     xml:base="http://sigkdd_ar" 
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" 
+     xmlns:owl="http://www.w3.org/2002/07/owl#" 
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#" 
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+     xmlns:sigkdd_ar="http://sigkdd_ar#"> 
+    <owl:Ontology rdf:about="http://sigkdd_ar"/> 
+     
+ 
+ 
+    <!--  
+    /////////////////////////////////////////////////////////////////////////////////////// 
+    // 
+    // Annotation properties 
+    // 
+    /////////////////////////////////////////////////////////////////////////////////////// 
+     --> 
+ 
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#label"/> 
+     
+ 
+ 
+    <!--  
+    /////////////////////////////////////////////////////////////////////////////////////// 
+    // 
+    // Object Properties 
+    // 
+    /////////////////////////////////////////////////////////////////////////////////////// 
+     --> 
+ 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#op-1699370-4424020 --> 
+ 
+    <owl:ObjectProperty rdf:about="http://sigkdd_ar#op-1699370-4424020"> 
+        <rdfs:label xml:lang="ar">آخر موعد المحدد من اجل</rdfs:label> 
+        <rdfs:range rdf:resource="http://sigkdd_ar#c-9383035-4528001"/> 
+        <rdfs:domain rdf:resource="http://sigkdd_ar#c-9858835-9194545"/> 
+        <owl:inverseOf rdf:resource="http://sigkdd_ar#op-2567718-1943973"/> 
+    </owl:ObjectProperty> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#op-3608444-2411140 --> 
+ 
+    <owl:ObjectProperty rdf:about="http://sigkdd_ar#op-3608444-2411140"> 
+        <rdfs:label xml:lang="ar">يمكن البقاء في</rdfs:label> 
+        <rdfs:range rdf:resource="http://sigkdd_ar#c-3363751-8760227"/> 
+        <rdfs:domain rdf:resource="http://sigkdd_ar#c-4596635-0722497"/> 
+    </owl:ObjectProperty> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#op-6619175-5616650 --> 
+ 
+    <owl:ObjectProperty rdf:about="http://sigkdd_ar#op-6619175-5616650"> 
+        <rdfs:label xml:lang="ar">التي تمنحها</rdfs:label> 
+        <rdfs:domain rdf:resource="http://sigkdd_ar#c-0007370-7553257"/> 
+        <owl:inverseOf rdf:resource="http://sigkdd_ar#op-6412754-0086179"/> 
+    </owl:ObjectProperty> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#op-2701839-4065570 --> 
+ 
+    <owl:ObjectProperty rdf:about="http://sigkdd_ar#op-2701839-4065570"> 
+        <rdfs:label xml:lang="ar">رسوم التسجيل المدفوعة من قبل</rdfs:label> 
+        <rdfs:range rdf:resource="http://sigkdd_ar#c-4596635-0722497"/> 
+        <rdfs:domain rdf:resource="http://sigkdd_ar#c-9545303-7816338"/> 
+    </owl:ObjectProperty> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#op-1317108-2039751 --> 
+ 
+    <owl:ObjectProperty rdf:about="http://sigkdd_ar#op-1317108-2039751"> 
+        <rdfs:label xml:lang="ar">قد قدم من جانب</rdfs:label> 
+        <rdfs:domain rdf:resource="http://sigkdd_ar#c-1363765-1519553"/> 
+        <rdfs:range rdf:resource="http://sigkdd_ar#c-8653983-1538377"/> 
+        <owl:inverseOf rdf:resource="http://sigkdd_ar#op-5244267-6419314"/> 
+    </owl:ObjectProperty> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#op-2039817-3965471 --> 
+ 
+    <owl:ObjectProperty rdf:about="http://sigkdd_ar#op-2039817-3965471"> 
+        <rdfs:label xml:lang="ar">آخر موعد للإخطار الباحثين</rdfs:label> 
+        <rdfs:range rdf:resource="http://sigkdd_ar#c-5280199-2852104"/> 
+        <rdfs:domain rdf:resource="http://sigkdd_ar#c-8633912-4903208"/> 
+    </owl:ObjectProperty> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#op-1178744-5763012 --> 
+ 
+    <owl:ObjectProperty rdf:about="http://sigkdd_ar#op-1178744-5763012"> 
+        <rdfs:label xml:lang="ar">دفع رسوم التسجيل</rdfs:label> 
+        <rdfs:domain rdf:resource="http://sigkdd_ar#c-4596635-0722497"/> 
+        <rdfs:range rdf:resource="http://sigkdd_ar#c-9545303-7816338"/> 
+        <owl:inverseOf rdf:resource="http://sigkdd_ar#op-2701839-4065570"/> 
+    </owl:ObjectProperty> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#op-6752038-0855382 --> 
+ 
+    <owl:ObjectProperty rdf:about="http://sigkdd_ar#op-6752038-0855382"> 
+        <rdfs:label xml:lang="ar">إرسال البحث</rdfs:label> 
+        <rdfs:range rdf:resource="http://sigkdd_ar#c-0206856-6159682"/> 
+        <rdfs:domain rdf:resource="http://sigkdd_ar#c-8633912-4903208"/> 
+    </owl:ObjectProperty> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#op-2567718-1943973 --> 
+ 
+    <owl:ObjectProperty rdf:about="http://sigkdd_ar#op-2567718-1943973"> 
+        <rdfs:label xml:lang="ar"> تحديد آخر موعد</rdfs:label> 
+        <rdfs:domain rdf:resource="http://sigkdd_ar#c-9383035-4528001"/> 
+        <rdfs:range rdf:resource="http://sigkdd_ar#c-9858835-9194545"/> 
+    </owl:ObjectProperty> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#op-5244267-6419314 --> 
+ 
+    <owl:ObjectProperty rdf:about="http://sigkdd_ar#op-5244267-6419314"> 
+        <rdfs:label xml:lang="ar"> يقدم الوثيقة</rdfs:label> 
+        <rdfs:range rdf:resource="http://sigkdd_ar#c-1363765-1519553"/> 
+        <rdfs:domain rdf:resource="http://sigkdd_ar#c-8653983-1538377"/> 
+    </owl:ObjectProperty> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#op-5028692-2946764 --> 
+ 
+    <owl:ObjectProperty rdf:about="http://sigkdd_ar#op-5028692-2946764"> 
+        <rdfs:label xml:lang="ar">تنظيم المؤتمر</rdfs:label> 
+        <rdfs:domain rdf:resource="http://sigkdd_ar#c-9383035-4528001"/> 
+        <rdfs:range rdf:resource="http://sigkdd_ar#c-8947268-7078266"/> 
+    </owl:ObjectProperty> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#op-4513601-4918866 --> 
+ 
+    <owl:ObjectProperty rdf:about="http://sigkdd_ar#op-4513601-4918866"> 
+        <rdfs:label xml:lang="ar">لديه آخر موعد لإرسال</rdfs:label> 
+        <rdfs:domain rdf:resource="http://sigkdd_ar#c-1363765-1519553"/> 
+        <rdfs:range rdf:resource="http://sigkdd_ar#c-9858835-9194545"/> 
+    </owl:ObjectProperty> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#op-1114706-0372837 --> 
+ 
+    <owl:ObjectProperty rdf:about="http://sigkdd_ar#op-1114706-0372837"> 
+        <rdfs:label xml:lang="ar">الدعوة من اجل الراعي</rdfs:label> 
+        <rdfs:range rdf:resource="http://sigkdd_ar#c-3034633-3276400"/> 
+        <rdfs:domain rdf:resource="http://sigkdd_ar#c-9383035-4528001"/> 
+        <owl:inverseOf rdf:resource="http://sigkdd_ar#op-3273389-5047429"/> 
+    </owl:ObjectProperty> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#op-7124942-4020478 --> 
+ 
+    <owl:ObjectProperty rdf:about="http://sigkdd_ar#op-7124942-4020478"> 
+        <rdfs:label xml:lang="ar">جائزة متحصل عليها</rdfs:label> 
+        <rdfs:range rdf:resource="http://sigkdd_ar#c-0007370-7553257"/> 
+        <rdfs:domain rdf:resource="http://sigkdd_ar#c-8633912-4903208"/> 
+    </owl:ObjectProperty> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#op-3273389-5047429 --> 
+ 
+    <owl:ObjectProperty rdf:about="http://sigkdd_ar#op-3273389-5047429"> 
+        <rdfs:label xml:lang="ar">الرعاة مدعوين من قبل</rdfs:label> 
+        <rdfs:domain rdf:resource="http://sigkdd_ar#c-3034633-3276400"/> 
+        <rdfs:range rdf:resource="http://sigkdd_ar#c-9383035-4528001"/> 
+    </owl:ObjectProperty> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#op-6412754-0086179 --> 
+ 
+    <owl:ObjectProperty rdf:about="http://sigkdd_ar#op-6412754-0086179"> 
+        <rdfs:label xml:lang="ar">لديه جائزة</rdfs:label> 
+        <rdfs:range rdf:resource="http://sigkdd_ar#c-0007370-7553257"/> 
+    </owl:ObjectProperty> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#op-0434389-6122099 --> 
+ 
+    <owl:ObjectProperty rdf:about="http://sigkdd_ar#op-0434389-6122099"> 
+        <rdfs:label xml:lang="ar">مؤتمر منظم من قبل</rdfs:label> 
+        <rdfs:range rdf:resource="http://sigkdd_ar#c-9383035-4528001"/> 
+        <rdfs:domain rdf:resource="http://sigkdd_ar#c-8947268-7078266"/> 
+        <owl:inverseOf rdf:resource="http://sigkdd_ar#op-5028692-2946764"/> 
+    </owl:ObjectProperty> 
+     
+ 
+ 
+    <!--  
+    /////////////////////////////////////////////////////////////////////////////////////// 
+    // 
+    // Data properties 
+    // 
+    /////////////////////////////////////////////////////////////////////////////////////// 
+     --> 
+ 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#ent-4317870-2090050 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://sigkdd_ar#ent-4317870-2090050"> 
+        <rdfs:label xml:lang="ar">موعد أول يوم من المؤتمر</rdfs:label> 
+        <rdfs:domain rdf:resource="http://sigkdd_ar#c-8947268-7078266"/> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#ent-3168095-4358690 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://sigkdd_ar#ent-3168095-4358690"> 
+        <rdfs:label xml:lang="ar">موعد اليوم الأخير من المؤتمر</rdfs:label> 
+        <rdfs:domain rdf:resource="http://sigkdd_ar#c-8947268-7078266"/> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#ent-4451821-0618411 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://sigkdd_ar#ent-4451821-0618411"> 
+        <rdfs:label xml:lang="ar">مؤتمر عقد في مدينة</rdfs:label> 
+        <rdfs:domain rdf:resource="http://sigkdd_ar#c-8947268-7078266"/> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#ent-6560837-1049611 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://sigkdd_ar#ent-6560837-1049611"> 
+        <rdfs:label xml:lang="ar">لديه السعر</rdfs:label> 
+        <rdfs:domain rdf:resource="http://sigkdd_ar#c-9545303-7816338"/> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#ent-1083761-2754742 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://sigkdd_ar#ent-1083761-2754742"> 
+        <rdfs:label xml:lang="ar">لديه اسم الراعي</rdfs:label> 
+        <rdfs:domain rdf:resource="http://sigkdd_ar#c-3034633-3276400"/> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#ent-8230424-5955962 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://sigkdd_ar#ent-8230424-5955962"> 
+        <rdfs:label xml:lang="ar">لديه اسم المؤتمر</rdfs:label> 
+        <rdfs:domain rdf:resource="http://sigkdd_ar#c-8947268-7078266"/> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#ent-6250328-1253383 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://sigkdd_ar#ent-6250328-1253383"> 
+        <rdfs:label xml:lang="ar">مؤرخ على</rdfs:label> 
+        <rdfs:domain rdf:resource="http://sigkdd_ar#c-9858835-9194545"/> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#ent-1510064-3002835 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://sigkdd_ar#ent-1510064-3002835"> 
+        <rdfs:label xml:lang="ar">لديه اسم</rdfs:label> 
+        <rdfs:domain rdf:resource="http://sigkdd_ar#c-4596635-0722497"/> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#ent-4540296-2149307 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://sigkdd_ar#ent-4540296-2149307"> 
+        <rdfs:label xml:lang="ar">لديه الجنسية</rdfs:label> 
+        <rdfs:domain rdf:resource="http://sigkdd_ar#c-4596635-0722497"/> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#ent-6391301-7405898 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://sigkdd_ar#ent-6391301-7405898"> 
+        <rdfs:label xml:lang="ar">لديه بريد الكتروني</rdfs:label> 
+        <rdfs:domain rdf:resource="http://sigkdd_ar#c-4596635-0722497"/> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#ent-4883538-1531419 --> 
+ 
+    <owl:DatatypeProperty rdf:about="http://sigkdd_ar#ent-4883538-1531419"> 
+        <rdfs:label xml:lang="ar">رسوم التسجيل هي بالعملة</rdfs:label> 
+        <rdfs:domain rdf:resource="http://sigkdd_ar#c-9545303-7816338"/> 
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/> 
+    </owl:DatatypeProperty> 
+     
+ 
+ 
+    <!--  
+    /////////////////////////////////////////////////////////////////////////////////////// 
+    // 
+    // Classes 
+    // 
+    /////////////////////////////////////////////////////////////////////////////////////// 
+     --> 
+ 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-5999261-8594400 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-5999261-8594400"> 
+        <rdfs:label xml:lang="ar">المسؤول عن الموقع</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-3569277-9113287"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-3034633-3276400 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-3034633-3276400"> 
+        <rdfs:label xml:lang="ar">الرعاة</rdfs:label> 
+        <owl:equivalentClass> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://sigkdd_ar#op-1178744-5763012"/> 
+                <owl:someValuesFrom rdf:resource="http://sigkdd_ar#c-5153493-0821388"/> 
+            </owl:Restriction> 
+        </owl:equivalentClass> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-3960593-3778700 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-3960593-3778700"> 
+        <rdfs:label xml:lang="ar">ملخص البحث</rdfs:label> 
+        <owl:equivalentClass> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://sigkdd_ar#op-4513601-4918866"/> 
+                <owl:someValuesFrom rdf:resource="http://sigkdd_ar#c-6864457-1274625"/> 
+            </owl:Restriction> 
+        </owl:equivalentClass> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-1363765-1519553"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-6351636-9487040 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-6351636-9487040"> 
+        <rdfs:label xml:lang="ar">لجان المؤتمر</rdfs:label> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-0033129-4113750 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-0033129-4113750"> 
+        <rdfs:label xml:lang="ar">جائزة لأفضل مقالة بحث</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-0007370-7553257"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-9383035-4528001 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-9383035-4528001"> 
+        <rdfs:label xml:lang="ar">المؤتمر acm sigkdd</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-2810425-6420121"/> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://sigkdd_ar#op-5028692-2946764"/> 
+                <owl:someValuesFrom rdf:resource="http://sigkdd_ar#c-8947268-7078266"/> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://sigkdd_ar#op-1114706-0372837"/> 
+                <owl:someValuesFrom rdf:resource="http://sigkdd_ar#c-3034633-3276400"/> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://sigkdd_ar#op-2567718-1943973"/> 
+                <owl:someValuesFrom rdf:resource="http://sigkdd_ar#c-9858835-9194545"/> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-0959891-7240511 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-0959891-7240511"> 
+        <rdfs:label xml:lang="ar">مكان انعقاد المؤتمر</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-3363751-8760227"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-2810425-6420121 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-2810425-6420121"> 
+        <rdfs:label xml:lang="ar">لاشيئ</rdfs:label> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-7141216-2542971 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-7141216-2542971"> 
+        <rdfs:label xml:lang="ar">مدير المؤتمر</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-3569277-9113287"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-9530062-2636552 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-9530062-2636552"> 
+        <rdfs:label xml:lang="ar">الفندق</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-3363751-8760227"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-0071414-5648562 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-0071414-5648562"> 
+        <rdfs:label xml:lang="ar">المكتب الرئيسي للمؤتمر</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-3363751-8760227"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-1125351-6329272 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-1125351-6329272"> 
+        <rdfs:label xml:lang="ar">SIG رسوم التسجيل للاشخاص الذين ليسوا أعضاء</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-9545303-7816338"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-0206856-6159682 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-0206856-6159682"> 
+        <rdfs:label xml:lang="ar">البحث</rdfs:label> 
+        <owl:equivalentClass> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://sigkdd_ar#op-4513601-4918866"/> 
+                <owl:someValuesFrom rdf:resource="http://sigkdd_ar#c-0665494-3081508"/> 
+            </owl:Restriction> 
+        </owl:equivalentClass> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-1363765-1519553"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-8594766-6604333 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-8594766-6604333"> 
+        <rdfs:label xml:lang="ar">الراعي كمقدم</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-3034633-3276400"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-1363765-1519553 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-1363765-1519553"> 
+        <rdfs:label xml:lang="ar">الوثيقة</rdfs:label> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-9060975-8428873 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-9060975-8428873"> 
+        <rdfs:label xml:lang="ar">sigmod رسوم التسجيل لأعضاء</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-9545303-7816338"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-5280199-2852104 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-5280199-2852104"> 
+        <rdfs:label xml:lang="ar">آخر موعد للإخطار الباحثين</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-9858835-9194545"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-0552203-0679914 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-0552203-0679914"> 
+        <rdfs:label xml:lang="ar">رسوم التسجيل لطالب</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-9545303-7816338"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-4881492-4438334 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-4881492-4438334"> 
+        <rdfs:label xml:lang="ar">الراعي الذهبي للمؤتمر</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-3034633-3276400"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-8231477-0497654 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-8231477-0497654"> 
+        <rdfs:label xml:lang="ar">الراعي البلاتيني للمؤتمر</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-3034633-3276400"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-1634373-2116164 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-1634373-2116164"> 
+        <rdfs:label xml:lang="ar">الراعى الفضى للمؤتمر</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-3034633-3276400"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-8669534-2676474 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-8669534-2676474"> 
+        <rdfs:label xml:lang="ar">الراعي لأفضل بحث طالب</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-3034633-3276400"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-6864457-1274625 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-6864457-1274625"> 
+        <rdfs:label xml:lang="ar">آخر موعد لتسليم ملخصات الأبحاث</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-9858835-9194545"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-9858835-9194545 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-9858835-9194545"> 
+        <rdfs:label xml:lang="ar">آخر موعد</rdfs:label> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-6782980-9359185 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-6782980-9359185"> 
+        <rdfs:label xml:lang="ar">لجنة لاختيار أفضل البحوث</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-6351636-9487040"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-8725611-3799036 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-8725611-3799036"> 
+        <rdfs:label xml:lang="ar">كاتب البحث</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-8633912-4903208"/> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://sigkdd_ar#op-6412754-0086179"/> 
+                <owl:someValuesFrom rdf:resource="http://sigkdd_ar#c-0033129-4113750"/> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://sigkdd_ar#op-6412754-0086179"/> 
+                <owl:someValuesFrom rdf:resource="http://sigkdd_ar#c-2506343-1114428"/> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-2852562-5212156 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-2852562-5212156"> 
+        <rdfs:label xml:lang="ar">اللجنة التحضيرية</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-6351636-9487040"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-8947268-7078266 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-8947268-7078266"> 
+        <rdfs:label xml:lang="ar">المؤتمر</rdfs:label> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-2079294-7245676 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-2079294-7245676"> 
+        <rdfs:label xml:lang="ar">المحاضر المدعو</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-8653983-1538377"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-3606408-9812086 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-3606408-9812086"> 
+        <rdfs:label xml:lang="ar">جائزة أفضل بحث لطالب</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-0007370-7553257"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-1612891-5946596 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-1612891-5946596"> 
+        <rdfs:label xml:lang="ar">كاتب البحث طالب  </rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-8633912-4903208"/> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://sigkdd_ar#op-6412754-0086179"/> 
+                <owl:someValuesFrom rdf:resource="http://sigkdd_ar#c-3606408-9812086"/> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-0551399-1781107 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-0551399-1781107"> 
+        <rdfs:label xml:lang="ar">عضو اللجنة العلمية</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-3569277-9113287"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-8452462-9106117 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-8452462-9106117"> 
+        <rdfs:label xml:lang="ar">الراعي البرونزي للمؤتمر</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-3034633-3276400"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-3363751-8760227 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-3363751-8760227"> 
+        <rdfs:label xml:lang="ar">مكان</rdfs:label> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-0007370-7553257 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-0007370-7553257"> 
+        <rdfs:label xml:lang="ar">جائزة لأفضل مقالة في المؤتمر</rdfs:label> 
+        <owl:equivalentClass> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://sigkdd_ar#op-6619175-5616650"/> 
+                <owl:someValuesFrom rdf:resource="http://sigkdd_ar#c-3569277-9113287"/> 
+            </owl:Restriction> 
+        </owl:equivalentClass> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-8653983-1538377 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-8653983-1538377"> 
+        <rdfs:label xml:lang="ar">مراجع الحسابات المؤتمر</rdfs:label> 
+        <owl:equivalentClass> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://sigkdd_ar#op-5244267-6419314"/> 
+                <owl:someValuesFrom rdf:resource="http://sigkdd_ar#c-1363765-1519553"/> 
+            </owl:Restriction> 
+        </owl:equivalentClass> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-4596635-0722497"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-3100347-8206777 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-3100347-8206777"> 
+        <rdfs:label xml:lang="ar">اللجنة العلمية</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-6351636-9487040"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-3569277-9113287 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-3569277-9113287"> 
+        <rdfs:label xml:lang="ar">منظمي المؤتمر</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-4596635-0722497"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-5590730-5984687 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-5590730-5984687"> 
+        <rdfs:label xml:lang="ar">مراجعة</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-1363765-1519553"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-4596635-0722497 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-4596635-0722497"> 
+        <rdfs:label xml:lang="ar">شخص</rdfs:label> 
+        <owl:equivalentClass> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://sigkdd_ar#op-1178744-5763012"/> 
+                <owl:someValuesFrom rdf:resource="http://sigkdd_ar#c-9545303-7816338"/> 
+            </owl:Restriction> 
+        </owl:equivalentClass> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-2810425-6420121"/> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://sigkdd_ar#op-3608444-2411140"/> 
+                <owl:someValuesFrom rdf:resource="http://sigkdd_ar#c-9530062-2636552"/> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-8633912-4903208 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-8633912-4903208"> 
+        <rdfs:label xml:lang="ar">كاتب</rdfs:label> 
+        <owl:equivalentClass> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://sigkdd_ar#op-6752038-0855382"/> 
+                <owl:someValuesFrom rdf:resource="http://sigkdd_ar#c-0206856-6159682"/> 
+            </owl:Restriction> 
+        </owl:equivalentClass> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-8653983-1538377"/> 
+        <rdfs:subClassOf> 
+            <owl:Restriction> 
+                <owl:onProperty rdf:resource="http://sigkdd_ar#op-2039817-3965471"/> 
+                <owl:someValuesFrom rdf:resource="http://sigkdd_ar#c-5280199-2852104"/> 
+            </owl:Restriction> 
+        </rdfs:subClassOf> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-0665494-3081508 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-0665494-3081508"> 
+        <rdfs:label xml:lang="ar"> آخر موعد لإرسال البحوث </rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-9858835-9194545"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-2506343-1114428 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-2506343-1114428"> 
+        <rdfs:label xml:lang="ar">أفضل بحث تطبيقي</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-0007370-7553257"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-9773590-3091928 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-9773590-3091928"> 
+        <rdfs:label xml:lang="ar">عضو اللجنة التحضيرية</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-3569277-9113287"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-9545303-7816338 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-9545303-7816338"> 
+        <rdfs:label xml:lang="ar">رسوم التسجيل</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-2111951-9494729"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-5153493-0821388 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-5153493-0821388"> 
+        <rdfs:label xml:lang="ar">رسوم الرعاة</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-2111951-9494729"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-9564408-9817198 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-9564408-9817198"> 
+        <rdfs:label xml:lang="ar">sigkdd رسوم التسجيل لأعضاء</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-9545303-7816338"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-0039271-2080919 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-0039271-2080919"> 
+        <rdfs:label xml:lang="ar">رئيس اللجنة العلمية</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-3569277-9113287"/> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-2111951-9494729 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-2111951-9494729"> 
+        <rdfs:label xml:lang="ar">رسوم المؤتمر</rdfs:label> 
+    </owl:Class> 
+     
+ 
+ 
+    <!-- http://sigkdd_ar#c-2964635-3714249 --> 
+ 
+    <owl:Class rdf:about="http://sigkdd_ar#c-2964635-3714249"> 
+        <rdfs:label xml:lang="ar">مستمع المؤتمر</rdfs:label> 
+        <rdfs:subClassOf rdf:resource="http://sigkdd_ar#c-4596635-0722497"/> 
+    </owl:Class> 
+</rdf:RDF> 
+ 
+ 
+ 
+<!-- Generated by the OWL API (version 3.1.0.1592) http://owlapi.sourceforge.net --> 
+ 
+

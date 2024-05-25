@@ -1,0 +1,877 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://sigkdd_cn#"
+     xml:base="http://sigkdd_cn"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:sigkdd_cn="http://sigkdd_cn#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://sigkdd_cn"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#label"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://sigkdd_cn#op-0804511-9975279 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cn#op-0804511-9975279">
+        <rdfs:label xml:lang="zh">颁奖给</rdfs:label>
+        <rdfs:range rdf:resource="http://sigkdd_cn#c-9139351-1088451"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cn#op-1878293-6952850 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cn#op-1878293-6952850">
+        <rdfs:label xml:lang="zh">获奖</rdfs:label>
+        <rdfs:range rdf:resource="http://sigkdd_cn#c-9139351-1088451"/>
+        <rdfs:domain rdf:resource="http://sigkdd_cn#c-9473695-7319406"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cn#op-2614526-9682933 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cn#op-2614526-9682933">
+        <rdfs:label xml:lang="zh">承办</rdfs:label>
+        <rdfs:range rdf:resource="http://sigkdd_cn#c-7544224-7669738"/>
+        <rdfs:domain rdf:resource="http://sigkdd_cn#c-9866774-4029623"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cn#op-2729959-9585866 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cn#op-2729959-9585866">
+        <rdfs:label xml:lang="zh">由之付费</rdfs:label>
+        <rdfs:range rdf:resource="http://sigkdd_cn#c-8538442-7237948"/>
+        <rdfs:domain rdf:resource="http://sigkdd_cn#c-9866777-8245519"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cn#op-3868745-8681803 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cn#op-3868745-8681803">
+        <rdfs:label xml:lang="zh">投稿截止于</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cn#c-1760238-2026128"/>
+        <rdfs:range rdf:resource="http://sigkdd_cn#c-3108779-7650884"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cn#op-4120315-9708961 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cn#op-4120315-9708961">
+        <rdfs:label xml:lang="zh">直到录用通知日期</rdfs:label>
+        <rdfs:range rdf:resource="http://sigkdd_cn#c-1201323-4205665"/>
+        <rdfs:domain rdf:resource="http://sigkdd_cn#c-9473695-7319406"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cn#op-4418298-6882606 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cn#op-4418298-6882606">
+        <rdfs:label xml:lang="zh">制定</rdfs:label>
+        <rdfs:range rdf:resource="http://sigkdd_cn#c-3108779-7650884"/>
+        <rdfs:domain rdf:resource="http://sigkdd_cn#c-9866774-4029623"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cn#op-4674158-2729130 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cn#op-4674158-2729130">
+        <rdfs:label xml:lang="zh">投稿</rdfs:label>
+        <rdfs:range rdf:resource="http://sigkdd_cn#c-1958152-1036217"/>
+        <rdfs:domain rdf:resource="http://sigkdd_cn#c-9473695-7319406"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cn#op-4681913-4064138 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cn#op-4681913-4064138">
+        <rdfs:label xml:lang="zh">报告</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cn#c-0888882-5885833"/>
+        <rdfs:range rdf:resource="http://sigkdd_cn#c-1760238-2026128"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cn#op-4998224-3697653 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cn#op-4998224-3697653">
+        <rdfs:label xml:lang="zh">由之承办</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cn#c-7544224-7669738"/>
+        <rdfs:range rdf:resource="http://sigkdd_cn#c-9866774-4029623"/>
+        <owl:inverseOf rdf:resource="http://sigkdd_cn#op-2614526-9682933"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cn#op-6311545-9692167 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cn#op-6311545-9692167">
+        <rdfs:label xml:lang="zh">制定于</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cn#c-3108779-7650884"/>
+        <rdfs:range rdf:resource="http://sigkdd_cn#c-9866774-4029623"/>
+        <owl:inverseOf rdf:resource="http://sigkdd_cn#op-4418298-6882606"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cn#op-6319070-6863545 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cn#op-6319070-6863545">
+        <rdfs:label xml:lang="zh">获奖于</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cn#c-9139351-1088451"/>
+        <owl:inverseOf rdf:resource="http://sigkdd_cn#op-0804511-9975279"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cn#op-6559092-2778775 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cn#op-6559092-2778775">
+        <rdfs:label xml:lang="zh">可位于</rdfs:label>
+        <rdfs:range rdf:resource="http://sigkdd_cn#c-0166946-2149544"/>
+        <rdfs:domain rdf:resource="http://sigkdd_cn#c-8538442-7237948"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cn#op-6652170-8937768 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cn#op-6652170-8937768">
+        <rdfs:label xml:lang="zh">付费</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cn#c-8538442-7237948"/>
+        <rdfs:range rdf:resource="http://sigkdd_cn#c-9866777-8245519"/>
+        <owl:inverseOf rdf:resource="http://sigkdd_cn#op-2729959-9585866"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cn#op-7151372-9022348 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cn#op-7151372-9022348">
+        <rdfs:label xml:lang="zh">寻找</rdfs:label>
+        <rdfs:range rdf:resource="http://sigkdd_cn#c-6208503-8067001"/>
+        <rdfs:domain rdf:resource="http://sigkdd_cn#c-9866774-4029623"/>
+        <owl:inverseOf rdf:resource="http://sigkdd_cn#op-9287100-6451485"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cn#op-9287100-6451485 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cn#op-9287100-6451485">
+        <rdfs:label xml:lang="zh">由之寻找</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cn#c-6208503-8067001"/>
+        <rdfs:range rdf:resource="http://sigkdd_cn#c-9866774-4029623"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cn#op-9761422-7962942 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cn#op-9761422-7962942">
+        <rdfs:label xml:lang="zh">由之作报告</rdfs:label>
+        <rdfs:range rdf:resource="http://sigkdd_cn#c-0888882-5885833"/>
+        <rdfs:domain rdf:resource="http://sigkdd_cn#c-1760238-2026128"/>
+        <owl:inverseOf rdf:resource="http://sigkdd_cn#op-4681913-4064138"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://sigkdd_cn#ent-3572091-7276563 -->
+
+    <owl:DatatypeProperty rdf:about="http://sigkdd_cn#ent-3572091-7276563">
+        <rdfs:label xml:lang="zh">赞助者名称</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cn#c-6208503-8067001"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sigkdd_cn#ent-3848181-2696836 -->
+
+    <owl:DatatypeProperty rdf:about="http://sigkdd_cn#ent-3848181-2696836">
+        <rdfs:label xml:lang="zh">会议结束日期</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cn#c-7544224-7669738"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sigkdd_cn#ent-4491082-3867579 -->
+
+    <owl:DatatypeProperty rdf:about="http://sigkdd_cn#ent-4491082-3867579">
+        <rdfs:label xml:lang="zh">日期</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cn#c-3108779-7650884"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sigkdd_cn#ent-5034429-1613349 -->
+
+    <owl:DatatypeProperty rdf:about="http://sigkdd_cn#ent-5034429-1613349">
+        <rdfs:label xml:lang="zh">会议城市</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cn#c-7544224-7669738"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sigkdd_cn#ent-5695074-0269403 -->
+
+    <owl:DatatypeProperty rdf:about="http://sigkdd_cn#ent-5695074-0269403">
+        <rdfs:label xml:lang="zh">价格</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cn#c-9866777-8245519"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sigkdd_cn#ent-5699613-9037229 -->
+
+    <owl:DatatypeProperty rdf:about="http://sigkdd_cn#ent-5699613-9037229">
+        <rdfs:label xml:lang="zh">姓名</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cn#c-8538442-7237948"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sigkdd_cn#ent-5796782-4305642 -->
+
+    <owl:DatatypeProperty rdf:about="http://sigkdd_cn#ent-5796782-4305642">
+        <rdfs:label xml:lang="zh">会议开始日期</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cn#c-7544224-7669738"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sigkdd_cn#ent-7367555-9410533 -->
+
+    <owl:DatatypeProperty rdf:about="http://sigkdd_cn#ent-7367555-9410533">
+        <rdfs:label xml:lang="zh">国籍</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cn#c-8538442-7237948"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sigkdd_cn#ent-8386629-8831499 -->
+
+    <owl:DatatypeProperty rdf:about="http://sigkdd_cn#ent-8386629-8831499">
+        <rdfs:label xml:lang="zh">电子信件</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cn#c-8538442-7237948"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sigkdd_cn#ent-8585056-0959482 -->
+
+    <owl:DatatypeProperty rdf:about="http://sigkdd_cn#ent-8585056-0959482">
+        <rdfs:label xml:lang="zh">货币</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cn#c-9866777-8245519"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sigkdd_cn#ent-9128258-1426932 -->
+
+    <owl:DatatypeProperty rdf:about="http://sigkdd_cn#ent-9128258-1426932">
+        <rdfs:label xml:lang="zh">会议名称</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cn#c-7544224-7669738"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://sigkdd_cn#c-0102157-9204021 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-0102157-9204021">
+        <rdfs:label xml:lang="zh">赞助费</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-4763597-0840150"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-0166946-2149544 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-0166946-2149544">
+        <rdfs:label xml:lang="zh">场所</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-0323835-5465307 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-0323835-5465307">
+        <rdfs:label xml:lang="zh">组织委员会</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-5857644-6198591"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-0619221-5106131 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-0619221-5106131">
+        <rdfs:label xml:lang="zh">白金级赞助者</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-6208503-8067001"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-0888882-5885833 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-0888882-5885833">
+        <rdfs:label xml:lang="zh">报告人</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sigkdd_cn#op-4681913-4064138"/>
+                <owl:someValuesFrom rdf:resource="http://sigkdd_cn#c-1760238-2026128"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-8538442-7237948"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-1201323-4205665 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-1201323-4205665">
+        <rdfs:label xml:lang="zh">录用论文作者通知截止日期</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-3108779-7650884"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-1332914-3538677 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-1332914-3538677">
+        <rdfs:label xml:lang="zh">网站管理员</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-2250002-9536900"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-1760238-2026128 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-1760238-2026128">
+        <rdfs:label xml:lang="zh">文件</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-1958152-1036217 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-1958152-1036217">
+        <rdfs:label xml:lang="zh">论文</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sigkdd_cn#op-3868745-8681803"/>
+                <owl:someValuesFrom rdf:resource="http://sigkdd_cn#c-2970361-5284654"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-1760238-2026128"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-2066563-8344853 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-2066563-8344853">
+        <rdfs:label xml:lang="zh">论文作者</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-9473695-7319406"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sigkdd_cn#op-0804511-9975279"/>
+                <owl:someValuesFrom rdf:resource="http://sigkdd_cn#c-7276768-4508167"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sigkdd_cn#op-0804511-9975279"/>
+                <owl:someValuesFrom rdf:resource="http://sigkdd_cn#c-6560241-7801494"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-2169037-6676373 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-2169037-6676373">
+        <rdfs:label xml:lang="zh">宾馆</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-0166946-2149544"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-2208034-6676549 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-2208034-6676549">
+        <rdfs:label xml:lang="zh">程序委员会成员</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-2250002-9536900"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-2250002-9536900 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-2250002-9536900">
+        <rdfs:label xml:lang="zh">组织者</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-8538442-7237948"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-2746851-0911960 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-2746851-0911960">
+        <rdfs:label xml:lang="zh">SIGMOD成员注册费</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-9866777-8245519"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-2856234-5129725 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-2856234-5129725">
+        <rdfs:label xml:lang="zh">特邀报告人</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-0888882-5885833"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-2970361-5284654 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-2970361-5284654">
+        <rdfs:label xml:lang="zh">全文截稿日期</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-3108779-7650884"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-3038381-9883065 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-3038381-9883065">
+        <rdfs:label xml:lang="zh">程序委员会</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-5857644-6198591"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-3108779-7650884 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-3108779-7650884">
+        <rdfs:label xml:lang="zh">截稿日期</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-3182544-7987268 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-3182544-7987268">
+        <rdfs:label xml:lang="zh">大会主席</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-2250002-9536900"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-3208331-4403784 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-3208331-4403784">
+        <rdfs:label xml:lang="zh">组织委员会成员</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-2250002-9536900"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-3613798-3149473 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-3613798-3149473">
+        <rdfs:label xml:lang="zh">总办事处</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-0166946-2149544"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-4112288-1078286 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-4112288-1078286">
+        <rdfs:label xml:lang="zh">审稿意见</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-1760238-2026128"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-4508537-7163475 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-4508537-7163475">
+        <rdfs:label xml:lang="zh">程序委员会主席</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-2250002-9536900"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-4608770-5471079 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-4608770-5471079">
+        <rdfs:label xml:lang="zh">铜牌级赞助者</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-6208503-8067001"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-4717498-6460752 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-4717498-6460752">
+        <rdfs:label xml:lang="zh">SIGKDD成员注册费</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-9866777-8245519"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-4763597-0840150 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-4763597-0840150">
+        <rdfs:label xml:lang="zh">费用</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-5217150-1751172 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-5217150-1751172">
+        <rdfs:label xml:lang="zh">听众</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-8538442-7237948"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-5323657-0516700 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-5323657-0516700">
+        <rdfs:label xml:lang="zh">摘要</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sigkdd_cn#op-3868745-8681803"/>
+                <owl:someValuesFrom rdf:resource="http://sigkdd_cn#c-5706678-7832501"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-1760238-2026128"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-5488080-0202626 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-5488080-0202626">
+        <rdfs:label xml:lang="zh">最佳论文奖委员会</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-5857644-6198591"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-5706678-7832501 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-5706678-7832501">
+        <rdfs:label xml:lang="zh">摘要截稿日期</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-3108779-7650884"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-5755036-5488572 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-5755036-5488572">
+        <rdfs:label xml:lang="zh">学生论文作者</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-9473695-7319406"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sigkdd_cn#op-0804511-9975279"/>
+                <owl:someValuesFrom rdf:resource="http://sigkdd_cn#c-8114668-9620527"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-5857644-6198591 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-5857644-6198591">
+        <rdfs:label xml:lang="zh">委员会</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-6039278-2283360 -->
+    <!--v2
+    <owl:Class rdf:about="http://sigkdd_cn#c-6039278-2283360">
+        <rdfs:label xml:lang="zh">null</rdfs:label>
+    </owl:Class>-->
+    
+
+
+    <!-- http://sigkdd_cn#c-6208503-8067001 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-6208503-8067001">
+        <rdfs:label xml:lang="zh">赞助者</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sigkdd_cn#op-6652170-8937768"/>
+                <owl:someValuesFrom rdf:resource="http://sigkdd_cn#c-0102157-9204021"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-6560241-7801494 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-6560241-7801494">
+        <rdfs:label xml:lang="zh">最佳应用论文奖</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-9139351-1088451"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-6849317-0742471 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-6849317-0742471">
+        <rdfs:label xml:lang="zh">金牌纪赞助者</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-6208503-8067001"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-6999210-9120468 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-6999210-9120468">
+        <rdfs:label xml:lang="zh">银牌级赞助者</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-6208503-8067001"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-7250001-1234798 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-7250001-1234798">
+        <rdfs:label xml:lang="zh">参展者</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-6208503-8067001"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-7276768-4508167 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-7276768-4508167">
+        <rdfs:label xml:lang="zh">最佳研究论文奖</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-9139351-1088451"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-7544224-7669738 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-7544224-7669738">
+        <rdfs:label xml:lang="zh">会议</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-8114668-9620527 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-8114668-9620527">
+        <rdfs:label xml:lang="zh">最佳学生论文奖</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-9139351-1088451"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-8304045-5381707 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-8304045-5381707">
+        <rdfs:label xml:lang="zh">学生注册费</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-9866777-8245519"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-8538442-7237948 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-8538442-7237948">
+        <rdfs:label xml:lang="zh">人员</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sigkdd_cn#op-6652170-8937768"/>
+                <owl:someValuesFrom rdf:resource="http://sigkdd_cn#c-9866777-8245519"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <!--v2<rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-6039278-2283360"/>-->
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sigkdd_cn#op-6559092-2778775"/>
+                <owl:someValuesFrom rdf:resource="http://sigkdd_cn#c-2169037-6676373"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-8697109-3141767 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-8697109-3141767">
+        <rdfs:label xml:lang="zh">会议大厅</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-0166946-2149544"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-8909794-6088853 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-8909794-6088853">
+        <rdfs:label xml:lang="zh">非成员注册费</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-9866777-8245519"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-9043656-1996506 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-9043656-1996506">
+        <rdfs:label xml:lang="zh">最佳学生论文赞助者</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-6208503-8067001"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-9139351-1088451 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-9139351-1088451">
+        <rdfs:label xml:lang="zh">奖</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sigkdd_cn#op-6319070-6863545"/>
+                <owl:someValuesFrom rdf:resource="http://sigkdd_cn#c-2250002-9536900"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-9473695-7319406 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-9473695-7319406">
+        <rdfs:label xml:lang="zh">作者</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sigkdd_cn#op-4674158-2729130"/>
+                <owl:someValuesFrom rdf:resource="http://sigkdd_cn#c-1958152-1036217"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-0888882-5885833"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sigkdd_cn#op-4120315-9708961"/>
+                <owl:someValuesFrom rdf:resource="http://sigkdd_cn#c-1201323-4205665"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-9866774-4029623 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-9866774-4029623">
+        <rdfs:label xml:lang="zh">计算机协会知识发现和数据挖掘会议</rdfs:label>
+        <!--v2<rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-6039278-2283360"/>-->
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sigkdd_cn#op-7151372-9022348"/>
+                <owl:someValuesFrom rdf:resource="http://sigkdd_cn#c-6208503-8067001"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sigkdd_cn#op-4418298-6882606"/>
+                <owl:someValuesFrom rdf:resource="http://sigkdd_cn#c-3108779-7650884"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sigkdd_cn#op-2614526-9682933"/>
+                <owl:someValuesFrom rdf:resource="http://sigkdd_cn#c-7544224-7669738"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cn#c-9866777-8245519 -->
+
+    <owl:Class rdf:about="http://sigkdd_cn#c-9866777-8245519">
+        <rdfs:label xml:lang="zh">注册费</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cn#c-4763597-0840150"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.1592) http://owlapi.sourceforge.net -->
+

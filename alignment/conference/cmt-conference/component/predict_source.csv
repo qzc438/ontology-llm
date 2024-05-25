@@ -1,14 +1,13 @@
 Entity1,Entity2
-http://cmt#AssociatedChair,http://conference#Co-chair
 http://cmt#Chairman,http://conference#Chair
+http://cmt#Co-author,http://conference#Contribution_co-author
 http://cmt#Conference,http://conference#Conference
-http://cmt#ConferenceChair,http://conference#Organizer
 http://cmt#ConferenceMember,http://conference#Conference_participant
 http://cmt#Paper,http://conference#Paper
 http://cmt#PaperAbstract,http://conference#Abstract
 http://cmt#Person,http://conference#Person
 http://cmt#ProgramCommittee,http://conference#Program_committee
-http://cmt#ProgramCommitteeMember,http://conference#Committee_member
 http://cmt#Review,http://conference#Review
 http://cmt#Reviewer,http://conference#Reviewer
-http://cmt#User,http://conference#Person
+http://cmt#SubjectArea,http://conference#Topic
+http://cmt#hasBeenAssigned,http://conference#has_been_assigned_a_review_reference

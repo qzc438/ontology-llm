@@ -1,0 +1,1624 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://conference_nl#"
+     xml:base="http://conference_nl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:conference_nl="http://conference_nl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://conference_nl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#label"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://conference_nl#op-0190267-8006642 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-0190267-8006642">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="nl">was een organisatiecommissie van</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_nl#c-0644715-2327122"/>
+        <rdfs:domain rdf:resource="http://conference_nl#c-6778080-8213120"/>
+        <rdfs:subPropertyOf rdf:resource="http://conference_nl#op-5307220-2684040"/>
+        <owl:inverseOf rdf:resource="http://conference_nl#op-6302957-5310764"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-0736302-3058382 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-0736302-3058382">
+        <rdfs:label xml:lang="nl">heeft een commissiecovoorzitter</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_nl#c-1116283-1629320"/>
+        <rdfs:domain rdf:resource="http://conference_nl#c-4574742-6040889"/>
+        <owl:inverseOf rdf:resource="http://conference_nl#op-0836411-6313474"/>
+        <rdfs:subPropertyOf rdf:resource="http://conference_nl#op-7653714-9391601"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-0836411-6313474 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-0836411-6313474">
+        <rdfs:label xml:lang="nl">was een commissiecovoorzitter van</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-1116283-1629320"/>
+        <rdfs:range rdf:resource="http://conference_nl#c-4574742-6040889"/>
+        <rdfs:subPropertyOf rdf:resource="http://conference_nl#op-4874761-5633238"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-1636955-8483157 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-1636955-8483157">
+        <rdfs:label xml:lang="nl">heeft een recentie referentie of expertise</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-3671868-4943066"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_nl#c-1112318-0314497"/>
+                    <rdf:Description rdf:about="http://conference_nl#c-4114971-4355280"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-1775413-0784782 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-1775413-0784782">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="nl">hoort bij een conferentiebundel</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_nl#c-0644715-2327122"/>
+        <rdfs:domain rdf:resource="http://conference_nl#c-5407894-1241123"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-2096847-5627770 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-2096847-5627770">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">heeft een uitgever</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-1600009-3180552"/>
+        <rdfs:range rdf:resource="http://conference_nl#c-3095712-3195902"/>
+        <owl:inverseOf rdf:resource="http://conference_nl#op-3681655-2382351"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-2287965-1604268 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-2287965-1604268">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">recensies</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-0695153-5503923"/>
+        <rdfs:range rdf:resource="http://conference_nl#c-4765112-0918953"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-2764857-0953507 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-2764857-0953507">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="nl">was een programmacommissie van</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_nl#c-0644715-2327122"/>
+        <rdfs:domain rdf:resource="http://conference_nl#c-6569875-3030942"/>
+        <rdfs:subPropertyOf rdf:resource="http://conference_nl#op-5307220-2684040"/>
+        <owl:inverseOf rdf:resource="http://conference_nl#op-8590938-8394758"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-2932016-4574560 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-2932016-4574560">
+        <rdfs:label xml:lang="nl">heeft auteurs</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-3005282-1277741"/>
+        <rdfs:range rdf:resource="http://conference_nl#c-8120635-0465682"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-2963964-1401695 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-2963964-1401695">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">heeft belangrijke data</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-0644715-2327122"/>
+        <rdfs:range rdf:resource="http://conference_nl#c-5407894-1241123"/>
+        <owl:inverseOf rdf:resource="http://conference_nl#op-1775413-0784782"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-3360768-0423459 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-3360768-0423459">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="nl">heeft een recentie</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_nl#c-0695153-5503923"/>
+        <rdfs:domain rdf:resource="http://conference_nl#c-4765112-0918953"/>
+        <owl:inverseOf rdf:resource="http://conference_nl#op-2287965-1604268"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-3681655-2382351 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-3681655-2382351">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="nl">uitgaven</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_nl#c-1600009-3180552"/>
+        <rdfs:domain rdf:resource="http://conference_nl#c-3095712-3195902"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-3945124-1536625 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-3945124-1536625">
+        <rdfs:label xml:lang="nl">uitgenodigd door</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_nl#c-3671868-4943066"/>
+        <rdfs:domain rdf:resource="http://conference_nl#c-3671868-4943066"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-3947750-7376252 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-3947750-7376252">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="nl">was een commissievoorzitter van</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-3921789-8615832"/>
+        <rdfs:range rdf:resource="http://conference_nl#c-4574742-6040889"/>
+        <rdfs:subPropertyOf rdf:resource="http://conference_nl#op-4874761-5633238"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-4106509-0683747 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-4106509-0683747">
+        <rdfs:label xml:lang="nl">wordt gegeven door</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_nl#c-0903584-7140350"/>
+        <rdfs:domain rdf:resource="http://conference_nl#c-7833673-0588886"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-4347139-9061026 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-4347139-9061026">
+        <rdfs:label xml:lang="nl">geeft presentaties</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-0903584-7140350"/>
+        <rdfs:range rdf:resource="http://conference_nl#c-7833673-0588886"/>
+        <owl:inverseOf rdf:resource="http://conference_nl#op-4106509-0683747"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-4450013-9684184 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-4450013-9684184">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">heeft een stuurgroep</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-0644715-2327122"/>
+        <rdfs:range rdf:resource="http://conference_nl#c-1098696-1896895"/>
+        <rdfs:subPropertyOf rdf:resource="http://conference_nl#op-6307874-2118021"/>
+        <owl:inverseOf rdf:resource="http://conference_nl#op-6458233-0079254"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-4452508-8497178 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-4452508-8497178">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="nl">heeft een recentie expertise</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_nl#c-4114971-4355280"/>
+        <rdfs:domain rdf:resource="http://conference_nl#c-5445862-8638995"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-4471512-1071194 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-4471512-1071194">
+        <rdfs:label xml:lang="nl">hoort bij recencenten</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_nl#c-3671868-4943066"/>
+        <owl:inverseOf rdf:resource="http://conference_nl#op-1636955-8483157"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_nl#c-1112318-0314497"/>
+                    <rdf:Description rdf:about="http://conference_nl#c-4114971-4355280"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-4612973-8252299 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-4612973-8252299">
+        <rdfs:label xml:lang="nl">heeft een track-workshop-snelcursus onderwerp</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-7971973-6003279"/>
+        <rdfs:range rdf:resource="http://conference_nl#c-9349175-2011648"/>
+        <owl:inverseOf rdf:resource="http://conference_nl#op-7140151-7835120"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-4673965-7871976 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-4673965-7871976">
+        <rdfs:label xml:lang="nl">ingediend</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_nl#c-0644715-2327122"/>
+        <rdfs:domain rdf:resource="http://conference_nl#c-4721251-0714930"/>
+        <owl:inverseOf rdf:resource="http://conference_nl#op-8554571-6859582"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-4748047-6383301 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-4748047-6383301">
+        <rdfs:label xml:lang="nl">heeft tracks</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-0644715-2327122"/>
+        <rdfs:range rdf:resource="http://conference_nl#c-7178584-1833210"/>
+        <rdfs:subPropertyOf rdf:resource="http://conference_nl#op-8868291-1904810"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-4874761-5633238 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-4874761-5633238">
+        <rdfs:label xml:lang="nl">was lid van</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-3911328-2848647"/>
+        <rdfs:range rdf:resource="http://conference_nl#c-4574742-6040889"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-5141607-4892204 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-5141607-4892204">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="nl">is het eerste deel van</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-2345761-1864938"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_nl#c-3234114-9804352"/>
+                    <rdf:Description rdf:about="http://conference_nl#c-5365552-2579683"/>
+                    <rdf:Description rdf:about="http://conference_nl#c-7833673-0588886"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-5225046-5941770 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-5225046-5941770">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">heeft een track-workshop-snelcursus voorzitter</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_nl#c-1556497-7872018"/>
+        <rdfs:domain rdf:resource="http://conference_nl#c-7971973-6003279"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-5307220-2684040 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-5307220-2684040">
+        <rdfs:label xml:lang="nl">was een commissie van</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_nl#c-0644715-2327122"/>
+        <rdfs:domain rdf:resource="http://conference_nl#c-4574742-6040889"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-6302957-5310764 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-6302957-5310764">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">heeft een organisatiecommissie</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-0644715-2327122"/>
+        <rdfs:range rdf:resource="http://conference_nl#c-6778080-8213120"/>
+        <rdfs:subPropertyOf rdf:resource="http://conference_nl#op-6307874-2118021"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-6307874-2118021 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-6307874-2118021">
+        <rdfs:label xml:lang="nl">heeft een commissie</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-0644715-2327122"/>
+        <rdfs:range rdf:resource="http://conference_nl#c-4574742-6040889"/>
+        <owl:inverseOf rdf:resource="http://conference_nl#op-5307220-2684040"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-6458233-0079254 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-6458233-0079254">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="nl">was een stuurgroep van</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_nl#c-0644715-2327122"/>
+        <rdfs:domain rdf:resource="http://conference_nl#c-1098696-1896895"/>
+        <rdfs:subPropertyOf rdf:resource="http://conference_nl#op-5307220-2684040"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-7046108-9767940 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-7046108-9767940">
+        <rdfs:label xml:lang="nl">heeft snelcursussen</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-0644715-2327122"/>
+        <rdfs:range rdf:resource="http://conference_nl#c-2184518-4129540"/>
+        <rdfs:subPropertyOf rdf:resource="http://conference_nl#op-8868291-1904810"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-7140151-7835120 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-7140151-7835120">
+        <rdfs:label xml:lang="nl">is een onderwerp van conferentie delen</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_nl#c-7971973-6003279"/>
+        <rdfs:domain rdf:resource="http://conference_nl#c-9349175-2011648"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-7254447-2410167 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-7254447-2410167">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="nl">hoort bij een recentie referentie</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_nl#c-1112318-0314497"/>
+        <rdfs:domain rdf:resource="http://conference_nl#c-9349175-2011648"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-7653714-9391601 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-7653714-9391601">
+        <rdfs:label xml:lang="nl">heeft leden</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_nl#c-3911328-2848647"/>
+        <rdfs:domain rdf:resource="http://conference_nl#c-4574742-6040889"/>
+        <owl:inverseOf rdf:resource="http://conference_nl#op-4874761-5633238"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-7878842-2867919 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-7878842-2867919">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="nl">was een track-workshop voorzitter van</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-1556497-7872018"/>
+        <rdfs:range rdf:resource="http://conference_nl#c-7971973-6003279"/>
+        <owl:inverseOf rdf:resource="http://conference_nl#op-5225046-5941770"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-8316870-1538370 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-8316870-1538370">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="nl">is een recensie referentie toegewezen</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_nl#c-1112318-0314497"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_nl#c-5445862-8638995"/>
+                    <rdf:Description rdf:about="http://conference_nl#c-9349175-2011648"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-8554571-6859582 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-8554571-6859582">
+        <rdfs:label xml:lang="nl">heeft contributies</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-0644715-2327122"/>
+        <rdfs:range rdf:resource="http://conference_nl#c-4721251-0714930"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-8590938-8394758 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-8590938-8394758">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">heeft een programmacommissie</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-0644715-2327122"/>
+        <rdfs:range rdf:resource="http://conference_nl#c-6569875-3030942"/>
+        <rdfs:subPropertyOf rdf:resource="http://conference_nl#op-6307874-2118021"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-8707171-1738275 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-8707171-1738275">
+        <rdfs:label xml:lang="nl">is deel van conferentiebundel</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_nl#c-0644715-2327122"/>
+        <rdfs:domain rdf:resource="http://conference_nl#c-7971973-6003279"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-8811264-0824618 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-8811264-0824618">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">heeft een ingediende contributie</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-4114971-4355280"/>
+        <rdfs:range rdf:resource="http://conference_nl#c-5445862-8638995"/>
+        <owl:inverseOf rdf:resource="http://conference_nl#op-4452508-8497178"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-8868291-1904810 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-8868291-1904810">
+        <rdfs:label xml:lang="nl">heeft delen</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-0644715-2327122"/>
+        <rdfs:range rdf:resource="http://conference_nl#c-7971973-6003279"/>
+        <owl:inverseOf rdf:resource="http://conference_nl#op-8707171-1738275"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-9202656-5186597 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-9202656-5186597">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">heeft een commissievoorzitter</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_nl#c-3921789-8615832"/>
+        <rdfs:domain rdf:resource="http://conference_nl#c-4574742-6040889"/>
+        <owl:inverseOf rdf:resource="http://conference_nl#op-3947750-7376252"/>
+        <rdfs:subPropertyOf rdf:resource="http://conference_nl#op-7653714-9391601"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-9369261-3562402 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-9369261-3562402">
+        <rdfs:label xml:lang="nl">nodigt corecensenten uit</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_nl#c-3671868-4943066"/>
+        <rdfs:domain rdf:resource="http://conference_nl#c-3671868-4943066"/>
+        <owl:inverseOf rdf:resource="http://conference_nl#op-3945124-1536625"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-9402869-8022144 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-9402869-8022144">
+        <rdfs:label xml:lang="nl">heeft workshops</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-0644715-2327122"/>
+        <rdfs:range rdf:resource="http://conference_nl#c-6066200-8204843"/>
+        <rdfs:subPropertyOf rdf:resource="http://conference_nl#op-8868291-1904810"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-9649774-6273968 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-9649774-6273968">
+        <rdfs:label xml:lang="nl">contribueert</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_nl#c-3005282-1277741"/>
+        <rdfs:domain rdf:resource="http://conference_nl#c-8120635-0465682"/>
+        <owl:inverseOf rdf:resource="http://conference_nl#op-2932016-4574560"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-9951783-0218941 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-9951783-0218941">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">heeft een onderwerp of een ingediende contributie</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-1112318-0314497"/>
+        <owl:inverseOf rdf:resource="http://conference_nl#op-8316870-1538370"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_nl#c-5445862-8638995"/>
+                    <rdf:Description rdf:about="http://conference_nl#c-9349175-2011648"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_nl#op-9973609-3195574 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_nl#op-9973609-3195574">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">heeft een synopsis</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_nl#c-2345761-1864938"/>
+        <owl:inverseOf rdf:resource="http://conference_nl#op-5141607-4892204"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_nl#c-3234114-9804352"/>
+                    <rdf:Description rdf:about="http://conference_nl#c-5365552-2579683"/>
+                    <rdf:Description rdf:about="http://conference_nl#c-7833673-0588886"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://conference_nl#ent-1008843-1764347 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_nl#ent-1008843-1764347">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">heeft een naam</rdfs:label>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_nl#c-1600009-3180552"/>
+                    <rdf:Description rdf:about="http://conference_nl#c-3095712-3195902"/>
+                    <rdf:Description rdf:about="http://conference_nl#c-5646687-5891880"/>
+                    <rdf:Description rdf:about="http://conference_nl#c-7971973-6003279"/>
+                    <rdf:Description rdf:about="http://conference_nl#c-9349175-2011648"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_nl#ent-1238617-0183477 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_nl#ent-1238617-0183477">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">is een synopsis submissie datum</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-5407894-1241123"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_nl#ent-1264963-3500202 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_nl#ent-1264963-3500202">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">heeft sekse</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-8120635-0465682"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">female</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">male</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_nl#ent-1616351-7903332 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_nl#ent-1616351-7903332">
+        <rdfs:label xml:lang="nl">heeft een email</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-8120635-0465682"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_nl#ent-2003743-7852096 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_nl#ent-2003743-7852096">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">heeft een graad</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-1112318-0314497"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_nl#ent-2028937-2513587 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_nl#ent-2028937-2513587">
+        <rdfs:label xml:lang="nl">heeft een plaats</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-0644715-2327122"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_nl#ent-2075091-9253970 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_nl#ent-2075091-9253970">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">heeft een ISBN</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-1600009-3180552"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_nl#ent-2456870-2172887 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_nl#ent-2456870-2172887">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">is een volledig artikel submissie datum</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-5407894-1241123"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_nl#ent-3207803-2612836 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_nl#ent-3207803-2612836">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">heeft een expertise</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-4114971-4355280"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">high</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">low</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">medium</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very high</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_nl#ent-3471288-0852815 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_nl#ent-3471288-0852815">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">heeft een uitgavedatum</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-3005282-1277741"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_nl#ent-4149983-8174252 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_nl#ent-4149983-8174252">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">is een datum van bekendmaking van acceptatie</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-5407894-1241123"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_nl#ent-4884285-0450944 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_nl#ent-4884285-0450944">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">heeft een URL</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-0533094-8360020"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_nl#ent-5357215-0768284 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_nl#ent-5357215-0768284">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">heeft achternaam</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-8120635-0465682"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_nl#ent-5810849-4649046 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_nl#ent-5810849-4649046">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">heeft een deel</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-1600009-3180552"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_nl#ent-6691430-9738096 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_nl#ent-6691430-9738096">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">is een datum van drukklare versie submissie</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-5407894-1241123"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_nl#ent-6744712-4107028 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_nl#ent-6744712-4107028">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">is een begindatum</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-5407894-1241123"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_nl#ent-8933495-3268727 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_nl#ent-8933495-3268727">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">is een einddatum</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-5407894-1241123"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_nl#ent-9650252-8399508 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_nl#ent-9650252-8399508">
+        <rdfs:label xml:lang="nl">heeft voornaam</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_nl#c-8120635-0465682"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://conference_nl#c-0533094-8360020 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-0533094-8360020">
+        <rdfs:label xml:lang="nl">conferentie website</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-3005282-1277741"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-0593972-8737241 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-0593972-8737241">
+        <rdfs:label xml:lang="nl">geregistreerde aanvrager</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-2581343-4775679"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-0644715-2327122 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-0644715-2327122">
+        <rdfs:label xml:lang="nl">conferentiebundel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-5646687-5891880"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-0695153-5503923 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-0695153-5503923">
+        <rdfs:label xml:lang="nl">recentie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-3005282-1277741"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://conference_nl#op-2932016-4574560"/>
+                <owl:allValuesFrom rdf:resource="http://conference_nl#c-3671868-4943066"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-0903584-7140350 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-0903584-7140350">
+        <rdfs:label xml:lang="nl">actieve conferentie deelnemer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-3635052-2793646"/>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-8054888-6608962"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_nl#c-3191146-9008295"/>
+                    <rdf:Description rdf:about="http://conference_nl#c-6897954-9487896"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://conference_nl#c-9274597-5733716"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-1098696-1896895 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-1098696-1896895">
+        <rdfs:label xml:lang="nl">stuurgroep</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-4574742-6040889"/>
+        <owl:disjointWith rdf:resource="http://conference_nl#c-6569875-3030942"/>
+        <owl:disjointWith rdf:resource="http://conference_nl#c-6778080-8213120"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-1112318-0314497 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-1112318-0314497">
+        <rdfs:label xml:lang="nl">recentie voorkeur</rdfs:label>
+        <!--v2<rdfs:subClassOf rdf:resource="http://conference_nl#c-4078096-1037383"/>-->
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://conference_nl#op-4471512-1071194"/>
+                <owl:someValuesFrom rdf:resource="http://conference_nl#c-3671868-4943066"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://conference_nl#op-9951783-0218941"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://conference_nl#c-5445862-8638995"/>
+                            <rdf:Description rdf:about="http://conference_nl#c-9349175-2011648"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-1116283-1629320 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-1116283-1629320">
+        <rdfs:label xml:lang="nl">co-voorzitter</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://conference_nl#op-0836411-6313474"/>
+                <owl:someValuesFrom rdf:resource="http://conference_nl#c-4574742-6040889"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-3911328-2848647"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-1556497-7872018 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-1556497-7872018">
+        <rdfs:label xml:lang="nl">track-workshop voorzitter</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://conference_nl#op-7878842-2867919"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://conference_nl#c-6066200-8204843"/>
+                            <rdf:Description rdf:about="http://conference_nl#c-7178584-1833210"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-8120635-0465682"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-1600009-3180552 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-1600009-3180552">
+        <rdfs:label xml:lang="nl">conferentiebundel</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-1973310-9776613 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-1973310-9776613">
+        <rdfs:label xml:lang="nl">vroeg betaalde aanvrager</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-8365887-8737741"/>
+        <owl:disjointWith rdf:resource="http://conference_nl#c-6501152-4185351"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-2184518-4129540 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-2184518-4129540">
+        <rdfs:label xml:lang="nl">snelcursus</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-7971973-6003279"/>
+        <owl:disjointWith rdf:resource="http://conference_nl#c-6066200-8204843"/>
+        <owl:disjointWith rdf:resource="http://conference_nl#c-7178584-1833210"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-2345761-1864938 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-2345761-1864938">
+        <rdfs:label xml:lang="nl">synopsis</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-5222442-2918055"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-2511574-7435239 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-2511574-7435239">
+        <rdfs:label xml:lang="nl">oproep inzenzingen</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-3005282-1277741"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-2581343-4775679 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-2581343-4775679">
+        <rdfs:label xml:lang="nl">conferentie aanvrager</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-8120635-0465682"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-2659840-4509255 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-2659840-4509255">
+        <rdfs:label xml:lang="nl">coauteur bijdrage</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-3191146-9008295"/>
+        <owl:disjointWith rdf:resource="http://conference_nl#c-3577123-6213159"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-2682677-9351786 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-2682677-9351786">
+        <rdfs:label xml:lang="nl">afgewezen contributie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-4765112-0918953"/>
+        <owl:disjointWith rdf:resource="http://conference_nl#c-5891497-4712243"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-3005282-1277741 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-3005282-1277741">
+        <rdfs:label xml:lang="nl">conferentie document</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-3095712-3195902 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-3095712-3195902">
+        <rdfs:label xml:lang="nl">uitgever</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-3191146-9008295 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-3191146-9008295">
+        <rdfs:label xml:lang="nl">gewone auteur</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://conference_nl#c-2659840-4509255"/>
+                            <rdf:Description rdf:about="http://conference_nl#c-3577123-6213159"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://conference_nl#op-9649774-6273968"/>
+                        <owl:someValuesFrom rdf:resource="http://conference_nl#c-4721251-0714930"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-8054888-6608962"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-3234114-9804352 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-3234114-9804352">
+        <rdfs:label xml:lang="nl">poster</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-4721251-0714930"/>
+        <owl:disjointWith rdf:resource="http://conference_nl#c-5783891-1371032"/>
+        <owl:disjointWith rdf:resource="http://conference_nl#c-9553458-0147008"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-3577123-6213159 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-3577123-6213159">
+        <rdfs:label xml:lang="nl">eerste auteur</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-3191146-9008295"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-3635052-2793646 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-3635052-2793646">
+        <rdfs:label xml:lang="nl">conferentie deelnemer</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_nl#c-0903584-7140350"/>
+                    <rdf:Description rdf:about="http://conference_nl#c-9274597-5733716"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-8120635-0465682"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-3671868-4943066 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-3671868-4943066">
+        <rdfs:label xml:lang="nl">recensent</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-8120635-0465682"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-3782010-4091768 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-3782010-4091768">
+        <rdfs:label xml:lang="nl">informatie voor deelnemers</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-3005282-1277741"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-3911328-2848647 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-3911328-2848647">
+        <rdfs:label xml:lang="nl">commissielid</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://conference_nl#op-4874761-5633238"/>
+                <owl:someValuesFrom rdf:resource="http://conference_nl#c-4574742-6040889"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-8120635-0465682"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-3921789-8615832 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-3921789-8615832">
+        <rdfs:label xml:lang="nl">voorzitter</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://conference_nl#op-3947750-7376252"/>
+                <owl:someValuesFrom rdf:resource="http://conference_nl#c-4574742-6040889"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-3911328-2848647"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-4078096-1037383 -->
+    <!--v2
+    <owl:Class rdf:about="http://conference_nl#c-4078096-1037383">
+        <rdfs:label xml:lang="nl">null</rdfs:label>
+    </owl:Class>
+    -->
+    
+
+
+    <!-- http://conference_nl#c-4114971-4355280 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-4114971-4355280">
+        <rdfs:label xml:lang="nl">recentie expertise</rdfs:label>
+        <!--v2<rdfs:subClassOf rdf:resource="http://conference_nl#c-4078096-1037383"/>-->
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://conference_nl#op-4471512-1071194"/>
+                <owl:someValuesFrom rdf:resource="http://conference_nl#c-3671868-4943066"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://conference_nl#op-8811264-0824618"/>
+                <owl:someValuesFrom rdf:resource="http://conference_nl#c-5445862-8638995"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-4574742-6040889 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-4574742-6040889">
+        <rdfs:label xml:lang="nl">commissie</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_nl#c-1098696-1896895"/>
+                    <rdf:Description rdf:about="http://conference_nl#c-6569875-3030942"/>
+                    <rdf:Description rdf:about="http://conference_nl#c-6778080-8213120"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-4721251-0714930 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-4721251-0714930">
+        <rdfs:label xml:lang="nl">conferentie contributie</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_nl#c-3234114-9804352"/>
+                    <rdf:Description rdf:about="http://conference_nl#c-5783891-1371032"/>
+                    <rdf:Description rdf:about="http://conference_nl#c-9553458-0147008"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_nl#c-7833673-0588886"/>
+                    <rdf:Description rdf:about="http://conference_nl#c-8637888-7748558"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-3005282-1277741"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-4765112-0918953 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-4765112-0918953">
+        <rdfs:label xml:lang="nl">gerecenseerde contributie</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_nl#c-2682677-9351786"/>
+                    <rdf:Description rdf:about="http://conference_nl#c-5891497-4712243"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-5445862-8638995"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-5086830-1537616 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-5086830-1537616">
+        <rdfs:label xml:lang="nl">conferentie kosten</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-5222442-2918055 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-5222442-2918055">
+        <rdfs:label xml:lang="nl">lange synopsis</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-9553458-0147008"/>
+        <owl:disjointWith rdf:resource="http://conference_nl#c-5365552-2579683"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-5365552-2579683 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-5365552-2579683">
+        <rdfs:label xml:lang="nl">artikel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-9553458-0147008"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-5407894-1241123 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-5407894-1241123">
+        <rdfs:label xml:lang="nl">belangrijke data</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-5445862-8638995 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-5445862-8638995">
+        <rdfs:label xml:lang="nl">ingediende contributie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-8637888-7748558"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_nl#c-3234114-9804352"/>
+                    <rdf:Description rdf:about="http://conference_nl#c-9553458-0147008"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-5646687-5891880 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-5646687-5891880">
+        <rdfs:label xml:lang="nl">conferentie</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-5783891-1371032 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-5783891-1371032">
+        <rdfs:label xml:lang="nl">lezing op uitnodiging</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-7833673-0588886"/>
+        <owl:disjointWith rdf:resource="http://conference_nl#c-9553458-0147008"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-5891497-4712243 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-5891497-4712243">
+        <rdfs:label xml:lang="nl">geaccepteerde contributie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-4765112-0918953"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-6066200-8204843 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-6066200-8204843">
+        <rdfs:label xml:lang="nl">workshop</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-7971973-6003279"/>
+        <owl:disjointWith rdf:resource="http://conference_nl#c-7178584-1833210"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-6501152-4185351 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-6501152-4185351">
+        <rdfs:label xml:lang="nl">laat betaalde aanvrager</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-8365887-8737741"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-6569875-3030942 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-6569875-3030942">
+        <rdfs:label xml:lang="nl">programmacommissie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-4574742-6040889"/>
+        <owl:disjointWith rdf:resource="http://conference_nl#c-6778080-8213120"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-6772401-8299660 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-6772401-8299660">
+        <rdfs:label xml:lang="nl">organisator</rdfs:label>
+        <!--v2<rdfs:subClassOf rdf:resource="http://conference_nl#c-4078096-1037383"/>-->
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_nl#c-3911328-2848647"/>
+                    <rdf:Description rdf:about="http://conference_nl#c-8528231-6186281"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-6778080-8213120 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-6778080-8213120">
+        <rdfs:label xml:lang="nl">organisatiecommissie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-4574742-6040889"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-6806348-1348158 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-6806348-1348158">
+        <rdfs:label xml:lang="nl">drukklare contributie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-5891497-4712243"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-6897954-9487896 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-6897954-9487896">
+        <rdfs:label xml:lang="nl">uitgenodigde spreker</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://conference_nl#op-9649774-6273968"/>
+                <owl:someValuesFrom rdf:resource="http://conference_nl#c-5783891-1371032"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-8054888-6608962"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-7178584-1833210 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-7178584-1833210">
+        <rdfs:label xml:lang="nl">track</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-7971973-6003279"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-7833673-0588886 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-7833673-0588886">
+        <rdfs:label xml:lang="nl">presentatie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-4721251-0714930"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-7971973-6003279 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-7971973-6003279">
+        <rdfs:label xml:lang="nl">conferentie deel</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-8054888-6608962 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-8054888-6608962">
+        <rdfs:label xml:lang="nl">conferentie bijdrager</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-8120635-0465682"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-8120635-0465682 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-8120635-0465682">
+        <rdfs:label xml:lang="nl">persoon</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-8365887-8737741 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-8365887-8737741">
+        <rdfs:label xml:lang="nl">betaalde aanvrager</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_nl#c-1973310-9776613"/>
+                    <rdf:Description rdf:about="http://conference_nl#c-6501152-4185351"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-0593972-8737241"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-8528231-6186281 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-8528231-6186281">
+        <rdfs:label xml:lang="nl">organisatie</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-8637888-7748558 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-8637888-7748558">
+        <rdfs:label xml:lang="nl">geschreven contributie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-4721251-0714930"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_nl#c-3234114-9804352"/>
+                    <rdf:Description rdf:about="http://conference_nl#c-9553458-0147008"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-9026620-3386923 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-9026620-3386923">
+        <rdfs:label xml:lang="nl">oproep tot deelname</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-3005282-1277741"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-9157719-6953980 -->
+    <!--v2
+    <owl:Class rdf:about="http://conference_nl#c-9157719-6953980">
+        <rdfs:label xml:lang="nl">null</rdfs:label>
+    </owl:Class>-->
+    
+
+
+    <!-- http://conference_nl#c-9274597-5733716 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-9274597-5733716">
+        <rdfs:label xml:lang="nl">passieve conferentie deelnemer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-3635052-2793646"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-9349175-2011648 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-9349175-2011648">
+        <rdfs:label xml:lang="nl">onderwerp</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-9553458-0147008 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-9553458-0147008">
+        <rdfs:label xml:lang="nl">gewone contributie</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_nl#c-5222442-2918055"/>
+                    <rdf:Description rdf:about="http://conference_nl#c-5365552-2579683"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-8637888-7748558"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_nl#c-9953819-1588380 -->
+
+    <owl:Class rdf:about="http://conference_nl#c-9953819-1588380">
+        <rdfs:label xml:lang="nl">conferentie aankondiging</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_nl#c-3005282-1277741"/>
+    </owl:Class>
+    <!--v2<c-9157719-6953980/>
+    <c-9157719-6953980/>-->
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.1592) http://owlapi.sourceforge.net -->
+

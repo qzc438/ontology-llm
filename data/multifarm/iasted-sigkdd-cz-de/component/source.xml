@@ -1,0 +1,2776 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://iasted_cz#"
+     xml:base="http://iasted_cz"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:iasted_cz="http://iasted_cz#"
+     xmlns:iasted="http://iasted#">
+    <owl:Ontology rdf:about="http://iasted_cz"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#label"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://iasted_cz#op-0536802-7207126 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-0536802-7207126">
+        <rdfs:label xml:lang="cs">je obýván kým</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_cz#c-6995154-1776421"/>
+        <owl:inverseOf rdf:resource="http://iasted_cz#op-5039287-6558063"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cz#c-0722082-2651755"/>
+                    <rdf:Description rdf:about="http://iasted_cz#c-2684502-4773644"/>
+                    <rdf:Description rdf:about="http://iasted_cz#c-6594685-3304408"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-0631471-4561451 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-0631471-4561451">
+        <rdfs:label xml:lang="cs">napsal</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_cz#c-1678178-0560232"/>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-6995154-1776421"/>
+        <owl:inverseOf rdf:resource="http://iasted_cz#op-2470958-9243895"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-0745096-1199892 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-0745096-1199892">
+        <rdfs:label xml:lang="cs">udělán z</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-1678178-0560232"/>
+        <rdfs:range rdf:resource="http://iasted_cz#c-1678178-0560232"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-1665787-4339656 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-1665787-4339656">
+        <rdfs:label xml:lang="cs">koná se kdy a kde</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-5611524-7200377"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cz#c-4250697-9843776"/>
+                    <rdf:Description rdf:about="http://iasted_cz#c-8814661-2207235"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-2106939-6958289 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-2106939-6958289">
+        <rdfs:label xml:lang="cs">připraveno kým</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-1678178-0560232"/>
+        <rdfs:range rdf:resource="http://iasted_cz#c-6995154-1776421"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-2122713-2764615 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-2122713-2764615">
+        <rdfs:label xml:lang="cs">platí</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_cz#c-0436221-0810873"/>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-6995154-1776421"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-2292311-0303271 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-2292311-0303271">
+        <rdfs:label xml:lang="cs">navštíveno kým</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_cz#c-6995154-1776421"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cz#c-0722082-2651755"/>
+                    <rdf:Description rdf:about="http://iasted_cz#c-2684502-4773644"/>
+                    <rdf:Description rdf:about="http://iasted_cz#c-6594685-3304408"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-2426458-3201424 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-2426458-3201424">
+        <rdfs:label xml:lang="cs">souvisí s aktivitou</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-1678178-0560232"/>
+        <rdfs:range rdf:resource="http://iasted_cz#c-5611524-7200377"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-2470958-9243895 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-2470958-9243895">
+        <rdfs:label xml:lang="cs">napsáno kým</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-1678178-0560232"/>
+        <rdfs:range rdf:resource="http://iasted_cz#c-6995154-1776421"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-2544708-6338850 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-2544708-6338850">
+        <rdfs:label xml:lang="cs">posláno časově po</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-1678178-0560232"/>
+        <rdfs:range rdf:resource="http://iasted_cz#c-4250697-9843776"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-2669114-5757702 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-2669114-5757702">
+        <rdfs:label xml:lang="cs">posláno kým</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-1678178-0560232"/>
+        <rdfs:range rdf:resource="http://iasted_cz#c-6995154-1776421"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-2804661-9680984 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-2804661-9680984">
+        <rdfs:label xml:lang="cs">využit pro</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-1678178-0560232"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cz#c-0436221-0810873"/>
+                    <rdf:Description rdf:about="http://iasted_cz#c-5611524-7200377"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-3129412-3742460 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-3129412-3742460">
+        <rdfs:label xml:lang="cs">je připraven pro</rdfs:label>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cz#c-0436221-0810873"/>
+                    <rdf:Description rdf:about="http://iasted_cz#c-4250697-9843776"/>
+                    <rdf:Description rdf:about="http://iasted_cz#c-5611524-7200377"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cz#c-5611524-7200377"/>
+                    <rdf:Description rdf:about="http://iasted_cz#c-6995154-1776421"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-3209462-2207802 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-3209462-2207802">
+        <rdfs:label xml:lang="cs">podepsáno kým</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-1678178-0560232"/>
+        <rdfs:range rdf:resource="http://iasted_cz#c-6995154-1776421"/>
+        <owl:inverseOf rdf:resource="http://iasted_cz#op-4539429-3203270"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-4272347-3116294 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-4272347-3116294">
+        <rdfs:label xml:lang="cs">souvisí s</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_cz#c-6995154-1776421"/>
+        <owl:inverseOf rdf:resource="http://iasted_cz#op-6415275-0718782"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cz#c-1678178-0560232"/>
+                    <rdf:Description rdf:about="http://iasted_cz#c-5611524-7200377"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-4316866-4093013 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-4316866-4093013">
+        <rdfs:label xml:lang="cs">placeno čím</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-0436221-0810873"/>
+        <rdfs:range rdf:resource="http://iasted_cz#c-1678178-0560232"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-4539429-3203270 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-4539429-3203270">
+        <rdfs:label xml:lang="cs">podepisuje</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_cz#c-1678178-0560232"/>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-6995154-1776421"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-4840474-2649113 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-4840474-2649113">
+        <rdfs:label xml:lang="cs">placeno pro co</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-0436221-0810873"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cz#c-1678178-0560232"/>
+                    <rdf:Description rdf:about="http://iasted_cz#c-5611524-7200377"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-5039287-6558063 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-5039287-6558063">
+        <rdfs:label xml:lang="cs">zaujímá místo</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-6995154-1776421"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cz#c-0722082-2651755"/>
+                    <rdf:Description rdf:about="http://iasted_cz#c-2684502-4773644"/>
+                    <rdf:Description rdf:about="http://iasted_cz#c-6594685-3304408"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-5176724-8065949 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-5176724-8065949">
+        <rdfs:label xml:lang="cs">koná se před</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_cz#c-4250697-9843776"/>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-5611524-7200377"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-5242663-1927314 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-5242663-1927314">
+        <rdfs:label xml:lang="cs">posílá</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_cz#c-1678178-0560232"/>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-6995154-1776421"/>
+        <owl:inverseOf rdf:resource="http://iasted_cz#op-2669114-5757702"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-5517684-3527197 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-5517684-3527197">
+        <rdfs:label xml:lang="cs">je zaplaceno kým</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-0436221-0810873"/>
+        <rdfs:range rdf:resource="http://iasted_cz#c-6995154-1776421"/>
+        <owl:inverseOf rdf:resource="http://iasted_cz#op-2122713-2764615"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-5780695-7682136 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-5780695-7682136">
+        <rdfs:label xml:lang="cs">obdrží</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_cz#c-1678178-0560232"/>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-6995154-1776421"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-5938553-2548439 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-5938553-2548439">
+        <rdfs:label xml:lang="cs">je přítomen kdy</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_cz#c-4250697-9843776"/>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-6995154-1776421"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-6212085-9604295 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-6212085-9604295">
+        <rdfs:label xml:lang="cs">umístěno kde</rdfs:label>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cz#c-0722082-2651755"/>
+                    <rdf:Description rdf:about="http://iasted_cz#c-2684502-4773644"/>
+                    <rdf:Description rdf:about="http://iasted_cz#c-6594685-3304408"/>
+                    <rdf:Description rdf:about="http://iasted_cz#c-8814661-2207235"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cz#c-0722082-2651755"/>
+                    <rdf:Description rdf:about="http://iasted_cz#c-6594685-3304408"/>
+                    <rdf:Description rdf:about="http://iasted_cz#c-8814661-2207235"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-6316195-9758161 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-6316195-9758161">
+        <rdfs:label xml:lang="cs">posláno časově před</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-1678178-0560232"/>
+        <rdfs:range rdf:resource="http://iasted_cz#c-4250697-9843776"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-6330154-3556549 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-6330154-3556549">
+        <rdfs:label xml:lang="cs">platba proběhla kde</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-0436221-0810873"/>
+        <rdfs:range rdf:resource="http://iasted_cz#c-6594685-3304408"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-6415275-0718782 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-6415275-0718782">
+        <rdfs:label xml:lang="cs">souvisí s</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-6995154-1776421"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cz#c-1678178-0560232"/>
+                    <rdf:Description rdf:about="http://iasted_cz#c-5611524-7200377"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-7057540-2681183 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-7057540-2681183">
+        <rdfs:label xml:lang="cs">mluví kdy a kde</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-6995154-1776421"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cz#c-4250697-9843776"/>
+                    <rdf:Description rdf:about="http://iasted_cz#c-8814661-2207235"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-7100183-9130332 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-7100183-9130332">
+        <rdfs:label xml:lang="cs">je přidělen komu</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-1678178-0560232"/>
+        <rdfs:range rdf:resource="http://iasted_cz#c-6995154-1776421"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-7346066-8853287 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-7346066-8853287">
+        <rdfs:label xml:lang="cs">použito kým</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-1678178-0560232"/>
+        <rdfs:range rdf:resource="http://iasted_cz#c-6995154-1776421"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-7677472-3622130 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-7677472-3622130">
+        <rdfs:label xml:lang="cs">je vybaven čím</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_cz#c-1678178-0560232"/>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-8814661-2207235"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-8060584-1233659 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-8060584-1233659">
+        <rdfs:label xml:lang="cs">připravuje artikl</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_cz#c-1678178-0560232"/>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-6995154-1776421"/>
+        <owl:inverseOf rdf:resource="http://iasted_cz#op-2106939-6958289"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-8216879-9804654 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-8216879-9804654">
+        <rdfs:label xml:lang="cs">je potřebný pro</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-1678178-0560232"/>
+        <rdfs:range rdf:resource="http://iasted_cz#c-6995154-1776421"/>
+        <owl:inverseOf rdf:resource="http://iasted_cz#op-9008623-7950899"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-8244034-1353547 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-8244034-1353547">
+        <rdfs:label xml:lang="cs">koná se po</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_cz#c-4250697-9843776"/>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-5611524-7200377"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-9008623-7950899 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-9008623-7950899">
+        <rdfs:label xml:lang="cs">potřebuje</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_cz#c-1678178-0560232"/>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-6995154-1776421"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-9162361-1398700 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-9162361-1398700">
+        <rdfs:label xml:lang="cs">je přítomen kdy a kde</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-6995154-1776421"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cz#c-4250697-9843776"/>
+                    <rdf:Description rdf:about="http://iasted_cz#c-8814661-2207235"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cz#op-9964733-9427658 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cz#op-9964733-9427658">
+        <rdfs:label xml:lang="cs">je spojen s</rdfs:label>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cz#c-5611524-7200377"/>
+                    <rdf:Description rdf:about="http://iasted_cz#c-6995154-1776421"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cz#c-1678178-0560232"/>
+                    <rdf:Description rdf:about="http://iasted_cz#c-8814661-2207235"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://iasted_cz#ent-2212214-2766523 -->
+
+    <owl:DatatypeProperty rdf:about="http://iasted_cz#ent-2212214-2766523">
+        <rdfs:label xml:lang="cs">aktivita datována na datum a čas</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-5611524-7200377"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iasted_cz#ent-5050872-9770293 -->
+
+    <owl:DatatypeProperty rdf:about="http://iasted_cz#ent-5050872-9770293">
+        <rdfs:label xml:lang="cs">datum termínu</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-7774849-7311593"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iasted_cz#ent-8934629-9042901 -->
+
+    <owl:DatatypeProperty rdf:about="http://iasted_cz#ent-8934629-9042901">
+        <rdfs:label xml:lang="cs">částka peněz</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cz#c-0436221-0810873"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://iasted_cz#c-0059040-2308375 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-0059040-2308375">
+        <rdfs:label xml:lang="cs">hotelový poplatek</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-3362463-2139544"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-5517684-3527197"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-3923923-7335128"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-0363582-7592681 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-0363582-7592681">
+        <rdfs:label xml:lang="cs">platební karta</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-1678178-0560232"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-0416698-9369081 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-0416698-9369081">
+        <rdfs:label xml:lang="cs">prezentace</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-1793838-9109371"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-0428716-8788148 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-0428716-8788148">
+        <rdfs:label xml:lang="cs">poplatek za výlet navíc</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-3362463-2139544"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-4840474-2649113"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-4364994-0974183"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-5517684-3527197"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-5113356-1760092"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-0436221-0810873 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-0436221-0810873">
+        <rdfs:label xml:lang="cs">peněžní částka</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-0521617-9271046 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-0521617-9271046">
+        <rdfs:label xml:lang="cs">pokonferenční aktivita</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-5611524-7200377"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-8244034-1353547"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-3173124-3263841"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-0620420-1642167 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-0620420-1642167">
+        <rdfs:label xml:lang="cs">registrační poplatek pro člena konference</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-4807166-1103210"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-3129412-3742460"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-6024381-6706661"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-0643296-5020875 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-0643296-5020875">
+        <rdfs:label xml:lang="cs">plenární přednášející</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6415275-0718782"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-7632224-9966701"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-2661536-3002169"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-7057540-2681183"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-9436177-9687481"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-0664235-3031171 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-0664235-3031171">
+        <rdfs:label xml:lang="cs">přednáška přednášejícím</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-5426407-1734237"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-0722082-2651755 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-0722082-2651755">
+        <rdfs:label xml:lang="cs">město</rdfs:label>
+        <!--v2<rdfs:subClassOf rdf:resource="http://iasted_cz#c-2739275-2096078"/>-->
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6212085-9604295"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-2684502-4773644"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-0837395-2018398 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-0837395-2018398">
+        <rdfs:label xml:lang="cs">neprezentující pracovník</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-2122713-2764615"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-8916787-2198626"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-7295710-8062846"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-1051443-0241103 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-1051443-0241103">
+        <rdfs:label xml:lang="cs">platební dokument</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-6709559-1180999"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-3129412-3742460"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://iasted_cz#c-3362463-2139544"/>
+                            <rdf:Description rdf:about="http://iasted_cz#c-3876411-4378881"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-1067221-5223898 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-1067221-5223898">
+        <rdfs:label xml:lang="cs">sponzor</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6415275-0718782"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-2638245-5281933"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-6995154-1776421"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-5039287-6558063"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-6443158-9131955"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-5039287-6558063"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-4044710-3553552"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-5039287-6558063"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-9141621-0786905"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-1113322-9110882 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-1113322-9110882">
+        <rdfs:label xml:lang="cs">den výletu</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-4250697-9843776"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-3129412-3742460"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-1258902-8209625 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-1258902-8209625">
+        <rdfs:label xml:lang="cs">publikace</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-1678178-0560232"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-0745096-1199892"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-3620679-0365961"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-1678178-0560232 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-1678178-0560232">
+        <rdfs:label xml:lang="cs">artikl</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-1680758-3373208 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-1680758-3373208">
+        <rdfs:label xml:lang="cs">aktivita přijímaní příspěvku</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-8225009-2029024"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-1793838-9109371 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-1793838-9109371">
+        <rdfs:label xml:lang="cs">konferenční aktivita</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-5611524-7200377"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-1665787-4339656"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-3173124-3263841"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-1665787-4339656"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-6837945-1030392"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-1820098-6824260 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-1820098-6824260">
+        <rdfs:label xml:lang="cs">konferenční letiště</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-6594685-3304408"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6212085-9604295"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-6837945-1030392"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6212085-9604295"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-6789973-9415766"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-1858148-0016056 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-1858148-0016056">
+        <rdfs:label xml:lang="cs">aktivita odmítnutí příspěvku</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-8225009-2029024"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-1921806-0142352 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-1921806-0142352">
+        <rdfs:label xml:lang="cs">daň z odjezdu</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-3876411-4378881"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-3129412-3742460"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-7609830-1440342"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-1928616-7283024 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-1928616-7283024">
+        <rdfs:label xml:lang="cs">přednášející pracovník</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-5936061-2193766"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-1940501-9253372 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-1940501-9253372">
+        <rdfs:label xml:lang="cs">společenská aktivita</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-1793838-9109371"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-3129412-3742460"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-2182244-5139929 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-2182244-5139929">
+        <rdfs:label xml:lang="cs">prezentační slajdy</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-6709559-1180999"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-2106939-6958289"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-6573445-0864340"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-2382386-1533939 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-2382386-1533939">
+        <rdfs:label xml:lang="cs">seznam emailů</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-6709559-1180999"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-3129412-3742460"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-2574863-3891861 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-2574863-3891861">
+        <rdfs:label xml:lang="cs">termín oznámení o přijetí</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-7774849-7311593"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-2638245-5281933 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-2638245-5281933">
+        <rdfs:label xml:lang="cs">sponzorský dar</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-5517684-3527197"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-1067221-5223898"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-0436221-0810873"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-2661536-3002169 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-2661536-3002169">
+        <rdfs:label xml:lang="cs">autor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-6573445-0864340"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6415275-0718782"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-7227130-0885506"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-8060584-1233659"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-2182244-5139929"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-2684502-4773644 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-2684502-4773644">
+        <rdfs:label xml:lang="cs">země</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-2739275-2096078 -->
+    <!--v2
+    <owl:Class rdf:about="http://iasted_cz#c-2739275-2096078">
+        <rdfs:label xml:lang="cs">null</rdfs:label>
+    </owl:Class>-->
+    
+
+
+    <!-- http://iasted_cz#c-2812360-9945205 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-2812360-9945205">
+        <rdfs:label xml:lang="cs">konferenční registrační formulář</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-3891709-4750575"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6316195-9758161"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-7751922-4407413"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-2669114-5757702"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-2865009-6380794 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-2865009-6380794">
+        <rdfs:label xml:lang="cs">konferenční hotel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-6594685-3304408"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6212085-9604295"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-6837945-1030392"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6212085-9604295"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-6789973-9415766"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-3129412-3742460"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-3923923-7335128"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-3101457-4179439 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-3101457-4179439">
+        <rdfs:label xml:lang="cs">registrační poplatek autora pro obdržení tištěného sborníku</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-4807166-1103210"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-4840474-2649113"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-4198370-4257347"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-3137092-0926549 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-3137092-0926549">
+        <rdfs:label xml:lang="cs">aktivita zamítnutí příspěvku</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-8225009-2029024"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-3173124-3263841 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-3173124-3263841">
+        <rdfs:label xml:lang="cs">dny konference</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-4250697-9843776"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-3129412-3742460"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-3216494-7160651 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-3216494-7160651">
+        <rdfs:label xml:lang="cs">město prezentujícího</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-0722082-2651755"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-0536802-7207126"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-3362463-2139544 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-3362463-2139544">
+        <rdfs:label xml:lang="cs">poplatek</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-0436221-0810873"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-4316866-4093013"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://iasted_cz#c-1051443-0241103"/>
+                            <rdf:Description rdf:about="http://iasted_cz#c-5863637-3905992"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-3365844-5870028 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-3365844-5870028">
+        <rdfs:label xml:lang="cs">posluchač</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-9162361-1398700"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://iasted_cz#c-4253662-5155866"/>
+                            <rdf:Description rdf:about="http://iasted_cz#c-9436177-9687481"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-4539429-3203270"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-9390430-3087931"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-3378997-7585116 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-3378997-7585116">
+        <rdfs:label xml:lang="cs">registrační poplatek pro nečlena konference</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-4807166-1103210"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-3129412-3742460"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-4189897-5151458"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-3416698-8894453 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-3416698-8894453">
+        <rdfs:label xml:lang="cs">hotelová místnost</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-8814661-2207235"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6212085-9604295"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-2865009-6380794"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-3129412-3742460"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-3923923-7335128"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-3552037-6337161 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-3552037-6337161">
+        <rdfs:label xml:lang="cs">uvodní verze příspěvku</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-3675385-5854046"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-2426458-3201424"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-1858148-0016056"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-3620679-0365961 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-3620679-0365961">
+        <rdfs:label xml:lang="cs">finální verze příspěvku</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-3675385-5854046"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-2426458-3201424"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-1680758-3373208"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-3675385-5854046 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-3675385-5854046">
+        <rdfs:label xml:lang="cs">podání příspěvku</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-6709559-1180999"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-2470958-9243895"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-6573445-0864340"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-3693541-1445315 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-3693541-1445315">
+        <rdfs:label xml:lang="cs">vízum</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-6709559-1180999"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-8216879-9804654"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-3849626-2561065 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-3849626-2561065">
+        <rdfs:label xml:lang="cs">recepce</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-1793838-9109371"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-3129412-3742460"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-3876411-4378881 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-3876411-4378881">
+        <rdfs:label xml:lang="cs">daň</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-0436221-0810873"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-3891709-4750575 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-3891709-4750575">
+        <rdfs:label xml:lang="cs">formulář</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-6709559-1180999"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-7100183-9130332"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-3923923-7335128 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-3923923-7335128">
+        <rdfs:label xml:lang="cs">hotelový uvaděč</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://iasted_cz#op-2122713-2764615"/>
+                        <owl:someValuesFrom rdf:resource="http://iasted_cz#c-0059040-2308375"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://iasted_cz#op-5039287-6558063"/>
+                        <owl:someValuesFrom rdf:resource="http://iasted_cz#c-2865009-6380794"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-4029862-8688806 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-4029862-8688806">
+        <rdfs:label xml:lang="cs">taxi</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-4923608-9926880"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-4044710-3553552 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-4044710-3553552">
+        <rdfs:label xml:lang="cs">země sponzora</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-2684502-4773644"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-4109158-1686077 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-4109158-1686077">
+        <rdfs:label xml:lang="cs">vedoucí sekce</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-2426458-3201424"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-9974188-6334280"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-5780695-7682136"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-7227130-0885506"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-4176570-1005763 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-4176570-1005763">
+        <rdfs:label xml:lang="cs">mikrobus</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-4923608-9926880"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-4189897-5151458 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-4189897-5151458">
+        <rdfs:label xml:lang="cs">nečlen konference IASTED</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-2122713-2764615"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-3378997-7585116"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-4198370-4257347 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-4198370-4257347">
+        <rdfs:label xml:lang="cs">tištěný sborník</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-1258902-8209625"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-4229135-0421274 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-4229135-0421274">
+        <rdfs:label xml:lang="cs">přednášející student</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-5936061-2193766"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-4250697-9843776 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-4250697-9843776">
+        <rdfs:label xml:lang="cs">čas</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-4253662-5155866 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-4253662-5155866">
+        <rdfs:label xml:lang="cs">místnost konferenční sekce</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-8814661-2207235"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6212085-9604295"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-8875781-2445693"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-7677472-3622130"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-8493681-8136357"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-4260125-2782924 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-4260125-2782924">
+        <rdfs:label xml:lang="cs">konferenční den</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-3173124-3263841"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-4364994-0974183 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-4364994-0974183">
+        <rdfs:label xml:lang="cs">celodenní výlet</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-0521617-9271046"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-1665787-4339656"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-6065145-1171901"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-1665787-4339656"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-1113322-9110882"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-3129412-3742460"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-4448743-0796489 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-4448743-0796489">
+        <rdfs:label xml:lang="cs">dvoulůžkový hotelový pokoj</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-3416698-8894453"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-4479399-7409159 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-4479399-7409159">
+        <rdfs:label xml:lang="cs">autor, který obdrží sborník na CD</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-2661536-3002169"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-5780695-7682136"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-6474823-0288171"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-4511891-9380997 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-4511891-9380997">
+        <rdfs:label xml:lang="cs">přednášející tutoriálu</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6415275-0718782"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-8041254-5061673"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-2661536-3002169"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-7057540-2681183"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-9436177-9687481"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-4659252-7186653 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-4659252-7186653">
+        <rdfs:label xml:lang="cs">recenze</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-6709559-1180999"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-2470958-9243895"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-8913365-7269077"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-4756869-4464265 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-4756869-4464265">
+        <rdfs:label xml:lang="cs">přednáška</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-1793838-9109371"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-3129412-3742460"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-3365844-5870028"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-4807166-1103210 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-4807166-1103210">
+        <rdfs:label xml:lang="cs">registrační poplatek</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-3362463-2139544"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-4840474-2649113"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-1793838-9109371"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-5517684-3527197"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-4842865-7567303 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-4842865-7567303">
+        <rdfs:label xml:lang="cs">termín podání příspěvku</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-7774849-7311593"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-4896130-6596276 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-4896130-6596276">
+        <rdfs:label xml:lang="cs">univerzita prezentujícího</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-6594685-3304408"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6212085-9604295"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-3216494-7160651"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6212085-9604295"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-8947534-3980893"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-4923608-9926880 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-4923608-9926880">
+        <rdfs:label xml:lang="cs">přepravní postředek</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-1678178-0560232"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-7346066-8853287"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-4986501-9537917 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-4986501-9537917">
+        <rdfs:label xml:lang="cs">přestávka na kávu</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-1793838-9109371"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-3129412-3742460"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-5009334-3774751 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-5009334-3774751">
+        <rdfs:label xml:lang="cs">registrační poplatek autora pro obdržení sborníku na CD</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-4807166-1103210"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-4840474-2649113"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-6474823-0288171"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-5113356-1760092 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-5113356-1760092">
+        <rdfs:label xml:lang="cs">konferenční výletník</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-2426458-3201424"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-4364994-0974183"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-5208803-9279929 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-5208803-9279929">
+        <rdfs:label xml:lang="cs">hotelový registrační formulář</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-3891709-4750575"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6316195-9758161"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-9205858-7339255"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-5325644-7349583 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-5325644-7349583">
+        <rdfs:label xml:lang="cs">měna</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-5426407-1734237 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-5426407-1734237">
+        <rdfs:label xml:lang="cs">sekce</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-4756869-4464265"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-4272347-3116294"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://iasted_cz#c-2661536-3002169"/>
+                            <rdf:Description rdf:about="http://iasted_cz#c-4109158-1686077"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-1665787-4339656"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-4253662-5155866"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-5437492-2780352 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-5437492-2780352">
+        <rdfs:label xml:lang="cs">spropitné</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-0436221-0810873"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6330154-3556549"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-6609740-2716755"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-5448444-6039564 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-5448444-6039564">
+        <rdfs:label xml:lang="cs">vrchní projektor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-8493681-8136357"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-5482083-9197407 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-5482083-9197407">
+        <rdfs:label xml:lang="cs">termín podání verze pro tisk</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-7774849-7311593"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-5611524-7200377 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-5611524-7200377">
+        <rdfs:label xml:lang="cs">aktivita</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-5814243-2865033 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-5814243-2865033">
+        <rdfs:label xml:lang="cs">přehrávač videokazet</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-8493681-8136357"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-5863637-3905992 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-5863637-3905992">
+        <rdfs:label xml:lang="cs">kreditní karta</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-0363582-7592681"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-3129412-3742460"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://iasted_cz#c-2638245-5281933"/>
+                            <rdf:Description rdf:about="http://iasted_cz#c-3362463-2139544"/>
+                            <rdf:Description rdf:about="http://iasted_cz#c-3876411-4378881"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-5936061-2193766 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-5936061-2193766">
+        <rdfs:label xml:lang="cs">přednášející</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6415275-0718782"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-5426407-1734237"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-2661536-3002169"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-7057540-2681183"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-4253662-5155866"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-5988211-2393098 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-5988211-2393098">
+        <rdfs:label xml:lang="cs">uvítací proslov</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-1793838-9109371"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-6024381-6706661 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-6024381-6706661">
+        <rdfs:label xml:lang="cs">člen konference IASTED</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-2122713-2764615"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-0620420-1642167"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-6065145-1171901 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-6065145-1171901">
+        <rdfs:label xml:lang="cs">výletní město</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-0722082-2651755"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-2292311-0303271"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-5113356-1760092"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-6170649-1143766 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-6170649-1143766">
+        <rdfs:label xml:lang="cs">šek</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-1051443-0241103"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-6226590-5654552 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-6226590-5654552">
+        <rdfs:label xml:lang="cs">zvací dopis</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-6709559-1180999"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-3129412-3742460"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-6323286-4412539 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-6323286-4412539">
+        <rdfs:label xml:lang="cs">jednolůžkový hotelový pokoj</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-3416698-8894453"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-6443158-9131955 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-6443158-9131955">
+        <rdfs:label xml:lang="cs">dům sponzora</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-6594685-3304408"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-0536802-7207126"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-1067221-5223898"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6212085-9604295"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-4044710-3553552"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6212085-9604295"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-9141621-0786905"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-6474823-0288171 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-6474823-0288171">
+        <rdfs:label xml:lang="cs">sborník na CD</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-1258902-8209625"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-6573445-0864340 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-6573445-0864340">
+        <rdfs:label xml:lang="cs">prezentující</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-0631471-4561451"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-3620679-0365961"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6415275-0718782"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-4756869-4464265"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://iasted_cz#c-7295710-8062846"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-6594685-3304408 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-6594685-3304408">
+        <rdfs:label xml:lang="cs">budova</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-8814661-2207235"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-6609740-2716755 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-6609740-2716755">
+        <rdfs:label xml:lang="cs">konferenční restaurant</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-6594685-3304408"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6212085-9604295"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-6789973-9415766"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6212085-9604295"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-6837945-1030392"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-0536802-7207126"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-6668658-5413054 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-6668658-5413054">
+        <rdfs:label xml:lang="cs">večerní banket</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-1940501-9253372"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-3129412-3742460"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="http://iasted_cz#c-7081318-7066280"/>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-6709559-1180999 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-6709559-1180999">
+        <rdfs:label xml:lang="cs">dokument</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-1678178-0560232"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-6716515-5268873 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-6716515-5268873">
+        <rdfs:label xml:lang="cs">aktivita simulace</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-9669827-4777897"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-6789973-9415766 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-6789973-9415766">
+        <rdfs:label xml:lang="cs">konferenčí město</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-0722082-2651755"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-2292311-0303271"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-6837945-1030392 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-6837945-1030392">
+        <rdfs:label xml:lang="cs">země konference</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-2684502-4773644"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-2292311-0303271"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-6941894-9664091 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-6941894-9664091">
+        <rdfs:label xml:lang="cs">registrace na konferenci</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-1793838-9109371"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-3129412-3742460"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-6995154-1776421 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-6995154-1776421">
+        <rdfs:label xml:lang="cs">osoba</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-7081318-7066280 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-7081318-7066280">
+        <rdfs:label xml:lang="cs">jednodenní prezentující</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-5938553-2548439"/>
+                <!--v2<owl:onClass rdf:resource="http://iasted_cz#c-2739275-2096078"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>-->
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-7227130-0885506 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-7227130-0885506">
+        <rdfs:label xml:lang="cs">stručné představení vedoucímu sekce</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-6709559-1180999"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-7100183-9130332"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-4109158-1686077"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-4272347-3116294"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-2661536-3002169"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-7295710-8062846 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-7295710-8062846">
+        <rdfs:label xml:lang="cs">neprezentující</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-7399437-4010360 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-7399437-4010360">
+        <rdfs:label xml:lang="cs">aktivita najmutí auta</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-8225009-2029024"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-9964733-9427658"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-8248221-3003762"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-7507976-9376843 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-7507976-9376843">
+        <rdfs:label xml:lang="cs">powerpointová prezentace</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-0416698-9369081"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-7539069-0789438 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-7539069-0789438">
+        <rdfs:label xml:lang="cs">dům prezentujícího</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-6594685-3304408"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-0536802-7207126"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6212085-9604295"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-8947534-3980893"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6212085-9604295"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-3216494-7160651"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-7594088-2323771 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-7594088-2323771">
+        <rdfs:label xml:lang="cs">počítač</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-8493681-8136357"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-7609830-1440342 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-7609830-1440342">
+        <rdfs:label xml:lang="cs">odjezd</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-0521617-9271046"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-7628927-4990376 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-7628927-4990376">
+        <rdfs:label xml:lang="cs">registrační poplatek pro studenta</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-4807166-1103210"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-3129412-3742460"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://iasted_cz#c-4229135-0421274"/>
+                            <rdf:Description rdf:about="http://iasted_cz#c-9650314-5370402"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-7632224-9966701 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-7632224-9966701">
+        <rdfs:label xml:lang="cs">tutoriál</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-4272347-3116294"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-4511891-9380997"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-4756869-4464265"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-7751922-4407413 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-7751922-4407413">
+        <rdfs:label xml:lang="cs">termín registrace na konferenci</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-7774849-7311593"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-7774849-7311593 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-7774849-7311593">
+        <rdfs:label xml:lang="cs">termín</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-4250697-9843776"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-3129412-3742460"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-8041254-5061673 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-8041254-5061673">
+        <rdfs:label xml:lang="cs">plenární přednáška</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-4272347-3116294"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-0643296-5020875"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-4756869-4464265"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-8131427-6117973 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-8131427-6117973">
+        <rdfs:label xml:lang="cs">technická aktivita</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-1793838-9109371"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-4272347-3116294"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-8295089-6281366"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-8205602-5304990 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-8205602-5304990">
+        <rdfs:label xml:lang="cs">dodávka</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-4923608-9926880"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-8225009-2029024 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-8225009-2029024">
+        <rdfs:label xml:lang="cs">předkonferenční aktivita</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-5611524-7200377"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-5176724-8065949"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-3173124-3263841"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-8248221-3003762 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-8248221-3003762">
+        <rdfs:label xml:lang="cs">auto</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-4923608-9926880"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-8295089-6281366 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-8295089-6281366">
+        <rdfs:label xml:lang="cs">technický výbor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-2426458-3201424"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-8131427-6117973"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-8401233-4773589 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-8401233-4773589">
+        <rdfs:label xml:lang="cs">představení</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-1793838-9109371"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-8493681-8136357 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-8493681-8136357">
+        <rdfs:label xml:lang="cs">audiovizuální vybavení</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-1678178-0560232"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6212085-9604295"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-4253662-5155866"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-3129412-3742460"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-3365844-5870028"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-7346066-8853287"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-6573445-0864340"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-8591782-9795905 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-8591782-9795905">
+        <rdfs:label xml:lang="cs">LCD projektor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-8493681-8136357"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-8814661-2207235 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-8814661-2207235">
+        <rdfs:label xml:lang="cs">místo</rdfs:label>
+        <!--v2<rdfs:subClassOf rdf:resource="http://iasted_cz#c-2739275-2096078"/>-->
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6212085-9604295"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-6789973-9415766"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6212085-9604295"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-6837945-1030392"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-8864687-2317506 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-8864687-2317506">
+        <rdfs:label xml:lang="cs">hlavní kancelář</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-8814661-2207235"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-8875781-2445693 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-8875781-2445693">
+        <rdfs:label xml:lang="cs">konferenční budova</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-6594685-3304408"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6212085-9604295"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-6837945-1030392"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-0536802-7207126"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6212085-9604295"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-6789973-9415766"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-8913365-7269077 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-8913365-7269077">
+        <rdfs:label xml:lang="cs">recenzent</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6415275-0718782"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-4659252-7186653"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-6573445-0864340"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-8916787-2198626 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-8916787-2198626">
+        <rdfs:label xml:lang="cs">registrační poplatek pro neautora</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-4807166-1103210"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-3129412-3742460"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-7295710-8062846"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-8947534-3980893 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-8947534-3980893">
+        <rdfs:label xml:lang="cs">země prezentujícího</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-2684502-4773644"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-0536802-7207126"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-9475480-1616669"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-9141621-0786905 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-9141621-0786905">
+        <rdfs:label xml:lang="cs">město sponzora</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-0722082-2651755"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-0536802-7207126"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-1067221-5223898"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-9205858-7339255 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-9205858-7339255">
+        <rdfs:label xml:lang="cs">termín hotelové rezervace</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-7774849-7311593"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-9259187-8436004 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-9259187-8436004">
+        <rdfs:label xml:lang="cs">autor, který obdrží tištěný sborník</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-2661536-3002169"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-5780695-7682136"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-4198370-4257347"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-9281892-2054058 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-9281892-2054058">
+        <rdfs:label xml:lang="cs">bankovní převod</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-1051443-0241103"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-9390430-3087931 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-9390430-3087931">
+        <rdfs:label xml:lang="cs">záznam účasti</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-6709559-1180999"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-3209462-2207802"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-3365844-5870028"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6212085-9604295"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-4253662-5155866"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-9404906-5404141 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-9404906-5404141">
+        <rdfs:label xml:lang="cs">informační formulář pro autora</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-3891709-4750575"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-2544708-6338850"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-2574863-3891861"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-9411650-9495640 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-9411650-9495640">
+        <rdfs:label xml:lang="cs">daň z přidané hodnoty</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-3876411-4378881"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-9436177-9687481 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-9436177-9687481">
+        <rdfs:label xml:lang="cs">konferenční hala</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-8814661-2207235"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-6212085-9604295"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-8875781-2445693"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-9475480-1616669 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-9475480-1616669">
+        <rdfs:label xml:lang="cs">účastník konference?</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://iasted_cz#op-2426458-3201424"/>
+                        <owl:someValuesFrom rdf:resource="http://iasted_cz#c-6941894-9664091"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://iasted_cz#op-9162361-1398700"/>
+                        <owl:someValuesFrom rdf:resource="http://iasted_cz#c-3173124-3263841"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://iasted_cz#op-9162361-1398700"/>
+                        <owl:someValuesFrom rdf:resource="http://iasted_cz#c-8875781-2445693"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-6995154-1776421"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-5039287-6558063"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-8947534-3980893"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-5039287-6558063"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-7539069-0789438"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-5242663-1927314"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-2812360-9945205"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-2122713-2764615"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-4807166-1103210"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-5039287-6558063"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-3216494-7160651"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-5780695-7682136"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-6226590-5654552"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-9008623-7950899"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-3693541-1445315"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-9564460-6108738 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-9564460-6108738">
+        <rdfs:label xml:lang="cs">časové pásmo</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-9596151-6524117 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-9596151-6524117">
+        <rdfs:label xml:lang="cs">aktivita modelování</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-9669827-4777897"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-9650314-5370402 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-9650314-5370402">
+        <rdfs:label xml:lang="cs">neprezentující student</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cz#op-2122713-2764615"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cz#c-7628927-4990376"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-7295710-8062846"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-9651229-2461426 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-9651229-2461426">
+        <rdfs:label xml:lang="cs">video prezentace</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-0416698-9369081"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-9669827-4777897 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-9669827-4777897">
+        <rdfs:label xml:lang="cs">výzkumná aktivita</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-8225009-2029024"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cz#c-9974188-6334280 -->
+
+    <owl:Class rdf:about="http://iasted_cz#c-9974188-6334280">
+        <rdfs:label xml:lang="cs">představení přednášejícího</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cz#c-8401233-4773589"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://iasted#Cancun -->
+
+    <owl:NamedIndividual rdf:about="http://iasted#Cancun">
+        <rdf:type rdf:resource="http://iasted_cz#c-6789973-9415766"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iasted#Chichen_Itza -->
+
+    <owl:NamedIndividual rdf:about="http://iasted#Chichen_Itza">
+        <rdf:type rdf:resource="http://iasted_cz#c-6065145-1171901"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iasted#Mexico -->
+
+    <owl:NamedIndividual rdf:about="http://iasted#Mexico">
+        <rdf:type rdf:resource="http://iasted_cz#c-6837945-1030392"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iasted#peso -->
+
+    <owl:NamedIndividual rdf:about="http://iasted#peso">
+        <rdf:type rdf:resource="http://iasted_cz#c-5325644-7349583"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.1592) http://owlapi.sourceforge.net -->
+

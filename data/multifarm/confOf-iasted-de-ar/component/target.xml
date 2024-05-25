@@ -1,0 +1,2790 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY iasted "http://iasted#" >
+    <!ENTITY iasted_ar "http://iasted_ar#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://iasted_ar#"
+     xml:base="http://iasted_ar"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:iasted_ar="http://iasted_ar#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:iasted="http://iasted#">
+    <owl:Ontology rdf:about="http://iasted_ar"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#label -->
+
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="&xsd;date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://iasted_ar#op-0114927-6821940 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-0114927-6821940">
+        <rdfs:label xml:lang="ar">تم دفعه مع</rdfs:label>
+        <rdfs:range rdf:resource="&iasted_ar;c-2117305-6442125"/>
+        <rdfs:domain rdf:resource="&iasted_ar;c-8330790-3106474"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-0431063-4825654 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-0431063-4825654">
+        <rdfs:label xml:lang="ar">تم إرساله بعد</rdfs:label>
+        <rdfs:domain rdf:resource="&iasted_ar;c-2117305-6442125"/>
+        <rdfs:range rdf:resource="&iasted_ar;c-2628238-5831385"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-0487182-5459328 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-0487182-5459328">
+        <rdfs:label xml:lang="ar">تم صنعه من</rdfs:label>
+        <rdfs:range rdf:resource="&iasted_ar;c-2117305-6442125"/>
+        <rdfs:domain rdf:resource="&iasted_ar;c-2117305-6442125"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-0813802-2580466 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-0813802-2580466">
+        <rdfs:label xml:lang="ar">تم اعطاءه ل/ من اجل</rdfs:label>
+        <rdfs:domain rdf:resource="&iasted_ar;c-2117305-6442125"/>
+        <rdfs:range rdf:resource="&iasted_ar;c-7495328-9898304"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-1071334-8408441 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-1071334-8408441">
+        <rdfs:label xml:lang="ar">تم انعقاده في</rdfs:label>
+        <rdfs:domain rdf:resource="&iasted_ar;c-9734507-1022781"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&iasted_ar;c-2628238-5831385"/>
+                    <rdf:Description rdf:about="&iasted_ar;c-7610450-7841576"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-1072474-4200859 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-1072474-4200859">
+        <rdfs:label xml:lang="ar">يوقع</rdfs:label>
+        <rdfs:range rdf:resource="&iasted_ar;c-2117305-6442125"/>
+        <rdfs:domain rdf:resource="&iasted_ar;c-7495328-9898304"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-1390377-1894067 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-1390377-1894067">
+        <rdfs:label xml:lang="ar">تم انعقاده بعد</rdfs:label>
+        <rdfs:range rdf:resource="&iasted_ar;c-2628238-5831385"/>
+        <rdfs:domain rdf:resource="&iasted_ar;c-9734507-1022781"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-1675425-5224671 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-1675425-5224671">
+        <rdfs:label xml:lang="ar">تم اعداده من قبل</rdfs:label>
+        <rdfs:domain rdf:resource="&iasted_ar;c-2117305-6442125"/>
+        <rdfs:range rdf:resource="&iasted_ar;c-7495328-9898304"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-1991225-3192135 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-1991225-3192135">
+        <rdfs:label xml:lang="ar">تم إرساله قبل</rdfs:label>
+        <rdfs:domain rdf:resource="&iasted_ar;c-2117305-6442125"/>
+        <rdfs:range rdf:resource="&iasted_ar;c-2628238-5831385"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-2106903-0172649 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-2106903-0172649">
+        <rdfs:label xml:lang="ar">تم دفعه في</rdfs:label>
+        <rdfs:domain rdf:resource="&iasted_ar;c-8330790-3106474"/>
+        <rdfs:range rdf:resource="&iasted_ar;c-9360261-6735126"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-2209893-4447258 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-2209893-4447258">
+        <rdfs:label xml:lang="ar">يكتب</rdfs:label>
+        <rdfs:range rdf:resource="&iasted_ar;c-2117305-6442125"/>
+        <rdfs:domain rdf:resource="&iasted_ar;c-7495328-9898304"/>
+        <owl:inverseOf rdf:resource="&iasted_ar;op-3340023-4103685"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-2565948-6314851 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-2565948-6314851">
+        <rdfs:label xml:lang="ar">تم تصميمه من اجل</rdfs:label>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&iasted_ar;c-2628238-5831385"/>
+                    <rdf:Description rdf:about="&iasted_ar;c-8330790-3106474"/>
+                    <rdf:Description rdf:about="&iasted_ar;c-9734507-1022781"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&iasted_ar;c-7495328-9898304"/>
+                    <rdf:Description rdf:about="&iasted_ar;c-9734507-1022781"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-2867462-7341315 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-2867462-7341315">
+        <rdfs:label xml:lang="ar">تم حاجة من اجل</rdfs:label>
+        <rdfs:domain rdf:resource="&iasted_ar;c-2117305-6442125"/>
+        <rdfs:range rdf:resource="&iasted_ar;c-7495328-9898304"/>
+        <owl:inverseOf rdf:resource="&iasted_ar;op-4440624-4030749"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-2934030-6684229 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-2934030-6684229">
+        <rdfs:label xml:lang="ar">تم اعطاءه من قبل</rdfs:label>
+        <rdfs:range rdf:resource="&iasted_ar;c-7495328-9898304"/>
+        <owl:inverseOf rdf:resource="&iasted_ar;op-4894274-2500891"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&iasted_ar;c-2117305-6442125"/>
+                    <rdf:Description rdf:about="&iasted_ar;c-9734507-1022781"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-3107535-2611713 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-3107535-2611713">
+        <rdfs:label xml:lang="ar">(يشغل (يعيش، يقيم</rdfs:label>
+        <rdfs:domain rdf:resource="&iasted_ar;c-7495328-9898304"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&iasted_ar;c-1906460-1027087"/>
+                    <rdf:Description rdf:about="&iasted_ar;c-4747047-4417848"/>
+                    <rdf:Description rdf:about="&iasted_ar;c-9360261-6735126"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-3128289-0377224 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-3128289-0377224">
+        <rdfs:label xml:lang="ar">يتحدث في وقت أو في مكان</rdfs:label>
+        <rdfs:domain rdf:resource="&iasted_ar;c-7495328-9898304"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&iasted_ar;c-2628238-5831385"/>
+                    <rdf:Description rdf:about="&iasted_ar;c-7610450-7841576"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-3266094-7971529 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-3266094-7971529">
+        <rdfs:label xml:lang="ar">يقع محليا في</rdfs:label>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&iasted_ar;c-4747047-4417848"/>
+                    <rdf:Description rdf:about="&iasted_ar;c-7610450-7841576"/>
+                    <rdf:Description rdf:about="&iasted_ar;c-9360261-6735126"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&iasted_ar;c-1906460-1027087"/>
+                    <rdf:Description rdf:about="&iasted_ar;c-4747047-4417848"/>
+                    <rdf:Description rdf:about="&iasted_ar;c-7610450-7841576"/>
+                    <rdf:Description rdf:about="&iasted_ar;c-9360261-6735126"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-3340023-4103685 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-3340023-4103685">
+        <rdfs:label xml:lang="ar">تم كتابته من قبل</rdfs:label>
+        <rdfs:domain rdf:resource="&iasted_ar;c-2117305-6442125"/>
+        <rdfs:range rdf:resource="&iasted_ar;c-7495328-9898304"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-4440624-4030749 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-4440624-4030749">
+        <rdfs:label xml:lang="ar">يحتاج</rdfs:label>
+        <rdfs:range rdf:resource="&iasted_ar;c-2117305-6442125"/>
+        <rdfs:domain rdf:resource="&iasted_ar;c-7495328-9898304"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-4707899-0716753 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-4707899-0716753">
+        <rdfs:label xml:lang="ar">يحصل </rdfs:label>
+        <rdfs:range rdf:resource="&iasted_ar;c-2117305-6442125"/>
+        <rdfs:domain rdf:resource="&iasted_ar;c-7495328-9898304"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-4894274-2500891 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-4894274-2500891">
+        <rdfs:label xml:lang="ar">يعطي</rdfs:label>
+        <rdfs:domain rdf:resource="&iasted_ar;c-7495328-9898304"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&iasted_ar;c-2117305-6442125"/>
+                    <rdf:Description rdf:about="&iasted_ar;c-9734507-1022781"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-4922006-1374661 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-4922006-1374661">
+        <rdfs:label xml:lang="ar">تم توقيعه من قبل</rdfs:label>
+        <rdfs:domain rdf:resource="&iasted_ar;c-2117305-6442125"/>
+        <rdfs:range rdf:resource="&iasted_ar;c-7495328-9898304"/>
+        <owl:inverseOf rdf:resource="&iasted_ar;op-1072474-4200859"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-4982952-0877025 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-4982952-0877025">
+        <rdfs:label xml:lang="ar">موجود في الوقت</rdfs:label>
+        <rdfs:range rdf:resource="&iasted_ar;c-2628238-5831385"/>
+        <rdfs:domain rdf:resource="&iasted_ar;c-7495328-9898304"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-5415847-0359774 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-5415847-0359774">
+        <rdfs:label xml:lang="ar">تم دفعه من قبل</rdfs:label>
+        <rdfs:range rdf:resource="&iasted_ar;c-7495328-9898304"/>
+        <rdfs:domain rdf:resource="&iasted_ar;c-8330790-3106474"/>
+        <owl:inverseOf rdf:resource="&iasted_ar;op-5443332-4868186"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-5443332-4868186 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-5443332-4868186">
+        <rdfs:label xml:lang="ar">يدفع</rdfs:label>
+        <rdfs:domain rdf:resource="&iasted_ar;c-7495328-9898304"/>
+        <rdfs:range rdf:resource="&iasted_ar;c-8330790-3106474"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-6397580-3066613 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-6397580-3066613">
+        <rdfs:label xml:lang="ar">تم إرساله من قبل</rdfs:label>
+        <rdfs:domain rdf:resource="&iasted_ar;c-2117305-6442125"/>
+        <rdfs:range rdf:resource="&iasted_ar;c-7495328-9898304"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-6534540-6714299 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-6534540-6714299">
+        <rdfs:label xml:lang="ar">تستعد / يعد</rdfs:label>
+        <rdfs:range rdf:resource="&iasted_ar;c-2117305-6442125"/>
+        <rdfs:domain rdf:resource="&iasted_ar;c-7495328-9898304"/>
+        <owl:inverseOf rdf:resource="&iasted_ar;op-1675425-5224671"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-6785285-7831174 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-6785285-7831174">
+        <rdfs:label xml:lang="ar">تم تشغيله من قبل </rdfs:label>
+        <rdfs:range rdf:resource="&iasted_ar;c-7495328-9898304"/>
+        <owl:inverseOf rdf:resource="&iasted_ar;op-3107535-2611713"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&iasted_ar;c-1906460-1027087"/>
+                    <rdf:Description rdf:about="&iasted_ar;c-4747047-4417848"/>
+                    <rdf:Description rdf:about="&iasted_ar;c-9360261-6735126"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-6975733-1042553 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-6975733-1042553">
+        <rdfs:label xml:lang="ar">تم دفعه من اجل</rdfs:label>
+        <rdfs:domain rdf:resource="&iasted_ar;c-8330790-3106474"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&iasted_ar;c-2117305-6442125"/>
+                    <rdf:Description rdf:about="&iasted_ar;c-9734507-1022781"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-7309446-5277500 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-7309446-5277500">
+        <rdfs:label xml:lang="ar">تم استخدامه من اجل</rdfs:label>
+        <rdfs:domain rdf:resource="&iasted_ar;c-2117305-6442125"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&iasted_ar;c-8330790-3106474"/>
+                    <rdf:Description rdf:about="&iasted_ar;c-9734507-1022781"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-7688139-1680885 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-7688139-1680885">
+        <rdfs:label xml:lang="ar">تم استخدامه من قبل</rdfs:label>
+        <rdfs:domain rdf:resource="&iasted_ar;c-2117305-6442125"/>
+        <rdfs:range rdf:resource="&iasted_ar;c-7495328-9898304"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-8055937-4178822 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-8055937-4178822">
+        <rdfs:label xml:lang="ar">تم تجهيزه من اجل</rdfs:label>
+        <rdfs:range rdf:resource="&iasted_ar;c-2117305-6442125"/>
+        <rdfs:domain rdf:resource="&iasted_ar;c-7610450-7841576"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-8804584-1930279 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-8804584-1930279">
+        <rdfs:label xml:lang="ar">يمر عبر</rdfs:label>
+        <rdfs:domain rdf:resource="&iasted_ar;c-2117305-6442125"/>
+        <rdfs:range rdf:resource="&iasted_ar;c-9734507-1022781"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-8877435-3029007 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-8877435-3029007">
+        <rdfs:label xml:lang="ar">موجود في زمان أو مكان</rdfs:label>
+        <rdfs:domain rdf:resource="&iasted_ar;c-7495328-9898304"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&iasted_ar;c-2628238-5831385"/>
+                    <rdf:Description rdf:about="&iasted_ar;c-7610450-7841576"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-9301905-1099209 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-9301905-1099209">
+        <rdfs:label xml:lang="ar">تم انعقاده قبل</rdfs:label>
+        <rdfs:range rdf:resource="&iasted_ar;c-2628238-5831385"/>
+        <rdfs:domain rdf:resource="&iasted_ar;c-9734507-1022781"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-9446762-6687141 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-9446762-6687141">
+        <rdfs:label xml:lang="ar">تم ارتباطه مع</rdfs:label>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&iasted_ar;c-2117305-6442125"/>
+                    <rdf:Description rdf:about="&iasted_ar;c-7610450-7841576"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&iasted_ar;c-7495328-9898304"/>
+                    <rdf:Description rdf:about="&iasted_ar;c-9734507-1022781"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-9497800-8396001 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-9497800-8396001">
+        <rdfs:label xml:lang="ar">يرسل</rdfs:label>
+        <rdfs:range rdf:resource="&iasted_ar;c-2117305-6442125"/>
+        <rdfs:domain rdf:resource="&iasted_ar;c-7495328-9898304"/>
+        <owl:inverseOf rdf:resource="&iasted_ar;op-6397580-3066613"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_ar#op-9827922-6624577 -->
+
+    <owl:ObjectProperty rdf:about="&iasted_ar;op-9827922-6624577">
+        <rdfs:label xml:lang="ar">تم زيارته من قبل</rdfs:label>
+        <rdfs:range rdf:resource="&iasted_ar;c-7495328-9898304"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&iasted_ar;c-1906460-1027087"/>
+                    <rdf:Description rdf:about="&iasted_ar;c-4747047-4417848"/>
+                    <rdf:Description rdf:about="&iasted_ar;c-9360261-6735126"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://iasted_ar#ent-3043070-7016845 -->
+
+    <owl:DatatypeProperty rdf:about="&iasted_ar;ent-3043070-7016845">
+        <rdfs:label xml:lang="ar">لديه قدر من</rdfs:label>
+        <rdfs:domain rdf:resource="&iasted_ar;c-8330790-3106474"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iasted_ar#ent-3800922-9656157 -->
+
+    <owl:DatatypeProperty rdf:about="&iasted_ar;ent-3800922-9656157">
+        <rdfs:label xml:lang="ar">تم بتاريخ</rdfs:label>
+        <rdfs:domain rdf:resource="&iasted_ar;c-9734507-1022781"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iasted_ar#ent-8469759-2011986 -->
+
+    <owl:DatatypeProperty rdf:about="&iasted_ar;ent-8469759-2011986">
+        <rdfs:label xml:lang="ar">يتعين القيام به حتى</rdfs:label>
+        <rdfs:domain rdf:resource="&iasted_ar;c-6802365-6090141"/>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://iasted_ar#c-0007967-7033593 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-0007967-7033593">
+        <rdfs:label xml:lang="ar">كلمة ترحيبية</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1374445-6980813"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-0096805-5137076 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-0096805-5137076">
+        <rdfs:label xml:lang="ar">مراجعة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1272337-3260943"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3340023-4103685"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7237384-5029852"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-0178036-0872830 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-0178036-0872830">
+        <rdfs:label xml:lang="ar">منزل شركة كونها الراعي</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-9360261-6735126"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3266094-7971529"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7645937-5712518"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-6785285-7831174"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-2257603-7365584"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3266094-7971529"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-1509656-7190644"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-0229067-2462173 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-0229067-2462173">
+        <rdfs:label xml:lang="ar">الكاتب الذي سيستلم محضر الابحاث على شكل قرص</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-8524806-1584249"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-4707899-0716753"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-9457045-7675113"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-0232352-0281286 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-0232352-0281286">
+        <rdfs:label xml:lang="ar">مؤتمر في يوم واحد  </rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-3027609-0357962"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-0410571-1368603 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-0410571-1368603">
+        <rdfs:label xml:lang="ar">الحاسوب</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-6259610-4303723"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-0420902-9582031 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-0420902-9582031">
+        <rdfs:label xml:lang="ar">استراحة القهوة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1374445-6980813"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-2565948-6314851"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7839478-1348524"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-0445217-5235046 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-0445217-5235046">
+        <rdfs:label xml:lang="ar">مقدمة موجزة لرئيس الجلسة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1272337-3260943"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-2934030-6684229"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-8524806-1584249"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-0813802-2580466"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-2133137-2741616"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-0481764-6932669 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-0481764-6932669">
+        <rdfs:label xml:lang="ar">نشاط يجري بعد مؤتمر</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-9734507-1022781"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-1390377-1894067"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-3027609-0357962"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-0537126-2617188 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-0537126-2617188">
+        <rdfs:label xml:lang="ar">نشاط رفض مخطوطة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-0653399-3994975"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-0653399-3994975 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-0653399-3994975">
+        <rdfs:label xml:lang="ar">نشاط يجري قبل مؤتمر</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-9734507-1022781"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-9301905-1099209"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-3027609-0357962"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-0666509-1136761 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-0666509-1136761">
+        <rdfs:label xml:lang="ar">التسجيل</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1374445-6980813"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-2565948-6314851"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7839478-1348524"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-0698124-9752862 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-0698124-9752862">
+        <rdfs:label xml:lang="ar">ضريبة المغادرة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1945750-2737575"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-2565948-6314851"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-2981835-6381765"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-0785971-0385449 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-0785971-0385449">
+        <rdfs:label xml:lang="ar">الرعاية</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-5415847-0359774"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-2257603-7365584"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-8330790-3106474"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-1083054-0977274 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-1083054-0977274">
+        <rdfs:label xml:lang="ar">فندق المؤتمر</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-9360261-6735126"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3266094-7971529"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-4988957-3112983"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3266094-7971529"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7706972-1723925"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-2565948-6314851"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-5075421-2537332"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-1089557-0139951 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-1089557-0139951">
+        <rdfs:label xml:lang="ar">رسوم التسجيل مدفوعة من قبل الكاتب الحاضر مقابل استلام محضر الابحاث على شكل قرص</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-3562971-9248149"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-6975733-1042553"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-9457045-7675113"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-1135751-0315612 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-1135751-0315612">
+        <rdfs:label xml:lang="ar">المتحدث الذي يقدم البرنامج التعليمي</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-4894274-2500891"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-1143337-4191398"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-8524806-1584249"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3128289-0377224"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-8256506-0197020"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-1143337-4191398 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-1143337-4191398">
+        <rdfs:label xml:lang="ar">محاضرة العامة</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-2934030-6684229"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7779799-9625767"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-6642225-2449403"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-1153527-2178736 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-1153527-2178736">
+        <rdfs:label xml:lang="ar">غرفة الجلسة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-7610450-7841576"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3266094-7971529"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-3355069-9402169"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-8055937-4178822"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-6259610-4303723"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-1206252-5148523 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-1206252-5148523">
+        <rdfs:label xml:lang="ar">مركبة النقل</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-2117305-6442125"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-7688139-1680885"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7839478-1348524"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-1270060-4788524 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-1270060-4788524">
+        <rdfs:label xml:lang="ar">الصك</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-2296249-1455178"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-1272337-3260943 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-1272337-3260943">
+        <rdfs:label xml:lang="ar">أي نوع من وثيقة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-2117305-6442125"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-1345787-0589381 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-1345787-0589381">
+        <rdfs:label xml:lang="ar">مأدبة عشاء</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-7695923-3143306"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-2565948-6314851"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="&iasted_ar;c-5779447-4279499"/>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-1374445-6980813 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-1374445-6980813">
+        <rdfs:label xml:lang="ar">نشاط يحدث خلال المؤتمر</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-9734507-1022781"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-1071334-8408441"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-3027609-0357962"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-1071334-8408441"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-4988957-3112983"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-1478383-0310840 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-1478383-0310840">
+        <rdfs:label xml:lang="ar">جهاز عرض الإسقاط الضوئي شاشات الكريستال السائل</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-6259610-4303723"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-1509656-7190644 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-1509656-7190644">
+        <rdfs:label xml:lang="ar">الدولة الراعي</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1906460-1027087"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-1705386-7628472 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-1705386-7628472">
+        <rdfs:label xml:lang="ar">مطارالمؤتمر</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-9360261-6735126"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3266094-7971529"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7706972-1723925"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3266094-7971529"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-4988957-3112983"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-1906460-1027087 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-1906460-1027087">
+        <rdfs:label xml:lang="ar">الدولة</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-1908942-1034897 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-1908942-1034897">
+        <rdfs:label xml:lang="ar">رسوم</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-8330790-3106474"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-0114927-6821940"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&iasted_ar;c-2296249-1455178"/>
+                            <rdf:Description rdf:about="&iasted_ar;c-9459514-3027432"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-1945750-2737575 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-1945750-2737575">
+        <rdfs:label xml:lang="ar">الضرائب</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-8330790-3106474"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-2015831-8588846 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-2015831-8588846">
+        <rdfs:label xml:lang="ar">سيارة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1206252-5148523"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-2100517-5831052 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-2100517-5831052">
+        <rdfs:label xml:lang="ar">المكتب الرئيسي</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-7610450-7841576"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-2117305-6442125 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-2117305-6442125">
+        <rdfs:label xml:lang="ar">البند (بشكل عام)</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-2133137-2741616 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-2133137-2741616">
+        <rdfs:label xml:lang="ar">رئيس الجلسة</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-8804584-1930279"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-3414306-5551762"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-7839478-1348524"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-4707899-0716753"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-0445217-5235046"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-2144849-8447283 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-2144849-8447283">
+        <rdfs:label xml:lang="ar">مقدمة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1374445-6980813"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-2257603-7365584 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-2257603-7365584">
+        <rdfs:label xml:lang="ar">الراعي</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-4894274-2500891"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-0785971-0385449"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-7495328-9898304"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3107535-2611713"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-1509656-7190644"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3107535-2611713"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7645937-5712518"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3107535-2611713"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-0178036-0872830"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-2296249-1455178 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-2296249-1455178">
+        <rdfs:label xml:lang="ar">وثيقة الدفع</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1272337-3260943"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-2565948-6314851"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&iasted_ar;c-1908942-1034897"/>
+                            <rdf:Description rdf:about="&iasted_ar;c-1945750-2737575"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-2300155-6240282 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-2300155-6240282">
+        <rdfs:label xml:lang="ar">بطاقة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-2117305-6442125"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-2348887-6643414 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-2348887-6643414">
+        <rdfs:label xml:lang="ar">فندق استمارة التسجيل</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-6957850-7255088"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-1991225-3192135"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-9832284-1706443"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-2454598-3839326 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-2454598-3839326">
+        <rdfs:label xml:lang="ar">المؤلف الذي سيستلم إجراءات وكتاب</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-8524806-1584249"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-4707899-0716753"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-6710251-2653749"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-2484295-2591142 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-2484295-2591142">
+        <rdfs:label xml:lang="ar">سيارات الأجرة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1206252-5148523"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-2615428-9674723 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-2615428-9674723">
+        <rdfs:label xml:lang="ar">دولة المقدم</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1906460-1027087"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-6785285-7831174"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7839478-1348524"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-2628238-5831385 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-2628238-5831385">
+        <rdfs:label xml:lang="ar">الساعة</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-2791036-8924661 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-2791036-8924661">
+        <rdfs:label xml:lang="ar"> كوكتيل الاستقبال </rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1374445-6980813"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-2565948-6314851"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7839478-1348524"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-2815832-4578186 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-2815832-4578186">
+        <rdfs:label xml:lang="ar">العملة</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-2981835-6381765 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-2981835-6381765">
+        <rdfs:label xml:lang="ar">مغادرة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-0481764-6932669"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-3027609-0357962 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-3027609-0357962">
+        <rdfs:label xml:lang="ar">أيام المؤتمر</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-2628238-5831385"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-2565948-6314851"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7839478-1348524"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-3289133-2524074 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-3289133-2524074">
+        <rdfs:label xml:lang="ar">تحويل مصرفي</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-2296249-1455178"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-3301904-5411224 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-3301904-5411224">
+        <rdfs:label xml:lang="ar">طالب  غير متحدث</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-5443332-4868186"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-3387222-0014577"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-3707691-3090333"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-3329669-6447330 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-3329669-6447330">
+        <rdfs:label xml:lang="ar">غرف الفندق المزدوجة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-4814110-7142658"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-3355069-9402169 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-3355069-9402169">
+        <rdfs:label xml:lang="ar">مبنى المؤتمرات</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-9360261-6735126"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-6785285-7831174"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7839478-1348524"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3266094-7971529"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7706972-1723925"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3266094-7971529"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-4988957-3112983"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-3387222-0014577 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-3387222-0014577">
+        <rdfs:label xml:lang="ar">رسوم التسجيل للطالب</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-3562971-9248149"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-2565948-6314851"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&iasted_ar;c-3301904-5411224"/>
+                            <rdf:Description rdf:about="&iasted_ar;c-4479498-8776271"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-3404415-7141875 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-3404415-7141875">
+        <rdfs:label xml:lang="ar">عضو في IASTED</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-5443332-4868186"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-9647689-2199458"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-7839478-1348524"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-3414306-5551762 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-3414306-5551762">
+        <rdfs:label xml:lang="ar">مقدمة المتحدث</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-2144849-8447283"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-3414599-1614496 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-3414599-1614496">
+        <rdfs:label xml:lang="ar">رسوم التسجيل من غير الكاتب</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-3562971-9248149"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-2565948-6314851"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-3707691-3090333"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-3439921-9419415 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-3439921-9419415">
+        <rdfs:label xml:lang="ar">رسوم التسجيل مدفوعة من قبل الكاتب الحاضر من اجل استلام محضر الابحاث على شكل كتاب</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-3562971-9248149"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-6975733-1042553"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-6710251-2653749"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-3562971-9248149 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-3562971-9248149">
+        <rdfs:label xml:lang="ar">رسوم التسجيل</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1908942-1034897"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-6975733-1042553"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-1374445-6980813"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-5415847-0359774"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7839478-1348524"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-3570655-1275256 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-3570655-1275256">
+        <rdfs:label xml:lang="ar">عرض باور بوينت</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-8038950-3294907"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-3707691-3090333 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-3707691-3090333">
+        <rdfs:label xml:lang="ar">غير المتحدث</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-7839478-1348524"/>
+        <owl:disjointWith rdf:resource="&iasted_ar;c-8557254-6925353"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-3737044-1743660 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-3737044-1743660">
+        <rdfs:label xml:lang="ar">آخر موعد لإخطار القبول</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-6802365-6090141"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-3864380-5521170 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-3864380-5521170">
+        <rdfs:label xml:lang="ar">المخطوط النهائي</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-9043782-3488269"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-8804584-1930279"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-5917467-6076111"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-4112442-4111172 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-4112442-4111172">
+        <rdfs:label xml:lang="ar">المخطوطة الأولية  </rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-9043782-3488269"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-8804584-1930279"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-0537126-2617188"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-4118053-9833638 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-4118053-9833638">
+        <rdfs:label xml:lang="ar">آخر موعد للتسجيل</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-6802365-6090141"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-4185600-2566755 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-4185600-2566755">
+        <rdfs:label xml:lang="ar">جامعة المقدم</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-9360261-6735126"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3266094-7971529"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-5149732-2777974"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3266094-7971529"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-2615428-9674723"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-4240550-9515072 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-4240550-9515072">
+        <rdfs:label xml:lang="ar">حافلات مكوكية</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1206252-5148523"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-4288079-0745247 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-4288079-0745247">
+        <rdfs:label xml:lang="ar">البرنامج التعليمي</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-2934030-6684229"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-1135751-0315612"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-6642225-2449403"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-4479498-8776271 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-4479498-8776271">
+        <rdfs:label xml:lang="ar">طالب المحاضر</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-9517517-2411566"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-4506929-2635761 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-4506929-2635761">
+        <rdfs:label xml:lang="ar">شاحنة صغيرة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1206252-5148523"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-4747047-4417848 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-4747047-4417848">
+        <rdfs:label xml:lang="ar">المدينة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-9803057-0865391"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3266094-7971529"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-1906460-1027087"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-4803632-5630014 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-4803632-5630014">
+        <rdfs:label xml:lang="ar">جولة ليوم كامل</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-0481764-6932669"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-1071334-8408441"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7904334-7629504"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-1071334-8408441"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7397025-5345675"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-2565948-6314851"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7839478-1348524"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-4814110-7142658 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-4814110-7142658">
+        <rdfs:label xml:lang="ar">غرفة الفندق</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-7610450-7841576"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-2565948-6314851"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-5075421-2537332"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3266094-7971529"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-1083054-0977274"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-4925840-9791742 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-4925840-9791742">
+        <rdfs:label xml:lang="ar">قيمة المضافة للضرائب</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1945750-2737575"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-4988957-3112983 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-4988957-3112983">
+        <rdfs:label xml:lang="ar">الدولة حيث ينعقد المؤتمر</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1906460-1027087"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-9827922-6624577"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7839478-1348524"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-5075421-2537332 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-5075421-2537332">
+        <rdfs:label xml:lang="ar">فندق المقدم</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-7839478-1348524"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&iasted_ar;op-3107535-2611713"/>
+                        <owl:someValuesFrom rdf:resource="&iasted_ar;c-1083054-0977274"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&iasted_ar;op-5443332-4868186"/>
+                        <owl:someValuesFrom rdf:resource="&iasted_ar;c-8734489-8762851"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-5127300-9561764 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-5127300-9561764">
+        <rdfs:label xml:lang="ar">جلسة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-6642225-2449403"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-1071334-8408441"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-1153527-2178736"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-2934030-6684229"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&iasted_ar;c-2133137-2741616"/>
+                            <rdf:Description rdf:about="&iasted_ar;c-8524806-1584249"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-5149340-1624447 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-5149340-1624447">
+        <rdfs:label xml:lang="ar">متنزه المؤتمر</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-8804584-1930279"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-4803632-5630014"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-7839478-1348524"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-5149732-2777974 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-5149732-2777974">
+        <rdfs:label xml:lang="ar">المدينة حيث يأتي منها المقدم</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-4747047-4417848"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-6785285-7831174"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7839478-1348524"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-5368651-0392892 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-5368651-0392892">
+        <rdfs:label xml:lang="ar">بيت المقدم</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-9360261-6735126"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3266094-7971529"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-5149732-2777974"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-6785285-7831174"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7839478-1348524"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3266094-7971529"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-2615428-9674723"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-5405470-6040042 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-5405470-6040042">
+        <rdfs:label xml:lang="ar">الشفافية العامة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1272337-3260943"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-1675425-5224671"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-8557254-6925353"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-5571039-3138445 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-5571039-3138445">
+        <rdfs:label xml:lang="ar">آخر موعد للارسال</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-6802365-6090141"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-5592838-7410631 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-5592838-7410631">
+        <rdfs:label xml:lang="ar">غيض</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-8330790-3106474"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-2106903-0172649"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-5932018-6268536"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-5595069-4722468 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-5595069-4722468">
+        <rdfs:label xml:lang="ar">رسالة الدعوة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1272337-3260943"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-2565948-6314851"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7839478-1348524"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-5718864-1984191 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-5718864-1984191">
+        <rdfs:label xml:lang="ar">نشاط استلام مخطوطة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-0653399-3994975"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-5779447-4279499 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-5779447-4279499">
+        <rdfs:label xml:lang="ar">المقدم الذي يقدم فقط في يوم واحد</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-4982952-0877025"/>
+                <owl:onClass rdf:resource="&iasted_ar;c-9803057-0865391"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-7839478-1348524"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-5911777-1322999 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-5911777-1322999">
+        <rdfs:label xml:lang="ar"> الفيديوعرض التقديمي</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-8038950-3294907"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-5917467-6076111 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-5917467-6076111">
+        <rdfs:label xml:lang="ar">نشاط القبول مخطوطة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-0653399-3994975"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-5932018-6268536 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-5932018-6268536">
+        <rdfs:label xml:lang="ar">مطعم المؤتمر</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-9360261-6735126"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3266094-7971529"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7706972-1723925"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3266094-7971529"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-4988957-3112983"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-6785285-7831174"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7839478-1348524"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-5951313-1277172 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-5951313-1277172">
+        <rdfs:label xml:lang="ar">استمارة المعلومات الكاتب</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-6957850-7255088"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-0431063-4825654"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-3737044-1743660"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-6230513-3399663 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-6230513-3399663">
+        <rdfs:label xml:lang="ar">المستمع</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-7839478-1348524"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-8877435-3029007"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&iasted_ar;c-1153527-2178736"/>
+                            <rdf:Description rdf:about="&iasted_ar;c-8256506-0197020"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-1072474-4200859"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-8566185-0571325"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-6259610-4303723 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-6259610-4303723">
+        <rdfs:label xml:lang="ar">المعدات السمعية والبصرية</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-2117305-6442125"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3266094-7971529"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-1153527-2178736"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-2565948-6314851"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-6230513-3399663"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-7688139-1680885"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-8557254-6925353"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-6268511-0589224 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-6268511-0589224">
+        <rdfs:label xml:lang="ar">نشاط النمذجة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-7811356-1517344"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-6326066-2553522 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-6326066-2553522">
+        <rdfs:label xml:lang="ar">مشغل شريط فيديو </rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-6259610-4303723"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-6328900-7685861 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-6328900-7685861">
+        <rdfs:label xml:lang="ar">اللجنة التقنية</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-7839478-1348524"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-8804584-1930279"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-9475966-8122245"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-6642225-2449403 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-6642225-2449403">
+        <rdfs:label xml:lang="ar">محاضرة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1374445-6980813"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-2565948-6314851"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-6230513-3399663"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-6710251-2653749 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-6710251-2653749">
+        <rdfs:label xml:lang="ar">كتابر المحضر</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-9208741-7977774"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-6802365-6090141 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-6802365-6090141">
+        <rdfs:label xml:lang="ar">آخر موعد</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-2628238-5831385"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-2565948-6314851"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7839478-1348524"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-6957850-7255088 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-6957850-7255088">
+        <rdfs:label xml:lang="ar">استمارة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1272337-3260943"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-0813802-2580466"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7839478-1348524"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-7237384-5029852 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-7237384-5029852">
+        <rdfs:label xml:lang="ar">المراجع</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-4894274-2500891"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-0096805-5137076"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-8557254-6925353"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-7397025-5345675 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-7397025-5345675">
+        <rdfs:label xml:lang="ar">المدينة التي هي مكان من أجل الرحلة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-4747047-4417848"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-9827922-6624577"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-5149340-1624447"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-7401025-3924904 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-7401025-3924904">
+        <rdfs:label xml:lang="ar">جهاز عرض ضوئي</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-6259610-4303723"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-7426236-4762463 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-7426236-4762463">
+        <rdfs:label xml:lang="ar">استمارة التسجيل المؤتمر</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-6957850-7255088"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-6397580-3066613"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7839478-1348524"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-1991225-3192135"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-4118053-9833638"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-7469639-8956972 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-7469639-8956972">
+        <rdfs:label xml:lang="ar">غرف الفندق المفردة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-4814110-7142658"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-7495328-9898304 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-7495328-9898304">
+        <rdfs:label xml:lang="ar">شخص</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-7598893-3066158 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-7598893-3066158">
+        <rdfs:label xml:lang="ar">تأشيرة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1272337-3260943"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-2867462-7341315"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7839478-1348524"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-7610450-7841576 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-7610450-7841576">
+        <rdfs:label xml:lang="ar">مكان</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-9803057-0865391"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3266094-7971529"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7706972-1723925"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3266094-7971529"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-4988957-3112983"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-7645937-5712518 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-7645937-5712518">
+        <rdfs:label xml:lang="ar">المدينة حيث يأتي منها الراعي</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-4747047-4417848"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-6785285-7831174"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-2257603-7365584"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-7695923-3143306 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-7695923-3143306">
+        <rdfs:label xml:lang="ar">النشاط الاجتماعي</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1374445-6980813"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-2565948-6314851"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7839478-1348524"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-7706972-1723925 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-7706972-1723925">
+        <rdfs:label xml:lang="ar">المدينة حيث ينعقد المؤتمر</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-4747047-4417848"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-9827922-6624577"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7839478-1348524"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-7779799-9625767 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-7779799-9625767">
+        <rdfs:label xml:lang="ar">المتحدث إعطاء محاضرة أمام الكنيست</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-4894274-2500891"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-4288079-0745247"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-8524806-1584249"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3128289-0377224"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-8256506-0197020"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-7811356-1517344 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-7811356-1517344">
+        <rdfs:label xml:lang="ar">النشاط البحثي</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-0653399-3994975"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-7839478-1348524 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-7839478-1348524">
+        <rdfs:label xml:lang="ar">(مندوب (شخص يسجيل ويزور المؤتمر</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&iasted_ar;op-8804584-1930279"/>
+                        <owl:someValuesFrom rdf:resource="&iasted_ar;c-0666509-1136761"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&iasted_ar;op-8877435-3029007"/>
+                        <owl:someValuesFrom rdf:resource="&iasted_ar;c-3027609-0357962"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&iasted_ar;op-8877435-3029007"/>
+                        <owl:someValuesFrom rdf:resource="&iasted_ar;c-3355069-9402169"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-7495328-9898304"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-4707899-0716753"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-5595069-4722468"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3107535-2611713"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-5368651-0392892"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-5443332-4868186"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-3562971-9248149"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-4440624-4030749"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7598893-3066158"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-9497800-8396001"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7426236-4762463"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3107535-2611713"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-5149732-2777974"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3107535-2611713"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-2615428-9674723"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-7904334-7629504 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-7904334-7629504">
+        <rdfs:label xml:lang="ar">اليوم المسندة من أجل رحلة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-2628238-5831385"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-2565948-6314851"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7839478-1348524"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-8038950-3294907 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-8038950-3294907">
+        <rdfs:label xml:lang="ar">العرض التقديمي</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1374445-6980813"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-8256506-0197020 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-8256506-0197020">
+        <rdfs:label xml:lang="ar">قاعة المؤتمر</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-7610450-7841576"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3266094-7971529"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-3355069-9402169"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-8330790-3106474 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-8330790-3106474">
+        <rdfs:label xml:lang="ar">مبلغ من المال</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-8404042-2132319 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-8404042-2132319">
+        <rdfs:label xml:lang="ar">العامل الغير المتحدث</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-5443332-4868186"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-3414599-1614496"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-3707691-3090333"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-8524806-1584249 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-8524806-1584249">
+        <rdfs:label xml:lang="ar">الكاتب</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-8557254-6925353"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-6534540-6714299"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-5405470-6040042"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-4894274-2500891"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-0445217-5235046"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-8557254-6925353 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-8557254-6925353">
+        <rdfs:label xml:lang="ar">المتحدث</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-7839478-1348524"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-2209893-4447258"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-3864380-5521170"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-4894274-2500891"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-6642225-2449403"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-8560080-0641511 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-8560080-0641511">
+        <rdfs:label xml:lang="ar">قائمة البريد الالكتروني</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1272337-3260943"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-2565948-6314851"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-7839478-1348524"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-8566185-0571325 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-8566185-0571325">
+        <rdfs:label xml:lang="ar">سجل الحضور</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1272337-3260943"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-4922006-1374661"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-6230513-3399663"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3266094-7971529"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-1153527-2178736"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-8692958-0454606 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-8692958-0454606">
+        <rdfs:label xml:lang="ar">محاضرة ملقاة من قبل متحدث</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-5127300-9561764"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-8730523-2716104 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-8730523-2716104">
+        <rdfs:label xml:lang="ar">الموعد النهائي لتقديم النصي الكاميرا جاهزة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-6802365-6090141"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-8734489-8762851 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-8734489-8762851">
+        <rdfs:label xml:lang="ar">رسوم فندق</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1908942-1034897"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-5415847-0359774"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-5075421-2537332"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-9001506-0445347 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-9001506-0445347">
+        <rdfs:label xml:lang="ar">رسوم التسجيل لغير عضو</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-3562971-9248149"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-2565948-6314851"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-9184802-2535793"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-9043782-3488269 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-9043782-3488269">
+        <rdfs:label xml:lang="ar">الارسال</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1272337-3260943"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3340023-4103685"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-8557254-6925353"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-9083024-2093900 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-9083024-2093900">
+        <rdfs:label xml:lang="ar">نشاط المحاكاة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-7811356-1517344"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-9184802-2535793 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-9184802-2535793">
+        <rdfs:label xml:lang="ar">ليس عضوا في IASTED</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-5443332-4868186"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-9001506-0445347"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-7839478-1348524"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-9208741-7977774 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-9208741-7977774">
+        <rdfs:label xml:lang="ar">نشر</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-2117305-6442125"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-0487182-5459328"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-3864380-5521170"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-9316767-9860153 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-9316767-9860153">
+        <rdfs:label xml:lang="ar">رسم لرحلة اضافية</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1908942-1034897"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-6975733-1042553"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-4803632-5630014"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-5415847-0359774"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-5149340-1624447"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-9360261-6735126 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-9360261-6735126">
+        <rdfs:label xml:lang="ar">المبنى</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-7610450-7841576"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-9395281-6343376 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-9395281-6343376">
+        <rdfs:label xml:lang="ar">العامل المحاضر</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-9517517-2411566"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-9457045-7675113 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-9457045-7675113">
+        <rdfs:label xml:lang="ar">قرص المتابعة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-9208741-7977774"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-9459514-3027432 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-9459514-3027432">
+        <rdfs:label xml:lang="ar">بطاقة الائتمان</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-2300155-6240282"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-2565948-6314851"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&iasted_ar;c-0785971-0385449"/>
+                            <rdf:Description rdf:about="&iasted_ar;c-1908942-1034897"/>
+                            <rdf:Description rdf:about="&iasted_ar;c-1945750-2737575"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-9475966-8122245 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-9475966-8122245">
+        <rdfs:label xml:lang="ar">النشاط الفني</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-1374445-6980813"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-2934030-6684229"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-6328900-7685861"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-9517517-2411566 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-9517517-2411566">
+        <rdfs:label xml:lang="ar">محاضر</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-4894274-2500891"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-5127300-9561764"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-8524806-1584249"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-3128289-0377224"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-1153527-2178736"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-9641892-8294838 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-9641892-8294838">
+        <rdfs:label xml:lang="ar">منطقة زمنية</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-9647689-2199458 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-9647689-2199458">
+        <rdfs:label xml:lang="ar">رسوم التسجيل للعضو</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-3562971-9248149"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-2565948-6314851"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-3404415-7141875"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-9734507-1022781 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-9734507-1022781">
+        <rdfs:label xml:lang="ar">نشاط</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-9803057-0865391 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-9803057-0865391">
+        <rdfs:label xml:lang="ar">لاشيئ</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-9832284-1706443 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-9832284-1706443">
+        <rdfs:label xml:lang="ar">الموعد النهائي لحجز الفنادق</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-6802365-6090141"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_ar#c-9954729-9347919 -->
+
+    <owl:Class rdf:about="&iasted_ar;c-9954729-9347919">
+        <rdfs:label xml:lang="ar">نشاط تأجير سيارة</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&iasted_ar;c-0653399-3994975"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&iasted_ar;op-9446762-6687141"/>
+                <owl:someValuesFrom rdf:resource="&iasted_ar;c-2015831-8588846"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://iasted#Cancun -->
+
+    <owl:NamedIndividual rdf:about="&iasted;Cancun">
+        <rdf:type rdf:resource="&iasted_ar;c-7706972-1723925"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iasted#Chichen_Itza -->
+
+    <owl:NamedIndividual rdf:about="&iasted;Chichen_Itza">
+        <rdf:type rdf:resource="&iasted_ar;c-7397025-5345675"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iasted#Mexico -->
+
+    <owl:NamedIndividual rdf:about="&iasted;Mexico">
+        <rdf:type rdf:resource="&iasted_ar;c-4988957-3112983"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iasted#peso -->
+
+    <owl:NamedIndividual rdf:about="&iasted;peso">
+        <rdf:type rdf:resource="&iasted_ar;c-2815832-4578186"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

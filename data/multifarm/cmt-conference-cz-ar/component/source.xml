@@ -1,0 +1,1089 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://cmt_cz#"
+     xml:base="http://cmt_cz"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:cmt_cz="http://cmt_cz#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://cmt_cz"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#label"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://cmt_cz#op-0432162-8398718 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-0432162-8398718">
+        <rdfs:label xml:lang="cs">člen konference</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_cz#c-0075317-8076564"/>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-7762278-1333457"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-0458224-9433253 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-0458224-9433253">
+        <rdfs:label xml:lang="cs">dokončit přidělení příspěvků konference</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_cz#c-0075317-8076564"/>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-9510493-7314978"/>
+        <owl:inverseOf rdf:resource="http://cmt_cz#op-5059116-9359721"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-0623795-6074869 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-0623795-6074869">
+        <rdfs:label xml:lang="cs">čte článek</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_cz#c-3460865-4718819"/>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-9999501-9567959"/>
+        <owl:inverseOf rdf:resource="http://cmt_cz#op-2458065-0360190"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-0966508-4834998 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-0966508-4834998">
+        <rdfs:label xml:lang="cs">zadání kritérií recenzí kým</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-0075317-8076564"/>
+        <rdfs:range rdf:resource="http://cmt_cz#c-9510493-7314978"/>
+        <owl:inverseOf rdf:resource="http://cmt_cz#op-3284481-2852944"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-1123799-1699346 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-1123799-1699346">
+        <rdfs:label xml:lang="cs">spustil přidělování článků konference</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_cz#c-0075317-8076564"/>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-9510493-7314978"/>
+        <owl:inverseOf rdf:resource="http://cmt_cz#op-5846805-0359309"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-1170545-9807724 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-1170545-9807724">
+        <rdfs:label xml:lang="cs">člen programového výboru</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-2078968-5732070"/>
+        <rdfs:range rdf:resource="http://cmt_cz#c-5802603-8520876"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-1303951-4931939 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-1303951-4931939">
+        <rdfs:label xml:lang="cs">tisk brožur konference</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_cz#c-0075317-8076564"/>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-9510493-7314978"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-1541405-5409026 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-1541405-5409026">
+        <rdfs:label xml:lang="cs">přidělen recenzent administrátorovi</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_cz#c-9510493-7314978"/>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-9999501-9567959"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-1579152-3151797 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-1579152-3151797">
+        <rdfs:label xml:lang="cs">odeslání článku</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-2277754-4158396"/>
+        <rdfs:range rdf:resource="http://cmt_cz#c-3460865-4718819"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-1979724-8617564 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-1979724-8617564">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="cs">napsal článek</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-2277754-4158396"/>
+        <rdfs:range rdf:resource="http://cmt_cz#c-3460865-4718819"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-2048853-9028952 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-2048853-9028952">
+        <rdfs:label xml:lang="cs">brožury vytištěny kým</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-0075317-8076564"/>
+        <rdfs:range rdf:resource="http://cmt_cz#c-9510493-7314978"/>
+        <owl:inverseOf rdf:resource="http://cmt_cz#op-1303951-4931939"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-2458065-0360190 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-2458065-0360190">
+        <rdfs:label xml:lang="cs">článek přečten recenzentem</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-3460865-4718819"/>
+        <rdfs:range rdf:resource="http://cmt_cz#c-9999501-9567959"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-2594333-0978557 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-2594333-0978557">
+        <rdfs:label xml:lang="cs">přidělení členů programového výboru administrátorem</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_cz#c-2078968-5732070"/>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-9510493-7314978"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-2719305-6116440 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-2719305-6116440">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="cs">má rozhodnutí</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-3460865-4718819"/>
+        <rdfs:range rdf:resource="http://cmt_cz#c-6068065-2346935"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-3100859-0106878 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-3100859-0106878">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="cs">přidán člen programového výboru</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-2078968-5732070"/>
+        <rdfs:range rdf:resource="http://cmt_cz#c-9510493-7314978"/>
+        <owl:inverseOf rdf:resource="http://cmt_cz#op-5595496-1359020"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-3145641-2703975 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-3145641-2703975">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="cs">přijal článek</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_cz#c-3460865-4718819"/>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-9510493-7314978"/>
+        <owl:inverseOf rdf:resource="http://cmt_cz#op-3439303-1005047"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-3249689-5706056 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-3249689-5706056">
+        <rdfs:label xml:lang="cs">má spoluautora</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-3460865-4718819"/>
+        <rdfs:range rdf:resource="http://cmt_cz#c-6954144-5167465"/>
+        <owl:inverseOf rdf:resource="http://cmt_cz#op-5233762-3966768"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-3284481-2852944 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-3284481-2852944">
+        <rdfs:label xml:lang="cs">vložit kritéria recenze</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_cz#c-0075317-8076564"/>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-9510493-7314978"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-3288010-0134836 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-3288010-0134836">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="cs">napsal recenzi</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_cz#c-5395109-0887878"/>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-9999501-9567959"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-3439303-1005047 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-3439303-1005047">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="cs">přijato kým</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-3460865-4718819"/>
+        <rdfs:range rdf:resource="http://cmt_cz#c-9510493-7314978"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-3595147-3775493 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-3595147-3775493">
+        <rdfs:label xml:lang="cs">umožnit virtuální schůzku konferenci</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_cz#c-0075317-8076564"/>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-9510493-7314978"/>
+        <owl:inverseOf rdf:resource="http://cmt_cz#op-5203575-7027520"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-3866300-3329332 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-3866300-3329332">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="cs">přidělen externí recenzent</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_cz#c-6084724-9952967"/>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-9999501-9567959"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-3939079-1765799 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-3939079-1765799">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="cs">článek napsal</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_cz#c-2277754-4158396"/>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-3460865-4718819"/>
+        <owl:inverseOf rdf:resource="http://cmt_cz#op-1979724-8617564"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-3978264-5994210 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-3978264-5994210">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="cs">zamítnut kým</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-3460865-4718819"/>
+        <rdfs:range rdf:resource="http://cmt_cz#c-9510493-7314978"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-4083995-9769205 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-4083995-9769205">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="cs">vyjádření zájmu upraveno</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-1710596-1174205"/>
+        <rdfs:range rdf:resource="http://cmt_cz#c-9999501-9567959"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-4417571-9636359 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-4417571-9636359">
+        <rdfs:label xml:lang="cs">přidělen recenzent</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-9510493-7314978"/>
+        <rdfs:range rdf:resource="http://cmt_cz#c-9999501-9567959"/>
+        <owl:inverseOf rdf:resource="http://cmt_cz#op-1541405-5409026"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-4503022-0671140 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-4503022-0671140">
+        <rdfs:label xml:lang="cs">označil konflikt zájmu</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_cz#c-3460865-4718819"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://cmt_cz#c-1109430-9892691"/>
+                    <rdf:Description rdf:about="http://cmt_cz#c-2277754-4158396"/>
+                    <rdf:Description rdf:about="http://cmt_cz#c-9999501-9567959"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-4698265-0483831 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-4698265-0483831">
+        <rdfs:label xml:lang="cs">recenzuje článek</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_cz#c-3460865-4718819"/>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-9999501-9567959"/>
+        <owl:inverseOf rdf:resource="http://cmt_cz#op-5600782-3305758"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-4736258-3439701 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-4736258-3439701">
+        <rdfs:label xml:lang="cs">uzavřít recenzi</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-4971341-0156307"/>
+        <rdfs:range rdf:resource="http://cmt_cz#c-5395109-0887878"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-4925705-2193515 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-4925705-2193515">
+        <rdfs:label xml:lang="cs">má konflikt zájmu s příspěvkem</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_cz#c-0452574-2080354"/>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-0578733-1857190"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-5049562-0017689 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-5049562-0017689">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="cs">přidělen meta-recenzent recenzentovi</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-6084724-9952967"/>
+        <rdfs:range rdf:resource="http://cmt_cz#c-9999501-9567959"/>
+        <owl:inverseOf rdf:resource="http://cmt_cz#op-3866300-3329332"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-5059116-9359721 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-5059116-9359721">
+        <rdfs:label xml:lang="cs">přidělení příspěvků dokončeno kým</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-0075317-8076564"/>
+        <rdfs:range rdf:resource="http://cmt_cz#c-9510493-7314978"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-5203575-7027520 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-5203575-7027520">
+        <rdfs:label xml:lang="cs">virtuální schůzka konference umožněna kým</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-0075317-8076564"/>
+        <rdfs:range rdf:resource="http://cmt_cz#c-9510493-7314978"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-5233762-3966768 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-5233762-3966768">
+        <rdfs:label xml:lang="cs">spoluautor příspěvku</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_cz#c-3460865-4718819"/>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-6954144-5167465"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-5235981-5122813 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-5235981-5122813">
+        <rdfs:label xml:lang="cs">pojednává o tématu</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_cz#c-0978466-4762816"/>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-3460865-4718819"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-5595496-1359020 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-5595496-1359020">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="cs">přidat člena programového výboru</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_cz#c-2078968-5732070"/>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-9510493-7314978"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-5600782-3305758 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-5600782-3305758">
+        <rdfs:label xml:lang="cs">přiděleno recenzentovi</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-3460865-4718819"/>
+        <rdfs:range rdf:resource="http://cmt_cz#c-9999501-9567959"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-5846805-0359309 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-5846805-0359309">
+        <rdfs:label xml:lang="cs">nástroj pro přídělení příspěvků spuštěn kým</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-0075317-8076564"/>
+        <rdfs:range rdf:resource="http://cmt_cz#c-9510493-7314978"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-6176936-7944974 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-6176936-7944974">
+        <rdfs:label xml:lang="cs">zahájil vyjadřování zájmu recenzentů</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_cz#c-0075317-8076564"/>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-9510493-7314978"/>
+        <owl:inverseOf rdf:resource="http://cmt_cz#op-6923946-9687405"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-6923946-9687405 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-6923946-9687405">
+        <rdfs:label xml:lang="cs">vyjadření zájmu spuštěno kým</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-0075317-8076564"/>
+        <rdfs:range rdf:resource="http://cmt_cz#c-9510493-7314978"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-7603017-3460209 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-7603017-3460209">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="cs">upravit vyjádření zájmu</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_cz#c-1710596-1174205"/>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-9999501-9567959"/>
+        <owl:inverseOf rdf:resource="http://cmt_cz#op-4083995-9769205"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-8454321-5609778 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-8454321-5609778">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="cs">recenze napsána kým</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-5395109-0887878"/>
+        <rdfs:range rdf:resource="http://cmt_cz#c-9999501-9567959"/>
+        <owl:inverseOf rdf:resource="http://cmt_cz#op-3288010-0134836"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-8492450-4994485 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-8492450-4994485">
+        <rdfs:label xml:lang="cs">vložit podrobnosti konference</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_cz#c-0075317-8076564"/>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-9510493-7314978"/>
+        <owl:inverseOf rdf:resource="http://cmt_cz#op-9028664-9440680"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-8543092-2688723 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-8543092-2688723">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="cs">zamítnul článek</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_cz#c-3460865-4718819"/>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-9510493-7314978"/>
+        <owl:inverseOf rdf:resource="http://cmt_cz#op-3978264-5994210"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-8644966-5327331 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-8644966-5327331">
+        <rdfs:label xml:lang="cs">má člena programového výboru</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_cz#c-2078968-5732070"/>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-5802603-8520876"/>
+        <owl:inverseOf rdf:resource="http://cmt_cz#op-1170545-9807724"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-9028664-9440680 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-9028664-9440680">
+        <rdfs:label xml:lang="cs">podrobnosti vloženy kým</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-0075317-8076564"/>
+        <rdfs:range rdf:resource="http://cmt_cz#c-9510493-7314978"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-9555015-4440565 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-9555015-4440565">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="cs">má vyjádření zájmu</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_cz#c-1710596-1174205"/>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-3460865-4718819"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-9655662-7845361 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-9655662-7845361">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="cs">článek přečten meta-recenzentem</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-3460865-4718819"/>
+        <rdfs:range rdf:resource="http://cmt_cz#c-4768517-7614612"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_cz#op-9778175-4696720 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_cz#op-9778175-4696720">
+        <rdfs:label xml:lang="cs">má člena konference</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-0075317-8076564"/>
+        <rdfs:range rdf:resource="http://cmt_cz#c-7762278-1333457"/>
+        <owl:inverseOf rdf:resource="http://cmt_cz#op-0432162-8398718"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://cmt_cz#ent-0734097-6608972 -->
+
+    <owl:DatatypeProperty rdf:about="http://cmt_cz#ent-0734097-6608972">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="cs">logo konference má URL</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-0075317-8076564"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://cmt_cz#ent-3122496-0070100 -->
+
+    <owl:DatatypeProperty rdf:about="http://cmt_cz#ent-3122496-0070100">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="cs">konference má recenzí na článek</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-0075317-8076564"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://cmt_cz#ent-4323430-0231880 -->
+
+    <owl:DatatypeProperty rdf:about="http://cmt_cz#ent-4323430-0231880">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="cs">článek má ID</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-3460865-4718819"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedLong"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://cmt_cz#ent-4819789-5630843 -->
+
+    <owl:DatatypeProperty rdf:about="http://cmt_cz#ent-4819789-5630843">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="cs">nastavil maximální počet recenzí</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-2078968-5732070"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://cmt_cz#ent-4932889-3833748 -->
+
+    <owl:DatatypeProperty rdf:about="http://cmt_cz#ent-4932889-3833748">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="cs">článek má název</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-3460865-4718819"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://cmt_cz#ent-4999871-0113227 -->
+
+    <owl:DatatypeProperty rdf:about="http://cmt_cz#ent-4999871-0113227">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="cs">má jméno</rdfs:label>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://cmt_cz#c-0075317-8076564"/>
+                    <rdf:Description rdf:about="http://cmt_cz#c-0578733-1857190"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://cmt_cz#ent-5109242-0314878 -->
+
+    <owl:DatatypeProperty rdf:about="http://cmt_cz#ent-5109242-0314878">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="cs">akceptovány příspěvky konference pro tisk</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-0075317-8076564"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://cmt_cz#ent-7179792-9328317 -->
+
+    <owl:DatatypeProperty rdf:about="http://cmt_cz#ent-7179792-9328317">
+        <rdfs:label xml:lang="cs">datum konference</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-0075317-8076564"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://cmt_cz#ent-8942207-0853588 -->
+
+    <owl:DatatypeProperty rdf:about="http://cmt_cz#ent-8942207-0853588">
+        <rdfs:label xml:lang="cs">má email</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-0578733-1857190"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://cmt_cz#ent-9613142-1273747 -->
+
+    <owl:DatatypeProperty rdf:about="http://cmt_cz#ent-9613142-1273747">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="cs">webová stránka konference má URL</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_cz#c-0075317-8076564"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://cmt_cz#c-0075317-8076564 -->
+
+    <owl:Class rdf:about="http://cmt_cz#c-0075317-8076564">
+        <rdfs:label xml:lang="cs">konference</rdfs:label>
+        <!--v2<rdfs:subClassOf rdf:resource="http://cmt_cz#c-8295859-7506741"/>-->
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cmt_cz#ent-3122496-0070100"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cmt_cz#ent-7179792-9328317"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cmt_cz#ent-4999871-0113227"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://cmt_cz#c-0452574-2080354"/>
+        <owl:disjointWith rdf:resource="http://cmt_cz#c-0578733-1857190"/>
+        <owl:disjointWith rdf:resource="http://cmt_cz#c-0754816-7898339"/>
+        <owl:disjointWith rdf:resource="http://cmt_cz#c-1710596-1174205"/>
+        <owl:disjointWith rdf:resource="http://cmt_cz#c-5802603-8520876"/>
+        <owl:disjointWith rdf:resource="http://cmt_cz#c-6068065-2346935"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_cz#c-0128535-7854643 -->
+
+    <owl:Class rdf:about="http://cmt_cz#c-0128535-7854643">
+        <rdfs:label xml:lang="cs">autor který není recenzent</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_cz#c-2277754-4158396"/>
+        <owl:disjointWith rdf:resource="http://cmt_cz#c-2078968-5732070"/>
+        <owl:disjointWith rdf:resource="http://cmt_cz#c-9999501-9567959"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_cz#c-0452574-2080354 -->
+
+    <owl:Class rdf:about="http://cmt_cz#c-0452574-2080354">
+        <rdfs:label xml:lang="cs">dokument</rdfs:label>
+        <owl:disjointWith rdf:resource="http://cmt_cz#c-0578733-1857190"/>
+        <owl:disjointWith rdf:resource="http://cmt_cz#c-0754816-7898339"/>
+        <owl:disjointWith rdf:resource="http://cmt_cz#c-1710596-1174205"/>
+        <owl:disjointWith rdf:resource="http://cmt_cz#c-5802603-8520876"/>
+        <owl:disjointWith rdf:resource="http://cmt_cz#c-6068065-2346935"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_cz#c-0578733-1857190 -->
+
+    <owl:Class rdf:about="http://cmt_cz#c-0578733-1857190">
+        <rdfs:label xml:lang="cs">osoba</rdfs:label>
+        <owl:disjointWith rdf:resource="http://cmt_cz#c-0754816-7898339"/>
+        <owl:disjointWith rdf:resource="http://cmt_cz#c-1710596-1174205"/>
+        <owl:disjointWith rdf:resource="http://cmt_cz#c-5802603-8520876"/>
+        <owl:disjointWith rdf:resource="http://cmt_cz#c-6068065-2346935"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_cz#c-0754816-7898339 -->
+
+    <owl:Class rdf:about="http://cmt_cz#c-0754816-7898339">
+        <rdfs:label xml:lang="cs">preference</rdfs:label>
+        <owl:disjointWith rdf:resource="http://cmt_cz#c-1710596-1174205"/>
+        <owl:disjointWith rdf:resource="http://cmt_cz#c-5802603-8520876"/>
+        <owl:disjointWith rdf:resource="http://cmt_cz#c-6068065-2346935"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_cz#c-0978466-4762816 -->
+
+    <owl:Class rdf:about="http://cmt_cz#c-0978466-4762816">
+        <rdfs:label xml:lang="cs">předmětná oblast</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_cz#c-1109430-9892691 -->
+
+    <owl:Class rdf:about="http://cmt_cz#c-1109430-9892691">
+        <rdfs:label xml:lang="cs">předseda</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://cmt_cz#c-2063214-6676250"/>
+                    <rdf:Description rdf:about="http://cmt_cz#c-4499023-9965815"/>
+                    <rdf:Description rdf:about="http://cmt_cz#c-4971341-0156307"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://cmt_cz#c-0578733-1857190"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_cz#c-1435667-7309116 -->
+
+    <owl:Class rdf:about="http://cmt_cz#c-1435667-7309116">
+        <rdfs:label xml:lang="cs">řádný článek</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_cz#c-3460865-4718819"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_cz#c-1710596-1174205 -->
+
+    <owl:Class rdf:about="http://cmt_cz#c-1710596-1174205">
+        <rdfs:label xml:lang="cs">vyjádření zájmu</rdfs:label>
+        <owl:disjointWith rdf:resource="http://cmt_cz#c-5802603-8520876"/>
+        <owl:disjointWith rdf:resource="http://cmt_cz#c-6068065-2346935"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_cz#c-2063214-6676250 -->
+
+    <owl:Class rdf:about="http://cmt_cz#c-2063214-6676250">
+        <rdfs:label xml:lang="cs">spolupředseda</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_cz#c-7762278-1333457"/>
+        <owl:disjointWith rdf:resource="http://cmt_cz#c-4499023-9965815"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_cz#c-2078968-5732070 -->
+
+    <owl:Class rdf:about="http://cmt_cz#c-2078968-5732070">
+        <rdfs:label xml:lang="cs">člen programového výboru</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_cz#c-0578733-1857190"/>
+        <rdfs:subClassOf rdf:resource="http://cmt_cz#c-7762278-1333457"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_cz#c-2277754-4158396 -->
+
+    <owl:Class rdf:about="http://cmt_cz#c-2277754-4158396">
+        <rdfs:label xml:lang="cs">autor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_cz#c-4308335-5096551"/>
+        <rdfs:subClassOf rdf:resource="http://cmt_cz#c-7762278-1333457"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_cz#c-3460865-4718819 -->
+
+    <owl:Class rdf:about="http://cmt_cz#c-3460865-4718819">
+        <rdfs:label xml:lang="cs">článek</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_cz#c-0452574-2080354"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cmt_cz#op-2719305-6116440"/>
+                <!--v2<owl:onClass rdf:resource="http://cmt_cz#c-8295859-7506741"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>-->
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cmt_cz#op-9655662-7845361"/>
+                <!--v2<owl:onClass rdf:resource="http://cmt_cz#c-8295859-7506741"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>-->
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cmt_cz#op-2719305-6116440"/>
+                <!--<owl:onClass rdf:resource="http://cmt_cz#c-8295859-7506741"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>-->
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cmt_cz#op-2458065-0360190"/>
+                <!--v2<owl:onClass rdf:resource="http://cmt_cz#c-8295859-7506741"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>-->
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://cmt_cz#c-5395109-0887878"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_cz#c-4308335-5096551 -->
+
+    <owl:Class rdf:about="http://cmt_cz#c-4308335-5096551">
+        <rdfs:label xml:lang="cs">uživatel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_cz#c-0578733-1857190"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_cz#c-4396461-6855991 -->
+
+    <owl:Class rdf:about="http://cmt_cz#c-4396461-6855991">
+        <rdfs:label xml:lang="cs">přijetí</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_cz#c-6068065-2346935"/>
+        <owl:disjointWith rdf:resource="http://cmt_cz#c-8922348-5805928"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_cz#c-4499023-9965815 -->
+
+    <owl:Class rdf:about="http://cmt_cz#c-4499023-9965815">
+        <rdfs:label xml:lang="cs">předseda konference</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_cz#c-7762278-1333457"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_cz#c-4568940-5424482 -->
+
+    <owl:Class rdf:about="http://cmt_cz#c-4568940-5424482">
+        <rdfs:label xml:lang="cs">krátký článek</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_cz#c-3460865-4718819"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_cz#c-4768517-7614612 -->
+
+    <owl:Class rdf:about="http://cmt_cz#c-4768517-7614612">
+        <rdfs:label xml:lang="cs">meta-recenzent</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_cz#c-9999501-9567959"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_cz#c-4971341-0156307 -->
+
+    <owl:Class rdf:about="http://cmt_cz#c-4971341-0156307">
+        <rdfs:label xml:lang="cs">předseda programového výboru</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_cz#c-2078968-5732070"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_cz#c-5395109-0887878 -->
+
+    <owl:Class rdf:about="http://cmt_cz#c-5395109-0887878">
+        <rdfs:label xml:lang="cs">recenze</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_cz#c-0452574-2080354"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_cz#c-5802603-8520876 -->
+
+    <owl:Class rdf:about="http://cmt_cz#c-5802603-8520876">
+        <rdfs:label xml:lang="cs">programový výbor</rdfs:label>
+        <owl:disjointWith rdf:resource="http://cmt_cz#c-6068065-2346935"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_cz#c-6068065-2346935 -->
+
+    <owl:Class rdf:about="http://cmt_cz#c-6068065-2346935">
+        <rdfs:label xml:lang="cs">rozhodnutí</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_cz#c-6084724-9952967 -->
+
+    <owl:Class rdf:about="http://cmt_cz#c-6084724-9952967">
+        <rdfs:label xml:lang="cs">externí recenzent</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_cz#c-0578733-1857190"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cmt_cz#op-5049562-0017689"/>
+                <!--<owl:onClass rdf:resource="http://cmt_cz#c-8295859-7506741"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>-->
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://cmt_cz#c-9999501-9567959"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_cz#c-6909402-0737569 -->
+
+    <owl:Class rdf:about="http://cmt_cz#c-6909402-0737569">
+        <rdfs:label xml:lang="cs">meta-recenze</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_cz#c-5395109-0887878"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_cz#c-6954144-5167465 -->
+
+    <owl:Class rdf:about="http://cmt_cz#c-6954144-5167465">
+        <rdfs:label xml:lang="cs">spoluautor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_cz#c-2277754-4158396"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_cz#c-7762278-1333457 -->
+
+    <owl:Class rdf:about="http://cmt_cz#c-7762278-1333457">
+        <rdfs:label xml:lang="cs">osoba s účastí na konferenci</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_cz#c-0578733-1857190"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_cz#c-8295859-7506741 -->
+   
+    <!--v2<owl:Class rdf:about="http://cmt_cz#c-8295859-7506741">
+        <rdfs:label xml:lang="cs">null</rdfs:label>
+    </owl:Class>-->
+    
+
+
+    <!-- http://cmt_cz#c-8922348-5805928 -->
+
+    <owl:Class rdf:about="http://cmt_cz#c-8922348-5805928">
+        <rdfs:label xml:lang="cs">zamítnutí</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_cz#c-6068065-2346935"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_cz#c-9510493-7314978 -->
+
+    <owl:Class rdf:about="http://cmt_cz#c-9510493-7314978">
+        <rdfs:label xml:lang="cs">administrátor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_cz#c-4308335-5096551"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_cz#c-9999501-9567959 -->
+
+    <owl:Class rdf:about="http://cmt_cz#c-9999501-9567959">
+        <rdfs:label xml:lang="cs">recenzent</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_cz#c-4308335-5096551"/>
+        <rdfs:subClassOf rdf:resource="http://cmt_cz#c-7762278-1333457"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.1592) http://owlapi.sourceforge.net -->
+

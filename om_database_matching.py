@@ -424,7 +424,7 @@ def validate(a: str, b: str) -> str:
     """Validate matching."""
     util.print_colored_text(f"Validate matching: {a} and {b}", "cyan")
     # tool function
-    prompt_validate_question = f"""Question: Is the term "{a}" often used interchangeably with the term"{b}"?
+    prompt_validate_question = f"""Question: Is "{a}" interchangeable with "{b}"?
                             Context: {context}
                             Answer the question within the context.
                             Answer yes or no. Give a short explanation.

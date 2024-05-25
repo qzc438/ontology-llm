@@ -1,0 +1,1089 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://cmt_nl#"
+     xml:base="http://cmt_nl"
+     xmlns:cmt_nl="http://cmt_nl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://cmt_nl"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#label"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://cmt_nl#op-0256661-7943957 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-0256661-7943957">
+        <rdfs:label xml:lang="nl">virtuele vergadering toegelaten door</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-4994957-2932971"/>
+        <rdfs:range rdf:resource="http://cmt_nl#c-5118955-8762087"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-0296431-9591147 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-0296431-9591147">
+        <rdfs:label xml:lang="nl">markeer belangenverstrengeling</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_nl#c-4855446-2072057"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://cmt_nl#c-0236412-8230972"/>
+                    <rdf:Description rdf:about="http://cmt_nl#c-0406770-7176287"/>
+                    <rdf:Description rdf:about="http://cmt_nl#c-8260644-2482124"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-0519334-3183285 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-0519334-3183285">
+        <rdfs:label xml:lang="nl">dien artikel in</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_nl#c-4855446-2072057"/>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-8260644-2482124"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-0523999-6462363 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-0523999-6462363">
+        <rdfs:label xml:lang="nl">toekenning artikel afgemaakt door</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-4994957-2932971"/>
+        <rdfs:range rdf:resource="http://cmt_nl#c-5118955-8762087"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-0774476-4286529 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-0774476-4286529">
+        <rdfs:label xml:lang="nl">gelezen door reviewer</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_nl#c-0236412-8230972"/>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-4855446-2072057"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-0909364-0464715 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-0909364-0464715">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="nl">heeft bod</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_nl#c-0770334-7584608"/>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-4855446-2072057"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-1143720-6793544 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-1143720-6793544">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="nl">accepteer artikel</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_nl#c-4855446-2072057"/>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-5118955-8762087"/>
+        <owl:inverseOf rdf:resource="http://cmt_nl#op-7376349-1700696"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-1373374-6702784 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-1373374-6702784">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">geschreven door</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_nl#c-0236412-8230972"/>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-9264154-4017894"/>
+        <owl:inverseOf rdf:resource="http://cmt_nl#op-9403881-2957804"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-1467853-6286543 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-1467853-6286543">
+        <rdfs:label xml:lang="nl">stel maximaal aantal artikelen in</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_nl#c-4695512-1959604"/>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-5118955-8762087"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-1584408-3585676 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-1584408-3585676">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">toegevoegd door</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-4695512-1959604"/>
+        <rdfs:range rdf:resource="http://cmt_nl#c-5118955-8762087"/>
+        <owl:inverseOf rdf:resource="http://cmt_nl#op-7371149-4679769"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-1611615-2768409 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-1611615-2768409">
+        <rdfs:label xml:lang="nl">lid van conferentie</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-3510433-8388657"/>
+        <rdfs:range rdf:resource="http://cmt_nl#c-4994957-2932971"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-1801780-9127544 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-1801780-9127544">
+        <rdfs:label xml:lang="nl">gebruik artikel toewijzings tool</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_nl#c-4994957-2932971"/>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-5118955-8762087"/>
+        <owl:inverseOf rdf:resource="http://cmt_nl#op-5132912-6035125"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-1876243-7212286 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-1876243-7212286">
+        <rdfs:label xml:lang="nl">heeft coauteur</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_nl#c-0744921-3144577"/>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-4855446-2072057"/>
+        <owl:inverseOf rdf:resource="http://cmt_nl#op-2090498-3671647"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-2025749-1022648 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-2025749-1022648">
+        <rdfs:label xml:lang="nl">eindrecentie</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_nl#c-9264154-4017894"/>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-9414933-6644081"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-2090498-3671647 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-2090498-3671647">
+        <rdfs:label xml:lang="nl">co-schrijf artikel</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-0744921-3144577"/>
+        <rdfs:range rdf:resource="http://cmt_nl#c-4855446-2072057"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-2364490-1036581 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-2364490-1036581">
+        <rdfs:label xml:lang="nl">maak toewijzing artikel af</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_nl#c-4994957-2932971"/>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-5118955-8762087"/>
+        <owl:inverseOf rdf:resource="http://cmt_nl#op-0523999-6462363"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-3259179-7759191 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-3259179-7759191">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="nl">schrijf artikel</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_nl#c-4855446-2072057"/>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-8260644-2482124"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-3400188-4431436 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-3400188-4431436">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="nl">wijs artikel af</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_nl#c-4855446-2072057"/>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-5118955-8762087"/>
+        <owl:inverseOf rdf:resource="http://cmt_nl#op-8237122-7939633"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-4146848-9209857 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-4146848-9209857">
+        <rdfs:label xml:lang="nl">artikel gelezen</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-0236412-8230972"/>
+        <rdfs:range rdf:resource="http://cmt_nl#c-4855446-2072057"/>
+        <owl:inverseOf rdf:resource="http://cmt_nl#op-0774476-4286529"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-4196454-0996130 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-4196454-0996130">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="nl">pas bod aan</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-0236412-8230972"/>
+        <rdfs:range rdf:resource="http://cmt_nl#c-0770334-7584608"/>
+        <owl:inverseOf rdf:resource="http://cmt_nl#op-6921089-3789460"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-4287320-9139181 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-4287320-9139181">
+        <rdfs:label xml:lang="nl">vul recentie criteria in</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_nl#c-4994957-2932971"/>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-5118955-8762087"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-4408599-6298536 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-4408599-6298536">
+        <rdfs:label xml:lang="nl">vul conferentie details in</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_nl#c-4994957-2932971"/>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-5118955-8762087"/>
+        <owl:inverseOf rdf:resource="http://cmt_nl#op-5928292-4023284"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-4445321-5207067 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-4445321-5207067">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">heeft auteur</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-4855446-2072057"/>
+        <rdfs:range rdf:resource="http://cmt_nl#c-8260644-2482124"/>
+        <owl:inverseOf rdf:resource="http://cmt_nl#op-3259179-7759191"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-4599361-4435013 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-4599361-4435013">
+        <rdfs:label xml:lang="nl">heeft onderwerp</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_nl#c-0120110-7787945"/>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-4855446-2072057"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-4936685-8956236 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-4936685-8956236">
+        <rdfs:label xml:lang="nl">hardcopy verstuurbewijs</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_nl#c-4994957-2932971"/>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-5118955-8762087"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-5132912-6035125 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-5132912-6035125">
+        <rdfs:label xml:lang="nl">toekenning artikel tool gebruikt door</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-4994957-2932971"/>
+        <rdfs:range rdf:resource="http://cmt_nl#c-5118955-8762087"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-5928292-4023284 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-5928292-4023284">
+        <rdfs:label xml:lang="nl">details ingevuld door</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-4994957-2932971"/>
+        <rdfs:range rdf:resource="http://cmt_nl#c-5118955-8762087"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-6074302-8347468 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-6074302-8347468">
+        <rdfs:label xml:lang="nl">heeft programmacommisie lid</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-1467412-7387436"/>
+        <rdfs:range rdf:resource="http://cmt_nl#c-4695512-1959604"/>
+        <owl:inverseOf rdf:resource="http://cmt_nl#op-7834403-9736912"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-6212167-8679664 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-6212167-8679664">
+        <rdfs:label xml:lang="nl">toegewezen door beheerder</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-0236412-8230972"/>
+        <rdfs:range rdf:resource="http://cmt_nl#c-5118955-8762087"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-6218286-1433549 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-6218286-1433549">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">toegewezen door recencent</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_nl#c-0236412-8230972"/>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-3276253-9620830"/>
+        <owl:inverseOf rdf:resource="http://cmt_nl#op-9425328-4984900"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-6828250-7051566 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-6828250-7051566">
+        <rdfs:label xml:lang="nl">begin recentie bieden</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_nl#c-4994957-2932971"/>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-5118955-8762087"/>
+        <owl:inverseOf rdf:resource="http://cmt_nl#op-8708592-1030663"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-6831750-4006974 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-6831750-4006974">
+        <rdfs:label xml:lang="nl">toegewezen aan</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_nl#c-0236412-8230972"/>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-4855446-2072057"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-6921089-3789460 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-6921089-3789460">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">aangepast door</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_nl#c-0236412-8230972"/>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-0770334-7584608"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-7140084-4068620 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-7140084-4068620">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">gelezen door metarecencent</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-4855446-2072057"/>
+        <rdfs:range rdf:resource="http://cmt_nl#c-8033257-4796081"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-7248083-3019037 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-7248083-3019037">
+        <rdfs:label xml:lang="nl">recentie criteria ingevuld door</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-4994957-2932971"/>
+        <rdfs:range rdf:resource="http://cmt_nl#c-5118955-8762087"/>
+        <owl:inverseOf rdf:resource="http://cmt_nl#op-4287320-9139181"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-7353509-4489319 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-7353509-4489319">
+        <rdfs:label xml:lang="nl">hardcopy verstuurbewijs afgedrukt door</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-4994957-2932971"/>
+        <rdfs:range rdf:resource="http://cmt_nl#c-5118955-8762087"/>
+        <owl:inverseOf rdf:resource="http://cmt_nl#op-4936685-8956236"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-7371149-4679769 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-7371149-4679769">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="nl">voeg programmacommissie lid toe</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_nl#c-4695512-1959604"/>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-5118955-8762087"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-7376349-1700696 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-7376349-1700696">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="nl">geaccepteerd door</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-4855446-2072057"/>
+        <rdfs:range rdf:resource="http://cmt_nl#c-5118955-8762087"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-7834403-9736912 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-7834403-9736912">
+        <rdfs:label xml:lang="nl">lid van programmacommissie</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_nl#c-1467412-7387436"/>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-4695512-1959604"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-7846388-0107925 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-7846388-0107925">
+        <rdfs:label xml:lang="nl">heeft belangenverstrengeling</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_nl#c-4926854-0907990"/>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-9971141-2642146"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-8237122-7939633 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-8237122-7939633">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">afgewezen door</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-4855446-2072057"/>
+        <rdfs:range rdf:resource="http://cmt_nl#c-5118955-8762087"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-8406162-2537450 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-8406162-2537450">
+        <rdfs:label xml:lang="nl">laat virtuele vergadering toe</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_nl#c-4994957-2932971"/>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-5118955-8762087"/>
+        <owl:inverseOf rdf:resource="http://cmt_nl#op-0256661-7943957"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-8438559-9530997 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-8438559-9530997">
+        <rdfs:label xml:lang="nl">heeft conferentielid</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_nl#c-3510433-8388657"/>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-4994957-2932971"/>
+        <owl:inverseOf rdf:resource="http://cmt_nl#op-1611615-2768409"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-8708592-1030663 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-8708592-1030663">
+        <rdfs:label xml:lang="nl">recentie bieden begonnen door</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-4994957-2932971"/>
+        <rdfs:range rdf:resource="http://cmt_nl#c-5118955-8762087"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-9403881-2957804 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-9403881-2957804">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="nl">schrijf recentie</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-0236412-8230972"/>
+        <rdfs:range rdf:resource="http://cmt_nl#c-9264154-4017894"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-9425328-4984900 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-9425328-4984900">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="nl">wijs externe recencent toe</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-0236412-8230972"/>
+        <rdfs:range rdf:resource="http://cmt_nl#c-3276253-9620830"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-9539250-4477006 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-9539250-4477006">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">heeft beslissing</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_nl#c-3466158-7243163"/>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-4855446-2072057"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-9645394-6959392 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-9645394-6959392">
+        <rdfs:label xml:lang="nl">is toegekend</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-0236412-8230972"/>
+        <rdfs:range rdf:resource="http://cmt_nl#c-4855446-2072057"/>
+        <owl:inverseOf rdf:resource="http://cmt_nl#op-6831750-4006974"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://cmt_nl#op-9991650-4002037 -->
+
+    <owl:ObjectProperty rdf:about="http://cmt_nl#op-9991650-4002037">
+        <rdfs:label xml:lang="nl">wijs recencent toe</rdfs:label>
+        <rdfs:range rdf:resource="http://cmt_nl#c-0236412-8230972"/>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-5118955-8762087"/>
+        <owl:inverseOf rdf:resource="http://cmt_nl#op-6212167-8679664"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://cmt_nl#ent-0153188-2394879 -->
+
+    <owl:DatatypeProperty rdf:about="http://cmt_nl#ent-0153188-2394879">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">recenties per artikel</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-4994957-2932971"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://cmt_nl#ent-0432108-2425971 -->
+
+    <owl:DatatypeProperty rdf:about="http://cmt_nl#ent-0432108-2425971">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">accepteerd hardcopy submissies</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-4994957-2932971"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://cmt_nl#ent-1080357-2529679 -->
+
+    <owl:DatatypeProperty rdf:about="http://cmt_nl#ent-1080357-2529679">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">paper ID</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-4855446-2072057"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#unsignedLong"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://cmt_nl#ent-2204821-8186148 -->
+
+    <owl:DatatypeProperty rdf:about="http://cmt_nl#ent-2204821-8186148">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">naam</rdfs:label>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://cmt_nl#c-4994957-2932971"/>
+                    <rdf:Description rdf:about="http://cmt_nl#c-9971141-2642146"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://cmt_nl#ent-3886480-3876987 -->
+
+    <owl:DatatypeProperty rdf:about="http://cmt_nl#ent-3886480-3876987">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">website URL</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-4994957-2932971"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://cmt_nl#ent-6307800-0367561 -->
+
+    <owl:DatatypeProperty rdf:about="http://cmt_nl#ent-6307800-0367561">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">logo URL</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-4994957-2932971"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://cmt_nl#ent-6646972-0021642 -->
+
+    <owl:DatatypeProperty rdf:about="http://cmt_nl#ent-6646972-0021642">
+        <rdfs:label xml:lang="nl">datum</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-4994957-2932971"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://cmt_nl#ent-7973835-4912921 -->
+
+    <owl:DatatypeProperty rdf:about="http://cmt_nl#ent-7973835-4912921">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">maximum aantal artikelen</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-4695512-1959604"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://cmt_nl#ent-8290813-8218301 -->
+
+    <owl:DatatypeProperty rdf:about="http://cmt_nl#ent-8290813-8218301">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="nl">titel</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-4855446-2072057"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://cmt_nl#ent-9559932-7500512 -->
+
+    <owl:DatatypeProperty rdf:about="http://cmt_nl#ent-9559932-7500512">
+        <rdfs:label xml:lang="nl">email</rdfs:label>
+        <rdfs:domain rdf:resource="http://cmt_nl#c-9971141-2642146"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://cmt_nl#c-0120110-7787945 -->
+
+    <owl:Class rdf:about="http://cmt_nl#c-0120110-7787945">
+        <rdfs:label xml:lang="nl">onderwerp</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_nl#c-0236412-8230972 -->
+
+    <owl:Class rdf:about="http://cmt_nl#c-0236412-8230972">
+        <rdfs:label xml:lang="nl">recensent</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_nl#c-3510433-8388657"/>
+        <rdfs:subClassOf rdf:resource="http://cmt_nl#c-6806494-0726611"/>
+        <owl:disjointWith rdf:resource="http://cmt_nl#c-2893658-5611916"/>
+        <owl:disjointWith rdf:resource="http://cmt_nl#c-3276253-9620830"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_nl#c-0406770-7176287 -->
+
+    <owl:Class rdf:about="http://cmt_nl#c-0406770-7176287">
+        <rdfs:label xml:lang="nl">voorzitter</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://cmt_nl#c-6791107-3060260"/>
+                    <rdf:Description rdf:about="http://cmt_nl#c-7849747-5068229"/>
+                    <rdf:Description rdf:about="http://cmt_nl#c-9414933-6644081"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://cmt_nl#c-9971141-2642146"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_nl#c-0744921-3144577 -->
+
+    <owl:Class rdf:about="http://cmt_nl#c-0744921-3144577">
+        <rdfs:label xml:lang="nl">coauteur</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_nl#c-8260644-2482124"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_nl#c-0770334-7584608 -->
+
+    <owl:Class rdf:about="http://cmt_nl#c-0770334-7584608">
+        <rdfs:label xml:lang="nl">bod</rdfs:label>
+        <owl:disjointWith rdf:resource="http://cmt_nl#c-1467412-7387436"/>
+        <owl:disjointWith rdf:resource="http://cmt_nl#c-3466158-7243163"/>
+        <owl:disjointWith rdf:resource="http://cmt_nl#c-4582130-1910383"/>
+        <owl:disjointWith rdf:resource="http://cmt_nl#c-4926854-0907990"/>
+        <owl:disjointWith rdf:resource="http://cmt_nl#c-4994957-2932971"/>
+        <owl:disjointWith rdf:resource="http://cmt_nl#c-9971141-2642146"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_nl#c-1467412-7387436 -->
+
+    <owl:Class rdf:about="http://cmt_nl#c-1467412-7387436">
+        <rdfs:label xml:lang="nl">programmacommissie</rdfs:label>
+        <owl:disjointWith rdf:resource="http://cmt_nl#c-3466158-7243163"/>
+        <owl:disjointWith rdf:resource="http://cmt_nl#c-4582130-1910383"/>
+        <owl:disjointWith rdf:resource="http://cmt_nl#c-4926854-0907990"/>
+        <owl:disjointWith rdf:resource="http://cmt_nl#c-4994957-2932971"/>
+        <owl:disjointWith rdf:resource="http://cmt_nl#c-9971141-2642146"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_nl#c-1711425-2244009 -->
+
+    <owl:Class rdf:about="http://cmt_nl#c-1711425-2244009">
+        <rdfs:label xml:lang="nl">metarecentie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_nl#c-9264154-4017894"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_nl#c-2893658-5611916 -->
+
+    <owl:Class rdf:about="http://cmt_nl#c-2893658-5611916">
+        <rdfs:label xml:lang="nl">auteur niet-recensent</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_nl#c-8260644-2482124"/>
+        <owl:disjointWith rdf:resource="http://cmt_nl#c-4695512-1959604"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_nl#c-3276253-9620830 -->
+
+    <owl:Class rdf:about="http://cmt_nl#c-3276253-9620830">
+        <rdfs:label xml:lang="nl">externe recencent</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_nl#c-9971141-2642146"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cmt_nl#op-6218286-1433549"/>
+                <!--v2<owl:onClass rdf:resource="http://cmt_nl#c-9412806-1154310"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>-->
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_nl#c-3466158-7243163 -->
+
+    <owl:Class rdf:about="http://cmt_nl#c-3466158-7243163">
+        <rdfs:label xml:lang="nl">beslissing</rdfs:label>
+        <owl:disjointWith rdf:resource="http://cmt_nl#c-4582130-1910383"/>
+        <owl:disjointWith rdf:resource="http://cmt_nl#c-4926854-0907990"/>
+        <owl:disjointWith rdf:resource="http://cmt_nl#c-4994957-2932971"/>
+        <owl:disjointWith rdf:resource="http://cmt_nl#c-9971141-2642146"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_nl#c-3510433-8388657 -->
+
+    <owl:Class rdf:about="http://cmt_nl#c-3510433-8388657">
+        <rdfs:label xml:lang="nl">conferentielid</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_nl#c-9971141-2642146"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_nl#c-3874111-1901895 -->
+
+    <owl:Class rdf:about="http://cmt_nl#c-3874111-1901895">
+        <rdfs:label xml:lang="nl">afwijzing</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_nl#c-3466158-7243163"/>
+        <owl:disjointWith rdf:resource="http://cmt_nl#c-4951597-8295121"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_nl#c-4582130-1910383 -->
+
+    <owl:Class rdf:about="http://cmt_nl#c-4582130-1910383">
+        <rdfs:label xml:lang="nl">voorkeur</rdfs:label>
+        <owl:disjointWith rdf:resource="http://cmt_nl#c-4926854-0907990"/>
+        <owl:disjointWith rdf:resource="http://cmt_nl#c-4994957-2932971"/>
+        <owl:disjointWith rdf:resource="http://cmt_nl#c-9971141-2642146"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_nl#c-4695512-1959604 -->
+
+    <owl:Class rdf:about="http://cmt_nl#c-4695512-1959604">
+        <rdfs:label xml:lang="nl">programmacommissie lid</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_nl#c-3510433-8388657"/>
+        <rdfs:subClassOf rdf:resource="http://cmt_nl#c-9971141-2642146"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_nl#c-4855446-2072057 -->
+
+    <owl:Class rdf:about="http://cmt_nl#c-4855446-2072057">
+        <rdfs:label xml:lang="nl">artikel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_nl#c-4926854-0907990"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cmt_nl#op-9539250-4477006"/>
+                <!--<owl:onClass rdf:resource="http://cmt_nl#c-9412806-1154310"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>-->
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cmt_nl#op-9539250-4477006"/>
+                <!--v2<owl:onClass rdf:resource="http://cmt_nl#c-9412806-1154310"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>-->
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cmt_nl#op-7140084-4068620"/>
+                <!--v2<owl:onClass rdf:resource="http://cmt_nl#c-9412806-1154310"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>-->
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cmt_nl#op-0774476-4286529"/>
+                <!--v2<owl:onClass rdf:resource="http://cmt_nl#c-9412806-1154310"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>-->
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://cmt_nl#c-9264154-4017894"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_nl#c-4926854-0907990 -->
+
+    <owl:Class rdf:about="http://cmt_nl#c-4926854-0907990">
+        <rdfs:label xml:lang="nl">document</rdfs:label>
+        <owl:disjointWith rdf:resource="http://cmt_nl#c-4994957-2932971"/>
+        <owl:disjointWith rdf:resource="http://cmt_nl#c-9971141-2642146"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_nl#c-4951597-8295121 -->
+
+    <owl:Class rdf:about="http://cmt_nl#c-4951597-8295121">
+        <rdfs:label xml:lang="nl">acceptatie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_nl#c-3466158-7243163"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_nl#c-4994957-2932971 -->
+
+    <owl:Class rdf:about="http://cmt_nl#c-4994957-2932971">
+        <rdfs:label xml:lang="nl">conferentie</rdfs:label>
+        <!--v2<rdfs:subClassOf rdf:resource="http://cmt_nl#c-9412806-1154310"/>-->
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cmt_nl#ent-0153188-2394879"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cmt_nl#ent-2204821-8186148"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://cmt_nl#ent-6646972-0021642"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://cmt_nl#c-9971141-2642146"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_nl#c-5118955-8762087 -->
+
+    <owl:Class rdf:about="http://cmt_nl#c-5118955-8762087">
+        <rdfs:label xml:lang="nl">beheerder</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_nl#c-6806494-0726611"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_nl#c-6073598-2118472 -->
+
+    <owl:Class rdf:about="http://cmt_nl#c-6073598-2118472">
+        <rdfs:label xml:lang="nl">volledig artikel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_nl#c-4855446-2072057"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_nl#c-6791107-3060260 -->
+
+    <owl:Class rdf:about="http://cmt_nl#c-6791107-3060260">
+        <rdfs:label xml:lang="nl">medevoorzitter</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_nl#c-3510433-8388657"/>
+        <owl:disjointWith rdf:resource="http://cmt_nl#c-7849747-5068229"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_nl#c-6806494-0726611 -->
+
+    <owl:Class rdf:about="http://cmt_nl#c-6806494-0726611">
+        <rdfs:label xml:lang="nl">gebruiker</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_nl#c-9971141-2642146"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_nl#c-7849747-5068229 -->
+
+    <owl:Class rdf:about="http://cmt_nl#c-7849747-5068229">
+        <rdfs:label xml:lang="nl">conferentievoorzitter</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_nl#c-3510433-8388657"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_nl#c-8033257-4796081 -->
+
+    <owl:Class rdf:about="http://cmt_nl#c-8033257-4796081">
+        <rdfs:label xml:lang="nl">metarecensent</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_nl#c-0236412-8230972"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_nl#c-8260644-2482124 -->
+
+    <owl:Class rdf:about="http://cmt_nl#c-8260644-2482124">
+        <rdfs:label xml:lang="nl">auteur</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_nl#c-3510433-8388657"/>
+        <rdfs:subClassOf rdf:resource="http://cmt_nl#c-6806494-0726611"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_nl#c-9264154-4017894 -->
+
+    <owl:Class rdf:about="http://cmt_nl#c-9264154-4017894">
+        <rdfs:label xml:lang="nl">recentie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_nl#c-4926854-0907990"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_nl#c-9405134-3973856 -->
+
+    <owl:Class rdf:about="http://cmt_nl#c-9405134-3973856">
+        <rdfs:label xml:lang="nl">synopsis</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_nl#c-4855446-2072057"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_nl#c-9412806-1154310 -->
+    <!--v2
+    <owl:Class rdf:about="http://cmt_nl#c-9412806-1154310">
+        <rdfs:label xml:lang="nl">null</rdfs:label>
+    </owl:Class>-->
+    
+
+
+    <!-- http://cmt_nl#c-9414933-6644081 -->
+
+    <owl:Class rdf:about="http://cmt_nl#c-9414933-6644081">
+        <rdfs:label xml:lang="nl">voorzitter programmacommissie</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cmt_nl#c-4695512-1959604"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cmt_nl#c-9971141-2642146 -->
+
+    <owl:Class rdf:about="http://cmt_nl#c-9971141-2642146">
+        <rdfs:label xml:lang="nl">persoon</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.1592) http://owlapi.sourceforge.net -->
+

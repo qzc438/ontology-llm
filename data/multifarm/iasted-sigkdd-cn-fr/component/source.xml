@@ -1,0 +1,2776 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://iasted_cn#"
+     xml:base="http://iasted_cn"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:iasted_cn="http://iasted_cn#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:iasted="http://iasted#">
+    <owl:Ontology rdf:about="http://iasted_cn"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#label"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://iasted_cn#op-0474344-2590802 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-0474344-2590802">
+        <rdfs:label xml:lang="zh">位于</rdfs:label>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cn#c-0511293-2527125"/>
+                    <rdf:Description rdf:about="http://iasted_cn#c-7347252-1005117"/>
+                    <rdf:Description rdf:about="http://iasted_cn#c-8242739-3342216"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cn#c-0511293-2527125"/>
+                    <rdf:Description rdf:about="http://iasted_cn#c-0974169-1895629"/>
+                    <rdf:Description rdf:about="http://iasted_cn#c-7347252-1005117"/>
+                    <rdf:Description rdf:about="http://iasted_cn#c-8242739-3342216"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-1278972-9459067 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-1278972-9459067">
+        <rdfs:label xml:lang="zh">由之写</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-3578640-6524804"/>
+        <rdfs:range rdf:resource="http://iasted_cn#c-9161886-5839067"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-1518879-2848498 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-1518879-2848498">
+        <rdfs:label xml:lang="zh">需要</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-3578640-6524804"/>
+        <rdfs:range rdf:resource="http://iasted_cn#c-9161886-5839067"/>
+        <owl:inverseOf rdf:resource="http://iasted_cn#op-4435186-3370088"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-1600213-3199299 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-1600213-3199299">
+        <rdfs:label xml:lang="zh">与之连接</rdfs:label>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cn#c-0511293-2527125"/>
+                    <rdf:Description rdf:about="http://iasted_cn#c-3578640-6524804"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cn#c-3341578-5929357"/>
+                    <rdf:Description rdf:about="http://iasted_cn#c-9161886-5839067"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-2153096-2411955 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-2153096-2411955">
+        <rdfs:label xml:lang="zh">准备</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_cn#c-3578640-6524804"/>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-9161886-5839067"/>
+        <owl:inverseOf rdf:resource="http://iasted_cn#op-9705194-4999815"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-2406217-9659624 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-2406217-9659624">
+        <rdfs:label xml:lang="zh">被用于</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-3578640-6524804"/>
+        <rdfs:range rdf:resource="http://iasted_cn#c-9161886-5839067"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-2851466-0078455 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-2851466-0078455">
+        <rdfs:label xml:lang="zh">用于</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-3578640-6524804"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cn#c-1282526-5533456"/>
+                    <rdf:Description rdf:about="http://iasted_cn#c-3341578-5929357"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-3193538-8385254 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-3193538-8385254">
+        <rdfs:label xml:lang="zh">为之设计</rdfs:label>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cn#c-3341578-5929357"/>
+                    <rdf:Description rdf:about="http://iasted_cn#c-9161886-5839067"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cn#c-1282526-5533456"/>
+                    <rdf:Description rdf:about="http://iasted_cn#c-3341578-5929357"/>
+                    <rdf:Description rdf:about="http://iasted_cn#c-9539564-3458545"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-3716372-3943966 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-3716372-3943966">
+        <rdfs:label xml:lang="zh">发送</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_cn#c-3578640-6524804"/>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-9161886-5839067"/>
+        <owl:inverseOf rdf:resource="http://iasted_cn#op-9925763-6290491"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-3806820-3105046 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-3806820-3105046">
+        <rdfs:label xml:lang="zh">经过</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_cn#c-3341578-5929357"/>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-3578640-6524804"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-4054800-9667735 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-4054800-9667735">
+        <rdfs:label xml:lang="zh">举办于</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-3341578-5929357"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cn#c-0511293-2527125"/>
+                    <rdf:Description rdf:about="http://iasted_cn#c-9539564-3458545"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-4208530-9208441 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-4208530-9208441">
+        <rdfs:label xml:lang="zh">由之给予</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_cn#c-9161886-5839067"/>
+        <owl:inverseOf rdf:resource="http://iasted_cn#op-7378396-0728360"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cn#c-3341578-5929357"/>
+                    <rdf:Description rdf:about="http://iasted_cn#c-3578640-6524804"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-4435186-3370088 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-4435186-3370088">
+        <rdfs:label xml:lang="zh">需要</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_cn#c-3578640-6524804"/>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-9161886-5839067"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-4529799-1507743 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-4529799-1507743">
+        <rdfs:label xml:lang="zh">获得</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_cn#c-3578640-6524804"/>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-9161886-5839067"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-4610280-0986754 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-4610280-0986754">
+        <rdfs:label xml:lang="zh">支付</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-1282526-5533456"/>
+        <rdfs:range rdf:resource="http://iasted_cn#c-3578640-6524804"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-4684478-1140173 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-4684478-1140173">
+        <rdfs:label xml:lang="zh">签名</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_cn#c-3578640-6524804"/>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-9161886-5839067"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-5205893-0739508 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-5205893-0739508">
+        <rdfs:label xml:lang="zh">写</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_cn#c-3578640-6524804"/>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-9161886-5839067"/>
+        <owl:inverseOf rdf:resource="http://iasted_cn#op-1278972-9459067"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-5581546-6414065 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-5581546-6414065">
+        <rdfs:label xml:lang="zh">作报告于</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-9161886-5839067"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cn#c-0511293-2527125"/>
+                    <rdf:Description rdf:about="http://iasted_cn#c-9539564-3458545"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-5614089-5093916 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-5614089-5093916">
+        <rdfs:label xml:lang="zh">之前发送</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-3578640-6524804"/>
+        <rdfs:range rdf:resource="http://iasted_cn#c-9539564-3458545"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-5652554-6617404 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-5652554-6617404">
+        <rdfs:label xml:lang="zh">作报告于</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-9161886-5839067"/>
+        <rdfs:range rdf:resource="http://iasted_cn#c-9539564-3458545"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-5947689-5430795 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-5947689-5430795">
+        <rdfs:label xml:lang="zh">以之配备</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-0511293-2527125"/>
+        <rdfs:range rdf:resource="http://iasted_cn#c-3578640-6524804"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-6010898-6157672 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-6010898-6157672">
+        <rdfs:label xml:lang="zh">由之支付</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-1282526-5533456"/>
+        <rdfs:range rdf:resource="http://iasted_cn#c-9161886-5839067"/>
+        <owl:inverseOf rdf:resource="http://iasted_cn#op-9205705-6784503"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-6054811-0896585 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-6054811-0896585">
+        <rdfs:label xml:lang="zh">之后举办</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-3341578-5929357"/>
+        <rdfs:range rdf:resource="http://iasted_cn#c-9539564-3458545"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-6097252-8168831 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-6097252-8168831">
+        <rdfs:label xml:lang="zh">之前举办</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-3341578-5929357"/>
+        <rdfs:range rdf:resource="http://iasted_cn#c-9539564-3458545"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-6392300-5069442 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-6392300-5069442">
+        <rdfs:label xml:lang="zh">为之支付</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-1282526-5533456"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cn#c-3341578-5929357"/>
+                    <rdf:Description rdf:about="http://iasted_cn#c-3578640-6524804"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-6655405-6842461 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-6655405-6842461">
+        <rdfs:label xml:lang="zh">之后发送</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-3578640-6524804"/>
+        <rdfs:range rdf:resource="http://iasted_cn#c-9539564-3458545"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-7052786-2941528 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-7052786-2941528">
+        <rdfs:label xml:lang="zh">由之签名</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-3578640-6524804"/>
+        <rdfs:range rdf:resource="http://iasted_cn#c-9161886-5839067"/>
+        <owl:inverseOf rdf:resource="http://iasted_cn#op-4684478-1140173"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-7220118-0821404 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-7220118-0821404">
+        <rdfs:label xml:lang="zh">作报告于</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-9161886-5839067"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cn#c-0511293-2527125"/>
+                    <rdf:Description rdf:about="http://iasted_cn#c-9539564-3458545"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-7329673-5984637 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-7329673-5984637">
+        <rdfs:label xml:lang="zh">由之参观</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_cn#c-9161886-5839067"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cn#c-0974169-1895629"/>
+                    <rdf:Description rdf:about="http://iasted_cn#c-7347252-1005117"/>
+                    <rdf:Description rdf:about="http://iasted_cn#c-8242739-3342216"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-7378396-0728360 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-7378396-0728360">
+        <rdfs:label xml:lang="zh">给</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-9161886-5839067"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cn#c-3341578-5929357"/>
+                    <rdf:Description rdf:about="http://iasted_cn#c-3578640-6524804"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-7946392-4749694 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-7946392-4749694">
+        <rdfs:label xml:lang="zh">给</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-3578640-6524804"/>
+        <rdfs:range rdf:resource="http://iasted_cn#c-9161886-5839067"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-8220846-1257727 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-8220846-1257727">
+        <rdfs:label xml:lang="zh">由之占用</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_cn#c-9161886-5839067"/>
+        <owl:inverseOf rdf:resource="http://iasted_cn#op-9420678-5181796"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cn#c-0974169-1895629"/>
+                    <rdf:Description rdf:about="http://iasted_cn#c-7347252-1005117"/>
+                    <rdf:Description rdf:about="http://iasted_cn#c-8242739-3342216"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-8565436-2235973 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-8565436-2235973">
+        <rdfs:label xml:lang="zh">由之组成</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-3578640-6524804"/>
+        <rdfs:range rdf:resource="http://iasted_cn#c-3578640-6524804"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-8837754-7278620 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-8837754-7278620">
+        <rdfs:label xml:lang="zh">支付于</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-1282526-5533456"/>
+        <rdfs:range rdf:resource="http://iasted_cn#c-7347252-1005117"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-9205705-6784503 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-9205705-6784503">
+        <rdfs:label xml:lang="zh">支付</rdfs:label>
+        <rdfs:range rdf:resource="http://iasted_cn#c-1282526-5533456"/>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-9161886-5839067"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-9420678-5181796 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-9420678-5181796">
+        <rdfs:label xml:lang="zh">占用</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-9161886-5839067"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://iasted_cn#c-0974169-1895629"/>
+                    <rdf:Description rdf:about="http://iasted_cn#c-7347252-1005117"/>
+                    <rdf:Description rdf:about="http://iasted_cn#c-8242739-3342216"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-9705194-4999815 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-9705194-4999815">
+        <rdfs:label xml:lang="zh">由之准备</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-3578640-6524804"/>
+        <rdfs:range rdf:resource="http://iasted_cn#c-9161886-5839067"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://iasted_cn#op-9925763-6290491 -->
+
+    <owl:ObjectProperty rdf:about="http://iasted_cn#op-9925763-6290491">
+        <rdfs:label xml:lang="zh">由之发送</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-3578640-6524804"/>
+        <rdfs:range rdf:resource="http://iasted_cn#c-9161886-5839067"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://iasted_cn#ent-0526220-8969899 -->
+
+    <owl:DatatypeProperty rdf:about="http://iasted_cn#ent-0526220-8969899">
+        <rdfs:label xml:lang="zh">截至</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-1972152-5538996"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iasted_cn#ent-2995049-0872898 -->
+
+    <owl:DatatypeProperty rdf:about="http://iasted_cn#ent-2995049-0872898">
+        <rdfs:label xml:lang="zh">有总计</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-1282526-5533456"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://iasted_cn#ent-6661920-4713139 -->
+
+    <owl:DatatypeProperty rdf:about="http://iasted_cn#ent-6661920-4713139">
+        <rdfs:label xml:lang="zh">注明日期于</rdfs:label>
+        <rdfs:domain rdf:resource="http://iasted_cn#c-3341578-5929357"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://iasted_cn#c-0023983-5503310 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-0023983-5503310">
+        <rdfs:label xml:lang="zh">获得会记录光盘的作者</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1807061-2673619"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-4529799-1507743"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-8011365-3043829"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-0040706-4011139 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-0040706-4011139">
+        <rdfs:label xml:lang="zh">IASTED会员</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-9205705-6784503"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-6705150-5779982"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-0054556-5272790 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-0054556-5272790">
+        <rdfs:label xml:lang="zh">单人间</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-4443116-4574770"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-0086715-0746709 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-0086715-0746709">
+        <rdfs:label xml:lang="zh">会议旅行者</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-3806820-3105046"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-8900293-0283295"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-0234825-5826196 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-0234825-5826196">
+        <rdfs:label xml:lang="zh">付款文件</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1318963-5469670"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-3193538-8385254"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://iasted_cn#c-9007157-9246362"/>
+                            <rdf:Description rdf:about="http://iasted_cn#c-9934286-6899405"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-0511293-2527125 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-0511293-2527125">
+        <rdfs:label xml:lang="zh">地点</rdfs:label>
+        <!--v2<rdfs:subClassOf rdf:resource="http://iasted_cn#c-6998569-9770494"/>-->
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-0474344-2590802"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-2487018-7201127"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-0474344-2590802"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-9270985-2735214"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-0524974-8454159 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-0524974-8454159">
+        <rdfs:label xml:lang="zh">小费</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1282526-5533456"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-8837754-7278620"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-7581120-3892256"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-0545361-6412238 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-0545361-6412238">
+        <rdfs:label xml:lang="zh">主办事处</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-0511293-2527125"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-0638592-4923406 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-0638592-4923406">
+        <rdfs:label xml:lang="zh">赞助者城市</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-8242739-3342216"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-8220846-1257727"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-8965535-2075021"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-0724585-4277214 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-0724585-4277214">
+        <rdfs:label xml:lang="zh">赞助</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-6010898-6157672"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-8965535-2075021"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1282526-5533456"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-0735265-4949070 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-0735265-4949070">
+        <rdfs:label xml:lang="zh">旁听者</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-4684478-1140173"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-0985176-8565092"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-7220118-0821404"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://iasted_cn#c-1864548-7838646"/>
+                            <rdf:Description rdf:about="http://iasted_cn#c-6851620-2587148"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-0783901-6350783 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-0783901-6350783">
+        <rdfs:label xml:lang="zh">报告人城市</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-8242739-3342216"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-8220846-1257727"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-0793941-8502280 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-0793941-8502280">
+        <rdfs:label xml:lang="zh">审稿人</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-7378396-0728360"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-3460567-5404427"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-6456220-8358576"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-0901002-5018078 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-0901002-5018078">
+        <rdfs:label xml:lang="zh">注册表</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-8307977-4306775"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-9925763-6290491"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-5614089-5093916"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-7669576-1592763"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-0974169-1895629 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-0974169-1895629">
+        <rdfs:label xml:lang="zh">国家</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-0985176-8565092 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-0985176-8565092">
+        <rdfs:label xml:lang="zh">出席记录</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1318963-5469670"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-7052786-2941528"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-0735265-4949070"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-0474344-2590802"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1864548-7838646"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-1156408-4549323 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-1156408-4549323">
+        <rdfs:label xml:lang="zh">旅游日</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-9539564-3458545"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-3193538-8385254"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-1282526-5533456 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-1282526-5533456">
+        <rdfs:label xml:lang="zh">钱款</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-1312223-5311795 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-1312223-5311795">
+        <rdfs:label xml:lang="zh">计算机</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-5069679-2346577"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-1318963-5469670 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-1318963-5469670">
+        <rdfs:label xml:lang="zh">文件</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-3578640-6524804"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-1359109-0571420 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-1359109-0571420">
+        <rdfs:label xml:lang="zh">视频报告</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-6822123-4411877"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-1471507-7810490 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-1471507-7810490">
+        <rdfs:label xml:lang="zh">代表</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://iasted_cn#op-3806820-3105046"/>
+                        <owl:someValuesFrom rdf:resource="http://iasted_cn#c-3450654-9132609"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://iasted_cn#op-7220118-0821404"/>
+                        <owl:someValuesFrom rdf:resource="http://iasted_cn#c-3712586-2724549"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://iasted_cn#op-7220118-0821404"/>
+                        <owl:someValuesFrom rdf:resource="http://iasted_cn#c-4030524-1863840"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-9161886-5839067"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-4529799-1507743"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-4203573-7893028"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-9420678-5181796"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-5664502-9937381"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-3716372-3943966"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-0901002-5018078"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-4435186-3370088"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-8187808-0858623"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-9420678-5181796"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-0783901-6350783"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-9420678-5181796"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-4074346-9044847"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-9205705-6784503"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-7986987-0221273"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-1539682-4478804 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-1539682-4478804">
+        <rdfs:label xml:lang="zh">宾馆预定截止日期</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1972152-5538996"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-1578933-1376424 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-1578933-1376424">
+        <rdfs:label xml:lang="zh">赞助公司的房子</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-7347252-1005117"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-0474344-2590802"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-0638592-4923406"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-8220846-1257727"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-8965535-2075021"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-0474344-2590802"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-8164062-3998923"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-1581262-1635894 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-1581262-1635894">
+        <rdfs:label xml:lang="zh">教程主讲人</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-7378396-0728360"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-6098682-3134905"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1807061-2673619"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-5581546-6414065"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-6851620-2587148"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-1673126-9771840 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-1673126-9771840">
+        <rdfs:label xml:lang="zh">货币</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-1674526-2264055 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-1674526-2264055">
+        <rdfs:label xml:lang="zh">会议宾馆</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-7347252-1005117"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-0474344-2590802"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-9270985-2735214"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-0474344-2590802"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-2487018-7201127"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-3193538-8385254"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-8083498-4393378"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-1678429-5843713 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-1678429-5843713">
+        <rdfs:label xml:lang="zh">会后活动</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-3341578-5929357"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-6054811-0896585"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-3712586-2724549"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-1714027-4656079 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-1714027-4656079">
+        <rdfs:label xml:lang="zh">透明度</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1318963-5469670"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-9705194-4999815"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-6456220-8358576"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-1726262-2123350 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-1726262-2123350">
+        <rdfs:label xml:lang="zh">时区</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-1743715-3719701 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-1743715-3719701">
+        <rdfs:label xml:lang="zh">接收投稿</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-8137281-7115150"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-1807061-2673619 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-1807061-2673619">
+        <rdfs:label xml:lang="zh">作者</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-6456220-8358576"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-7378396-0728360"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-5276145-0480068"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-2153096-2411955"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1714027-4656079"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-1864548-7838646 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-1864548-7838646">
+        <rdfs:label xml:lang="zh">分场会议室</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-0511293-2527125"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-5947689-5430795"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-5069679-2346577"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-0474344-2590802"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-4030524-1863840"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-1878670-5346699 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-1878670-5346699">
+        <rdfs:label xml:lang="zh">教程</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-4208530-9208441"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1581262-1635894"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-6271931-7367103"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-1892659-3804179 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-1892659-3804179">
+        <rdfs:label xml:lang="zh">分场会议</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-6271931-7367103"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-4208530-9208441"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://iasted_cn#c-1807061-2673619"/>
+                            <rdf:Description rdf:about="http://iasted_cn#c-7110892-4656850"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-4054800-9667735"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1864548-7838646"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-1972152-5538996 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-1972152-5538996">
+        <rdfs:label xml:lang="zh">截止日期</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-9539564-3458545"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-3193538-8385254"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-1988605-8014828 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-1988605-8014828">
+        <rdfs:label xml:lang="zh">非报告人</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+        <owl:disjointWith rdf:resource="http://iasted_cn#c-6456220-8358576"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-2244309-9903060 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-2244309-9903060">
+        <rdfs:label xml:lang="zh">学者演讲者</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-9380256-1208273"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-2277764-8517141 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-2277764-8517141">
+        <rdfs:label xml:lang="zh">附加税</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-9934286-6899405"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-2298907-2229689 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-2298907-2229689">
+        <rdfs:label xml:lang="zh">报告人的大学</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-7347252-1005117"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-0474344-2590802"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-4074346-9044847"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-0474344-2590802"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-0783901-6350783"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-2487018-7201127 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-2487018-7201127">
+        <rdfs:label xml:lang="zh">会议国家</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-0974169-1895629"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-7329673-5984637"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-2509900-7796802 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-2509900-7796802">
+        <rdfs:label xml:lang="zh">社交活动</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-9780526-0642415"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-3193538-8385254"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-2678252-7680979 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-2678252-7680979">
+        <rdfs:label xml:lang="zh">学生演讲者</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-9380256-1208273"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-2716103-2166022 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-2716103-2166022">
+        <rdfs:label xml:lang="zh">不做报告的学者</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-9205705-6784503"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-7673564-2824724"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1988605-8014828"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-2806002-3692575 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-2806002-3692575">
+        <rdfs:label xml:lang="zh">额外旅行费用</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-9007157-9246362"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-6010898-6157672"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-0086715-0746709"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-6392300-5069442"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-8900293-0283295"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-2832115-1398389 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-2832115-1398389">
+        <rdfs:label xml:lang="zh">银行转帐</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-0234825-5826196"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-3064351-5046432 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-3064351-5046432">
+        <rdfs:label xml:lang="zh">离开</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1678429-5843713"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-3210878-9061923 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-3210878-9061923">
+        <rdfs:label xml:lang="zh">汽车</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-8684366-6976949"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-3250972-2705229 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-3250972-2705229">
+        <rdfs:label xml:lang="zh">录用投稿</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-8137281-7115150"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-3341578-5929357 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-3341578-5929357">
+        <rdfs:label xml:lang="zh">活动</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-3450654-9132609 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-3450654-9132609">
+        <rdfs:label xml:lang="zh">注册</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-9780526-0642415"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-3193538-8385254"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-3460567-5404427 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-3460567-5404427">
+        <rdfs:label xml:lang="zh">审稿意见</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1318963-5469670"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-1278972-9459067"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-0793941-8502280"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-3578640-6524804 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-3578640-6524804">
+        <rdfs:label xml:lang="zh">项目</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-3597464-2343297 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-3597464-2343297">
+        <rdfs:label xml:lang="zh">班车</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-8684366-6976949"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-3615436-2641865 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-3615436-2641865">
+        <rdfs:label xml:lang="zh">技术活动</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-9780526-0642415"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-4208530-9208441"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-9162736-3754367"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-3621614-2905183 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-3621614-2905183">
+        <rdfs:label xml:lang="zh">录像带播放器_</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-5069679-2346577"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-3658023-7990216 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-3658023-7990216">
+        <rdfs:label xml:lang="zh">初稿</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-7785971-0195130"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-3806820-3105046"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-7137551-5788017"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-3712586-2724549 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-3712586-2724549">
+        <rdfs:label xml:lang="zh">会议日期</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-9539564-3458545"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-3193538-8385254"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-4030524-1863840 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-4030524-1863840">
+        <rdfs:label xml:lang="zh">会议大楼</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-7347252-1005117"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-0474344-2590802"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-2487018-7201127"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-0474344-2590802"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-9270985-2735214"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-8220846-1257727"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-4074346-9044847 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-4074346-9044847">
+        <rdfs:label xml:lang="zh">报告人国家</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-0974169-1895629"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-8220846-1257727"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-4203573-7893028 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-4203573-7893028">
+        <rdfs:label xml:lang="zh">邀请信</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1318963-5469670"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-3193538-8385254"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-4412624-8106148 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-4412624-8106148">
+        <rdfs:label xml:lang="zh">宾馆注册表</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-8307977-4306775"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-5614089-5093916"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1539682-4478804"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-4422973-7079360 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-4422973-7079360">
+        <rdfs:label xml:lang="zh">晚宴</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-2509900-7796802"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-3193538-8385254"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="http://iasted_cn#c-7205091-1269654"/>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-4434566-6549478 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-4434566-6549478">
+        <rdfs:label xml:lang="zh">邮件列表</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1318963-5469670"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-3193538-8385254"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-4443116-4574770 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-4443116-4574770">
+        <rdfs:label xml:lang="zh">宾馆房间</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-0511293-2527125"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-3193538-8385254"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-8083498-4393378"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-0474344-2590802"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1674526-2264055"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-4612996-1394545 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-4612996-1394545">
+        <rdfs:label xml:lang="zh">出租车</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-8684366-6976949"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-4697130-6104274 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-4697130-6104274">
+        <rdfs:label xml:lang="zh">建模</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-5772986-8279151"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-5069679-2346577 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-5069679-2346577">
+        <rdfs:label xml:lang="zh">视听设备</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-3578640-6524804"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-0474344-2590802"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1864548-7838646"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-2406217-9659624"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-6456220-8358576"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-3193538-8385254"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-0735265-4949070"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-5224095-4483559 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-5224095-4483559">
+        <rdfs:label xml:lang="zh">作者信息表</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-8307977-4306775"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-6655405-6842461"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-5608974-0433601"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-5276145-0480068 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-5276145-0480068">
+        <rdfs:label xml:lang="zh">分场会议主席的简短介绍</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1318963-5469670"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-7946392-4749694"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-7110892-4656850"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-4208530-9208441"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1807061-2673619"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-5432777-7414086 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-5432777-7414086">
+        <rdfs:label xml:lang="zh">支票</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-0234825-5826196"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-5490271-3244985 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-5490271-3244985">
+        <rdfs:label xml:lang="zh">会议日</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-3712586-2724549"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-5608974-0433601 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-5608974-0433601">
+        <rdfs:label xml:lang="zh">录用通知截止日期</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1972152-5538996"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-5664502-9937381 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-5664502-9937381">
+        <rdfs:label xml:lang="zh">报告人的房子</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-7347252-1005117"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-0474344-2590802"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-4074346-9044847"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-0474344-2590802"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-0783901-6350783"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-8220846-1257727"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-5665890-0770998 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-5665890-0770998">
+        <rdfs:label xml:lang="zh">双人间</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-4443116-4574770"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-5749172-1716886 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-5749172-1716886">
+        <rdfs:label xml:lang="zh">信用卡</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-9170858-2237202"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-3193538-8385254"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://iasted_cn#c-0724585-4277214"/>
+                            <rdf:Description rdf:about="http://iasted_cn#c-9007157-9246362"/>
+                            <rdf:Description rdf:about="http://iasted_cn#c-9934286-6899405"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-5772986-8279151 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-5772986-8279151">
+        <rdfs:label xml:lang="zh">研究</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-8137281-7115150"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-5907528-7049759 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-5907528-7049759">
+        <rdfs:label xml:lang="zh">模拟</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-5772986-8279151"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-5991756-4338141 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-5991756-4338141">
+        <rdfs:label xml:lang="zh">会议机场</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-7347252-1005117"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-0474344-2590802"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-9270985-2735214"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-0474344-2590802"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-2487018-7201127"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-6088572-4767604 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-6088572-4767604">
+        <rdfs:label xml:lang="zh">幻灯片报告</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-6822123-4411877"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-6098682-3134905 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-6098682-3134905">
+        <rdfs:label xml:lang="zh">全会讲座</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-4208530-9208441"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-8215055-0725691"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-6271931-7367103"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-6186818-8279015 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-6186818-8279015">
+        <rdfs:label xml:lang="zh">会间休息</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-9780526-0642415"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-3193538-8385254"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-6271931-7367103 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-6271931-7367103">
+        <rdfs:label xml:lang="zh">讲座</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-9780526-0642415"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-3193538-8385254"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-0735265-4949070"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-6456220-8358576 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-6456220-8358576">
+        <rdfs:label xml:lang="zh">报告人</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-5205893-0739508"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-7552340-1806375"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-7378396-0728360"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-6271931-7367103"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-6489442-4768528 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-6489442-4768528">
+        <rdfs:label xml:lang="zh">欢迎致词</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-9780526-0642415"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-6705150-5779982 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-6705150-5779982">
+        <rdfs:label xml:lang="zh">会员注册费</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-7986987-0221273"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-3193538-8385254"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-0040706-4011139"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-6733420-4642584 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-6733420-4642584">
+        <rdfs:label xml:lang="zh">作者与会者注册费</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-7986987-0221273"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-6392300-5069442"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-6899643-1210894"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-6822123-4411877 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-6822123-4411877">
+        <rdfs:label xml:lang="zh">报告</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-9780526-0642415"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-6851620-2587148 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-6851620-2587148">
+        <rdfs:label xml:lang="zh">会议大厅</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-0511293-2527125"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-0474344-2590802"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-4030524-1863840"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-6890436-5500681 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-6890436-5500681">
+        <rdfs:label xml:lang="zh">报告人讲座</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1892659-3804179"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-6899643-1210894 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-6899643-1210894">
+        <rdfs:label xml:lang="zh">会议录</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-8666190-0976130"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-6998569-9770494 -->
+    <!--v2
+    <owl:Class rdf:about="http://iasted_cn#c-6998569-9770494">
+        <rdfs:label xml:lang="zh">null</rdfs:label>
+    </owl:Class>-->
+    
+
+
+    <!-- http://iasted_cn#c-7003617-5955179 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-7003617-5955179">
+        <rdfs:label xml:lang="zh">不做报告的学生</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-9205705-6784503"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-9754233-8084039"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1988605-8014828"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-7110892-4656850 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-7110892-4656850">
+        <rdfs:label xml:lang="zh">分场会议主席</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-3806820-3105046"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-7920292-9721733"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-4529799-1507743"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-5276145-0480068"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-7137551-5788017 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-7137551-5788017">
+        <rdfs:label xml:lang="zh">拒收投稿</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-8137281-7115150"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-7205091-1269654 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-7205091-1269654">
+        <rdfs:label xml:lang="zh">单日报告人</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-5652554-6617404"/>
+                <!--v2<owl:onClass rdf:resource="http://iasted_cn#c-6998569-9770494"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>-->
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality> 
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-7347252-1005117 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-7347252-1005117">
+        <rdfs:label xml:lang="zh">建筑物</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-0511293-2527125"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-7552340-1806375 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-7552340-1806375">
+        <rdfs:label xml:lang="zh">最后定稿</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-7785971-0195130"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-3806820-3105046"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-3250972-2705229"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-7581120-3892256 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-7581120-3892256">
+        <rdfs:label xml:lang="zh">会议餐厅</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-7347252-1005117"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-8220846-1257727"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-0474344-2590802"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-2487018-7201127"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-0474344-2590802"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-9270985-2735214"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-7669576-1592763 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-7669576-1592763">
+        <rdfs:label xml:lang="zh">注册截止日期</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1972152-5538996"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-7673564-2824724 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-7673564-2824724">
+        <rdfs:label xml:lang="zh">非作者注册费</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-7986987-0221273"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-3193538-8385254"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1988605-8014828"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-7785971-0195130 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-7785971-0195130">
+        <rdfs:label xml:lang="zh">投稿</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1318963-5469670"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-1278972-9459067"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-6456220-8358576"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-7820838-0443672 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-7820838-0443672">
+        <rdfs:label xml:lang="zh">非IASTED会员</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-9205705-6784503"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-9071900-3794687"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-7840357-0727179 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-7840357-0727179">
+        <rdfs:label xml:lang="zh">作者与会者光盘注册费</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-7986987-0221273"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-6392300-5069442"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-8011365-3043829"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-7920292-9721733 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-7920292-9721733">
+        <rdfs:label xml:lang="zh">讲演者介绍</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-9576098-4528642"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-7982842-5478853 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-7982842-5478853">
+        <rdfs:label xml:lang="zh">租赁</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-8137281-7115150"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-1600213-3199299"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-3210878-9061923"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-7986987-0221273 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-7986987-0221273">
+        <rdfs:label xml:lang="zh">注册费</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-9007157-9246362"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-6392300-5069442"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-9780526-0642415"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-6010898-6157672"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-8011365-3043829 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-8011365-3043829">
+        <rdfs:label xml:lang="zh">会议录光盘</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-8666190-0976130"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-8083498-4393378 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-8083498-4393378">
+        <rdfs:label xml:lang="zh">住宾馆的报告人</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://iasted_cn#op-9205705-6784503"/>
+                        <owl:someValuesFrom rdf:resource="http://iasted_cn#c-9931763-9527342"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://iasted_cn#op-9420678-5181796"/>
+                        <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1674526-2264055"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-8118522-2695131 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-8118522-2695131">
+        <rdfs:label xml:lang="zh">液晶投影机</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-5069679-2346577"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-8137281-7115150 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-8137281-7115150">
+        <rdfs:label xml:lang="zh">会前活动</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-3341578-5929357"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-6097252-8168831"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-3712586-2724549"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-8164062-3998923 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-8164062-3998923">
+        <rdfs:label xml:lang="zh">赞助者国家</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-0974169-1895629"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-8187808-0858623 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-8187808-0858623">
+        <rdfs:label xml:lang="zh">签证</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1318963-5469670"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-1518879-2848498"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-8215055-0725691 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-8215055-0725691">
+        <rdfs:label xml:lang="zh">全会讲座演讲者</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-7378396-0728360"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1878670-5346699"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1807061-2673619"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-5581546-6414065"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-6851620-2587148"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-8242739-3342216 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-8242739-3342216">
+        <rdfs:label xml:lang="zh">城市</rdfs:label>
+        <!--v2<rdfs:subClassOf rdf:resource="http://iasted_cn#c-6998569-9770494"/>-->
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-0474344-2590802"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-0974169-1895629"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-8246130-8388851 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-8246130-8388851">
+        <rdfs:label xml:lang="zh">获得会议录书的作者</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1807061-2673619"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-4529799-1507743"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-6899643-1210894"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-8307977-4306775 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-8307977-4306775">
+        <rdfs:label xml:lang="zh">表格</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1318963-5469670"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-7946392-4749694"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-8341724-2093160 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-8341724-2093160">
+        <rdfs:label xml:lang="zh">截稿日期</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1972152-5538996"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-8394317-2000712 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-8394317-2000712">
+        <rdfs:label xml:lang="zh">投影仪</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-5069679-2346577"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-8435079-1666676 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-8435079-1666676">
+        <rdfs:label xml:lang="zh">鸡尾酒会</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-9780526-0642415"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-3193538-8385254"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-8666190-0976130 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-8666190-0976130">
+        <rdfs:label xml:lang="zh">出版物</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-3578640-6524804"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-8565436-2235973"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-7552340-1806375"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-8684366-6976949 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-8684366-6976949">
+        <rdfs:label xml:lang="zh">交通工具</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-3578640-6524804"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-2406217-9659624"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-8819289-1330811 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-8819289-1330811">
+        <rdfs:label xml:lang="zh">旅游城市</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-8242739-3342216"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-7329673-5984637"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-0086715-0746709"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-8900293-0283295 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-8900293-0283295">
+        <rdfs:label xml:lang="zh">全日游</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1678429-5843713"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-3193538-8385254"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-4054800-9667735"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1156408-4549323"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-4054800-9667735"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-8819289-1330811"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-8965535-2075021 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-8965535-2075021">
+        <rdfs:label xml:lang="zh">赞助人</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-7378396-0728360"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-0724585-4277214"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-9161886-5839067"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-9420678-5181796"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-0638592-4923406"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-9420678-5181796"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1578933-1376424"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-9420678-5181796"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-8164062-3998923"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-9007157-9246362 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-9007157-9246362">
+        <rdfs:label xml:lang="zh">费用</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1282526-5533456"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-4610280-0986754"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://iasted_cn#c-0234825-5826196"/>
+                            <rdf:Description rdf:about="http://iasted_cn#c-5749172-1716886"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-9071900-3794687 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-9071900-3794687">
+        <rdfs:label xml:lang="zh">非会员注册费</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-7986987-0221273"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-3193538-8385254"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-7820838-0443672"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-9161886-5839067 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-9161886-5839067">
+        <rdfs:label xml:lang="zh">人员</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-9162736-3754367 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-9162736-3754367">
+        <rdfs:label xml:lang="zh">技术委员会</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-3806820-3105046"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-3615436-2641865"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-9170858-2237202 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-9170858-2237202">
+        <rdfs:label xml:lang="zh">卡</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-3578640-6524804"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-9247975-5345362 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-9247975-5345362">
+        <rdfs:label xml:lang="zh">卡车</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-8684366-6976949"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-9270985-2735214 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-9270985-2735214">
+        <rdfs:label xml:lang="zh">会议城市</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-8242739-3342216"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-7329673-5984637"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1471507-7810490"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-9380256-1208273 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-9380256-1208273">
+        <rdfs:label xml:lang="zh">演讲者</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-7378396-0728360"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1892659-3804179"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1807061-2673619"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-5581546-6414065"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-1864548-7838646"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-9437552-6534214 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-9437552-6534214">
+        <rdfs:label xml:lang="zh">离境税</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-9934286-6899405"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-3193538-8385254"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-3064351-5046432"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-9539564-3458545 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-9539564-3458545">
+        <rdfs:label xml:lang="zh">时间</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-9576098-4528642 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-9576098-4528642">
+        <rdfs:label xml:lang="zh">介绍</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-9780526-0642415"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-9686724-2767590 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-9686724-2767590">
+        <rdfs:label xml:lang="zh">照相制版截止日期</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1972152-5538996"/>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-9754233-8084039 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-9754233-8084039">
+        <rdfs:label xml:lang="zh">学生注册费</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-7986987-0221273"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-3193538-8385254"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://iasted_cn#c-2678252-7680979"/>
+                            <rdf:Description rdf:about="http://iasted_cn#c-7003617-5955179"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-9780526-0642415 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-9780526-0642415">
+        <rdfs:label xml:lang="zh">会议活动</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-3341578-5929357"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-4054800-9667735"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-3712586-2724549"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-4054800-9667735"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-2487018-7201127"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-9931763-9527342 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-9931763-9527342">
+        <rdfs:label xml:lang="zh">酒电费</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-9007157-9246362"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://iasted_cn#op-6010898-6157672"/>
+                <owl:someValuesFrom rdf:resource="http://iasted_cn#c-8083498-4393378"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://iasted_cn#c-9934286-6899405 -->
+
+    <owl:Class rdf:about="http://iasted_cn#c-9934286-6899405">
+        <rdfs:label xml:lang="zh">税</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://iasted_cn#c-1282526-5533456"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://iasted#Cancun -->
+
+    <owl:NamedIndividual rdf:about="http://iasted#Cancun">
+        <rdf:type rdf:resource="http://iasted_cn#c-9270985-2735214"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iasted#Chichen_Itza -->
+
+    <owl:NamedIndividual rdf:about="http://iasted#Chichen_Itza">
+        <rdf:type rdf:resource="http://iasted_cn#c-8819289-1330811"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iasted#Mexico -->
+
+    <owl:NamedIndividual rdf:about="http://iasted#Mexico">
+        <rdf:type rdf:resource="http://iasted_cn#c-2487018-7201127"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://iasted#peso -->
+
+    <owl:NamedIndividual rdf:about="http://iasted#peso">
+        <rdf:type rdf:resource="http://iasted_cn#c-1673126-9771840"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.1592) http://owlapi.sourceforge.net -->
+

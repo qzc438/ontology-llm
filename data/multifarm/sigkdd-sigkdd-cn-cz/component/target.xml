@@ -1,0 +1,876 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://sigkdd_cz#"
+     xml:base="http://sigkdd_cz"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:sigkdd_cz="http://sigkdd_cz#">
+    <owl:Ontology rdf:about="http://sigkdd_cz"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#label"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://sigkdd_cz#op-0436831-4134466 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cz#op-0436831-4134466">
+        <rdfs:label xml:lang="cs">získal ocenění</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cz#c-6464194-4787016"/>
+        <rdfs:range rdf:resource="http://sigkdd_cz#c-6665190-2770964"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cz#op-0915332-0921537 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cz#op-0915332-0921537">
+        <rdfs:label xml:lang="cs">zaslání článku</rdfs:label>
+        <rdfs:range rdf:resource="http://sigkdd_cz#c-3261087-8516116"/>
+        <rdfs:domain rdf:resource="http://sigkdd_cz#c-6464194-4787016"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cz#op-2793913-3944648 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cz#op-2793913-3944648">
+        <rdfs:label xml:lang="cs">zaplatil registrační poplatek</rdfs:label>
+        <rdfs:range rdf:resource="http://sigkdd_cz#c-2812909-7018772"/>
+        <rdfs:domain rdf:resource="http://sigkdd_cz#c-8762388-2735388"/>
+        <owl:inverseOf rdf:resource="http://sigkdd_cz#op-8471267-6770638"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cz#op-2930948-7102212 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cz#op-2930948-7102212">
+        <rdfs:label xml:lang="cs">termín pro odeslání</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cz#c-6931124-1671154"/>
+        <rdfs:range rdf:resource="http://sigkdd_cz#c-8332763-3209774"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cz#op-2956203-2691248 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cz#op-2956203-2691248">
+        <rdfs:label xml:lang="cs">termín vyrozumění autorů</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cz#c-6464194-4787016"/>
+        <rdfs:range rdf:resource="http://sigkdd_cz#c-9171550-2073647"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cz#op-3358244-5950535 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cz#op-3358244-5950535">
+        <rdfs:label xml:lang="cs">konference pořádána</rdfs:label>
+        <rdfs:range rdf:resource="http://sigkdd_cz#c-2927474-5588088"/>
+        <rdfs:domain rdf:resource="http://sigkdd_cz#c-8728483-7945057"/>
+        <owl:inverseOf rdf:resource="http://sigkdd_cz#op-7786928-4138294"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cz#op-5238875-7778092 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cz#op-5238875-7778092">
+        <rdfs:label xml:lang="cs">hledá sponzory</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cz#c-2927474-5588088"/>
+        <rdfs:range rdf:resource="http://sigkdd_cz#c-4895738-4243990"/>
+        <owl:inverseOf rdf:resource="http://sigkdd_cz#op-5720778-2018554"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cz#op-5511476-7442393 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cz#op-5511476-7442393">
+        <rdfs:label xml:lang="cs">stanoveny termíny pro</rdfs:label>
+        <rdfs:range rdf:resource="http://sigkdd_cz#c-2927474-5588088"/>
+        <rdfs:domain rdf:resource="http://sigkdd_cz#c-8332763-3209774"/>
+        <owl:inverseOf rdf:resource="http://sigkdd_cz#op-8810867-0841045"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cz#op-5720778-2018554 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cz#op-5720778-2018554">
+        <rdfs:label xml:lang="cs">sponzoři hledáni kým</rdfs:label>
+        <rdfs:range rdf:resource="http://sigkdd_cz#c-2927474-5588088"/>
+        <rdfs:domain rdf:resource="http://sigkdd_cz#c-4895738-4243990"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cz#op-6512872-9407469 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cz#op-6512872-9407469">
+        <rdfs:label xml:lang="cs">oceněno</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cz#c-6665190-2770964"/>
+        <owl:inverseOf rdf:resource="http://sigkdd_cz#op-9642392-0145703"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cz#op-7669100-2939328 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cz#op-7669100-2939328">
+        <rdfs:label xml:lang="cs">prezentace dokumentu</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cz#c-2922806-8811261"/>
+        <rdfs:range rdf:resource="http://sigkdd_cz#c-6931124-1671154"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cz#op-7786928-4138294 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cz#op-7786928-4138294">
+        <rdfs:label xml:lang="cs">pořádá konferenci</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cz#c-2927474-5588088"/>
+        <rdfs:range rdf:resource="http://sigkdd_cz#c-8728483-7945057"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cz#op-8471267-6770638 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cz#op-8471267-6770638">
+        <rdfs:label xml:lang="cs">registrační poplatek zaplacen kým</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cz#c-2812909-7018772"/>
+        <rdfs:range rdf:resource="http://sigkdd_cz#c-8762388-2735388"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cz#op-8810867-0841045 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cz#op-8810867-0841045">
+        <rdfs:label xml:lang="cs">stanoveny termíny</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cz#c-2927474-5588088"/>
+        <rdfs:range rdf:resource="http://sigkdd_cz#c-8332763-3209774"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cz#op-9120485-0869106 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cz#op-9120485-0869106">
+        <rdfs:label xml:lang="cs">dokument prezentován kým</rdfs:label>
+        <rdfs:range rdf:resource="http://sigkdd_cz#c-2922806-8811261"/>
+        <rdfs:domain rdf:resource="http://sigkdd_cz#c-6931124-1671154"/>
+        <owl:inverseOf rdf:resource="http://sigkdd_cz#op-7669100-2939328"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cz#op-9477802-8905182 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cz#op-9477802-8905182">
+        <rdfs:label xml:lang="cs">sídlí v</rdfs:label>
+        <rdfs:range rdf:resource="http://sigkdd_cz#c-6390029-1575614"/>
+        <rdfs:domain rdf:resource="http://sigkdd_cz#c-8762388-2735388"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sigkdd_cz#op-9642392-0145703 -->
+
+    <owl:ObjectProperty rdf:about="http://sigkdd_cz#op-9642392-0145703">
+        <rdfs:label xml:lang="cs">má ocenění</rdfs:label>
+        <rdfs:range rdf:resource="http://sigkdd_cz#c-6665190-2770964"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://sigkdd_cz#ent-0147046-0361568 -->
+
+    <owl:DatatypeProperty rdf:about="http://sigkdd_cz#ent-0147046-0361568">
+        <rdfs:label xml:lang="cs">cena</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cz#c-2812909-7018772"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sigkdd_cz#ent-2088461-1289221 -->
+
+    <owl:DatatypeProperty rdf:about="http://sigkdd_cz#ent-2088461-1289221">
+        <rdfs:label xml:lang="cs">je stanoven na</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cz#c-8332763-3209774"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sigkdd_cz#ent-4045318-3341539 -->
+
+    <owl:DatatypeProperty rdf:about="http://sigkdd_cz#ent-4045318-3341539">
+        <rdfs:label xml:lang="cs">město pořádání konference</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cz#c-8728483-7945057"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sigkdd_cz#ent-4447855-5416698 -->
+
+    <owl:DatatypeProperty rdf:about="http://sigkdd_cz#ent-4447855-5416698">
+        <rdfs:label xml:lang="cs">datum prvního dne konference</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cz#c-8728483-7945057"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sigkdd_cz#ent-4947642-3845885 -->
+
+    <owl:DatatypeProperty rdf:about="http://sigkdd_cz#ent-4947642-3845885">
+        <rdfs:label xml:lang="cs">jmenuje se</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cz#c-8762388-2735388"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sigkdd_cz#ent-6520080-8023941 -->
+
+    <owl:DatatypeProperty rdf:about="http://sigkdd_cz#ent-6520080-8023941">
+        <rdfs:label xml:lang="cs">datum závěrečného dne konference</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cz#c-8728483-7945057"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sigkdd_cz#ent-7269139-4869652 -->
+
+    <owl:DatatypeProperty rdf:about="http://sigkdd_cz#ent-7269139-4869652">
+        <rdfs:label xml:lang="cs">jméno sponzora</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cz#c-4895738-4243990"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sigkdd_cz#ent-7457873-2302561 -->
+
+    <owl:DatatypeProperty rdf:about="http://sigkdd_cz#ent-7457873-2302561">
+        <rdfs:label xml:lang="cs">národnost</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cz#c-8762388-2735388"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sigkdd_cz#ent-8327621-3483874 -->
+
+    <owl:DatatypeProperty rdf:about="http://sigkdd_cz#ent-8327621-3483874">
+        <rdfs:label xml:lang="cs">jméno konference</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cz#c-8728483-7945057"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sigkdd_cz#ent-9716840-3736334 -->
+
+    <owl:DatatypeProperty rdf:about="http://sigkdd_cz#ent-9716840-3736334">
+        <rdfs:label xml:lang="cs">má email</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cz#c-8762388-2735388"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sigkdd_cz#ent-9912312-4219170 -->
+
+    <owl:DatatypeProperty rdf:about="http://sigkdd_cz#ent-9912312-4219170">
+        <rdfs:label xml:lang="cs">registrační poplatek je ve měně</rdfs:label>
+        <rdfs:domain rdf:resource="http://sigkdd_cz#c-2812909-7018772"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://sigkdd_cz#c-0308315-8781095 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-0308315-8781095">
+        <rdfs:label xml:lang="cs">organizační výbor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-4052773-2811973"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-0426418-4007976 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-0426418-4007976">
+        <rdfs:label xml:lang="cs">konferenční hala</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-6390029-1575614"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-0661642-2388569 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-0661642-2388569">
+        <rdfs:label xml:lang="cs">ogranizátor konference</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-8762388-2735388"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-0690605-5144762 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-0690605-5144762">
+        <rdfs:label xml:lang="cs">programový výbor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-4052773-2811973"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-0737110-9781705 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-0737110-9781705">
+        <rdfs:label xml:lang="cs">sponzor nejlepšího studentského článku</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-4895738-4243990"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-0969980-1841087 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-0969980-1841087">
+        <rdfs:label xml:lang="cs">správce webu</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-0661642-2388569"/>
+    </owl:Class>
+    
+
+    <!-- http://sigkdd_cz#c-1176326-9856110 -->
+    <!--v2
+    <owl:Class rdf:about="http://sigkdd_cz#c-1176326-9856110">
+        <rdfs:label xml:lang="cs">null</rdfs:label>
+    </owl:Class>-->
+    
+
+
+    <!-- http://sigkdd_cz#c-1494118-4533759 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-1494118-4533759">
+        <rdfs:label xml:lang="cs">ocenění za nejlepší výzkumný článek</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-6665190-2770964"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-1699291-4792249 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-1699291-4792249">
+        <rdfs:label xml:lang="cs">posluchač konference</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-8762388-2735388"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-1752337-1432902 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-1752337-1432902">
+        <rdfs:label xml:lang="cs">registrační poplatek pro studenty</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-2812909-7018772"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-2762496-5409807 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-2762496-5409807">
+        <rdfs:label xml:lang="cs">hlavní kancelář konference</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-6390029-1575614"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-2812909-7018772 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-2812909-7018772">
+        <rdfs:label xml:lang="cs">registrační poplatek</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-5727594-5792813"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-2920112-9862285 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-2920112-9862285">
+        <rdfs:label xml:lang="cs">registrační poplatek pro člena sigkdd</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-2812909-7018772"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-2922806-8811261 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-2922806-8811261">
+        <rdfs:label xml:lang="cs">osoba aktivní na konferenci</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sigkdd_cz#op-7669100-2939328"/>
+                <owl:someValuesFrom rdf:resource="http://sigkdd_cz#c-6931124-1671154"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-8762388-2735388"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-2927474-5588088 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-2927474-5588088">
+        <rdfs:label xml:lang="cs">konference acm sigkdd</rdfs:label>
+        <!--v2<rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-1176326-9856110"/>-->
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sigkdd_cz#op-7786928-4138294"/>
+                <owl:someValuesFrom rdf:resource="http://sigkdd_cz#c-8728483-7945057"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sigkdd_cz#op-5238875-7778092"/>
+                <owl:someValuesFrom rdf:resource="http://sigkdd_cz#c-4895738-4243990"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sigkdd_cz#op-8810867-0841045"/>
+                <owl:someValuesFrom rdf:resource="http://sigkdd_cz#c-8332763-3209774"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-3261087-8516116 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-3261087-8516116">
+        <rdfs:label xml:lang="cs">článek</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sigkdd_cz#op-2930948-7102212"/>
+                <owl:someValuesFrom rdf:resource="http://sigkdd_cz#c-4968964-6021194"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-6931124-1671154"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-3493010-8640987 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-3493010-8640987">
+        <rdfs:label xml:lang="cs">člen organizačního výboru</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-0661642-2388569"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-3865082-8933146 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-3865082-8933146">
+        <rdfs:label xml:lang="cs">autor studentské článku</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-6464194-4787016"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sigkdd_cz#op-9642392-0145703"/>
+                <owl:someValuesFrom rdf:resource="http://sigkdd_cz#c-7509832-0906723"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-4052773-2811973 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-4052773-2811973">
+        <rdfs:label xml:lang="cs">výbor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-4115528-7389128 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-4115528-7389128">
+        <rdfs:label xml:lang="cs">autor článku</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-6464194-4787016"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sigkdd_cz#op-9642392-0145703"/>
+                <owl:someValuesFrom rdf:resource="http://sigkdd_cz#c-1494118-4533759"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sigkdd_cz#op-9642392-0145703"/>
+                <owl:someValuesFrom rdf:resource="http://sigkdd_cz#c-9262466-8809618"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-4639681-7847926 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-4639681-7847926">
+        <rdfs:label xml:lang="cs">platinový sponzor konference</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-4895738-4243990"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-4688972-1729573 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-4688972-1729573">
+        <rdfs:label xml:lang="cs">sponzorský poplatek</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-5727594-5792813"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-4856213-0167417 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-4856213-0167417">
+        <rdfs:label xml:lang="cs">výbor pro udělování ocenění za nejlepší články</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-4052773-2811973"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-4880350-1869330 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-4880350-1869330">
+        <rdfs:label xml:lang="cs">zvaný přednášející</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-2922806-8811261"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-4895738-4243990 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-4895738-4243990">
+        <rdfs:label xml:lang="cs">sponzor</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sigkdd_cz#op-2793913-3944648"/>
+                <owl:someValuesFrom rdf:resource="http://sigkdd_cz#c-4688972-1729573"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-4905881-1787387 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-4905881-1787387">
+        <rdfs:label xml:lang="cs">registrační poplatek pro člena sigmod</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-2812909-7018772"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-4968964-6021194 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-4968964-6021194">
+        <rdfs:label xml:lang="cs">termín zaslání článku</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-8332763-3209774"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-4972105-7261641 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-4972105-7261641">
+        <rdfs:label xml:lang="cs">registrační poplatek pro nečlena SIG</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-2812909-7018772"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-5228983-0520869 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-5228983-0520869">
+        <rdfs:label xml:lang="cs">hotel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-6390029-1575614"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-5727594-5792813 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-5727594-5792813">
+        <rdfs:label xml:lang="cs">konferenční poplatek</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-5759888-5202502 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-5759888-5202502">
+        <rdfs:label xml:lang="cs">termín zaslání abstraktu</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-8332763-3209774"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-6068808-3702182 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-6068808-3702182">
+        <rdfs:label xml:lang="cs">recenze</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-6931124-1671154"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-6230419-4011864 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-6230419-4011864">
+        <rdfs:label xml:lang="cs">předseda programového výboru</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-0661642-2388569"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-6390029-1575614 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-6390029-1575614">
+        <rdfs:label xml:lang="cs">místo</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-6464194-4787016 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-6464194-4787016">
+        <rdfs:label xml:lang="cs">autor</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sigkdd_cz#op-0915332-0921537"/>
+                <owl:someValuesFrom rdf:resource="http://sigkdd_cz#c-3261087-8516116"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-2922806-8811261"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sigkdd_cz#op-2956203-2691248"/>
+                <owl:someValuesFrom rdf:resource="http://sigkdd_cz#c-9171550-2073647"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-6665190-2770964 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-6665190-2770964">
+        <rdfs:label xml:lang="cs">ocenění za článek na konferenci</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sigkdd_cz#op-6512872-9407469"/>
+                <owl:someValuesFrom rdf:resource="http://sigkdd_cz#c-0661642-2388569"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-6931124-1671154 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-6931124-1671154">
+        <rdfs:label xml:lang="cs">dokument</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-6964863-0965572 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-6964863-0965572">
+        <rdfs:label xml:lang="cs">sponzor se stánkem</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-4895738-4243990"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-7290334-9709525 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-7290334-9709525">
+        <rdfs:label xml:lang="cs">abstrakt</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sigkdd_cz#op-2930948-7102212"/>
+                <owl:someValuesFrom rdf:resource="http://sigkdd_cz#c-5759888-5202502"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-6931124-1671154"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-7509832-0906723 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-7509832-0906723">
+        <rdfs:label xml:lang="cs">ocenění za nejlepší studentský článek</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-6665190-2770964"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-8225952-0383450 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-8225952-0383450">
+        <rdfs:label xml:lang="cs">předseda konference</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-0661642-2388569"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-8332763-3209774 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-8332763-3209774">
+        <rdfs:label xml:lang="cs">termín</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-8728483-7945057 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-8728483-7945057">
+        <rdfs:label xml:lang="cs">konference</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-8762388-2735388 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-8762388-2735388">
+        <rdfs:label xml:lang="cs">osoba</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sigkdd_cz#op-2793913-3944648"/>
+                <owl:someValuesFrom rdf:resource="http://sigkdd_cz#c-2812909-7018772"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <!--v2<rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-1176326-9856110"/>-->
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://sigkdd_cz#op-9477802-8905182"/>
+                <owl:someValuesFrom rdf:resource="http://sigkdd_cz#c-5228983-0520869"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-9171550-2073647 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-9171550-2073647">
+        <rdfs:label xml:lang="cs">termín vyrozumění autorů</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-8332763-3209774"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-9262466-8809618 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-9262466-8809618">
+        <rdfs:label xml:lang="cs">ocenění za nejlepší aplikační článek</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-6665190-2770964"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-9499898-5428252 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-9499898-5428252">
+        <rdfs:label xml:lang="cs">zlatý sponzor konference</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-4895738-4243990"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-9511255-4653740 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-9511255-4653740">
+        <rdfs:label xml:lang="cs">stříbrný sponzor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-4895738-4243990"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-9572225-0580522 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-9572225-0580522">
+        <rdfs:label xml:lang="cs">bronzový sponzor konference</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-4895738-4243990"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sigkdd_cz#c-9690445-8769077 -->
+
+    <owl:Class rdf:about="http://sigkdd_cz#c-9690445-8769077">
+        <rdfs:label xml:lang="cs">člen programového výboru</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://sigkdd_cz#c-0661642-2388569"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.1592) http://owlapi.sourceforge.net -->
+

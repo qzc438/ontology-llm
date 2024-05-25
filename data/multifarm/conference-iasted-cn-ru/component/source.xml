@@ -1,0 +1,1626 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://conference_cn#"
+     xml:base="http://conference_cn"
+     xmlns:conference_cn="http://conference_cn#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://conference_cn"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#label"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://conference_cn#op-0264696-7902275 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-0264696-7902275">
+        <rdfs:label xml:lang="zh">作报告</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_cn#c-2481676-8465784"/>
+        <rdfs:domain rdf:resource="http://conference_cn#c-5868151-1672428"/>
+        <owl:inverseOf rdf:resource="http://conference_cn#op-1825246-2369809"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-0380280-2251650 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-0380280-2251650">
+        <rdfs:label xml:lang="zh">是一个会议部分的主题</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_cn#c-4901638-8623780"/>
+        <rdfs:domain rdf:resource="http://conference_cn#c-8854326-1086163"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-0771447-6124635 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-0771447-6124635">
+        <rdfs:label xml:lang="zh">有部分</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_cn#c-4901638-8623780"/>
+        <rdfs:domain rdf:resource="http://conference_cn#c-8605961-0132727"/>
+        <owl:inverseOf rdf:resource="http://conference_cn#op-6861253-2110670"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-1032488-6754321 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-1032488-6754321">
+        <rdfs:label xml:lang="zh">有投稿</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_cn#c-8378121-4112879"/>
+        <rdfs:domain rdf:resource="http://conference_cn#c-8605961-0132727"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-1112015-2539103 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-1112015-2539103">
+        <rdfs:label xml:lang="zh">投稿</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-0303892-1814191"/>
+        <rdfs:range rdf:resource="http://conference_cn#c-3554496-7468792"/>
+        <owl:inverseOf rdf:resource="http://conference_cn#op-6443303-1219145"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-1318161-8398469 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-1318161-8398469">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="zh">有一个出版商</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-5080162-2301751"/>
+        <rdfs:range rdf:resource="http://conference_cn#c-8705165-8496652"/>
+        <owl:inverseOf rdf:resource="http://conference_cn#op-9354729-8566403"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-1661707-5491515 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-1661707-5491515">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="zh">有重要日期</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_cn#c-7581058-6321066"/>
+        <rdfs:domain rdf:resource="http://conference_cn#c-8605961-0132727"/>
+        <owl:inverseOf rdf:resource="http://conference_cn#op-6371378-4913874"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-1825246-2369809 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-1825246-2369809">
+        <rdfs:label xml:lang="zh">是由之作</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-2481676-8465784"/>
+        <rdfs:range rdf:resource="http://conference_cn#c-5868151-1672428"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-2042126-7019591 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-2042126-7019591">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="zh">有一个组织委员会</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_cn#c-2095635-3901454"/>
+        <rdfs:domain rdf:resource="http://conference_cn#c-8605961-0132727"/>
+        <rdfs:subPropertyOf rdf:resource="http://conference_cn#op-4939086-2911452"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-2718258-8311810 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-2718258-8311810">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="zh">被分配给审稿参考</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_cn#c-0761152-8794260"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_cn#c-8190505-2879219"/>
+                    <rdf:Description rdf:about="http://conference_cn#c-8854326-1086163"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-2967223-4240010 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-2967223-4240010">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="zh">曾是一个组织委员会</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-2095635-3901454"/>
+        <rdfs:range rdf:resource="http://conference_cn#c-8605961-0132727"/>
+        <owl:inverseOf rdf:resource="http://conference_cn#op-2042126-7019591"/>
+        <rdfs:subPropertyOf rdf:resource="http://conference_cn#op-9598412-4424297"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-3135057-2198800 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-3135057-2198800">
+        <rdfs:label xml:lang="zh">有研讨会</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_cn#c-6926672-9037231"/>
+        <rdfs:domain rdf:resource="http://conference_cn#c-8605961-0132727"/>
+        <rdfs:subPropertyOf rdf:resource="http://conference_cn#op-0771447-6124635"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-3235270-1447226 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-3235270-1447226">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="zh">有一个指导委员会</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_cn#c-0270768-7415104"/>
+        <rdfs:domain rdf:resource="http://conference_cn#c-8605961-0132727"/>
+        <rdfs:subPropertyOf rdf:resource="http://conference_cn#op-4939086-2911452"/>
+        <owl:inverseOf rdf:resource="http://conference_cn#op-6670849-0738421"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-3928862-8242891 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-3928862-8242891">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="zh">有一个摘要</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_cn#c-6321882-0880652"/>
+        <owl:inverseOf rdf:resource="http://conference_cn#op-8374329-5896815"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_cn#c-2481676-8465784"/>
+                    <rdf:Description rdf:about="http://conference_cn#c-2629069-4055824"/>
+                    <rdf:Description rdf:about="http://conference_cn#c-4447529-2843211"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-4515255-0277664 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-4515255-0277664">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="zh">曾是一个研讨会主席</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-0093779-4365422"/>
+        <rdfs:range rdf:resource="http://conference_cn#c-4901638-8623780"/>
+        <owl:inverseOf rdf:resource="http://conference_cn#op-5401439-9644116"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-4612606-3565270 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-4612606-3565270">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="zh">有一个程序委员会</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-8605961-0132727"/>
+        <rdfs:range rdf:resource="http://conference_cn#c-8671713-5700321"/>
+        <rdfs:subPropertyOf rdf:resource="http://conference_cn#op-4939086-2911452"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-4939086-2911452 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-4939086-2911452">
+        <rdfs:label xml:lang="zh">有一个委员会</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_cn#c-1222165-4711193"/>
+        <rdfs:domain rdf:resource="http://conference_cn#c-8605961-0132727"/>
+        <owl:inverseOf rdf:resource="http://conference_cn#op-9598412-4424297"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-5218980-5192208 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-5218980-5192208">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="zh">属于一个审稿参考</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_cn#c-0761152-8794260"/>
+        <rdfs:domain rdf:resource="http://conference_cn#c-8854326-1086163"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-5340236-6811618 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-5340236-6811618">
+        <rdfs:label xml:lang="zh">有一个审稿参考或者专长</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-0616852-2463017"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_cn#c-0761152-8794260"/>
+                    <rdf:Description rdf:about="http://conference_cn#c-2167088-5414867"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-5401439-9644116 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-5401439-9644116">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="zh">有一个研讨会教程主席</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_cn#c-0093779-4365422"/>
+        <rdfs:domain rdf:resource="http://conference_cn#c-4901638-8623780"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-5858016-6611160 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-5858016-6611160">
+        <rdfs:label xml:lang="zh">有教程</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_cn#c-7510981-3509283"/>
+        <rdfs:domain rdf:resource="http://conference_cn#c-8605961-0132727"/>
+        <rdfs:subPropertyOf rdf:resource="http://conference_cn#op-0771447-6124635"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-5891356-5099080 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-5891356-5099080">
+        <rdfs:label xml:lang="zh">曾是一个委员会联合主席</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_cn#c-1222165-4711193"/>
+        <rdfs:domain rdf:resource="http://conference_cn#c-7632427-6171275"/>
+        <rdfs:subPropertyOf rdf:resource="http://conference_cn#op-8748640-7968974"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-5935467-6641785 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-5935467-6641785">
+        <rdfs:label xml:lang="zh">有一个委员会联合主席</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-1222165-4711193"/>
+        <rdfs:range rdf:resource="http://conference_cn#c-7632427-6171275"/>
+        <owl:inverseOf rdf:resource="http://conference_cn#op-5891356-5099080"/>
+        <rdfs:subPropertyOf rdf:resource="http://conference_cn#op-9551518-7013661"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-6102947-0258301 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-6102947-0258301">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="zh">曾是一个委员会主席</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_cn#c-1222165-4711193"/>
+        <rdfs:domain rdf:resource="http://conference_cn#c-7043069-9708118"/>
+        <rdfs:subPropertyOf rdf:resource="http://conference_cn#op-8748640-7968974"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-6110385-9428205 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-6110385-9428205">
+        <rdfs:label xml:lang="zh">邀请联合审稿人</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_cn#c-0616852-2463017"/>
+        <rdfs:domain rdf:resource="http://conference_cn#c-0616852-2463017"/>
+        <owl:inverseOf rdf:resource="http://conference_cn#op-6589698-7147407"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-6217428-9253672 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-6217428-9253672">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="zh">有一个审稿专长</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_cn#c-2167088-5414867"/>
+        <rdfs:domain rdf:resource="http://conference_cn#c-8190505-2879219"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-6371378-4913874 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-6371378-4913874">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="zh">属于一个会议卷册</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-7581058-6321066"/>
+        <rdfs:range rdf:resource="http://conference_cn#c-8605961-0132727"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-6399796-7234456 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-6399796-7234456">
+        <rdfs:label xml:lang="zh">属于审稿人</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_cn#c-0616852-2463017"/>
+        <owl:inverseOf rdf:resource="http://conference_cn#op-5340236-6811618"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_cn#c-0761152-8794260"/>
+                    <rdf:Description rdf:about="http://conference_cn#c-2167088-5414867"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-6443303-1219145 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-6443303-1219145">
+        <rdfs:label xml:lang="zh">有作者</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_cn#c-0303892-1814191"/>
+        <rdfs:domain rdf:resource="http://conference_cn#c-3554496-7468792"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-6495536-2293950 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-6495536-2293950">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="zh">有一个委员会主席</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-1222165-4711193"/>
+        <rdfs:range rdf:resource="http://conference_cn#c-7043069-9708118"/>
+        <owl:inverseOf rdf:resource="http://conference_cn#op-6102947-0258301"/>
+        <rdfs:subPropertyOf rdf:resource="http://conference_cn#op-9551518-7013661"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-6589698-7147407 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-6589698-7147407">
+        <rdfs:label xml:lang="zh">受邀于</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-0616852-2463017"/>
+        <rdfs:range rdf:resource="http://conference_cn#c-0616852-2463017"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-6670849-0738421 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-6670849-0738421">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="zh">曾是一个指导委员会</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-0270768-7415104"/>
+        <rdfs:range rdf:resource="http://conference_cn#c-8605961-0132727"/>
+        <rdfs:subPropertyOf rdf:resource="http://conference_cn#op-9598412-4424297"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-6861253-2110670 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-6861253-2110670">
+        <rdfs:label xml:lang="zh">是会议卷册的一部分</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-4901638-8623780"/>
+        <rdfs:range rdf:resource="http://conference_cn#c-8605961-0132727"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-7550186-5195018 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-7550186-5195018">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="zh">有一个审稿意见</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_cn#c-1342284-9566424"/>
+        <rdfs:domain rdf:resource="http://conference_cn#c-8410478-8751562"/>
+        <owl:inverseOf rdf:resource="http://conference_cn#op-9587070-4401229"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-7598149-3025987 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-7598149-3025987">
+        <rdfs:label xml:lang="zh">有轨道</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-8605961-0132727"/>
+        <rdfs:range rdf:resource="http://conference_cn#c-8807539-1109418"/>
+        <rdfs:subPropertyOf rdf:resource="http://conference_cn#op-0771447-6124635"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-7836525-8578059 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-7836525-8578059">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="zh">有一个主题或者投稿</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-0761152-8794260"/>
+        <owl:inverseOf rdf:resource="http://conference_cn#op-2718258-8311810"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_cn#c-8190505-2879219"/>
+                    <rdf:Description rdf:about="http://conference_cn#c-8854326-1086163"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-7944512-1327128 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-7944512-1327128">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="zh">曾是一个程序委员会</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_cn#c-8605961-0132727"/>
+        <rdfs:domain rdf:resource="http://conference_cn#c-8671713-5700321"/>
+        <owl:inverseOf rdf:resource="http://conference_cn#op-4612606-3565270"/>
+        <rdfs:subPropertyOf rdf:resource="http://conference_cn#op-9598412-4424297"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-8058561-5048213 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-8058561-5048213">
+        <rdfs:label xml:lang="zh">是投至</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-8378121-4112879"/>
+        <rdfs:range rdf:resource="http://conference_cn#c-8605961-0132727"/>
+        <owl:inverseOf rdf:resource="http://conference_cn#op-1032488-6754321"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-8212064-4806744 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-8212064-4806744">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="zh">有一个投稿</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-2167088-5414867"/>
+        <rdfs:range rdf:resource="http://conference_cn#c-8190505-2879219"/>
+        <owl:inverseOf rdf:resource="http://conference_cn#op-6217428-9253672"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-8374329-5896815 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-8374329-5896815">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="zh">是第一部分</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-6321882-0880652"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_cn#c-2481676-8465784"/>
+                    <rdf:Description rdf:about="http://conference_cn#c-2629069-4055824"/>
+                    <rdf:Description rdf:about="http://conference_cn#c-4447529-2843211"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-8549749-5268663 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-8549749-5268663">
+        <rdfs:label xml:lang="zh">有一个研讨会教程主题</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-4901638-8623780"/>
+        <rdfs:range rdf:resource="http://conference_cn#c-8854326-1086163"/>
+        <owl:inverseOf rdf:resource="http://conference_cn#op-0380280-2251650"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-8748640-7968974 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-8748640-7968974">
+        <rdfs:label xml:lang="zh">曾是一个成员</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_cn#c-1222165-4711193"/>
+        <rdfs:domain rdf:resource="http://conference_cn#c-7231695-3438312"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-9354729-8566403 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-9354729-8566403">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="zh">发行</rdfs:label>
+        <rdfs:range rdf:resource="http://conference_cn#c-5080162-2301751"/>
+        <rdfs:domain rdf:resource="http://conference_cn#c-8705165-8496652"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-9551518-7013661 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-9551518-7013661">
+        <rdfs:label xml:lang="zh">有成员</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-1222165-4711193"/>
+        <rdfs:range rdf:resource="http://conference_cn#c-7231695-3438312"/>
+        <owl:inverseOf rdf:resource="http://conference_cn#op-8748640-7968974"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-9587070-4401229 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-9587070-4401229">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="zh">评审</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-1342284-9566424"/>
+        <rdfs:range rdf:resource="http://conference_cn#c-8410478-8751562"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://conference_cn#op-9598412-4424297 -->
+
+    <owl:ObjectProperty rdf:about="http://conference_cn#op-9598412-4424297">
+        <rdfs:label xml:lang="zh">曾是一个委员会</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-1222165-4711193"/>
+        <rdfs:range rdf:resource="http://conference_cn#c-8605961-0132727"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://conference_cn#ent-0192762-9998580 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_cn#ent-0192762-9998580">
+        <rdfs:label xml:lang="zh">有一个电子邮箱</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-0303892-1814191"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_cn#ent-0349331-2807631 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_cn#ent-0349331-2807631">
+        <rdfs:label xml:lang="zh">有名</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-0303892-1814191"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_cn#ent-1286720-8897226 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_cn#ent-1286720-8897226">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="zh">有一个名字</rdfs:label>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_cn#c-4901638-8623780"/>
+                    <rdf:Description rdf:about="http://conference_cn#c-5080162-2301751"/>
+                    <rdf:Description rdf:about="http://conference_cn#c-8705165-8496652"/>
+                    <rdf:Description rdf:about="http://conference_cn#c-8850526-1216914"/>
+                    <rdf:Description rdf:about="http://conference_cn#c-8854326-1086163"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_cn#ent-1379873-0723070 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_cn#ent-1379873-0723070">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="zh">有一个网址</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-9459674-9618383"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_cn#ent-1856607-0386452 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_cn#ent-1856607-0386452">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="zh">有一个卷册</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-5080162-2301751"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_cn#ent-1984692-1981469 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_cn#ent-1984692-1981469">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="zh">有姓</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-0303892-1814191"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_cn#ent-2308882-4392305 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_cn#ent-2308882-4392305">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="zh">有一个全文投稿日期</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-7581058-6321066"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_cn#ent-3051261-2960041 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_cn#ent-3051261-2960041">
+        <rdfs:label xml:lang="zh">有一个地点</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-8605961-0132727"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_cn#ent-3183034-4854997 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_cn#ent-3183034-4854997">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="zh">有一个录用通知日期</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-7581058-6321066"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_cn#ent-3322899-3507087 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_cn#ent-3322899-3507087">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="zh">有一个ISBN</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-5080162-2301751"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_cn#ent-4352115-8489633 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_cn#ent-4352115-8489633">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="zh">有一个摘要投稿日期</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-7581058-6321066"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_cn#ent-4974127-9911882 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_cn#ent-4974127-9911882">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="zh">有性别</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-0303892-1814191"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">female</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">male</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_cn#ent-5187609-1034391 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_cn#ent-5187609-1034391">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="zh">有一个结束日期</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-7581058-6321066"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_cn#ent-6771303-1107489 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_cn#ent-6771303-1107489">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="zh">有一个专长</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-2167088-5414867"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">high</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">low</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">medium</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">very high</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_cn#ent-7630346-9883552 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_cn#ent-7630346-9883552">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="zh">有一个开始日期</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-7581058-6321066"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_cn#ent-8092603-6598498 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_cn#ent-8092603-6598498">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="zh">有一个照相制版提交日期</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-7581058-6321066"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_cn#ent-8971329-1726032 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_cn#ent-8971329-1726032">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="zh">有一个发行日题</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-3554496-7468792"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://conference_cn#ent-9631123-7009536 -->
+
+    <owl:DatatypeProperty rdf:about="http://conference_cn#ent-9631123-7009536">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="zh">有一个度</rdfs:label>
+        <rdfs:domain rdf:resource="http://conference_cn#c-0761152-8794260"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://conference_cn#c-0093779-4365422 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-0093779-4365422">
+        <rdfs:label xml:lang="zh">研讨会主席</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://conference_cn#op-4515255-0277664"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://conference_cn#c-6926672-9037231"/>
+                            <rdf:Description rdf:about="http://conference_cn#c-8807539-1109418"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-0303892-1814191"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-0270768-7415104 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-0270768-7415104">
+        <rdfs:label xml:lang="zh">指导委员会</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-1222165-4711193"/>
+        <owl:disjointWith rdf:resource="http://conference_cn#c-2095635-3901454"/>
+        <owl:disjointWith rdf:resource="http://conference_cn#c-8671713-5700321"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-0303892-1814191 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-0303892-1814191">
+        <rdfs:label xml:lang="zh">人员</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-0616852-2463017 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-0616852-2463017">
+        <rdfs:label xml:lang="zh">审稿人</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-0303892-1814191"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-0696061-5856960 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-0696061-5856960">
+        <rdfs:label xml:lang="zh">会议投稿人</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-0303892-1814191"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-0761152-8794260 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-0761152-8794260">
+        <rdfs:label xml:lang="zh">审稿优先选择</rdfs:label>
+        <!--v2<rdfs:subClassOf rdf:resource="http://conference_cn#c-9722528-8672337"/>-->
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://conference_cn#op-6399796-7234456"/>
+                <owl:someValuesFrom rdf:resource="http://conference_cn#c-0616852-2463017"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://conference_cn#op-7836525-8578059"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://conference_cn#c-8190505-2879219"/>
+                            <rdf:Description rdf:about="http://conference_cn#c-8854326-1086163"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-0948243-2990012 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-0948243-2990012">
+        <rdfs:label xml:lang="zh">征文启事</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-3554496-7468792"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-1095048-4876856 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-1095048-4876856">
+        <rdfs:label xml:lang="zh">提前付费申请人</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-7714669-1265737"/>
+        <owl:disjointWith rdf:resource="http://conference_cn#c-4187918-4915509"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-1222165-4711193 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-1222165-4711193">
+        <rdfs:label xml:lang="zh">委员会</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_cn#c-0270768-7415104"/>
+                    <rdf:Description rdf:about="http://conference_cn#c-2095635-3901454"/>
+                    <rdf:Description rdf:about="http://conference_cn#c-8671713-5700321"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-1324196-0860261 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-1324196-0860261">
+        <rdfs:label xml:lang="zh">长摘要</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-7201875-5372963"/>
+        <owl:disjointWith rdf:resource="http://conference_cn#c-2629069-4055824"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-1342284-9566424 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-1342284-9566424">
+        <rdfs:label xml:lang="zh">审稿意见</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-3554496-7468792"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://conference_cn#op-6443303-1219145"/>
+                <owl:allValuesFrom rdf:resource="http://conference_cn#c-0616852-2463017"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-1624856-6964623 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-1624856-6964623">
+        <rdfs:label xml:lang="zh">已注册申请人</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-2409353-1237300"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-1677285-9036800 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-1677285-9036800">
+        <rdfs:label xml:lang="zh">会议费用</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-1709978-2912032 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-1709978-2912032">
+        <rdfs:label xml:lang="zh">组织</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-1789727-1476426 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-1789727-1476426">
+        <rdfs:label xml:lang="zh">照相制版稿件</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-8347862-9693008"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-1991023-0606800 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-1991023-0606800">
+        <rdfs:label xml:lang="zh">被动与会者</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-8767431-8865125"/>
+        <owl:disjointWith rdf:resource="http://conference_cn#c-5868151-1672428"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-2095635-3901454 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-2095635-3901454">
+        <rdfs:label xml:lang="zh">组委会</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-1222165-4711193"/>
+        <owl:disjointWith rdf:resource="http://conference_cn#c-8671713-5700321"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-2167088-5414867 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-2167088-5414867">
+        <rdfs:label xml:lang="zh">审稿专长</rdfs:label>
+        <!--v2<rdfs:subClassOf rdf:resource="http://conference_cn#c-9722528-8672337"/>-->
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://conference_cn#op-6399796-7234456"/>
+                <owl:someValuesFrom rdf:resource="http://conference_cn#c-0616852-2463017"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://conference_cn#op-8212064-4806744"/>
+                <owl:someValuesFrom rdf:resource="http://conference_cn#c-8190505-2879219"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-2303811-8542745 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-2303811-8542745">
+        <rdfs:label xml:lang="zh">拒收稿件</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-8410478-8751562"/>
+        <owl:disjointWith rdf:resource="http://conference_cn#c-8347862-9693008"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-2409353-1237300 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-2409353-1237300">
+        <rdfs:label xml:lang="zh">会议申请人</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-0303892-1814191"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-2481676-8465784 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-2481676-8465784">
+        <rdfs:label xml:lang="zh">报告</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-8378121-4112879"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-2629069-4055824 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-2629069-4055824">
+        <rdfs:label xml:lang="zh">论文</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-7201875-5372963"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-3342436-6821881 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-3342436-6821881">
+        <rdfs:label xml:lang="zh">书面投稿</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-8378121-4112879"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_cn#c-4447529-2843211"/>
+                    <rdf:Description rdf:about="http://conference_cn#c-7201875-5372963"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-3554496-7468792 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-3554496-7468792">
+        <rdfs:label xml:lang="zh">会议文件</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-4143210-8661289 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-4143210-8661289">
+        <rdfs:label xml:lang="zh">特邀报告人</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://conference_cn#op-1112015-2539103"/>
+                <owl:someValuesFrom rdf:resource="http://conference_cn#c-6964746-1010196"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-0696061-5856960"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-4187918-4915509 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-4187918-4915509">
+        <rdfs:label xml:lang="zh">晚付费申请人</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-7714669-1265737"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-4447529-2843211 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-4447529-2843211">
+        <rdfs:label xml:lang="zh">海报</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-8378121-4112879"/>
+        <owl:disjointWith rdf:resource="http://conference_cn#c-6964746-1010196"/>
+        <owl:disjointWith rdf:resource="http://conference_cn#c-7201875-5372963"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-4815562-5367679 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-4815562-5367679">
+        <rdfs:label xml:lang="zh">投稿第一作者</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-9329539-8004095"/>
+        <owl:disjointWith rdf:resource="http://conference_cn#c-9905617-7890958"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-4901638-8623780 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-4901638-8623780">
+        <rdfs:label xml:lang="zh">会议部分</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-5080162-2301751 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-5080162-2301751">
+        <rdfs:label xml:lang="zh">会议论文集</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-5544763-2634309 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-5544763-2634309">
+        <rdfs:label xml:lang="zh">与会者信息</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-3554496-7468792"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-5868151-1672428 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-5868151-1672428">
+        <rdfs:label xml:lang="zh">主动与会者</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-0696061-5856960"/>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-8767431-8865125"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_cn#c-4143210-8661289"/>
+                    <rdf:Description rdf:about="http://conference_cn#c-9329539-8004095"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-6321882-0880652 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-6321882-0880652">
+        <rdfs:label xml:lang="zh">摘要</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-1324196-0860261"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-6408979-2861972 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-6408979-2861972">
+        <rdfs:label xml:lang="zh">组织者</rdfs:label>
+        <!--v2<rdfs:subClassOf rdf:resource="http://conference_cn#c-9722528-8672337"/>-->
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_cn#c-1709978-2912032"/>
+                    <rdf:Description rdf:about="http://conference_cn#c-7231695-3438312"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-6926672-9037231 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-6926672-9037231">
+        <rdfs:label xml:lang="zh">研讨会</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-4901638-8623780"/>
+        <owl:disjointWith rdf:resource="http://conference_cn#c-7510981-3509283"/>
+        <owl:disjointWith rdf:resource="http://conference_cn#c-8807539-1109418"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-6964746-1010196 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-6964746-1010196">
+        <rdfs:label xml:lang="zh">特邀报告</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-2481676-8465784"/>
+        <owl:disjointWith rdf:resource="http://conference_cn#c-7201875-5372963"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-7043069-9708118 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-7043069-9708118">
+        <rdfs:label xml:lang="zh">主席</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://conference_cn#op-6102947-0258301"/>
+                <owl:someValuesFrom rdf:resource="http://conference_cn#c-1222165-4711193"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-7231695-3438312"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-7201875-5372963 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-7201875-5372963">
+        <rdfs:label xml:lang="zh">正规投稿</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_cn#c-1324196-0860261"/>
+                    <rdf:Description rdf:about="http://conference_cn#c-2629069-4055824"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-3342436-6821881"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-7231695-3438312 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-7231695-3438312">
+        <rdfs:label xml:lang="zh">委员会成员</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://conference_cn#op-8748640-7968974"/>
+                <owl:someValuesFrom rdf:resource="http://conference_cn#c-1222165-4711193"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-0303892-1814191"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-7510981-3509283 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-7510981-3509283">
+        <rdfs:label xml:lang="zh">教程</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-4901638-8623780"/>
+        <owl:disjointWith rdf:resource="http://conference_cn#c-8807539-1109418"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-7581058-6321066 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-7581058-6321066">
+        <rdfs:label xml:lang="zh">重要日期</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-7632427-6171275 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-7632427-6171275">
+        <rdfs:label xml:lang="zh">联合主席</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://conference_cn#op-5891356-5099080"/>
+                <owl:someValuesFrom rdf:resource="http://conference_cn#c-1222165-4711193"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-7231695-3438312"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-7714669-1265737 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-7714669-1265737">
+        <rdfs:label xml:lang="zh">付费申请人</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_cn#c-1095048-4876856"/>
+                    <rdf:Description rdf:about="http://conference_cn#c-4187918-4915509"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-1624856-6964623"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-8190505-2879219 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-8190505-2879219">
+        <rdfs:label xml:lang="zh">投稿</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-3342436-6821881"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_cn#c-4447529-2843211"/>
+                    <rdf:Description rdf:about="http://conference_cn#c-7201875-5372963"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-8347862-9693008 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-8347862-9693008">
+        <rdfs:label xml:lang="zh">录用稿件</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-8410478-8751562"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-8378121-4112879 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-8378121-4112879">
+        <rdfs:label xml:lang="zh">会议征稿通知</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_cn#c-2481676-8465784"/>
+                    <rdf:Description rdf:about="http://conference_cn#c-3342436-6821881"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_cn#c-4447529-2843211"/>
+                    <rdf:Description rdf:about="http://conference_cn#c-6964746-1010196"/>
+                    <rdf:Description rdf:about="http://conference_cn#c-7201875-5372963"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-3554496-7468792"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-8410478-8751562 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-8410478-8751562">
+        <rdfs:label xml:lang="zh">被审稿件</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_cn#c-2303811-8542745"/>
+                    <rdf:Description rdf:about="http://conference_cn#c-8347862-9693008"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-8190505-2879219"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-8576034-5976354 -->
+    <!--v2
+    <owl:Class rdf:about="http://conference_cn#c-8576034-5976354">
+        <rdfs:label xml:lang="zh">null</rdfs:label>
+    </owl:Class>
+    -->
+
+
+    <!-- http://conference_cn#c-8605961-0132727 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-8605961-0132727">
+        <rdfs:label xml:lang="zh">会议卷册</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-8850526-1216914"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-8671713-5700321 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-8671713-5700321">
+        <rdfs:label xml:lang="zh">程序委员会</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-1222165-4711193"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-8705165-8496652 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-8705165-8496652">
+        <rdfs:label xml:lang="zh">出版商</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-8767431-8865125 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-8767431-8865125">
+        <rdfs:label xml:lang="zh">与会者</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://conference_cn#c-1991023-0606800"/>
+                    <rdf:Description rdf:about="http://conference_cn#c-5868151-1672428"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-0303892-1814191"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-8807539-1109418 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-8807539-1109418">
+        <rdfs:label xml:lang="zh">轨道</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-4901638-8623780"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-8850526-1216914 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-8850526-1216914">
+        <rdfs:label xml:lang="zh">会议</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-8854326-1086163 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-8854326-1086163">
+        <rdfs:label xml:lang="zh">主题</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-9117676-5296944 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-9117676-5296944">
+        <rdfs:label xml:lang="zh">会议通知</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-3554496-7468792"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-9329539-8004095 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-9329539-8004095">
+        <rdfs:label xml:lang="zh">正规作者</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://conference_cn#c-4815562-5367679"/>
+                            <rdf:Description rdf:about="http://conference_cn#c-9905617-7890958"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://conference_cn#op-1112015-2539103"/>
+                        <owl:someValuesFrom rdf:resource="http://conference_cn#c-8378121-4112879"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-0696061-5856960"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-9459674-9618383 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-9459674-9618383">
+        <rdfs:label xml:lang="zh">会议网站</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-3554496-7468792"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-9722528-8672337 -->
+     <!--
+    <owl:Class rdf:about="http://conference_cn#c-9722528-8672337">
+        <rdfs:label xml:lang="zh">null</rdfs:label>
+    </owl:Class>
+    -->
+    
+
+
+    <!-- http://conference_cn#c-9800107-1420273 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-9800107-1420273">
+        <rdfs:label xml:lang="zh">征集参与者通知</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-3554496-7468792"/>
+    </owl:Class>
+    
+
+
+    <!-- http://conference_cn#c-9905617-7890958 -->
+
+    <owl:Class rdf:about="http://conference_cn#c-9905617-7890958">
+        <rdfs:label xml:lang="zh">投稿合作作者</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://conference_cn#c-9329539-8004095"/>
+    </owl:Class>
+    <!--v2
+    <c-8576034-5976354/>
+    <c-8576034-5976354/>
+    -->
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.1592) http://owlapi.sourceforge.net -->
+
