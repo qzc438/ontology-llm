@@ -13,7 +13,7 @@ import itertools
 import psycopg2
 from pgvector.psycopg2 import register_vector
 
-from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.prompts import ChatPromptTemplate, PromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.tools import tool, render_text_description
 from operator import itemgetter
@@ -299,7 +299,10 @@ def find_most_relevant_entity(entity, source_or_target):
                         continue
                     else:
                         chain = create_tool_use_agent(matching_tools, matching_tool_chain)
-                        validate_prompt = f"Validate matching for {entity_name} and {predict_entity_name}."
+                        validate_prompt_template = PromptTemplate.from_template("Validate matching for {entity_name} and {predict_entity_name}")
+                        validate_prompt = validate_prompt_template.format(entity_name=entity_name, predict_entity_name = predict_entity_name)
+                        # validate_prompt = f"Validate matching for '{entity_name}' and '{predict_entity_name}'"
+                        print("validate_prompt", validate_prompt)
                         validate_result = chain.invoke({"input": validate_prompt})
                         if extract_yes_no(validate_result) == "yes":
                             candidates_with_validation_and_merge.append(find_entity(predict_entity))
@@ -332,9 +335,12 @@ def ontology() -> str:
     # e1_list = ["http://cmt#Meta-Reviewer"] # test matching validator
     # e1_list = ["http://cmt#hasDecision"]
     # e1_list = ["http://cmt#PaperFullVersion"]
-    # e1_list = ["http://mouse.owl#MA_0000013"] # test entity name
+    # e1_list = ["http://mouse.owl#MA_0000013"] # test hemolymphoid system and Hematopoietic_and_Lymphatic_System
     # e1_list = ["http://mouse.owl#MA_0000096"] # test one null value
     # e1_list = ["http://mouse.owl#MA_0001017"] # test all null value
+    # e1_list = ["http://mouse.owl#MA_0000241"] # test symbol "."
+    # e1_list = ["http://mouse.owl#MA_0000006"] # test head/neck and Head_and_Neck
+    # e1_list = ["http://mouse.owl#MA_0000052"]
     for entity in e1_list:
         print("entity1:", entity)
         entity_id = find_entity_id(entity, "Source")
@@ -407,7 +413,7 @@ def merge():
     df_merge_no_validation = df_merge_no_validation.drop_duplicates()
     df_merge_no_validation.to_csv(predict_path_no_validation, index=False)
     # evaluation
-    print(util.calculate_metrics(true_path, predict_path_no_validation, result_path, util.find_model_name(llm), alignment + "no_validation", ))
+    print(util.calculate_metrics(true_path, predict_path_no_validation, result_path, util.find_model_name(llm), alignment + "no_validation"))
     # matching merge with validation
     df_source = pd.read_csv(predict_source_path)
     df_target = pd.read_csv(predict_target_path)
@@ -423,8 +429,8 @@ def merge():
 def validate(a: str, b: str) -> str:
     """Validate matching."""
     util.print_colored_text(f"Validate matching: {a} and {b}", "cyan")
-    # tool function
-    prompt_validate_question = f"""Question: Is "{a}" interchangeable with "{b}"?
+    # tool function, do not use "" because the name will change to "Head_and_Neck."
+    prompt_validate_question = f"""Question: Is {a} equivalent to {b}?
                             Context: {context}
                             Answer the question within the context.
                             Answer yes or no. Give a short explanation.

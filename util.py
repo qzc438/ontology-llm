@@ -33,6 +33,7 @@ def find_model_name(llm):
     if hasattr(llm, 'model_name'):
         return llm.model_name
 
+
 def find_uri(ontology):
     for ns_prefix, namespace in ontology.namespaces():
         if not ns_prefix:
@@ -235,9 +236,6 @@ def filter_anatomy(csv_path):
 
 
 if __name__ == '__main__':
-    # calculate_metrics("alignment/mse/MaterialInformation-EMMO/component/true.csv",
-    #                   "alignment/mse/MaterialInformation-EMMO/component/predict_no_validation.csv",
-    #                   "", "")
 
     df1 = pd.read_csv("benchmark_2022/mse/thirdTestCase/LogMap.csv")
     df2 = pd.read_csv("alignment/mse/MaterialInformation-EMMO/component/predict.csv")
