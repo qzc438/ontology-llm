@@ -36,26 +36,49 @@ Retrieve graphical information about {entity}
 #### Tool Use Prompt:
 - Function Declaration:
   - Single function name and argument name.
+  - Camel case is fine, but snake case is wrong.
+  - Use verb for function description.
   - Do not use f-strings for build-in prompt.
-  - No special characters ":".
-  - No keywords "compare" for function description.
-  - Verb for function description.
+  - No special characters ":" or ".".
+  - No keywords "compare" or "validate" or "verify" for function description. 
 - Function Prompt:
   - Main content from: https://python.langchain.com/v0.1/docs/use_cases/tool_use/prompting/
   - Add one sentence from: https://medium.com/pythoneers/power-up-ollama-chatbots-with-tools-113ed8229a7a
   - We apply some slight changes to fit different LLM models.
 - It is possible to add tool error handling: https://python.langchain.com/v0.1/docs/use_cases/tool_use/tool_error_handling/
+- Please consider use the following testbed to test your retrieve prompt:
 
-#### Validate Prompt:
-- The equivalence relationship in OM is weak equivalence. Use "equivalent" and "identical" is too strong.
-- We recommend use the prompt related to real-world scenario: 
-```
-Is A often used interchangeably with B?
-```
+| Track      | Entity                                           | Description                                  |
+|------------|--------------------------------------------------|----------------------------------------------|
+| Conference | entity_list = ["http://cmt#Meta-Reviewer"]       | test extra information                       |
+| Conference | entity_list = ["http://cmt#acceptedBy"]          | test return the key "tool" instead of "name" |
+| Conference | entity_list = ["http://conference#Organization"] | test null value                              |
+| Anatomy    | entity_list = ["http://mouse.owl#MA_0000006"]    | test head/neck                               |
+| Anatomy    | entity_list = ["http://mouse.owl#MA_0001580"]    | test meckel's cartilage                      |
+| Anatomy    | entity_list = ["http://human.owl#NCI_C32188"]    | test use symbol ":"                          |
+
+- Please consider use the following testbed to test your matching prompt:
+
+| Track      | Entity                                    | Description                                                     |
+|------------|-------------------------------------------|-----------------------------------------------------------------|
+| Conference | e1_list = ["http://cmt#Bid"]              | test all null value                                             |
+| Conference | e1_list = ["http://cmt#Meta-Reviewer"]    | test matching refine                                            |
+| Anatomy    | e1_list = ["http://mouse.owl#MA_0000096"] | test one null value                                             |
+| Anatomy    | e1_list = ["http://mouse.owl#MA_0001017"] | test all null value                                             |
+| Anatomy    | e1_list = ["http://mouse.owl#MA_0000241"] | test use symbol "." to end sentence                             |
+| Anatomy    | e1_list = ["http://mouse.owl#MA_0000052"] | test use symbol "" or '' for name                               |
+| Anatomy    | e1_list = ["http://mouse.owl#MA_0000013"] | test hemolymphoid system and Hematopoietic_and_Lymphatic_System |
+| Anatomy    | e1_list = ["http://mouse.owl#MA_0000006"] | test head/neck and Head_and_Neck, phi cannot find correct input |
+| Anatomy    | e1_list = ["http://mouse.owl#MA_0000383"] | test keyword should be "refine". not "validate" or "verify"     |
+
+
+#### Refine Prompt:
+- We use a strong refine (e.g. "equivalent" and "identical") to identify the equivalence relationship.
+- In some case, weak refine (e.g. "interchangeable") is better. 
 - Please consider use the following testbed to test your own prompt:
 
-| e1_list                                  | e2_list                                      |
-|------------------------------------------|----------------------------------------------|
-| e1_list = ["http://cmt#SubjectArea"]     | e2_list = ["http://cmt#Topic"]               |
-| e1_list = ["http://cmt#ConferenceChair"] | e2_list = ["http://cmt#Chair"]               |
-| e1_list = ["http://cmt#Document"]        | e2_list = ["http://cmt#Conference_document"] |
+| Track      | Entity1                                  | Entity2                                      |
+|------------|------------------------------------------|----------------------------------------------|
+| Conference | e1_list = ["http://cmt#SubjectArea"]     | e2_list = ["http://cmt#Topic"]               |
+| Conference | e1_list = ["http://cmt#ConferenceChair"] | e2_list = ["http://cmt#Chair"]               |
+| Conference | e1_list = ["http://cmt#Document"]        | e2_list = ["http://cmt#Conference_document"] |

@@ -259,7 +259,7 @@ def find_entity_information(path, entity_list, source_or_target, entity_type):
     # entity_list = ["http://conference#Important_dates"]  # test sentence format
     # entity_list = ["http://www.geneontology.org/formats/oboInOwl#DbXref"]  # test null value
     # entity_list = ["http://mouse.owl#MA_0000006"] # test head/neck
-    # entity_list = ["http://mouse.owl#MA_0001580"] # meckel's cartilage
+    # entity_list = ["http://mouse.owl#MA_0001580"] # test meckel's cartilage
     # entity_list = ["http://human.owl#NCI_C32188"] # test no ":"
     # entity_list = ["http://mouse.owl#MA_0000094"]
     with open(path, "a+", newline='') as f1:

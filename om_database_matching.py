@@ -295,16 +295,16 @@ def find_most_relevant_entity(entity, source_or_target):
                     # compare entity name
                     if util.cleaning(entity_name).casefold() == util.cleaning(predict_entity_name).casefold():
                         candidates_with_validation_and_merge.append(find_entity(predict_entity))
-                        create_log(f"result_without_validate: {predict_entity_name}")
+                        create_log(f"result_without_refine: {predict_entity_name}")
                         continue
                     else:
                         chain = create_tool_use_agent(matching_tools, matching_tool_chain)
-                        validate_prompt_template = PromptTemplate.from_template("Validate matching for {entity_name} and {predict_entity_name}")
-                        validate_prompt = validate_prompt_template.format(entity_name=entity_name, predict_entity_name = predict_entity_name)
-                        # validate_prompt = f"Validate matching for '{entity_name}' and '{predict_entity_name}'"
-                        print("validate_prompt", validate_prompt)
-                        validate_result = chain.invoke({"input": validate_prompt})
-                        if extract_yes_no(validate_result) == "yes":
+                        refine_prompt = f"Refine matching for {entity_name} and {predict_entity_name}"
+                        # refine_prompt_template = PromptTemplate.from_template("Refine matching for {entity_name} and {predict_entity_name}")
+                        # refine_prompt = refine_prompt_template.format(entity_name=entity_name, predict_entity_name=predict_entity_name)
+                        # print("refine_prompt", refine_prompt)
+                        refine_result = chain.invoke({"input": refine_prompt})
+                        if extract_yes_no(refine_result) == "yes":
                             candidates_with_validation_and_merge.append(find_entity(predict_entity))
                 print("candidates_with_validation_and_merge:", candidates_with_validation_and_merge)
                 if candidates_with_validation_and_merge:
@@ -332,15 +332,14 @@ def ontology() -> str:
     util.create_document(predict_source_path, header=['Entity1', 'Entity2'])
     # e1_list = ["http://cmt#printHardcopyMailingManifests"]
     # e1_list = ["http://cmt#Bid"] # test all null value
-    # e1_list = ["http://cmt#Meta-Reviewer"] # test matching validator
-    # e1_list = ["http://cmt#hasDecision"]
-    # e1_list = ["http://cmt#PaperFullVersion"]
-    # e1_list = ["http://mouse.owl#MA_0000013"] # test hemolymphoid system and Hematopoietic_and_Lymphatic_System
+    # e1_list = ["http://cmt#Meta-Reviewer"] # test matching refine
     # e1_list = ["http://mouse.owl#MA_0000096"] # test one null value
     # e1_list = ["http://mouse.owl#MA_0001017"] # test all null value
-    # e1_list = ["http://mouse.owl#MA_0000241"] # test symbol "."
-    # e1_list = ["http://mouse.owl#MA_0000006"] # test head/neck and Head_and_Neck
-    # e1_list = ["http://mouse.owl#MA_0000052"]
+    # e1_list = ["http://mouse.owl#MA_0000241"] # test use end symbol "."
+    # e1_list = ["http://mouse.owl#MA_0000052"] # Test use symbol "" or '' for name
+    # e1_list = ["http://mouse.owl#MA_0000013"] # test hemolymphoid system and Hematopoietic_and_Lymphatic_System
+    # e1_list = ["http://mouse.owl#MA_0000006"] # test head/neck and Head_and_Neck, phi cannot find correct input
+    # e1_list = ["http://mouse.owl#MA_0000383"] # test keyword should be "refine". not "validate" or "verify"
     for entity in e1_list:
         print("entity1:", entity)
         entity_id = find_entity_id(entity, "Source")
@@ -426,22 +425,22 @@ def merge():
 
 
 @tool
-def validate(a: str, b: str) -> str:
-    """Validate matching."""
-    util.print_colored_text(f"Validate matching: {a} and {b}", "cyan")
+def refine(a: str, b: str) -> str:
+    """Refine matching."""
+    util.print_colored_text(f"Refine matching: {a} and {b}", "cyan")
     # tool function, do not use "" because the name will change to "Head_and_Neck."
-    prompt_validate_question = f"""Question: Is {a} equivalent to {b}?
+    prompt_refine_question = f"""Question: Is {a} equivalent to {b}?
                             Context: {context}
                             Answer the question within the context.
                             Answer yes or no. Give a short explanation.
                             """
-    result_validate = llm.invoke(prompt_validate_question).content
-    print("result_validate:", result_validate)
-    create_log(f"result_with_validate: {result_validate}")
-    return result_validate
+    result_refine = llm.invoke(prompt_refine_question).content
+    print("result_refine:", result_refine)
+    create_log(f"result_with_refine: {result_refine}")
+    return result_refine
 
 
-matching_tools = [syntactic, lexical, semantic, ontology, validate, merge]
+matching_tools = [syntactic, lexical, semantic, ontology, refine, merge]
 
 
 def matching_tool_chain(model_output):

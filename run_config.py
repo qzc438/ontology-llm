@@ -33,12 +33,12 @@ os.environ["ANTHROPIC_API_KEY"] = os.getenv("ANTHROPIC_API_KEY")
 # llm = ChatVertexAI(model="gemini-pro", temperature=0)
 
 # # load Ollama
-# llm = ChatOllama(model="llama3:8b", temperature=0)
+llm = ChatOllama(model="llama3:8b", temperature=0)
 # llm = ChatOllama(model="gemma:7b", temperature=0)
 # llm = ChatOllama(model="wizardlm2:7b", temperature=0)
-llm = ChatOllama(model="phi3:3.8b", temperature=0)
+# llm = ChatOllama(model="phi3:3.8b", temperature=0)
 # llm = ChatOllama(model="mistral:7b", temperature=0)
-# llm = ChatOllama(model="mixtral:8x7b", temperature=0) # MoE model
+
 
 # # load llama3 variants
 # llm = ChatOllama(model="llama3:text", temperature=0)
@@ -51,9 +51,12 @@ llm = ChatOllama(model="phi3:3.8b", temperature=0)
 # llm = ChatOllama(model="gemma:2b", temperature=0)
 # # pass argument value error: entity = "John"
 # llm = ChatOllama(model="llama2:7b", temperature=0)
-# # multilingual models
-# llm = ChatOllama(model="aya:8b", temperature=0)
-# llm = ChatOllama(model="stablelm2:12b", temperature=0)
+# json.decoder.JSONDecodeError: Invalid \escape "http://mouse.owl#MA\_0000001"
+# llm = ChatOllama(model="mixtral:8x7b", temperature=0) # MoE model
+# json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes
+# llm = ChatOllama(model="aya:8b", temperature=0) # multilingual models
+# input only find "http://mouse.owl#MA_"
+# llm = ChatOllama(model="stablelm2:12b", temperature=0) # multilingual models
 
 # search settings
 similarity_threshold = 0.90
