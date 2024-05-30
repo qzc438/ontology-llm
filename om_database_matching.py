@@ -73,6 +73,9 @@ logFormatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(mes
 fileHandler.setFormatter(logFormatter)
 logger.addHandler(fileHandler)
 
+# intermediate values
+strings = None
+
 
 def create_log(message):
     logger = logging.getLogger('agent_log')
@@ -235,7 +238,6 @@ def find_all_matching_candidate(entity):
     output_dict = {'syntactic_matching': syntactic_matching, 'lexical_matching': lexical_matching, 'semantic_matching': semantic_matching}
     return output_dict
 
-
 def reciprocal_rank_fusion_all_with_grouped_scores_exclude_none(*rankings):
     reciprocal_ranks = collections.defaultdict(float)
     for ranking in rankings:
@@ -299,10 +301,9 @@ def find_most_relevant_entity(entity, source_or_target):
                         continue
                     else:
                         chain = create_tool_use_agent(matching_tools, matching_tool_chain)
-                        validate_prompt = f"Validate matching for {entity_name} and {predict_entity_name}"
-                        # validate_prompt_template = PromptTemplate.from_template("Validate matching for {entity_name} and {predict_entity_name}")
-                        # validate_prompt = validate_prompt_template.format(entity_name=entity_name, predict_entity_name=predict_entity_name)
-                        print("refine_prompt", validate_prompt)
+                        global strings; strings = [entity_name, predict_entity_name]
+                        # do not add arguments here to avoid input sensitive word
+                        validate_prompt = f"Matching validate."
                         validate_result = chain.invoke({"input": validate_prompt})
                         if extract_yes_no(validate_result) == "yes":
                             candidates_with_validation_and_merge.append(find_entity(predict_entity))
@@ -317,8 +318,8 @@ def find_most_relevant_entity(entity, source_or_target):
 
 # start ontology matching tools
 @tool
-def ontology() -> str:
-    """Start ontology matching."""
+def init():
+    """Ontology matching."""
     util.print_colored_text("Ontology matching:", "blue")
     # tool function
 
@@ -339,9 +340,11 @@ def ontology() -> str:
     # e1_list = ["http://mouse.owl#MA_0000052"] # Test use symbol "" or '' for name
     # e1_list = ["http://mouse.owl#MA_0000013"] # test hemolymphoid system and Hematopoietic_and_Lymphatic_System
     # e1_list = ["http://mouse.owl#MA_0000006"] # test head/neck and Head_and_Neck, phi cannot find correct input
-    # e1_list = ["http://mouse.owl#MA_0000383"] # ?test keyword should be "refine". not "validate" or "verify"
     # e1_list = ["http://mouse.owl#MA_0000541"] # test perform ontology matching failed
-    # e1_list = ["http://mouse.owl#MA_0001702"] # "refine" not working, have to change word to "Validate"
+    # e1_list = ["http://mouse.owl#MA_0001702"] # sentence using "refine" not working for sensitive words, have to change word to "validate"
+    # e1_list = ["http://mouse.owl#MA_0000183"] # tool name using "validate" is not working, have to change word to "refine"
+    e1_list = ["http://mouse.owl#MA_0001742"] # test sensitive word
+    # e1_list = ["http://mouse.owl#MA_0000043"]
     for entity in e1_list:
         print("entity1:", entity)
         entity_id = find_entity_id(entity, "Source")
@@ -370,11 +373,12 @@ def ontology() -> str:
     # e2_list = ["http://conference#Contribution_co-author"]
     # e2_list = ["http://conference#Conference"]  # test matching validator
     # e2_list = ["http://human.owl#NCI_C32727"] # test not a json format
+    e2_list = ["http://human.owl#NCI_C25177"] # test sensitive word
+    # e2_list = ["http://human.owl#NCI_C12441"]
     for entity in e2_list:
         print("entity2:", entity)
         entity_id = find_entity_id(entity, "Target")
-        candidates_without_validation_and_merge, candidates_with_validation_and_merge = find_most_relevant_entity(
-            entity_id, "Target")
+        candidates_without_validation_and_merge, candidates_with_validation_and_merge = find_most_relevant_entity(entity_id, "Target")
         for candidate in candidates_without_validation_and_merge:
             with open(predict_target_path_no_validation, "a+", newline='') as f:
                 writer = csv.writer(f)
@@ -395,16 +399,16 @@ def ontology() -> str:
 
     # matching merge
     chain = create_tool_use_agent(matching_tools, matching_tool_chain)
-    chain.invoke({"input": f"Merge matching."})
+    chain.invoke({"input": f"Matching merge."})
 
-    return "Ontology matching successfully completed."
+    print("Ontology matching successfully completed.")
 
 
 # start ontology refine tools
 @tool
 def merge():
-    """Merge matching."""
-    util.print_colored_text(f"Merge matching:", "cyan")
+    """Matching merge."""
+    util.print_colored_text(f"Matching merge:", "cyan")
     # tool function
     # matching merge without validation
     df_source_no_validation = pd.read_csv(predict_source_path_no_validation)
@@ -427,9 +431,12 @@ def merge():
 
 
 @tool
-def validate(a: str, b: str) -> str:
-    """Validate matching."""
-    util.print_colored_text(f"Validate matching: {a} and {b}", "cyan")
+def validate():
+    """Matching validate."""
+    global strings
+    a = strings[0]
+    b = strings[1]
+    util.print_colored_text(f"Matching validate: {a} and {b}", "cyan")
     # tool function, do not use "" because the name will change to "Head_and_Neck."
     prompt_validate_question = f"""Question: Is {a} equivalent to {b}?
                             Context: {context}
@@ -442,8 +449,7 @@ def validate(a: str, b: str) -> str:
     return result_validate
 
 
-matching_tools = [syntactic, lexical, semantic, ontology, validate, merge]
-
+matching_tools = [syntactic, lexical, semantic, init, validate, merge]
 
 def matching_tool_chain(model_output):
     tool_map = {tool.name: tool for tool in matching_tools}
@@ -482,4 +488,4 @@ if __name__ == '__main__':
     print("similarity:", similarity_threshold)
     # run matching agent
     chain = create_tool_use_agent(matching_tools, matching_tool_chain)
-    chain.invoke({"input": f"Start ontology matching."})
+    chain.invoke({"input": f"Ontology matching."})

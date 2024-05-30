@@ -305,7 +305,7 @@ def find_entity_information(path, entity_list, source_or_target, entity_type):
 
 
 @tool
-def ontology() -> str:
+def init():
     """Retrieve ontology information."""
     util.print_colored_text("Retrieve ontology information:", "blue")
     # find all entities
@@ -323,10 +323,10 @@ def ontology() -> str:
     ontology, ontology_prefix, ontology_is_code = o2, o2_prefix, o2_is_code
     find_entity_information(csv_path, e2_list_class, "Target", "Class")
     find_entity_information(csv_path, e2_list_property, "Target", "Property")
-    return "Retrieve ontology information successfully."
+    print("Retrieve ontology information successfully.")
 
 
-retrieval_tools = [syntactic, lexical, semantic, ontology]
+retrieval_tools = [syntactic, lexical, semantic, init]
 
 
 def retrieval_tool_chain(model_output):
