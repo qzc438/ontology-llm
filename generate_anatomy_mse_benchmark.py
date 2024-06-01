@@ -3,10 +3,10 @@ import rdflib
 import csv
 import pandas as pd
 
-alignCell = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignmentCell')
-alignEntity1 = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignmententity1')
-alignEntity2 = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignmententity2')
-alignRelation = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignmentrelation')
+alignCell = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignment#Cell')
+alignEntity1 = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignment#entity1')
+alignEntity2 = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignment#entity2')
+alignRelation = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignment#relation')
 
 labelEntity = rdflib.term.URIRef('http://www.w3.org/2004/02/skos/core#prefLabel')
 
@@ -30,7 +30,7 @@ def get_entity_name(entity, ontology, entity_is_code):
     return entity_name
 
 
-def find_alignment(align_path, true_path, o1_is_code, o2_is_code):
+def find_alignment(align_path, true_path):
     # load alignment file
     align = rdflib.Graph().parse(align_path)
     # create true csv
@@ -57,7 +57,7 @@ def find_alignment(align_path, true_path, o1_is_code, o2_is_code):
     df_no_duplicates.to_csv(true_path, index=False)
 
 
-def find_alignment_all(align_path, true_path, o1_is_code, o2_is_code):
+def find_alignment_all(align_path, true_path):
     # load alignment file
     align = rdflib.Graph().parse(align_path)
     # create true csv
@@ -136,43 +136,43 @@ if __name__ == '__main__':
     util.create_document("benchmark_2022/anatomy/result.csv", header=['Name', 'Precision', 'Recall', 'F1'])
     util.create_document("benchmark_2022/anatomy/result_filter.csv", header=['Name', 'Precision', 'Recall', 'F1'])
 
-    find_alignment("data/anatomy/mouse-human-suite/component/reference.xml", "benchmark_2022/anatomy/true.csv", True, True)
+    find_alignment("data/anatomy/mouse-human-suite/component/reference.xml", "benchmark_2022/anatomy/true.csv")
 
-    find_alignment("benchmark_2022/anatomy/ALIN.rdf", "benchmark_2022/anatomy/ALIN.csv", True, True)
+    find_alignment("benchmark_2022/anatomy/ALIN.rdf", "benchmark_2022/anatomy/ALIN.csv")
     util.calculate_benchmark_metrics("benchmark_2022/anatomy/true.csv", "benchmark_2022/anatomy/ALIN.csv",
                            "ALIN", "benchmark_2022/anatomy/result.csv")
-    find_alignment("benchmark_2022/anatomy/ALIOn.rdf", "benchmark_2022/anatomy/ALIOn.csv", True, True)
+    find_alignment("benchmark_2022/anatomy/ALIOn.rdf", "benchmark_2022/anatomy/ALIOn.csv")
     util.calculate_benchmark_metrics("benchmark_2022/anatomy/true.csv", "benchmark_2022/anatomy/ALIOn.csv",
                            "ALIOn", "benchmark_2022/anatomy/result.csv")
-    find_alignment("benchmark_2022/anatomy/AMD.rdf", "benchmark_2022/anatomy/AMD.csv", True, True)
+    find_alignment("benchmark_2022/anatomy/AMD.rdf", "benchmark_2022/anatomy/AMD.csv")
     util.calculate_benchmark_metrics("benchmark_2022/anatomy/true.csv", "benchmark_2022/anatomy/AMD.csv",
                            "AMD", "benchmark_2022/anatomy/result.csv")
-    find_alignment("benchmark_2022/anatomy/AtMatch.rdf", "benchmark_2022/anatomy/AtMatch.csv", True, True)
+    find_alignment("benchmark_2022/anatomy/AtMatch.rdf", "benchmark_2022/anatomy/AtMatch.csv")
     util.calculate_benchmark_metrics("benchmark_2022/anatomy/true.csv", "benchmark_2022/anatomy/AtMatch.csv",
                            "ATMatcher", "benchmark_2022/anatomy/result.csv")
-    find_alignment("benchmark_2022/anatomy/IsMatch.rdf", "benchmark_2022/anatomy/IsMatch.csv", True, True)
+    find_alignment("benchmark_2022/anatomy/IsMatch.rdf", "benchmark_2022/anatomy/IsMatch.csv")
     util.calculate_benchmark_metrics("benchmark_2022/anatomy/true.csv", "benchmark_2022/anatomy/IsMatch.csv",
                            "LSMatch", "benchmark_2022/anatomy/result.csv")
-    find_alignment("benchmark_2022/anatomy/LogMap.rdf", "benchmark_2022/anatomy/LogMap.csv", True, True)
+    find_alignment("benchmark_2022/anatomy/LogMap.rdf", "benchmark_2022/anatomy/LogMap.csv")
     util.calculate_benchmark_metrics("benchmark_2022/anatomy/true.csv", "benchmark_2022/anatomy/LogMap.csv",
                            "LogMap", "benchmark_2022/anatomy/result.csv")
-    find_alignment("benchmark_2022/anatomy/LogMap-Lite.rdf", "benchmark_2022/anatomy/LogMap-Lite.csv", True, True)
+    find_alignment("benchmark_2022/anatomy/LogMap-Lite.rdf", "benchmark_2022/anatomy/LogMap-Lite.csv")
     util.calculate_benchmark_metrics("benchmark_2022/anatomy/true.csv", "benchmark_2022/anatomy/LogMap-Lite.csv",
                            "LogMapLt", "benchmark_2022/anatomy/result.csv")
-    find_alignment("benchmark_2022/anatomy/LogMapBio.rdf", "benchmark_2022/anatomy/LogMapBio.csv", True, True)
+    find_alignment("benchmark_2022/anatomy/LogMapBio.rdf", "benchmark_2022/anatomy/LogMapBio.csv")
     util.calculate_benchmark_metrics("benchmark_2022/anatomy/true.csv", "benchmark_2022/anatomy/LogMapBio.csv",
                            "LogMapBio", "benchmark_2022/anatomy/result.csv")
-    find_alignment("benchmark_2022/anatomy/Matcha.rdf", "benchmark_2022/anatomy/Matcha.csv", True, True)
+    find_alignment("benchmark_2022/anatomy/Matcha.rdf", "benchmark_2022/anatomy/Matcha.csv")
     util.calculate_benchmark_metrics("benchmark_2022/anatomy/true.csv", "benchmark_2022/anatomy/Matcha.csv",
                            "Matcha", "benchmark_2022/anatomy/result.csv")
-    find_alignment("benchmark_2022/anatomy/SEBMatcher.rdf", "benchmark_2022/anatomy/SEBMatcher.csv", True, True)
+    find_alignment("benchmark_2022/anatomy/SEBMatcher.rdf", "benchmark_2022/anatomy/SEBMatcher.csv")
     util.calculate_benchmark_metrics("benchmark_2022/anatomy/true.csv", "benchmark_2022/anatomy/SEBMatcher.csv",
                            "SEBMatcher", "benchmark_2022/anatomy/result.csv")
 
     util.calculate_benchmark_metrics("benchmark_2022/anatomy/true.csv", "alignment/anatomy/mouse-human-suite/component/predict.csv",
                            "Agent-OM", "benchmark_2022/anatomy/result.csv")
 
-    find_alignment("benchmark_2022/anatomy/trivial.rdf", "benchmark_2022/anatomy/trivial.csv", True, True)
+    find_alignment("benchmark_2022/anatomy/trivial.rdf", "benchmark_2022/anatomy/trivial.csv")
     generate_filtered_csv("benchmark_2022/anatomy/true.csv", "benchmark_2022/anatomy/trivial.csv",
                           "benchmark_2022/anatomy/true_filter.csv")
 
@@ -225,40 +225,40 @@ if __name__ == '__main__':
     util.create_document("benchmark_2023/anatomy/result.csv", header=['Name', 'Precision', 'Recall', 'F1'])
     util.create_document("benchmark_2023/anatomy/result_filter.csv", header=['Name', 'Precision', 'Recall', 'F1'])
 
-    find_alignment("data/anatomy/mouse-human-suite/component/reference.xml", "benchmark_2023/anatomy/true.csv", True, True)
+    find_alignment("data/anatomy/mouse-human-suite/component/reference.xml", "benchmark_2023/anatomy/true.csv")
 
-    find_alignment("benchmark_2023/anatomy/ALIN.rdf", "benchmark_2023/anatomy/ALIN.csv", True, True)
+    find_alignment("benchmark_2023/anatomy/ALIN.rdf", "benchmark_2023/anatomy/ALIN.csv")
     util.calculate_benchmark_metrics("benchmark_2023/anatomy/true.csv", "benchmark_2023/anatomy/ALIN.csv",
                            "ALIN", "benchmark_2023/anatomy/result.csv")
-    find_alignment("benchmark_2023/anatomy/AMD.rdf", "benchmark_2023/anatomy/AMD.csv", True, True)
+    find_alignment("benchmark_2023/anatomy/AMD.rdf", "benchmark_2023/anatomy/AMD.csv")
     util.calculate_benchmark_metrics("benchmark_2023/anatomy/true.csv", "benchmark_2023/anatomy/AMD.csv",
                            "AMD", "benchmark_2023/anatomy/result.csv")
-    find_alignment("benchmark_2023/anatomy/LogMap.rdf", "benchmark_2023/anatomy/LogMap.csv", True, True)
+    find_alignment("benchmark_2023/anatomy/LogMap.rdf", "benchmark_2023/anatomy/LogMap.csv")
     util.calculate_benchmark_metrics("benchmark_2023/anatomy/true.csv", "benchmark_2023/anatomy/LogMap.csv",
                            "LogMap", "benchmark_2023/anatomy/result.csv")
-    find_alignment("benchmark_2023/anatomy/LogMapBio.rdf", "benchmark_2023/anatomy/LogMapBio.csv", True, True)
+    find_alignment("benchmark_2023/anatomy/LogMapBio.rdf", "benchmark_2023/anatomy/LogMapBio.csv")
     util.calculate_benchmark_metrics("benchmark_2023/anatomy/true.csv", "benchmark_2023/anatomy/LogMapBio.csv",
                            "LogMapBio", "benchmark_2023/anatomy/result.csv")
-    find_alignment("benchmark_2023/anatomy/LogMapLite.rdf", "benchmark_2023/anatomy/LogMapLite.csv", True, True)
+    find_alignment("benchmark_2023/anatomy/LogMapLite.rdf", "benchmark_2023/anatomy/LogMapLite.csv")
     util.calculate_benchmark_metrics("benchmark_2023/anatomy/true.csv", "benchmark_2023/anatomy/LogMapLite.csv",
                            "LogMapLt", "benchmark_2023/anatomy/result.csv")
-    find_alignment("benchmark_2023/anatomy/LSMatch.rdf", "benchmark_2023/anatomy/LSMatch.csv", True, True)
+    find_alignment("benchmark_2023/anatomy/LSMatch.rdf", "benchmark_2023/anatomy/LSMatch.csv")
     util.calculate_benchmark_metrics("benchmark_2023/anatomy/true.csv", "benchmark_2023/anatomy/LSMatch.csv",
                            "LSMatch", "benchmark_2023/anatomy/result.csv")
-    find_alignment("benchmark_2023/anatomy/Matcha.rdf", "benchmark_2023/anatomy/Matcha.csv", True, True)
+    find_alignment("benchmark_2023/anatomy/Matcha.rdf", "benchmark_2023/anatomy/Matcha.csv")
     util.calculate_benchmark_metrics("benchmark_2023/anatomy/true.csv", "benchmark_2023/anatomy/Matcha.csv",
                            "Matcha", "benchmark_2023/anatomy/result.csv")
-    find_alignment("benchmark_2023/anatomy/OLaLa.rdf", "benchmark_2023/anatomy/OLaLa.csv", True, True)
+    find_alignment("benchmark_2023/anatomy/OLaLa.rdf", "benchmark_2023/anatomy/OLaLa.csv")
     util.calculate_benchmark_metrics("benchmark_2023/anatomy/true.csv", "benchmark_2023/anatomy/OLaLa.csv",
                            "OLala", "benchmark_2023/anatomy/result.csv")
-    find_alignment("benchmark_2023/anatomy/SORBETMatch.rdf", "benchmark_2023/anatomy/SORBETMatch.csv", True, True)
+    find_alignment("benchmark_2023/anatomy/SORBETMatch.rdf", "benchmark_2023/anatomy/SORBETMatch.csv")
     util.calculate_benchmark_metrics("benchmark_2023/anatomy/true.csv", "benchmark_2023/anatomy/SORBETMatch.csv",
                            "SORBETMatch", "benchmark_2023/anatomy/result.csv")
 
     util.calculate_benchmark_metrics("benchmark_2023/anatomy/true.csv", "alignment/anatomy/mouse-human-suite/component/predict.csv",
                            "Agent-OM", "benchmark_2023/anatomy/result.csv")
 
-    find_alignment("benchmark_2023/anatomy/trivial.rdf", "benchmark_2023/anatomy/trivial.csv", True, True)
+    find_alignment("benchmark_2023/anatomy/trivial.rdf", "benchmark_2023/anatomy/trivial.csv")
     generate_filtered_csv("benchmark_2023/anatomy/true.csv", "benchmark_2023/anatomy/trivial.csv",
                           "benchmark_2023/anatomy/true_filter.csv")
 
@@ -318,23 +318,23 @@ if __name__ == '__main__':
     util.create_document("benchmark_2022/mse/firstTestCase/result.csv", header=['Name', 'Precision', 'Recall', 'F1'])
 
     find_alignment_all("data/mse/MaterialInformationReduced-MatOnto/component/reference.xml",
-                       "benchmark_2022/mse/firstTestCase/true.csv", False, False)
+                       "benchmark_2022/mse/firstTestCase/true.csv")
 
     # ALion has a false subsumption matching: source:ConcentrationOfSolvent and target:Concentration, need to remove manually
-    find_alignment_all("benchmark_2022/mse/firstTestCase/ALion.rdf", "benchmark_2022/mse/firstTestCase/ALion.csv", False, False)
+    find_alignment_all("benchmark_2022/mse/firstTestCase/ALion.rdf", "benchmark_2022/mse/firstTestCase/ALion.csv")
     util.calculate_benchmark_metrics("benchmark_2022/mse/firstTestCase/true.csv", "benchmark_2022/mse/firstTestCase/ALion.csv",
                            "ALIOn", "benchmark_2022/mse/firstTestCase/result.csv")
     # df1 = pd.read_csv("benchmark_2022/mse/firstTestCase/ALion.csv")
     # df2 = pd.read_csv("benchmark_2022/mse/firstTestCase/true.csv")
     # merged_df = pd.merge(df1, df2, on=['Entity1', 'Entity2'])
     # print("ALion-2022", merged_df)
-    find_alignment_all("benchmark_2022/mse/firstTestCase/LogMap.rdf", "benchmark_2022/mse/firstTestCase/LogMap.csv", False, False)
+    find_alignment_all("benchmark_2022/mse/firstTestCase/LogMap.rdf", "benchmark_2022/mse/firstTestCase/LogMap.csv")
     util.calculate_benchmark_metrics("benchmark_2022/mse/firstTestCase/true.csv", "benchmark_2022/mse/firstTestCase/LogMap.csv",
                            "LogMap", "benchmark_2022/mse/firstTestCase/result.csv")
-    find_alignment_all("benchmark_2022/mse/firstTestCase/LogMapLight.rdf", "benchmark_2022/mse/firstTestCase/LogMapLight.csv",False, False)
+    find_alignment_all("benchmark_2022/mse/firstTestCase/LogMapLight.rdf", "benchmark_2022/mse/firstTestCase/LogMapLight.csv")
     util.calculate_benchmark_metrics("benchmark_2022/mse/firstTestCase/true.csv", "benchmark_2022/mse/firstTestCase/LogMapLight.csv",
                            "LogMapLt", "benchmark_2022/mse/firstTestCase/result.csv")
-    find_alignment_all("benchmark_2022/mse/firstTestCase/Matcha.rdf", "benchmark_2022/mse/firstTestCase/Matcha.csv", False, False)
+    find_alignment_all("benchmark_2022/mse/firstTestCase/Matcha.rdf", "benchmark_2022/mse/firstTestCase/Matcha.csv")
     util.calculate_benchmark_metrics("benchmark_2022/mse/firstTestCase/true.csv", "benchmark_2022/mse/firstTestCase/Matcha.csv",
                            "Matcha", "benchmark_2022/mse/firstTestCase/result.csv")
     # Agent-OM has a false subsumption matching:  source:Current and target:ElectricCurrent, source:HoldingTime and target:Time, source:ManufacturingProcess and target:Process
@@ -348,21 +348,16 @@ if __name__ == '__main__':
     # 2023 results
     util.create_document("benchmark_2023/mse/firstTestCase/result.csv", header=['Name', 'Precision', 'Recall', 'F1'])
 
-    find_alignment_all("data/mse/MaterialInformationReduced-MatOnto/component/reference.xml",
-                       "benchmark_2023/mse/firstTestCase/true.csv", False, False)
+    find_alignment_all("data/mse/MaterialInformationReduced-MatOnto/component/reference.xml", "benchmark_2023/mse/firstTestCase/true.csv")
 
-    find_alignment_all("benchmark_2023/mse/firstTestCase/LogMap.rdf", "benchmark_2023/mse/firstTestCase/LogMap.csv",
-                       False, False)
+    find_alignment_all("benchmark_2023/mse/firstTestCase/LogMap.rdf", "benchmark_2023/mse/firstTestCase/LogMap.csv")
     util.calculate_benchmark_metrics("benchmark_2023/mse/firstTestCase/true.csv", "benchmark_2023/mse/firstTestCase/LogMap.csv",
                            "LogMap", "benchmark_2023/mse/firstTestCase/result.csv")
-    find_alignment_all("benchmark_2023/mse/firstTestCase/LogMapLite.rdf",
-                       "benchmark_2023/mse/firstTestCase/LogMapLite.csv", False, False)
-    util.calculate_benchmark_metrics("benchmark_2023/mse/firstTestCase/true.csv",
-                           "benchmark_2023/mse/firstTestCase/LogMapLite.csv",
+    find_alignment_all("benchmark_2023/mse/firstTestCase/LogMapLite.rdf","benchmark_2023/mse/firstTestCase/LogMapLite.csv")
+    util.calculate_benchmark_metrics("benchmark_2023/mse/firstTestCase/true.csv", "benchmark_2023/mse/firstTestCase/LogMapLite.csv",
                            "LogMapLt", "benchmark_2023/mse/firstTestCase/result.csv")
     # Matcha has a 1 false subsumption matching:  source:ConcentrationOfSolvent and target:Concentration
-    find_alignment_all("benchmark_2023/mse/firstTestCase/Matcha.rdf", "benchmark_2023/mse/firstTestCase/Matcha.csv",
-                       False, False)
+    find_alignment_all("benchmark_2023/mse/firstTestCase/Matcha.rdf", "benchmark_2023/mse/firstTestCase/Matcha.csv")
     util.calculate_benchmark_metrics("benchmark_2023/mse/firstTestCase/true.csv", "benchmark_2023/mse/firstTestCase/Matcha.csv",
                            "Matcha", "benchmark_2023/mse/firstTestCase/result.csv")
     # df1 = pd.read_csv("benchmark_2023/mse/firstTestCase/Matcha.csv")
@@ -370,8 +365,7 @@ if __name__ == '__main__':
     # merged_df = pd.merge(df1, df2, on=['Entity1', 'Entity2'])
     # print("Matcha-2023", merged_df)
     # Agent-OM has 3 false subsumption matching:  source:Current and target:ElectricCurrent, source:HoldingTime and target:Time, source:ManufacturingProcess and target:Process
-    util.calculate_benchmark_metrics("benchmark_2023/mse/firstTestCase/true.csv",
-                           "alignment/mse/MaterialInformationReduced-MatOnto/component/predict.csv",
+    util.calculate_benchmark_metrics("benchmark_2023/mse/firstTestCase/true.csv", "alignment/mse/MaterialInformationReduced-MatOnto/component/predict.csv",
                            "Agent-OM", "benchmark_2023/mse/firstTestCase/result.csv")
     # df1 = pd.read_csv("alignment/mse/MaterialInformationReduced-MatOnto/component/predict.csv")
     # df2 = pd.read_csv("benchmark_2023/mse/firstTestCase/true.csv")
@@ -389,19 +383,18 @@ if __name__ == '__main__':
     # 2022 results
     util.create_document("benchmark_2022/mse/secondTestCase/result.csv", header=['Name', 'Precision', 'Recall', 'F1'])
 
-    find_alignment("data/mse/MaterialInformation-MatOnto/component/reference.xml",
-                   "benchmark_2022/mse/secondTestCase/true.csv", False, False)
+    find_alignment("data/mse/MaterialInformation-MatOnto/component/reference.xml", "benchmark_2022/mse/secondTestCase/true.csv")
 
-    find_alignment("benchmark_2022/mse/secondTestCase/ALion.rdf", "benchmark_2022/mse/secondTestCase/ALion.csv", False, False)
+    find_alignment("benchmark_2022/mse/secondTestCase/ALion.rdf", "benchmark_2022/mse/secondTestCase/ALion.csv")
     util.calculate_benchmark_metrics("benchmark_2022/mse/secondTestCase/true.csv", "benchmark_2022/mse/secondTestCase/ALion.csv",
                            "ALIOn", "benchmark_2022/mse/secondTestCase/result.csv")
-    find_alignment("benchmark_2022/mse/secondTestCase/LogMap.rdf", "benchmark_2022/mse/secondTestCase/LogMap.csv", False, False)
+    find_alignment("benchmark_2022/mse/secondTestCase/LogMap.rdf", "benchmark_2022/mse/secondTestCase/LogMap.csv")
     util.calculate_benchmark_metrics("benchmark_2022/mse/secondTestCase/true.csv", "benchmark_2022/mse/secondTestCase/LogMap.csv",
                            "LogMap", "benchmark_2022/mse/secondTestCase/result.csv")
-    find_alignment("benchmark_2022/mse/secondTestCase/LogMapLight.rdf", "benchmark_2022/mse/secondTestCase/LogMapLight.csv", False, False)
+    find_alignment("benchmark_2022/mse/secondTestCase/LogMapLight.rdf", "benchmark_2022/mse/secondTestCase/LogMapLight.csv")
     util.calculate_benchmark_metrics("benchmark_2022/mse/secondTestCase/true.csv", "benchmark_2022/mse/secondTestCase/LogMapLight.csv",
                            "LogMapLt", "benchmark_2022/mse/secondTestCase/result.csv")
-    find_alignment("benchmark_2022/mse/secondTestCase/Matcha.rdf", "benchmark_2022/mse/secondTestCase/Matcha.csv", False, False)
+    find_alignment("benchmark_2022/mse/secondTestCase/Matcha.rdf", "benchmark_2022/mse/secondTestCase/Matcha.csv")
     util.calculate_benchmark_metrics("benchmark_2022/mse/secondTestCase/true.csv", "benchmark_2022/mse/secondTestCase/Matcha.csv",
                            "Matcha", "benchmark_2022/mse/secondTestCase/result.csv")
     util.calculate_benchmark_metrics("benchmark_2022/mse/secondTestCase/true.csv", "alignment/mse/MaterialInformation-MatOnto/component/predict.csv",
@@ -410,24 +403,18 @@ if __name__ == '__main__':
     # 2023 results
     util.create_document("benchmark_2023/mse/secondTestCase/result.csv", header=['Name', 'Precision', 'Recall', 'F1'])
 
-    find_alignment("data/mse/MaterialInformation-MatOnto/component/reference.xml",
-                       "benchmark_2023/mse/secondTestCase/true.csv", False, False)
+    find_alignment("data/mse/MaterialInformation-MatOnto/component/reference.xml", "benchmark_2023/mse/secondTestCase/true.csv")
 
-    find_alignment("benchmark_2023/mse/secondTestCase/LogMap.rdf", "benchmark_2023/mse/secondTestCase/LogMap.csv",
-                   False, False)
+    find_alignment("benchmark_2023/mse/secondTestCase/LogMap.rdf", "benchmark_2023/mse/secondTestCase/LogMap.csv")
     util.calculate_benchmark_metrics("benchmark_2023/mse/secondTestCase/true.csv", "benchmark_2023/mse/secondTestCase/LogMap.csv",
                            "LogMap", "benchmark_2023/mse/secondTestCase/result.csv")
-    find_alignment("benchmark_2023/mse/secondTestCase/LogMapLite.rdf",
-                   "benchmark_2023/mse/secondTestCase/LogMapLite.csv", False, False)
-    util.calculate_benchmark_metrics("benchmark_2023/mse/secondTestCase/true.csv",
-                           "benchmark_2023/mse/secondTestCase/LogMapLite.csv",
+    find_alignment("benchmark_2023/mse/secondTestCase/LogMapLite.rdf","benchmark_2023/mse/secondTestCase/LogMapLite.csv")
+    util.calculate_benchmark_metrics("benchmark_2023/mse/secondTestCase/true.csv","benchmark_2023/mse/secondTestCase/LogMapLite.csv",
                            "LogMapLt", "benchmark_2023/mse/secondTestCase/result.csv")
-    find_alignment("benchmark_2023/mse/secondTestCase/Matcha.rdf", "benchmark_2023/mse/secondTestCase/Matcha.csv",
-                   False, False)
+    find_alignment("benchmark_2023/mse/secondTestCase/Matcha.rdf", "benchmark_2023/mse/secondTestCase/Matcha.csv")
     util.calculate_benchmark_metrics("benchmark_2023/mse/secondTestCase/true.csv", "benchmark_2023/mse/secondTestCase/Matcha.csv",
                            "Matcha", "benchmark_2023/mse/secondTestCase/result.csv")
-    util.calculate_benchmark_metrics("benchmark_2023/mse/secondTestCase/true.csv",
-                           "alignment/mse/MaterialInformation-MatOnto/component/predict.csv",
+    util.calculate_benchmark_metrics("benchmark_2023/mse/secondTestCase/true.csv","alignment/mse/MaterialInformation-MatOnto/component/predict.csv",
                            "Agent-OM", "benchmark_2023/mse/secondTestCase/result.csv")
 
     # mse track third case
@@ -441,18 +428,18 @@ if __name__ == '__main__':
     # 2022 results
     util.create_document("benchmark_2022/mse/thirdTestCase/result.csv", header=['Name', 'Precision', 'Recall', 'F1'])
 
-    find_alignment("data/mse/MaterialInformation-EMMO/component/reference.xml", "benchmark_2022/mse/thirdTestCase/true.csv", False, True)
+    find_alignment("data/mse/MaterialInformation-EMMO/component/reference.xml", "benchmark_2022/mse/thirdTestCase/true.csv")
 
-    find_alignment("benchmark_2022/mse/thirdTestCase/ALion.rdf", "benchmark_2022/mse/thirdTestCase/ALion.csv", False, True)
+    find_alignment("benchmark_2022/mse/thirdTestCase/ALion.rdf", "benchmark_2022/mse/thirdTestCase/ALion.csv")
     util.calculate_benchmark_metrics("benchmark_2022/mse/thirdTestCase/true.csv", "benchmark_2022/mse/thirdTestCase/ALion.csv",
                            "ALIOn", "benchmark_2022/mse/thirdTestCase/result.csv")
-    find_alignment("benchmark_2022/mse/thirdTestCase/LogMap.rdf", "benchmark_2022/mse/thirdTestCase/LogMap.csv", False, True)
+    find_alignment("benchmark_2022/mse/thirdTestCase/LogMap.rdf", "benchmark_2022/mse/thirdTestCase/LogMap.csv")
     util.calculate_benchmark_metrics("benchmark_2022/mse/thirdTestCase/true.csv", "benchmark_2022/mse/thirdTestCase/LogMap.csv",
                            "LogMap", "benchmark_2022/mse/thirdTestCase/result.csv")
-    find_alignment("benchmark_2022/mse/thirdTestCase/LogMapLight.rdf", "benchmark_2022/mse/thirdTestCase/LogMapLight.csv", False, True)
+    find_alignment("benchmark_2022/mse/thirdTestCase/LogMapLight.rdf", "benchmark_2022/mse/thirdTestCase/LogMapLight.csv")
     util.calculate_benchmark_metrics("benchmark_2022/mse/thirdTestCase/true.csv", "benchmark_2022/mse/thirdTestCase/LogMapLight.csv",
                            "LogMapLt", "benchmark_2022/mse/thirdTestCase/result.csv")
-    find_alignment("benchmark_2022/mse/thirdTestCase/Matcha.rdf", "benchmark_2022/mse/thirdTestCase/Matcha.csv", False, True)
+    find_alignment("benchmark_2022/mse/thirdTestCase/Matcha.rdf", "benchmark_2022/mse/thirdTestCase/Matcha.csv")
     util.calculate_benchmark_metrics("benchmark_2022/mse/thirdTestCase/true.csv", "benchmark_2022/mse/thirdTestCase/Matcha.csv",
                            "Matcha", "benchmark_2022/mse/thirdTestCase/result.csv")
     util.calculate_benchmark_metrics("benchmark_2022/mse/thirdTestCase/true.csv", "alignment/mse/MaterialInformation-EMMO/component/predict.csv",
@@ -461,15 +448,15 @@ if __name__ == '__main__':
     # 2023 results
     util.create_document("benchmark_2023/mse/thirdTestCase/result.csv", header=['Name', 'Precision', 'Recall', 'F1'])
 
-    find_alignment("data/mse/MaterialInformation-EMMO/component/reference.xml", "benchmark_2023/mse/thirdTestCase/true.csv", False, True)
+    find_alignment("data/mse/MaterialInformation-EMMO/component/reference.xml", "benchmark_2023/mse/thirdTestCase/true.csv")
 
-    find_alignment("benchmark_2023/mse/thirdTestCase/LogMap.rdf", "benchmark_2023/mse/thirdTestCase/LogMap.csv", False,True)
+    find_alignment("benchmark_2023/mse/thirdTestCase/LogMap.rdf", "benchmark_2023/mse/thirdTestCase/LogMap.csv")
     util.calculate_benchmark_metrics("benchmark_2023/mse/thirdTestCase/true.csv", "benchmark_2023/mse/thirdTestCase/LogMap.csv",
                            "LogMap", "benchmark_2023/mse/thirdTestCase/result.csv")
-    find_alignment("benchmark_2023/mse/thirdTestCase/LogMapLite.rdf", "benchmark_2023/mse/thirdTestCase/LogMapLite.csv", False, True)
+    find_alignment("benchmark_2023/mse/thirdTestCase/LogMapLite.rdf", "benchmark_2023/mse/thirdTestCase/LogMapLite.csv")
     util.calculate_benchmark_metrics("benchmark_2023/mse/thirdTestCase/true.csv", "benchmark_2023/mse/thirdTestCase/LogMapLite.csv",
                            "LogMapLt", "benchmark_2023/mse/thirdTestCase/result.csv")
-    find_alignment("benchmark_2023/mse/thirdTestCase/Matcha.rdf", "benchmark_2023/mse/thirdTestCase/Matcha.csv", False,True)
+    find_alignment("benchmark_2023/mse/thirdTestCase/Matcha.rdf", "benchmark_2023/mse/thirdTestCase/Matcha.csv")
     util.calculate_benchmark_metrics("benchmark_2023/mse/thirdTestCase/true.csv", "benchmark_2023/mse/thirdTestCase/Matcha.csv",
                            "Matcha", "benchmark_2023/mse/thirdTestCase/result.csv")
     util.calculate_benchmark_metrics("benchmark_2023/mse/thirdTestCase/true.csv", "alignment/mse/MaterialInformation-EMMO/component/predict.csv",

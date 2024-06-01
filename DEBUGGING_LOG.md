@@ -106,9 +106,9 @@ sqlite3 pgadmin4.db "UPDATE USER SET LOCKED = false, LOGIN_ATTEMPTS = 0 WHERE US
 - This track also contains the subsumption mappings in the reference alignment file `reference-old.xml`.
 - We set all subsumption mappings to None and reproduce the reference alignment file `reference.xml`.
 
-#### How to fix the results of Matcha that are unreproducible?
-- Unlike other systems, the root IRI of Matcha's mapping file is `xmlns="http://knowledgeweb.semanticweb.org/heterogeneity/alignment#"`.
-- We remove the character `"#"` in the root IRI of the mapping file `xmlns="http://knowledgeweb.semanticweb.org/heterogeneity/alignment"`.
+#### How to fix some results are unreproducible?
+- Please check the root IRI of mapping file, it should follow the format specification: https://moex.gitlabpages.inria.fr/alignapi/format.html
+- You need to add the character `"#"` in the root IRI of the mapping file `xmlns="http://knowledgeweb.semanticweb.org/heterogeneity/alignment#"`.
 
 #### How to define a unique entity ID?
 - Adding the prefixes "source:" and "target:" can distinguish the terms, but LLM considers ":" as a separator, so sometimes it may ignore "source:" and "target:".

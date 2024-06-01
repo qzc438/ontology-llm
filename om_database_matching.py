@@ -13,11 +13,10 @@ import itertools
 import psycopg2
 from pgvector.psycopg2 import register_vector
 
-from langchain_core.prompts import ChatPromptTemplate, PromptTemplate
+from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.tools import tool, render_text_description
 from operator import itemgetter
-from langchain_core.runnables import RunnablePassthrough
 
 
 # define path
@@ -74,7 +73,7 @@ fileHandler.setFormatter(logFormatter)
 logger.addHandler(fileHandler)
 
 # intermediate values
-strings = None
+compare_list = None
 
 
 def create_log(message):
@@ -238,6 +237,7 @@ def find_all_matching_candidate(entity):
     output_dict = {'syntactic_matching': syntactic_matching, 'lexical_matching': lexical_matching, 'semantic_matching': semantic_matching}
     return output_dict
 
+
 def reciprocal_rank_fusion_all_with_grouped_scores_exclude_none(*rankings):
     reciprocal_ranks = collections.defaultdict(float)
     for ranking in rankings:
@@ -300,9 +300,11 @@ def find_most_relevant_entity(entity, source_or_target):
                         create_log(f"result_without_validate: {predict_entity_name}")
                         continue
                     else:
+                        # matching validate
                         chain = create_tool_use_agent(matching_tools, matching_tool_chain)
-                        global strings; strings = [entity_name, predict_entity_name]
-                        # do not add arguments here to avoid input sensitive word
+                        global compare_list
+                        compare_list = [entity_name, predict_entity_name]
+                        # do not pass arguments here to avoid input sensitive word to llm
                         validate_prompt = f"Matching validate."
                         validate_result = chain.invoke({"input": validate_prompt})
                         if extract_yes_no(validate_result) == "yes":
@@ -343,7 +345,7 @@ def init():
     # e1_list = ["http://mouse.owl#MA_0000541"] # test perform ontology matching failed
     # e1_list = ["http://mouse.owl#MA_0001702"] # sentence using "refine" not working for sensitive words, have to change word to "validate"
     # e1_list = ["http://mouse.owl#MA_0000183"] # tool name using "validate" is not working, have to change word to "refine"
-    e1_list = ["http://mouse.owl#MA_0001742"] # test sensitive word
+    # e1_list = ["http://mouse.owl#MA_0001742"] # test sensitive word
     # e1_list = ["http://mouse.owl#MA_0000043"]
     for entity in e1_list:
         print("entity1:", entity)
@@ -373,7 +375,7 @@ def init():
     # e2_list = ["http://conference#Contribution_co-author"]
     # e2_list = ["http://conference#Conference"]  # test matching validator
     # e2_list = ["http://human.owl#NCI_C32727"] # test not a json format
-    e2_list = ["http://human.owl#NCI_C25177"] # test sensitive word
+    # e2_list = ["http://human.owl#NCI_C25177"] # test sensitive word
     # e2_list = ["http://human.owl#NCI_C12441"]
     for entity in e2_list:
         print("entity2:", entity)
@@ -433,9 +435,9 @@ def merge():
 @tool
 def validate():
     """Matching validate."""
-    global strings
-    a = strings[0]
-    b = strings[1]
+    global compare_list
+    a = compare_list[0]
+    b = compare_list[1]
     util.print_colored_text(f"Matching validate: {a} and {b}", "cyan")
     # tool function, do not use "" because the name will change to "Head_and_Neck."
     prompt_validate_question = f"""Question: Is {a} equivalent to {b}?
@@ -451,6 +453,7 @@ def validate():
 
 matching_tools = [syntactic, lexical, semantic, init, validate, merge]
 
+
 def matching_tool_chain(model_output):
     tool_map = {tool.name: tool for tool in matching_tools}
     chosen_tool = tool_map[model_output["name"]]
@@ -460,7 +463,8 @@ def matching_tool_chain(model_output):
 def create_tool_use_agent(tools, tool_chain):
     # define combined prompt
     rendered_tools = render_text_description(tools)
-    system_prompt = f"""You are an assistant that has access to the following set of tools. Here are the names and descriptions for each tool:
+    system_prompt = f"""You are an assistant who has access to the following set of tools. 
+                    Here are the names and descriptions of each tool:
                     {rendered_tools}
                     Given the user input, return the name of the tool to use and the arguments passed to the tool.
                     Return your response as a JSON blob with the key 'name' and 'arguments'.

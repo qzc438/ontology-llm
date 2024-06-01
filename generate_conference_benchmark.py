@@ -5,16 +5,17 @@ import om_ontology_to_csv
 
 
 def generate_results_2022(folder, alignment_name):
-    util.calculate_metrics(folder + "/true.csv", folder + "/predict.csv", alignment_name,
+    util.calculate_benchmark_metrics(folder + "/true.csv", folder + "/predict.csv", alignment_name,
                            "benchmark_2022/conference/conference-result.csv")
 
+
 def generate_results_2023(folder, alignment_name):
-    util.calculate_metrics(folder + "/true.csv", folder + "/predict.csv", alignment_name,
+    util.calculate_benchmark_metrics(folder + "/true.csv", folder + "/predict.csv", alignment_name,
                            "benchmark_2023/conference/conference-result.csv")
 
 
 def generate_results_dbpedia(folder, alignment_name):
-    util.calculate_metrics(folder + "/true.csv", folder + "/predict.csv", alignment_name,
+    util.calculate_benchmark_metrics(folder + "/true.csv", folder + "/predict.csv", alignment_name,
                            "benchmark_2022/conference/dbpedia-result.csv")
 
 
@@ -123,11 +124,11 @@ if __name__ == '__main__':
         writer.writerow(result)
 
     # 2022 dbpedia results
-    om_ontology_to_csv.find_alignment("data/conference/dbpedia-confof/component/reference.xml",
+    om_ontology_to_csv.find_reference("data/conference/dbpedia-confof/component/reference.xml",
                                       "alignment/conference/dbpedia-confof/component/true.csv")
-    om_ontology_to_csv.find_alignment("data/conference/dbpedia-ekaw/component/reference.xml",
+    om_ontology_to_csv.find_reference("data/conference/dbpedia-ekaw/component/reference.xml",
                                       "alignment/conference/dbpedia-ekaw/component/true.csv")
-    om_ontology_to_csv.find_alignment("data/conference/dbpedia-sigkdd/component/reference.xml",
+    om_ontology_to_csv.find_reference("data/conference/dbpedia-sigkdd/component/reference.xml",
                                       "alignment/conference/dbpedia-sigkdd/component/true.csv")
     util.create_document("benchmark_2022/conference/dbpedia-result.csv", header=['Name', 'Precision', 'Recall', 'F1'])
     generate_results_dbpedia("alignment/conference/dbpedia-confof/component", "dbpedia-confof")

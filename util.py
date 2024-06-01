@@ -231,7 +231,7 @@ def filter_anatomy(csv_path):
                         "http://mouse.owl#UNDEFINED_part_of"]
     # filter
     filtered_df = df[~df["Entity1"].isin(values_to_remove)]
-    # Step 4: Write the filtered DataFrame back to a new CSV file
+    # write the filtered DataFrame back to a new CSV file
     filtered_df.to_csv(csv_path, index=False)
 
 

@@ -30,7 +30,6 @@ pip install langchain-anthropic
 pip install langchain-google-vertexai
 pip install langchain-mistralai
 pip install langchain_community
-
 ```
 ```
 pip install pandas==2.0.3
@@ -54,16 +53,18 @@ pip install ipyparallel
 ### 4. Install Ollama: 
 - Documentation: https://python.langchain.com/v0.1/docs/integrations/llms/ollama/
 - Download and install Ollama (Linux): curl -fsSL https://ollama.com/install.sh | sh
-- Download model: ollama pull <MODEL_NAME>
-- Install PyTorch (Linux, CUDA11.8): pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-- Update current Ollama models: https://github.com/ollama/ollama/issues/4589
+- Install PyTorch (Linux and CUDA11.8): pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+- Add a model: ollama pull <MODEL_NAME>
+- Remove a model: ollama rm <MODEL_NAME>
+- Update current models: https://github.com/ollama/ollama/issues/4589
 
-### 5. Setup OpenAI API:
+### 5. Setup OpenAI API Key:
 - You will need an OpenAI API key to interact with GPT models: https://platform.openai.com/api-keys
 - Create a file named as `.env` and write:
 ```plaintext
 OPENAI_API_KEY = <YOUR_OPENAI_API_KEY>
 ```
+You can apply the same approach for other LLMs need an API key.
 
 ### 6. Setup Large Language Model (LLM):
 - Set the LLM in the file `run_config.py`: `llm`.
@@ -170,8 +171,9 @@ We have created a prompt instruction for this project. [Click the link here.](PR
 
 ## Author Acknowledgements:
 - AI-generated content is labelled as "AI-generated content". The authors claim no responsibility for the AI-generated content marked in this paper, which does not express the views of the authors.
+- The authors would like to thank Sven Hertling on coordinating the datasets stored in the Matching EvaLuation Toolkit (MELT) for Ontology Alignment Evaluation Initiative (OAEI) 2022 and 2023.
 - The authors would like to thank the organisers of Ontology Alignment Evaluation Initiative (OAEI) 2022 and 2023 Conference Track (Ondřej Zamazal and Lu Zhou), Anatomy Track (Mina Abd Nikooie Pour, Huanyu Li, Ying Li and Patrick Lambrix), and MSE Track (Engy Nasr and Martin Huschka), for helpful advice on reproducing the benchmarks used in this paper.
-- The authors would like to thank Associate Professor Alice Richardson of the Statistical Support Network, Australian National University, for helpful advice on the statistical analysis in this paper.
+- The authors would like to thank Alice Richardson of the Statistical Support Network, Australian National University, for helpful advice on the statistical analysis in this paper.
 - The authors would like to thank the Commonwealth Scientific and Industrial Research Organisation (CSIRO) for supporting this project.
 
 ## Licence:

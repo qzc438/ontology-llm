@@ -1,5 +1,3 @@
-import json
-
 import run_config as config
 import util
 
@@ -261,7 +259,7 @@ def find_entity_information(path, entity_list, source_or_target, entity_type):
     # entity_list = ["http://mouse.owl#MA_0000006"] # test head/neck
     # entity_list = ["http://mouse.owl#MA_0001580"] # test meckel's cartilage
     # entity_list = ["http://human.owl#NCI_C32188"] # test no ":"
-    # entity_list = ["http://mouse.owl#MA_0000094"]
+    # entity_list = ["http://human.owl#NCI_C12427"] # fix grammar in tool description
     with open(path, "a+", newline='') as f1:
         for entity in entity_list:
             # small models sometimes have issues passing the URI argument
@@ -291,15 +289,15 @@ def find_entity_information(path, entity_list, source_or_target, entity_type):
             # # only work for llm support tool calling
             # chain = always_call_tool_llm | call_tools
             # # find syntactic information
-            # syntactic_query = f"Find syntactic information about the entity: {entity}"
+            # syntactic_query = f"Find syntactic information about {entity}"
             # syntactic_result = chain.invoke(syntactic_query)
             # syntactic_information = syntactic_result[0].get("output")
             # # find lexical information
-            # lexical_query = f"Find lexical information about the entity: {entity}"
+            # lexical_query = f"Find lexical information about {entity}"
             # lexical_result = chain.invoke(lexical_query)
             # lexical_information = lexical_result[0].get("output")
             # # find semantic information
-            # semantic_query = f"Find semantic information about the entity: {entity}"
+            # semantic_query = f"Find semantic information about {entity}"
             # semantic_result = chain.invoke(semantic_query)
             # semantic_information = semantic_result[0].get("output")
 
@@ -390,12 +388,13 @@ def create_tool_use_agent(tools, tool_chain):
     # except:
     # define combined prompt
     rendered_tools = render_text_description(tools)
-    system_prompt = f"""You are an assistant that has access to the following set of tools. Here are the names and descriptions for each tool:
-               {rendered_tools}
-               Given the user input, return the name of the tool to use and the arguments passed to the tool.
-               Return your response as a JSON blob with the key 'name' and 'arguments'.
-               The value associated with the key 'arguments' should be a dictionary of parameters.
-               """
+    system_prompt = f"""You are an assistant who has access to the following set of tools. 
+                    Here are the names and descriptions of each tool:
+                    {rendered_tools}
+                    Given the user input, return the name of the tool to use and the arguments passed to the tool.
+                    Return your response as a JSON blob with the key 'name' and 'arguments'.
+                    The value associated with the key 'arguments' should be a dictionary of parameters.
+                    """
     prompt = ChatPromptTemplate.from_messages(
         [("system", system_prompt), ("user", "{input}")]
     )
@@ -414,4 +413,3 @@ if __name__ == '__main__':
     # chain.invoke({"input": f"获取本体信息."})
     # chain.invoke({"input": f"Récupérer des informations sur l'ontologie."})
     # agent_executor.invoke({"input": "Find ontology information."})
-

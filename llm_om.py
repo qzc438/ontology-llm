@@ -1,6 +1,6 @@
 import run_config as config
-import util
 import om_ontology_to_csv
+import util
 
 import re
 import csv
@@ -20,6 +20,12 @@ o2_prefix = config.o2_prefix
 
 true_path = config.true_path
 llm_only_path = config.llm_only_path
+result_path = config.result_path
+
+# define llm
+llm = config.llm
+# define alignment
+alignment = config.alignment
 
 
 def extract_yes_no(text):
@@ -28,8 +34,6 @@ def extract_yes_no(text):
 
 
 if __name__ == '__main__':
-    # define llm
-    llm = config.llm
     # find all entities
     e1_list_class, e2_list_class, e1_list_property, e2_list_property = om_ontology_to_csv.find_all_entities()
     e1_list = e1_list_class + e1_list_property
@@ -58,4 +62,4 @@ if __name__ == '__main__':
                     writer.writerow(list_pair)
                 break
     # evaluation
-    print(util.calculate_metrics(true_path, llm_only_path, config.alignment + "llm", config.result_path))
+    print(util.calculate_metrics(true_path, llm_only_path, alignment + "llm", util.find_model_name(llm), result_path))
