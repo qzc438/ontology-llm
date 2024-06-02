@@ -132,7 +132,7 @@ async def async_save_to_database():
 
 
 @tool
-def ontology() -> str:
+def init() -> str:
     """Save ontology information."""
     util.print_colored_text("Save ontology information:", "blue")
     # create a new event loop
@@ -145,7 +145,7 @@ def ontology() -> str:
     return "Save ontology information successfully."
 
 
-database_tools = [ontology]
+database_tools = [init]
 
 
 def database_tool_chain(model_output):
