@@ -35,10 +35,9 @@ llm = ChatOpenAI(model='gpt-3.5-turbo', temperature=0)
 # # load Ollama
 # llm = ChatOllama(model="llama3:8b", temperature=0)
 # llm = ChatOllama(model="gemma:7b", temperature=0)
-# llm = ChatOllama(model="wizardlm2:7b", temperature=0)
+
 # llm = ChatOllama(model="phi3:3.8b", temperature=0)
 # llm = ChatOllama(model="mistral:7b", temperature=0)
-
 
 # # load llama3 variants
 # llm = ChatOllama(model="llama3:text", temperature=0)
@@ -57,6 +56,8 @@ llm = ChatOpenAI(model='gpt-3.5-turbo', temperature=0)
 # llm = ChatOllama(model="aya:8b", temperature=0) # multilingual models
 # input only find "http://mouse.owl#MA_"
 # llm = ChatOllama(model="stablelm2:12b", temperature=0) # multilingual models
+# No additional arguments are required for the 'validate' tool as it is used to check the consistency and correctness of the existing matches.
+# llm = ChatOllama(model="wizardlm2:7b", temperature=0)
 
 # search settings
 similarity_threshold = 0.90
@@ -65,9 +66,9 @@ num_matches = 50
 
 # alignment settings
 # conference track
-# context = "conference"
-# o1_is_code = False
-# o2_is_code = False
+context = "conference"
+o1_is_code = False
+o2_is_code = False
 # alignment = "conference/cmt-conference/component/"
 # alignment = "conference/cmt-confof/component/"
 # alignment = "conference/cmt-edas/component/"
@@ -88,9 +89,9 @@ num_matches = 50
 # alignment = "conference/edas-sigkdd/component/"
 # alignment = "conference/ekaw-iasted/component/"
 # alignment = "conference/ekaw-sigkdd/component/"
-# alignment = "conference/iasted-sigkdd/component/"
+alignment = "conference/iasted-sigkdd/component/"
 
-# activate when execute run_conference_series
+# # activate when execute run_conference_series
 # if os.environ.get('alignment'):
 #     alignment = os.environ['alignment']
 
@@ -100,10 +101,10 @@ num_matches = 50
 # alignment = "conference/dbpedia-sigkdd/component/"
 
 # anatomy track
-context = "anatomy"
-o1_is_code = True
-o2_is_code = True
-alignment = "anatomy/mouse-human-suite/component/"
+# context = "anatomy"
+# o1_is_code = True
+# o2_is_code = True
+# alignment = "anatomy/mouse-human-suite/component/"
 
 # food track
 # context = "food nutritional composition"

@@ -1,8 +1,9 @@
 Entity2,Entity1
-target:Document,source:Document
-target:Person,source:Person
-target:Author,source:Author
-target:Reviewer,source:Reviewer
-target:Review,source:Review
-target:write,source:writePaper
-target:is_writen_by,source:writtenBy
+http://iasted#Author,http://cmt#Author
+http://iasted#Document,http://cmt#Document
+http://iasted#Person,http://cmt#Person
+http://iasted#Refusing_manuscript,http://cmt#Rejection
+http://iasted#Review,http://cmt#Review
+http://iasted#Reviewer,http://cmt#Reviewer
+http://iasted#Session_chair,http://cmt#Chairman
+http://iasted#is_writen_by,http://cmt#writtenBy

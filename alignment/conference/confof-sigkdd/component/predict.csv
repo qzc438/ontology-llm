@@ -1,6 +1,7 @@
 Entity1,Entity2
-source:Person,target:Person
-source:Paper,target:Paper
-source:Conference,target:Conference
-source:Author,target:Author
-source:hasEmail,target:E-mail
+http://confOf#Author,http://sigkdd#Author
+http://confOf#Conference,http://sigkdd#Conference
+http://confOf#Member_PC,http://sigkdd#Program_Committee_member
+http://confOf#Paper,http://sigkdd#Paper
+http://confOf#Person,http://sigkdd#Person
+http://confOf#contactEmail,http://sigkdd#E-mail
