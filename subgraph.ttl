@@ -1,5 +1,6 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-"submit_until" rdfs:domain "Document" ;
-    rdfs:range "Deadline" .
+"endReview" rdfs:domain "ProgramCommitteeChair" .
+
+"ProgramCommitteeChair" rdfs:subClassOf "ProgramCommitteeMember" .
 

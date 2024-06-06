@@ -1,5 +1,7 @@
 Entity1,Entity2
-source:Reviewer,target:Reviewer
-source:Person,target:Person
-source:Review,target:Review
-source:Paper,target:Paper
+http://cmt#Conference,http://conference#Conference
+http://cmt#Paper,http://conference#Paper
+http://cmt#Person,http://conference#Person
+http://cmt#ProgramCommittee,http://conference#Program_committee
+http://cmt#Review,http://conference#Review
+http://cmt#Reviewer,http://conference#Reviewer

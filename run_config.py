@@ -23,7 +23,7 @@ os.environ["MISTRAL_API_KEY"] = os.getenv("MISTRAL_API_KEY")
 os.environ["ANTHROPIC_API_KEY"] = os.getenv("ANTHROPIC_API_KEY")
 
 # # load GPT
-llm = ChatOpenAI(model='gpt-3.5-turbo', temperature=0)
+# llm = ChatOpenAI(model='gpt-3.5-turbo', temperature=0)
 # llm = ChatOpenAI(model='gpt-4-turbo', temperature=0)
 # # load MistralAI
 # llm = ChatMistralAI(model="mistral-large-latest", temperature=0)
@@ -69,7 +69,7 @@ num_matches = 50
 context = "conference"
 o1_is_code = False
 o2_is_code = False
-# alignment = "conference/cmt-conference/component/"
+alignment = "conference/cmt-conference/component/"
 # alignment = "conference/cmt-confof/component/"
 # alignment = "conference/cmt-edas/component/"
 # alignment = "conference/cmt-ekaw/component/"
@@ -89,7 +89,7 @@ o2_is_code = False
 # alignment = "conference/edas-sigkdd/component/"
 # alignment = "conference/ekaw-iasted/component/"
 # alignment = "conference/ekaw-sigkdd/component/"
-alignment = "conference/iasted-sigkdd/component/"
+# alignment = "conference/iasted-sigkdd/component/"
 
 # # activate when execute run_conference_series
 # if os.environ.get('alignment'):

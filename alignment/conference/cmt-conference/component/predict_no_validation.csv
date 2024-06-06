@@ -5,6 +5,8 @@ http://cmt#Author,http://conference#Publisher
 http://cmt#Co-author,http://conference#Contribution_co-author
 http://cmt#Conference,http://conference#Conference
 http://cmt#ConferenceChair,http://conference#Co-chair
+http://cmt#ConferenceMember,http://conference#Conference_participant
+http://cmt#Document,http://conference#Conference_document
 http://cmt#Paper,http://conference#Paper
 http://cmt#Person,http://conference#Person
 http://cmt#Preference,http://conference#Review_preference
@@ -13,15 +15,14 @@ http://cmt#Rejection,http://conference#Rejected_contribution
 http://cmt#Review,http://conference#Review
 http://cmt#Reviewer,http://conference#Reviewer
 http://cmt#SubjectArea,http://conference#Topic
-http://cmt#acceptsHardcopySubmissions,http://conference#is_submitted_at
 http://cmt#addedBy,http://conference#invited_by
-http://cmt#assignReviewer,http://conference#invites_co-reviewers
 http://cmt#assignedByReviewer,http://conference#belongs_to_reviewers
-http://cmt#date,http://conference#has_important_dates
+http://cmt#date,http://conference#has_a_date_of_issue
+http://cmt#email,http://conference#has_an_email
 http://cmt#hasAuthor,http://conference#has_authors
+http://cmt#hasBeenAssigned,http://conference#has_been_assigned_a_review_reference
 http://cmt#hasConferenceMember,http://conference#has_members
 http://cmt#hasProgramCommitteeMember,http://conference#has_a_program_committee
-http://cmt#memberOfConference,http://conference#is_part_of_conference_volumes
 http://cmt#name,http://conference#has_a_name
 http://cmt#siteURL,http://conference#has_a_URL
 http://cmt#writeReview,http://conference#reviews
