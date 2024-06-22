@@ -6,8 +6,8 @@ import subprocess
 
 from langchain_openai import ChatOpenAI
 from langchain_anthropic import ChatAnthropic
-from langchain_google_vertexai import ChatVertexAI
 from langchain_mistralai import ChatMistralAI
+from langchain_google_vertexai import ChatVertexAI
 from langchain_community.chat_models import ChatOllama
 
 from langchain_openai import OpenAIEmbeddings
@@ -23,25 +23,30 @@ os.environ["MISTRAL_API_KEY"] = os.getenv("MISTRAL_API_KEY")
 os.environ["ANTHROPIC_API_KEY"] = os.getenv("ANTHROPIC_API_KEY")
 
 # # load GPT
-# llm = ChatOpenAI(model='gpt-3.5-turbo', temperature=0)
-# llm = ChatOpenAI(model='gpt-4-turbo', temperature=0)
-# # load MistralAI
-# llm = ChatMistralAI(model="mistral-large-latest", temperature=0)
+# llm = ChatOpenAI(model_name='gpt-4-turbo-2024-04-09', temperature=0)
+llm = ChatOpenAI(model_name='gpt-3.5-turbo-0125', temperature=0)
 # # load Anthropic
+# llm = ChatAnthropic(model="claude-3-opus-20240229", temperature=0)
 # llm = ChatAnthropic(model="claude-3-sonnet-20240229", temperature=0)
+# llm = ChatAnthropic(model="claude-3-haiku-20240307", temperature=0)
+# # load Mistral
+# llm = ChatMistralAI(model="mistral-large-2402", temperature=0)
+# llm = ChatMistralAI(model="mistral-medium-2312", temperature=0)
+# llm = ChatMistralAI(model="mistral-small-2402", temperature=0)
 # # load Gemini
 # llm = ChatVertexAI(model="gemini-pro", temperature=0)
-
-# # load Ollama
+#
+# # load Llama 3
 # llm = ChatOllama(model="llama3:8b", temperature=0)
-# llm = ChatOllama(model="gemma:7b", temperature=0)
-
-# llm = ChatOllama(model="phi3:3.8b", temperature=0)
-# llm = ChatOllama(model="mistral:7b", temperature=0)
-
-# # load llama3 variants
+# # load Llama 3 variants
 # llm = ChatOllama(model="llama3:text", temperature=0)
 # llm = ChatOllama(model="llama3:instruct", temperature=0)
+# # load Gemma
+# llm = ChatOllama(model="gemma:7b", temperature=0)
+# # load Phi-3
+# llm = ChatOllama(model="phi3:3.8b", temperature=0)
+# # load Mistral open-source
+# llm = ChatOllama(model="mistral:7b", temperature=0)
 
 # the following models are currently not working
 # # too slow
@@ -180,6 +185,7 @@ predict_target_path = align_folder + "predict_target.csv"
 predict_path = align_folder + "predict.csv"
 true_path = align_folder + "true.csv"
 result_path = "result.csv"
+cost_path = "cost.csv"
 
 # path for matching without using agents
 llm_only_path = align_folder + "llm_only.csv"
@@ -210,6 +216,8 @@ null_value_matching = "Entity-Dummy"
 # null_value = "None"
 # null_value = "Not Available"
 # null_value = "Missing"
+
+total_token_usage = 0
 
 
 if __name__ == '__main__':

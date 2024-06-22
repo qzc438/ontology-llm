@@ -75,6 +75,8 @@ logger.addHandler(fileHandler)
 # intermediate values
 compare_list = None
 
+# calculate cost
+cost_path = config.cost_path
 
 def create_log(message):
     logger = logging.getLogger('agent_log')
@@ -228,10 +230,13 @@ def semantic(entity: str) -> list:
 def find_all_matching_candidate(entity):
     # define entity matching
     chain = create_tool_use_agent(matching_tools, matching_tool_chain)
+    # syntactic_matching
     syntactic_prompt = f"Syntactic matching for {entity}"
     syntactic_matching = chain.invoke({"input": syntactic_prompt})
+    # lexical matching
     lexical_prompt = f"Lexical matching for {entity}"
     lexical_matching = chain.invoke({"input": lexical_prompt})
+    # semantic matching
     semantic_prompt = f"Semantic matching for {entity}"
     semantic_matching = chain.invoke({"input": semantic_prompt})
     output_dict = {'syntactic_matching': syntactic_matching, 'lexical_matching': lexical_matching, 'semantic_matching': semantic_matching}
@@ -294,8 +299,11 @@ def find_most_relevant_entity(entity, source_or_target):
                     else:
                         entity_name = om_ontology_to_csv.get_entity_name(find_entity(entity), o2, o2_is_code)
                         predict_entity_name = om_ontology_to_csv.get_entity_name(find_entity(predict_entity), o1, o1_is_code)
+                    # clean entity name
+                    entity_name_clean = util.cleaning(entity_name)
+                    predict_entity_name_clean = util.cleaning(predict_entity_name)
                     # compare entity name
-                    if util.cleaning(entity_name).casefold() == util.cleaning(predict_entity_name).casefold():
+                    if entity_name_clean.casefold() == predict_entity_name_clean.casefold():
                         candidates_with_validation_and_merge.append(find_entity(predict_entity))
                         create_log(f"result_without_validate: {predict_entity_name}")
                         continue
@@ -303,7 +311,7 @@ def find_most_relevant_entity(entity, source_or_target):
                         # matching validate
                         chain = create_tool_use_agent(matching_tools, matching_tool_chain)
                         global compare_list
-                        compare_list = [entity_name, predict_entity_name]
+                        compare_list = [entity_name_clean, predict_entity_name_clean]
                         # do not pass arguments here to avoid input sensitive word to llm
                         validate_prompt = f"Matching validate."
                         validate_result = chain.invoke({"input": validate_prompt})
@@ -401,7 +409,7 @@ def init():
 
     # matching merge
     chain = create_tool_use_agent(matching_tools, matching_tool_chain)
-    chain.invoke({"input": f"Matching merge."})
+    response = chain.invoke({"input": f"Matching merge."})
 
     print("Ontology matching successfully completed.")
 
@@ -429,7 +437,7 @@ def merge():
     df_merge = df_merge.drop_duplicates()
     df_merge.to_csv(predict_path, index=False)
     # evaluation
-    print(util.calculate_metrics(true_path, predict_path, result_path, util.find_model_name(llm), alignment))
+    print(util.calculate_metrics(true_path, predict_path, result_path, util.find_model_name(llm), alignment + "llm_with_agent"))
 
 
 @tool
@@ -445,10 +453,12 @@ def validate():
                             Answer the question within the context.
                             Answer yes or no. Give a short explanation.
                             """
-    result_validate = llm.invoke(prompt_validate_question).content
-    print("result_validate:", result_validate)
-    create_log(f"result_with_validate: {result_validate}")
-    return result_validate
+    result_validate = llm.invoke(prompt_validate_question)
+    # calculate tokens
+    util.add_tokens(result_validate)
+    print("result_validate:", result_validate.content)
+    create_log(f"result_with_validate: {result_validate.content}")
+    return result_validate.content
 
 
 matching_tools = [syntactic, lexical, semantic, init, validate, merge]
@@ -492,4 +502,7 @@ if __name__ == '__main__':
     print("similarity:", similarity_threshold)
     # run matching agent
     chain = create_tool_use_agent(matching_tools, matching_tool_chain)
-    chain.invoke({"input": f"Ontology matching."})
+    response = chain.invoke({"input": f"Ontology matching."})
+    print("response:", response)
+    # calculate cost
+    print(util.calculate_cost(util.total_token_usage, cost_path, util.find_model_name(llm), alignment + "llm_with_matching_agent"))

@@ -176,7 +176,7 @@ def calculate_metrics(true_path, predict_path, result_path, llm, alignment):
             return ["%.2f" % (precision * 100), "%.2f" % (recall * 100), "%.2f" % (f1 * 100)]
 
 
-def calculate_benchmark_metrics(true_path, predict_path, alignment, result_path):
+def calculate_benchmark_metrics(true_path, predict_path, result_path, alignment):
     df_true = pd.read_csv(true_path, encoding="Windows-1250")
     df_predict = pd.read_csv(predict_path, encoding="Windows-1250")
     if df_predict.empty:
@@ -215,6 +215,26 @@ def calculate_benchmark_metrics(true_path, predict_path, alignment, result_path)
 def common_member(a, b):
     result = [i for i in a if i in b]
     return result
+
+
+def calculate_cost(total_token_usage, cost_path, llm, alignment):
+    # write to file
+    with open(cost_path, "a+", newline='') as f:
+        writer = csv.writer(f)
+        result = [llm] + [alignment] + [total_token_usage]
+        writer.writerow(result)
+    return [alignment, total_token_usage]
+
+
+total_token_usage = 0
+
+
+def add_tokens(response):
+    # calculate tokens
+    token_usage = response.response_metadata.get("token_usage").get("total_tokens")
+    global total_token_usage
+    total_token_usage += token_usage
+    print("current tokens usage:", total_token_usage)
 
 
 def filter_anatomy(csv_path):

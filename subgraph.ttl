@@ -1,6 +1,5 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-"endReview" rdfs:domain "ProgramCommitteeChair" .
-
-"ProgramCommitteeChair" rdfs:subClassOf "ProgramCommitteeMember" .
+"was_an_organizing_committee_of" rdfs:domain "Organizing_committee" ;
+    rdfs:range "Conference_volume" .
 

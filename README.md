@@ -67,7 +67,7 @@ OPENAI_API_KEY = <YOUR_OPENAI_API_KEY>
 You can apply the same approach for other LLMs need an API key.
 
 ### 6. Setup Large Language Model (LLM):
-- Set the LLM in the file `run_config.py`: `llm`.
+- Set the LLM in the file `run_config.py`:
 ```python
 from langchain_openai import ChatOpenAI
 from langchain_community.chat_models import ChatOllama

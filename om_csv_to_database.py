@@ -39,6 +39,10 @@ df.replace(null_value_sentence, "", inplace=True)
 # print(df.head(5))
 # print(df.tail(5))
 
+# calculate cost
+cost_path = config.cost_path
+alignment = config.alignment
+
 
 # create traditional table
 async def create_ontology_matching_table():
@@ -175,4 +179,7 @@ def create_tool_use_agent(tools, tool_chain):
 if __name__ == '__main__':
     # run retrieve agent - Part 2
     chain = create_tool_use_agent(database_tools, database_tool_chain)
-    chain.invoke({"input": f"Save ontology information."})
+    response = chain.invoke({"input": f"Save ontology information."})
+    print("response:", response)
+    # calculate cost
+    print(util.calculate_cost(util.total_token_usage, cost_path, util.find_model_name(llm), alignment + "llm_with_retrieve_agent_2"))

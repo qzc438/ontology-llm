@@ -1,0 +1,15 @@
+Entity1,Entity2
+http://cmt#Acceptance,http://conference#Accepted_contribution
+http://cmt#Author,http://conference#Regular_author
+http://cmt#ConferenceMember,http://conference#Conference_participant
+http://cmt#Document,http://conference#Conference_document
+http://cmt#Meta-Reviewer,http://conference#belongs_to_reviewers
+http://cmt#Person,http://conference#Committee_member
+http://cmt#ProgramCommittee,http://conference#Program_committee
+http://cmt#Rejection,http://conference#Rejected_contribution
+http://cmt#Reviewer,http://conference#Reviewer
+http://cmt#User,http://conference#Conference_participant
+http://cmt#adjustedBy,http://conference#belongs_to_reviewers
+http://cmt#assignedTo,http://conference#belongs_to_reviewers
+http://cmt#email,http://conference#has_an_email
+http://cmt#memberOfConference,http://conference#Conference_participant

@@ -1,3 +1,4 @@
+import run_config
 import run_config as config
 import util
 
@@ -49,6 +50,10 @@ ontology = None
 ontology_is_code = None
 ontology_prefix = None
 entity_uri = None
+
+# calculate cost
+cost_path = config.cost_path
+alignment = config.alignment
 
 
 def find_reference(align_path, true_path):
@@ -141,7 +146,7 @@ def lexical(entity: str) -> str:
                      "Answer the question within the context and using the extra information.\n"
         )
         chain = prompt | llm
-        answer = chain.invoke({
+        response = chain.invoke({
             'entity_name': entity_name,
             'context': context,
             'extra_information': extra_information,
@@ -154,13 +159,16 @@ def lexical(entity: str) -> str:
                      "Answer the question within the context.\n"
         )
         chain = prompt | llm
-        answer = chain.invoke({
+        response = chain.invoke({
             'entity_name': entity_name,
             'context': context,
         })
+    # calculate tokens
+    util.add_tokens(response)
     # print
-    print("lexical_information:", answer.content)
-    return answer.content
+    answer = response.content
+    print("lexical_information:", answer)
+    return answer
 
 
 @tool
@@ -196,9 +204,13 @@ def semantic(entity: str) -> str:
             template="Verbalise the following triples into sentences: {subgraph}\n"
         )
         chain = prompt | llm
-        answer = chain.invoke({'subgraph': subgraph.serialize(format="turtle")})
-        print("semantic_information:", answer.content)
-        return answer.content
+        response = chain.invoke({'subgraph': subgraph.serialize(format="turtle")})
+        # calculate tokens
+        util.add_tokens(response)
+        # print
+        answer = response.content
+        print("semantic_information:", answer)
+        return answer
     else:
         print("semantic_information:", null_value_sentence)
         return null_value_sentence
@@ -274,10 +286,13 @@ def find_entity_information(path, entity_list, source_or_target, entity_type):
             # find information
             print("entity:", entity)
             chain = create_tool_use_agent(retrieval_tools, retrieval_tool_chain)
+            # syntactic information
             syntactic_prompt = f"Retrieve syntactic information about {entity}"
             syntactic_information = chain.invoke({"input": syntactic_prompt})
+            # lexical information
             lexical_prompt = f"Retrieve lexical information about {entity}"
             lexical_information = chain.invoke({"input": lexical_prompt})
+            # semantic information
             semantic_prompt = f"Retrieve semantic information about {entity}"
             semantic_information = chain.invoke({"input": semantic_prompt})
             print()
@@ -321,7 +336,7 @@ def init():
     ontology, ontology_prefix, ontology_is_code = o2, o2_prefix, o2_is_code
     find_entity_information(csv_path, e2_list_class, "Target", "Class")
     find_entity_information(csv_path, e2_list_property, "Target", "Property")
-    print("Retrieve ontology information successfully.")
+    return "Retrieve ontology information successfully."
 
 
 retrieval_tools = [syntactic, lexical, semantic, init]
@@ -408,8 +423,12 @@ if __name__ == '__main__':
     find_reference(align_path, true_path)
     # run retrieve agent - Part 1
     chain = create_tool_use_agent(retrieval_tools, retrieval_tool_chain)
-    chain.invoke({"input": f"Retrieve ontology information."})
+    response = chain.invoke({"input": f"Retrieve ontology information."})
+    print("response:", response)
+    # agent_executor.invoke({"input": "Find ontology information."})
     # # Chinese/French
     # chain.invoke({"input": f"获取本体信息."})
     # chain.invoke({"input": f"Récupérer des informations sur l'ontologie."})
-    # agent_executor.invoke({"input": "Find ontology information."})
+    # calculate cost
+    print(util.calculate_cost(util.total_token_usage, cost_path, util.find_model_name(llm), alignment + "llm_with_retrieve_agent_1"))
+

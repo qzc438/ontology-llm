@@ -1,251 +1,472 @@
 entity,source_or_target,entity_type,syntactic_matching,lexical_matching,semantic_matching
-http://cmt_cn#c-0108865-3676500,Source,Class,程序委员会主席," In the given context, ""程序委员会主席"" translates to ""Chairperson of the Program Committee."" This individual is responsible for leading and managing the program committee during a conference or event. They oversee the selection of speakers, topics, and schedule of events within the conference program."," 1. The task of reviewing (ending the draft) belongs to the Chair of the Program Committee.
-2. The Chair of the Program Committee is a type of member of the Program Committee."
-http://cmt_cn#c-0381608-3658679,Source,Class,非审稿人的作者," In the given context, ""非审稿人的作者"" translates to ""Author not serving as a reviewer."" This phrase refers to an author who has submitted a paper for a conference but is not one of the reviewers assigned to evaluate that same paper. It's essential to distinguish between authors and reviewers in academic conferences, as it helps maintain objectivity and fairness during the peer-review process."," In English, the triple statements are as follows:
-
-1. ""An author who is not a referee belongs to the class of authors."" - This can be understood as saying that any entity that is an author but not a referee also falls under the category of authors.
-
-2. ""The class of authors is disjoint with the class of referees and the class of Program Committee Members."" - This means that there are no entities that belong to both the class of authors and either the class of referees or the class of Program Committee Members. In other words, an author cannot be a referee or a member of the Program Committee at the same time."
-http://cmt_cn#c-0908936-3785080,Source,Class,管理人员," In the given context, ""管理人员"" translates to ""management personnel"" or simply ""managers"". This term refers to individuals who are responsible for overseeing and managing various aspects of an organization, such as operations, staff, budgets, and strategic planning, during a conference."," 1. The domain of enabling virtual meetings is administrative staff.
-2. The domain of the supplementary program committee member is administrative staff.
-3. The range of starting to bid for reviewing is administrative staff.
-4. The domain of starting to bid for reviewing is administrative staff.
-5. The domain of entering meeting details is administrative staff.
-6. The domain of entering review standards is administrative staff.
-7. The domain of accepting papers is administrative staff.
-8. The domain of printing hard copy mailroom tickets is administrative staff.
-9. The domain of rejecting papers is administrative staff.
-10. The domain of assigning reviewers is administrative staff.
-11. The one who starts the virtual meeting is an administrative staff member.
-12. The one who supplements is an administrative staff member.
-13. The one who enters the review standards is an administrative staff member.
-14. The one who enters details is an administrative staff member.
-15. The one who accepts is an administrative staff member.
-16. The one who prints hard copy mailroom tickets is an administrative staff member.
-17. The one who rejects is an administrative staff member.
-18. The one who assigns is an administrative staff member.
-19. Paper assignment and dispatch are done by administrative staff.
-20. The one who runs the paper assignment tool is an administrative staff member.
-21. The one who defines the paper assignment is an administrative staff member.
-22. The maximum number of papers can be set by administrative staff.
-23. Running the paper assignment tool is done by administrative staff.
-24. Administrative staff is a subclass of users."
-http://cmt_cn#c-1411693-7966496,Source,Class,论文," In the given context, ""论文"" refers to a research paper or academic article that is presented at a conference. It's a written account of original research, analysis, or study in a specific field, which is then shared and discussed among scholars during conferences."," 1. The action of assigning a paper has the domain as papers.
-2. The range of co-authoring is papers.
-3. The range of hiring a paper is papers.
-4. The range of submitting a paper is papers.
-5. The range of rejecting a paper is papers.
-6. The action of writing a paper has the range as papers.
-7. A paper has a subject domain.
-8. A paper has an author.
-9. A paper has a decision.
-10. The action of assigning papers has the range as papers.
-11. A paper has co-authors.
-12. A paper has a bid.
-13. Marking potential conflicts of interest applies to papers.
-14. The title is associated with papers.
-15. The paper was written by someone.
-16. The paper was rejected by someone.
-17. The paper was reviewed by a reviewer.
-18. The paper was reviewed by a comprehensive reviewer.
-19. The full text of the paper is a subclass of papers.
-20. The paper number is associated with papers.
-21. The abstract of the paper is a subclass of papers.
-22. Reading a paper falls within the range of papers.
-23. A paper is a subclass of files; it is disjoint from the review comments."
-http://cmt_cn#c-1609047-4017692,Source,Class,合著者," In the given context, ""合著者"" translates to ""co-author"". This term refers to a person who collaborates with another author in writing and publishing a book or an academic paper. At a conference, it could refer to someone who has co-authored a research paper being presented."," 1. The property ""合著"" has the domain ""合著者"". (In English: The domain of the property ""Co-authored by"" is ""Co-author."")
-2. The property ""有合著者"" has the range ""合著者"". (In English: The range of the property ""Has co-author"" is ""Co-author."")
-3. ""合著者"" is a subclass of ""作者"". (In English: ""Co-author"" is a subclass of ""Author."")"
-http://cmt_cn#c-3149294-9818820,Source,Class,副主席," In the context of a conference, ""副主席"" (fù zhǔ chǐ) translates to ""Vice Chairman."" This is typically one of the highest-ranking officers in a conference or organization, second only to the Chairman. The Vice Chairman assists the Chairman in managing the conference and making decisions."," 1. ""The deputy chair is a subclass of the 'meeting member'.""
-2. ""The deputy chair is disjoint with 'the chairman of a major meeting'."""
-http://cmt_cn#c-3211087-4346168,Source,Class,综合审稿人," In the given context, ""综合审稿人"" translates to ""Comprehensive Reviewer"" in English. This term refers to a person who reviews and evaluates all aspects of a submitted paper or presentation for a conference, including its content, structure, clarity, and relevance to the conference theme. The comprehensive reviewer's role is crucial as they help ensure that only high-quality and relevant work is presented at the conference."," 1. The role of a comprehensive reviewer is restricted to a comprehensive reviewer.
-2. A comprehensive reviewer is a subclass of a reviewer."
-http://cmt_cn#c-4245259-3253907,Source,Class,偏爱," In the given context, ""偏爱"" (biài ài) translates to ""favor"" or ""preference."" It could be used in a sentence like, ""我们需要了解他的专业领域，以便我们在会议中更好地偏爱他的观点"" (""We need to understand his professional field so that we can favor his opinions better during the conference"")."," ""偏爱"" does not overlap with ""人员"", ""会议"", ""决定"", ""投标"", ""文件"", or ""程序委员会"".
-
-In other words, there is no instance of ""偏爱"" that is also an instance of any of the following: ""人员"", ""会议"", ""决定"", ""投标"", ""文件"", or ""程序委员会""."
-http://cmt_cn#c-4366560-5113302,Source,Class,审稿意见," The term ""审稿意见"" in Chinese translates to ""review comments"" or ""editorial suggestions"" in English. In the context of a conference, it refers to feedback provided by reviewers on submitted papers. These comments are intended to help authors improve their work before it is presented at the conference. They may include suggestions for clarification, corrections, improvements, or even rejections if the paper does not meet the conference's standards."," 1. The range of writing a draft opinion is a draft opinion.
-2. The domain of being written is a draft opinion.
-3. Ending a review is a draft opinion.
-4. A comprehensive review opinion is a subclass of a review opinion.
-5. Papers are disjoint with review opinions.
-6. Review opinions are a subclass of files."
-http://cmt_cn#c-4394296-4732223,Source,Class,用户," In the given context, ""用户"" (Yonghu) translates to ""user"" in English. It refers to an individual or entity that employs a product, system, or service provided by a company or organization. For instance, during a conference, the term could be used to describe attendees who are using the conference platform or software to access conference materials, participate in discussions, or network with other participants."," 1. The class ""Author"" is a subclass of the class ""User"".
-2. The class ""Reviewer"" is a subclass of the class ""User"".
-3. The class ""Administrator"" is a subclass of the class ""User"".
-4. The class ""User"" is a subclass of the class ""Staff"".
-5. The class ""Staff"" is a broader class than the class ""User""."
-http://cmt_cn#c-4857754-7093471,Source,Class,拒收," In the given context, ""拒收"" (ju shū) translates to ""refusal"" or ""rejection"" in English. It could be used in a sentence like ""我们的提案被拒收了"" (wǒmen de tǐàn being ju shū le), which means ""Our proposal was rejected."""," 1. ""拒收"" is a subclass of ""决定"".
-2. ""拒收"" is disjoint with ""录用""."
-http://cmt_cn#c-5221180-5266535,Source,Class,作者," In the given context, ""作者"" translates to ""author"". It refers to a person who writes or creates a book, article, play, or other written work. At a conference, an author might present their research findings, share insights from their published works, or discuss their writing process."," 1. ""The author of a paper is a subclass of the writer.""
-2. ""Submitting a paper belongs to the domain of an author.""
-3. ""Writing a paper belongs to the domain of an author.""
-4. ""An item having an author belongs to the range 'author'.""
-5. ""An author who is not a reviewer is a subclass of the author.""
-6. ""The author is a subclass of both 'conference member' and 'user'."""
-http://cmt_cn#c-5631992-3120167,Source,Class,程序委员会," In the given context, ""程序委员会"" translates to ""Program Committee"" in English. This term refers to a group of individuals who are responsible for organizing and managing a conference or academic event related to a specific field, such as computer science, mathematics, or physics. The Program Committee typically reviews submitted papers, selects the best ones for presentation, and plans the schedule of events for the conference."," 1. ""偏爱"" is disjoint with ""Program Committee"". (In English)
-2. Being a member of the ""Program Committee"" has the range ""Program Committee"". (In English)
-3. Having a ""Program Committee"" member belongs to the domain ""Program Committee"". (In English)
-4. The ""Program Committee"" is disjoint with ""People"", ""Meetings"", ""Decisions"", ""Bids"", and ""Files"". (In English)"
-http://cmt_cn#c-5934764-9439514,Source,Class,论文全文," In the given context, ""论文全文"" translates to ""full paper"" or ""complete article"" in English. It refers to a complete and detailed version of a research work that includes an introduction, methodology, results, discussion, and conclusion. This is typically what is presented at a conference, where authors share their findings with other professionals in the field."," ""The class 'Full Paper Text' is a subclass of the class 'Paper'."""
-http://cmt_cn#c-6225787-0783620,Source,Class,综合审稿意见," In the given context, ""综合审稿意见"" translates to ""Comprehensive Review Comments"" in English. It refers to a set of feedback or suggestions provided by reviewers or editors after evaluating a paper, presentation, or proposal submitted for a conference. The comments aim to help authors improve the quality and clarity of their work before it is presented at the conference."," The triple ""综合审稿意见"" subClassOf ""审稿意见"" can be verbalized as: ""The comprehensive review feedback is a type of the review feedback."""
-http://cmt_cn#c-6306630-6583290,Source,Class,人员," In the given context, ""人员"" (rén yuán) translates to ""people"" or ""personnel"". So in a conference setting, it would refer to the attendees, speakers, organizers, and any other individuals involved in the event."," 1. ""The Chair is a subclass of People.""
-2. ""Meeting member is a subclass of People.""
-3. ""Preference is disjoint with People.""
-4. ""External reviewer is a subclass of People.""
-5. ""Interest conflict pertains to People.""
-6. ""User is a subclass of People.""
-7. ""Email box belongs to People.""
-8. ""Program Committee is disjoint with People.""
-9. ""Program Committee member is a subclass of People.""
-10. ""People are disjoint with Meeting, Decision, Bid, and File."""
-http://cmt_cn#c-6478547-4324672,Source,Class,主席," In the given context, ""主席"" (pronounced as ""Zhǔ-shì"") refers to the chairperson or the person presiding over a conference. This individual is responsible for leading the meeting, ensuring that it runs smoothly and efficiently, and making sure that all discussions are conducted in an orderly manner."," The triple ""主席"" rdfs:subClassOf ""人员"" can be verbalized as: ""The Chair is a subclass of Person."""
-http://cmt_cn#c-6514538-3785673,Source,Class,主题领域," In the given context, ""主题领域"" (Subject domain) refers to the specific area or field that a conference focuses on or discusses. It could be anything from technology, science, art, business, education, and so forth. For example, if a conference is about artificial intelligence, then its subject domain would be AI."," The triple ""has subject domain"" rdfs:range ""subject domain"" means:
-
-The property ""has subject domain"" has a range of ""subject domain"". In other words, the value of the property ""has subject domain"" should always be a ""subject domain"". For example:
-
-- A resource can have multiple subjects, but each subject must belong to the category of ""subject domains"".
-- If a resource does not have a subject domain, then it is not valid for that resource.
-- The ""subject domain"" could represent various fields or topics such as science, history, mathematics, etc."
-http://cmt_cn#c-6547129-3950496,Source,Class,会议成员," The term ""会议成员"" in Chinese translates to ""conference member"" or ""meeting participant"" in English, within the context of a conference. It refers to individuals who are involved in the meeting, discussion, or event."," 1. ""An author is a subclass of a conference member.""
-2. ""A vice chair is a subclass of a conference member.""
-3. ""The main chair of a large meeting is a subclass of a conference member.""
-4. ""A reviewer is a subclass of a conference member.""
-5. ""Being a member of a meeting is a domain for 'conference member'.""
-6. ""Having a conference member is a range for 'conference member'.""
-7. ""A member of the program committee is a subclass of a conference member.""
-8. ""A conference member is a subclass of 'personnel'."""
-http://cmt_cn#c-6982521-8946825,Source,Class,论文摘要," In the given context, ""论文摘要"" refers to an abstract or summary of a research paper or academic article in Chinese. It provides a brief overview of the main points and findings of the research, helping conference attendees decide whether they want to attend the presentation or read the full paper. The abstract typically includes the purpose of the study, the methodology used, the results obtained, and the conclusions drawn from the research."," ""The abstract of a paper is a type or subclass of the class 'Paper'."""
-http://cmt_cn#c-7079444-7818106,Source,Class,决定," In the given context of a conference, ""决定"" (jué-jūn) would typically mean 'decision' or 'determination'. It refers to the outcome or resolution made after discussions, debates, or deliberations during the conference. For example, ""After the long discussion about the project, we have reached a decision (决定)."""," 1. ""人员"" and ""决定"" are disjoint, meaning they have no members in common.
-2. ""偏爱"" and ""决定"" are disjoint, meaning they have no members in common.
-3. ""录用"" is a subclass of ""决定"", meaning every instance of ""录用"" is also an instance of ""决定"".
-4. ""拒收"" is a subclass of ""决定"", meaning every instance of ""拒收"" is also an instance of ""决定"".
-5. ""有决定"" has its range as ""决定"", meaning every value assigned to ""有决定"" must be an instance of ""决定"".
-6. ""程序委员会"" and ""决定"" are disjoint, meaning they have no members in common.
-7. ""决定"" is disjoint with ""会议"", ""投标"", and ""文件"", meaning there are no instances that belong to both categories."
-http://cmt_cn#c-7089189-2038652,Source,Class,外部审稿人," In the given context, ""外部审稿人"" (Wài bù shěng jiàn) translates to ""external reviewer"" in English. These are individuals who are not part of the organizing committee or the editorial board of a conference, but are experts in their respective fields. They are invited to review submitted papers for quality assurance and to maintain academic standards before the papers are accepted for presentation at the conference."," 1. The property ""指定外部审稿人"" has a range of ""外部审稿人"". (The property ""Specify External Reviewer"" has a range of ""External Reviewer"".)
-2. The property ""由审稿人指定"" belongs to the domain of ""外部审稿人"". (The property ""Assigned by Reviewer"" belongs to the domain of ""External Reviewer"".)
-3. ""外部审稿人"" is a subclass of ""人员"" (External Reviewer is a subclass of Person).
-4. ""外部审稿人"" is disjoint with ""审稿人"" (External Reviewer is disjoint with Reviewer)."
-http://cmt_cn#c-7129012-2718902,Source,Class,大会主席," In the given context, ""大会主席"" translates to ""Conference Chair"" or ""Chairperson of the Conference"". This person is responsible for overseeing and managing the proceedings of a conference, ensuring that it runs smoothly and efficiently. They may also set the agenda, moderate discussions, and make decisions on various matters related to the conference."," 1. The position of ""VICE CHAIR"" is disjoint with the position of ""CHAIRMAN"" (in this context).
-2. Anyone who holds the position of ""CHAIRMAN"" is a member of the meeting (implicitly, they are also a meeting participant)."
-http://cmt_cn#c-7533683-3092816,Source,Class,程序委员会成员," The term ""程序委员会成员"" (Chèngxù Deyuàn Zhèngyuán) translates to ""Member of the Program Committee"" in English. In a conference context, the Program Committee is responsible for selecting the papers or presentations that will be included in the conference program. The members of this committee are experts in their respective fields and play a crucial role in shaping the content of the conference."," 1. The member of the supplementary program committee belongs to the category of program committee members.
-2. Being a member of the program committee is only applicable for program committee members.
-3. The maximum number of papers is associated with program committee members.
-4. A person who supplements belongs to the category of program committee members.
-5. The chairman of the program committee is a type of program committee member.
-6. Setting the maximum number of papers is only applicable for program committee members.
-7. An author who is not a reviewer is disjoint with program committee members.
-8. Program committee members are a subclass of people and attendees of meetings.
-9. The supplementary program committee member does not belong to the category of non-reviewing authors."
-http://cmt_cn#c-8430559-8614325,Source,Class,审稿人," In the given context, ""审稿人"" translates to ""Reviewer"" in English. A reviewer is a person who examines and evaluates papers or proposals submitted for a conference to ensure their quality, relevance, and adherence to the conference's guidelines before they are accepted for presentation."," 1. The range of modifying and submitting a bid is an 'Editor'.
-2. Submitting a bid belongs to the domain of 'Editors'.
-3. The range of assigning is an 'Editor'.
-4. An 'External Reviewer' is disjoint with 'Reviewers'.
-5. Specifying an external reviewer belongs to the domain of 'Reviewers'.
-6. Specifying a reviewer belongs to the range of 'Reviewers'.
-7. Writing review comments belongs to the domain of 'Reviewers'.
-8. Having assigned papers belongs to the domain of 'Reviewers'.
-9. The author who writes is disjoint with 'Reviewers'.
-10. A reviewer reviews a paper written by them.
-11. A reviewer is specified by another reviewer.
-12. A reviewer is specified by the management staff.
-13. A comprehensive reviewer is a subclass of 'Reviewers'.
-14. Reading papers belongs to the domain of 'Reviewers'.
-15. An author who is not a reviewer is disjoint with 'Reviewers'.
-16. Reviewers are a subclass of 'Conference Members' and 'Users'."
-http://cmt_cn#c-8960537-4711895,Source,Class,投标," In the given context, ""投标"" (tòu bì) translates to ""to bid"" or ""to submit a proposal"". It refers to the act of making an offer for a project, contract, or opportunity at a conference where multiple parties are competing for the same goal. For example, companies may bid on government contracts during a conference, presenting their proposals and explaining why they would be the best choice for the job."," 1. ""人员"" is disjoint with ""投标"". (In English, ""Person is disjoint with Bid."")
-2. The domain of ""修改后投标"" (Modified Bid) is ""投标"" (Bid).
-3. The range of ""修改投标"" (Modify Bid) is ""投标"" (Bid).
-4. ""偏爱"" (Preference) is disjoint with ""投标"" (Bid).
-5. ""决定"" (Decision) is disjoint with ""投标"" (Bid).
-6. The range of ""有投标"" (Has Bid) is ""投标"" (Bid).
-7. ""程序委员会"" (Program Committee) is disjoint with ""投标"" (Bid).
-8. ""投标"" (Bid) is disjoint with ""会议"" (Meeting) and ""文件"" (File)."
-http://cmt_cn#c-9116726-0347168,Source,Class,文件," In the given context, ""文件"" (Wénjiàn) translates to ""file"" or ""document"". It could refer to a paper, report, presentation, or any other type of written work that is being discussed or shared during the conference."," 1. ""人员"" is disjoint with ""文件"". (In English) A person is not a file.
-2. ""偏爱"" is disjoint with ""文件"". (In English) Preference is not a file.
-3. ""决定"" is disjoint with ""文件"". (In English) Decision is not a file.
-4. ""审稿意见"" is a subclass of ""文件"". (In English) Review comments are a type of file.
-5. ""投标"" is disjoint with ""文件"". (In English) Bidding is not a file.
-6. ""有兴趣冲突"" has a range of ""文件"". (In English) Interest conflict involves files.
-7. ""程序委员会"" is disjoint with ""文件"". (In English) Program committee is not a file.
-8. ""论文"" is a subclass of ""文件"". (In English) Paper is a type of file.
-9. ""文件"" is disjoint with ""会议"". (In English) A file is not a meeting."
-http://cmt_cn#c-9132752-0775520,Source,Class,会议," The word ""会议"" in Chinese translates to ""conference"" in English. It refers to a formal meeting or gathering, often for discussion and decision-making purposes. This term can be used in various contexts such as business, politics, academia, etc."," 1. ""人员"" and ""会议"" are disjoint, meaning they have no common members. (人员和会议没有共同成员)
-2. ""偏爱"" and ""会议"" are disjoint, meaning they have no common instances. (偏爱和会议没有共同实例)
-3. ""决定"" and ""会议"" are disjoint, meaning they have no common instances. (决定和会议没有共同实例)
-4. The range of ""启用虚拟会议"" is ""会议"". (启用虚拟会议的范围是会议)
-5. The domain of ""商标统一资源定址器"" is ""会议"". (商标统一资源定址器的域是会议)
-6. ""审稿人投标始于"" and ""会议"" share the same domain, meaning they both relate to a conference or meeting. (审稿人投标始于和会议共同的域，意味着它们都与会议或会议相关)
-7. ""开始审稿投标"" and ""会议"" share the same range, meaning they both result in starting the review process for submissions. (开始审稿投标和会议共同的范围，意味着它们都导致提交的审核过程的开始)
-8. The range of ""录入会议详情"" is ""会议"". (录入会议详情的范围是会议)
-9. The range of ""录入审稿标准"" is ""会议"". (录入审稿标准的范围是会议)
-10. The range of ""打印硬拷贝邮件舱单"" is ""会议"". (打印硬拷贝邮件舱单的范围是会议)
-11. ""投标"" and ""会议"" are disjoint, meaning there are no instances where a bid occurs within a meeting. (投标和会议没有共同实例，意味着在会议中没有出现任何投标的情况)
-12. ""接受硬拷贝投稿"" and ""会议"" share the same domain, meaning they both relate to a conference or meeting where hardcopy submissions are accepted. (接受硬拷贝投稿和会议共同的域，意味着它们都与会议或会议相关，在其中接受硬拷贝提交)
-13. ""文件"" and ""会议"" are disjoint, meaning there are no common instances of files within a meeting. (文件和会议没有共同实例，意味着在会议中没有共同的文件)
-14. ""日期"" is a domain for ""会议"", meaning the dates relate to the conference or meeting. (日期是会议的域，意味着日期与会议或会议相关)
-15. ""是会议成员"" and ""会议"" share the same range, meaning they both refer to individuals who are part of a conference or meeting. (是会议成员和会议共同的范围，意味着它们都指向会议或会议的成员)
-16. ""有会议成员"" and ""会议"" share the same domain, meaning they both relate to the individuals who are part of a conference or meeting. (有会议成员和会议共同的域，意味着它们都与会议或会议的成员相关)
-17. The number of review comments for each paper is associated with ""会议"". (每篇论文的审核评论数与会议相关)
-18. The domain of ""由之启动虚拟会议"" is ""会议"", meaning the virtual meeting was initiated by this entity. (由之启动虚拟会议的域是会议，意味着这个实体启动了该会议)
-19. The domain of ""由之录入审稿标准"" is ""会议"", meaning the review standards were entered by this entity. (由之录入审稿标准的域是会议，意味着这个实体录入了审核标准)
-20. The domain of ""由之录入详情"" is ""会议"", meaning the details were entered by this entity. (由之录入详情的域是会议，意味着这个实体录入了详细信息)
-21. The domain of ""由之打印硬拷贝邮件舱单"" is ""会议"", meaning the mailing labels were printed by this entity for the conference or meeting. (由之打印硬拷贝邮件舱单的域是会议，意味着这个实体为会议或会议打印了邮寄标签)
-22. ""程序委员会"" and ""会议"" are disjoint, meaning there are no instances where a program committee is part of a meeting. (程序委员会和会议没有共同实例，意味着在会议中没有程序委员会的情况)
-23. The domain of ""网站地址"" is ""会议"", meaning the website address relates to the conference or meeting. (网站地址是会议的域，意味着网站地址与会议或会议相关)
-24. ""论文分派定稿"" and ""会议"" share the same range, meaning they both result in assigning papers for review during a conference or meeting. (论文分派定稿和会议共同的范围，意味着它们都导致在会议或会议中为审核分配论文)
-25. ""论文分派工具由之运行"" and ""会议"" share the same domain, meaning the paper assignment tool was run during this conference or meeting. (论文分派工具由之运行和会议共同的域，意味着在这个会议或会议中运行了论文分派工具)
-26. ""论文分派由之定稿"" and ""会议"" share the same domain, meaning the paper assignments were made by this entity during the conference or meeting. (论文分派由之定稿和会议共同的域，意味着在这个会议或会议中由此实体进行了论文分配)"
-http://cmt_cn#c-9524256-6456168,Source,Class,录用," In the given context, ""录用"" (lùyong) would mean ""hiring"" or ""employment."" If a conference discusses hiring new staff members, then ""录用"" is an appropriate term to use in that context."," 1. ""The concepts '拒收' (refuse) and '录用' (hire) are disjoint, meaning they have no members in common.""
-2. ""The concept of '录用' (hire) is a subclass of the concept '决定' (decide)."""
-http://cmt_cn#ent-0558615-7610326,Source,Property,电子信箱," In the given context, ""电子信箱"" translates to ""electronic mailbox"" or simply ""email"". It refers to a system where messages can be sent and received electronically over a network, such as the internet. This is often used in professional settings like conferences for communication purposes."," The triple ""电子信箱"" rdfs:domain ""人员"" means that an electronic mailbox is associated with a person.
-The triple ""电子信箱"" rdfs:range ""string"" means that the value of an electronic mailbox is a string."
-http://cmt_cn#ent-0770084-1884087,Source,Property,最多论文数," In the given context, ""最多论文数"" translates to ""the maximum number of papers."" This refers to the highest count of research papers or publications that an individual or institution has contributed to a specific conference. It's often used to measure the productivity and impact of researchers in their respective fields."," In English, the triple:
-
-""最多论文数"" rdfs:domain ""程序委员会成员"" ;
-    rdfs:range ""int"" .
-
-can be translated into:
-
-""The maximum number of papers is associated with '程序委员会成员' (Program Committee Member) and its range is 'int' (integer)."""
-http://cmt_cn#ent-1797255-4064330,Source,Property,接受硬拷贝投稿," In the given context, ""接受硬拷贝投稿"" translates to ""accepting hard copy submissions."" This means that the conference is open to receiving paper submissions in a physical format (hard copies) rather than only accepting digital or online submissions."," The triple ""接受硬拷贝投稿"" rdfs:domain ""会议"" means ""Submitting hard copy submissions is a property of a Meeting.""
-
-The triple rdfs:range ""boolean"" means ""The value of the property '接受硬拷贝投稿' (Submitting hard copy submissions) is expected to be a boolean value."""
-http://cmt_cn#ent-2006944-8206213,Source,Property,网站地址," In the given context, ""网站地址"" translates to ""website address"" in English. It refers to the specific URL or webpage location where a conference can be accessed online. For instance, if a conference is being held on a platform like Zoom, the website address would be the link that participants use to join the meeting."," The triple ""网站地址"" rdfs:domain ""会议"" means that the property ""网站地址"" (website address) is used to describe the class of entities called ""会议"" (meetings).
-
-The triple rdfs:range ""anyURI"" indicates that the values for the property ""网站地址"" are expected to be Uniform Resource Identifiers (URIs), which can include any type of URI, such as a URL."
-http://cmt_cn#ent-2078248-6340502,Source,Property,日期," In the given context, ""日期"" (Rìqi) would refer to a ""date"" or ""schedule"" for the conference. It's used to specify when the conference will take place."," In English, the triple can be expressed as follows:
-
-The domain of the property ""日期"" (Date) is ""会议"" (Meeting), and its range is ""date""."
-http://cmt_cn#ent-3299726-7339376,Source,Property,商标统一资源定址器," Within the given context, ""商标统一资源定址器"" (Trademark Uniform Resource Locator) can be understood as a system or tool that provides a standardized way to locate and access trademark-related information online. This could include details about registered trademarks, their owners, usage guidelines, and more. It's likely that this term was discussed during the conference in relation to intellectual property rights, brand protection, or digital asset management."," The triple ""商标统一资源定址器"" rdfs:domain ""会议"" and rdfs:range ""anyURI"" can be expressed as the following sentences:
-
-The Uniform Resource Identifier (URI) for trademarks has the Meeting domain.
-The range of the URI for trademarks is any URI."
-http://cmt_cn#ent-3413896-1178929,Source,Property,标题," In the given context, ""标题"" (Biaoti in English) refers to a title or heading for a conference. It's used to identify and summarize the main topic or theme of the conference. For example, if you are attending an international conference on artificial intelligence, the title could be something like ""AI Trends 20XX: Challenges and Opportunities."""," The triple ""标题"" rdfs:domain ""论文"" means that the property ""标题"" (Title) is used to describe papers (论文).
-The triple ""rdfs:range 'string'"" indicates that the values of the property ""标题"" are expected to be strings."
-http://cmt_cn#ent-4113546-6694479,Source,Property,姓名," In the given context, ""姓名"" translates to ""Name (family name)"" in English. It refers to a part of an individual's personal identification that typically indicates their family or clan, and is often used in formal settings such as conferences."," The predicate ""姓名"" (Name) has a range of ""string"". In other words, the values that can be assigned to the property ""姓名"" are expected to be strings."
-http://cmt_cn#ent-7191614-7670375,Source,Property,每篇论文审稿意见数," In the given context, ""每篇论文审稿意见数"" translates to ""the number of comments per paper in a conference."" This refers to the count of feedback or suggestions provided for each submitted research paper during the peer-review process at a conference. The goal is to help authors improve their work before it's presented or published."," In English, the triples can be translated into the following sentences:
-
-1. The number of review comments for each paper is associated with a domain of 'Conference'.
-2. The range of this association is an integer."
-http://cmt_cn#ent-7480377-8088600,Source,Property,论文序号," In the context of a conference, ""论文序号"" (literally ""paper number"") refers to the unique identifier assigned to each submitted paper during the review process or presentation schedule. It helps organizers and attendees easily locate and discuss specific papers."," The property or attribute ""论文序号"" (Paper Number) has the domain as ""论文"" (Papers), and its range is ""unsignedLong"". In other words, the Paper Number belongs to Papers and takes values from the data type of Unsigned Long."
-http://cmt_cn#op-0000935-4894534,Source,Property,撰写论文," In the given context, ""撰写论文"" translates to ""writing a paper."" This term is often used in academic or professional conferences where participants are expected to submit written papers for presentation or discussion."," The triple ""撰写论文"" rdfs:domain ""作者"" means ""Writing a paper is related to the domain of an Author.""
-The triple ""撰写论文"" rdfs:range ""论文"" means ""Writing a paper results in a Paper."""
-http://cmt_cn#op-0059246-5640033,Source,Property,有投标," In the given context, ""有投标"" (yǒu tòubì) translates to ""to have bids"" or ""there are bids"". It could be used in a conference setting when discussing projects or proposals where multiple parties have submitted their offers or proposals to participate or take on a certain task. For example, if a company is looking for a contractor to build a new facility, and several contractors have submitted their bids, then the company can say ""我们有投标"" (wǒmen yǒu tòubì) which means ""We have bids."""," In English, the triple ""hasBid"" rdfs:domain ""Paper"" and rdfs:range ""Bid"" can be expressed as follows:
-
-The domain of hasBid is Paper.
-The range of hasBid is Bid.
-
-In other words, if we have a specific paper, it can have one or more bids associated with it (domain), and each bid belongs to exactly one paper (range)."
-http://cmt_cn#op-0343861-0206398,Source,Property,修改投标," In the given context, ""修改投标"" translates to ""modifying bids."" This term would likely be used in a business or financial setting during a conference, particularly when discussing tenders, proposals, or any form of competitive bidding for contracts or projects. The modification could refer to changes made by a bidder to their initial offer, such as adjusting the price, delivery schedule, or other terms and conditions."," In English, the triples can be translated into the following sentences:
-
-1. The domain of modifying bids is reviewers. (or, Reviewers are responsible for modifying bids.)
-2. The range of modifying bids is bids themselves. (or, The result of modifying bids is a bid.)"
-http://cmt_cn#op-0381761-1602870,Source,Property,由综合审稿人审阅," The phrase ""由综合审稿人审阅"" in Chinese translates to ""reviewed by a comprehensive reviewer"" in English, given the context of a conference. It means that the submitted paper or presentation has been evaluated and approved by a team of experts or reviewers who have assessed its quality, relevance, and suitability for the conference. This process ensures that only high-quality and relevant content is presented at the conference."," The sentence for the first triple is: ""A paper is in the domain of a comprehensive review by a proofreader.""
-
-The sentence for the second triple is: ""The range of a comprehensive review by a proofreader is a comprehensive proofreader."""
-http://cmt_cn#op-0464288-8310221,Source,Property,指定外部审稿人," In the given context, ""指定外部审稿人"" translates to ""assigning external reviewers."" This means that the conference organizers are designating or appointing individuals from outside their organization to evaluate and provide feedback on submitted papers or presentations before they are accepted for presentation at the conference. The purpose is to ensure a fair, unbiased, and expert assessment of the work being presented."," The triple ""指定外部审稿人"" rdfs:domain ""审稿人"" means ""The concept of '指定外部审稿人' (Specified External Reviewer) is a subproperty of the domain '审稿人' (Reviewer).""
-
-The triple rdfs:range ""外部审稿人"" means ""The range of the property '指定外部审稿人' (Specified External Reviewer) is '外部审稿人' (External Reviewer).""
-
-In English, these can be combined into the sentence: ""The concept of Specified External Reviewer is a subproperty of Reviewer and its range is External Reviewer."""
+http://cmt_cn#c-0108865-3676500,Source,Class,程序委员会主席,"The meaning of 程序委员会主席 is the chairman of the program committee. In the context of a conference, this refers to the person who is in charge of overseeing the planning and organization of the conference program.","The action of ""ending review"" is associated with the role of ""Program Committee Chair"".
+The ""Program Committee Chair"" is a subclass of ""Program Committee Member""."
+http://cmt_cn#c-0381608-3658679,Source,Class,非审稿人的作者,"The meaning of 非审稿人的作者 in the context of a conference is ""non-reviewer author."" This refers to an author who is not responsible for reviewing or evaluating the submissions for the conference, but rather is solely focused on contributing their own research or work.",Non-reviewer authors are a subclass of authors and are disjoint with reviewers and program committee members.
+http://cmt_cn#c-0908936-3785080,Source,Class,管理人员,"In the context of a conference, 管理人员 refers to the management staff or personnel who are responsible for organizing and overseeing the event. They may be in charge of logistics, scheduling, coordinating speakers, handling registrations, and ensuring the smooth operation of the conference.","- Management personnel are responsible for enabling virtual meetings.
+- Management personnel are responsible for supplementing committee members.
+- Reviewer bidding starts with management personnel.
+- Management personnel initiate the review bidding process.
+- Management personnel are in charge of entering meeting details.
+- Management personnel are in charge of entering review standards.
+- Management personnel are responsible for accepting papers.
+- Management personnel are responsible for printing hard copy mail manifests.
+- Management personnel are responsible for rejecting papers.
+- Management personnel are responsible for assigning reviewers.
+- Virtual meetings are started by management personnel.
+- Supplements are made by management personnel.
+- Review standards are entered by management personnel.
+- Details are entered by management personnel.
+- Papers are accepted by management personnel.
+- Hard copy mail manifests are printed by management personnel.
+- Papers are rejected by management personnel.
+- Reviewers are assigned by management personnel.
+- Papers are assigned for finalization by management personnel.
+- The tool for paper assignment is operated by management personnel.
+- Finalization of paper assignment is done by management personnel.
+- Management personnel are responsible for setting the maximum number of papers.
+- Management personnel operate the paper assignment tool.
+- Management personnel are a subclass of users."
+http://cmt_cn#c-1411693-7966496,Source,Class,论文,"In the context of a conference, 论文 refers to a paper or thesis that is presented and discussed by scholars or researchers. It is a formal written document that presents original research or analysis on a specific topic. Presenting a 论文 at a conference allows researchers to share their findings and insights with their peers and receive feedback and discussion on their work.","- Papers are assigned to a domain.
+- Co-authorship is related to papers.
+- Accepted papers are related to papers.
+- Submission is related to papers.
+- Rejected papers are related to papers.
+- Writing papers is related to papers.
+- Papers have a subject area.
+- Papers have authors.
+- Papers have decisions.
+- Assigned papers are related to papers.
+- Co-authors are related to papers.
+- Bids are related to papers.
+- Interest conflicts are related to papers.
+- Titles are related to papers.
+- Accepted by is related to papers.
+- Rejected by is related to papers.
+- Reviewed by reviewers.
+- Reviewed by comprehensive reviewers.
+- Full papers are a subclass of papers.
+- Paper numbers are related to papers.
+- Abstracts are a subclass of papers.
+- Reading papers is related to papers.
+- Papers are a subclass of documents and are disjoint with review comments."
+http://cmt_cn#c-1609047-4017692,Source,Class,合著者,合著者 refers to a co-author or collaborator in the context of a conference. It is someone who has worked together with others to write or contribute to a publication or presentation.,"- The domain of the property ""合著"" is ""合著者"".
+- The range of the property ""有合著者"" is ""合著者"".
+- ""合著者"" is a subclass of ""作者""."
+http://cmt_cn#c-3149294-9818820,Source,Class,副主席,"In the context of a conference, 副主席 refers to the Vice President or Vice Chairman. This position is typically second in command and assists the President or Chairman in leading the conference.","The concept ""副主席"" is a subclass of ""会议成员"" and is disjoint with the concept ""大会主席""."
+http://cmt_cn#c-3211087-4346168,Source,Class,综合审稿人,"In the context of a conference, 综合审稿人 refers to a reviewer who is responsible for conducting a comprehensive review of a submitted paper. This individual evaluates the paper based on various criteria such as relevance, originality, methodology, and overall quality before making a recommendation for acceptance or rejection.","The review is conducted by a comprehensive reviewer.
+Comprehensive reviewer is a subclass of reviewer."
+http://cmt_cn#c-4245259-3253907,Source,Class,偏爱,"In the context of a conference, 偏爱 means ""preference"" or ""favoritism."" It refers to showing a bias or preference towards something or someone.","The concept of ""偏爱"" is disjoint with the concepts of ""人员"", ""会议"", ""决定"", ""投标"", ""文件"", and ""程序委员会""."
+http://cmt_cn#c-4366560-5113302,Source,Class,审稿意见,"In the context of a conference, 审稿意见 refers to the feedback or comments given on a submitted paper or presentation for review. It typically includes suggestions for improvement, corrections, and overall evaluation of the content.","- The range of ""撰写审稿意见"" is ""审稿意见"".
+- The domain of ""由之撰写"" is ""审稿意见"".
+- The range of ""结束审稿"" is ""审稿意见"".
+- ""综合审稿意见"" is a subclass of ""审稿意见"".
+- ""论文"" is disjoint with ""审稿意见"".
+- ""审稿意见"" is a subclass of ""文件""."
+http://cmt_cn#c-4394296-4732223,Source,Class,用户,"In the context of a conference, 用户 (yònghù) means ""user"" or ""participant."" It refers to individuals who are attending or taking part in the conference.","- Authors are a subclass of users.
+- Reviewers are a subclass of users.
+- Administrators are a subclass of users.
+- Users are a subclass of personnel."
+http://cmt_cn#c-4857754-7093471,Source,Class,拒收,"In the context of a conference, 拒收 means ""refuse to accept"" or ""reject."" It may refer to rejecting a package, delivery, or document.","The concept of ""拒收"" is a subclass of ""决定"" and is disjoint with the concept of ""录用""."
+http://cmt_cn#c-5221180-5266535,Source,Class,作者,"In the context of a conference, 作者 (zuòzhě) refers to the author or presenter of a paper, presentation, or research study. It is the individual who has written or created the content being discussed at the conference.","- Co-authors are a subclass of authors.
+- Submission has a domain of authors.
+- Writing a paper has a domain of authors.
+- Has author has a range of authors.
+- Non-reviewer authors are a subclass of authors.
+- Authors are a subclass of conference members and users."
+http://cmt_cn#c-5631992-3120167,Source,Class,程序委员会,"The meaning of 程序委员会 in the context of a conference is ""program committee."" This committee is responsible for organizing and planning the schedule, topics, and speakers for the conference.","- ""偏爱"" is disjoint with ""程序委员会"".
+- ""是程序委员会成员"" has a range of ""程序委员会"".
+- ""有程序委员会成员"" has a domain of ""程序委员会"".
+- ""程序委员会"" is disjoint with ""人员"", ""会议"", ""决定"", ""投标"", ""文件""."
+http://cmt_cn#c-5934764-9439514,Source,Class,论文全文,"In the context of a conference, 论文全文 refers to the full text of a paper or thesis that is being presented or discussed. It is the complete document that contains all the research, analysis, findings, and conclusions of the study. Researchers and scholars often present their 论文全文 at conferences to share their work with others in the academic community.",The full text of a paper is a subclass of a paper.
+http://cmt_cn#c-6225787-0783620,Source,Class,综合审稿意见,"The meaning of 综合审稿意见 in the context of a conference is the comprehensive review comments. This refers to the feedback and suggestions provided by reviewers after evaluating a submitted paper or presentation. It includes a thorough assessment of the content, methodology, and overall quality of the work, as well as recommendations for improvement.","The concept of ""comprehensive review comments"" is a subclass of ""review comments""."
+http://cmt_cn#c-6306630-6583290,Source,Class,人员,"In the context of a conference, 人员 refers to personnel or staff members who are attending or participating in the event. It can also refer to the attendees or participants in general.","- The term ""主席"" is a subclass of ""人员"".
+- The term ""会议成员"" is a subclass of ""人员"".
+- ""偏爱"" is disjoint with ""人员"".
+- The term ""外部审稿人"" is a subclass of ""人员"".
+- The domain of ""有兴趣冲突"" is ""人员"".
+- The term ""用户"" is a subclass of ""人员"".
+- The domain of ""电子信箱"" is ""人员"".
+- ""程序委员会"" is disjoint with ""人员"".
+- The term ""程序委员会成员"" is a subclass of ""人员"".
+- ""人员"" is disjoint with ""会议"", ""决定"", ""投标"", and ""文件""."
+http://cmt_cn#c-6478547-4324672,Source,Class,主席,"In the context of a conference, 主席 refers to the chairman or president of the conference. They are responsible for leading the conference, facilitating discussions, and ensuring that the agenda is followed. The 主席 plays a key role in maintaining order and guiding the proceedings of the conference.","The class ""Chairman"" is a subclass of the class ""Personnel""."
+http://cmt_cn#c-6514538-3785673,Source,Class,主题领域,"In the context of a conference, 主题领域 refers to the theme or subject area of the conference. It represents the specific topic or field of study that the conference will focus on, with presentations, discussions, and research revolving around this central theme. It helps to guide the content and discussions at the conference, ensuring that participants can engage with relevant and meaningful information within a specific area of interest.","The range of ""有主题领域"" is ""主题领域""."
+http://cmt_cn#c-6547129-3950496,Source,Class,会议成员,"The meaning of 会议成员 is ""conference members"" or ""meeting participants."" These are individuals who attend a conference or meeting.","- Authors are a subclass of conference members.
+- Vice chairs are a subclass of conference members.
+- Conference chairs are a subclass of conference members.
+- Reviewers are a subclass of conference members.
+- Being a conference member is the domain of ""is a conference member"".
+- Having a conference member is the range of ""has a conference member"".
+- Program committee members are a subclass of conference members.
+- Conference members are a subclass of personnel."
+http://cmt_cn#c-6982521-8946825,Source,Class,论文摘要,"In the context of a conference, 论文摘要 refers to the abstract of a paper or presentation. It is a concise summary of the main points and findings of the research that will be presented at the conference. The 论文摘要 is typically included in the conference program or proceedings to give attendees an overview of the content of the presentation.","The concept of ""论文摘要"" is a subclass of the concept of ""论文""."
+http://cmt_cn#c-7079444-7818106,Source,Class,决定,"In the context of a conference, 决定 (jué dìng) means decision or determination. It refers to the outcome of discussions and deliberations that have taken place during the conference, where a final decision or resolution has been reached.","- ""人员"" and ""决定"" are disjoint concepts.
+- ""偏爱"" and ""决定"" are disjoint concepts.
+- ""录用"" is a subclass of ""决定"".
+- ""拒收"" is a subclass of ""决定"".
+- The range of ""有决定"" is ""决定"".
+- ""程序委员会"" and ""决定"" are disjoint concepts.
+- ""决定"" is disjoint with ""会议"", ""投标"", and ""文件""."
+http://cmt_cn#c-7089189-2038652,Source,Class,外部审稿人,"In the context of a conference, 外部审稿人 refers to external reviewers who are responsible for evaluating and providing feedback on submitted papers or presentations. These reviewers are typically experts in the field and are not directly affiliated with the conference organizing committee or the authors of the submissions. Their role is to ensure the quality and credibility of the content presented at the conference.","The range of ""指定外部审稿人"" is ""外部审稿人"".
+The domain of ""由审稿人指定"" is ""外部审稿人"".
+""外部审稿人"" is a subclass of ""人员"" and is disjoint with ""审稿人""."
+http://cmt_cn#c-7129012-2718902,Source,Class,大会主席,"The meaning of 大会主席 in the context of a conference is the chairman or president of the conference. This person is responsible for presiding over the conference, leading discussions, and ensuring that the conference runs smoothly.","The position of ""副主席"" is disjoint with the position of ""大会主席"".
+The ""大会主席"" is a subclass of ""会议成员""."
+http://cmt_cn#c-7533683-3092816,Source,Class,程序委员会成员,"The meaning of 程序委员会成员 is a member of the program committee. In the context of a conference, this refers to individuals who are responsible for organizing and planning the schedule, topics, and speakers for the event. They play a crucial role in ensuring the success and smooth running of the conference.","- The range of ""Supplementary Program Committee Member"" is ""Program Committee Member"".
+- The domain of ""is a Program Committee Member"" is ""Program Committee Member"".
+- The domain of ""maximum number of papers"" is ""Program Committee Member"".
+- The range of ""has Program Committee Member"" is ""Program Committee Member"".
+- The domain of ""appointed by"" is ""Program Committee Member"".
+- ""Program Committee Chair"" is a subclass of ""Program Committee Member"".
+- The range of ""set maximum number of papers"" is ""Program Committee Member"".
+- ""Non-reviewer authors"" are disjoint with ""Program Committee Member"".
+- ""Program Committee Member"" is a subclass of ""Person"" and ""Conference Member""."
+http://cmt_cn#c-8430559-8614325,Source,Class,审稿人,"In the context of a conference, 审稿人 refers to a reviewer or editor who is responsible for reviewing and editing submissions or papers before they are accepted for presentation at the conference. They play a crucial role in ensuring the quality and accuracy of the content being presented.","- The range of ""修改后投标"" is ""审稿人"".
+- The domain of ""修改投标"" is ""审稿人"".
+- The range of ""分派给"" is ""审稿人"".
+- ""外部审稿人"" is disjoint with ""审稿人"".
+- The domain of ""指定外部审稿人"" is ""审稿人"".
+- The range of ""指定审稿人"" is ""审稿人"".
+- The domain of ""撰写审稿意见"" is ""审稿人"".
+- The domain of ""有分派论文"" is ""审稿人"".
+- The range of ""由之撰写"" is ""审稿人"".
+- The range of ""由审稿人审阅"" is ""审稿人"".
+- The range of ""由审稿人指定"" is ""审稿人"".
+- The domain of ""由管理人员指定"" is ""审稿人"".
+- ""综合审稿人"" is a subclass of ""审稿人"".
+- The domain of ""阅读论文"" is ""审稿人"".
+- ""非审稿人的作者"" is disjoint with ""审稿人"".
+- ""审稿人"" is a subclass of ""会议成员"" and ""用户""."
+http://cmt_cn#c-8960537-4711895,Source,Class,投标,"In the context of a conference, the meaning of 投标 is to submit a bid or proposal for a project or contract. It refers to the process of offering a price or plan for consideration in order to win a business opportunity.","- ""人员"" is disjoint with ""投标"".
+- The domain of ""修改后投标"" is ""投标"".
+- The range of ""修改投标"" is ""投标"".
+- ""偏爱"" is disjoint with ""投标"".
+- ""决定"" is disjoint with ""投标"".
+- The range of ""有投标"" is ""投标"".
+- ""程序委员会"" is disjoint with ""投标"".
+- ""投标"" is disjoint with ""会议"" and ""文件""."
+http://cmt_cn#c-9116726-0347168,Source,Class,文件,"In the context of a conference, 文件 refers to documents or files that contain information relevant to the conference, such as presentations, reports, agendas, or other materials. These files are typically shared among participants before, during, or after the conference for reference and discussion.","- People are disjoint with files.
+- Preferences are disjoint with files.
+- Decisions are disjoint with files.
+- Review comments are a subclass of files.
+- Bidding is disjoint with files.
+- Interest conflicts have a range of files.
+- Program committees are disjoint with files.
+- Papers are a subclass of files.
+- Files are disjoint with meetings."
+http://cmt_cn#c-9132752-0775520,Source,Class,会议,"In the context of a conference, 会议 means a meeting or gathering where people come together to discuss a specific topic, share information, and make decisions. It is a formal gathering where participants exchange ideas, present research, and collaborate on projects.","- People are disjoint with meetings.
+- Preferences are disjoint with meetings.
+- Decisions are disjoint with meetings.
+- Enabling virtual meetings has a range of meetings.
+- Trademark Uniform Resource Locator has a domain of meetings.
+- Reviewer bidding starts with a domain of meetings.
+- Starting review bidding has a range of meetings.
+- Entering meeting details has a range of meetings.
+- Entering review standards has a range of meetings.
+- Printing hard copy mail manifests has a range of meetings.
+- Bidding is disjoint with meetings.
+- Accepting hard copy submissions has a domain of meetings.
+- Files are disjoint with meetings.
+- Dates have a domain of meetings.
+- Being a member of a meeting has a range of meetings.
+- Having meeting members has a domain of meetings.
+- Number of review comments per paper has a domain of meetings.
+- Starting a virtual meeting is a domain of meetings.
+- Entering review standards is a domain of meetings.
+- Entering details is a domain of meetings.
+- Printing hard copy mail manifests is a domain of meetings.
+- Program committees are disjoint with meetings.
+- Website addresses have a domain of meetings.
+- Paper assignment finalization has a range of meetings.
+- Running paper assignment tools is a domain of meetings.
+- Finalizing paper assignments is a domain of meetings.
+- Running paper assignment tools has a range of meetings."
+http://cmt_cn#c-9524256-6456168,Source,Class,录用,"In the context of a conference, the meaning of 录用 (lùyòng) would be ""to hire"" or ""to employ."" It refers to the act of officially offering someone a job or position within a company or organization.","The concept of ""拒收"" is disjoint with the concept of ""录用"".
+""录用"" is a subclass of ""决定""."
+http://cmt_cn#ent-0558615-7610326,Source,Property,电子信箱,"In the context of a conference, 电子信箱 refers to an electronic mailbox or email inbox. It is a digital platform where participants can send and receive messages, documents, and other communication related to the conference.","The domain of ""电子信箱"" is ""人员"" and the range is ""string""."
+http://cmt_cn#ent-0770084-1884087,Source,Property,最多论文数,The meaning of 最多论文数 in the context of a conference is the maximum number of papers that an individual or group can submit for consideration at the conference. This limit is set to ensure that the conference program is diverse and that all participants have a fair opportunity to present their research.,The maximum number of papers is a property of program committee members with a range of integer values.
+http://cmt_cn#ent-1797255-4064330,Source,Property,接受硬拷贝投稿,"The meaning of 接受硬拷贝投稿 in the context of a conference is ""accepting hard copy submissions."" This indicates that the conference organizers are willing to receive physical copies of submissions for consideration.","The submission of hard copies is accepted for conferences, with the range being boolean."
+http://cmt_cn#ent-2006944-8206213,Source,Property,网站地址,"In the context of a conference, 网站地址 refers to the website address or URL where attendees can find information about the conference schedule, speakers, registration details, and other relevant information. It is the online location where participants can access all the necessary information related to the conference.","The domain of ""网站地址"" is ""会议"" and the range is ""anyURI""."
+http://cmt_cn#ent-2078248-6340502,Source,Property,日期,"In the context of a conference, 日期 means ""date"" in Chinese. It refers to the specific day or days on which the conference is scheduled to take place.","The domain of the property ""日期"" is ""会议"" and the range is ""date""."
+http://cmt_cn#ent-3299726-7339376,Source,Property,商标统一资源定址器,"In the context of a conference, 商标统一资源定址器 refers to a trademark uniform resource locator (URL) or a standardized web address for accessing information related to trademarks. This could be a website or online platform where individuals can search for and access information about trademarks in a consistent and organized manner.","The ""商标统一资源定址器"" is a domain of ""会议"" and has a range of ""anyURI""."
+http://cmt_cn#ent-3413896-1178929,Source,Property,标题,"In the context of a conference, 标题 refers to the title of a presentation or session. It is the headline or heading that summarizes the content or topic being discussed.","The domain of the property ""标题"" is ""论文"" and the range is ""string""."
+http://cmt_cn#ent-4113546-6694479,Source,Property,姓名,"In the context of a conference, 姓名 refers to one's full name. It is important to provide your 姓名 when registering for the conference and when introducing yourself to other attendees.","The range of the property ""姓名"" is a string."
+http://cmt_cn#ent-7191614-7670375,Source,Property,每篇论文审稿意见数,The meaning of 每篇论文审稿意见数 in the context of a conference refers to the number of review comments received for each paper submitted for review. This indicates the level of feedback and critique provided by reviewers on the quality and content of the paper.,The number of review comments for each paper is associated with conferences and is of type integer.
+http://cmt_cn#ent-7480377-8088600,Source,Property,论文序号,"In the context of a conference, 论文序号 refers to the serial number or index number assigned to a paper or article submitted for presentation at the conference. This number helps to identify and organize the papers in the conference program or proceedings.","The domain of the property ""论文序号"" is ""论文"" and the range is ""unsignedLong""."
+http://cmt_cn#op-0000935-4894534,Source,Property,撰写论文,"撰写论文 means ""writing a paper"" in English. In the context of a conference, it refers to the process of preparing and writing a research paper or academic article to be presented at the conference.",Authors write papers. Papers are written by authors.
+http://cmt_cn#op-0059246-5640033,Source,Property,有投标,"In the context of a conference, ""有投标"" means that there are bids or proposals being submitted for a project or opportunity. It indicates that there are interested parties who are competing to win a contract or business deal.","The domain of ""有投标"" is ""论文"" and the range is ""投标""."
+http://cmt_cn#op-0343861-0206398,Source,Property,修改投标,"In the context of a conference, ""修改投标"" means ""modify bid"" or ""amend bid."" It refers to the action of making changes or adjustments to a bid or proposal that has been submitted for consideration in a bidding process or competitive tender. This could involve revising pricing, terms, or other details in order to improve the competitiveness of the bid.","The action of ""修改投标"" is performed by ""审稿人"" and involves the object ""投标""."
+http://cmt_cn#op-0381761-1602870,Source,Property,由综合审稿人审阅,"In the context of a conference, ""由综合审稿人审阅"" means that the paper or submission is being reviewed by the comprehensive reviewer. This reviewer is responsible for evaluating the overall quality and relevance of the submission before it is accepted or rejected for presentation at the conference.",The paper is reviewed by a comprehensive reviewer.
+http://cmt_cn#op-0464288-8310221,Source,Property,指定外部审稿人,"In the context of a conference, 指定外部审稿人 refers to designated external reviewers who are responsible for reviewing and evaluating submissions for the conference. These external reviewers are typically experts in the field and provide feedback and recommendations on the quality and relevance of the submissions. Their role is crucial in ensuring the credibility and quality of the conference proceedings.","The domain of ""指定外部审稿人"" is ""审稿人"" and the range is ""外部审稿人""."
+http://cmt_cn#op-1130597-9531431,Source,Property,撰写审稿意见,"The meaning of 撰写审稿意见 in the context of a conference is to write a review or feedback on a paper or article submitted for consideration or publication. It involves providing comments, suggestions, and critiques on the content, structure, and quality of the submission.",审稿人撰写审稿意见，审稿意见是审稿人的范围。
+http://cmt_cn#op-1365476-5168174,Source,Property,增补程序委员会成员,"The meaning of 增补程序委员会成员 is ""supplementary members of the program committee"" in the context of a conference. These members are added to the committee to provide additional expertise or support in organizing the conference program.",Members of the supplementary program committee are in the domain of management personnel and have a range of program committee members.
+http://cmt_cn#op-1479962-7513788,Source,Property,录用论文,"In the context of a conference, 录用论文 refers to an accepted paper or article that has been selected for presentation or publication at the conference. It means that the paper has been reviewed and approved by the conference organizers or reviewers for inclusion in the conference program.",Management personnel are hired to write papers.
+http://cmt_cn#op-1523986-1055018,Source,Property,投稿,"In the context of a conference, the meaning of 投稿 is ""submission."" This term refers to submitting a paper, presentation, or proposal for consideration to be included in the conference program.",Authors can submit papers.
+http://cmt_cn#op-1566071-0652803,Source,Property,打印硬拷贝邮件舱单,The meaning of 打印硬拷贝邮件舱单 in the context of a conference is to print out a hard copy of the email manifest. This could refer to printing out a physical copy of the list of emails or documents related to the conference for reference or distribution.,Management personnel print hard copy email manifests for meetings.
+http://cmt_cn#op-1961775-6136821,Source,Property,是会议成员,"The meaning of 是会议成员 is ""is a conference member."" In the context of a conference, this phrase refers to someone who is a member or participant of the conference.","A member of a meeting is a domain of ""is a meeting member"" and the range is a meeting."
+http://cmt_cn#op-2015611-0065556,Source,Property,有程序委员会成员,"The meaning of 有程序委员会成员 is ""members of the Program Committee"" in the context of a conference. These individuals are responsible for reviewing and selecting the presentations, papers, and sessions that will be included in the conference program.",Members of the program committee belong to the program committee.
+http://cmt_cn#op-2028500-0411747,Source,Property,由之拒收,"由之拒收 means to reject it. In the context of a conference, it could refer to rejecting a proposal, idea, or suggestion.","The action of ""由之拒收"" is associated with the domain of ""论文"" and the range of ""管理人员""."
+http://cmt_cn#op-2037968-1801150,Source,Property,有作者,"In the context of a conference, 有作者 means ""has an author"" or ""is authored by someone."" It refers to a presentation, paper, or work that has been written or created by a specific individual.","The domain of the property ""有作者"" is ""论文"" and the range is ""作者""."
+http://cmt_cn#op-2505657-3916550,Source,Property,由之打印硬拷贝邮件舱单,"The meaning of ""由之打印硬拷贝邮件舱单"" is to print a hard copy of the email manifest. This is likely a task or instruction given at the conference for participants to follow.",The action of printing hard copies of email manifests is associated with the domain of meetings and the range of management personnel.
+http://cmt_cn#op-2769367-8433890,Source,Property,有决定,"In the context of a conference, 有决定 means ""have a decision"" or ""have made a decision."" It indicates that a decision has been reached or that someone has made up their mind about something.","The domain of ""有决定"" is ""论文"" and the range is ""决定""."
+http://cmt_cn#op-2813866-5476781,Source,Property,录入会议详情,"The meaning of 录入会议详情 is to input or record the details of a conference. This could include information such as the agenda, attendees, presentations, and any other relevant information related to the conference.",Management personnel input meeting details for meetings.
+http://cmt_cn#op-2881543-1844083,Source,Property,由审稿人审阅,"In the context of a conference, ""由审稿人审阅"" means that the paper or submission is being reviewed by the reviewers assigned by the conference organizers. This process involves the reviewers evaluating the quality, relevance, and originality of the submission before deciding whether it should be accepted for presentation at the conference.","The paper is reviewed by reviewers. The domain of this relationship is paper, and the range is reviewers."
+http://cmt_cn#op-2905591-9026678,Source,Property,由之录入审稿标准,"In the context of a conference, ""由之录入审稿标准"" likely refers to the standards and criteria for inputting and reviewing submissions or manuscripts. This could include guidelines for formatting, content, and overall quality of the submissions being reviewed for the conference.",The standard for reviewing manuscripts is entered by the conference organizers and is applicable to management personnel.
+http://cmt_cn#op-3300447-7527947,Source,Property,标注兴趣冲突,"In the context of a conference, 标注兴趣冲突 refers to the act of identifying conflicting interests among participants or stakeholders. This could involve recognizing when individuals or groups have competing interests or goals that may impact the outcome of discussions or decisions at the conference. By acknowledging and addressing these conflicts of interest, the conference organizers can work towards finding solutions that are fair and beneficial to all parties involved.","The range of ""标注兴趣冲突"" is ""论文""."
+http://cmt_cn#op-3579148-1770663,Source,Property,审稿人投标始于,"In the context of a conference, the phrase 审稿人投标始于 means ""reviewer bidding begins."" This refers to the process where potential reviewers are invited to bid on reviewing papers or presentations for the conference.",The process of reviewer bidding begins with conferences and is managed by administrative personnel.
+http://cmt_cn#op-4020002-3893147,Source,Property,有会议成员,"The meaning of 有会议成员 is ""there are conference members"" in English. This phrase refers to the presence of attendees or participants at a conference.","The domain of ""有会议成员"" is ""会议"" and the range is ""会议成员""."
+http://cmt_cn#op-4079305-0047640,Source,Property,是程序委员会成员,"The meaning of 是程序委员会成员 is ""is a member of the program committee"" in the context of a conference. This refers to someone who is part of the committee responsible for organizing and planning the program or schedule of events for the conference.","Members of the program committee are part of the program committee.
+The program committee consists of program committee members."
+http://cmt_cn#op-4364271-0799064,Source,Property,有分派论文,"In the context of a conference, ""有分派论文"" means that there are assigned papers or presentations that have been designated for specific participants or groups to present or discuss. This could refer to a structured program where certain individuals are assigned to present their research or findings during the conference.",审稿人有分派论文的责任，而论文是审稿人需要处理的对象。
+http://cmt_cn#op-4639614-5004190,Source,Property,由审稿人指定,"In the context of a conference, ""由审稿人指定"" means that the reviewers for the conference papers are designated by the conference organizers. This indicates that the selection process for reviewers is determined by the conference committee or organizers, rather than allowing authors to choose their own reviewers.",External reviewers are designated by reviewers.
+http://cmt_cn#op-4711405-8930962,Source,Property,由之录用,"由之录用 means ""to hire"" or ""to employ"" in the context of a conference. It refers to the process of selecting and hiring individuals to work at the conference.","The phrase ""由之录用"" has a domain of ""论文"" and a range of ""管理人员""."
+http://cmt_cn#op-5341649-1579681,Source,Property,启用虚拟会议,"The meaning of 启用虚拟会议 is to enable or activate virtual meetings. This suggests utilizing technology to conduct meetings remotely, rather than in person.",Management personnel can enable virtual meetings. These virtual meetings are the range of the action of enabling virtual meetings by management personnel.
+http://cmt_cn#op-5502570-7251095,Source,Property,论文分派工具由之运行,"The meaning of 论文分派工具由之运行 in the context of a conference is ""the paper assignment tool is now in operation."" This likely refers to a tool or system that is being used to assign papers to reviewers or sessions at the conference.",The paper assignment tool is operated by the conference and managed by administrators.
+http://cmt_cn#op-5684470-8209576,Source,Property,论文分派由之定稿,"In the context of a conference, the phrase ""论文分派由之定稿"" likely means ""the assignment of papers is determined by this."" This could refer to the process of assigning papers or presentations to specific sessions or panels within the conference program. It suggests that the final decision on paper assignments is based on certain criteria or guidelines.","The assignment of papers is determined by the final draft and is applicable to conferences, with management personnel being the target audience."
+http://cmt_cn#op-5700355-4709852,Source,Property,有主题领域,"In the context of a conference, 有主题领域 means ""having themed areas"" or ""having specific topic areas."" This could refer to different sections or tracks within the conference that focus on specific themes or topics. It helps attendees navigate the conference program and choose sessions that align with their interests or expertise.","The domain of ""有主题领域"" is ""论文"" and the range is ""主题领域""."
+http://cmt_cn#op-6191298-5008892,Source,Property,由之录入详情,"In the context of a conference, ""由之录入详情"" likely means ""enter details by it"" or ""record details by it."" This could refer to the process of inputting information or data into a system or database during the conference.",The details are entered by a manager for a meeting.
+http://cmt_cn#op-6254977-8828083,Source,Property,由之增补,"In the context of a conference, 由之增补 refers to the process of supplementing or adding to something based on a certain criteria or standard. It could mean adding additional information, resources, or speakers to enhance the overall content or experience of the conference.",Members of the program committee are supplemented by managers.
+http://cmt_cn#op-6615612-8741271,Source,Property,阅读论文,"The meaning of 阅读论文 is ""reading research papers"" within the context of a conference. This refers to the act of reviewing and studying academic papers or articles related to a specific topic or field of study in preparation for a conference presentation or discussion.","The action of ""reading papers"" has the domain of ""reviewers"" and the range of ""papers""."
+http://cmt_cn#op-6669534-1089302,Source,Property,修改后投标,"In the context of a conference, ""修改后投标"" likely refers to a revised or updated bid submission. This could mean that a company or individual has made changes to their initial bid proposal in response to feedback or new information, and is now submitting the modified bid for consideration.","The action of ""修改后投标"" is associated with the domain of ""投标"" and the range of ""审稿人""."
+http://cmt_cn#op-6768022-9674001,Source,Property,由之启动虚拟会议,"The meaning of ""由之启动虚拟会议"" is ""initiate virtual conference"".","The action of starting a virtual meeting is associated with the domain of ""meeting"" and the range of ""management personnel""."
+http://cmt_cn#op-6782084-0631702,Source,Property,录入审稿标准,"In the context of a conference, 录入审稿标准 refers to the standards and criteria for inputting and reviewing submissions. This could include guidelines for formatting, content requirements, and evaluation criteria for reviewing submissions before they are accepted for presentation at the conference.",The standard for inputting reviews is applicable to management personnel and pertains to conferences.
+http://cmt_cn#op-7036367-4744299,Source,Property,开始审稿投标,"The meaning of ""开始审稿投标"" in the context of a conference is ""start reviewing and bidding for papers."" This likely refers to the process of evaluating and selecting papers to be presented at the conference.",Management personnel start the review and bidding process for conferences.
+http://cmt_cn#op-7804977-9350069,Source,Property,运行论文分派工具,"The meaning of 运行论文分派工具 in the context of a conference is ""paper assignment tool."" This tool is used to assign papers to reviewers or sessions during the conference review process. It helps streamline the process of organizing and managing the papers submitted for the conference.",The tool for running paper assignments is intended for use by managers and is designed to assign papers to conferences.
+http://cmt_cn#op-8015895-5640133,Source,Property,分派给,"In the context of a conference, 分派给 means to assign or allocate something to someone. This could refer to assigning tasks, responsibilities, or resources to different individuals or groups within the conference.","The relationship ""assigned to"" has a domain of ""paper"" and a range of ""reviewer""."
+http://cmt_cn#op-8226296-0888516,Source,Property,有兴趣冲突,"In the context of a conference, the phrase ""有兴趣冲突"" can be translated to ""interest conflict."" This may refer to situations where different parties or individuals have conflicting interests or priorities, which can lead to disagreements or disputes. In a conference setting, it could mean that there are conflicting interests among participants or stakeholders that need to be addressed or resolved.",People who are interested may have conflicts with documents.
+http://cmt_cn#op-8286485-9658553,Source,Property,有合著者,"In the context of a conference, 有合著者 refers to a co-author or collaborator on a research paper or presentation. It indicates that there are multiple authors or contributors involved in the work being presented.","In a paper, there are multiple co-authors."
+http://cmt_cn#op-8408796-8848161,Source,Property,拒收论文,"The meaning of 拒收论文 is ""rejecting a paper"" in the context of a conference. This term refers to the decision made by the conference organizers or reviewers to not accept a particular paper for presentation at the conference.",Management personnel reject papers. Papers are the domain of rejecting papers. Papers are the range of rejecting papers.
+http://cmt_cn#op-8675291-6717080,Source,Property,设置最多论文数,"The meaning of ""设置最多论文数"" in the context of a conference is the maximum number of papers that can be submitted or accepted for presentation at the conference. This limit is set by the conference organizers to ensure that the event remains manageable and that all accepted papers receive adequate attention and discussion.","Management personnel can set a maximum number of papers, with the range being program committee members."
+http://cmt_cn#op-8676085-6464975,Source,Property,合著,"In the context of a conference, 合著 refers to co-authorship or collaboration on a publication or research project. It indicates that multiple individuals have worked together to produce a piece of work, such as a paper or presentation.",Authors collaborate on writing papers.
+http://cmt_cn#op-9117194-7756500,Source,Property,指定审稿人,"In the context of a conference, 指定审稿人 refers to designated reviewers who are assigned to review and evaluate submitted papers or proposals. These reviewers are responsible for providing feedback, critiques, and recommendations to the conference organizers regarding the quality and suitability of the submissions.",Management personnel are assigned reviewers. The reviewers are specified for the management personnel.
+http://cmt_cn#op-9460036-5127064,Source,Property,由之撰写,"In the context of a conference, ""由之撰写"" means ""written by"" or ""authored by."" It is typically used to indicate the authorship of a paper, presentation, or document.",The author of a review is the reviewer.
+http://cmt_cn#op-9469071-1193336,Source,Property,论文分派定稿,"The meaning of 论文分派定稿 in the context of a conference is the final assignment and submission of a paper. This term refers to the process of assigning a paper to a specific category or session within the conference program, and finalizing the content and formatting of the paper before submission.",The assignment of the final draft of a paper is typically done by management personnel and is related to conferences.
+http://cmt_cn#op-9882484-6152547,Source,Property,结束审稿,"The meaning of 结束审稿 in the context of a conference is ""end of review process."" This typically refers to the completion of the peer review process for submitted papers or presentations.","The process of ""ending review"" has the domain of ""Program Committee Chair"" and the range of ""review comments""."
+http://cmt_cn#op-9932479-7478015,Source,Property,由管理人员指定,"The meaning of ""由管理人员指定"" in the context of a conference is ""designated by management personnel."" This phrase indicates that certain individuals or roles have been specifically chosen or appointed by management to fulfill certain responsibilities or tasks within the conference.","Management personnel designate reviewers. The domain of this relationship is reviewers, and the range is management personnel."
+http://cmt_en#c-0430420-0075813,Target,Class,abstract of paper,"The abstract of a paper is a brief summary of the main points and findings of the research presented in the paper. It provides readers with an overview of the study and helps them decide whether they want to read the full paper. In the context of a conference, the abstract is typically submitted along with the paper for review and is often used to determine whether the paper will be accepted for presentation at the conference.",The abstract of a paper is a subclass of a paper.
+http://cmt_en#c-1611583-0668331,Target,Class,preference,"In the context of a conference, preference refers to the choice or selection of a particular option or course of action over others. This could include preferences for session topics, presentation styles, networking opportunities, or any other aspect of the conference experience. Participants may have different preferences based on their interests, goals, and needs.","The concept of ""preference"" is disjoint with the concepts of ""bid"", ""conference"", ""decision"", ""document"", ""person"", and ""program committee""."
+http://cmt_en#c-1819859-8467443,Target,Class,co author,"In the context of a conference, a co-author refers to someone who has collaborated with another person or group of people to write a paper, article, or presentation that is being presented at the conference. Co-authors share credit for the work and are typically listed together on the publication or presentation.","- A co-write is a type of activity that involves co-authoring.
+- A work that is co-written by multiple authors falls under the category of co-authorship.
+- A co-author is a subclass of an author."
+http://cmt_en#c-1998894-5296562,Target,Class,meta reviewer,A meta-reviewer is someone who evaluates and provides feedback on the reviews submitted by other reviewers for a conference. They assess the quality and thoroughness of the reviews to ensure that the final decisions made by the conference organizers are fair and well-informed.,The meta-reviewer is a subclass of reviewer and is read by the meta-reviewer.
+http://cmt_en#c-2074692-1147118,Target,Class,author,"In the context of a conference, an author refers to an individual who has written a paper, article, or presentation that is being presented at the conference. The author is typically the person responsible for the content and research presented in the work.","An author who is not a reviewer is a subclass of author. 
+A co-author is a subclass of author. 
+Submitting a paper is in the domain of an author. 
+Writing a paper is in the domain of an author. 
+Something written by someone is in the range of an author. 
+An author is a subclass of a member of a conference and a user."
+http://cmt_en#c-2079829-2275666,Target,Class,conference chair,"In the context of a conference, a conference chair refers to the person who is responsible for overseeing and leading the conference proceedings. This individual typically sets the agenda, moderates panel discussions, introduces speakers, and ensures that the conference runs smoothly and according to schedule. The conference chair plays a key role in facilitating communication and collaboration among participants and ensuring that the conference achieves its objectives.","The concept of ""conference chair"" is a subclass of ""member of conference"" and is disjoint with the concept of ""associated chair""."
+http://cmt_en#c-2282104-8815481,Target,Class,meta review,"In the context of a conference, a meta-review refers to a review of reviews. This means that a meta-reviewer evaluates and synthesizes the feedback and evaluations provided by multiple reviewers for a particular submission. The goal of a meta-review is to provide a comprehensive and balanced assessment of the submission based on the feedback received from different reviewers.","A ""meta-review"" is a subclass of a ""review""."
+http://cmt_en#c-3017177-8896532,Target,Class,bid,"In the context of a conference, a bid refers to a formal proposal submitted by a city or organization to host a future conference or event. The bid typically includes details such as the proposed location, venue, dates, and any additional benefits or incentives for attendees. The conference organizers will review the bids and select a host city based on various factors such as cost, logistics, and overall fit for the event.","- The range of ""adjust"" is ""bid"".
+- The domain of ""adjusted by"" is ""bid"".
+- The range of ""has bid"" is ""bid"".
+- ""Preference"" is disjoint with ""bid"".
+- ""Bid"" is disjoint with ""conference"", ""decision"", ""document"", ""person"", and ""program committee""."
+http://cmt_en#c-3027646-3365825,Target,Class,conference,"A conference is a formal meeting where people come together to discuss a particular topic, share ideas, and make decisions. It is a gathering of individuals who have a common interest or goal and want to collaborate and exchange information.","- The conference accepts hardcopy submissions.
+- Bids are disjoint with conferences.
+- Details are entered by the conference.
+- The conference enables virtual meetings.
+- Details are entered on the conference.
+- Review criteria are entered on the conference.
+- Paper assignments are finalized on the conference.
+- Hardcopy of mailing manifests are printed by the conference.
+- The conference has a date.
+- The conference has a logo at a URL.
+- The conference has members.
+- The conference has a website at a URL.
+- Members are part of the conference.
+- Paper assignments are finalized by the conference.
+- Paper assignment tools are run by the conference.
+- Preferences are disjoint with conferences.
+- The conference prints hardcopy mailing manifests.
+- Review criteria are entered by the conference.
+- Reviewer bidding is started by the conference.
+- Reviews per paper are part of the conference.
+- Paper assignment tools are run by the conference.
+- Reviewer bidding is started by the conference.
+- Virtual meetings are enabled by the conference.
+- Conferences are disjoint with decisions, documents, persons, and program committees."
+http://cmt_en#c-3355504-9442806,Target,Class,administrator,"In the context of a conference, an administrator is typically someone who is responsible for organizing and managing the logistics of the event. This may include tasks such as coordinating schedules, booking venues, handling registrations, and overseeing the overall operation of the conference. The administrator plays a crucial role in ensuring that the conference runs smoothly and efficiently.","- Papers can be added by an administrator.
+- An administrator can assign papers to reviewers.
+- Details can be entered on a platform by an administrator.
+- An administrator can enable virtual meetings.
+- Review criteria can be entered by an administrator.
+- Paper assignments can be finalized by an administrator.
+- Hardcopy mailing manifests can be printed by an administrator.
+- Papers can be rejected by an administrator.
+- Reviewer bidding can be started by an administrator.
+- Paper assignment tools can be run by an administrator.
+- The maximal number of assigned papers can be set by an administrator.
+- Virtual meetings can be enabled by an administrator.
+- Administrators are a subclass of users."
+http://cmt_en#c-3387453-2881212,Target,Class,chairman,"In the context of a conference, the chairman is the person who presides over the meeting, ensuring that discussions stay on track, time limits are adhered to, and that all participants have the opportunity to speak. The chairman is responsible for maintaining order and facilitating productive communication among attendees.",The chairman is a subclass of person.
+http://cmt_en#c-3945313-3684065,Target,Class,associated chair,"In the context of a conference, an associated chair refers to a person who assists the main chairperson in organizing and running the conference. They may help with tasks such as coordinating speakers, managing schedules, and overseeing logistics. The associated chair plays a supportive role to ensure the smooth operation of the conference.","The concept of ""conference chair"" is disjoint with the concept of ""associated chair"".
+An ""associated chair"" is a subclass of ""member of conference""."
+http://cmt_en#c-3959626-1362323,Target,Class,acceptance,"In the context of a conference, acceptance refers to the act of acknowledging and embracing different perspectives, ideas, and individuals. It involves being open-minded, tolerant, and inclusive towards diverse viewpoints and backgrounds. Acceptance in this setting fosters a positive and collaborative environment where all participants feel valued and respected.",Acceptance is a subclass of decision and is disjoint with rejection.
+http://cmt_en#c-3969637-3563037,Target,Class,subject area,"In the context of a conference, the subject area refers to the specific topic or theme that the conference is focused on. It is the main area of interest or expertise that the conference aims to explore and discuss through presentations, workshops, and discussions. The subject area helps to define the scope of the conference and attract attendees who are interested in that particular topic.","The property ""has subject area"" has a range of ""subject area""."
+http://cmt_en#c-4062369-5383392,Target,Class,member of program committee,"A member of the program committee is an individual who is responsible for reviewing and selecting submissions for presentation at a conference. They play a crucial role in shaping the content and structure of the conference program by evaluating the quality and relevance of submitted papers, presentations, and workshops. Members of the program committee are typically experts in their field and are tasked with ensuring that the conference program is diverse, engaging, and reflective of the latest research and developments in the field.","- The range of the property ""add"" is ""member of program committee"".
+- The domain of the property ""added by"" is ""member of program committee"".
+- The class ""chair of program committee"" is a subclass of ""member of program committee"".
+- The range of the property ""has member"" is ""member of program committee"".
+- The domain of the property ""maximal number of assigned papers"" is ""member of program committee"".
+- The range of the property ""set maximal number of assigned paper"" is ""member of program committee"".
+- The domain of the class ""member of program committee"" includes ""member of conference"" and ""person"", and is disjoint with ""author, who is not a reviewer""."
+http://cmt_en#c-4413043-1523228,Target,Class,full version of paper,"The full version of a paper in the context of a conference refers to a complete and detailed version of the research paper that includes all the necessary sections such as introduction, methodology, results, discussion, and conclusion. This version typically includes all the data, analysis, and findings of the research study, providing a comprehensive overview of the research project. It is usually submitted to the conference organizers for review and presentation at the conference.",The full version of a paper is a subclass of a paper.
+http://cmt_en#c-5343668-8121191,Target,Class,author who is not a reviewer,"In the context of a conference, an author is someone who has written and submitted a paper or presentation for consideration and inclusion in the conference program. They are not necessarily involved in reviewing other submissions, but instead focus on presenting their own work to the conference attendees.","A member of the program committee is disjoint with an author who is not a reviewer.
+An author who is not a reviewer is a subclass of author and is disjoint with a reviewer."
+http://cmt_en#c-5375467-1655905,Target,Class,program committee,"In the context of a conference, a program committee is a group of individuals responsible for selecting and organizing the presentations, workshops, and other activities that will take place during the event. The program committee plays a crucial role in shaping the overall agenda and ensuring that the conference offers a diverse and engaging program for attendees.","- A bid is disjoint with a program committee.
+- A conference is disjoint with a program committee.
+- The domain of ""has member"" is a program committee.
+- The range of ""member of program committee"" is a program committee.
+- Preference is disjoint with a program committee.
+- A program committee is disjoint with decision, document, and person."
+http://cmt_en#c-5409377-9286012,Target,Class,paper,"In the context of a conference, a paper typically refers to a written document that presents research findings, analysis, or ideas on a specific topic. These papers are often submitted by researchers, academics, or professionals to be presented at the conference and shared with other attendees. The purpose of a conference paper is to contribute to the body of knowledge in a particular field and stimulate discussion and collaboration among conference participants.","- The abstract of a paper is a subclass of a paper.
+- Papers are accepted by a paper.
+- Papers accept other papers.
+- Papers are assigned to papers.
+- Papers are co-written with other papers.
+- Papers are co-written by authors.
+- The full version of a paper is a subclass of a paper.
+- Papers have been assigned to papers.
+- It has been decided (to be accepted, rejected, etc.) for a paper.
+- Papers have bids.
+- Papers have IDs.
+- Papers have subject areas.
+- Papers have titles.
+- Mark conflict of interest is related to papers.
+- Papers are read by meta-reviewers.
+- Papers are read by reviewers.
+- Papers are read by other papers.
+- Papers are rejected.
+- Papers are rejected by reviewers.
+- Papers can be submitted.
+- Papers are written by authors.
+- Papers are a subclass of documents and are disjoint with reviews."
+http://cmt_en#c-5994448-5980560,Target,Class,rejection,"In the context of a conference, rejection refers to the act of not accepting a submitted proposal, abstract, or paper for presentation at the conference. This decision may be based on factors such as relevance to the conference theme, quality of the submission, or available presentation slots. Rejection can be disappointing for the authors, but it is a common part of the academic conference review process.","Acceptance and rejection are disjoint concepts.
+Rejection is a subclass of decision."
+http://cmt_en#c-6029021-0998116,Target,Class,review,"In the context of a conference, a review typically refers to a critical assessment or evaluation of a presentation, paper, or research project. It involves analyzing the content, methodology, and overall quality of the work in order to provide feedback and suggestions for improvement. Reviews are often conducted by peers or experts in the field to ensure the credibility and validity of the research being presented at the conference.","- The range of ""end reviewing time"" is ""review"".
+- ""meta-review"" is a subclass of ""review"".
+- ""paper"" is disjoint with ""review"".
+- The range of ""write review"" is ""review"".
+- The domain of ""written by"" is ""review"".
+- ""review"" is a subclass of ""document""."
+http://cmt_en#c-6062733-3218604,Target,Class,chair of program committee,"The chair of the program committee is responsible for overseeing the selection and organization of presentations, panels, and workshops at the conference. They work closely with committee members to ensure that the program is diverse, engaging, and relevant to the conference theme. The chair plays a key role in shaping the overall experience for attendees and ensuring that the conference runs smoothly.","The end reviewing time is a domain of the chair of the program committee.
+The chair of the program committee is a subclass of a member of the program committee."
+http://cmt_en#c-6817901-7377121,Target,Class,user,"In the context of a conference, a user refers to an individual who is attending or participating in the conference. This could include attendees, speakers, organizers, sponsors, or any other person involved in the event. Users typically engage with the conference by attending sessions, networking with other participants, asking questions, and participating in discussions.","An administrator is a subclass of a user.
+An author is a subclass of a user.
+A reviewer is a subclass of a user.
+A user is a subclass of a person."
+http://cmt_en#c-7224102-6220619,Target,Class,external reviewer,"An external reviewer is an individual who is not affiliated with the conference or organization hosting the event. They are brought in to provide an unbiased and objective evaluation of submissions, presentations, or other aspects of the conference. External reviewers are often experts in the field and can offer valuable insights and feedback to ensure the quality and credibility of the conference.","- The range of the property ""assign"" is the class ""external reviewer"".
+- The domain of the property ""assigned by reviewer"" is the class ""external reviewer"".
+- The class ""external reviewer"" is a subclass of ""person"" and is disjoint with the class ""reviewer""."
+http://cmt_en#c-8066557-3199962,Target,Class,member of conference,"A member of a conference refers to an individual who is participating in or attending the conference. This person may be a speaker, presenter, attendee, organizer, or any other individual involved in the conference proceedings.","- An associated chair is a subclass of a member of conference.
+- An author is a subclass of a member of conference.
+- A conference chair is a subclass of a member of conference.
+- The range of ""has member"" is a member of conference.
+- A member of program committee is a subclass of a member of conference.
+- A reviewer is a subclass of a member of conference.
+- A member of conference is both a domain and a subclass of a person."
+http://cmt_en#c-8313706-4430806,Target,Class,decision,"In the context of a conference, a decision refers to a conclusion or resolution reached by the participants after discussing and considering various options or opinions. It is a choice made by the group or individual based on the information and discussions presented during the conference. Decisions made at a conference can impact future actions, strategies, or policies.","- Acceptance is a subclass of decision.
+- A bid is disjoint with decision.
+- A conference is disjoint with decision.
+- The range of ""has been decided (to be accepted, rejected, ...)"" is decision.
+- Preference is disjoint with decision.
+- Program committee is disjoint with decision.
+- Rejection is a subclass of decision.
+- Decision is disjoint with document and person."
+http://cmt_en#c-8693270-2767092,Target,Class,document,"In the context of a conference, a document refers to any written or digital material that contains information relevant to the conference topic or proceedings. This can include research papers, presentations, agendas, minutes, or any other written material that is used or referenced during the conference. Documents are important for sharing information, facilitating discussions, and documenting the outcomes of the conference.","- A bid is disjoint with a document.
+- A conference is disjoint with a document.
+- A decision is disjoint with a document.
+- The range of ""has conflict of interest with respect to"" is a document.
+- A paper is a subclass of a document.
+- A preference is disjoint with a document.
+- A program committee is disjoint with a document.
+- A review is a subclass of a document.
+- A document is disjoint with a person."
+http://cmt_en#c-8707801-9291338,Target,Class,reviewer,"In the context of a conference, a reviewer is someone who evaluates and provides feedback on research papers or proposals submitted for presentation at the conference. Reviewers play a crucial role in ensuring the quality and relevance of the content presented at the conference. They assess the originality, methodology, significance, and overall quality of the submissions to help the conference organizers make informed decisions on which papers to accept for presentation.","- The action ""adjust"" is associated with the domain ""reviewer"".
+- The action ""adjusted by"" is associated with the range ""reviewer"".
+- The action ""assign"" has a domain and range of ""reviewer"".
+- The action ""assigned by admin"" is associated with the domain ""reviewer"".
+- The action ""assigned by reviewer"" is associated with the range ""reviewer"".
+- The action ""assigned to"" is associated with the range ""reviewer"".
+- Authors who are not reviewers are disjoint with reviewers.
+- External reviewers are disjoint with reviewers.
+- The action ""has been assigned"" is associated with the domain ""reviewer"".
+- Meta-reviewers are a subclass of reviewers.
+- The action ""read by reviewer"" is associated with the range ""reviewer"".
+- The action ""read paper"" is associated with the domain ""reviewer"".
+- The action ""write review"" is associated with the domain ""reviewer"".
+- The action ""written by"" is associated with the range ""reviewer"".
+- Reviewers are subclasses of ""member of conference"" and ""user""."
+http://cmt_en#c-9519178-7885109,Target,Class,person,"In the context of a conference, a person refers to an individual attending or participating in the event. This could include speakers, attendees, organizers, and staff members. Each person plays a role in contributing to the overall success and experience of the conference.","- A bid is disjoint with a person.
+- A chairman is a subclass of a person.
+- A conference is disjoint with a person.
+- A decision is disjoint with a person.
+- A document is disjoint with a person.
+- An external reviewer is a subclass of a person.
+- Having a conflict of interest with respect to is in the domain of a person.
+- Having an email is in the domain of a person.
+- Being a member of a conference is a subclass of a person.
+- Being a member of a program committee is a subclass of a person.
+- A preference is disjoint with a person.
+- A program committee is disjoint with a person.
+- A user is a subclass of a person."
+http://cmt_en#ent-0531196-9778108,Target,Property,maximal number of assigned papers,The maximal number of assigned papers refers to the maximum number of papers that can be assigned to a particular individual or group for presentation at a conference. This limit is typically set by the conference organizers to ensure that each presenter has enough time to adequately prepare and present their research. Exceeding this limit may result in a lower quality of presentations and a less effective conference experience for attendees.,The maximal number of assigned papers is a property that has a domain of member of program committee and a range of integer values.
+http://cmt_en#ent-1648737-1451089,Target,Property,has email,"In the context of a conference, ""has email"" likely means that the person or entity being referred to has an email address that can be used for communication purposes related to the conference. This could be for sending important information, updates, registration details, or any other relevant communication.","A person has an email address, which is a string."
+http://cmt_en#ent-1689293-3812948,Target,Property,has website at url,"The meaning of ""has website at url"" in the context of a conference is that the conference has a website with a specific URL address where attendees can find information about the event, such as the schedule, speakers, registration details, and any other relevant information. This allows participants to easily access important information and stay updated on the conference proceedings.","The domain ""conference"" has a website at a URL with a range of ""anyURI""."
+http://cmt_en#ent-1830157-2457934,Target,Property,has date,"In the context of a conference, ""has date"" typically refers to the scheduled date of the event. It indicates when the conference is set to take place.","The domain of the property ""has date"" is the class ""conference"" and the range of the property is the class ""date""."
+http://cmt_en#ent-4692979-9121254,Target,Property,reviews per paper,"Reviews per paper refers to the number of peer reviews that are conducted for each submitted paper at a conference. This metric helps to ensure the quality and rigor of the papers presented at the conference by having multiple experts in the field provide feedback and evaluation. The more reviews per paper, the more thorough the evaluation process and the higher the quality of the accepted papers.","The domain of ""reviews per paper"" is conference, and the range is integer."
+http://cmt_en#ent-6218326-5775008,Target,Property,has id,"In the context of a conference, ""has id"" likely refers to having a unique identification number or code assigned to each attendee or participant. This ID can be used for registration, tracking attendance, accessing certain sessions or materials, and other organizational purposes during the conference.","The property ""has id"" has a domain of ""paper"" and a range of ""unsignedLong""."
+http://cmt_en#ent-7312475-4843858,Target,Property,has logo at url,"The meaning of ""has logo at url"" in the context of a conference likely refers to the presence of a logo or branding image at a specific web address (URL). This could indicate that the conference website or promotional materials feature a logo that represents the event or organization hosting the conference. Having a logo at a URL can help establish brand identity and create a professional and cohesive visual representation for the conference.",The conference has a logo at a specific URL.
+http://cmt_en#ent-7385850-0767179,Target,Property,accepts hardcopy submissions,"Accepts hardcopy submissions means that the conference organizers will allow participants to submit their materials in physical form, such as printed papers or documents, rather than only accepting electronic submissions. This may be preferred by some participants who prefer to work with physical materials or who do not have easy access to digital resources.",The conference accepts hardcopy submissions. The data type for this property is boolean.
+http://cmt_en#ent-7592571-9671564,Target,Property,has title,"In the context of a conference, ""has title"" typically refers to a presentation or talk that has been given a specific title. This title usually provides a brief summary or description of the content that will be covered in the presentation. Having a title helps attendees understand what to expect from the presentation and can also attract interest from potential audience members.","The domain of the property ""has title"" is ""paper"" and the range is ""string""."
+http://cmt_en#ent-7669016-6331082,Target,Property,has name,"In the context of a conference, ""has name"" likely refers to the act of registering or providing one's name for attendance or participation in the conference. It could also refer to the process of having one's name listed on the conference program or schedule.","The property ""has name"" has a range of values that are strings."
+http://cmt_en#op-0102687-5392298,Target,Property,has member,"In the context of a conference, ""has member"" typically refers to an individual who is a member of a particular organization, group, or committee that is involved in the conference. This could mean that the person is a member of the organizing committee, a member of a specific panel or session, or a member of the conference planning team. Having members involved in the conference can help ensure diverse perspectives, expertise, and contributions to the event.","The domain of the property ""has member"" is ""conference"" and the range is ""member of conference""."
+http://cmt_en#op-0261939-6958814,Target,Property,has member,"In the context of a conference, ""has member"" typically refers to an individual who is a member of a particular organization, group, or committee that is involved in the conference. This could mean that the individual is a registered attendee, a speaker, a sponsor, or a representative of a participating organization.","The domain of the relationship ""has member"" is the program committee, and the range is a member of the program committee."
+http://cmt_en#op-0455003-6077543,Target,Property,set maximal number of assigned paper,"The meaning of setting a maximal number of assigned papers at a conference is to limit the number of papers that each participant or presenter can be assigned to present. This helps ensure that the conference program is balanced and that all presenters have an opportunity to share their research or work. By setting a maximum number of assigned papers, conference organizers can prevent any one individual from dominating the program and allow for a diverse range of topics and presenters to be featured.",The administrator can set the maximal number of assigned papers for members of the program committee.
+http://cmt_en#op-0491014-8723432,Target,Property,hardcopy of mailing manifests printed by,The meaning of hardcopy mailing manifests printed by the conference is a physical document listing all the recipients and details of the mailings that were sent out for the conference. This hardcopy serves as a record of the mailing activities and can be used for reference or documentation purposes.,The hardcopy of mailing manifests is printed by administrators for conferences.
+http://cmt_en#op-0563197-2956391,Target,Property,accepted by,"In the context of a conference, ""accepted by"" typically refers to a submission or proposal being approved by the conference organizers for presentation at the event. This means that the content has met the criteria and standards set by the conference committee and has been deemed suitable for inclusion in the conference program.",The paper is accepted by an administrator.
+http://cmt_en#op-0644404-7231162,Target,Property,has conflict of interest with respect to,"In the context of a conference, ""has conflict of interest with respect to"" means that a person involved in the conference has a personal or financial interest that could potentially influence their decisions or actions related to the conference. This could include situations where a speaker has a financial relationship with a sponsor of the conference, or where a conference organizer has a personal connection to a vendor providing services for the event. Having a conflict of interest in this context can raise concerns about bias or unethical behavior.",A person has a conflict of interest with respect to a document.
+http://cmt_en#op-1288474-9125864,Target,Property,run paper asignmedt tools,"In the context of a conference, ""run paper assignment tools"" likely refers to software or tools used to manage and organize paper submissions for presentations or sessions at the conference. These tools may help track submissions, assign reviewers, and manage the overall process of selecting and scheduling papers for presentation at the conference.",The tools assigned for running paper assignments are intended for administrators and the domain for these tools is conferences.
+http://cmt_en#op-1415642-7736735,Target,Property,has bid,"In the context of a conference, ""has bid"" typically refers to a situation where a conference organizer or host has submitted a proposal or invitation for a speaker, presenter, or performer to participate in the conference. It indicates that the organizer has made an offer or request for the individual or group to be involved in the event.","The domain of ""has bid"" is ""paper"" and the range is ""bid""."
+http://cmt_en#op-1536122-6298582,Target,Property,enter review criteria,"In the context of a conference, ""enter review criteria"" refers to the process of providing specific guidelines or standards that reviewers should use when evaluating submissions or proposals for the conference. This could include criteria such as relevance to the conference theme, originality of the research, clarity of presentation, and overall quality of the work. By entering review criteria, conference organizers ensure that all submissions are evaluated consistently and fairly.",Administrators can enter review criteria for conferences.
+http://cmt_en#op-1581958-6116705,Target,Property,member of program committee,"A member of the program committee is an individual who is responsible for reviewing and selecting presentations, papers, and speakers for a conference. They play a crucial role in shaping the content and agenda of the event, ensuring that it is relevant, engaging, and of high quality for attendees. Members of the program committee are typically experts in the field or topic of the conference and are chosen for their knowledge and experience.","A member of the program committee is a domain of the relationship ""member of program committee"" and the range of the relationship is the program committee."
+http://cmt_en#op-1599762-7967134,Target,Property,read by meta reviewer,"In the context of a conference, ""read by meta-reviewer"" means that the submission has been reviewed by a meta-reviewer, who is responsible for evaluating the reviews provided by the regular reviewers. The meta-reviewer assesses the quality and validity of the reviews and may provide additional feedback or recommendations for the submission. This process helps ensure that the review process is fair and thorough before a final decision is made on whether the submission will be accepted for presentation at the conference.",The meta-reviewer reads the paper.
+http://cmt_en#op-1997920-3046898,Target,Property,details entered by,"The details entered by refer to the information provided by attendees when registering for the conference. This could include their name, contact information, organization, job title, dietary restrictions, and any other relevant details needed for the event. These details are crucial for organizers to effectively plan and execute the conference.",The details entered by a conference must be provided by an administrator.
+http://cmt_en#op-2352672-2684910,Target,Property,assign,"In the context of a conference, the meaning of assign could refer to the act of allocating tasks, responsibilities, or roles to individuals or groups attending the conference. This could involve assigning specific presentations, workshops, or sessions to different speakers or facilitators.",An administrator can assign tasks to a reviewer.
+http://cmt_en#op-2611597-4191733,Target,Property,write paper,"In the context of a conference, ""write paper"" refers to the process of creating a research paper or academic article to present at the conference. This typically involves conducting research, analyzing data, and writing up the findings in a formal academic format. The paper is then submitted to the conference organizers for review and potential acceptance for presentation at the conference.",An author can write a paper. The range of the action of writing a paper is the paper itself.
+http://cmt_en#op-2649033-9712859,Target,Property,read paper,"In the context of a conference, ""read paper"" typically refers to presenting a research paper or academic work to an audience. This may involve summarizing the key points, discussing the methodology and findings, and answering questions from attendees. It is a common practice at academic conferences for researchers to share their work with their peers and receive feedback and insights.",A reviewer can read a paper. The range of reading a paper is a paper.
+http://cmt_en#op-2674759-3900303,Target,Property,reviewer bidding started by,"Reviewer bidding started by allowing potential reviewers to express their interest in reviewing papers for a conference. This process helps conference organizers identify and select suitable reviewers based on their expertise and availability. By allowing reviewers to bid on papers, the conference can ensure that each paper is reviewed by individuals with relevant knowledge and experience in the subject matter.",The reviewer bidding process is started by a conference and the range of administrators involved in this process.
+http://cmt_en#op-2798366-1946309,Target,Property,assign,"In the context of a conference, the meaning of assign would be to allocate or designate tasks, responsibilities, or roles to individuals or groups attending the conference. This could involve assigning speakers to specific sessions, assigning moderators to panels, or assigning attendees to different workshops or breakout sessions.","The domain of the property ""assign"" is ""reviewer"" and the range is ""external reviewer""."
+http://cmt_en#op-2852745-7435295,Target,Property,has subject area,"In the context of a conference, ""has subject area"" refers to the specific topic or theme that the conference will focus on. This could be a broad subject area such as technology, healthcare, or education, or a more specific topic within those areas such as artificial intelligence, mental health, or literacy. The subject area helps attendees understand the main focus of the conference and determine if it aligns with their interests and expertise.","The domain of the property ""has subject area"" is ""paper"" and the range is ""subject area""."
+http://cmt_en#op-2958559-8395926,Target,Property,assigned to,"In the context of a conference, ""assigned to"" typically refers to being designated or given a specific task, role, or responsibility within the conference program. This could include being assigned to a specific session, panel, presentation, or committee.",The reviewer is assigned to review a paper.
+http://cmt_en#op-3343741-2145006,Target,Property,written by,"In the context of a conference, ""written by"" typically refers to the authorship of a paper, presentation, or other written material that is being presented or discussed at the conference. It indicates the individual or individuals who have created the content being presented.",A review is written by a reviewer.
+http://cmt_en#op-3673731-3704063,Target,Property,enable virtual meeting,"Enabling virtual meetings means setting up the necessary technology and software to allow participants to connect and communicate remotely. This typically involves using video conferencing platforms, such as Zoom or Microsoft Teams, to facilitate discussions, presentations, and collaboration among attendees who are not physically present in the same location. By enabling virtual meetings, conference organizers can ensure that participants can still engage with each other and participate in the event, even if they are unable to attend in person.",An administrator can enable virtual meetings for conferences.
+http://cmt_en#op-3715253-7341884,Target,Property,member of conference,"A member of a conference refers to an individual who is participating in or attending the conference. They may be a speaker, presenter, attendee, organizer, or any other role involved in the conference.",A member of a conference belongs to the domain of a member of a conference and has a range of conference.
+http://cmt_en#op-3741712-7753689,Target,Property,adjusted by,"In the context of a conference, ""adjusted by"" typically refers to making changes or modifications to a schedule, agenda, or other plans in order to accommodate new information, circumstances, or preferences. This could involve rearranging the timing of presentations, adding or removing sessions, or making other adjustments to ensure the conference runs smoothly and effectively.","The reviewer is the range of the property ""adjusted by"" when the domain is a bid."
+http://cmt_en#op-4204612-8254155,Target,Property,paper assignment tools run by,"The meaning of paper assignment tools run by conference organizers is to streamline the process of assigning papers to reviewers and organizing the conference program. These tools help ensure that papers are reviewed in a timely manner and that the conference schedule is efficiently managed. They also help match papers with reviewers who have expertise in the relevant subject areas. Overall, paper assignment tools help conference organizers run a smooth and successful event.",Paper assignment tools are run by administrators for conferences.
+http://cmt_en#op-4309011-4113368,Target,Property,added by,"In the context of a conference, ""added by"" typically refers to additional information or comments provided by a specific individual or source. This could be in reference to a speaker adding information to a presentation, a participant contributing to a discussion, or a moderator including extra details to a topic.",A member of the program committee can be added by an administrator.
+http://cmt_en#op-4706944-2787728,Target,Property,submit paper,"Submitting a paper in the context of a conference typically refers to the process of sending in an academic or research paper for consideration to be presented at the conference. This involves following the guidelines and deadlines set by the conference organizers, as well as ensuring that the paper meets the required criteria for acceptance. Once submitted, the paper will undergo a review process by experts in the field to determine if it is suitable for presentation at the conference.",Authors can submit papers.
+http://cmt_en#op-4815057-3921498,Target,Property,print hardcopy mailing manifests,"Printing hardcopy mailing manifests refers to creating physical copies of lists of items being sent out via mail. In the context of a conference, this could involve printing out lists of materials, documents, or promotional items that need to be mailed to attendees, speakers, or sponsors before or after the event. This process helps ensure that all items are accounted for and properly sent out to the intended recipients.",Administrators are able to print hardcopy mailing manifests for conferences.
+http://cmt_en#op-4850171-5907708,Target,Property,co write,"In the context of a conference, co-write refers to the act of collaborating with another person or group to write a paper, article, or presentation. It involves working together to contribute ideas, research, and writing in order to create a joint piece of work.",A co-author can co-write a paper.
+http://cmt_en#op-4931010-8867602,Target,Property,end reviewing time,"End reviewing time refers to the deadline by which all submissions for the conference must be reviewed and evaluated by the program committee. After this time, no further submissions will be considered for acceptance.","The ""end reviewing time"" is a domain of the ""chair of program committee"" and has a range of ""review""."
+http://cmt_en#op-4999283-7971326,Target,Property,add,"In the context of a conference, the meaning of ""add"" could refer to including additional information, speakers, sessions, or topics to the agenda or program. It could also mean registering additional attendees or participants to the conference.","An ""administrator"" can add a ""member of program committee""."
+http://cmt_en#op-5548425-1932115,Target,Property,mark conflict of interest,"In the context of a conference, marking a conflict of interest means disclosing any potential conflicts that may arise due to a speaker's affiliations, financial interests, or personal relationships that could potentially bias their presentation or influence their opinions. This transparency is important in maintaining the integrity and credibility of the conference and ensuring that attendees are aware of any potential biases.","The phrase ""mark conflict of interest"" is related to the range ""paper""."
+http://cmt_en#op-5714477-9488711,Target,Property,rejected by,"In the context of a conference, ""rejected by"" typically means that a submission or proposal was not accepted for presentation at the conference. This could be due to various reasons such as not meeting the criteria, lack of originality, or not being relevant to the conference theme.","The relationship ""rejected by"" has a domain of ""paper"" and a range of ""administrator""."
+http://cmt_en#op-5999633-4351656,Target,Property,reject paper,"In the context of a conference, ""reject paper"" refers to a paper or research submission that has been deemed unsuitable for presentation or publication by the conference organizers or reviewers. This could be due to factors such as poor quality, lack of relevance to the conference theme, or failure to meet the submission guidelines.",An administrator can reject a paper.
+http://cmt_en#op-6143522-2877268,Target,Property,paper assignment finalized by,"The meaning of ""paper assignment finalized by"" in the context of a conference is that the process of assigning papers to specific sessions or tracks has been completed and no further changes will be made. This indicates that the schedule and organization of the conference program has been finalized and is ready for presentation to attendees.",The paper assignment is finalized by a conference administrator.
+http://cmt_en#op-6283707-9260731,Target,Property,virtual meeting enabled by,"The meaning of virtual meeting is enabled by technology, such as video conferencing software and internet connectivity, which allows participants to communicate and collaborate remotely.",A virtual meeting is enabled by a conference and the administrator is the range of this relationship.
+http://cmt_en#op-6688605-5254034,Target,Property,start reviewer bidding,"In the context of a conference, ""start reviewer bidding"" refers to the process of inviting potential reviewers to bid on papers they would like to review for the conference. This allows the conference organizers to match papers with reviewers who have expertise in the relevant subject matter. By starting reviewer bidding, the conference can ensure that each paper is reviewed by qualified individuals who can provide valuable feedback and insights.",An administrator can initiate the process of reviewer bidding for a conference.
+http://cmt_en#op-6746253-0545056,Target,Property,write review,"In the context of a conference, writing a review typically refers to providing feedback or commentary on a presentation, paper, or session that was attended during the conference. This feedback can help organizers and presenters improve future events and research, as well as provide valuable insights for other attendees.",A reviewer can write a review.
+http://cmt_en#op-7075044-5167613,Target,Property,finalize paper assignment,"Finalizing a paper assignment in the context of a conference means completing all necessary revisions, edits, and formatting to ensure that the paper is ready for submission or presentation at the conference. This may include incorporating feedback from reviewers, making any necessary changes to the content or structure of the paper, and ensuring that it meets all formatting and submission requirements set by the conference organizers. Once the paper assignment is finalized, it is considered complete and ready to be submitted or presented at the conference.",The administrator finalizes paper assignments for conferences.
+http://cmt_en#op-7452997-4133095,Target,Property,written by,"In the context of a conference, ""written by"" typically refers to the authorship of a paper, presentation, or other written material being discussed or presented at the conference. It indicates the individual or individuals who have authored the content being presented.","The relationship ""written by"" has a domain of ""paper"" and a range of ""author""."
+http://cmt_en#op-7758730-0930874,Target,Property,co written by,"In the context of a conference, ""co-written by"" means that the work or presentation was written collaboratively by multiple authors or contributors. It indicates that the content was not solely created by one individual, but rather was a joint effort involving multiple people.","The relationship ""co-written by"" has a domain of ""paper"" and a range of ""co-author""."
+http://cmt_en#op-7822155-2346526,Target,Property,assigned by admin,"In the context of a conference, ""assigned by admin"" typically means that a specific task, role, or responsibility has been designated to an individual by the conference administrator. This could include assigning speaking slots, organizing sessions, managing logistics, or any other duties related to the conference organization.","The property ""assigned by admin"" has a domain of ""reviewer"" and a range of ""administrator""."
+http://cmt_en#op-7848370-1577514,Target,Property,accepts,"In the context of a conference, ""accepts"" typically refers to the act of approving or agreeing to a submission, such as a paper, presentation, or proposal, for inclusion in the conference program. It means that the conference organizers have reviewed the submission and deemed it suitable for presentation at the event.",An administrator accepts papers.
+http://cmt_en#op-8503855-9022324,Target,Property,has been decided to be accepted rejected,"In the context of a conference, ""has been decided"" means that a decision has been made regarding a particular proposal, presentation, or topic. This decision could be to accept the proposal for presentation, reject it, or make any other determination. It indicates that a conclusion has been reached after considering all relevant factors and discussions.",The decision on whether a paper has been accepted or rejected has been made.
+http://cmt_en#op-8575895-0911006,Target,Property,assigned by reviewer,"In the context of a conference, ""assigned by reviewer"" typically means that a paper or presentation has been reviewed by a peer reviewer and has been assigned a specific rating or designation by that reviewer. This designation could indicate the quality of the submission, its relevance to the conference theme, or its overall merit for inclusion in the conference program. The assigned rating or designation helps conference organizers make decisions about which submissions to accept, reject, or revise.","The property ""assigned by reviewer"" has a domain of ""external reviewer"" and a range of ""reviewer""."
+http://cmt_en#op-8724798-7163354,Target,Property,has been assigned,"In the context of a conference, ""has been assigned"" means that a specific task, role, or responsibility has been given to someone. This could refer to assigning speaking slots, organizing sessions, or managing logistics for the conference.",The reviewer has been assigned to review a paper.
+http://cmt_en#op-8994929-8698791,Target,Property,adjust,"In the context of a conference, the meaning of adjust could refer to making changes or modifications to the schedule, agenda, or logistics of the event in order to accommodate unforeseen circumstances or to improve the overall experience for attendees. This could involve rearranging speaker times, adding or removing sessions, or making adjustments to the venue layout.",A reviewer can adjust a bid.
+http://cmt_en#op-9145996-5514392,Target,Property,review criteria entered by,"The review criteria entered by are the specific guidelines or standards that reviewers use to evaluate and assess submissions to a conference. These criteria help ensure that submissions are reviewed consistently and fairly, and that only high-quality work is accepted for presentation at the conference. Review criteria may include factors such as originality, significance, methodology, and clarity of presentation.","The review criteria entered by a conference must have a domain of ""conference"" and a range of ""administrator""."
+http://cmt_en#op-9305729-7081388,Target,Property,enter details on,"In the context of a conference, ""enter details on"" typically refers to providing specific information or data about oneself or a topic in a registration form, database, or online platform. This could include personal information, contact details, professional background, areas of expertise, or any other relevant details required for participation in the conference.",Administrators can enter details on conferences.
+http://cmt_en#op-9779608-5108867,Target,Property,read by reviewer,"In the context of a conference, ""read by reviewer"" typically means that a submitted paper or abstract has been reviewed by a peer reviewer who has provided feedback and recommendations for acceptance or rejection. This process helps ensure the quality and relevance of the content presented at the conference.","The domain of ""read by reviewer"" is ""paper"" and the range is ""reviewer""."
