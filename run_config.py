@@ -65,7 +65,7 @@ llm = ChatOpenAI(model_name='gpt-3.5-turbo-0125', temperature=0)
 # llm = ChatOllama(model="wizardlm2:7b", temperature=0)
 
 # search settings
-similarity_threshold = 0.90
+similarity_threshold = 0.9
 top_k = 3
 num_matches = 50
 
@@ -96,9 +96,9 @@ alignment = "conference/cmt-conference/component/"
 # alignment = "conference/ekaw-sigkdd/component/"
 # alignment = "conference/iasted-sigkdd/component/"
 
-# # activate when execute run_conference_series
-# if os.environ.get('alignment'):
-#     alignment = os.environ['alignment']
+# activate when execute run_conference_series
+if os.environ.get('alignment'):
+    alignment = os.environ['alignment']
 
 # dbpedia result is not included in the paper
 # alignment = "conference/dbpedia-confof/component/"

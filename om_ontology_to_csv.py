@@ -16,6 +16,8 @@ from langchain import hub
 from langchain_core.messages import AIMessage
 from langchain_core.runnables import Runnable, RunnablePassthrough
 
+from langchain_community.callbacks import get_openai_callback
+
 # customer settings
 o1_path = config.o1_path
 o2_path = config.o2_path
@@ -163,8 +165,6 @@ def lexical(entity: str) -> str:
             'entity_name': entity_name,
             'context': context,
         })
-    # calculate tokens
-    util.add_tokens(response)
     # print
     answer = response.content
     print("lexical_information:", answer)
@@ -205,8 +205,6 @@ def semantic(entity: str) -> str:
         )
         chain = prompt | llm
         response = chain.invoke({'subgraph': subgraph.serialize(format="turtle")})
-        # calculate tokens
-        util.add_tokens(response)
         # print
         answer = response.content
         print("semantic_information:", answer)
@@ -419,16 +417,24 @@ def create_tool_use_agent(tools, tool_chain):
 
 
 if __name__ == '__main__':
-    # find true value
-    find_reference(align_path, true_path)
-    # run retrieve agent - Part 1
-    chain = create_tool_use_agent(retrieval_tools, retrieval_tool_chain)
-    response = chain.invoke({"input": f"Retrieve ontology information."})
-    print("response:", response)
-    # agent_executor.invoke({"input": "Find ontology information."})
-    # # Chinese/French
-    # chain.invoke({"input": f"获取本体信息."})
-    # chain.invoke({"input": f"Récupérer des informations sur l'ontologie."})
-    # calculate cost
-    print(util.calculate_cost(util.total_token_usage, cost_path, util.find_model_name(llm), alignment + "llm_with_retrieve_agent_1"))
+    # can only calculate OpenAI models
+    with get_openai_callback() as cb:
+        # find true value
+        find_reference(align_path, true_path)
+        # run retrieve agent - Part 1
+        chain = create_tool_use_agent(retrieval_tools, retrieval_tool_chain)
+        response = chain.invoke({"input": f"Retrieve ontology information."})
+        print("response:", response)
+        # calculate cost
+        print(f"total tokens: {cb.total_tokens}")
+        print(f"prompt tokens: {cb.prompt_tokens}")
+        print(f"completion tokens: {cb.completion_tokens}")
+        print(f"total cost (USD): ${cb.total_cost}")
+        # save cost
+        print(util.calculate_cost(cb.total_tokens, cb.total_cost, cost_path, util.find_model_name(llm), alignment + "llm_with_retrieve_agent_1"))
 
+    # # agent only support API-accessed models
+    # # agent_executor.invoke({"input": "Find ontology information."})
+    # # Multi linguistic, Chinese/French
+    # # chain.invoke({"input": f"获取本体信息."})
+    # # chain.invoke({"input": f"Récupérer des informations sur l'ontologie."})

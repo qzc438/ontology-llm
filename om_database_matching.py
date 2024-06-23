@@ -18,6 +18,7 @@ from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.tools import tool, render_text_description
 from operator import itemgetter
 
+from langchain_community.callbacks import get_openai_callback
 
 # define path
 alignment = config.alignment
@@ -454,8 +455,6 @@ def validate():
                             Answer yes or no. Give a short explanation.
                             """
     result_validate = llm.invoke(prompt_validate_question)
-    # calculate tokens
-    util.add_tokens(result_validate)
     print("result_validate:", result_validate.content)
     create_log(f"result_with_validate: {result_validate.content}")
     return result_validate.content
@@ -500,9 +499,16 @@ if __name__ == '__main__':
         predict_target_path = config.predict_target_path.replace(".csv", "") + "-" + str(sys.argv[1]) + ".csv"
         predict_path = config.predict_path.replace(".csv", "") + "-" + str(sys.argv[1]) + ".csv"
     print("similarity:", similarity_threshold)
-    # run matching agent
-    chain = create_tool_use_agent(matching_tools, matching_tool_chain)
-    response = chain.invoke({"input": f"Ontology matching."})
-    print("response:", response)
-    # calculate cost
-    print(util.calculate_cost(util.total_token_usage, cost_path, util.find_model_name(llm), alignment + "llm_with_matching_agent"))
+    # can only calculate OpenAI models
+    with get_openai_callback() as cb:
+        # run matching agent
+        chain = create_tool_use_agent(matching_tools, matching_tool_chain)
+        response = chain.invoke({"input": f"Ontology matching."})
+        print("response:", response)
+        # calculate cost
+        print(f"total tokens: {cb.total_tokens}")
+        print(f"prompt tokens: {cb.prompt_tokens}")
+        print(f"completion tokens: {cb.completion_tokens}")
+        print(f"total cost (USD): ${cb.total_cost}")
+        # save cost
+        print(util.calculate_cost(cb.total_tokens, cb.total_cost, cost_path, util.find_model_name(llm), alignment + "llm_with_matching_agent"))

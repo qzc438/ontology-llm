@@ -217,24 +217,22 @@ def common_member(a, b):
     return result
 
 
-def calculate_cost(total_token_usage, cost_path, llm, alignment):
+def calculate_cost(total_tokens, total_cost, cost_path, llm, alignment):
     # write to file
     with open(cost_path, "a+", newline='') as f:
         writer = csv.writer(f)
-        result = [llm] + [alignment] + [total_token_usage]
+        result = [llm] + [alignment] + [total_tokens] + [total_cost]
         writer.writerow(result)
-    return [alignment, total_token_usage]
+    return [total_tokens, total_cost]
 
-
-total_token_usage = 0
-
-
-def add_tokens(response):
-    # calculate tokens
-    token_usage = response.response_metadata.get("token_usage").get("total_tokens")
-    global total_token_usage
-    total_token_usage += token_usage
-    print("current tokens usage:", total_token_usage)
+# not accurate, do not use
+# total_token_usage = 0
+# def add_tokens(response):
+#     # calculate tokens
+#     token_usage = response.response_metadata.get("token_usage").get("total_tokens")
+#     global total_token_usage
+#     total_token_usage += token_usage
+#     print("current tokens usage:", total_token_usage)
 
 
 def filter_anatomy(csv_path):

@@ -16,6 +16,8 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.tools import tool, render_text_description
 from operator import itemgetter
 
+from langchain_community.callbacks import get_openai_callback
+
 # load llm
 llm = config.llm
 
@@ -177,9 +179,16 @@ def create_tool_use_agent(tools, tool_chain):
 
 
 if __name__ == '__main__':
-    # run retrieve agent - Part 2
-    chain = create_tool_use_agent(database_tools, database_tool_chain)
-    response = chain.invoke({"input": f"Save ontology information."})
-    print("response:", response)
-    # calculate cost
-    print(util.calculate_cost(util.total_token_usage, cost_path, util.find_model_name(llm), alignment + "llm_with_retrieve_agent_2"))
+    # can only calculate OpenAI models
+    with get_openai_callback() as cb:
+        # run retrieve agent - Part 2
+        chain = create_tool_use_agent(database_tools, database_tool_chain)
+        response = chain.invoke({"input": f"Save ontology information."})
+        print("response:", response)
+        # calculate cost
+        print(f"total tokens: {cb.total_tokens}")
+        print(f"prompt tokens: {cb.prompt_tokens}")
+        print(f"completion tokens: {cb.completion_tokens}")
+        print(f"total cost (USD): ${cb.total_cost}")
+        # save cost
+        print(util.calculate_cost(cb.total_tokens, cb.total_cost, cost_path, util.find_model_name(llm), alignment + "llm_with_retrieve_agent_2"))
