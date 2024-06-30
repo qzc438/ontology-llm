@@ -1,22 +1,24 @@
-import run_config
-import run_config as config
-import util
+import csv
+from operator import itemgetter
 
 import rdflib
-import csv
 
 from langchain.prompts import PromptTemplate
 from langchain_core.prompts import ChatPromptTemplate
 
 from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.tools import tool, render_text_description
-from operator import itemgetter
+
 from langchain.agents import AgentExecutor, create_tool_calling_agent
 from langchain import hub
 from langchain_core.messages import AIMessage
 from langchain_core.runnables import Runnable, RunnablePassthrough
 
 from langchain_community.callbacks import get_openai_callback
+
+import run_config as config
+import util
+
 
 # customer settings
 o1_path = config.o1_path
@@ -196,7 +198,7 @@ def semantic(entity: str) -> str:
                 obj = rdflib.Literal(get_entity_name(o, ontology, ontology_is_code))
                 subgraph.add((sub, p, obj))
     # save the subgraph
-    subgraph.serialize(format="turtle", destination=f"subgraph.ttl")
+    subgraph.serialize(format="turtle", destination="subgraph.ttl")
     # verbalise the subgraph
     if subgraph:
         prompt = PromptTemplate(
@@ -205,28 +207,27 @@ def semantic(entity: str) -> str:
         )
         chain = prompt | llm
         response = chain.invoke({'subgraph': subgraph.serialize(format="turtle")})
-        # print
         answer = response.content
-        print("semantic_information:", answer)
-        return answer
     else:
-        print("semantic_information:", null_value_sentence)
-        return null_value_sentence
+        answer = null_value_sentence
+    # print
+    print("semantic_information:", answer)
+    return answer
 
 
 # start ontology retrieval tools
 def find_all_entities():
     # here entity is uri
-    e1_list_class = list()
-    e2_list_class = list()
+    e1_list_class = []
+    e2_list_class = []
     for x in o1.subjects(rdflib.RDF.type, rdflib.OWL.Class):
         if x and ("#" in x or "/" in x) and x != rdflib.OWL.Thing:
             e1_list_class.append(x)
     for y in o2.subjects(rdflib.RDF.type, rdflib.OWL.Class):
         if y and ("#" in y or "/" in y) and y != rdflib.OWL.Thing:
             e2_list_class.append(y)
-    e1_list_property = list()
-    e2_list_property = list()
+    e1_list_property = []
+    e2_list_property = []
     for x in o1.subjects(rdflib.RDF.type, rdflib.OWL.ObjectProperty):
         if x and ("#" in x or "/" in x):
             e1_list_property.append(x)
@@ -401,7 +402,7 @@ def create_tool_use_agent(tools, tool_chain):
     # except:
     # define combined prompt
     rendered_tools = render_text_description(tools)
-    system_prompt = f"""You are an assistant who has access to the following set of tools. 
+    system_prompt = f"""You are an assistant who has access to the following set of tools.
                     Here are the names and descriptions of each tool:
                     {rendered_tools}
                     Given the user input, return the name of the tool to use and the arguments passed to the tool.
@@ -423,7 +424,7 @@ if __name__ == '__main__':
         find_reference(align_path, true_path)
         # run retrieve agent - Part 1
         chain = create_tool_use_agent(retrieval_tools, retrieval_tool_chain)
-        response = chain.invoke({"input": f"Retrieve ontology information."})
+        response = chain.invoke({"input": "Retrieve ontology information."})
         print("response:", response)
         # calculate cost
         print(f"total tokens: {cb.total_tokens}")

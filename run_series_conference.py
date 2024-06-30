@@ -1,7 +1,7 @@
 import subprocess
 import os
 
-# Creating a string list
+# create a string list
 alignment_list = ["conference/cmt-conference/component/",
                   "conference/cmt-confof/component/",
                   "conference/cmt-edas/component/",
@@ -24,9 +24,13 @@ alignment_list = ["conference/cmt-conference/component/",
                   "conference/ekaw-sigkdd/component/",
                   "conference/iasted-sigkdd/component/"]
 
-# Looping through the list
+# loop through the list
 for alignment in alignment_list:
+    # execute the script with the new parameter
     print("alignment:", alignment)
     os.environ['alignment'] = alignment
-    # Execute the script with the new parameter
-    subprocess.run(['python', 'run_config.py'])
+    try:
+        subprocess.run(['python', 'run_config.py'], check=True)
+        print("run_config.py executed successfully.")
+    except subprocess.CalledProcessError as error:
+        print(f"Failed to execute run_config.py: {error}")

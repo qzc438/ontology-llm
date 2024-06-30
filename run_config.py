@@ -1,8 +1,8 @@
-import util
-import rdflib
-import dotenv
 import os
 import subprocess
+
+import rdflib
+import dotenv
 
 from langchain_openai import ChatOpenAI
 from langchain_anthropic import ChatAnthropic
@@ -11,6 +11,8 @@ from langchain_google_vertexai import ChatVertexAI
 from langchain_community.chat_models import ChatOllama
 
 from langchain_openai import OpenAIEmbeddings
+
+import util
 
 # customer settings
 
@@ -23,8 +25,9 @@ os.environ["MISTRAL_API_KEY"] = os.getenv("MISTRAL_API_KEY")
 os.environ["ANTHROPIC_API_KEY"] = os.getenv("ANTHROPIC_API_KEY")
 
 # # load GPT
+llm = ChatOpenAI(model_name='gpt-4o-2024-05-13', temperature=0)
 # llm = ChatOpenAI(model_name='gpt-4-turbo-2024-04-09', temperature=0)
-llm = ChatOpenAI(model_name='gpt-3.5-turbo-0125', temperature=0)
+# llm = ChatOpenAI(model_name='gpt-3.5-turbo-0125', temperature=0)
 # # load Anthropic
 # llm = ChatAnthropic(model="claude-3-opus-20240229", temperature=0)
 # llm = ChatAnthropic(model="claude-3-sonnet-20240229", temperature=0)
@@ -41,12 +44,12 @@ llm = ChatOpenAI(model_name='gpt-3.5-turbo-0125', temperature=0)
 # # load Llama 3 variants
 # llm = ChatOllama(model="llama3:text", temperature=0)
 # llm = ChatOllama(model="llama3:instruct", temperature=0)
+# # load Mistral open-source
+# llm = ChatOllama(model="mistral:7b", temperature=0)
 # # load Gemma
 # llm = ChatOllama(model="gemma:7b", temperature=0)
 # # load Phi-3
 # llm = ChatOllama(model="phi3:3.8b", temperature=0)
-# # load Mistral open-source
-# llm = ChatOllama(model="mistral:7b", temperature=0)
 
 # the following models are currently not working
 # # too slow
@@ -63,6 +66,7 @@ llm = ChatOpenAI(model_name='gpt-3.5-turbo-0125', temperature=0)
 # llm = ChatOllama(model="stablelm2:12b", temperature=0) # multilingual models
 # No additional arguments are required for the 'validate' tool as it is used to check the consistency and correctness of the existing matches.
 # llm = ChatOllama(model="wizardlm2:7b", temperature=0)
+# llm = ChatOllama(model="gemma2:9b", temperature=0)
 
 # search settings
 similarity_threshold = 0.9
@@ -71,10 +75,10 @@ num_matches = 50
 
 # alignment settings
 # conference track
-context = "conference"
-o1_is_code = False
-o2_is_code = False
-alignment = "conference/cmt-conference/component/"
+# context = "conference"
+# o1_is_code = False
+# o2_is_code = False
+# alignment = "conference/cmt-conference/component/"
 # alignment = "conference/cmt-confof/component/"
 # alignment = "conference/cmt-edas/component/"
 # alignment = "conference/cmt-ekaw/component/"
@@ -97,8 +101,8 @@ alignment = "conference/cmt-conference/component/"
 # alignment = "conference/iasted-sigkdd/component/"
 
 # activate when execute run_conference_series
-if os.environ.get('alignment'):
-    alignment = os.environ['alignment']
+# if os.environ.get('alignment'):
+#     alignment = os.environ['alignment']
 
 # dbpedia result is not included in the paper
 # alignment = "conference/dbpedia-confof/component/"
@@ -106,10 +110,10 @@ if os.environ.get('alignment'):
 # alignment = "conference/dbpedia-sigkdd/component/"
 
 # anatomy track
-# context = "anatomy"
-# o1_is_code = True
-# o2_is_code = True
-# alignment = "anatomy/mouse-human-suite/component/"
+context = "anatomy"
+o1_is_code = True
+o2_is_code = True
+alignment = "anatomy/mouse-human-suite/component/"
 
 # food track
 # context = "food nutritional composition"
@@ -188,7 +192,8 @@ result_path = "result.csv"
 cost_path = "cost.csv"
 
 # path for matching without using agents
-llm_only_path = align_folder + "llm_only.csv"
+llm_zero_shot_path = align_folder + "llm_zero_shot.csv"
+llm_few_shot_path = align_folder + "llm_few_shot.csv"
 
 # reference file settings
 alignCell = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignment#Cell')
@@ -233,4 +238,7 @@ if __name__ == '__main__':
         "om_database_matching.py",
     ]
     for script in script_sequence:
-        subprocess.run(["python", script])
+        try:
+            subprocess.run(["python", script], check=True)
+        except subprocess.CalledProcessError as error:
+            print(f"Error running {script}: {error}")

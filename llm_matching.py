@@ -1,5 +1,3 @@
-import os
-import dotenv
 import run_config as config
 
 llm = config.llm

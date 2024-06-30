@@ -1,14 +1,13 @@
-import run_config as config
-import om_ontology_to_csv
-import util
+import collections
+import csv
+import itertools
 
 import sys
 import re
 import logging
+from operator import itemgetter
+
 import pandas as pd
-import collections
-import csv
-import itertools
 
 import psycopg2
 from pgvector.psycopg2 import register_vector
@@ -16,9 +15,13 @@ from pgvector.psycopg2 import register_vector
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.tools import tool, render_text_description
-from operator import itemgetter
 
 from langchain_community.callbacks import get_openai_callback
+
+import run_config as config
+import om_ontology_to_csv
+import util
+
 
 # define path
 alignment = config.alignment
@@ -90,7 +93,7 @@ def find_entity_id(entity, source_or_target):
     conn = psycopg2.connect(connection_string)
     register_vector(conn)
     cursor = conn.cursor()
-    sql = f'''SELECT o.entity_id FROM ontology_matching o
+    sql = '''SELECT o.entity_id FROM ontology_matching o
               WHERE o.entity = (%s) and o.source_or_target = (%s)'''
     cursor.execute(sql, (entity, source_or_target))
     result = cursor.fetchone()
@@ -104,7 +107,7 @@ def find_entity(entity_id):
     conn = psycopg2.connect(connection_string)
     register_vector(conn)
     cursor = conn.cursor()
-    sql = f'''SELECT o.entity FROM ontology_matching o
+    sql = '''SELECT o.entity FROM ontology_matching o
               WHERE o.entity_id = (%s)'''
     cursor.execute(sql, (entity_id,))
     result = cursor.fetchone()
@@ -134,7 +137,7 @@ def entity_matching(entity, table_name):
         # set source_or_target value
         if result[1] == "Source":
             source_or_target = "Target"
-        else:
+        elif result[1] == "Target":
             source_or_target = "Source"
         # set entity_type value
         if result[2] == "Class":
@@ -175,8 +178,8 @@ def entity_matching(entity, table_name):
         create_log(f"matching type: {table_name}, matches: {matches}")
         # print("matches:", matches)
         return matches
-    else:
-        return None
+    # no result
+    return None
 
 
 @tool
@@ -273,8 +276,8 @@ def find_most_relevant_entity(entity, source_or_target):
     print("rankings:", rankings)
 
     # create list
-    candidates_without_validation_and_merge = list()
-    candidates_with_validation_and_merge = list()
+    candidates_without_validation_and_merge = []
+    candidates_with_validation_and_merge = []
 
     if rankings:
         # call the reciprocal rank fusion function with the processed rankings
@@ -308,16 +311,15 @@ def find_most_relevant_entity(entity, source_or_target):
                         candidates_with_validation_and_merge.append(find_entity(predict_entity))
                         create_log(f"result_without_validate: {predict_entity_name}")
                         continue
-                    else:
-                        # matching validate
-                        chain = create_tool_use_agent(matching_tools, matching_tool_chain)
-                        global compare_list
-                        compare_list = [entity_name_clean, predict_entity_name_clean]
-                        # do not pass arguments here to avoid input sensitive word to llm
-                        validate_prompt = f"Matching validate."
-                        validate_result = chain.invoke({"input": validate_prompt})
-                        if extract_yes_no(validate_result) == "yes":
-                            candidates_with_validation_and_merge.append(find_entity(predict_entity))
+                    # matching validate
+                    chain = create_tool_use_agent(matching_tools, matching_tool_chain)
+                    global compare_list
+                    compare_list = [entity_name_clean, predict_entity_name_clean]
+                    # do not pass arguments here to avoid input sensitive word to llm
+                    validate_prompt = "Matching validate."
+                    validate_result = chain.invoke({"input": validate_prompt})
+                    if extract_yes_no(validate_result) == "yes":
+                        candidates_with_validation_and_merge.append(find_entity(predict_entity))
                 print("candidates_with_validation_and_merge:", candidates_with_validation_and_merge)
                 if candidates_with_validation_and_merge:
                     break
@@ -410,7 +412,7 @@ def init():
 
     # matching merge
     chain = create_tool_use_agent(matching_tools, matching_tool_chain)
-    response = chain.invoke({"input": f"Matching merge."})
+    chain.invoke({"input": "Matching merge."})
 
     print("Ontology matching successfully completed.")
 
@@ -419,7 +421,7 @@ def init():
 @tool
 def merge():
     """Matching merge."""
-    util.print_colored_text(f"Matching merge:", "cyan")
+    util.print_colored_text("Matching merge:", "cyan")
     # tool function
     # matching merge without validation
     df_source_no_validation = pd.read_csv(predict_source_path_no_validation)
@@ -472,7 +474,7 @@ def matching_tool_chain(model_output):
 def create_tool_use_agent(tools, tool_chain):
     # define combined prompt
     rendered_tools = render_text_description(tools)
-    system_prompt = f"""You are an assistant who has access to the following set of tools. 
+    system_prompt = f"""You are an assistant who has access to the following set of tools.
                     Here are the names and descriptions of each tool:
                     {rendered_tools}
                     Given the user input, return the name of the tool to use and the arguments passed to the tool.
@@ -503,7 +505,7 @@ if __name__ == '__main__':
     with get_openai_callback() as cb:
         # run matching agent
         chain = create_tool_use_agent(matching_tools, matching_tool_chain)
-        response = chain.invoke({"input": f"Ontology matching."})
+        response = chain.invoke({"input": "Ontology matching."})
         print("response:", response)
         # calculate cost
         print(f"total tokens: {cb.total_tokens}")

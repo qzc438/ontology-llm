@@ -32,6 +32,7 @@ def find_model_name(llm):
         return llm.model
     if hasattr(llm, 'model_name'):
         return llm.model_name
+    return None
 
 
 def find_uri(ontology):
@@ -44,17 +45,15 @@ def find_uri(ontology):
 def uri_to_prefix_name(uri, prefix):
     uri_str = str(uri)
     if "#" in uri_str:
-        return prefix + ":" + str(uri).split("#")[-1]
-    else:
-        return prefix + ":" + str(uri).split("/")[-1]
+        return prefix + ":" + str(uri).rsplit('#', maxsplit=1)[-1]
+    return prefix + ":" + str(uri).rsplit('/', maxsplit=1)[-1]
 
 
 def uri_to_name(uri):
     uri_str = str(uri)
     if "#" in uri_str:
-        return uri_str.split("#")[-1]
-    else:
-        return uri_str.split("/")[-1]
+        return uri_str.rsplit('#', maxsplit=1)[-1]
+    return uri_str.rsplit('/', maxsplit=1)[-1]
 
 
 def prefix_name_to_name(prefix_name):
@@ -66,12 +65,11 @@ def name_to_prefix_name(name, prefix):
 
 
 def create_folder(path):
-    isExists = os.path.exists(path)
-    if not isExists:
+    is_exist = os.path.exists(path)
+    if not is_exist:
         os.makedirs(path)
         return True
-    else:
-        return False
+    return False
 
 
 def create_document(document_path, header):
@@ -83,7 +81,6 @@ def create_document(document_path, header):
     # create a new file
     with open(document_path, "w+", newline='') as f1:
         writer = csv.writer(f1)
-        header = header
         writer.writerow(header)
 
 
@@ -145,35 +142,33 @@ def calculate_metrics(true_path, predict_path, result_path, llm, alignment):
     df_predict = pd.read_csv(predict_path, encoding="Windows-1250")
     if df_predict.empty:
         return [0, 0, 0]
-    else:
-        # list_true = df_true.values.tolist()
-        # list_predict = df_predict.values.tolist()
-        # common = common_member(list_true, list_predict)
-        common = pd.merge(df_true, df_predict, on=['Entity1', 'Entity2'], how="inner")
-        # remove any duplicate rows in the common
-        common = common.drop_duplicates()
-        # print(common)
-        ra = len(common)
-        print("ra:", ra)
-        if ra == 0:
-            return [0, 0, 0]
-        else:
-            r = len(df_true)
-            print("r:", r)
-            a = len(df_predict)
-            print("a:", a)
-            precision = ra / a
-            recall = ra / r
-            f1 = 2 * (precision * recall) / (precision + recall)
-            # write to file
-            # create_document(result_path, header=['LLM', 'Alignment', 'Precision', 'Recall', 'F1'])
-            with open(result_path, "a+", newline='') as f:
-                writer = csv.writer(f)
-                result = ["%.2f" % (precision * 100), "%.2f" % (recall * 100), "%.2f" % (f1 * 100)]
-                result = [llm] + [alignment] + result
-                writer.writerow(result)
-            # print results
-            return ["%.2f" % (precision * 100), "%.2f" % (recall * 100), "%.2f" % (f1 * 100)]
+    # list_true = df_true.values.tolist()
+    # list_predict = df_predict.values.tolist()
+    # common = common_member(list_true, list_predict)
+    common = pd.merge(df_true, df_predict, on=['Entity1', 'Entity2'], how="inner")
+    # remove any duplicate rows in the common
+    common = common.drop_duplicates()
+    # print(common)
+    ra = len(common)
+    print("ra:", ra)
+    if ra == 0:
+        return [0, 0, 0]
+    r = len(df_true)
+    print("r:", r)
+    a = len(df_predict)
+    print("a:", a)
+    precision = ra / a
+    recall = ra / r
+    f1 = 2 * (precision * recall) / (precision + recall)
+    # write to file
+    # create_document(result_path, header=['LLM', 'Alignment', 'Precision', 'Recall', 'F1'])
+    with open(result_path, "a+", newline='') as f:
+        writer = csv.writer(f)
+        result = ["%.2f" % (precision * 100), "%.2f" % (recall * 100), "%.2f" % (f1 * 100)]
+        result = [llm] + [alignment] + result
+        writer.writerow(result)
+    # print results
+    return ["%.2f" % (precision * 100), "%.2f" % (recall * 100), "%.2f" % (f1 * 100)]
 
 
 def calculate_benchmark_metrics(true_path, predict_path, result_path, alignment):
@@ -181,35 +176,33 @@ def calculate_benchmark_metrics(true_path, predict_path, result_path, alignment)
     df_predict = pd.read_csv(predict_path, encoding="Windows-1250")
     if df_predict.empty:
         return [0, 0, 0]
-    else:
-        # list_true = df_true.values.tolist()
-        # list_predict = df_predict.values.tolist()
-        # common = common_member(list_true, list_predict)
-        common = pd.merge(df_true, df_predict, on=['Entity1', 'Entity2'], how="inner")
-        # Remove any duplicate rows in the common
-        common = common.drop_duplicates()
-        # print(common)
-        ra = len(common)
-        print("ra:", ra)
-        if ra == 0:
-            return [0, 0, 0]
-        else:
-            r = len(df_true)
-            print("r:", r)
-            a = len(df_predict)
-            print("a:", a)
-            precision = ra / a
-            recall = ra / r
-            f1 = 2 * (precision * recall) / (precision + recall)
-            # write to file
-            # create_document(result_path, header=['Alignment', 'Precision', 'Recall', 'F1'])
-            with open(result_path, "a+", newline='') as f:
-                writer = csv.writer(f)
-                result = ["%.2f" % (precision * 100), "%.2f" % (recall * 100), "%.2f" % (f1 * 100)]
-                result = [alignment] + result
-                writer.writerow(result)
-            # print results
-            return ["%.2f" % (precision * 100), "%.2f" % (recall * 100), "%.2f" % (f1 * 100)]
+    # list_true = df_true.values.tolist()
+    # list_predict = df_predict.values.tolist()
+    # common = common_member(list_true, list_predict)
+    common = pd.merge(df_true, df_predict, on=['Entity1', 'Entity2'], how="inner")
+    # Remove any duplicate rows in the common
+    common = common.drop_duplicates()
+    # print(common)
+    ra = len(common)
+    print("ra:", ra)
+    if ra == 0:
+        return [0, 0, 0]
+    r = len(df_true)
+    print("r:", r)
+    a = len(df_predict)
+    print("a:", a)
+    precision = ra / a
+    recall = ra / r
+    f1 = 2 * (precision * recall) / (precision + recall)
+    # write to file
+    # create_document(result_path, header=['Alignment', 'Precision', 'Recall', 'F1'])
+    with open(result_path, "a+", newline='') as f:
+        writer = csv.writer(f)
+        result = ["%.2f" % (precision * 100), "%.2f" % (recall * 100), "%.2f" % (f1 * 100)]
+        result = [alignment] + result
+        writer.writerow(result)
+    # print results
+    return ["%.2f" % (precision * 100), "%.2f" % (recall * 100), "%.2f" % (f1 * 100)]
 
 
 def common_member(a, b):

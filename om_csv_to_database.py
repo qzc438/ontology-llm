@@ -1,22 +1,23 @@
-import run_config as config
-import util
-
 import time
+import asyncio
+from operator import itemgetter
+
 import numpy as np
 import pandas as pd
 
-import asyncio
 import asyncpg
 from pgvector.asyncpg import register_vector
 
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-
 from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.tools import tool, render_text_description
-from operator import itemgetter
 
 from langchain_community.callbacks import get_openai_callback
+
+import run_config as config
+import util
+
 
 # load llm
 llm = config.llm
@@ -53,7 +54,7 @@ async def create_ontology_matching_table():
     # drop table if it already exists
     await conn.execute("DROP TABLE IF EXISTS ontology_matching CASCADE;")
     # create table schema
-    await conn.execute('''CREATE TABLE ontology_matching 
+    await conn.execute('''CREATE TABLE ontology_matching
     (entity_id VARCHAR(1024) PRIMARY KEY, entity TEXT, source_or_target TEXT, entity_type TEXT, 
     syntactic_matching TEXT, lexical_matching TEXT, semantic_matching TEXT);''')
     # add csv data into table
@@ -88,7 +89,7 @@ async def create_embedding_table(table_name):
     def retry_with_backoff(func, *args, retry_delay=5, backoff_factor=2, **kwargs):
         max_attempts = 10
         retries = 0
-        for i in range(max_attempts):
+        while retries <= max_attempts:
             try:
                 return func(*args, **kwargs)
             except Exception as e:
@@ -97,6 +98,8 @@ async def create_embedding_table(table_name):
                 wait = retry_delay * (backoff_factor ** retries)
                 print(f"Retry after waiting for {wait} seconds...")
                 time.sleep(wait)
+        # max_attempts reached without success
+        raise Exception("Max retry attempts exceeded without success")
 
     # generate results
     batch_size = 5
@@ -117,7 +120,7 @@ async def create_embedding_table(table_name):
     # drop table if exists
     await conn.execute(f"DROP TABLE IF EXISTS {table_name};")
     # create the embedding table to store vector embeddings
-    sql = f'''CREATE TABLE {table_name} 
+    sql = f'''CREATE TABLE {table_name}
     (entity_id VARCHAR(1024) NOT NULL REFERENCES ontology_matching(entity_id), content TEXT, embedding vector(1536));'''
     await conn.execute(sql)
     # store all the generated embeddings back into the database
@@ -163,7 +166,7 @@ def database_tool_chain(model_output):
 def create_tool_use_agent(tools, tool_chain):
     # define combined prompt
     rendered_tools = render_text_description(tools)
-    system_prompt = f"""You are an assistant who has access to the following set of tools. 
+    system_prompt = f"""You are an assistant who has access to the following set of tools.
                     Here are the names and descriptions of each tool:
                     {rendered_tools}
                     Given the user input, return the name of the tool to use and the arguments passed to the tool.
@@ -183,7 +186,7 @@ if __name__ == '__main__':
     with get_openai_callback() as cb:
         # run retrieve agent - Part 2
         chain = create_tool_use_agent(database_tools, database_tool_chain)
-        response = chain.invoke({"input": f"Save ontology information."})
+        response = chain.invoke({"input": "Save ontology information."})
         print("response:", response)
         # calculate cost
         print(f"total tokens: {cb.total_tokens}")
