@@ -5,24 +5,28 @@ import om_ontology_to_csv
 
 
 def generate_results_2022(folder, alignment_name):
-    util.calculate_benchmark_metrics(folder + "/true.csv", folder + "/predict.csv", alignment_name,
-                           "benchmark_2022/conference/conference-result.csv")
+    util.calculate_benchmark_metrics(folder + "/true.csv", folder + "/predict.csv",
+                                     "benchmark_2022/conference/conference-result.csv",
+                                     alignment_name)
 
 
 def generate_results_2023(folder, alignment_name):
-    util.calculate_benchmark_metrics(folder + "/true.csv", folder + "/predict.csv", alignment_name,
-                           "benchmark_2023/conference/conference-result.csv")
+    util.calculate_benchmark_metrics(folder + "/true.csv", folder + "/predict.csv",
+                                     "benchmark_2023/conference/conference-result.csv",
+                                     alignment_name)
 
 
 def generate_results_dbpedia(folder, alignment_name):
-    util.calculate_benchmark_metrics(folder + "/true.csv", folder + "/predict.csv", alignment_name,
-                           "benchmark_2022/conference/dbpedia-result.csv")
+    util.calculate_benchmark_metrics(folder + "/true.csv", folder + "/predict.csv",
+                                     "benchmark_2022/conference/dbpedia-result.csv",
+                                     alignment_name)
 
 
 if __name__ == '__main__':
 
     # 2022 results
-    util.create_document("benchmark_2022/conference/conference-result.csv", header=['Name', 'Precision', 'Recall', 'F1'])
+    util.create_document("benchmark_2022/conference/conference-result.csv",
+                         header=['Name', 'Precision', 'Recall', 'F1'])
     generate_results_2022("alignment/conference/cmt-conference/component", "cmt-conference")
     generate_results_2022("alignment/conference/cmt-confof/component", "cmt-confof")
     generate_results_2022("alignment/conference/cmt-edas/component", "cmt-edas")
@@ -73,7 +77,8 @@ if __name__ == '__main__':
         writer.writerow(result)
 
     # 2023 results
-    util.create_document("benchmark_2023/conference/conference-result.csv", header=['Name', 'Precision', 'Recall', 'F1'])
+    util.create_document("benchmark_2023/conference/conference-result.csv",
+                         header=['Name', 'Precision', 'Recall', 'F1'])
     generate_results_2023("alignment/conference/cmt-conference/component", "cmt-conference")
     generate_results_2023("alignment/conference/cmt-confof/component", "cmt-confof")
     generate_results_2023("alignment/conference/cmt-edas/component", "cmt-edas")

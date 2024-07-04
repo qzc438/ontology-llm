@@ -1,9 +1,10 @@
 Entity1,Entity2
 http://cmt#Conference,http://conference#Conference
 http://cmt#Paper,http://conference#Paper
-http://cmt#PaperAbstract,http://conference#Abstract
 http://cmt#Person,http://conference#Person
 http://cmt#ProgramCommittee,http://conference#Program_committee
-http://cmt#ProgramCommitteeMember,http://conference#Committee_member
 http://cmt#Review,http://conference#Review
 http://cmt#Reviewer,http://conference#Reviewer
+http://cmt#SubjectArea,http://conference#Topic
+http://cmt#hasSubjectArea,http://conference#has_a_track-workshop-tutorial_topic
+http://cmt#title,http://conference#has_a_name

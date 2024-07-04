@@ -201,12 +201,14 @@ def semantic(entity: str) -> str:
     subgraph.serialize(format="turtle", destination="subgraph.ttl")
     # verbalise the subgraph
     if subgraph:
+        # serialize the subgraph once for both saving and using in the prompt
+        serialized_subgraph = subgraph.serialize(format="turtle")
         prompt = PromptTemplate(
             input_variables=["subgraph"],
-            template="Verbalise the following triples into sentences: {subgraph}\n"
+            template="Verbalise triples into phrases using spoken language: {subgraph}"
         )
         chain = prompt | llm
-        response = chain.invoke({'subgraph': subgraph.serialize(format="turtle")})
+        response = chain.invoke({'subgraph': serialized_subgraph})
         answer = response.content
     else:
         answer = null_value_sentence
@@ -271,6 +273,7 @@ def find_entity_information(path, entity_list, source_or_target, entity_type):
     # entity_list = ["http://mouse.owl#MA_0001580"] # test meckel's cartilage
     # entity_list = ["http://human.owl#NCI_C32188"] # test no ":"
     # entity_list = ["http://human.owl#NCI_C12427"] # fix grammar in tool description
+    # entity_list = ["http://www.geneontology.org/formats/oboInOwl#DbXref"]
     with open(path, "a+", newline='') as f1:
         for entity in entity_list:
             # small models sometimes have issues passing the URI argument

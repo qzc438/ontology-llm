@@ -20,6 +20,7 @@ from langchain_community.callbacks import get_openai_callback
 
 import run_config as config
 import om_ontology_to_csv
+import generate_anatomy_mse_benchmark as generate
 import util
 
 
@@ -441,6 +442,15 @@ def merge():
     df_merge.to_csv(predict_path, index=False)
     # evaluation
     print(util.calculate_metrics(true_path, predict_path, result_path, util.find_model_name(llm), alignment + "llm_with_agent"))
+
+    if config.alignment == "anatomy/mouse-human-suite/component/":
+        generate.generate_filtered_csv("alignment/anatomy/mouse-human-suite/component/predict.csv",
+                                       "benchmark_2023/anatomy/trivial.csv",
+                                       "benchmark_2023/anatomy/Agent-OM_filter.csv")
+        print(util.calculate_metrics("benchmark_2023/anatomy/true_filter.csv",
+                                     "benchmark_2023/anatomy/Agent-OM_filter.csv",
+                                     result_path, util.find_model_name(llm),
+                                     alignment + "llm_with_agent_filter"))
 
 
 @tool
