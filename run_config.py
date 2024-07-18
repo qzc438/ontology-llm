@@ -24,23 +24,23 @@ os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 os.environ["MISTRAL_API_KEY"] = os.getenv("MISTRAL_API_KEY")
 os.environ["ANTHROPIC_API_KEY"] = os.getenv("ANTHROPIC_API_KEY")
 
-# # load GPT
+# # load GPT, default timeout = None
 # llm = ChatOpenAI(model_name='gpt-4-turbo-2024-04-09', temperature=0) # expensive
 # llm = ChatOpenAI(model_name='gpt-4o-2024-05-13', temperature=0)
 # llm = ChatOpenAI(model_name='gpt-3.5-turbo-0125', temperature=0)
-# # load Anthropic
+# # load Anthropic, default timeout = None
 # llm = ChatAnthropic(model="claude-3-opus-20240229", temperature=0) # expensive
-llm = ChatAnthropic(model="claude-3-sonnet-20240229", temperature=0)
+# llm = ChatAnthropic(model="claude-3-sonnet-20240229", temperature=0)
 # llm = ChatAnthropic(model="claude-3-haiku-20240307", temperature=0)
-# # load Mistral
-# llm = ChatMistralAI(model="mistral-large-2402", temperature=0) # expensive
-# llm = ChatMistralAI(model="mistral-medium-2312", temperature=0)
+# # load Mistral, default timeout = 120 is too short
+# llm = ChatMistralAI(model="mistral-large-2402", temperature=0, timeout=1200)
+# llm = ChatMistralAI(model="mistral-medium-2312", temperature=0) # will soon be deprecated
 # llm = ChatMistralAI(model="mistral-small-2402", temperature=0)
 # # load Gemini
 # llm = ChatVertexAI(model="gemini-pro", temperature=0) # access limit
 #
 # # load Mistral open-source
-# llm = ChatOllama(model="mistral:7b", temperature=0)
+llm = ChatOllama(model="mistral:7b", temperature=0)
 # # load Llama 3
 # llm = ChatOllama(model="llama3:8b", temperature=0)
 # # load Llama 3 variants
@@ -74,16 +74,16 @@ embeddings_service = OpenAIEmbeddings(model="text-embedding-ada-002")
 # embeddings_service = OpenAIEmbeddings(model="text-embedding-3-large")
 
 # search settings
-similarity_threshold = 0.9
+similarity_threshold = 0.90
 top_k = 3
 num_matches = 50
 
 # alignment settings
 # conference track
-context = "conference"
-o1_is_code = False
-o2_is_code = False
-alignment = "conference/cmt-conference/component/"
+# context = "conference"
+# o1_is_code = False
+# o2_is_code = False
+# alignment = "conference/cmt-conference/component/"
 # alignment = "conference/cmt-confof/component/"
 # alignment = "conference/cmt-edas/component/"
 # alignment = "conference/cmt-ekaw/component/"
@@ -115,10 +115,10 @@ alignment = "conference/cmt-conference/component/"
 # alignment = "conference/dbpedia-sigkdd/component/"
 
 # anatomy track
-# context = "anatomy"
-# o1_is_code = True
-# o2_is_code = True
-# alignment = "anatomy/mouse-human-suite/component/"
+context = "anatomy"
+o1_is_code = True
+o2_is_code = True
+alignment = "anatomy/mouse-human-suite/component/"
 
 # food track
 # context = "food nutritional composition"
@@ -208,8 +208,6 @@ alignEntity2 = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogen
 # load ontology
 o1 = rdflib.Graph().parse(o1_path, format="xml")
 o2 = rdflib.Graph().parse(o2_path, format="xml")
-o1_prefix = "source"
-o2_prefix = "target"
 
 # database connection
 connection_string = 'postgresql://postgres:postgres@127.0.0.1/ontology'

@@ -37,8 +37,6 @@ alignEntity2 = config.alignEntity2
 # load ontology
 o1 = config.o1
 o2 = config.o2
-o1_prefix = config.o1_prefix
-o2_prefix = config.o2_prefix
 
 # load llm
 llm = config.llm
@@ -73,8 +71,6 @@ def find_reference(align_path, true_path):
             e2_uri = align.value(s, alignEntity2, None)
             # e1_name = get_entity_name(e1_uri, o1, o1_is_code)
             # e2_name = get_entity_name(e2_uri, o2, o2_is_code)
-            # e1_prefix_name = util.name_to_prefix_name(e1_name, o1_prefix)
-            # e2_prefix_name = util.name_to_prefix_name(e2_name, o2_prefix)
             list_pair = [e1_uri, e2_uri]
             writer.writerow(list_pair)
     # read old csv
@@ -205,7 +201,7 @@ def semantic(entity: str) -> str:
         serialized_subgraph = subgraph.serialize(format="turtle")
         prompt = PromptTemplate(
             input_variables=["subgraph"],
-            template="Verbalise triples into phrases using spoken language: {subgraph}"
+            template="Verbalise triples into phrases: {subgraph}"
         )
         chain = prompt | llm
         response = chain.invoke({'subgraph': serialized_subgraph})
@@ -257,6 +253,8 @@ def find_all_entities():
 
 
 def find_entity_information(path, entity_list, source_or_target, entity_type):
+    # entity_list = ["http://mouse.owl#MA_0000087"]
+    # entity_list = ["http://cmt#SubjectArea"] # test semantic information
     # entity_list = ["http://cmt#Administrator"] # test semantic information
     # entity_list = ["http://cmt#User"] # test keyword
     # entity_list = ["http://cmt#AssociatedChair"]
@@ -321,8 +319,8 @@ def find_entity_information(path, entity_list, source_or_target, entity_type):
 
 @tool
 def init():
-    """Retrieve ontology information."""
-    util.print_colored_text("Retrieve ontology information:", "blue")
+    """Ontology retrieving."""
+    util.print_colored_text("Ontology retrieving:", "blue")
     # find all entities
     e1_list_class, e2_list_class, e1_list_property, e2_list_property = find_all_entities()
     # create csv
@@ -331,11 +329,11 @@ def init():
     # re-define global variables
     global ontology, ontology_prefix, ontology_is_code
     # find source ontology information
-    ontology, ontology_prefix, ontology_is_code = o1, o1_prefix, o1_is_code
+    ontology, ontology_is_code = o1, o1_is_code
     find_entity_information(csv_path, e1_list_class, "Source", "Class")
     find_entity_information(csv_path, e1_list_property, "Source", "Property")
     # find target ontology information
-    ontology, ontology_prefix, ontology_is_code = o2, o2_prefix, o2_is_code
+    ontology, ontology_is_code = o2, o2_is_code
     find_entity_information(csv_path, e2_list_class, "Target", "Class")
     find_entity_information(csv_path, e2_list_property, "Target", "Property")
     return "Retrieve ontology information successfully."
@@ -427,7 +425,7 @@ if __name__ == '__main__':
         find_reference(align_path, true_path)
         # run retrieve agent - Part 1
         chain = create_tool_use_agent(retrieval_tools, retrieval_tool_chain)
-        response = chain.invoke({"input": "Retrieve ontology information."})
+        response = chain.invoke({"input": "Ontology retrieving."})
         print("response:", response)
         # calculate cost
         print(f"total tokens: {cb.total_tokens}")

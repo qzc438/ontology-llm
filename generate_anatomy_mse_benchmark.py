@@ -129,8 +129,6 @@ if __name__ == '__main__':
     o2_path = "data/anatomy/mouse-human-suite/component/target.xml"
     o1 = rdflib.Graph().parse(o1_path, format="xml")
     o2 = rdflib.Graph().parse(o2_path, format="xml")
-    o1_prefix = "source"
-    o2_prefix = "target"
 
     # 2022 results
     util.create_document("benchmark_2022/anatomy/result.csv", header=['Name', 'Precision', 'Recall', 'F1'])
@@ -332,8 +330,6 @@ if __name__ == '__main__':
     o2_path = "data/mse/MaterialInformationReduced-MatOnto/component/target.xml"
     o1 = rdflib.Graph().parse(o1_path, format="xml")
     o2 = rdflib.Graph().parse(o2_path, format="xml")
-    o1_prefix = "source"
-    o2_prefix = "target"
 
     # 2022 results
     util.create_document("benchmark_2022/mse/firstTestCase/result.csv", header=['Name', 'Precision', 'Recall', 'F1'])
@@ -410,8 +406,6 @@ if __name__ == '__main__':
     o2_path = "data/mse/MaterialInformation-MatOnto/component/target.xml"
     o1 = rdflib.Graph().parse(o1_path, format="xml")
     o2 = rdflib.Graph().parse(o2_path, format="xml")
-    o1_prefix = "source"
-    o2_prefix = "target"
 
     # 2022 results
     util.create_document("benchmark_2022/mse/secondTestCase/result.csv", header=['Name', 'Precision', 'Recall', 'F1'])
@@ -468,8 +462,6 @@ if __name__ == '__main__':
     o2_path = "data/mse/MaterialInformation-EMMO/component/target.xml"
     o1 = rdflib.Graph().parse(o1_path, format="xml")
     o2 = rdflib.Graph().parse(o2_path, format="xml")
-    o1_prefix = "source"
-    o2_prefix = "target"
 
     # 2022 results
     util.create_document("benchmark_2022/mse/thirdTestCase/result.csv", header=['Name', 'Precision', 'Recall', 'F1'])

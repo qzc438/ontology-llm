@@ -1,3 +1,4 @@
+<!-- need fix line 9 and line 21 <map> -->
 <?xml version='1.0' encoding='utf-8'?>
 				<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
 					 xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#' 
@@ -5,7 +6,7 @@
 				<Alignment>
 				<xml>yes</xml>
 				<level>0</level>
-				<type>??</type><map>
+				<type>??</type>
 				
 				<onto1>
 				<Ontology rdf:about="http://conference">
@@ -17,7 +18,7 @@
 				  <location>http://nb.vse.cz/~svabo/oaei2010/confOf.owl</location>
 				</Ontology>
 				</onto2>
-				
+							<map>
 								<Cell cid='1'>
 									<entity1 rdf:resource='http://conference#Conference_participant'/>
 									<entity2 rdf:resource='http://confOf#Participant'/>

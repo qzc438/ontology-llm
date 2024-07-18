@@ -38,8 +38,6 @@ context = config.context
 
 o1 = config.o1
 o2 = config.o2
-o1_prefix = config.o1_prefix
-o2_prefix = config.o2_prefix
 
 # define search variables
 similarity_threshold = config.similarity_threshold
@@ -359,6 +357,8 @@ def init():
     # e1_list = ["http://mouse.owl#MA_0000183"] # tool name using "validate" is not working, have to change word to "refine"
     # e1_list = ["http://mouse.owl#MA_0001742"] # test sensitive word
     # e1_list = ["http://mouse.owl#MA_0000043"]
+    # e1_list = ["http://mouse.owl#MA_0000274"]
+    # e1_list = ["http://mouse.owl#MA_0000862"]
     for entity in e1_list:
         print("entity1:", entity)
         entity_id = find_entity_id(entity, "Source")
@@ -389,6 +389,7 @@ def init():
     # e2_list = ["http://human.owl#NCI_C32727"] # test not a json format
     # e2_list = ["http://human.owl#NCI_C25177"] # test sensitive word
     # e2_list = ["http://human.owl#NCI_C12441"]
+    # e2_list = ["http://human.owl#NCI_C33754"]
     for entity in e2_list:
         print("entity2:", entity)
         entity_id = find_entity_id(entity, "Target")
