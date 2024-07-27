@@ -253,25 +253,7 @@ def find_all_entities():
 
 
 def find_entity_information(path, entity_list, source_or_target, entity_type):
-    # entity_list = ["http://mouse.owl#MA_0000087"]
-    # entity_list = ["http://cmt#SubjectArea"] # test semantic information
-    # entity_list = ["http://cmt#Administrator"] # test semantic information
     # entity_list = ["http://cmt#User"] # test keyword
-    # entity_list = ["http://cmt#AssociatedChair"]
-    # entity_list = ["http://cmt#memberOfProgramCommittee"]
-    # entity_list = ["http://cmt#endReview"]
-    # entity_list = ["http://cmt#Meta-Review"]  # test tool key return
-    # entity_list = ["http://cmt#Meta-Reviewer"] # test extra information
-    # entity_list = ["http://cmt#acceptedBy"] # return the key "tool" instead of "name"
-    # entity_list = ["http://cmt#hardcopyMailingManifestsPrintedBy"]
-    # entity_list = ["http://conference#Organization"] # test null value
-    # entity_list = ["http://conference#Important_dates"]  # test sentence format
-    # entity_list = ["http://www.geneontology.org/formats/oboInOwl#DbXref"]  # test null value
-    # entity_list = ["http://mouse.owl#MA_0000006"] # test head/neck
-    # entity_list = ["http://mouse.owl#MA_0001580"] # test meckel's cartilage
-    # entity_list = ["http://human.owl#NCI_C32188"] # test no ":"
-    # entity_list = ["http://human.owl#NCI_C12427"] # fix grammar in tool description
-    # entity_list = ["http://www.geneontology.org/formats/oboInOwl#DbXref"]
     with open(path, "a+", newline='') as f1:
         for entity in entity_list:
             # small models sometimes have issues passing the URI argument

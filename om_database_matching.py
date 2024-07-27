@@ -125,7 +125,6 @@ def entity_matching(entity, table_name):
               from ontology_matching o, {table_name} m
               where o.entity_id = m.entity_id
               and o.entity_id = (%s);'''
-    # sql = f"select {table_name}, source_or_target, entity_type from ontology_matching where entity = (%s);"
     cursor.execute(sql, (entity,))
     result = cursor.fetchone()
     # print("result", result)
@@ -146,7 +145,7 @@ def entity_matching(entity, table_name):
         create_log(f"entity: {entity}, {source_or_target}, {entity_type}, {similarity_threshold}, {num_matches}")
 
         # find similar entities to the query using cosine similarity search
-        # over all vector embeddings. This new feature is provided by `pgvector`.
+        # this new feature is provided by `pgvector`
         sql = f'''WITH vector_matches AS (
                       SELECT entity_id, 1 - (embedding <=> '{content_embedding}') AS similarity
                       FROM {table_name}
@@ -252,8 +251,6 @@ def reciprocal_rank_fusion_all_with_grouped_scores_exclude_none(*rankings):
         if not isinstance(ranking, (list, tuple)):
             ranking = [ranking]
         for position, item in enumerate(ranking, start=1):
-            # if item == null_value:  # skip NULL values
-            #     continue
             reciprocal_ranks[item] += 1 / position
     # sort by reciprocal rank value, then by item lexicographically for tie-breaking
     fused_ranking_with_scores = sorted(reciprocal_ranks.items(), key=lambda x: (-x[1], x[0]))
@@ -310,12 +307,16 @@ def find_most_relevant_entity(entity, source_or_target):
                         candidates_with_validation_and_merge.append(find_entity(predict_entity))
                         create_log(f"result_without_validate: {predict_entity_name}")
                         continue
-                    # matching validate
+                    # validate matching
                     chain = create_tool_use_agent(matching_tools, matching_tool_chain)
                     global compare_list
                     compare_list = [entity_name_clean, predict_entity_name_clean]
-                    # do not pass arguments here to avoid input sensitive word to llm
-                    validate_prompt = "Matching validate."
+                    # if llm do not allow to pass sensitive word, use this approach
+                    validate_prompt = "Validate matching."
+                    # validate_prompt = f"""a: {entity_name_clean}
+                    #                 b: {predict_entity_name_clean}
+                    #                 Validate matching between a and b
+                    #                 """
                     validate_result = chain.invoke({"input": validate_prompt})
                     if extract_yes_no(validate_result) == "yes":
                         candidates_with_validation_and_merge.append(find_entity(predict_entity))
@@ -343,22 +344,7 @@ def init():
     # find matching from source ontology
     util.create_document(predict_source_path_no_validation, header=['Entity1', 'Entity2'])
     util.create_document(predict_source_path, header=['Entity1', 'Entity2'])
-    # e1_list = ["http://cmt#printHardcopyMailingManifests"]
-    # e1_list = ["http://cmt#Bid"] # test all null value
-    # e1_list = ["http://cmt#Meta-Reviewer"] # test matching validate
-    # e1_list = ["http://mouse.owl#MA_0000096"] # test one null value
-    # e1_list = ["http://mouse.owl#MA_0001017"] # test all null value
-    # e1_list = ["http://mouse.owl#MA_0000241"] # test use end symbol "."
-    # e1_list = ["http://mouse.owl#MA_0000052"] # Test use symbol "" or '' for name
-    # e1_list = ["http://mouse.owl#MA_0000013"] # test hemolymphoid system and Hematopoietic_and_Lymphatic_System
-    # e1_list = ["http://mouse.owl#MA_0000006"] # test head/neck and Head_and_Neck, phi cannot find correct input
-    # e1_list = ["http://mouse.owl#MA_0000541"] # test perform ontology matching failed
-    # e1_list = ["http://mouse.owl#MA_0001702"] # sentence using "refine" not working for sensitive words, have to change word to "validate"
-    # e1_list = ["http://mouse.owl#MA_0000183"] # tool name using "validate" is not working, have to change word to "refine"
     # e1_list = ["http://mouse.owl#MA_0001742"] # test sensitive word
-    # e1_list = ["http://mouse.owl#MA_0000043"]
-    # e1_list = ["http://mouse.owl#MA_0000274"]
-    # e1_list = ["http://mouse.owl#MA_0000862"]
     for entity in e1_list:
         print("entity1:", entity)
         entity_id = find_entity_id(entity, "Source")
@@ -384,12 +370,7 @@ def init():
     # find matching from target ontology
     util.create_document(predict_target_path_no_validation, header=['Entity2', 'Entity1'])
     util.create_document(predict_target_path, header=['Entity2', 'Entity1'])
-    # e2_list = ["http://conference#Contribution_co-author"]
-    # e2_list = ["http://conference#Conference"]  # test matching validator
-    # e2_list = ["http://human.owl#NCI_C32727"] # test not a json format
     # e2_list = ["http://human.owl#NCI_C25177"] # test sensitive word
-    # e2_list = ["http://human.owl#NCI_C12441"]
-    # e2_list = ["http://human.owl#NCI_C33754"]
     for entity in e2_list:
         print("entity2:", entity)
         entity_id = find_entity_id(entity, "Target")
@@ -412,9 +393,9 @@ def init():
     print(util.calculate_metrics(true_path, predict_target_path_no_validation, result_path, util.find_model_name(llm), alignment + "target_no_validation"))
     print(util.calculate_metrics(true_path, predict_target_path, result_path, util.find_model_name(llm), alignment + "target"))
 
-    # matching merge
+    # merge matching
     chain = create_tool_use_agent(matching_tools, matching_tool_chain)
-    chain.invoke({"input": "Matching merge."})
+    chain.invoke({"input": "Merge matching."})
 
     print("Ontology matching successfully completed.")
 
@@ -422,8 +403,8 @@ def init():
 # start ontology refine tools
 @tool
 def merge():
-    """Matching merge."""
-    util.print_colored_text("Matching merge:", "cyan")
+    """Merge matching."""
+    util.print_colored_text("Merge matching:", "cyan")
     # tool function
     # matching merge without validation
     df_source_no_validation = pd.read_csv(predict_source_path_no_validation)
@@ -443,7 +424,7 @@ def merge():
     df_merge.to_csv(predict_path, index=False)
     # evaluation
     print(util.calculate_metrics(true_path, predict_path, result_path, util.find_model_name(llm), alignment + "llm_with_agent"))
-
+    # find non-trivial alignment in the anatomy track
     if config.alignment == "anatomy/mouse-human-suite/component/":
         generate.generate_filtered_csv("alignment/anatomy/mouse-human-suite/component/predict.csv",
                                        "benchmark_2023/anatomy/trivial.csv",
@@ -454,13 +435,14 @@ def merge():
                                      alignment + "llm_with_agent_filter"))
 
 
+# if llm do not allow to pass sensitive word, use this approach
 @tool
 def validate():
-    """Matching validate."""
+    """Validate matching."""
     global compare_list
     a = compare_list[0]
     b = compare_list[1]
-    util.print_colored_text(f"Matching validate: {a} and {b}", "cyan")
+    util.print_colored_text(f"Validate matching: {a} and {b}", "cyan")
     # tool function, do not use "" because the name will change to "Head_and_Neck."
     prompt_validate_question = f"""Question: Is {a} equivalent to {b}?
                             Context: {context}
@@ -471,6 +453,22 @@ def validate():
     print("result_validate:", result_validate.content)
     create_log(f"result_with_validate: {result_validate.content}")
     return result_validate.content
+
+
+# @tool
+# def validate(a: str, b: str) -> str:
+#     """Validate matching."""
+#     util.print_colored_text(f"Validate matching: {a} and {b}", "cyan")
+#     # tool function, do not use "" because the name will change to "Head_and_Neck."
+#     prompt_validate_question = f"""Question: Is {a} equivalent to {b}?
+#                             Context: {context}
+#                             Answer the question within the context.
+#                             Answer yes or no. Give a short explanation.
+#                             """
+#     result_validate = llm.invoke(prompt_validate_question)
+#     print("result_validate:", result_validate.content)
+#     create_log(f"result_with_validate: {result_validate.content}")
+#     return result_validate.content
 
 
 matching_tools = [syntactic, lexical, semantic, init, validate, merge]

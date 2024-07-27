@@ -18,8 +18,6 @@ o2_is_code = config.o2_is_code
 
 o1 = config.o1
 o2 = config.o2
-o1_prefix = config.o1_prefix
-o2_prefix = config.o2_prefix
 
 true_path = config.true_path
 llm_zero_shot_path = config.llm_zero_shot_path

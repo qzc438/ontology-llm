@@ -18,8 +18,6 @@ o2_is_code = config.o2_is_code
 
 o1 = config.o1
 o2 = config.o2
-o1_prefix = config.o1_prefix
-o2_prefix = config.o2_prefix
 
 true_path = config.true_path
 llm_few_shot_path = config.llm_few_shot_path
@@ -49,7 +47,6 @@ if __name__ == '__main__':
         for e1 in e1_list:
             # define metadata
             om_ontology_to_csv.ontology = om_ontology_to_csv.o1
-            om_ontology_to_csv.ontology_prefix = om_ontology_to_csv.o1_prefix
             om_ontology_to_csv.ontology_is_code = om_ontology_to_csv.o1_is_code
             # find information
             e1_syntactic = om_ontology_to_csv.syntactic(e1)
@@ -59,7 +56,6 @@ if __name__ == '__main__':
             for e2 in e2_list:
                 # define metadata
                 om_ontology_to_csv.ontology = om_ontology_to_csv.o2
-                om_ontology_to_csv.ontology_prefix = om_ontology_to_csv.o2_prefix
                 om_ontology_to_csv.ontology_is_code = om_ontology_to_csv.o2_is_code
                 # find information
                 e2_syntactic = om_ontology_to_csv.syntactic(e2)

@@ -3,19 +3,16 @@ http://confOf#Author,http://edas#Author
 http://confOf#Conference,http://edas#Conference
 http://confOf#Country,http://edas#Country
 http://confOf#Event,http://edas#ConferenceEvent
-http://confOf#Member,http://edas#Person
 http://confOf#Member_PC,http://edas#TPCMember
 http://confOf#Organization,http://edas#Organization
 http://confOf#Paper,http://edas#Paper
 http://confOf#Participant,http://edas#Person
 http://confOf#Person,http://edas#Person
 http://confOf#Reception,http://edas#Reception
-http://confOf#Short_paper,http://edas#Paper
 http://confOf#Social_event,http://edas#SocialEvent
 http://confOf#Topic,http://edas#Topic
-http://confOf#Working_event,http://edas#ConferenceEvent
+http://confOf#University,http://edas#AcademiaOrganization
 http://confOf#Workshop,http://edas#Workshop
-http://confOf#contactEmail,http://edas#hasEmail
 http://confOf#ends_on,http://edas#endDate
 http://confOf#hasCity,http://edas#hasCity
 http://confOf#hasCountry,http://edas#hasCountry
@@ -26,5 +23,4 @@ http://confOf#hasPostalCode,http://edas#hasPostalCode
 http://confOf#hasStreet,http://edas#hasStreet
 http://confOf#hasSurname,http://edas#hasLastName
 http://confOf#hasTopic,http://edas#hasTopic
-http://confOf#location,http://edas#hasLocation
-http://confOf#writtenBy,http://edas#isWrittenBy
+http://confOf#starts_on,http://edas#hasStartDateTime
