@@ -107,7 +107,7 @@ MISTRAL_API_KEY = <YOUR_MISTRAL_API_KEY>
 ```
 .env
 ```
-- Load API keys into the file `run\_config.py`:
+- Load API keys into the file `run_config.py`:
 ```
 import os
 import dotenv
@@ -117,7 +117,7 @@ os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 os.environ["ANTHROPIC_API_KEY"] = os.getenv("ANTHROPIC_API_KEY")
 os.environ["MISTRAL_API_KEY"] = os.getenv("MISTRAL_API_KEY")
 ```
-- Select one LLM in the file `run\_config.py`:
+- Select one LLM in the file `run_config.py`:
 ```
 from langchain_openai import ChatOpenAI
 from langchain_anthropic import ChatAnthropic
@@ -148,7 +148,6 @@ llm = ChatOllama(model="mistral:7b", temperature=0)
 
 # load Llama models: https://ollama.com/library/llama3
 llm = ChatOllama(model="llama3:8b", temperature=0)
-llm = ChatOllama(model="llama3:text", temperature=0)
 llm = ChatOllama(model="llama3:instruct", temperature=0)
 
 # load Gemma models: https://ollama.com/library/gemma2
@@ -246,7 +245,7 @@ step = -0.05
 
 ## Ethical Considerations:
 - Agent-OM does not participate in the OAEI 2022 and 2023 campaigns.
-- According to the OAEI data policy (date accessed: 2024-06-30), "OAEI results and datasets, are publicly available, but subject to a use policy similar to [the one defined by NIST for TREC](https://oaei.ontologymatching.org/doc/oaei-deontology.2.html). These rules apply to anyone using these data." Please find more details from the official website: https://oaei.ontologymatching.org/doc/oaei-deontology.2.html
+- According to the OAEI data policy (date accessed: 2024-06-30), "OAEI results and datasets, are publicly available, but subject to a use policy similar to [the one defined by NIST for TREC](https://trec.nist.gov/results.html). These rules apply to anyone using these data." Please find more details from the official website: https://oaei.ontologymatching.org/doc/oaei-deontology.2.html
 - In this paper, AI-generated content (AIGC) is labelled as "AI-generated content". AIGC can contain harmful, unethical, prejudiced, or negative content (https://docs.mistral.ai/capabilities/guardrailing/). However, ontology matching tasks only check the meaning of domain-specific terminologies, and we have not observed such content being generated.
 
 ## Code Acknowledgements:
