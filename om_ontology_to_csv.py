@@ -301,8 +301,8 @@ def find_entity_information(path, entity_list, source_or_target, entity_type):
 
 @tool
 def init():
-    """Ontology retrieving."""
-    util.print_colored_text("Ontology retrieving:", "blue")
+    """Ontology retrieval."""
+    util.print_colored_text("Ontology Retrieval:", "blue")
     # find all entities
     e1_list_class, e2_list_class, e1_list_property, e2_list_property = find_all_entities()
     # create csv
@@ -407,7 +407,7 @@ if __name__ == '__main__':
         find_reference(align_path, true_path)
         # run retrieve agent - Part 1
         chain = create_tool_use_agent(retrieval_tools, retrieval_tool_chain)
-        response = chain.invoke({"input": "Ontology retrieving."})
+        response = chain.invoke({"input": "Ontology retrieval."})
         print("response:", response)
         # calculate cost
         print(f"total tokens: {cb.total_tokens}")

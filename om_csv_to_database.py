@@ -42,6 +42,10 @@ df.replace(null_value_sentence, "", inplace=True)
 # print(df.head(5))
 # print(df.tail(5))
 
+# embedding settings
+embeddings_service = config.embeddings_service
+vector_length = config.vector_length
+
 # calculate cost
 cost_path = config.cost_path
 alignment = config.alignment
@@ -105,7 +109,7 @@ async def create_embedding_table(table_name):
     batch_size = 5
     for i in range(0, len(chunked), batch_size):
         request = [x["content"] for x in chunked[i: i + batch_size]]
-        response = retry_with_backoff(config.embeddings_service.embed_documents, request)
+        response = retry_with_backoff(embeddings_service.embed_documents, request)
         # store the retrieved vector embeddings for each chunk back
         for x, e in zip(chunked[i: i + batch_size], response):
             x["embedding"] = e
@@ -121,7 +125,7 @@ async def create_embedding_table(table_name):
     await conn.execute(f"DROP TABLE IF EXISTS {table_name};")
     # create the embedding table to store vector embeddings
     sql = f'''CREATE TABLE {table_name}
-    (entity_id VARCHAR(1024) NOT NULL REFERENCES ontology_matching(entity_id), content TEXT, embedding vector(1536));'''
+    (entity_id VARCHAR(1024) NOT NULL REFERENCES ontology_matching(entity_id), content TEXT, embedding vector({vector_length}));'''
     await conn.execute(sql)
     # store all the generated embeddings back into the database
     for index, row in matching_embeddings.iterrows():
