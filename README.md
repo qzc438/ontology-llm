@@ -273,6 +273,7 @@ step = -0.05
 ## Licence:
 
 <!-- Which licence is best for your work? Check with the CC License chooser: https://chooser-beta.creativecommons.org/ -->
+<!-- https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode.txt -->
 
 Shield: [![CC BY-NC-ND 4.0][cc-by-nc-nd-shield]][cc-by-nc-nd]
 
