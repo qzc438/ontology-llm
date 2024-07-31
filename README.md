@@ -44,7 +44,7 @@ pip install asyncpg==0.28.0
 pip install psycopg2_binary==2.9.9
 pip install pgvector==0.1.8
 pip install commentjson==0.9.0
-pip install transformers
+pip install transformers==4.41.1
 pip install colorama==0.4.6
 ```
 - Install visualisation packages:
@@ -193,6 +193,7 @@ python run_config.py
 - The result of the experiment will be stored in the folder `alignment`.
 - The performance evaluation of the experiment will be stored in the file `result.csv`.
 - The cost evaluation of the experiment will be stored in the file `cost.csv`.
+- The matching log of the experiment will be stored in the file `agent.log`.
 
 ## Repository Structure:
 
@@ -245,7 +246,7 @@ step = -0.05
 - `draw_benchmark.ipynb`: visualise the results of the evaluation.
 - `draw_ablation_study.ipynb`: visualise the results of the ablation study.
 - `result_csv`: store the original data of the results.
-- `result_fig`: store the visualisation of the results.
+- `result_figure`: store the visualisation of the results.
 - Our new visualisation is inspired by the following references:
   - https://joernhees.de/blog/2010/07/22/precision-recall-diagrams-including-fmeasure/
   - https://towardsai.net/p/l/precision-recall-curve

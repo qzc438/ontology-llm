@@ -1,5 +1,5 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-"writtenBy" rdfs:domain "Contribution" ;
-    rdfs:range "Author" .
+"read by reviewer" rdfs:domain "paper" ;
+    rdfs:range "reviewer" .
 

@@ -16,7 +16,9 @@ if __name__ == '__main__':
                 # open the file and replace the text
                 with fileinput.FileInput(file_path, inplace=True, backup='.bak') as file:
                     for line in file:
-                        print(line.replace(old_statement, new_statement), end='')
+                        # replace only the exact old_statement
+                        updated_line = line.replace(old_statement, new_statement) if old_statement in line and new_statement not in line else line
+                        print(updated_line, end='')
                 print(f"Updated file: {file_path}")
     # print completion
     print("All files have been updated.")

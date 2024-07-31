@@ -128,19 +128,19 @@ if __name__ == '__main__':
         result = ["Agent-OM"] + result
         writer.writerow(result)
 
-    # 2022 dbpedia results
-    om_ontology_to_csv.find_reference("data/conference/dbpedia-confof/component/reference.xml",
-                                      "alignment/conference/dbpedia-confof/component/true.csv")
-    om_ontology_to_csv.find_reference("data/conference/dbpedia-ekaw/component/reference.xml",
-                                      "alignment/conference/dbpedia-ekaw/component/true.csv")
-    om_ontology_to_csv.find_reference("data/conference/dbpedia-sigkdd/component/reference.xml",
-                                      "alignment/conference/dbpedia-sigkdd/component/true.csv")
-    util.create_document("benchmark_2022/conference/dbpedia-result.csv", header=['Name', 'Precision', 'Recall', 'F1'])
-    generate_results_dbpedia("alignment/conference/dbpedia-confof/component", "dbpedia-confof")
-    generate_results_dbpedia("alignment/conference/dbpedia-ekaw/component", "dbpedia-ekaw")
-    generate_results_dbpedia("alignment/conference/dbpedia-sigkdd/component", "dbpedia-sigkdd")
-    df = pd.read_csv('benchmark_2022/conference/dbpedia-result.csv')
-    average_precision = df['Precision'].mean()
-    average_recall = df['Recall'].mean()
-    average_f1 = df['F1'].mean()
-    print(f"{average_precision:.2f}", f"{average_recall:.2f}", f"{average_f1:.2f}")
+    # # cannot find benchmarks for 2022 and 2023 dbpedia results
+    # om_ontology_to_csv.find_reference("data/conference/dbpedia-confof/component/reference.xml",
+    #                                   "alignment/conference/dbpedia-confof/component/true.csv")
+    # om_ontology_to_csv.find_reference("data/conference/dbpedia-ekaw/component/reference.xml",
+    #                                   "alignment/conference/dbpedia-ekaw/component/true.csv")
+    # om_ontology_to_csv.find_reference("data/conference/dbpedia-sigkdd/component/reference.xml",
+    #                                   "alignment/conference/dbpedia-sigkdd/component/true.csv")
+    # util.create_document("benchmark_2022/conference/dbpedia-result.csv", header=['Name', 'Precision', 'Recall', 'F1'])
+    # generate_results_dbpedia("alignment/conference/dbpedia-confof/component", "dbpedia-confof")
+    # generate_results_dbpedia("alignment/conference/dbpedia-ekaw/component", "dbpedia-ekaw")
+    # generate_results_dbpedia("alignment/conference/dbpedia-sigkdd/component", "dbpedia-sigkdd")
+    # df = pd.read_csv('benchmark_2022/conference/dbpedia-result.csv')
+    # average_precision = df['Precision'].mean()
+    # average_recall = df['Recall'].mean()
+    # average_f1 = df['F1'].mean()
+    # print(f"{average_precision:.2f}", f"{average_recall:.2f}", f"{average_f1:.2f}")
