@@ -49,9 +49,8 @@ if __name__ == '__main__':
             for e2 in e2_list:
                 e2_name = om_ontology_to_csv.get_entity_name(e2, o2, o2_is_code)
                 e2_name_clean = util.cleaning(e2_name)
-                prompt_validate_question = f"""Question: Is {e1_name_clean} equivalent to {e2_name_clean}?
-                                        Context: {context}
-                                        Answer the question within the context.
+                prompt_validate_question = f"""Entity1: {e1_name_clean} Entity2: {e2_name_clean}
+                                        Question: Is Entity1 equivalent to Entity2?
                                         Answer yes or no. Give a short explanation.
                                         """
                 response = llm.invoke(prompt_validate_question)

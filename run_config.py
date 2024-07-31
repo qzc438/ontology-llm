@@ -7,7 +7,6 @@ import dotenv
 from langchain_openai import ChatOpenAI
 from langchain_anthropic import ChatAnthropic
 from langchain_mistralai import ChatMistralAI
-from langchain_google_vertexai import ChatVertexAI
 from langchain_community.chat_models import ChatOllama
 
 from langchain_openai import OpenAIEmbeddings
@@ -17,7 +16,6 @@ import util
 # customer settings
 
 # select llm
-
 # load api key
 dotenv.load_dotenv()
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
@@ -37,45 +35,20 @@ llm = ChatOpenAI(model_name='gpt-4o-2024-05-13', temperature=0)
 # llm = ChatMistralAI(model="mistral-large-2402", temperature=0, timeout=1200)
 # llm = ChatMistralAI(model="mistral-medium-2312", temperature=0) # will soon be deprecated
 # llm = ChatMistralAI(model="mistral-small-2402", temperature=0)
-# # load Gemini
-# llm = ChatVertexAI(model="gemini-pro", temperature=0) # access limit
-#
 # # load Mistral open-source
 # llm = ChatOllama(model="mistral:7b", temperature=0)
 # # load Llama 3
 # llm = ChatOllama(model="llama3:8b", temperature=0)
-# # load Llama 3 variants
-# llm = ChatOllama(model="llama3:instruct", temperature=0)
+# llm = ChatOllama(model="llama3.1:8b", temperature=0)
 # # load Gemma
 # llm = ChatOllama(model="gemma:7b", temperature=0)
 # llm = ChatOllama(model="gemma2:9b", temperature=0)
 # # load Qwen
 # llm = ChatOllama(model="qwen2:7b", temperature=0)
 
-
-# the following models are currently not working
-# # too slow
-# llm = ChatOllama(model="llama3:70b", temperature=0)
-# # pass argument value error: entity = str
-# llm = ChatOllama(model="gemma:2b", temperature=0)
-# # pass argument value error: entity = "John"
-# llm = ChatOllama(model="llama2:7b", temperature=0)
-# json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-# llm = ChatOllama(model="llama3:text", temperature=0)
-# json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 2 column 5 (char 6)
-# llm = ChatOllama(model="aya:8b", temperature=0) # multilingual models
-# input only find "http://mouse.owl#MA_"
-# llm = ChatOllama(model="stablelm2:12b", temperature=0) # multilingual models
-# llm = ChatOllama(model="phi3:3.8b", temperature=0)
-# No additional arguments are required for the 'validate' tool as it is used to check the consistency and correctness of the existing matches.
-# llm = ChatOllama(model="wizardlm2:7b", temperature=0)
-# "entity": "http://mouse.owl#MA\_0000010"
-# llm = ChatOllama(model="mixtral:8x7b", temperature=0) # MoE model
-
-
 # embedding settings
-# embeddings_service = OpenAIEmbeddings(model="text-embedding-ada-002")
-embeddings_service = OpenAIEmbeddings(model="text-embedding-3-small")
+embeddings_service = OpenAIEmbeddings(model="text-embedding-ada-002")
+# embeddings_service = OpenAIEmbeddings(model="text-embedding-3-small")
 vector_length = 1536
 # embeddings_service = OpenAIEmbeddings(model="text-embedding-3-large")
 # vector_length = 3072
@@ -87,16 +60,16 @@ num_matches = 50
 
 # alignment settings
 # conference track
-# context = "conference"
-# o1_is_code = False
-# o2_is_code = False
+context = "conference"
+o1_is_code = False
+o2_is_code = False
 # alignment = "conference/cmt-conference/component/"
 # alignment = "conference/cmt-confof/component/"
 # alignment = "conference/cmt-edas/component/"
 # alignment = "conference/cmt-ekaw/component/"
 # alignment = "conference/cmt-iasted/component/"
 # alignment = "conference/cmt-sigkdd/component/"
-# alignment = "conference/conference-confof/component/"
+alignment = "conference/conference-confof/component/"
 # alignment = "conference/conference-edas/component/"
 # alignment = "conference/conference-ekaw/component/"
 # alignment = "conference/conference-iasted/component/"
@@ -122,10 +95,10 @@ num_matches = 50
 # alignment = "conference/dbpedia-sigkdd/component/"
 
 # anatomy track
-context = "anatomy"
-o1_is_code = True
-o2_is_code = True
-alignment = "anatomy/mouse-human-suite/component/"
+# context = "anatomy"
+# o1_is_code = True
+# o2_is_code = True
+# alignment = "anatomy/mouse-human-suite/component/"
 
 # metadata
 # e1_list_class: 2744
@@ -223,6 +196,7 @@ null_value_matching = "Entity-Dummy"
 # null_value = "Not Available"
 # null_value = "Missing"
 
+# calculate tokens
 total_token_usage = 0
 
 

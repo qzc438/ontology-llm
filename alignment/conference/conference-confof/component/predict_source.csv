@@ -1,7 +1,8 @@
 Entity1,Entity2
+http://conference#Committee_member,http://confOf#Person
 http://conference#Conference,http://confOf#Conference
 http://conference#Conference_applicant,http://confOf#Person
-http://conference#Conference_contributor,http://confOf#Person
+http://conference#Conference_contribution,http://confOf#Contribution
 http://conference#Conference_part,http://confOf#Working_event
 http://conference#Conference_participant,http://confOf#Participant
 http://conference#Conference_www,http://confOf#Working_event
@@ -15,4 +16,3 @@ http://conference#Workshop,http://confOf#Workshop
 http://conference#has_an_abstract,http://confOf#abstract
 http://conference#has_the_last_name,http://confOf#hasSurname
 http://conference#is_a_starting_date,http://confOf#starts_on
-http://conference#is_an_ending_date,http://confOf#ends_on

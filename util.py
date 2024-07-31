@@ -218,6 +218,7 @@ def calculate_cost(total_tokens, total_cost, cost_path, llm, alignment):
         writer.writerow(result)
     return [total_tokens, total_cost]
 
+
 # not accurate, do not use
 # total_token_usage = 0
 # def add_tokens(response):

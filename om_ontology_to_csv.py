@@ -418,7 +418,7 @@ if __name__ == '__main__':
         print(util.calculate_cost(cb.total_tokens, cb.total_cost, cost_path, util.find_model_name(llm), alignment + "llm_with_retrieve_agent_1"))
 
     # # agent only support API-accessed models
-    # # agent_executor.invoke({"input": "Find ontology information."})
-    # # Multi linguistic, Chinese/French
-    # # chain.invoke({"input": f"获取本体信息."})
-    # # chain.invoke({"input": f"Récupérer des informations sur l'ontologie."})
+    # agent_executor.invoke({"input": "Find ontology information."})
+    # # multilinguistic, Chinese/French
+    # chain.invoke({"input": f"获取本体信息."})
+    # chain.invoke({"input": f"Récupérer des informations sur l'ontologie."})

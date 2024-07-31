@@ -62,7 +62,7 @@ if __name__ == '__main__':
                 e2_lexical = om_ontology_to_csv.lexical(e2)
                 e2_semantic = om_ontology_to_csv.semantic(e2)
                 prompt_validate_question = f"""
-                Is Entity1 equivalent to Entity2? Consider the following:
+                Question: Is Entity1 equivalent to Entity2? Consider the following:
                 The syntactic information of Entity1: {e1_syntactic}
                 The lexical information of Entity1: {e1_lexical}
                 The semantic information of Entity1: {e1_semantic}

@@ -143,18 +143,28 @@ llm = ChatAnthropic(model="claude-3-haiku-20240307", temperature=0)
 llm = ChatMistralAI(model="mistral-large-2402", temperature=0, timeout=600) # expensive
 llm = ChatMistralAI(model="mistral-medium-2312", temperature=0, timeout=600) # will soon be deprecated
 llm = ChatMistralAI(model="mistral-small-2402", temperature=0, timeout=600)
+
 # load Mistral open-source models: https://ollama.com/library/mistral
 llm = ChatOllama(model="mistral:7b", temperature=0)
 
 # load Llama models: https://ollama.com/library/llama3
 llm = ChatOllama(model="llama3:8b", temperature=0)
-llm = ChatOllama(model="llama3:instruct", temperature=0)
 
 # load Gemma models: https://ollama.com/library/gemma2
 llm = ChatOllama(model="gemma2:9b", temperature=0)
 
 # load Qwen models: https://ollama.com/library/qwen2
 llm = ChatOllama(model="qwen2:7b", temperature=0)
+```
+-  Select one embeddings service in the file `run_config.py`:
+```
+# https://platform.openai.com/docs/guides/embeddings/embedding-models
+embeddings_service = OpenAIEmbeddings(model="text-embedding-ada-002")
+vector_length = 1536
+embeddings_service = OpenAIEmbeddings(model="text-embedding-3-small")
+vector_length = 1536
+embeddings_service = OpenAIEmbeddings(model="text-embedding-3-large")
+vector_length = 3072
 ```
 
 ### 6. Setup Matching Task:
@@ -263,13 +273,13 @@ step = -0.05
 
 <!-- Which licence is best for your work? Check with the CC License chooser: https://chooser-beta.creativecommons.org/ -->
 
-Shield: [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
+Shield: [![CC BY-NC-ND 4.0][cc-by-nc-nd-shield]][cc-by-nc-nd]
 
 This work is licensed under a
-[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa].
+[Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International License][cc-by-nc-nd].
 
-[![CC BY-NC-SA 4.0][cc-by-nc-sa-image]][cc-by-nc-sa]
+[![CC BY-NC-ND 4.0][cc-by-nc-nd-image]][cc-by-nc-nd]
 
-[cc-by-nc-sa]: http://creativecommons.org/licenses/by-nc-sa/4.0/
-[cc-by-nc-sa-image]: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png
-[cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg
+[cc-by-nc-nd]: http://creativecommons.org/licenses/by-nc-nd/4.0/
+[cc-by-nc-nd-image]: https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png
+[cc-by-nc-nd-shield]: https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg
