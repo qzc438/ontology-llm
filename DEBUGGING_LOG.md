@@ -2,7 +2,7 @@
 - Release initial source code [2023-09-19]
 
 #### How to fix PyTorch "torch.cuda.is_available() = false"?
-```cmd
+```
 sudo apt-get purge nvidia-*
 sudo apt-get update
 sudo apt-get autoremove
@@ -10,7 +10,7 @@ sudo apt --fix-broken install
 ```
 
 #### How to deal with pdAdmin "Your account is locked. Please contact admin"?
-```cmd
+```
 sudo su
 apt-get install sqlite3
 sqlite3 pgadmin4.db "UPDATE USER SET LOCKED = false, LOGIN_ATTEMPTS = 0 WHERE USERNAME = 'user.name@domain.com';" ".exit"
