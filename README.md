@@ -1,6 +1,6 @@
 ## Agent-OM: Leveraging LLM Agents for Ontology Matching
 - The preprint of the paper is currently available at arXiv: https://arxiv.org/abs/2312.00326
-- This repository contains a production version of the source code linked to the paper submitted to PVLDB 2025. 
+- This repository contains a production version of the source code linked to the paper submitted to PVLDB 2025.
 - The development version of the source code is stored at: https://github.com/qzc438/ontology-llm (access will be made available on request)
 
 ## Important Notice:
@@ -266,7 +266,7 @@ step = -0.05
 ## Author Acknowledgements:
 - The authors would like to thank Sven Hertling for curating the datasets stored in the Matching EvaLuation Toolkit (MELT) for the Ontology Alignment Evaluation Initiative (OAEI) 2022 and 2023.
 - The authors would like to thank the organisers of Ontology Alignment Evaluation Initiative (OAEI) 2022 and 2023 Conference Track (Ondřej Zamazal and Lu Zhou), Anatomy Track (Mina Abd Nikooie Pour, Huanyu Li, Ying Li, and Patrick Lambrix), and MSE Track (Engy Nasr and Martin Huschka), for helpful advice on reproducing the benchmarks used in this paper.
-- The authors would like to thank Jing Jiang from the Australian National University (ANU) for helpful advice on the semantic verbaliser used in this paper. 
+- The authors would like to thank Jing Jiang from the Australian National University (ANU) for helpful advice on the semantic verbaliser used in this paper.
 - The authors would like to thank Alice Richardson of the Statistical Support Network, Australian National University (ANU), for helpful advice on the statistical analysis in this paper.
 - The authors would like to thank the Commonwealth Scientific and Industrial Research Organisation (CSIRO) for supporting this project.
 
