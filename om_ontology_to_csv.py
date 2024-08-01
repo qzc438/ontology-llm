@@ -325,7 +325,7 @@ def retrieval_tool_chain(model_output):
     return itemgetter("arguments") | chosen_tool
 
 
-# # The follow code onlt only work for llm support tool calling
+# # The follow code only work for llm support tool calling
 # always_call_tool_llm = llm.bind_tools(tools, tool_choice="any")
 # tool_map = {tool.name: tool for tool in tools}
 #
