@@ -69,7 +69,7 @@ pip install ipyparallel
   ```
   pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
   ```
-- Ollama models: https://ollama.com/library 
+- Ollama models: https://ollama.com/library
   - Add a model:
   ```
   ollama pull <MODEL_NAME>
@@ -186,7 +186,7 @@ num_matches = 50
 ```
 
 ### 7. Run Experiment:
-- Run the script: 
+- Run the script:
 ```
 python run_config.py
 ```
