@@ -323,7 +323,7 @@ if __name__ == '__main__':
                                      "benchmark_2023/anatomy/Agent-OM_filter.csv",
                                      "benchmark_2023/anatomy/result_filter.csv", "Agent-OM")
 
-    # mse, Matcha need to remove # after alignment
+    # mse
 
     # mse track first case
     o1_path = "data/mse/MaterialInformationReduced-MatOnto/component/source.xml"
@@ -337,7 +337,6 @@ if __name__ == '__main__':
     find_alignment_all("data/mse/MaterialInformationReduced-MatOnto/component/reference.xml",
                        "benchmark_2022/mse/firstTestCase/true.csv")
 
-    # ALion has a false subsumption matching: source:ConcentrationOfSolvent and target:Concentration, need to remove manually
     find_alignment_all("benchmark_2022/mse/firstTestCase/ALion.rdf", "benchmark_2022/mse/firstTestCase/ALion.csv")
     util.calculate_benchmark_metrics("benchmark_2022/mse/firstTestCase/true.csv",
                                      "benchmark_2022/mse/firstTestCase/ALion.csv",
@@ -359,7 +358,7 @@ if __name__ == '__main__':
     util.calculate_benchmark_metrics("benchmark_2022/mse/firstTestCase/true.csv",
                                      "benchmark_2022/mse/firstTestCase/Matcha.csv",
                                      "benchmark_2022/mse/firstTestCase/result.csv", "Matcha")
-    # Agent-OM has a false subsumption matching:  source:Current and target:ElectricCurrent, source:HoldingTime and target:Time, source:ManufacturingProcess and target:Process
+
     util.calculate_benchmark_metrics("benchmark_2022/mse/firstTestCase/true.csv",
                                      "alignment/mse/MaterialInformationReduced-MatOnto/component/predict.csv",
                                      "benchmark_2022/mse/firstTestCase/result.csv", "Agent-OM")
@@ -392,7 +391,7 @@ if __name__ == '__main__':
     # df2 = pd.read_csv("benchmark_2023/mse/firstTestCase/true.csv")
     # merged_df = pd.merge(df1, df2, on=['Entity1', 'Entity2'])
     # print("Matcha-2023", merged_df)
-    # Agent-OM has 3 false subsumption matching:  source:Current and target:ElectricCurrent, source:HoldingTime and target:Time, source:ManufacturingProcess and target:Process
+
     util.calculate_benchmark_metrics("benchmark_2023/mse/firstTestCase/true.csv",
                                      "alignment/mse/MaterialInformationReduced-MatOnto/component/predict.csv",
                                      "benchmark_2023/mse/firstTestCase/result.csv", "Agent-OM")
