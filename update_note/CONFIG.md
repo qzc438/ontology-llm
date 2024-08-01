@@ -1,4 +1,4 @@
-### New LLMs:
+### Test New LLMs:
 ```
 # too slow
 # llm = ChatOllama(model="llama3:70b", temperature=0)
