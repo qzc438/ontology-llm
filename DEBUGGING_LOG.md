@@ -1,5 +1,5 @@
 ### Debugging Log:
-- [x] Release initial source code [2023-09-19]
+- Release initial source code [2023-09-19]
 
 #### How to fix PyTorch "torch.cuda.is_available() = false"?
 ```cmd
