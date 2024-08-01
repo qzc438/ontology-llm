@@ -188,7 +188,7 @@ def create_tool_use_agent(tools, tool_chain):
 if __name__ == '__main__':
     # can only calculate OpenAI models
     with get_openai_callback() as cb:
-        # run retrieve agent - Part 2
+        # run retrieval agent - Part 2
         chain = create_tool_use_agent(database_tools, database_tool_chain)
         response = chain.invoke({"input": "Save ontology information."})
         print("response:", response)

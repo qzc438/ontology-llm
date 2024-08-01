@@ -89,7 +89,13 @@ alignment = "conference/cmt-confof/component/"
 # if os.environ.get('alignment'):
 #     alignment = os.environ['alignment']
 
-# dbpedia result is not included in the paper because we cannot find 2023 benchmarks
+# multifarm track
+# context = "conference"
+# o1_is_code = True
+# o2_is_code = True
+# alignment = "multifarm/cmt-cmt-cn-en/component/"
+
+# dbpedia result is not included in the paper because we cannot find OAEI 2023 benchmarks
 # 2022 results: https://oaei.ontologymatching.org/2022/results/conference/index.html#dbpedia
 # 2023 results: https://oaei.ontologymatching.org/2023/results/conference/index.html
 # alignment = "conference/dbpedia-confof/component/"

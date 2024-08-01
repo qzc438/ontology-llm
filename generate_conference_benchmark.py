@@ -128,7 +128,7 @@ if __name__ == '__main__':
         result = ["Agent-OM"] + result
         writer.writerow(result)
 
-    # # cannot find benchmarks for 2022 and 2023 dbpedia results
+    # # dbpedia result is not included in the paper because we cannot find OAEI 2023 benchmarks
     # om_ontology_to_csv.find_reference("data/conference/dbpedia-confof/component/reference.xml",
     #                                   "alignment/conference/dbpedia-confof/component/true.csv")
     # om_ontology_to_csv.find_reference("data/conference/dbpedia-ekaw/component/reference.xml",

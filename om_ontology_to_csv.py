@@ -111,14 +111,9 @@ def syntactic(entity: str) -> str:
     # entity_name = entity
     # find entity name
     entity_name = get_entity_name(entity, ontology, ontology_is_code)
-    cleaned_entity_name = util.cleaning(entity_name).strip()
-    # cleaned_entity_name is null for multilingual case
-    if cleaned_entity_name:
-        print("syntactic_information:", cleaned_entity_name)
-        return cleaned_entity_name
-    else:
-        print("syntactic_information:", entity_name)
-        return entity_name
+    cleaned_entity_name = util.cleaning(entity_name)
+    print("syntactic_information:", cleaned_entity_name)
+    return cleaned_entity_name
 
 
 @tool
@@ -405,7 +400,7 @@ if __name__ == '__main__':
     with get_openai_callback() as cb:
         # find true value
         find_reference(align_path, true_path)
-        # run retrieve agent - Part 1
+        # run retrieval agent - Part 1
         chain = create_tool_use_agent(retrieval_tools, retrieval_tool_chain)
         response = chain.invoke({"input": "Ontology retrieval."})
         print("response:", response)

@@ -32,12 +32,3 @@
 # langchain_core.exceptions.OutputParserException: Invalid json output: I'm sorry but I do not have the capability to perform this task.
 # llm = ChatOllama(model="llama3-groq-tool-use:8b", temperature=0)
 ```
-
-### New OAEI tracks:
-```
-# multifarm track
-context = "conference"
-o1_is_code = True
-o2_is_code = True
-alignment = "multifarm/cmt-cmt-cn-en/component/"
-```
