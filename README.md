@@ -19,6 +19,8 @@ sudo -u postgres psql
 alter user postgres password 'postgres'
 sudo apt install postgresql-15-pgvector
 ```
+- PostgreSQL: https://www.postgresql.org/download/linux/ubuntu/
+- Install pgAdmin: https://www.pgadmin.org/download/pgadmin-4-apt/
 
 ### 2. Install Python Environment:
 - Install Python: https://www.python.org/downloads/
