@@ -23,14 +23,7 @@ alter user postgres password 'postgres'
 - Database installation on Ubuntu and CUDA 12.2:
   - Install PostgreSQL: https://www.postgresql.org/download/linux/ubuntu/
   - Install pgAdmin: https://www.pgadmin.org/download/pgadmin-4-apt/
-  - Install pgvector:
-```
-cd /tmp
-git clone --branch v0.7.4 https://github.com/pgvector/pgvector.git
-cd pgvector
-make
-sudo make install
-```
+  - Install pgvector: https://github.com/pgvector/pgvector
   - If fatal error: postgres.h
 ```
 sudo apt install postgresql-server-dev-16 (Replace 16 with your Postgres server version)
