@@ -17,6 +17,7 @@
 psql --version
 sudo -u postgres psql
 alter user postgres password 'postgres'
+\q
 sudo apt install postgresql-15-pgvector
 ```
 - PostgreSQL: https://www.postgresql.org/download/linux/ubuntu/
