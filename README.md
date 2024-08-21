@@ -24,7 +24,7 @@ alter user postgres password 'postgres'
   - Install PostgreSQL: https://www.postgresql.org/download/linux/ubuntu/
   - Install pgAdmin: https://www.pgadmin.org/download/pgadmin-4-apt/
   - Install pgvector: https://github.com/pgvector/pgvector
-  - If fatal error: postgres.h
+  - If fatal error: postgres.h: No such file or directory
 ```
 sudo apt install postgresql-server-dev-16 (Replace 16 with your Postgres server version)
 ```
