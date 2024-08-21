@@ -69,14 +69,19 @@ pip install ipyparallel
   - Ollama FAQs: https://github.com/ollama/ollama/blob/main/docs/faq.md
   - Link Ollama to LangChain: https://python.langchain.com/v0.1/docs/integrations/llms/ollama/
 - PyTorch installation: https://pytorch.org/get-started/locally/
-- Ollama installation on Linux and CUDA 11.8:
+- Ollama installation on Ubuntu and CUDA 12.2:
   - Install or update Ollama:
   ```
   curl -fsSL https://ollama.com/install.sh | sh
   ```
+  - Start or stop Ollama in the process:
+  ```
+  sudo systemctl start ollama
+  sudo systemctl stop ollama
+  ```
   - Install PyTorch:
   ```
-  pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+  pip3 install torch torchvision torchaudio
   ```
 - Ollama models: https://ollama.com/library
   - Add a model:
