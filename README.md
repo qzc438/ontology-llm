@@ -13,15 +13,27 @@
 - Install PostgreSQL: https://www.postgresql.org/download/
 - Install pgAdmin: https://www.pgadmin.org/download/ (Optional for GUI access to the database)
 - Install pgvector: https://github.com/pgvector/pgvector
+- If the password failed:
 ```
 psql --version
 sudo -u postgres psql
 alter user postgres password 'postgres'
 \q
-sudo apt install postgresql-15-pgvector
 ```
-- PostgreSQL: https://www.postgresql.org/download/linux/ubuntu/
+- Install PostgreSQL: https://www.postgresql.org/download/linux/ubuntu/
 - Install pgAdmin: https://www.pgadmin.org/download/pgadmin-4-apt/
+- Install pgvector:
+```
+cd /tmp
+git clone --branch v0.7.4 https://github.com/pgvector/pgvector.git
+cd pgvector
+make
+sudo make install
+```
+- If fatal error: postgres.h
+```
+sudo apt install postgresql-server-dev-16 (Replace 16 with your Postgres server version)
+```
 
 ### 2. Install Python Environment:
 - Install Python: https://www.python.org/downloads/
