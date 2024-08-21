@@ -14,7 +14,7 @@
 - Install pgAdmin: https://www.pgadmin.org/download/ (Optional for GUI access to the database)
 - Install pgvector: https://github.com/pgvector/pgvector
 ```
-psql -version
+psql --version
 sudo -u postgres psql
 alter user postgres password 'postgres'
 sudo apt install postgresql-15-pgvector
