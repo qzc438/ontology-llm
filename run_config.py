@@ -19,12 +19,12 @@ import util
 # load api key
 dotenv.load_dotenv()
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
-os.environ["MISTRAL_API_KEY"] = os.getenv("MISTRAL_API_KEY")
-os.environ["ANTHROPIC_API_KEY"] = os.getenv("ANTHROPIC_API_KEY")
+# os.environ["MISTRAL_API_KEY"] = os.getenv("MISTRAL_API_KEY")
+# os.environ["ANTHROPIC_API_KEY"] = os.getenv("ANTHROPIC_API_KEY")
 
 # # load GPT, default timeout = None
 # llm = ChatOpenAI(model_name='gpt-4-turbo-2024-04-09', temperature=0) # expensive
-llm = ChatOpenAI(model_name='gpt-4o-2024-05-13', temperature=0)
+# llm = ChatOpenAI(model_name='gpt-4o-2024-05-13', temperature=0)
 # llm = ChatOpenAI(model_name='gpt-4o-mini-2024-07-18', temperature=0)
 # llm = ChatOpenAI(model_name='gpt-3.5-turbo-0125', temperature=0)
 # # load Anthropic, default timeout = None
@@ -39,7 +39,7 @@ llm = ChatOpenAI(model_name='gpt-4o-2024-05-13', temperature=0)
 # llm = ChatOllama(model="mistral:7b", temperature=0)
 # # load Llama 3
 # llm = ChatOllama(model="llama3:8b", temperature=0)
-# llm = ChatOllama(model="llama3.1:8b", temperature=0)
+llm = ChatOllama(model="llama3.1:8b", temperature=0)
 # # load Gemma
 # llm = ChatOllama(model="gemma:7b", temperature=0)
 # llm = ChatOllama(model="gemma2:9b", temperature=0)
@@ -63,8 +63,8 @@ num_matches = 50
 context = "conference"
 o1_is_code = False
 o2_is_code = False
-# alignment = "conference/cmt-conference/component/"
-alignment = "conference/cmt-confof/component/"
+alignment = "conference/cmt-conference/component/"
+# alignment = "conference/cmt-confof/component/"
 # alignment = "conference/cmt-edas/component/"
 # alignment = "conference/cmt-ekaw/component/"
 # alignment = "conference/cmt-iasted/component/"
