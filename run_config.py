@@ -19,8 +19,8 @@ import util
 # load api key
 dotenv.load_dotenv()
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
-# os.environ["MISTRAL_API_KEY"] = os.getenv("MISTRAL_API_KEY")
-# os.environ["ANTHROPIC_API_KEY"] = os.getenv("ANTHROPIC_API_KEY")
+os.environ["MISTRAL_API_KEY"] = os.getenv("MISTRAL_API_KEY")
+os.environ["ANTHROPIC_API_KEY"] = os.getenv("ANTHROPIC_API_KEY")
 
 # # load GPT, default timeout = None
 # llm = ChatOpenAI(model_name='gpt-4-turbo-2024-04-09', temperature=0) # expensive
@@ -32,19 +32,21 @@ os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 # llm = ChatAnthropic(model="claude-3-sonnet-20240229", temperature=0)
 # llm = ChatAnthropic(model="claude-3-haiku-20240307", temperature=0)
 # # load Mistral, default timeout = 120 is too short
-# llm = ChatMistralAI(model="mistral-large-2402", temperature=0, timeout=1200)
+# llm = ChatMistralAI(model="mistral-large-2407", temperature=0, timeout=1200)
 # llm = ChatMistralAI(model="mistral-medium-2312", temperature=0) # will soon be deprecated
-# llm = ChatMistralAI(model="mistral-small-2402", temperature=0)
+llm = ChatMistralAI(model="mistral-small-2409", temperature=0, timeout=1200)
 # # load Mistral open-source
 # llm = ChatOllama(model="mistral:7b", temperature=0)
 # # load Llama 3
 # llm = ChatOllama(model="llama3:8b", temperature=0)
-llm = ChatOllama(model="llama3.1:8b", temperature=0)
+# llm = ChatOllama(model="llama3.1:8b", temperature=0)
 # # load Gemma
+# llm = ChatOllama(model="gemma:7b", temperature=0)
 # llm = ChatOllama(model="gemma:7b", temperature=0)
 # llm = ChatOllama(model="gemma2:9b", temperature=0)
 # # load Qwen
 # llm = ChatOllama(model="qwen2:7b", temperature=0)
+# llm = ChatOllama(model="qwen2.5:7b", temperature=0)
 
 # embedding settings
 embeddings_service = OpenAIEmbeddings(model="text-embedding-ada-002")
@@ -60,10 +62,10 @@ num_matches = 50
 
 # alignment settings
 # conference track
-context = "conference"
-o1_is_code = False
-o2_is_code = False
-alignment = "conference/cmt-conference/component/"
+# context = "conference"
+# o1_is_code = False
+# o2_is_code = False
+# alignment = "conference/cmt-conference/component/"
 # alignment = "conference/cmt-confof/component/"
 # alignment = "conference/cmt-edas/component/"
 # alignment = "conference/cmt-ekaw/component/"
@@ -103,10 +105,10 @@ alignment = "conference/cmt-conference/component/"
 # alignment = "conference/dbpedia-sigkdd/component/"
 
 # anatomy track
-# context = "anatomy"
-# o1_is_code = True
-# o2_is_code = True
-# alignment = "anatomy/mouse-human-suite/component/"
+context = "anatomy"
+o1_is_code = True
+o2_is_code = True
+alignment = "anatomy/mouse-human-suite/component/"
 
 # metadata
 # e1_list_class: 2744
@@ -179,6 +181,7 @@ llm_few_shot_path = align_folder + "llm_few_shot.csv"
 alignCell = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignment#Cell')
 alignEntity1 = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignment#entity1')
 alignEntity2 = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignment#entity2')
+alignRelation = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignment#relation')
 
 # load ontology
 o1 = rdflib.Graph().parse(o1_path, format="xml")

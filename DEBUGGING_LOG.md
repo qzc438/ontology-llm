@@ -102,7 +102,7 @@ sqlite3 pgadmin4.db "UPDATE USER SET LOCKED = false, LOGIN_ATTEMPTS = 0 WHERE US
 
 #### How to align the results of Agent-OM with the results of the OAEI MSE Track Test Case 1?
 - This track also contains the subsumption mappings in the reference alignment file `reference-old.xml`.
-- We set all subsumption mappings to None and reproduce the reference alignment file `reference.xml`.
+- We change all subsumption mappings to None with equivalent relations and reproduce the reference alignment file `reference.xml`.
 
 #### How to fix if some results are unreproducible?
 - Please check the root IRI of the mapping file, and it should follow the format specification: https://moex.gitlabpages.inria.fr/alignapi/format.html

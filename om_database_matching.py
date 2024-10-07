@@ -371,6 +371,7 @@ def init():
     util.create_document(predict_target_path_no_validation, header=['Entity2', 'Entity1'])
     util.create_document(predict_target_path, header=['Entity2', 'Entity1'])
     # e2_list = ["http://human.owl#NCI_C25177"] # test sensitive word
+    # e2_list = ["http://human.owl#NCI_C13106"]
     for entity in e2_list:
         print("entity2:", entity)
         entity_id = find_entity_id(entity, "Target")

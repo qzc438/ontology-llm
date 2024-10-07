@@ -33,6 +33,7 @@ true_path = config.true_path
 alignCell = config.alignCell
 alignEntity1 = config.alignEntity1
 alignEntity2 = config.alignEntity2
+alignRelation = config.alignRelation
 
 # load ontology
 o1 = config.o1
@@ -67,12 +68,14 @@ def find_reference(align_path, true_path):
     with open(true_path, "a+", newline='') as f1:
         writer = csv.writer(f1)
         for s in align.subjects(rdflib.RDF.type, alignCell):
-            e1_uri = align.value(s, alignEntity1, None)
-            e2_uri = align.value(s, alignEntity2, None)
-            # e1_name = get_entity_name(e1_uri, o1, o1_is_code)
-            # e2_name = get_entity_name(e2_uri, o2, o2_is_code)
-            list_pair = [e1_uri, e2_uri]
-            writer.writerow(list_pair)
+            relation = align.value(s, alignRelation, None)
+            if str(relation) == "=":
+                e1_uri = align.value(s, alignEntity1, None)
+                e2_uri = align.value(s, alignEntity2, None)
+                # e1_name = get_entity_name(e1_uri, o1, o1_is_code)
+                # e2_name = get_entity_name(e2_uri, o2, o2_is_code)
+                list_pair = [e1_uri, e2_uri]
+                writer.writerow(list_pair)
     # read old csv
     with open(true_path, "r") as f:
         reader = csv.reader(f)

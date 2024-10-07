@@ -1,11 +1,16 @@
 ## Agent-OM: Leveraging LLM Agents for Ontology Matching
 - The preprint of the paper is currently available at arXiv: https://arxiv.org/abs/2312.00326
-- This repository contains a production version of the source code linked to the paper submitted to PVLDB 2025.
-- The development version of the source code is stored at: https://github.com/qzc438/ontology-llm (access will be made available on request)
+- This repository contains a development version of the source code: https://github.com/qzc438/ontology-llm
+
+## News:
+- This paper has been accepted by PVLDB 2025: TBC
+- A production version of the source code linked to the accepted paper can be found in the `Releases` section.
+- Presentation slides: TBC
 
 ## Important Notice:
 - For technical inquiries, please submit a GitHub issue.
 - For feature discussion or potential extensions, please join our foundation model discussion group: https://groups.google.com/g/agent-om
+- In order to track the continuous development of LLMs, we propose to use the benchmark with a time tag. For example, The benchmark result used in the PVLDB paper use the benchmark in 2024-11-01.
 
 ## Quick Start:
 
@@ -62,6 +67,7 @@ pip install matplotlib==3.8.4
 pip install notebook
 pip install ipyparallel
 ```
+- Deal with the blank page: https://stackoverflow.com/questions/55152948/juypter-notebook-shows-blank-page
 
 ### 4. Install Ollama:
 - Ollama GitHub: https://github.com/ollama/ollama
