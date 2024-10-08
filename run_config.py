@@ -25,7 +25,7 @@ os.environ["ANTHROPIC_API_KEY"] = os.getenv("ANTHROPIC_API_KEY")
 # # load GPT, default timeout = None
 # llm = ChatOpenAI(model_name='gpt-4-turbo-2024-04-09', temperature=0) # expensive
 # llm = ChatOpenAI(model_name='gpt-4o-2024-05-13', temperature=0)
-# llm = ChatOpenAI(model_name='gpt-4o-mini-2024-07-18', temperature=0)
+llm = ChatOpenAI(model_name='gpt-4o-mini-2024-07-18', temperature=0)
 # llm = ChatOpenAI(model_name='gpt-3.5-turbo-0125', temperature=0)
 # # load Anthropic, default timeout = None
 # llm = ChatAnthropic(model="claude-3-opus-20240229", temperature=0) # expensive
@@ -34,7 +34,7 @@ os.environ["ANTHROPIC_API_KEY"] = os.getenv("ANTHROPIC_API_KEY")
 # # load Mistral, default timeout = 120 is too short
 # llm = ChatMistralAI(model="mistral-large-2407", temperature=0, timeout=1200)
 # llm = ChatMistralAI(model="mistral-medium-2312", temperature=0) # will soon be deprecated
-llm = ChatMistralAI(model="mistral-small-2409", temperature=0, timeout=1200)
+# llm = ChatMistralAI(model="mistral-small-2409", temperature=0, timeout=1200)
 # # load Mistral open-source
 # llm = ChatOllama(model="mistral:7b", temperature=0)
 # # load Llama 3

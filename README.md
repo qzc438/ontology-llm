@@ -4,8 +4,8 @@
 
 ## News:
 - This paper has been accepted by PVLDB 2025: TBC
-- A production version of the source code linked to the accepted paper can be found in the `Releases` section.
-- Presentation slides: TBC
+- A production version of the source code linked to the PVLDB paper can be found in the `Releases` section.
+- Presentation slides linked to the PVLDB paper can be found in the `slides` folder.
 
 ## Important Notice:
 - For technical inquiries, please submit a GitHub issue.
@@ -293,15 +293,14 @@ step = -0.05
 ## Licence:
 
 <!-- Which licence is best for your work? Check with the CC License chooser: https://chooser-beta.creativecommons.org/ -->
-<!-- https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode.txt -->
 
-Shield: [![CC BY-NC-ND 4.0][cc-by-nc-nd-shield]][cc-by-nc-nd]
+Shield: [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
 
 This work is licensed under a
-[Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International License][cc-by-nc-nd].
+[Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa].
 
-[![CC BY-NC-ND 4.0][cc-by-nc-nd-image]][cc-by-nc-nd]
+[![CC BY-NC-SA 4.0][cc-by-nc-sa-image]][cc-by-nc-sa]
 
-[cc-by-nc-nd]: http://creativecommons.org/licenses/by-nc-nd/4.0/
-[cc-by-nc-nd-image]: https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png
-[cc-by-nc-nd-shield]: https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg
+[cc-by-nc-sa]: http://creativecommons.org/licenses/by-nc-sa/4.0/
+[cc-by-nc-sa-image]: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png
+[cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg
