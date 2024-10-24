@@ -108,9 +108,9 @@ pip install ipyparallel
   ```
   - Update local models:
   ```
-  ollama list | cut -f 1 | tail -n +2 | xargs -n 1 ollama pull
+  ollama list | awk 'NR>1 {print $1}' | xargs -I {} sh -c 'echo "Updating model: {}"; ollama pull {}; echo "--"' && echo "All models updated."
   ```
-  Please check this link for further updates: https://github.com/ollama/ollama/issues/4589
+  Please check this link for further updates: https://github.com/ollama/ollama/issues/2633
 
 ### 5. Setup Large Language Models (LLMs):
 - You will need API keys to interact with API-accessed commercial LLMs.
@@ -126,6 +126,9 @@ MISTRAL_API_KEY = <YOUR_MISTRAL_API_KEY>
 - To protect your API keys, please add `.env` into the file `.gitignore`:
 ```
 .env
+```
+```
+git rm --cached .env
 ```
 - Load API keys into the file `run_config.py`:
 ```
