@@ -75,6 +75,7 @@ pip install ipyparallel
   - Ollama FAQs: https://github.com/ollama/ollama/blob/main/docs/faq.md
   - Link Ollama to LangChain: https://python.langchain.com/v0.1/docs/integrations/llms/ollama/
 - PyTorch installation: https://pytorch.org/get-started/locally/
+- Open WebUI installation: https://docs.openwebui.com/getting-started/ (Optional for GUI access to LLMs)
 - Ollama installation on Ubuntu and CUDA 12.2:
   - Install or update Ollama:
   ```

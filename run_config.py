@@ -36,7 +36,9 @@ os.environ["ANTHROPIC_API_KEY"] = os.getenv("ANTHROPIC_API_KEY")
 # llm = ChatMistralAI(model="mistral-medium-2312", temperature=0) # will soon be deprecated
 # llm = ChatMistralAI(model="mistral-small-2409", temperature=0, timeout=1200)
 # # load Mistral open-source
-# llm = ChatOllama(model="mistral:7b", temperature=0)
+# llm = ChatOllama(model="mistral-large:123b", temperature=0) # same to mistral-large-2407
+# llm = ChatOllama(model="mistral-small:22b", temperature=0) # same to mistral-small-2409
+# llm = ChatOllama(model="mistral-nemo:12b", temperature=0) # same to mistral-nemo-2407
 # # load Llama 3
 # llm = ChatOllama(model="llama3:8b", temperature=0)
 # llm = ChatOllama(model="llama3.1:8b", temperature=0)
@@ -44,7 +46,10 @@ os.environ["ANTHROPIC_API_KEY"] = os.getenv("ANTHROPIC_API_KEY")
 # llm = ChatOllama(model="gemma2:9b", temperature=0)
 # # load Qwen
 # llm = ChatOllama(model="qwen2:7b", temperature=0)
-llm = ChatOllama(model="qwen2.5:7b", temperature=0)
+# llm = ChatOllama(model="qwen2.5:7b", temperature=0)
+# llm = ChatOllama(model="glm4:9b", temperature=0)
+# llm = ChatOllama(model="yi:9b", temperature=0)
+llm = ChatOllama(model="hermes3:8b", temperature=0)
 
 # embedding settings
 embeddings_service = OpenAIEmbeddings(model="text-embedding-ada-002")

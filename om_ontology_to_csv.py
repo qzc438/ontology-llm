@@ -252,6 +252,7 @@ def find_all_entities():
 
 def find_entity_information(path, entity_list, source_or_target, entity_type):
     # entity_list = ["http://cmt#User"] # test keyword
+    # entity_list = ["http://www.geneontology.org/formats/oboInOwl#Definition"]
     with open(path, "a+", newline='') as f1:
         for entity in entity_list:
             # small models sometimes have issues passing the URI argument
