@@ -1,5 +1,6 @@
 Entity2,Entity1
 http://iasted#Accepting_manuscript,http://edas#AcceptedPaper
+http://iasted#Activity_after_conference,http://edas#SocialEvent
 http://iasted#Author,http://edas#Author
 http://iasted#Coctail_reception,http://edas#SocialEvent
 http://iasted#Coffee_break,http://edas#CoffeeBreak
@@ -9,7 +10,8 @@ http://iasted#Conference_hall,http://edas#ConferenceVenuePlace
 http://iasted#Delegate,http://edas#Person
 http://iasted#Dinner_banquet,http://edas#ConferenceDinner
 http://iasted#Document,http://edas#Document
-http://iasted#Hotel_room,http://edas#AccommodationPlace
+http://iasted#Lecture,http://edas#TalkEvent
+http://iasted#Lecturer,http://edas#Presenter
 http://iasted#Person,http://edas#Person
 http://iasted#Place,http://edas#Place
 http://iasted#PowerPoint_presentation,http://edas#SlideSet
@@ -22,7 +24,7 @@ http://iasted#Session_chair,http://edas#SessionChair
 http://iasted#Session_room,http://edas#MeetingRoomPlace
 http://iasted#Speaker,http://edas#Presenter
 http://iasted#Speaker_lecture,http://edas#Presenter
-http://iasted#Trip_day,http://edas#Excursion
 http://iasted#Tutorial_speaker,http://edas#Presenter
 http://iasted#Welcome_address,http://edas#WelcomeTalk
 http://iasted#is_paid_for,http://edas#hasCostAmount
+http://iasted#is_situated_in,http://edas#hasLocation

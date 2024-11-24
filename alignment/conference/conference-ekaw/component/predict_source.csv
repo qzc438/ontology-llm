@@ -2,7 +2,6 @@ Entity1,Entity2
 http://conference#Abstract,http://ekaw#Abstract
 http://conference#Accepted_contribution,http://ekaw#Accepted_Paper
 http://conference#Camera_ready_contribution,http://ekaw#Camera_Ready_Paper
-http://conference#Committee_member,http://ekaw#PC_Member
 http://conference#Conference,http://ekaw#Conference
 http://conference#Conference_applicant,http://ekaw#Person
 http://conference#Conference_contribution,http://ekaw#Conference_Paper
@@ -14,6 +13,8 @@ http://conference#Conference_volume,http://ekaw#Multi-author_Volume
 http://conference#Invited_speaker,http://ekaw#Invited_Speaker
 http://conference#Invited_talk,http://ekaw#Invited_Talk
 http://conference#Organization,http://ekaw#Organisation
+http://conference#Organizer,http://ekaw#Organising_Agency
+http://conference#Organizing_committee,http://ekaw#OC_Member
 http://conference#Paper,http://ekaw#Paper
 http://conference#Person,http://ekaw#Person
 http://conference#Program_committee,http://ekaw#PC_Member
@@ -23,5 +24,4 @@ http://conference#Track,http://ekaw#Track
 http://conference#Tutorial,http://ekaw#Tutorial
 http://conference#Workshop,http://ekaw#Workshop
 http://conference#belong_to_a_conference_volume,http://ekaw#paperInVolume
-http://conference#has_authors,http://ekaw#authorOf
-http://conference#is_part_of_conference_volumes,http://ekaw#volumeContainsPaper
+http://conference#is_part_of_conference_volumes,http://ekaw#paperInVolume

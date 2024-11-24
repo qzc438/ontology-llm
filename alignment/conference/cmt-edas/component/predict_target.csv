@@ -1,7 +1,7 @@
 Entity2,Entity1
 http://edas#AcademicEvent,http://cmt#Conference
 http://edas#AcceptedPaper,http://cmt#Paper
-http://edas#Attendee,http://cmt#Person
+http://edas#Attendee,http://cmt#ConferenceMember
 http://edas#Author,http://cmt#Author
 http://edas#Conference,http://cmt#Conference
 http://edas#ConferenceChair,http://cmt#ConferenceChair
@@ -17,7 +17,4 @@ http://edas#SessionChair,http://cmt#Chairman
 http://edas#TPCMember,http://cmt#ProgramCommitteeMember
 http://edas#Topic,http://cmt#SubjectArea
 http://edas#WeekRejectRating,http://cmt#Rejection
-http://edas#attendeeAt,http://cmt#hasConferenceMember
-http://edas#isReviewedBy,http://cmt#readByReviewer
-http://edas#isWrittenBy,http://cmt#writtenBy
-http://edas#manuscriptDueOn,http://cmt#date
+http://edas#isWrittenBy,http://cmt#hasAuthor

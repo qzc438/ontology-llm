@@ -1,4 +1,5 @@
 Entity1,Entity2
+http://cmt#Acceptance,http://ekaw#Accepted_Paper
 http://cmt#Author,http://ekaw#Paper_Author
 http://cmt#Co-author,http://ekaw#Paper_Author
 http://cmt#Conference,http://ekaw#Conference
@@ -9,11 +10,10 @@ http://cmt#Person,http://ekaw#Person
 http://cmt#ProgramCommittee,http://ekaw#PC_Member
 http://cmt#ProgramCommitteeChair,http://ekaw#PC_Chair
 http://cmt#ProgramCommitteeMember,http://ekaw#PC_Member
-http://cmt#ProgramCommitteeMember,http://ekaw#Possible_Reviewer
 http://cmt#Rejection,http://ekaw#Rejected_Paper
 http://cmt#Review,http://ekaw#Review
 http://cmt#assignReviewer,http://ekaw#reviewerOfPaper
-http://cmt#assignedByReviewer,http://ekaw#reviewerOfPaper
-http://cmt#assignedTo,http://ekaw#hasReviewer
+http://cmt#assignedByReviewer,http://ekaw#hasReviewer
+http://cmt#hasAuthor,http://ekaw#authorOf
 http://cmt#hasSubjectArea,http://ekaw#coversTopic
 http://cmt#writtenBy,http://ekaw#writtenBy

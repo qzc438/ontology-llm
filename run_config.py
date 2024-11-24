@@ -24,7 +24,7 @@ os.environ["ANTHROPIC_API_KEY"] = os.getenv("ANTHROPIC_API_KEY")
 
 # # load GPT, default timeout = None
 # llm = ChatOpenAI(model_name='gpt-4-turbo-2024-04-09', temperature=0) # expensive
-# llm = ChatOpenAI(model_name='gpt-4o-2024-05-13', temperature=0)
+llm = ChatOpenAI(model_name='gpt-4o-2024-05-13', temperature=0)
 # llm = ChatOpenAI(model_name='gpt-4o-mini-2024-07-18', temperature=0)
 # llm = ChatOpenAI(model_name='gpt-3.5-turbo-0125', temperature=0)
 # # load Anthropic, default timeout = None
@@ -49,7 +49,7 @@ os.environ["ANTHROPIC_API_KEY"] = os.getenv("ANTHROPIC_API_KEY")
 # llm = ChatOllama(model="qwen2.5:7b", temperature=0)
 # llm = ChatOllama(model="glm4:9b", temperature=0)
 # llm = ChatOllama(model="yi:9b", temperature=0)
-llm = ChatOllama(model="hermes3:8b", temperature=0)
+# llm = ChatOllama(model="hermes3:8b", temperature=0)
 
 # embedding settings
 embeddings_service = OpenAIEmbeddings(model="text-embedding-ada-002")

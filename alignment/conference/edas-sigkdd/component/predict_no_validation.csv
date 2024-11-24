@@ -1,4 +1,5 @@
 Entity1,Entity2
+http://edas#AccommodationPlace,http://sigkdd#Hotel
 http://edas#Attendee,http://sigkdd#Listener
 http://edas#Author,http://sigkdd#Author
 http://edas#Conference,http://sigkdd#Conference
@@ -18,7 +19,8 @@ http://edas#TPCMember,http://sigkdd#Program_Committee_member
 http://edas#endDate,http://sigkdd#End_of_conference
 http://edas#hasCity,http://sigkdd#City_of_conference
 http://edas#hasCostAmount,http://sigkdd#Price
-http://edas#hasCostCurrency,http://sigkdd#Name_of_sponsor
+http://edas#hasCostCurrency,http://sigkdd#Currency
+http://edas#hasCountry,http://sigkdd#City_of_conference
 http://edas#hasEmail,http://sigkdd#E-mail
 http://edas#hasName,http://sigkdd#Name_of_conference
 http://edas#hasSubmissionDeadline,http://sigkdd#submit_until

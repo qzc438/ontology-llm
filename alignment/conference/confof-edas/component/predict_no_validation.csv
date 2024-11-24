@@ -3,10 +3,10 @@ http://confOf#Author,http://edas#Author
 http://confOf#Banquet,http://edas#ConferenceDinner
 http://confOf#Chair_PC,http://edas#ConferenceChair
 http://confOf#City,http://edas#Place
-http://confOf#Company,http://edas#GovernmentOrganization
+http://confOf#City,http://edas#Programme
+http://confOf#Company,http://edas#IndustryOrganization
 http://confOf#Conference,http://edas#Conference
 http://confOf#Country,http://edas#Country
-http://confOf#Event,http://edas#ConferenceEvent
 http://confOf#Member,http://edas#Attendee
 http://confOf#Member_PC,http://edas#TPCMember
 http://confOf#Organization,http://edas#Organization
@@ -16,11 +16,12 @@ http://confOf#Reception,http://edas#Reception
 http://confOf#Reviewing_event,http://edas#Review
 http://confOf#Social_event,http://edas#SocialEvent
 http://confOf#Topic,http://edas#Topic
-http://confOf#Tutorial,http://edas#OrganizationalMeeting
 http://confOf#University,http://edas#AcademiaOrganization
+http://confOf#University,http://edas#ContactInformation
+http://confOf#Working_event,http://edas#AcademicEvent
 http://confOf#Workshop,http://edas#Workshop
 http://confOf#employedBy,http://edas#isMemberOf
-http://confOf#ends_on,http://edas#endDate
+http://confOf#ends_on,http://edas#hasEndDateTime
 http://confOf#hasCity,http://edas#hasCity
 http://confOf#hasCountry,http://edas#hasCountry
 http://confOf#hasEmail,http://edas#hasEmail
@@ -31,7 +32,6 @@ http://confOf#hasStreet,http://edas#hasStreet
 http://confOf#hasSurname,http://edas#hasLastName
 http://confOf#hasTopic,http://edas#hasTopic
 http://confOf#location,http://edas#hasLocation
-http://confOf#reviewes,http://edas#isReviewedBy
 http://confOf#reviewes,http://edas#isReviewing
-http://confOf#starts_on,http://edas#hasStartDateTime
+http://confOf#starts_on,http://edas#startDate
 http://confOf#writtenBy,http://edas#isWrittenBy

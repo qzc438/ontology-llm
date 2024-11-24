@@ -1,7 +1,8 @@
 Entity1,Entity2
 http://cmt#Administrator,http://sigkdd#Organizator
-http://cmt#AssociatedChair,http://sigkdd#Author
+http://cmt#AssociatedChair,http://sigkdd#Committee
 http://cmt#AssociatedChair,http://sigkdd#General_Chair
+http://cmt#AssociatedChair,http://sigkdd#Program_Chair
 http://cmt#Author,http://sigkdd#Author
 http://cmt#Bid,http://sigkdd#ACM_SIGKDD
 http://cmt#Chairman,http://sigkdd#General_Chair
@@ -12,6 +13,7 @@ http://cmt#ConferenceChair,http://sigkdd#General_Chair
 http://cmt#ConferenceChair,http://sigkdd#Program_Chair
 http://cmt#ConferenceMember,http://sigkdd#Conference
 http://cmt#Document,http://sigkdd#Document
+http://cmt#ExternalReviewer,http://sigkdd#Review
 http://cmt#Meta-Review,http://sigkdd#Review
 http://cmt#Meta-Reviewer,http://sigkdd#Author
 http://cmt#Paper,http://sigkdd#Paper
@@ -28,7 +30,6 @@ http://cmt#User,http://sigkdd#Speaker
 http://cmt#acceptPaper,http://sigkdd#submit
 http://cmt#date,http://sigkdd#Date
 http://cmt#email,http://sigkdd#E-mail
-http://cmt#hasConferenceMember,http://sigkdd#City_of_conference
 http://cmt#memberOfConference,http://sigkdd#City_of_conference
 http://cmt#name,http://sigkdd#Name
 http://cmt#readPaper,http://sigkdd#presentation

@@ -1,12 +1,11 @@
 Entity2,Entity1
 http://edas#AcademicEvent,http://confOf#Conference
-http://edas#AcademicEvent,http://confOf#Event
 http://edas#AcceptedPaper,http://confOf#Paper
 http://edas#Attendee,http://confOf#Participant
 http://edas#Author,http://confOf#Author
 http://edas#Conference,http://confOf#Conference
 http://edas#ConferenceDinner,http://confOf#Banquet
-http://edas#ConferenceEvent,http://confOf#Event
+http://edas#ConferenceEvent,http://confOf#Conference
 http://edas#Country,http://confOf#Country
 http://edas#Organization,http://confOf#Organization
 http://edas#Paper,http://confOf#Paper
@@ -14,6 +13,7 @@ http://edas#Person,http://confOf#Person
 http://edas#PublishedPaper,http://confOf#Paper
 http://edas#Reception,http://confOf#Reception
 http://edas#SocialEvent,http://confOf#Social_event
+http://edas#TPCMember,http://confOf#Member_PC
 http://edas#Topic,http://confOf#Topic
 http://edas#Workshop,http://confOf#Workshop
 http://edas#endDate,http://confOf#ends_on
@@ -28,5 +28,4 @@ http://edas#hasPostalCode,http://confOf#hasPostalCode
 http://edas#hasStartDateTime,http://confOf#starts_on
 http://edas#hasStreet,http://confOf#hasStreet
 http://edas#hasTopic,http://confOf#hasTopic
-http://edas#isWrittenBy,http://confOf#writtenBy
 http://edas#startDate,http://confOf#starts_on
