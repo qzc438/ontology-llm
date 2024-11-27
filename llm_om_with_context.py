@@ -88,5 +88,5 @@ if __name__ == '__main__':
         print(f"completion tokens: {cb.completion_tokens}")
         print(f"total cost (USD): ${cb.total_cost}")
         # evaluation
-        print(util.calculate_cost(cb.total_tokens, cb.total_cost, cost_path, util.find_model_name(llm), alignment + "LLM-Few-Shot"))
-        print(util.calculate_metrics(true_path, llm_few_shot_path, result_path, util.find_model_name(llm), alignment + "LLM-Few-Shot"))
+        print(util.calculate_cost(cb.total_tokens, cb.total_cost, cost_path, util.find_model_name(llm), alignment + "LLM-with-Context"))
+        print(util.calculate_metrics(true_path, llm_few_shot_path, result_path, util.find_model_name(llm), alignment + "LLM-with-Context"))

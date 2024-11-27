@@ -234,8 +234,8 @@ python run_config.py
 - `util.py`: util component of the project.
 - `alignment`: store experiment results.
 - `llm_matching.py`: examples using purely LLMs for general matching tasks.
-- `llm_om_zero_shot.py`: examples of using purely LLMs without ontology information for ontology matching.
-- `llm_om_few_shot.py`: examples of using purely LLMs with ontology information for ontology matching.
+- `llm_om_only.py`: examples of using purely LLMs without context information for ontology matching.
+- `llm_om_with_context.py`: examples of using LLMs with context information for ontology matching.
 
 Frequently Asked Questions (FAQs):
 - Why does the Retrieval Agent have two parts `om_ontology_to_csv.py` and `om_csv_to_database.py`?  
