@@ -218,12 +218,14 @@ def find_all_entities():
     # here entity is uri
     e1_list_class = []
     e2_list_class = []
-    for x in o1.subjects(rdflib.RDF.type, rdflib.OWL.Class):
-        if x and ("#" in x or "/" in x) and x != rdflib.OWL.Thing:
-            e1_list_class.append(x)
-    for y in o2.subjects(rdflib.RDF.type, rdflib.OWL.Class):
-        if y and ("#" in y or "/" in y) and y != rdflib.OWL.Thing:
-            e2_list_class.append(y)
+    for x in o1.subjects(rdflib.RDF.type, None):
+        if (x, rdflib.RDF.type, rdflib.OWL.Class) in o1 or (x, rdflib.RDF.type, rdflib.SKOS.Concept) in o1:
+            if x and ("#" in x or "/" in x) and x != rdflib.OWL.Thing:
+                e1_list_class.append(x)
+    for y in o2.subjects(rdflib.RDF.type, None):
+        if (y, rdflib.RDF.type, rdflib.OWL.Class) in o2 or (y, rdflib.RDF.type, rdflib.SKOS.Concept) in o2:
+            if y and ("#" in y or "/" in y) and y != rdflib.OWL.Thing:
+                e2_list_class.append(y)
     e1_list_property = []
     e2_list_property = []
     for x in o1.subjects(rdflib.RDF.type, rdflib.OWL.ObjectProperty):

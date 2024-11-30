@@ -120,8 +120,6 @@ pip install ipyparallel
 OPENAI_API_KEY = <YOUR_OPENAI_API_KEY>
 # https://console.anthropic.com/settings/keys
 ANTHROPIC_API_KEY = <YOUR_ANTHROPIC_API_KEY>
-# https://console.mistral.ai/api-keys/
-MISTRAL_API_KEY = <YOUR_MISTRAL_API_KEY>
 ```
 - To protect your API keys, please add `.env` into the file `.gitignore`:
 ```
@@ -138,7 +136,6 @@ import dotenv
 dotenv.load_dotenv()
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 os.environ["ANTHROPIC_API_KEY"] = os.getenv("ANTHROPIC_API_KEY")
-os.environ["MISTRAL_API_KEY"] = os.getenv("MISTRAL_API_KEY")
 ```
 - Select one LLM in the file `run_config.py`:
 ```
@@ -149,10 +146,9 @@ from langchain_community.chat_models import ChatOllama
 
 # load GPT models: https://platform.openai.com/docs/models/
 # pricing: https://openai.com/api/pricing/
-llm = ChatOpenAI(model_name='gpt-4-turbo-2024-04-09', temperature=0) # expensive
 llm = ChatOpenAI(model_name='gpt-4o-2024-05-13', temperature=0)
 llm = ChatOpenAI(model_name='gpt-4o-mini-2024-07-18', temperature=0)
-llm = ChatOpenAI(model_name='gpt-3.5-turbo-0125', temperature=0)
+llm = ChatOpenAI(model_name='gpt-3.5-turbo-0125', temperature=0) # old
 
 # load Anthropic models: https://docs.anthropic.com/en/docs/about-claude/models
 # pricing: https://www.anthropic.com/pricing#anthropic-api
@@ -160,18 +156,12 @@ llm = ChatAnthropic(model="claude-3-opus-20240229", temperature=0) # expensive
 llm = ChatAnthropic(model="claude-3-sonnet-20240229", temperature=0)
 llm = ChatAnthropic(model="claude-3-haiku-20240307", temperature=0)
 
-# load Mistral API-accessed models: https://docs.mistral.ai/getting-started/models/
-# pricing: https://mistral.ai/technology/
-# default timeout = 120 is too short
-llm = ChatMistralAI(model="mistral-large-2402", temperature=0, timeout=600) # expensive
-llm = ChatMistralAI(model="mistral-medium-2312", temperature=0, timeout=600) # will soon be deprecated
-llm = ChatMistralAI(model="mistral-small-2402", temperature=0, timeout=600)
-
 # load Mistral open-source models: https://ollama.com/library/mistral
 llm = ChatOllama(model="mistral:7b", temperature=0)
 
 # load Llama models: https://ollama.com/library/llama3
 llm = ChatOllama(model="llama3:8b", temperature=0)
+# llm = ChatOllama(model="llama3.1:8b", temperature=0)
 
 # load Gemma models: https://ollama.com/library/gemma2
 llm = ChatOllama(model="gemma2:9b", temperature=0)

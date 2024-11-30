@@ -158,9 +158,18 @@ alignment = "conference/cmt-confof/component/"
 
 # folder settings
 data_folder = "data/" + alignment
-o1_path = data_folder + "source.xml"
-o2_path = data_folder + "target.xml"
-align_path = data_folder + "reference.xml"
+if os.path.exists(data_folder + "source.xml"):
+    o1_path = data_folder + "source.xml"
+elif os.path.exists(data_folder + "source.rdf"):
+    o1_path = data_folder + "source.rdf"
+if os.path.exists(data_folder + "target.xml"):
+    o2_path = data_folder + "target.xml"
+elif os.path.exists(data_folder + "target.rdf"):
+    o2_path = data_folder + "target.rdf"
+if os.path.exists(data_folder + "reference.xml"):
+    align_path = data_folder + "reference.xml"
+elif os.path.exists(data_folder + "reference.rdf"):
+    align_path = data_folder + "reference.rdf"
 align_folder = "alignment/" + alignment
 util.create_folder(align_folder)
 csv_path = align_folder + "ontology_matching.csv"

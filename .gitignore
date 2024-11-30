@@ -1,10 +1,13 @@
 .env
+.idea
+.ipynb_checkpoints
+.DS_Store
 *.log
+venv/
+node_modules/
+__pycache__/
 
 # exlucde from formal submission
-#.idea
-#.ipynb_checkpoints
-#__pycache__
 #test_function
 #test_old_script
 #update_note
