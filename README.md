@@ -59,6 +59,9 @@ pip install pgvector==0.1.8
 pip install commentjson==0.9.0
 pip install transformers==4.41.1
 pip install colorama==0.4.6
+pip install jieba==0.42.1
+pip install langdetect==1.0.9
+pip install nltk==3.9.1
 ```
 - Install visualisation packages:
 ```
@@ -155,9 +158,6 @@ llm = ChatOpenAI(model_name='gpt-3.5-turbo-0125', temperature=0) # old
 llm = ChatAnthropic(model="claude-3-opus-20240229", temperature=0) # expensive
 llm = ChatAnthropic(model="claude-3-sonnet-20240229", temperature=0)
 llm = ChatAnthropic(model="claude-3-haiku-20240307", temperature=0)
-
-# load Mistral open-source models: https://ollama.com/library/mistral
-llm = ChatOllama(model="mistral:7b", temperature=0)
 
 # load Llama models: https://ollama.com/library/llama3
 llm = ChatOllama(model="llama3:8b", temperature=0)

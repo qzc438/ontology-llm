@@ -29,6 +29,18 @@ llm = ChatOpenAI(model_name='gpt-4o-2024-05-13', temperature=0)
 # llm = ChatAnthropic(model="claude-3-opus-20240229", temperature=0) # expensive
 # llm = ChatAnthropic(model="claude-3-sonnet-20240229", temperature=0)
 # llm = ChatAnthropic(model="claude-3-haiku-20240307", temperature=0)
+# # load Llama 3
+# llm = ChatOllama(model="llama3:8b", temperature=0)
+# llm = ChatOllama(model="llama3.1:8b", temperature=0)
+# # load Qwen
+# llm = ChatOllama(model="qwen2:7b", temperature=0)
+# llm = ChatOllama(model="qwen2.5:7b", temperature=0)
+# # load Gemma
+# llm = ChatOllama(model="gemma2:9b", temperature=0)
+# # load GLM
+# llm = ChatOllama(model="glm4:9b", temperature=0)
+
+# # load other models
 # # load Mistral, default timeout = 120 is too short
 # llm = ChatMistralAI(model="mistral-large-2407", temperature=0, timeout=1200)
 # llm = ChatMistralAI(model="mistral-medium-2312", temperature=0) # will soon be deprecated
@@ -37,16 +49,9 @@ llm = ChatOpenAI(model_name='gpt-4o-2024-05-13', temperature=0)
 # llm = ChatOllama(model="mistral-large:123b", temperature=0) # same to mistral-large-2407
 # llm = ChatOllama(model="mistral-small:22b", temperature=0) # same to mistral-small-2409
 # llm = ChatOllama(model="mistral-nemo:12b", temperature=0) # same to mistral-nemo-2407
-# # load Llama 3
-# llm = ChatOllama(model="llama3:8b", temperature=0)
-# llm = ChatOllama(model="llama3.1:8b", temperature=0)
-# # load Gemma
-# llm = ChatOllama(model="gemma2:9b", temperature=0)
-# # load Qwen
-# llm = ChatOllama(model="qwen2:7b", temperature=0)
-# llm = ChatOllama(model="qwen2.5:7b", temperature=0)
-# llm = ChatOllama(model="glm4:9b", temperature=0)
+# # load Yi
 # llm = ChatOllama(model="yi:9b", temperature=0)
+# # load Hermes
 # llm = ChatOllama(model="hermes3:8b", temperature=0)
 
 # embedding settings

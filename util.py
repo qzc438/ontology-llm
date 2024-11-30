@@ -5,6 +5,9 @@ import enchant
 import pandas as pd
 import colorama
 
+import jieba
+from langdetect import detect
+from nltk.tokenize import word_tokenize
 
 # initialize colorama
 colorama.init(autoreset=True)
@@ -133,7 +136,14 @@ def cleaning(name):
         cleaned_name = change_to_snake_case(cleaned_name)
     cleaned_name = cleaned_name.lower()
     cleaned_name = change_british_to_american(cleaned_name)
-    return cleaned_name
+    # detect language
+    lang = detect(cleaned_name)
+    # tokenization
+    if lang == "zh-cn":
+        tokens = jieba.lcut(cleaned_name)
+    else:
+        tokens = word_tokenize(cleaned_name)
+    return " ".join(tokens)
 
 
 def calculate_metrics(true_path, predict_path, result_path, llm, alignment):
