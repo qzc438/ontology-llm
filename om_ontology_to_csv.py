@@ -177,7 +177,9 @@ def semantic(entity: str) -> str:
     # create a subgraph to store entity's semantic information
     subgraph = rdflib.Graph()
     # write the triples to the txt
-    relevant_list = [rdflib.RDFS.subClassOf, rdflib.OWL.disjointWith, rdflib.RDFS.domain, rdflib.RDFS.range]
+    relevant_list = [rdflib.RDFS.subClassOf, rdflib.RDFS.subPropertyOf,
+                     rdflib.SKOS.broader, rdflib.SKOS.narrower,
+                     rdflib.OWL.disjointWith, rdflib.RDFS.domain, rdflib.RDFS.range]
     for predicate in relevant_list:
         for s, p, o in ontology.triples((rdflib.URIRef(entity), predicate, None)):
             if o != rdflib.OWL.Thing and not isinstance(o, rdflib.BNode):

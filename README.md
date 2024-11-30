@@ -44,7 +44,6 @@ sudo apt install postgresql-server-dev-16 (Replace 16 with your Postgres server 
 pip install langchain==0.2.10
 pip install langchain-openai==0.1.17
 pip install langchain-anthropic==0.1.20
-pip install langchain-mistralai==0.1.10
 pip install langchain_community==0.2.9
 ```
 - Install other packages:
