@@ -137,13 +137,8 @@ def cleaning(name):
     # other formatting
     cleaned_name = cleaned_name.lower()
     cleaned_name = change_british_to_american(cleaned_name)
-    # detect language
-    lang = detect(cleaned_name)
     # tokenization
-    if lang == "zh-cn":
-        tokens = jieba.lcut(cleaned_name)
-    else:
-        tokens = word_tokenize(cleaned_name)
+    tokens = word_tokenize(cleaned_name)
     return " ".join(tokens)
 
 

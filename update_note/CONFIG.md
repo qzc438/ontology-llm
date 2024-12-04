@@ -1,8 +1,5 @@
 ### Test New LLMs:
 ```
-# too slow
-# llm = ChatOllama(model="llama3:70b", temperature=0)
-
 # access limit
 # from langchain_google_vertexai import ChatVertexAI
 # llm = ChatVertexAI(model="gemini-pro", temperature=0)
@@ -35,7 +32,7 @@
 
 ### Test Matching Tasks:
 ```
-# the answer is not always "no"
+# answer is not always "no"
 prompt = """We know that rejection is the subclass of meta-reviewer, and meta-reviewer is the subclass of reviwer. 
             Is rejection the subclass of reviewer? 
             Please answer yes or no. Give a short explanation."""

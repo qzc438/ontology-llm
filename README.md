@@ -10,7 +10,7 @@
 ## Important Notice:
 - For technical inquiries, please submit a GitHub issue.
 - For feature discussion or potential extensions, please join our foundation model discussion group: https://groups.google.com/g/agent-om
-- In order to track the continuous development of LLMs, we propose to use the benchmark with a time tag. For example, The benchmark result used in the PVLDB paper use the benchmark in 2024-11-01.
+- In order to track the continuous development of LLMs, we propose to use the benchmark with a time tag.
 
 ## Quick Start:
 
@@ -50,6 +50,7 @@ pip install langchain_community==0.2.9
 ```
 pip install pandas==2.0.3
 pip install rdflib==7.0.0
+pip install nltk==3.9.1
 pip install python-dotenv==1.0.1
 pip install pyenchant==3.2.2
 pip install tiktoken==0.7.0
@@ -59,9 +60,6 @@ pip install pgvector==0.1.8
 pip install commentjson==0.9.0
 pip install transformers==4.41.1
 pip install colorama==0.4.6
-pip install langdetect==1.0.9
-pip install jieba==0.42.1
-pip install nltk==3.9.1
 ```
 - Install visualisation packages:
 ```
@@ -150,11 +148,11 @@ from langchain_community.chat_models import ChatOllama
 # pricing: https://openai.com/api/pricing/
 llm = ChatOpenAI(model_name='gpt-4o-2024-05-13', temperature=0)
 llm = ChatOpenAI(model_name='gpt-4o-mini-2024-07-18', temperature=0)
-llm = ChatOpenAI(model_name='gpt-3.5-turbo-0125', temperature=0) # old
+llm = ChatOpenAI(model_name='gpt-3.5-turbo-0125', temperature=0) # old, not included
 
 # load Anthropic models: https://docs.anthropic.com/en/docs/about-claude/models
 # pricing: https://www.anthropic.com/pricing#anthropic-api
-llm = ChatAnthropic(model="claude-3-opus-20240229", temperature=0) # expensive
+llm = ChatAnthropic(model="claude-3-opus-20240229", temperature=0) # expensive, not included
 llm = ChatAnthropic(model="claude-3-sonnet-20240229", temperature=0)
 llm = ChatAnthropic(model="claude-3-haiku-20240307", temperature=0)
 
@@ -209,25 +207,25 @@ python run_config.py
 - The alignment will be stored in the folder `alignment`.
 - The performance evaluation will be stored in the file `result.csv`.
 - The cost evaluation will be stored in the file `cost.csv`.
-- The log will be stored in the file `agent.log`.
+- The matching log will be stored in the file `agent.log`.
 
 ## Repository Structure:
 
 ### 1. Data:
-- `data`: store the data from three OAEI tracks.
+- `data/`: store the data from three OAEI tracks.
 
 ### 2. Experiment:
+- `alignment/`: store experiment results.
 - `om_ontology_to_csv.py`: Retrieval Agent Part 1.
 - `om_csv_to_database.py`: Retrieval Agent Part 2.
 - `om_database_matching.py`: Matching Agent.
 - `run_config.py`: main function of the project.
 - `run_series_conference.py`: run all the conference alignments at one time.
 - `run_series_similarity.py`: run different similarity thresholds for one alignment at one time.
-- `util.py`: util component of the project.
-- `alignment`: store experiment results.
 - `llm_matching.py`: examples using purely LLMs for general matching tasks.
 - `llm_om_only.py`: examples of using LLMs only for ontology matching.
 - `llm_om_with_context.py`: examples of using LLMs with context information for ontology matching.
+- `util.py`: util component of the project.
 
 Frequently Asked Questions (FAQs):
 - Why does the Retrieval Agent have two parts `om_ontology_to_csv.py` and `om_csv_to_database.py`?  
