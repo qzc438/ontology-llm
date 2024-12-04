@@ -17,7 +17,7 @@ sqlite3 pgadmin4.db "UPDATE USER SET LOCKED = false, LOGIN_ATTEMPTS = 0 WHERE US
 ```
 
 #### How to align the results of Agent-OM with the results of the OAEI Anatomy Track?
-- Please check the function `filter_anatomy()` in the `util.py`.
+- Please check the function `filter_exclude_concept()` in the `util.py`.
   - Remove the mappings that are different from the equivalence.
   - Remove the non-distinct mappings that appear twice.
   - Remove all mappings between oboInOwl name-spaced concepts.

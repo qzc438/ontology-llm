@@ -130,10 +130,11 @@ def change_british_to_american(word):
 # https://stackoverflow.com/questions/5843518/remove-all-special-characters-punctuation-and-spaces-from-string
 def cleaning(name):
     # if symbols, change them to ' '
-    cleaned_name = re.sub(r'[^\w\u4e00-\u9fff\u3040-\u30ff\uac00-\ud7a3]+', ' ', str(name)).strip()
+    cleaned_name = re.sub(r'[^\w\u4e00-\u9fff\u3040-\u30ff\uac00-\ud7a3]+', ' ', str(name)).replace('_', ' ')
     # if no symbols, it is a camel case and change it to snake case
     if " " not in cleaned_name:
         cleaned_name = change_to_snake_case(cleaned_name)
+    # other formatting
     cleaned_name = cleaned_name.lower()
     cleaned_name = change_british_to_american(cleaned_name)
     # detect language
@@ -238,18 +239,21 @@ def calculate_cost(total_tokens, total_cost, cost_path, llm, alignment):
 #     print("current tokens usage:", total_token_usage)
 
 
-def filter_anatomy(csv_path):
+def filter_exclude_concept(csv_path):
     # read csv
     df = pd.read_csv(csv_path)
     # define the list of values to remove from "Entity1"
-    values_to_remove = ["http://www.geneontology.org/formats/oboInOwl#Subset",
-                        "http://www.geneontology.org/formats/oboInOwl#Synonym",
-                        "http://www.geneontology.org/formats/oboInOwl#DbXref",
-                        "http://www.geneontology.org/formats/oboInOwl#ObsoleteClass",
-                        "http://www.geneontology.org/formats/oboInOwl#SynonymType",
-                        "http://www.geneontology.org/formats/oboInOwl#Definition",
-                        "http://www.geneontology.org/formats/oboInOwl#ObsoleteProperty",
-                        "http://mouse.owl#UNDEFINED_part_of"]
+    values_to_remove = [
+                        "http://www.geneontology.org/formats/oboInOwl#Subset", # anatomy
+                        "http://www.geneontology.org/formats/oboInOwl#Synonym", # anatomy
+                        "http://www.geneontology.org/formats/oboInOwl#DbXref", # anatomy
+                        "http://www.geneontology.org/formats/oboInOwl#ObsoleteClass", # anatomy
+                        "http://www.geneontology.org/formats/oboInOwl#SynonymType", # anatomy
+                        "http://www.geneontology.org/formats/oboInOwl#Definition", # anatomy
+                        "http://www.geneontology.org/formats/oboInOwl#ObsoleteProperty", # anatomy
+                        "http://mouse.owl#UNDEFINED_part_of", # anatomy
+                        "http://www.w3.org/2004/02/skos/core#Concept" # dh
+                        ]
     # filter
     filtered_df = df[~df["Entity1"].isin(values_to_remove)]
     # write the filtered DataFrame back to a new CSV file

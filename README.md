@@ -5,7 +5,7 @@
 ## News:
 - This paper has been accepted by PVLDB 2025: TBC
 - A production version of the source code linked to the PVLDB paper can be found in the `Releases` section.
-- Presentation slides linked to the PVLDB paper can be found in the `slides` folder.
+- Slide presentation linked to the PVLDB paper can be found in the `slide_presentation` folder.
 
 ## Important Notice:
 - For technical inquiries, please submit a GitHub issue.
@@ -59,8 +59,8 @@ pip install pgvector==0.1.8
 pip install commentjson==0.9.0
 pip install transformers==4.41.1
 pip install colorama==0.4.6
-pip install jieba==0.42.1
 pip install langdetect==1.0.9
+pip install jieba==0.42.1
 pip install nltk==3.9.1
 ```
 - Install visualisation packages:
@@ -144,7 +144,6 @@ os.environ["ANTHROPIC_API_KEY"] = os.getenv("ANTHROPIC_API_KEY")
 ```
 from langchain_openai import ChatOpenAI
 from langchain_anthropic import ChatAnthropic
-from langchain_mistralai import ChatMistralAI
 from langchain_community.chat_models import ChatOllama
 
 # load GPT models: https://platform.openai.com/docs/models/
@@ -159,15 +158,19 @@ llm = ChatAnthropic(model="claude-3-opus-20240229", temperature=0) # expensive
 llm = ChatAnthropic(model="claude-3-sonnet-20240229", temperature=0)
 llm = ChatAnthropic(model="claude-3-haiku-20240307", temperature=0)
 
-# load Llama models: https://ollama.com/library/llama3
+# load Llama models
 llm = ChatOllama(model="llama3:8b", temperature=0)
-# llm = ChatOllama(model="llama3.1:8b", temperature=0)
+llm = ChatOllama(model="llama3.1:8b", temperature=0)
 
-# load Gemma models: https://ollama.com/library/gemma2
+# load Qwen models
+llm = ChatOllama(model="qwen2:7b", temperature=0)
+llm = ChatOllama(model="qwen2.5:7b", temperature=0)
+
+# load Gemma models
 llm = ChatOllama(model="gemma2:9b", temperature=0)
 
-# load Qwen models: https://ollama.com/library/qwen2
-llm = ChatOllama(model="qwen2:7b", temperature=0)
+# load GLM models
+llm = ChatOllama(model="glm4:9b", temperature=0)
 ```
 -  Select one embeddings service in the file `run_config.py`:
 ```
@@ -203,10 +206,10 @@ num_matches = 50
 ```
 python run_config.py
 ```
-- The result of the experiment will be stored in the folder `alignment`.
-- The performance evaluation of the experiment will be stored in the file `result.csv`.
-- The cost evaluation of the experiment will be stored in the file `cost.csv`.
-- The matching log of the experiment will be stored in the file `agent.log`.
+- The alignment will be stored in the folder `alignment`.
+- The performance evaluation will be stored in the file `result.csv`.
+- The cost evaluation will be stored in the file `cost.csv`.
+- The log will be stored in the file `agent.log`.
 
 ## Repository Structure:
 
@@ -223,7 +226,7 @@ python run_config.py
 - `util.py`: util component of the project.
 - `alignment`: store experiment results.
 - `llm_matching.py`: examples using purely LLMs for general matching tasks.
-- `llm_om_only.py`: examples of using purely LLMs without context information for ontology matching.
+- `llm_om_only.py`: examples of using LLMs only for ontology matching.
 - `llm_om_with_context.py`: examples of using LLMs with context information for ontology matching.
 
 Frequently Asked Questions (FAQs):
@@ -249,17 +252,17 @@ step = -0.05
 
 ### 3. Evaluation:
 - `generate_conference_benchmark.py`: generate the results of OAEI Conference Track.
-- `generate_anatomy_mse_benchmark.py`: generate the results of OAEI Anatomy Track and OAEI MSE Track.
-- `fix_multifarm_reference.py`: fix the URI issue of OAEI Multifarm Track.
-- `benchmark_2022`: compare Agent-OM with the results of OAEI 2022.
-- `benchmark_2023`: compare Agent-OM with the results of OAEI 2023.
+- `generate_anatomy_mse_benchmark.py`: generate the results of OAEI Anatomy Track and MSE Track.
+- `fix_inconsistent_reference.py`: fix the URI issue of OAEI tracks.
+- `benchmark_2022/`: compare Agent-OM with the results of OAEI 2022.
+- `benchmark_2023/`: compare Agent-OM with the results of OAEI 2023.
 - You may find a slight difference for each run. It is because: https://community.openai.com/t/run-same-query-many-times-different-results/140588
 
 ### 4. Visualisation:
 - `draw_benchmark.ipynb`: visualise the results of the evaluation.
 - `draw_ablation_study.ipynb`: visualise the results of the ablation study.
-- `result_csv`: store the original data of the results.
-- `result_figure`: store the visualisation of the results.
+- `result_csv/`: store the original data of the results.
+- `result_figure/`: store the visualisation of the results.
 - Our new visualisation is inspired by the following references:
   - https://joernhees.de/blog/2010/07/22/precision-recall-diagrams-including-fmeasure/
   - https://towardsai.net/p/l/precision-recall-curve

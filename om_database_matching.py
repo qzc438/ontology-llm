@@ -359,10 +359,9 @@ def init():
                 writer = csv.writer(f)
                 list_pair = [entity, candidate]
                 writer.writerow(list_pair)
-    # clean 8 mappings need to be removed from the anatomy track
-    if config.alignment == "anatomy/mouse-human-suite/component/":
-        util.filter_anatomy(predict_source_path_no_validation)
-        util.filter_anatomy(predict_source_path)
+    # filter exclude concept
+    util.filter_exclude_concept(predict_source_path_no_validation)
+    util.filter_exclude_concept(predict_source_path)
     # evaluation
     print(util.calculate_metrics(true_path, predict_source_path_no_validation, result_path, util.find_model_name(llm), alignment + "source_no_validation"))
     print(util.calculate_metrics(true_path, predict_source_path, result_path, util.find_model_name(llm), alignment + "source"))
@@ -386,10 +385,9 @@ def init():
                 writer = csv.writer(f)
                 list_pair = [entity, candidate]
                 writer.writerow(list_pair)
-    # clean 8 mappings need to be removed from the anatomy track
-    if config.alignment == "anatomy/mouse-human-suite/component/":
-        util.filter_anatomy(predict_target_path_no_validation)
-        util.filter_anatomy(predict_target_path)
+    # filter exclude concept
+    util.filter_exclude_concept(predict_target_path_no_validation)
+    util.filter_exclude_concept(predict_target_path)
     # evaluation
     print(util.calculate_metrics(true_path, predict_target_path_no_validation, result_path, util.find_model_name(llm), alignment + "target_no_validation"))
     print(util.calculate_metrics(true_path, predict_target_path, result_path, util.find_model_name(llm), alignment + "target"))
