@@ -3,13 +3,15 @@
 - The source code, data, and/or other artifacts have been made available at: https://github.com/qzc438/ontology-llm
 
 ## News:
-- This paper has been accepted by PVLDB 2025. The slide presentation can be found in the `slide_presentation` folder.
-- A production version of the source code linked to the PVLDB paper can be found in the `Releases` section.
+- This paper has been accepted by PVLDB 2025 (https://vldb.org/2025/).
+- A production version linked to the PVLDB paper can be found in the `Releases` section.
+- The slide presentation can be found in the `slide_presentation` folder.
+
 
 ## Important Notice:
 - For technical inquiries, please submit a GitHub issue.
 - For feature discussion or potential extensions, please join our foundation model discussion group: https://groups.google.com/g/agent-om
-- In order to track the continuous development of LLMs, we propose to use the benchmark with a tag with timestamp.
+- To track the continuous development of LLMs, we propose to use the benchmark with a timestamp tag.
 
 ## Instructions:
 
@@ -32,7 +34,7 @@ sudo -u postgres psql
 alter user postgres password 'postgres'
 \q
 ```
-- Database installation on Ubuntu and CUDA 12.2:
+- Install PostgreSQL, pgAdmin, and pgvector on Ubuntu and CUDA 12.2:
   - Install PostgreSQL: https://www.postgresql.org/download/linux/ubuntu/
   - Install pgAdmin: https://www.pgadmin.org/download/pgadmin-4-apt/
   - Install pgvector: https://github.com/pgvector/pgvector
@@ -211,7 +213,7 @@ num_matches = 50
 ```
 python run_config.py
 ```
-- The alignment will be stored in the folder `alignment`.
+- The alignment result will be stored in the folder `alignment/`.
 - The performance evaluation will be stored in the file `result.csv`.
 - The cost evaluation will be stored in the file `cost.csv`.
 - The matching log will be stored in the file `agent.log`.
@@ -239,7 +241,7 @@ Frequently Asked Questions (FAQs):
 Answer: You can simply combine these two parts together. We decompose this into two parts to make it easy to debug any issue that may occur in the database storage.
 
 - Why I find a slight difference for each run?  
-Answer: It is because: https://community.openai.com/t/run-same-query-many-times-different-results/140588
+Answer: It is because https://community.openai.com/t/run-same-query-many-times-different-results/140588
 
 - How do I use the file `run_series_conference.py`?  
 Answer: Please uncomment the following code in the file `run_config.py`.
