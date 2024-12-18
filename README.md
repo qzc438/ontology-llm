@@ -1,6 +1,6 @@
 ## Agent-OM: Leveraging LLM Agents for Ontology Matching
 - The preprint of the paper is available at arXiv: https://arxiv.org/abs/2312.00326
-- The source code, data, and/or other artifacts are available at: https://github.com/qzc438/ontology-llm
+- The source code, data, and/or other artifacts are available at GitHub: https://github.com/qzc438/ontology-llm
 
 ## News:
 - This paper has been accepted by PVLDB 2025 (https://vldb.org/2025/).
