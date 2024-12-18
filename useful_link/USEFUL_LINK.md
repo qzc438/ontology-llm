@@ -1,4 +1,3 @@
-### Useful Links:  
 - https://github.com/Lori10/Master-Thesis-Few-Shot-CoT-Prompting-LLM?tab=readme-ov-file
 - https://github.com/kyrolabs/awesome-langchain  
 - https://python.langchain.com/docs/integrations/vectorstores/faiss  
