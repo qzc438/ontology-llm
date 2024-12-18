@@ -1,20 +1,27 @@
 ## Agent-OM: Leveraging LLM Agents for Ontology Matching
 - The preprint of the paper is currently available at arXiv: https://arxiv.org/abs/2312.00326
-- This repository contains a development version of the source code: https://github.com/qzc438/ontology-llm
+- The source code, data, and/or other artifacts have been made available at: https://github.com/qzc438/ontology-llm
 
 ## News:
-- This paper has been accepted by PVLDB 2025: TBC
+- This paper has been accepted by PVLDB 2025. The slide presentation can be found in the `slide_presentation` folder.
 - A production version of the source code linked to the PVLDB paper can be found in the `Releases` section.
-- Slide presentation linked to the PVLDB paper can be found in the `slide_presentation` folder.
 
 ## Important Notice:
 - For technical inquiries, please submit a GitHub issue.
 - For feature discussion or potential extensions, please join our foundation model discussion group: https://groups.google.com/g/agent-om
-- In order to track the continuous development of LLMs, we propose to use the benchmark with a time tag.
+- In order to track the continuous development of LLMs, we propose to use the benchmark with a tag with timestamp.
 
-## Quick Start:
+## Instructions:
 
-### 1. Install Database:
+- Our experiment was run on a Dell Alienware Aurora R15 desktop.
+  - Memory: 64.0 GiB 
+  - Processor: 13th Gen Intel® Core™ i9-13900KF × 32 
+  - Graphics: NVIDIA GeForce RTX™ 4090 
+  - Disk Capacity: 6.1 TB
+
+- The operating system is Ubuntu 24.04.1 LTS. The CUDA version is 12.2.
+
+### 1. Install PostgreSQL Database:
 - PostgreSQL: https://www.postgresql.org/download/
 - pgAdmin: https://www.pgadmin.org/download/ (Optional for GUI access to the database)
 - pgvector: https://github.com/pgvector/pgvector
@@ -70,13 +77,13 @@ pip install ipyparallel
 - Deal with the blank page: https://stackoverflow.com/questions/55152948/juypter-notebook-shows-blank-page
 
 ### 4. Install Ollama:
-- Ollama GitHub: https://github.com/ollama/ollama
+- GitHub link: https://github.com/ollama/ollama
   - Ollama installation: https://ollama.com/download
   - Ollama FAQs: https://github.com/ollama/ollama/blob/main/docs/faq.md
   - Link Ollama to LangChain: https://python.langchain.com/v0.1/docs/integrations/llms/ollama/
 - PyTorch installation: https://pytorch.org/get-started/locally/
 - Open WebUI installation: https://docs.openwebui.com/getting-started/ (Optional for GUI access to LLMs)
-- Ollama installation on Ubuntu and CUDA 12.2:
+- Install Ollama on Ubuntu and CUDA 12.2:
   - Install or update Ollama:
   ```
   curl -fsSL https://ollama.com/install.sh | sh
@@ -212,10 +219,10 @@ python run_config.py
 ## Repository Structure:
 
 ### 1. Data:
-- `data/`: store the data from three OAEI tracks.
+- `data/`: data from three OAEI tracks.
 
-### 2. Experiment:
-- `alignment/`: store experiment results.
+### 2. Experiments:
+- `alignment/`: alignment results.
 - `om_ontology_to_csv.py`: Retrieval Agent Part 1.
 - `om_csv_to_database.py`: Retrieval Agent Part 2.
 - `om_database_matching.py`: Matching Agent.
@@ -230,6 +237,9 @@ python run_config.py
 Frequently Asked Questions (FAQs):
 - Why does the Retrieval Agent have two parts `om_ontology_to_csv.py` and `om_csv_to_database.py`?  
 Answer: You can simply combine these two parts together. We decompose this into two parts to make it easy to debug any issue that may occur in the database storage.
+
+- Why I find a slight difference for each run?  
+Answer: It is because: https://community.openai.com/t/run-same-query-many-times-different-results/140588
 
 - How do I use the file `run_series_conference.py`?  
 Answer: Please uncomment the following code in the file `run_config.py`.
@@ -252,16 +262,15 @@ step = -0.05
 - `generate_conference_benchmark.py`: generate the results of OAEI Conference Track.
 - `generate_anatomy_mse_benchmark.py`: generate the results of OAEI Anatomy Track and MSE Track.
 - `fix_inconsistent_reference.py`: fix the URI issue of OAEI tracks.
-- `benchmark_2022/`: compare Agent-OM with the results of OAEI 2022.
-- `benchmark_2023/`: compare Agent-OM with the results of OAEI 2023.
-- You may find a slight difference for each run. It is because: https://community.openai.com/t/run-same-query-many-times-different-results/140588
+- `benchmark_2022/`: results of OAEI 2022.
+- `benchmark_2023/`: results of OAEI 2023.
 
 ### 4. Visualisation:
 - `draw_benchmark.ipynb`: visualise the results of the evaluation.
 - `draw_ablation_study.ipynb`: visualise the results of the ablation study.
-- `result_csv/`: store the original data of the results.
-- `result_figure/`: store the visualisation of the results.
-- Our new visualisation is inspired by the following references:
+- `result_csv/`: original data of the results.
+- `result_figure/`: visualisation of the results.
+- Our visualisation is inspired by the following references:
   - https://joernhees.de/blog/2010/07/22/precision-recall-diagrams-including-fmeasure/
   - https://towardsai.net/p/l/precision-recall-curve
 
@@ -273,18 +282,18 @@ step = -0.05
 - According to the OAEI data policy (date accessed: 2024-06-30), "OAEI results and datasets, are publicly available, but subject to a use policy similar to [the one defined by NIST for TREC](https://trec.nist.gov/results.html). These rules apply to anyone using these data." Please find more details from the official website: https://oaei.ontologymatching.org/doc/oaei-deontology.2.html
 - In this paper, AI-generated content (AIGC) is labelled as "AI-generated content". AIGC can contain harmful, unethical, prejudiced, or negative content (https://docs.mistral.ai/capabilities/guardrailing/). However, ontology matching tasks only check the meaning of domain-specific terminologies, and we have not observed such content being generated.
 
-## Code Acknowledgements:
+### Code Acknowledgements:
 - We use the LangChain Python package to generate LLM agents: https://api.python.langchain.com/en/latest/langchain_api_reference.html
 - Our data-driven application architecture is inspired by: https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/main/cloud-sql/postgres/pgvector/notebooks/pgvector_gen_ai_demo.ipynb
 
-## Author Acknowledgements:
+### Author Acknowledgements:
 - The authors would like to thank Sven Hertling for curating the datasets stored in the Matching EvaLuation Toolkit (MELT) for the Ontology Alignment Evaluation Initiative (OAEI) 2022 and 2023.
 - The authors would like to thank the organisers of Ontology Alignment Evaluation Initiative (OAEI) 2022 and 2023 Conference Track (Ondřej Zamazal and Lu Zhou), Anatomy Track (Mina Abd Nikooie Pour, Huanyu Li, Ying Li, and Patrick Lambrix), and MSE Track (Engy Nasr and Martin Huschka), for helpful advice on reproducing the benchmarks used in this paper.
 - The authors would like to thank Jing Jiang from the Australian National University (ANU) for helpful advice on the semantic verbaliser used in this paper.
 - The authors would like to thank Alice Richardson of the Statistical Support Network, Australian National University (ANU), for helpful advice on the statistical analysis in this paper.
 - The authors would like to thank the Commonwealth Scientific and Industrial Research Organisation (CSIRO) for supporting this project.
 
-## Licence:
+### License:
 
 <!-- Which licence is best for your work? Check with the CC License chooser: https://chooser-beta.creativecommons.org/ -->
 

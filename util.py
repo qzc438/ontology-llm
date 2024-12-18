@@ -130,16 +130,17 @@ def change_british_to_american(word):
 # https://stackoverflow.com/questions/5843518/remove-all-special-characters-punctuation-and-spaces-from-string
 def cleaning(name):
     # if symbols, change them to ' '
-    cleaned_name = re.sub(r'[^\w\u4e00-\u9fff\u3040-\u30ff\uac00-\ud7a3]+', ' ', str(name)).replace('_', ' ')
+    cleaned_name = re.sub(r'[^A-Za-z0-9]+', ' ', str(name))
     # if no symbols, it is a camel case and change it to snake case
     if " " not in cleaned_name:
         cleaned_name = change_to_snake_case(cleaned_name)
-    # other formatting
     cleaned_name = cleaned_name.lower()
     cleaned_name = change_british_to_american(cleaned_name)
-    # tokenization
-    tokens = word_tokenize(cleaned_name)
-    return " ".join(tokens)
+    cleaned_name = cleaned_name.strip()
+    if cleaned_name:
+        return cleaned_name
+    else:
+        return name
 
 
 def calculate_metrics(true_path, predict_path, result_path, llm, alignment):

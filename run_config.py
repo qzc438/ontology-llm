@@ -68,11 +68,11 @@ num_matches = 50
 
 # alignment settings
 # conference track
-context = "conference"
-o1_is_code = False
-o2_is_code = False
+# context = "conference"
+# o1_is_code = False
+# o2_is_code = False
 # alignment = "conference/cmt-conference/component/"
-alignment = "conference/cmt-confof/component/"
+# alignment = "conference/cmt-confof/component/"
 # alignment = "conference/cmt-edas/component/"
 # alignment = "conference/cmt-ekaw/component/"
 # alignment = "conference/cmt-iasted/component/"
@@ -148,10 +148,10 @@ alignment = "conference/cmt-confof/component/"
 # e2_list_property: 95
 
 # mse Test Case 3
-# context = "materials science"
-# alignment = "mse/MaterialInformation-EMMO/component/"
-# o1_is_code = False
-# o2_is_code = True
+context = "materials science"
+alignment = "mse/MaterialInformation-EMMO/component/"
+o1_is_code = False
+o2_is_code = True
 
 # metadata
 # e1_list_class: 545
