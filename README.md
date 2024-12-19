@@ -15,29 +15,30 @@
 
 ## Instructions:
 
-- Our experiment was run on a Dell Alienware Aurora R15 desktop.
+- Our experiment was run on a Dell Alienware Aurora R15.
   - Memory: 64.0 GiB 
   - Processor: 13th Gen Intel® Core™ i9-13900KF × 32 
   - Graphics: NVIDIA GeForce RTX™ 4090 
   - Disk Capacity: 6.1 TB
-
-- The operating system is Ubuntu 24.04.1 LTS. The CUDA version is 12.2.
+- The operating system is Ubuntu 24.04.1 LTS. 
+- The CUDA version is 12.2.
 
 ### 1. Install PostgreSQL Database:
 - PostgreSQL: https://www.postgresql.org/download/
 - pgAdmin: https://www.pgadmin.org/download/ (Optional for GUI access to the database)
 - pgvector: https://github.com/pgvector/pgvector
-- If the password failed:
+- Create a database and name it `ontology`.
+- Install PostgreSQL, pgAdmin, and pgvector on Ubuntu and CUDA 12.2:
+  - Install PostgreSQL: https://www.postgresql.org/download/linux/ubuntu/
+  - Install pgAdmin: https://www.pgadmin.org/download/pgadmin-4-apt/
+  - Install pgvector: https://github.com/pgvector/pgvector
+  - If the password failed:
 ```
 psql --version
 sudo -u postgres psql
 alter user postgres password 'postgres'
 \q
 ```
-- Install PostgreSQL, pgAdmin, and pgvector on Ubuntu and CUDA 12.2:
-  - Install PostgreSQL: https://www.postgresql.org/download/linux/ubuntu/
-  - Install pgAdmin: https://www.pgadmin.org/download/pgadmin-4-apt/
-  - Install pgvector: https://github.com/pgvector/pgvector
   - If fatal error: postgres.h: No such file or directory
 ```
 sudo apt install postgresql-server-dev-16 (Replace 16 with your Postgres server version)
@@ -80,11 +81,11 @@ pip install ipyparallel
 
 ### 4. Install Ollama:
 - GitHub link: https://github.com/ollama/ollama
-  - Ollama installation: https://ollama.com/download
+  - Install Ollama: https://ollama.com/download
   - Ollama FAQs: https://github.com/ollama/ollama/blob/main/docs/faq.md
   - Link Ollama to LangChain: https://python.langchain.com/v0.1/docs/integrations/llms/ollama/
-- PyTorch installation: https://pytorch.org/get-started/locally/
-- Open WebUI installation: https://docs.openwebui.com/getting-started/ (Optional for GUI access to LLMs)
+- Install PyTorch: https://pytorch.org/get-started/locally/
+- Install Open WebUI: https://docs.openwebui.com/getting-started/ (Optional for GUI access to LLMs)
 - Install Ollama on Ubuntu and CUDA 12.2:
   - Install or update Ollama:
   ```
@@ -123,12 +124,15 @@ pip install ipyparallel
   Please check this link for further updates: https://github.com/ollama/ollama/issues/2633
 
 ### 5. Setup Large Language Models (LLMs):
+
+At present, multiple LLM models are used in the experiments. The reader is referred to README.md for models currently used and reference therein to the API access or download, pricing, and licensing for each model.
+
 - You will need API keys to interact with API-accessed commercial LLMs.
+  - OpenAI: https://platform.openai.com/account/api-keys
+  - Anthropic: https://console.anthropic.com/settings/keys
 - Create a file named as `.env` and write:
 ```
-# https://platform.openai.com/account/api-keys
 OPENAI_API_KEY = <YOUR_OPENAI_API_KEY>
-# https://console.anthropic.com/settings/keys
 ANTHROPIC_API_KEY = <YOUR_ANTHROPIC_API_KEY>
 ```
 - To protect your API keys, please add `.env` into the file `.gitignore`:
@@ -240,7 +244,7 @@ Frequently Asked Questions (FAQs):
 - Why does the Retrieval Agent have two parts `om_ontology_to_csv.py` and `om_csv_to_database.py`?  
 Answer: You can simply combine these two parts together. We decompose this into two parts to make it easy to debug any issue that may occur in the database storage.
 
-- Why I find a slight difference for each run?  
+- Why do I find a slight difference for each run?  
 Answer: It is because https://community.openai.com/t/run-same-query-many-times-different-results/140588
 
 - How do I use the file `run_series_conference.py`?  
@@ -281,7 +285,7 @@ step = -0.05
 
 ## Ethical Considerations:
 - Agent-OM does not participate in the OAEI 2022 and 2023 campaigns.
-- According to the OAEI data policy (date accessed: 2024-06-30), "OAEI results and datasets, are publicly available, but subject to a use policy similar to [the one defined by NIST for TREC](https://trec.nist.gov/results.html). These rules apply to anyone using these data." Please find more details from the official website: https://oaei.ontologymatching.org/doc/oaei-deontology.2.html
+- According to the OAEI data policy (retrieved December 1, 2024), "OAEI results and datasets, are publicly available, but subject to a use policy similar to [the one defined by NIST for TREC](https://trec.nist.gov/results.html). These rules apply to anyone using these data." Please find more details from the official website: https://oaei.ontologymatching.org/doc/oaei-deontology.2.html
 - In this paper, AI-generated content (AIGC) is labelled as "AI-generated content". AIGC can contain harmful, unethical, prejudiced, or negative content (https://docs.mistral.ai/capabilities/guardrailing/). However, ontology matching tasks only check the meaning of domain-specific terminologies, and we have not observed such content being generated.
 
 ### Code Acknowledgements:
