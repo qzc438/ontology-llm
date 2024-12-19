@@ -32,7 +32,7 @@
   - Install PostgreSQL: https://www.postgresql.org/download/linux/ubuntu/
   - Install pgAdmin: https://www.pgadmin.org/download/pgadmin-4-apt/
   - Install pgvector: https://github.com/pgvector/pgvector
-  - If the password failed:
+- If the password failed:
 ```
 psql --version
 sudo -u postgres psql
