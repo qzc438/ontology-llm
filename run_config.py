@@ -68,11 +68,11 @@ num_matches = 50
 
 # alignment settings
 # conference track
-# context = "conference"
-# o1_is_code = False
-# o2_is_code = False
+context = "conference"
+o1_is_code = False
+o2_is_code = False
 # alignment = "conference/cmt-conference/component/"
-# alignment = "conference/cmt-confof/component/"
+alignment = "conference/cmt-confof/component/"
 # alignment = "conference/cmt-edas/component/"
 # alignment = "conference/cmt-ekaw/component/"
 # alignment = "conference/cmt-iasted/component/"
@@ -148,10 +148,10 @@ num_matches = 50
 # e2_list_property: 95
 
 # mse Test Case 3
-context = "materials science"
-alignment = "mse/MaterialInformation-EMMO/component/"
-o1_is_code = False
-o2_is_code = True
+# context = "materials science"
+# alignment = "mse/MaterialInformation-EMMO/component/"
+# o1_is_code = False
+# o2_is_code = True
 
 # metadata
 # e1_list_class: 545
@@ -189,8 +189,8 @@ result_path = "result.csv"
 cost_path = "cost.csv"
 
 # path for matching without using agents
-llm_zero_shot_path = align_folder + "llm_zero_shot.csv"
-llm_few_shot_path = align_folder + "llm_few_shot.csv"
+llm_only_path = align_folder + "llm_only.csv"
+llm_with_context_path = align_folder + "llm_with_context.csv"
 
 # reference file settings
 alignCell = rdflib.term.URIRef('http://knowledgeweb.semanticweb.org/heterogeneity/alignment#Cell')

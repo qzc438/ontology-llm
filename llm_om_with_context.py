@@ -20,7 +20,7 @@ o1 = config.o1
 o2 = config.o2
 
 true_path = config.true_path
-llm_few_shot_path = config.llm_few_shot_path
+llm_with_context_path = config.llm_with_context_path
 result_path = config.result_path
 cost_path = config.cost_path
 
@@ -43,7 +43,7 @@ if __name__ == '__main__':
         e1_list = e1_list_class + e1_list_property
         e2_list = e2_list_class + e2_list_property
         # find entity matching
-        util.create_document(llm_few_shot_path, header=['Entity1', 'Entity2'])
+        util.create_document(llm_with_context_path, header=['Entity1', 'Entity2'])
         for e1 in e1_list:
             # define metadata
             om_ontology_to_csv.ontology = om_ontology_to_csv.o1
@@ -77,7 +77,7 @@ if __name__ == '__main__':
                 print("answer:", answer)
                 print()
                 if extract_yes_no(answer) == "yes":
-                    with open(llm_few_shot_path, "a+", newline='') as f:
+                    with open(llm_with_context_path, "a+", newline='') as f:
                         writer = csv.writer(f)
                         list_pair = [e1, e2]
                         writer.writerow(list_pair)
@@ -89,4 +89,4 @@ if __name__ == '__main__':
         print(f"total cost (USD): ${cb.total_cost}")
         # evaluation
         print(util.calculate_cost(cb.total_tokens, cb.total_cost, cost_path, util.find_model_name(llm), alignment + "LLM-with-Context"))
-        print(util.calculate_metrics(true_path, llm_few_shot_path, result_path, util.find_model_name(llm), alignment + "LLM-with-Context"))
+        print(util.calculate_metrics(true_path, llm_with_context_path, result_path, util.find_model_name(llm), alignment + "LLM-with-Context"))

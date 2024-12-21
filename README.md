@@ -25,7 +25,7 @@
 
 ### 1. Install PostgreSQL Database:
 - PostgreSQL: https://www.postgresql.org/download/
-- pgAdmin: https://www.pgadmin.org/download/ (Optional for GUI access to the database)
+- pgAdmin: https://www.pgadmin.org/download/ (optional for GUI access to the database)
 - pgvector: https://github.com/pgvector/pgvector
 - Create a database and name it `ontology`.
 - Install PostgreSQL, pgAdmin, and pgvector on Ubuntu and CUDA 12.2:
