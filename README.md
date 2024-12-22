@@ -85,7 +85,7 @@ pip install ipyparallel
   - Ollama FAQs: https://github.com/ollama/ollama/blob/main/docs/faq.md
   - Link Ollama to LangChain: https://python.langchain.com/v0.1/docs/integrations/llms/ollama/
 - Install PyTorch: https://pytorch.org/get-started/locally/
-- Install Open WebUI: https://docs.openwebui.com/getting-started/ (Optional for GUI access to LLMs)
+- Install Open WebUI: https://docs.openwebui.com/getting-started/ (optional for GUI access to LLMs)
 - Install Ollama on Ubuntu and CUDA 12.2:
   - Install or update Ollama:
   ```
@@ -293,6 +293,7 @@ step = -0.05
 - Our data-driven application architecture is inspired by: https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/main/cloud-sql/postgres/pgvector/notebooks/pgvector_gen_ai_demo.ipynb
 
 ### Author Acknowledgements:
+- The authors would like to thank the reviewers for providing insightful comments to improve the quality of the manuscript during the review process.
 - The authors would like to thank Sven Hertling for curating the datasets stored in the Matching EvaLuation Toolkit (MELT) for the Ontology Alignment Evaluation Initiative (OAEI) 2022 and 2023.
 - The authors would like to thank the organisers of Ontology Alignment Evaluation Initiative (OAEI) 2022 and 2023 Conference Track (Ondřej Zamazal and Lu Zhou), Anatomy Track (Mina Abd Nikooie Pour, Huanyu Li, Ying Li, and Patrick Lambrix), and MSE Track (Engy Nasr and Martin Huschka), for helpful advice on reproducing the benchmarks used in this paper.
 - The authors would like to thank Jing Jiang from the Australian National University (ANU) for helpful advice on the semantic verbaliser used in this paper.
