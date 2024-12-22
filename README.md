@@ -244,6 +244,9 @@ Frequently Asked Questions (FAQs):
 - Why does the Retrieval Agent have two parts `om_ontology_to_csv.py` and `om_csv_to_database.py`?  
 Answer: You can simply combine these two parts together. We decompose this into two parts to make it easy to debug any issue that may occur in the database storage.
 
+- Why `om_csv_to_database.py` create additional columns `syntactic_matching`, `lexical_matching`, and `semantic_matching` in the table `ontology_matching`?  
+Answer: You can simply ignore these columns. We add these columns to debug any issue that may occur in the database storage.
+
 - Why do I find a slight difference for each run?  
 Answer: It is because https://community.openai.com/t/run-same-query-many-times-different-results/140588
 
