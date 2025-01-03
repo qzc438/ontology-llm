@@ -36,7 +36,7 @@
 ```
 psql --version
 sudo -u postgres psql
-alter user postgres password 'postgres'
+alter user postgres password 'postgres';
 \q
 ```
   - If fatal error: postgres.h: No such file or directory
