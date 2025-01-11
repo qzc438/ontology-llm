@@ -5,9 +5,6 @@ import enchant
 import pandas as pd
 import colorama
 
-import jieba
-from langdetect import detect
-from nltk.tokenize import word_tokenize
 
 # initialize colorama
 colorama.init(autoreset=True)
