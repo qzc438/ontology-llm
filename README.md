@@ -287,21 +287,10 @@ step = -0.05
 - We have created a debugging log for this project. [Click the link here.](DEBUGGING_LOG.md)
 
 ## Ethical Considerations:
-- Agent-OM does not participate in the OAEI 2022 and 2023 campaigns.
-- According to the OAEI data policy (retrieved December 1, 2024), "OAEI results and datasets, are publicly available, but subject to a use policy similar to [the one defined by NIST for TREC](https://trec.nist.gov/results.html). These rules apply to anyone using these data." Please find more details from the official website: https://oaei.ontologymatching.org/doc/oaei-deontology.2.html
-- In this paper, AI-generated content (AIGC) is labelled as "AI-generated content". AIGC can contain harmful, unethical, prejudiced, or negative content (https://docs.mistral.ai/capabilities/guardrailing/). However, ontology matching tasks only check the meaning of domain-specific terminologies, and we have not observed such content being generated.
+- AI-generated content (AIGC) is labelled as "AI-generated content". AIGC can contain harmful, unethical, prejudiced, or negative content (https://docs.mistral.ai/capabilities/guardrailing/). However, ontology matching tasks only check the meaning of domain-specific terminologies, and we have not observed such content being generated.
 
 ### Code Acknowledgements:
-- We use the LangChain Python package to generate LLM agents: https://api.python.langchain.com/en/latest/langchain_api_reference.html
 - Our data-driven application architecture is inspired by: https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/main/cloud-sql/postgres/pgvector/notebooks/pgvector_gen_ai_demo.ipynb
-
-### Author Acknowledgements:
-- The authors would like to thank the reviewers for providing insightful comments to improve the quality of the manuscript during the review process.
-- The authors would like to thank Sven Hertling for curating the datasets stored in the Matching EvaLuation Toolkit (MELT) for the Ontology Alignment Evaluation Initiative (OAEI) 2022 and 2023.
-- The authors would like to thank the organisers of Ontology Alignment Evaluation Initiative (OAEI) 2022 and 2023 Conference Track (Ondřej Zamazal and Lu Zhou), Anatomy Track (Mina Abd Nikooie Pour, Huanyu Li, Ying Li, and Patrick Lambrix), and MSE Track (Engy Nasr and Martin Huschka), for helpful advice on reproducing the benchmarks used in this paper.
-- The authors would like to thank Jing Jiang from the Australian National University (ANU) for helpful advice on the semantic verbaliser used in this paper.
-- The authors would like to thank Alice Richardson of the Statistical Support Network, Australian National University (ANU), for helpful advice on the statistical analysis in this paper.
-- The authors would like to thank the Commonwealth Scientific and Industrial Research Organisation (CSIRO) for supporting this project.
 
 ### License:
 
