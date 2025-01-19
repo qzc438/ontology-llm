@@ -114,7 +114,7 @@ sqlite3 pgadmin4.db "UPDATE USER SET LOCKED = false, LOGIN_ATTEMPTS = 0 WHERE US
 - To ensure a unique entity ID, we propose the following structure: `[entity_id] = [INDEX]-[source_or_target]-[entity_type]-[entity_name]`
 
 #### How to handle the null value of LLM output?
-- For null values, LLM may generate a sentence rather than follow the JSON format: "I couldn't find an equivalent entity for [entity] through syntactic, lexical, or graphical matching."
+- For null values, LLM may generate a sentence rather than follow the JSON format: "I couldn't find an equivalent entity for [entity] through syntactic, lexical, or semantic matching."
   - `None` and `Not Available` frequently get errors.
   - `N/A` and `Missing` sometimes get errors.
 - To ensure no error is produced for the null value, we propose the following structure:
@@ -134,6 +134,11 @@ sqlite3 pgadmin4.db "UPDATE USER SET LOCKED = false, LOGIN_ATTEMPTS = 0 WHERE US
   - Add one sentence from: https://medium.com/pythoneers/power-up-ollama-chatbots-with-tools-113ed8229a7a
   - We apply some slight changes to fit different LLM models.
 - It is possible to add tool error handling: https://python.langchain.com/v0.1/docs/use_cases/tool_use/tool_error_handling/
+
+#### Why are the results of `LLM with context` not stable?
+- `LLMs with context` only give the word “equivalent” in the prompt. The similarity threshold is determined by LLM for each run.
+- `LLMs with context` generally have high precision and low recall. This is because they take the semantic information into account, and only the entities with high similarity to the semantic information would match. However, we know semantic information is not reliable. This means they may not cover some matched entities with different semantic information.
+- `LLMs with context` sometimes have low precision. It is because LLM with context finds “match” but not the “best match”. This means LLM with context can find correct mappings (best match) but also include some incorrect mappings (match but not the best match)
 
 #### Prompt Testbed:
 
