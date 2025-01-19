@@ -287,10 +287,10 @@ step = -0.05
 - We have created a debugging log for this project. [Click the link here.](DEBUGGING_LOG.md)
 
 ## Ethical Considerations:
-AI-generated content (AIGC) is labelled as "AI-generated content". AIGC can contain harmful, unethical, prejudiced, or negative content (https://docs.mistral.ai/capabilities/guardrailing/). However, ontology matching tasks only check the meaning of domain-specific terminologies, and we have not observed such content being generated.
+- AI-generated content (AIGC) is labelled as "AI-generated content". AIGC can contain harmful, unethical, prejudiced, or negative content (https://docs.mistral.ai/capabilities/guardrailing/). However, ontology matching tasks only check the meaning of domain-specific terminologies, and we have not observed such content being generated.
 
 ### Code Acknowledgements:
-Our data-driven application architecture is inspired by: https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/main/cloud-sql/postgres/pgvector/notebooks/pgvector_gen_ai_demo.ipynb
+- Our data-driven application architecture is inspired by: https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/main/cloud-sql/postgres/pgvector/notebooks/pgvector_gen_ai_demo.ipynb
 
 ### License:
 
