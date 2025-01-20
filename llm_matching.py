@@ -3,6 +3,8 @@ import run_config as config
 llm = config.llm
 
 # context learning
+prompt = "Is MA_0000270 equivalent to NCI_C33736?"
+print(llm.invoke(prompt).content)
 prompt = "What is the meaning of chair? Give a short explanation."
 print(llm.invoke(prompt).content)
 prompt = "What is the meaning of chair in the context of conference? Give a short explanation."
