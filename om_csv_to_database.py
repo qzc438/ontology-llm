@@ -32,8 +32,10 @@ null_value_sentence = config.null_value_sentence
 df = pd.read_csv(config.csv_path)
 # determine the number of digits needed
 num_digits = len(str(df.index.max() + 1))
+# rename "entity" to "entity_uri"
+df.rename(columns={"entity": "entity_uri"}, inplace=True)
 # create unique id column
-df['entity_id'] = (df.index+1).astype(str).str.zfill(num_digits) + "-" + df['source_or_target'].astype(str) + "-" + df['entity_type'].astype(str) + "-" + df['entity'].apply(util.uri_to_name)
+df['entity_id'] = (df.index+1).astype(str).str.zfill(num_digits) + "-" + df['source_or_target'].astype(str) + "-" + df['entity_type'].astype(str) + "-" + df['entity_uri'].apply(util.uri_to_name)
 # remove null and duplicate
 df = df.fillna('')
 df.replace(null_value_sentence, "", inplace=True)
@@ -59,7 +61,7 @@ async def create_ontology_matching_table():
     await conn.execute("DROP TABLE IF EXISTS ontology_matching CASCADE;")
     # create table schema
     await conn.execute('''CREATE TABLE ontology_matching
-    (entity_id VARCHAR(1024) PRIMARY KEY, entity TEXT, source_or_target TEXT, entity_type TEXT, 
+    (entity_id VARCHAR(1024) PRIMARY KEY, entity_uri TEXT, source_or_target TEXT, entity_type TEXT, 
     syntactic_matching TEXT, lexical_matching TEXT, semantic_matching TEXT);''')
     # add csv data into table
     tuples = list(df.itertuples(index=False))

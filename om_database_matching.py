@@ -93,7 +93,7 @@ def find_entity_id(entity, source_or_target):
     register_vector(conn)
     cursor = conn.cursor()
     sql = '''SELECT o.entity_id FROM ontology_matching o
-              WHERE o.entity = (%s) and o.source_or_target = (%s);'''
+              WHERE o.entity_uri = (%s) and o.source_or_target = (%s);'''
     cursor.execute(sql, (entity, source_or_target))
     result = cursor.fetchone()
     # print("entity_id:", result[0])
@@ -106,7 +106,7 @@ def find_entity(entity_id):
     conn = psycopg2.connect(connection_string)
     register_vector(conn)
     cursor = conn.cursor()
-    sql = '''SELECT o.entity FROM ontology_matching o
+    sql = '''SELECT o.entity_uri FROM ontology_matching o
               WHERE o.entity_id = (%s);'''
     cursor.execute(sql, (entity_id,))
     result = cursor.fetchone()
