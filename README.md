@@ -3,10 +3,9 @@
 - The source code, data, and/or other artifacts are available at GitHub: https://github.com/qzc438/ontology-llm
 
 ## News:
-- This paper has been accepted by PVLDB 2025 (https://vldb.org/2025/).
+- This paper has been accepted by PVLDB 2025: https://dl.acm.org/doi/10.14778/3712221.3712222
 - A production version linked to the PVLDB 2025 paper can be found in the `Releases` section.
 - The slide presentation can be found in the `slide_presentation` folder.
-
 
 ## Important Notice:
 - For technical inquiries, please submit a GitHub issue.
@@ -14,13 +13,12 @@
 - To track the continuous development of LLMs, we propose to use the benchmark with a timestamp tag.
 
 ## Instructions:
-
 - Our experiment was run on a Dell Alienware Aurora R15.
-  - Memory: 64.0 GiB 
-  - Processor: 13th Gen Intel® Core™ i9-13900KF × 32 
-  - Graphics: NVIDIA GeForce RTX™ 4090 
+  - Memory: 64.0 GiB
+  - Processor: 13th Gen Intel® Core™ i9-13900KF × 32
+  - Graphics: NVIDIA GeForce RTX™ 4090
   - Disk Capacity: 6.1 TB
-- The operating system is Ubuntu 24.04.1 LTS. 
+- The operating system is Ubuntu 24.04.1 LTS.
 - The CUDA version is 12.2.
 
 ### 1. Install PostgreSQL Database:
@@ -79,7 +77,7 @@ pip install ipyparallel
 ```
 - Deal with the blank page: https://stackoverflow.com/questions/55152948/juypter-notebook-shows-blank-page
 
-**Author Note**: There is a known issue with the `Enchant` and `PyEnchant` libraries, we suggest using the `hunspell` and `pyhunspell` libraries instead in the `util.py`:
+**Author Note**: There is a known issue with the `Enchant` and `PyEnchant` libraries, we suggest using the `hunspell` and `pyhunspell` libraries instead in the `util.py`.
 ```
 pip install hunspell == 0.5.5
 sudo apt install hunspell-en-gb hunspell-en-us
@@ -211,7 +209,7 @@ vector_length = 1536
 embeddings_service = OpenAIEmbeddings(model="text-embedding-3-large")
 vector_length = 3072
 ```
-**Author Note**: It is possible to use embedding models other than OpenAI. For example, the following works for Llama 3 embedding models:
+**Author Note**: It is possible to use embedding models other than OpenAI. For example, the following works for Llama 3 embedding models.
 ```
 pip install langchain-ollama == 0.2.2
 ```
