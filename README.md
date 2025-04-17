@@ -79,7 +79,7 @@ pip install ipyparallel
 ```
 - Deal with the blank page: https://stackoverflow.com/questions/55152948/juypter-notebook-shows-blank-page
 
-[!NOTE]
+**Author Note**
 - There is a known issue with the `Enchant` and `PyEnchant` libraries, we suggest using the `hunspell` and `pyhunspell` libraries instead in the `util.py`:
 ```
 pip install hunspell == 0.5.5
@@ -212,7 +212,7 @@ vector_length = 1536
 embeddings_service = OpenAIEmbeddings(model="text-embedding-3-large")
 vector_length = 3072
 ```
-[!NOTE]
+**Author Note**
 - It is possible to use embedding models other than OpenAI. For example, the following works for Llama 3 embedding models:
 ```
 pip install langchain-ollama == 0.2.2
