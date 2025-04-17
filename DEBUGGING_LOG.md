@@ -1,6 +1,11 @@
 ### Debugging Log:
 - Release initial source code [2023-09-19]
 
+### How to fix "ERROR: Failed to build installable wheels for some pyproject.toml based projects":
+```
+sudo apt install libhunspell-dev build-essential python3-dev
+```
+
 #### How to fix PyTorch "torch.cuda.is_available() = false"?
 ```
 sudo apt-get purge nvidia-*

@@ -2,9 +2,14 @@ import os
 import csv
 import re
 import enchant
-import pandas as pd
+import hunspell
 import colorama
+import pandas as pd
 
+
+# load dictionaries once globally (for performance)
+uk_dict = hunspell.HunSpell('/usr/share/hunspell/en_GB.dic', '/usr/share/hunspell/en_GB.aff')
+us_dict = hunspell.HunSpell('/usr/share/hunspell/en_US.dic', '/usr/share/hunspell/en_US.aff')
 
 # initialize colorama
 colorama.init(autoreset=True)
@@ -122,6 +127,15 @@ def change_british_to_american(word):
         suggestions = us_dict.suggest(word)
     # return american spelling
     return suggestions[0] if suggestions else word
+
+
+# optional if the code above change_british_to_american is not working for YOUR OS
+# def change_british_to_american(word):
+#     # check if it's a British spelling not accepted in US
+#     if uk_dict.spell(word) and not us_dict.spell(word):
+#         suggestions = us_dict.suggest(word)
+#         return suggestions[0] if suggestions else word
+#     return word
 
 
 # https://stackoverflow.com/questions/5843518/remove-all-special-characters-punctuation-and-spaces-from-string

@@ -79,6 +79,25 @@ pip install ipyparallel
 ```
 - Deal with the blank page: https://stackoverflow.com/questions/55152948/juypter-notebook-shows-blank-page
 
+[!NOTE]
+- There is a known issue with the `Enchant` and `PyEnchant` libraries, we suggest using the `hunspell` and `pyhunspell` libraries instead in the `util.py`:
+```
+pip install hunspell == 0.5.5
+sudo apt install hunspell-en-gb hunspell-en-us
+```
+```
+import hunspell
+
+uk_dict = hunspell.HunSpell('/usr/share/hunspell/en_GB.dic', '/usr/share/hunspell/en_GB.aff')
+us_dict = hunspell.HunSpell('/usr/share/hunspell/en_US.dic', '/usr/share/hunspell/en_US.aff')
+
+def change_british_to_american(word):
+    if uk_dict.spell(word) and not us_dict.spell(word):
+        suggestions = us_dict.suggest(word)
+        return suggestions[0] if suggestions else word
+    return word
+```
+
 ### 4. Install Ollama:
 - GitHub link: https://github.com/ollama/ollama
   - Install Ollama: https://ollama.com/download
@@ -183,7 +202,7 @@ llm = ChatOllama(model="gemma2:9b", temperature=0)
 # load GLM models
 llm = ChatOllama(model="glm4:9b", temperature=0)
 ```
--  Select one embeddings service in the file `run_config.py`:
+- Select one embeddings service in the file `run_config.py`:
 ```
 # https://platform.openai.com/docs/guides/embeddings/embedding-models
 embeddings_service = OpenAIEmbeddings(model="text-embedding-ada-002")
@@ -192,6 +211,17 @@ embeddings_service = OpenAIEmbeddings(model="text-embedding-3-small")
 vector_length = 1536
 embeddings_service = OpenAIEmbeddings(model="text-embedding-3-large")
 vector_length = 3072
+```
+[!NOTE]
+- It is possible to use embedding models other than OpenAI. For example, the following works for Llama 3 embedding models:
+```
+pip install langchain-ollama == 0.2.2
+```
+```
+from langchain_ollama import OllamaEmbeddings
+
+embeddings_service = OllamaEmbeddings(model="llama3:8b")
+vector_length = 4096
 ```
 
 ### 6. Setup Matching Task:

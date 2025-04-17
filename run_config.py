@@ -4,13 +4,15 @@ import subprocess
 import rdflib
 import dotenv
 
-from langchain_openai import ChatOpenAI
-from langchain_anthropic import ChatAnthropic
+# from langchain_openai import ChatOpenAI
+# from langchain_anthropic import ChatAnthropic
 from langchain_community.chat_models import ChatOllama
 
-from langchain_openai import OpenAIEmbeddings
+# from langchain_openai import OpenAIEmbeddings
 
 import util
+
+from langchain_ollama import OllamaEmbeddings
 
 # customer settings
 
@@ -22,7 +24,7 @@ os.environ["ANTHROPIC_API_KEY"] = os.getenv("ANTHROPIC_API_KEY")
 
 # # load GPT, default timeout = None
 # llm = ChatOpenAI(model_name='gpt-4-turbo-2024-04-09', temperature=0) # expensive
-llm = ChatOpenAI(model_name='gpt-4o-2024-05-13', temperature=0)
+# llm = ChatOpenAI(model_name='gpt-4o-2024-05-13', temperature=0)
 # llm = ChatOpenAI(model_name='gpt-4o-mini-2024-07-18', temperature=0)
 # llm = ChatOpenAI(model_name='gpt-3.5-turbo-0125', temperature=0)
 # # load Anthropic, default timeout = None
@@ -30,7 +32,7 @@ llm = ChatOpenAI(model_name='gpt-4o-2024-05-13', temperature=0)
 # llm = ChatAnthropic(model="claude-3-sonnet-20240229", temperature=0)
 # llm = ChatAnthropic(model="claude-3-haiku-20240307", temperature=0)
 # # load Llama 3
-# llm = ChatOllama(model="llama3:8b", temperature=0)
+llm = ChatOllama(model="llama3:8b", temperature=0)
 # llm = ChatOllama(model="llama3.1:8b", temperature=0)
 # # load Qwen
 # llm = ChatOllama(model="qwen2:7b", temperature=0)
@@ -55,11 +57,13 @@ llm = ChatOpenAI(model_name='gpt-4o-2024-05-13', temperature=0)
 # llm = ChatOllama(model="hermes3:8b", temperature=0)
 
 # embedding settings
-embeddings_service = OpenAIEmbeddings(model="text-embedding-ada-002")
+# embeddings_service = OpenAIEmbeddings(model="text-embedding-ada-002")
 # embeddings_service = OpenAIEmbeddings(model="text-embedding-3-small")
-vector_length = 1536
+# vector_length = 1536
 # embeddings_service = OpenAIEmbeddings(model="text-embedding-3-large")
 # vector_length = 3072
+embeddings_service = OllamaEmbeddings(model="llama3:8b")
+vector_length = 4096
 
 # search settings
 similarity_threshold = 0.90
