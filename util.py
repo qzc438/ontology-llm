@@ -118,24 +118,24 @@ def repair_acronyms(name):
 
 
 # change British spelling to American spelling
-def change_british_to_american(word):
-    uk_dict = enchant.Dict("en_GB")
-    us_dict = enchant.Dict("en_US")
-    # check whether the word is british spelling
-    suggestions = None
-    if uk_dict.check(word) and not us_dict.check(word):
-        suggestions = us_dict.suggest(word)
-    # return american spelling
-    return suggestions[0] if suggestions else word
+# def change_british_to_american(word):
+#     uk_dict = enchant.Dict("en_GB")
+#     us_dict = enchant.Dict("en_US")
+#     # check whether the word is british spelling
+#     suggestions = None
+#     if uk_dict.check(word) and not us_dict.check(word):
+#         suggestions = us_dict.suggest(word)
+#     # return american spelling
+#     return suggestions[0] if suggestions else word
 
 
 # optional if the code above change_british_to_american is not working for YOUR OS
-# def change_british_to_american(word):
-#     # check if it's a British spelling not accepted in US
-#     if uk_dict.spell(word) and not us_dict.spell(word):
-#         suggestions = us_dict.suggest(word)
-#         return suggestions[0] if suggestions else word
-#     return word
+def change_british_to_american(word):
+    # check if it's a British spelling not accepted in US
+    if uk_dict.spell(word) and not us_dict.spell(word):
+        suggestions = us_dict.suggest(word)
+        return suggestions[0] if suggestions else word
+    return word
 
 
 # https://stackoverflow.com/questions/5843518/remove-all-special-characters-punctuation-and-spaces-from-string

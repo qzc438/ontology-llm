@@ -4,7 +4,6 @@ http://cmt#Author,http://confOf#Author
 http://cmt#Conference,http://confOf#Conference
 http://cmt#Paper,http://confOf#Paper
 http://cmt#Person,http://confOf#Person
-http://cmt#ProgramCommitteeChair,http://confOf#Chair_PC
-http://cmt#ProgramCommitteeMember,http://confOf#Member_PC
-http://cmt#email,http://confOf#contactEmail
-http://cmt#writtenBy,http://confOf#writtenBy
+http://cmt#hasAuthor,http://confOf#writtenBy
+http://cmt#hasCo-author,http://confOf#employedBy
+http://cmt#paperID,http://confOf#defaultChoice

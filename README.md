@@ -79,7 +79,7 @@ pip install ipyparallel
 
 **Author Note**: There is a known issue with the `Enchant` and `PyEnchant` libraries, we suggest using the `hunspell` and `pyhunspell` libraries instead in the `util.py`.
 ```
-pip install hunspell == 0.5.5
+pip install hunspell==0.5.5
 sudo apt install hunspell-en-gb hunspell-en-us
 ```
 ```
@@ -211,7 +211,7 @@ vector_length = 3072
 ```
 **Author Note**: It is possible to use embedding models other than OpenAI. For example, the following works for Llama 3 embedding models.
 ```
-pip install langchain-ollama == 0.2.2
+pip install langchain-ollama==0.1.0
 ```
 ```
 from langchain_ollama import OllamaEmbeddings
