@@ -1,17 +1,17 @@
 import os
 import fileinput
 
-directory_path = 'data/multifarm'
-old_statement = '<rdf:RDF xmlns="http://knowledgeweb.semanticweb.org/heterogeneity/alignment'
-new_statement = '<rdf:RDF xmlns="http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+
+old_statement = 'http://knowledgeweb.semanticweb.org/heterogeneity/alignment'
+new_statement = 'http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
 
 
-if __name__ == '__main__':
+def fix_reference_syntax (directory_path):
     # walk through the directory
     for subdir, dirs, files in os.walk(directory_path):
         for file in files:
-            # check if the file name is "reference.xml"
-            if file == 'reference.xml':
+            # check if the file name is "reference"
+            if file in ('reference.xml', 'reference.rdf'):
                 file_path = os.path.join(subdir, file)
                 # open the file and replace the text
                 with fileinput.FileInput(file_path, inplace=True, backup='.bak') as file:
@@ -21,4 +21,7 @@ if __name__ == '__main__':
                         print(updated_line, end='')
                 print(f"Updated file: {file_path}")
     # print completion
-    print("All files have been updated.")
+    print(f"{directory_path}: All files have been updated.")
+
+if __name__ == '__main__':
+    fix_reference_syntax('data')

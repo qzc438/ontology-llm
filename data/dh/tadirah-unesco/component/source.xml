@@ -1,0 +1,1979 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+>
+<rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept">
+    <rdfs:label xml:lang="en">Concept</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+    <skos:definition xml:lang="en">An idea or notion; a unit of thought.</skos:definition>
+    <!-- S1 -->
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+</rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/organizing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/collaborating"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/storing"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=40&amp;/organizing"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/finding"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/managing"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/sharing"/>
+    <skos:note xml:lang="en">organizing refers to the arrangement of objects (research materials, data sets, images, etc.) in a way that facilitates other research activities. May also include activities that support discovery such as metadata creation and enhancement.</skos:note>
+    <skos:prefLabel xml:lang="fr">Organisation</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Organisieren</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Organizing</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Organizzazione</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Организовање</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/communicating">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/disseminating"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=45&amp;/communicating"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/audioConferencing"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/eMailing"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/instantMessaging"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/microblogging"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/textMessaging"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/videoConference"/>
+    <skos:note xml:lang="en">communicating refers to the activity of exchanging ideas with other people, primarily, but not exclusively, using linguistic means.</skos:note>
+    <skos:prefLabel xml:lang="en">Communicating</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Communication</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">Comunicación</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Comunicazione</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Comunicação</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Kommunizieren</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Комуницирање</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/recording">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/capturing"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=13&amp;/recording"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/audioRecording"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/screencast"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/videoCapture"/>
+    <skos:note xml:lang="en">recording refers to capturing audio and/or video. The  result is a digital audio (e.g. WAV, MP3, etc.) or video (e.g. MP4, Quicktime, etc.) file that can be manipulated, analyzed and/or stored.</skos:note>
+    <skos:prefLabel xml:lang="de">Aufzeichnen</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Enregistrement</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">Grabación</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Gravação</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Recording</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Registrazione</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Снимање</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/designing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/creating"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=16&amp;/designing"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/diagramming"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/drawing"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/wireframing"/>
+    <skos:note xml:lang="en">designing refers to the development of a user or a graphical interface, with which the user is able to interact to perform various tasks and conduct activities. Also included here is the development of the user experience, user interaction, participation and usability aspects where a person’s perceptions and needs of the practical dimensions such as utility, ease of use, and efficiency of the system are taken into consideration.</skos:note>
+    <skos:prefLabel xml:lang="de">Design</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Design</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Design</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Designing</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">Diseño</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Progettazione</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Дизајнирање</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/transcribing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/capturing"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=14&amp;/transcription"/>
+    <skos:definition xml:lang="en">transcribing describes  the activity of creating a representation of a manuscript or of audio or video recordings. The representation is generally textual for the verbal aspects of recordings and structured for example by speech turns. It can also contain multimodal information like gestures or events and multimedia information like time synchronization and relation to media files.</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/speechRecognizing"/>
+    <skos:prefLabel xml:lang="en">Transcribing</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">Transcripción</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Transcription</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Transcrição</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Transkription</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Trascrizione</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Транскрипција</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/diagramming">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/designing"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q98845265," Wikidata, https://www.wikidata.org/w/index.php?title=Q98845265&amp;oldid=1270638355 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Diagramming</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/capturing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=7"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/converting"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/dataRecognition"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/discovering"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/extracting"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/gathering"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/imaging"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/recording"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/transcribing"/>
+    <skos:note xml:lang="en">capturing generally refers to the activity of creating digital surrogates of real world objects, or expressing existing artifacts in a digital representation. This refers basically to learning and noticing something (as in discovering) and could be enhanced by a manual process (as in transcribing) or an automated procedure (as in imaging, data recognition or recording). This also includes aggregating resources, information and data (as in gathering).</skos:note>
+    <skos:prefLabel xml:lang="fr">Acquisition</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Acquisizione</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">Captura</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Captura</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Capturing</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Erfassen</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Захватање</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/modeling">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/interpreting"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=35&amp;/modeling"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/dataMapping"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/transformation"/>
+    <skos:note xml:lang="en">modeling refers to creating an abstract representation of a complex phenomenon, usually in a machine-readable way, possibly in an interactive way (i.e. it includes “simulation”). Models become machine-readable when modeling produces a schema that describes the elements and the structure of an object of inquiry in an explicit way. Further it refers to the activity of transforming or manipulating a digital object in such a way as to make it compatible with a previously constructed model or schema.</skos:note>
+    <skos:prefLabel xml:lang="pt">Modelagem</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Modeling</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">Modelización</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Modelizzazione</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Modellieren</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Modélisation</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Моделовање</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/dataRecognition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/capturing"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=9&amp;/data-recognition"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/encoding"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/opticalCharacterRecognition"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/opticalMusicRecognition"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/preprocessing"/>
+    <skos:note xml:lang="en">data recognition, e.g. optical character recognition (OCR), refers to the process of treating the immediate products of digital data capturing (recording or imaging), such as digital facsimiles of texts or of music score, in a way to extract discrete, machine-readable units from them, such as plain text words, musical notes, still or moving image elements.</skos:note>
+    <skos:prefLabel xml:lang="en">Data Recognition</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Datenerkennung</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Reconhecimento de dados</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Reconnaissance de données</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">Reconocimiento de datos</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Riconoscimento dei Dati</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Препознавање података</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/knowledgeExtraction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/extracting"/>
+    <skos:definition xml:lang="en">creation of knowledge from structured and unstructured sources (Wikidata contributors, "Q1582085," Wikidata, https://www.wikidata.org/w/index.php?title=Q1582085&amp;oldid=1235011290 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Knowledge Extraction</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/treeTagging">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/structuralAnalysis"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q98845582," Wikidata, https://www.wikidata.org/w/index.php?title=Q98845582&amp;oldid=1270642307 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Tree-Tagging</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/programming">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/creating"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=17&amp;/programming"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/encoding"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/graphicsProgramming"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/pseudoCoding"/>
+    <skos:note xml:lang="en">programming describes the process of creating executable code for a computer including scripts or application software. Often programming comprises pseudo coding and editing ac source code or algorithm and is varying for different programming languages.</skos:note>
+    <skos:prefLabel xml:lang="es">Programación</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Programação</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Programmation</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Programmazione</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Programmieren</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Programming</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Програмирање</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/gathering">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/capturing"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=11&amp;/gathering"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/aggregating"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/archiving"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/cataloging"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/collating"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/collecting"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/preserving"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/webCrawling"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/webScraping"/>
+    <skos:note xml:lang="en">gathering refers to aggregating discovered resources, usually in some structured way (e.g. bringing together all papers that address a certain topic, as part of a literature review, or pulling all works by a particular author out of a digital collection for further analysis).</skos:note>
+    <skos:prefLabel xml:lang="fr">Collecte</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Gathering</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Raccolta</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">Recolección</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Recolección</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Sammeln</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Прикупљање</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/writing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/creating"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=20&amp;/writing"/>
+    <skos:definition xml:lang="en">writing designates the activity of creating new texts (instead of capturing existing text). Here, it primarily concerns research papers and reports, but may include other textually-oriented objects.</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/lettering"/>
+    <skos:prefLabel xml:lang="pt">Escrita</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">Escritura</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Schreiben</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Scrittura</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Writing</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Écriture</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Писање</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/dataCleansing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/enriching"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=23&amp;/cleanup"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/correcting"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/debugging"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/improving"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/removing"/>
+    <skos:note xml:lang="en">data cleansing involves improving the quality of an existing digital object. This could include correcting errors in a written text, errors in OCR results or  debugging code.</skos:note>
+    <skos:prefLabel xml:lang="de">Bereinigen</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Data Cleansing</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Limpeza de dados</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">Limpieza de datos</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Nettoyage</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Pulizia</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Чишћење</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+    <dc:contributor>Elisabeth Burr, Francesca Tomasi, Tiziana Mancinelli, Monica Berti, Klaus Thoden, Luise Borek, Christof Schöch, Claudia Müller-Birn, Melanie Siemund, Saskia Lindner, Tamara Butigan, Vanja Savic, Toma Tasovac, Aurélien Berra, Thibault Clérice, Martin Grandjean, Vincent Razanajao, Gimena del Rio Riande</dc:contributor>
+    <dc:creator>Luise Borek, Canan Hastik, Vera Khramova, Jonathan Geiger</dc:creator>
+    <dc:language xml:lang="en">English</dc:language>
+    <dcterms:created>2020</dcterms:created>
+    <dcterms:description xml:lang="en">Taxonomy of Digital Research Activities in the Humanities was designed to help community-driven sites and projects structure their digital humanities (DH) content and gain better visibility.TaDiRAH provides terminology for DH research activities as well as scope notes that also explain the methods associated with them. Version 2.0 linked here is a complete revision and skosification of the taxonomy. For more information and additional resources, see tadirah.info</dcterms:description>
+    <dcterms:issued>2020-09-28</dcterms:issued>
+    <dcterms:license>https://creativecommons.org/publicdomain/zero/1.0</dcterms:license>
+    <dcterms:modified>2021-07-22</dcterms:modified>
+    <dcterms:rightsHolder>Luise Borek, Quinn Dombrowski, Christoph Schöch, Jody Perkins, Matthew Munson</dcterms:rightsHolder>
+    <dcterms:title xml:lang="en">TaDiRAH</dcterms:title>
+    <rdfs:label xml:lang="en">TaDiRAH</rdfs:label>
+    <owl:versionInfo>2.0.1</owl:versionInfo>
+    <skos:hasTopConcept rdf:resource="https://vocabs.dariah.eu/tadirah/analyzing"/>
+    <skos:hasTopConcept rdf:resource="https://vocabs.dariah.eu/tadirah/capturing"/>
+    <skos:hasTopConcept rdf:resource="https://vocabs.dariah.eu/tadirah/creating"/>
+    <skos:hasTopConcept rdf:resource="https://vocabs.dariah.eu/tadirah/disseminating"/>
+    <skos:hasTopConcept rdf:resource="https://vocabs.dariah.eu/tadirah/enriching"/>
+    <skos:hasTopConcept rdf:resource="https://vocabs.dariah.eu/tadirah/interpreting"/>
+    <skos:hasTopConcept rdf:resource="https://vocabs.dariah.eu/tadirah/storing"/>
+    <foaf:homepage rdf:resource="http://www.tadirah.info"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/analyzing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=25"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/contentAnalysis"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/networkAnalysis"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/relationalAnalysis"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/spatialAnalysis"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/structuralAnalysis"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/stylisticAnalysis"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/visualAnalysis"/>
+    <skos:note xml:lang="en">analyzing  refers to the activity of examining any kind of information from collections of data, of discovering recurring phenomena, units, elements, patterns, groupings, and the like. This can refer to structural, formal or semantic aspects of data.</skos:note>
+    <skos:prefLabel xml:lang="it">Analisi</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Analyse</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Analyse</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Analyzing</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Análise</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">Análisis</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Анализа</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/archiving">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/gathering"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/storing"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=38&amp;/archiving"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/cataloging"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/collecting"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/dataIngestion"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/scanning"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/webScraping"/>
+    <skos:note xml:lang="en">archiving includes the process of moving data and other resources to a separate space for retention. If long-term archiving is involved, activities related to data preservation may also be involved.</skos:note>
+    <skos:prefLabel xml:lang="fr">Archivage</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Archiviazione</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Archivieren</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Archiving</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Архивирање</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/enriching">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=21"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/annotating"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/dataCleansing"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/editing"/>
+    <skos:note xml:lang="en">enriching refers to the activity of annotating, editing, or cleaning information to an object of enquiry, by making its origin, nature, structure, meaning, or elements explicit.</skos:note>
+    <skos:prefLabel xml:lang="de">Anreichern</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Arricchimento</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Enriching</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Enrichissement</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Enriquecimento</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">Enriquecimiento</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Обогаћивање</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/coOccurrence">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/contextualizing"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:note xml:lang="en">co-occurrence indicates the semantic proximity or an idiomatic expression of text corpora, based on the statistical-linguistic frequency of occurrence of at least two terms in a certain order.</skos:note>
+    <skos:prefLabel xml:lang="en">Co-Occurrence</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/title">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/academicPublishing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/publishing"/>
+    <skos:definition xml:lang="en">subfield of publishing which distributes academic research and scholarship (Wikidata contributors, "Q5246046," Wikidata, https://www.wikidata.org/w/index.php?title=Q5246046&amp;oldid=1266348457 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Academic Publishing</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/microblogging">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/communicating"/>
+    <skos:definition xml:lang="en">broadcast medium (Wikidata contributors, "Q92438," Wikidata, https://www.wikidata.org/w/index.php?title=Q92438&amp;oldid=1237465325 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Microblogging</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/discovering">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/capturing"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=10&amp;/discovering"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/browsing"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/exploration"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/informationRetrieval"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/querying"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/searching"/>
+    <skos:note xml:lang="en">discovering describes the activity of advanced querying, simple searching and more serendipitous browsing in archives, library catalogs, indexes and abstracts of scholarly journals, web directories, databases and seeking out objects of research, research results, or other information which is useful for a given search interest.</skos:note>
+    <skos:prefLabel xml:lang="en">Discovering</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Découverte</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Entdecken</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">Localización</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Localização</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Scoperta</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Проналажење</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/wireframing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/designing"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q98845203," Wikidata, https://www.wikidata.org/w/index.php?title=Q98845203&amp;oldid=1270637566 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Wireframing</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/modifying">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/editing"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q98848358," Wikidata, https://www.wikidata.org/w/index.php?title=Q98848358&amp;oldid=1270671956 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Modifying</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/sequenceAlignment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/relationalAnalysis"/>
+    <skos:definition xml:lang="en">process in bioinformatics that aligns (identifies equivalent sites within) molecular sequences (Wikidata contributors, "Q827246," Wikidata, https://www.wikidata.org/w/index.php?title=Q827246&amp;oldid=1228152501 (accessed July 30, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Sequence Alignment</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/socialNetworking">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/collaborating"/>
+    <skos:definition xml:lang="en">The process of building one's group of personal or business contacts (Wikidata contributors, "Q19368491," Wikidata, https://www.wikidata.org/w/index.php?title=Q19368491&amp;oldid=1132647061 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Social Networking</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/drawing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/designing"/>
+    <skos:definition xml:lang="en">visual artwork in two-dimensional medium (Wikidata contributors, "Q93184," Wikidata, https://www.wikidata.org/w/index.php?title=Q93184&amp;oldid=1269736568 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Drawing</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/upload">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/sharing"/>
+    <skos:definition xml:lang="en">sending of data from a local system to a remote system (Wikidata contributors, "Q7126699," Wikidata, https://www.wikidata.org/w/index.php?title=Q7126699&amp;oldid=1267188395 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Upload</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/sharing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/disseminating"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/organizing"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=48&amp;/sharing"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/posting"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/upload"/>
+    <skos:note xml:lang="en">sharing refers to the activity of making objects such as digital information, documents, files, software and other publically findable, accessible, interoperable and reusable according to the fair principles and in the sense of open science through communication channels such as blogs, code sharing sites such as GitHUB, social media sites or other web-based services, collaborative and network applications.</skos:note>
+    <skos:prefLabel xml:lang="it">Condivisione</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">Intercambio</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Partage</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Sharing</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Teilen</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Troca</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Дељење</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/associating">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/annotating"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q98847960," Wikidata, https://www.wikidata.org/w/index.php?title=Q98847960&amp;oldid=1270669574 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Associating</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/contentAnalysis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/analyzing"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=26&amp;/content-analysis"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/discourseAnalysis"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/identifying"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/informationRetrieval"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/machineLearning"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/namedEntityRecognition"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/sentimentAnalysis"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/tagging"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/topicModeling"/>
+    <skos:note xml:lang="en">content analysis includes researching/studying aspects of objects relating to their meaning, such as identifying concepts or meaningful units.</skos:note>
+    <skos:prefLabel xml:lang="it">Analisi Contenutistica</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Analyse de contenu</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Análise de conteúdo</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">Análisis de contenido</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Content Analysis</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Inhaltsanalyse</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Анализа садржаја</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/imaging">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/capturing"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=12&amp;/imaging"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/photographing"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/scanning"/>
+    <skos:note xml:lang="en">imaging refers to capturing texts, images, artifacts or spatial formations in 2D or 3D using optical or acoustic means (light, laser, infrared, ultrasound). Imaging usually does not lead to the identification of discrete semantic or structural units in the data, such as words or musical notes.</skos:note>
+    <skos:prefLabel xml:lang="de">Bilderfassung</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Captura em formato de imagem</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">Captura en formato imagen</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Gestione delle Immagini</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Imagerie</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Imaging</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Усликавање</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/posTagging">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:altLabel xml:lang="en">Part-of-Speech-Tagging</skos:altLabel>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/annotating"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/structuralAnalysis"/>
+    <skos:definition xml:lang="en">the process of identifying the grammatical type of words in a text (Wikidata contributors, "Q1271424," Wikidata, https://www.wikidata.org/w/index.php?title=Q1271424&amp;oldid=1167811400 (accessed July 30, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">POS-Tagging</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/concordance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/structuralAnalysis"/>
+    <skos:definition xml:lang="en">list of words or terms in a published book (Wikidata contributors, "Q839018," Wikidata, https://www.wikidata.org/w/index.php?title=Q839018&amp;oldid=1228232199 (accessed July 30, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Concordance</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/relationalAnalysis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/analyzing"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=28&amp;/relational-analysis"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/clusterAnalysis"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/collating"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/comparing"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/identifying"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/machineLearning"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/patternRecognition"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/principalComponentAnalysis"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/sequenceAlignment"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/stylometry"/>
+    <skos:note xml:lang="en">relational analysis refers to computational techniques serving to discover specific relations between several objects of study. In textual studies, this could mean discovering overlap between different texts (e.g. text reuse or  plagiarism), or comparison of texts variations regarding completeness and correctness (e.g. collation), or assessing the similarity of texts in terms of stylistic features (e.g. stylometry). By analogy, such methods can also be applied to other cultural artefacts, such as music, film or painting.</skos:note>
+    <skos:prefLabel xml:lang="it">Analisi delle Relazioni</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Analyse relationnelle</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Analyse von Relationen</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Análise relacional</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">Análisis relacional</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Relational Analysis</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Релациона анализа</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/opticalMusicRecognition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:altLabel xml:lang="en">OMR</skos:altLabel>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/dataRecognition"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q1243229," Wikidata, https://www.wikidata.org/w/index.php?title=Q1243229&amp;oldid=1126910841 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Optical Music Recognition</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/translating">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/creating"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=18&amp;/translation"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:note xml:lang="en">translating involves generating a new linguistic object based on a natural languages source document but written in a different language than the source.</skos:note>
+    <skos:prefLabel xml:lang="es">Traducción</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Traduction</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Traduzione</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Tradução</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Translating</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Übersetzen</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Превођење</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/contrastiveAnalysis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/stylisticAnalysis"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q614959," Wikidata, https://www.wikidata.org/w/index.php?title=Q614959&amp;oldid=1118155497 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Contrastive Analysis</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/pseudoCoding">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/programming"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:note xml:lang="en">pseudo coding refers to the basic process of breaking complex problems into modular algorithms and logical procedures described in plain text. It primarily aims at human readability.</skos:note>
+    <skos:prefLabel xml:lang="en">Pseudo Coding</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/identifying">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/contentAnalysis"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/networkAnalysis"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/relationalAnalysis"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/storing"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=39&amp;/identifying"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/digitalObjectIdentifier"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/identifier"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/namingConvention"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/persistentIdentifier"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/uniformResourceIdentifier"/>
+    <skos:note xml:lang="en">identifying refers to the activity of naming and/or assigning (possibly unique and/or persistent) identifiers such as a word, number, letter, symbol, or any combination to objects of enquiry or to any kind of digital object.</skos:note>
+    <skos:prefLabel xml:lang="fr">Identification</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Identificazione</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Identifizieren</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Identifying</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Идентификовање</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/bitStreamPreservation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/preserving"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q98847577," Wikidata, https://www.wikidata.org/w/index.php?title=Q98847577&amp;oldid=1270666738 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Bit Stream Preservation</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/migration">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/preserving"/>
+    <skos:definition xml:lang="en">process of selecting, preparing, extracting, and transforming data and permanently transferring it from one computer storage system to another (Wikidata contributors, "Q1932543," Wikidata, https://www.wikidata.org/w/index.php?title=Q1932543&amp;oldid=1212596075 (accessed July 30, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Migration</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/converting">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/capturing"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=8&amp;/conversion"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/compiling"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/lemmatizing"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/naturalLanguageProcessing"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/parsing"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/transcoding"/>
+    <skos:note xml:lang="en">converting refers to changing the file format of an object, e.g. converting a .wmv video to a .mov file or converting VHS into a digital format. A conversion is not lossless and generates a different data format, digital representation, or a different digital object. When converting concerns metadata, it may involve mapping one metadata schema to another.</skos:note>
+    <skos:prefLabel xml:lang="fr">Conversion</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Conversione</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">Conversión</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Conversão</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Converting</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Konvertieren</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Конвертовање</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/removing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/dataCleansing"/>
+    <skos:definition xml:lang="en">dissociation of the original object with its old part; moving an object on distance of disconnect; process of moving, or the fact of being removed (Wikidata contributors, "Q23009442," Wikidata, https://www.wikidata.org/w/index.php?title=Q23009442&amp;oldid=1268618349 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Removing</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/parsing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/converting"/>
+    <skos:definition xml:lang="en">process of analyzing a string of symbols, either in natural language, computer languages or data structures, conforming to the rules of a formal grammar (Wikidata contributors, "Q194152," Wikidata, https://www.wikidata.org/w/index.php?title=Q194152&amp;oldid=1264510115 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Parsing</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/dataIngestion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/archiving"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q98847455," Wikidata, https://www.wikidata.org/w/index.php?title=Q98847455&amp;oldid=1270665713 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Data Ingestion</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/collaborating">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/disseminating"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=43&amp;/collaboration"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/discussing"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/organizing"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/socialNetworking"/>
+    <skos:note xml:lang="en">collaborating  is involved in any research activity being done jointly by several researchers, possibly in different places and at different times. Research-oriented collaboration is enabled, particularly, through comprehensive digital research environments, but can also happen around more specific activities, such as communication or sharing of resources.</skos:note>
+    <skos:prefLabel xml:lang="es">Colaboración</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Colaboração</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Collaborating</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Collaboration</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Collaborazione</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Kollaboration</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Колаборација/Сарадња</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/browsing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/discovering"/>
+    <skos:definition xml:lang="en">exploratory use of an information system (Wikidata contributors, "Q516508," Wikidata, https://www.wikidata.org/w/index.php?title=Q516508&amp;oldid=1169408380 (accessed July 30, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Browsing</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/preprocessing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/dataRecognition"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q28838080," Wikidata, https://www.wikidata.org/w/index.php?title=Q28838080&amp;oldid=941780726 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Preprocessing</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/associate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/contextualizing"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q2868277," Wikidata, https://www.wikidata.org/w/index.php?title=Q2868277&amp;oldid=1256900973 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Associate</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/spatialAnalysis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/analyzing"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=29&amp;/spatial-analysis"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/georeferencing"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/namedEntityRecognition"/>
+    <skos:note xml:lang="en">spatial analysis refers to the discovery of trends or patterns in data pertaining to spatial or geographical aspects of the data. Spatial analysis may lead to Visualization or Modeling in the form of maps.</skos:note>
+    <skos:prefLabel xml:lang="it">Analisi dello Spazio</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Analyse spatiale</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Análise espacial</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">Análisis espacial</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Räumliche Analyse</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Spatial Analysis</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Просторна анализа</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/audioRecording">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/recording"/>
+    <skos:definition xml:lang="en">mechanical or digital record of a series of audio events (Wikidata contributors, "Q3302947," Wikidata, https://www.wikidata.org/w/index.php?title=Q3302947&amp;oldid=1254901544 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Audio Recording</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/storing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=37&amp;/6_storage"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/archiving"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/identifying"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/organizing"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/preserving"/>
+    <skos:note xml:lang="en">storing refers to the activity of making digital copies of objects of inquiry, results of research, software and services, or any media keeping (preserving) them long-term accessible (archiving), without necessarily making them available to the public. This includes management activities (organizing) and processes of identifying the resource.</skos:note>
+    <skos:prefLabel xml:lang="es">Almacenamiento</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Armazenamento</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Conservazione</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Speicherung</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Stockage</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Storing</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Похрањивање</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/teaching">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/disseminating"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:note xml:lang="en">teaching refers to the activity of actively imparting knowledge, competences or skills.</skos:note>
+    <skos:prefLabel xml:lang="en">Teaching</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/conceptualizing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/theorizing"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:note xml:lang="en">conceptualizing means the simplification, specification and formalization of an abstract idea, principle or part of the world in mind, speech, text or even in images. This design activity initially focuses on developing a common understanding of projects, topics, objects and elements and their relationship to one another.</skos:note>
+    <skos:prefLabel xml:lang="en">Conceptualizing</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/plotting">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/visualAnalysis"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q98846923," Wikidata, https://www.wikidata.org/w/index.php?title=Q98846923&amp;oldid=1270658999 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Plotting</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/theorizing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/interpreting"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=36&amp;/theorizing"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/abstractThinking"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/conceptualizing"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/defining"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/explanation"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/reasoning"/>
+    <skos:note xml:lang="en">theorizing is a method which aims to relate a number of elements or ideas into a coherent system based on some general principles and capable of explaining relevant phenomena or observations that can be tested. Theorizing can take different forms while a theory may be implemented in the form of a model, or a model may give rise to formulating a theory.</skos:note>
+    <skos:prefLabel xml:lang="es">Teorización</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Teorização</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Teorizzazione</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Theoriebildung</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Theorizing</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Théorisation</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Теоретизовање</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/replication">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/preserving"/>
+    <skos:definition xml:lang="en">sharing information to ensure consistency in computing (Wikidata contributors, "Q1332873," Wikidata, https://www.wikidata.org/w/index.php?title=Q1332873&amp;oldid=1221552165 (accessed July 30, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Replication</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/linkedOpenData">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:altLabel xml:lang="en">LOD</skos:altLabel>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/annotating"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/publishing"/>
+    <skos:definition xml:lang="en">linked data available under an open license (Wikidata contributors, "Q18692990," Wikidata, https://www.wikidata.org/w/index.php?title=Q18692990&amp;oldid=1229182996 (accessed July 30, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Linked Open Data</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/defining">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/theorizing"/>
+    <skos:definition xml:lang="en">statement that attaches a meaning to a term (Wikidata contributors, "Q101072," Wikidata, https://www.wikidata.org/w/index.php?title=Q101072&amp;oldid=1267587775 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Defining</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/transcoding">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/converting"/>
+    <skos:definition xml:lang="en">direct digital-to-digital conversion of one encoding to another (Wikidata contributors, "Q1888734," Wikidata, https://www.wikidata.org/w/index.php?title=Q1888734&amp;oldid=1225865439 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Transcoding</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/disseminating">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=42&amp;/7_dissemination"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/collaborating"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/commenting"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/communicating"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/crowdsourcing"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/publishing"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/sharing"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/teaching"/>
+    <skos:note xml:lang="en">disseminating refers to the activity of making objects of inquiry, results of research, or software and services available to fellow researchers or the wider public in a variety of more or less formal ways. It builds on or requires storing and can include releasing (publishing and commenting) and sharing (collaborating, crowdsourcing, and communicating) of data using a variety of methods and techniques including the application of linked open data.</skos:note>
+    <skos:prefLabel xml:lang="es">Difusión</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Difusão</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Disseminating</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Dissemination</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Dissémination</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Divulgazione</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Дисеминација</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#prefLabel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/cataloging">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/archiving"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/gathering"/>
+    <skos:definition xml:lang="en">process of listing information resources for inclusion in a database (Wikidata contributors, "Q3535655," Wikidata, https://www.wikidata.org/w/index.php?title=Q3535655&amp;oldid=1256785269 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Cataloging</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/preserving">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/gathering"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/storing"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=41&amp;/preservation"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/bitStreamPreservation"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/description"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/emulation"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/migration"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/preservationMetadata"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/replication"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/versioning"/>
+    <skos:note xml:lang="en">preserving refers to the application of specific strategies, activities and technologies for the purpose of ensuring an accurate rendering of digital content over time. It facilitates the reuse of research data, objects, and related resources and may include activities related to sustainability and interoperability.</skos:note>
+    <skos:prefLabel xml:lang="fr">Conservation</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Konservierung</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">Preservación</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Preservazione</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Preservação</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Preserving</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Очување</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/encoding">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/annotating"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/dataRecognition"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/programming"/>
+    <skos:definition xml:lang="en">process of creating a message for transmission (Wikidata contributors, "Q5375490," Wikidata, https://www.wikidata.org/w/index.php?title=Q5375490&amp;oldid=1224419731 (accessed July 30, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Encoding</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/reasoning">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/theorizing"/>
+    <skos:definition xml:lang="en">type of thought (Wikidata contributors, "Q1156402," Wikidata, https://www.wikidata.org/w/index.php?title=Q1156402&amp;oldid=1265618386 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Reasoning</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/opticalCharacterRecognition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:altLabel xml:lang="en">OCR</skos:altLabel>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/dataRecognition"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q167555," Wikidata, https://www.wikidata.org/w/index.php?title=Q167555&amp;oldid=1257963956 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Optical Character Recognition</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/editing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/enriching"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=24&amp;/editing"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/adding"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/correcting"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/cropping"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/formatting"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/merging"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/modifying"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/subtracting"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/supplementing"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/videoEditing"/>
+    <skos:note xml:lang="en">editing refers to adding, correcting, condensating, organizing or in other form modifying information of a specific object with the intention to complete and finalize it by making structural, layout-related, semantic, or other scholarly explicit inline or stand-off markup.</skos:note>
+    <skos:prefLabel xml:lang="de">Bearbeiten</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">Edición</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Editare</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Editing</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Edição</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Édition</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Уређивање</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/networkAnalysis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/analyzing"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=27&amp;/network-analysis"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/identifying"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/namedEntityRecognition"/>
+    <skos:note xml:lang="en">network analysis is a method to study the relations of (real or fictional) actors or other entities in a mediated network, which can take the form of a social or academic online network, a set of correspondence, or a work of literature. The resulting network is made up of nodes (entities) and edges (relations).</skos:note>
+    <skos:prefLabel xml:lang="it">Analisi delle Reti</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Analyse de réseaux</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Análise de redes</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">Análisis de redes</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Network Analysis</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Netzwerkanalyse</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Анализа мреже</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/webDevelopment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/creating"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=19&amp;/web-development"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:note xml:lang="en">web development refers to the creation of websites by writing HTML/CSS, or other scripting languages, and building or configuring  a platform, content management system or framework such as Drupal, WordPress, Bootstrap, or Omeka, but also includes creating digital assets for browser-based applications.</skos:note>
+    <skos:prefLabel xml:lang="es">Desarrollo web</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Desenvolvimento web</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Développement Web</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Sviluppo Web</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Web Development</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Webentwicklung</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Развој мреже-Веб програмирање</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#closeMatch">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/machineLearning">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:altLabel xml:lang="en">ML</skos:altLabel>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/contentAnalysis"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/relationalAnalysis"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/structuralAnalysis"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/stylisticAnalysis"/>
+    <skos:definition xml:lang="en">branch of statistics and computer science, which studies algorithms and architectures that learn from observed facts (Wikidata contributors, "Q2539," Wikidata, https://www.wikidata.org/w/index.php?title=Q2539&amp;oldid=1228523395 (accessed July 30, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Machine Learning</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/principalComponentAnalysis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/relationalAnalysis"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/stylisticAnalysis"/>
+    <skos:definition xml:lang="en">conversion of a set of observations of possibly correlated variables into a set of values of linearly uncorrelated variables called principal components (Wikidata contributors, "Q2873," Wikidata, https://www.wikidata.org/w/index.php?title=Q2873&amp;oldid=1237203694 (accessed July 30, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Principal Component Analysis</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/knowledgeDiscovery">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/extracting"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q98847144," Wikidata, https://www.wikidata.org/w/index.php?title=Q98847144&amp;oldid=1270662396 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Knowledge Discovery</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/subtracting">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/editing"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q98848418," Wikidata, https://www.wikidata.org/w/index.php?title=Q98848418&amp;oldid=1270672456 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Subtracting</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/versioning">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/preserving"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:note xml:lang="en">versioning comprises the management of different but improved and optimized models, releases or parts of a product or work (e.g. document, websites or software) by archiving, referencing and documenting of the changes in these different versions.</skos:note>
+    <skos:prefLabel xml:lang="en">Versioning</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/visualAnalysis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/analyzing"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=32&amp;/visualization"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/dataVisualization"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/mapping"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/mindMapping"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/plotting"/>
+    <skos:note xml:lang="en">visual analysis refers to activities to aggregate and graphically represent patterns, structures, trends or points of interest in large and complex data sets using them analytically and making them visually explorable with methods of automatic data analysis in order to gain new insights. Virtually any type of data, information or knowledge can be visualized in static, dynamic or interactive visual formats such as images, maps, timelines, charts or tables, 2D, 3D and the like.</skos:note>
+    <skos:prefLabel xml:lang="en">Visual Analysis</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Visualisation</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Visualisierung</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">Visualización</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Visualização</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Visualizzazione</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Визуализација</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/digitalObjectIdentifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:altLabel xml:lang="en">DOI</skos:altLabel>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/identifying"/>
+    <skos:definition xml:lang="en">character string used as a permanent identifier for a digital object, in a format controlled by the International DOI Foundation (Wikidata contributors, "Q25670," Wikidata, https://www.wikidata.org/w/index.php?title=Q25670&amp;oldid=1280060100 (accessed September 24, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Digital Object Identifier</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/naturalLanguageProcessing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:altLabel xml:lang="en">NLP</skos:altLabel>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/converting"/>
+    <skos:definition xml:lang="en">field of computer science and linguistics (Wikidata contributors, "Q30642," Wikidata, https://www.wikidata.org/w/index.php?title=Q30642&amp;oldid=1257963465 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Natural Language Processing</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/collating">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/gathering"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/relationalAnalysis"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:note xml:lang="en">collating describes the activity of comparing two or more versions of written or spoken natural language data by aligning them into alphabetical or numerical order to identify similarities and differences. </skos:note>
+    <skos:prefLabel xml:lang="en">Collating</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#hasTopConcept">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/collecting">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/archiving"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/gathering"/>
+    <skos:definition xml:lang="en">purposefully gathering items (Wikidata contributors, "Q208165," Wikidata, https://www.wikidata.org/w/index.php?title=Q208165&amp;oldid=1249560517 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Collecting</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/videoEditing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/editing"/>
+    <skos:definition xml:lang="en">editing live television and video production (Wikidata contributors, "Q1154312," Wikidata, https://www.wikidata.org/w/index.php?title=Q1154312&amp;oldid=1149134104 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Video Editing</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/posting">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/sharing"/>
+    <skos:definition xml:lang="en">content on a social media platform, a forum or a blog (Wikidata contributors, "Q1453674," Wikidata, https://www.wikidata.org/w/index.php?title=Q1453674&amp;oldid=1178826153 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Posting</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/segmenting">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/annotating"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:note xml:lang="en">segmenting refers to a management process or method of dividing something into smaller homogeneous parts/units to gain better understanding about an object or topic. Segmentation can range from demographic, geographical, ethical, behavioral, visual, linguistic, musical to other areas and can be multi-dimensional.</skos:note>
+    <skos:prefLabel xml:lang="en">Segmenting</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/supplementing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/editing"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q98848097," Wikidata, https://www.wikidata.org/w/index.php?title=Q98848097&amp;oldid=1270670374 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Supplementing</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/screencast">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/recording"/>
+    <skos:definition xml:lang="en">digital recording of computer screen output (Wikidata contributors, "Q1365447," Wikidata, https://www.wikidata.org/w/index.php?title=Q1365447&amp;oldid=1234996090 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Screencast</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/highlighting">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/annotating"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q98847905," Wikidata, https://www.wikidata.org/w/index.php?title=Q98847905&amp;oldid=1270669260 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Highlighting</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/explanation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/theorizing"/>
+    <skos:definition xml:lang="en">set of statements constructed to describe a set of facts (Wikidata contributors, "Q7958," Wikidata, https://www.wikidata.org/w/index.php?title=Q7958&amp;oldid=1255429522 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Explanation</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/interpreting">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=33&amp;/5_interpretation"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/contextualizing"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/modeling"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/theorizing"/>
+    <skos:note xml:lang="en">interpreting is the activity of explaining and ascribing the intended meaning to phenomena observed in analysis. Therefore, interpretation usually follows analysis, although it could also be considered that interpretation defines the hermeneutic perspective of any method of analysis. It refers to processes opening up the discussed phenomenon to a wider debate (contextualisation), of deductive and inductive reasoning (theorizing), or  formalizing specific aspects (modeling).</skos:note>
+    <skos:prefLabel xml:lang="es">Interpretación</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Interpretation</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Interpretazione</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Interpretação</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Interpreting</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Interprétation</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Тумачење</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/annotating">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/enriching"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=22&amp;/annotating"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/associating"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/audioAnnotation"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/contextualizing"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/encoding"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/georeferencing"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/highlighting"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/linkedOpenData"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/namedEntityRecognition"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/posTagging"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/segmenting"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/tagging"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/visualAnnotation"/>
+    <skos:note xml:lang="en">annotating  refers to the activity of making information about a digital object explicit by adding notes, metadata, keywords, tags or links to a digitized representation or to an annotation file associated with it. This can be in the form of explanatory annotations that comments or contextualize a passage, annotations that make structural or linguistic information explicit, as linked open data making the relationships between objects machine-readable, or in the case of general metadata, adding information about the object as a whole.</skos:note>
+    <skos:prefLabel xml:lang="en">Annotating</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Annotation</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Annotazione</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Annotieren</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">Anotación</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Anotação</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Анотирање</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/comparing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/relationalAnalysis"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q98845331," Wikidata, https://www.wikidata.org/w/index.php?title=Q98845331&amp;oldid=1270639313 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Comparing</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/photographing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/imaging"/>
+    <skos:definition xml:lang="en">art, science, and practice of creating durable images by recording light or other electromagnetic radiation (Wikidata contributors, "Q11633," Wikidata, https://www.wikidata.org/w/index.php?title=Q11633&amp;oldid=1237597469 (accessed July 30, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Photographing</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/rhetoricalAnalysis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/stylisticAnalysis"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q98845926," Wikidata, https://www.wikidata.org/w/index.php?title=Q98845926&amp;oldid=1270647161 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Rhetorical Analysis</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/publishing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/disseminating"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=47&amp;/publishing"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/academicPublishing"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/blogging"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/digitalPublishing"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/linkedOpenData"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/tweet"/>
+    <skos:note xml:lang="en">publishing refers to the activity of making any kind of object formally available to the wider public. This can involve objects of research, research data, research results, or tools and services. Publishing can be closed or open access / open source, and research results can be published in print or digital formats.</skos:note>
+    <skos:prefLabel xml:lang="it">Pubblicazione</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">Publicación</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Publication</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Publicação</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Publishing</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Veröffentlichen</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Објављивање</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/cropping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/editing"/>
+    <skos:definition xml:lang="en">to remove unwanted outer parts of an image (Wikidata contributors, "Q785116," Wikidata, https://www.wikidata.org/w/index.php?title=Q785116&amp;oldid=1110149634 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Cropping</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/dataMining">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/extracting"/>
+    <skos:definition xml:lang="en">process of discovering patterns in large data sets using computational methods at the intersection of statistics, database systems, or machine learning (Wikidata contributors, "Q172491," Wikidata, https://www.wikidata.org/w/index.php?title=Q172491&amp;oldid=1268899513 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Data Mining</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/stylisticAnalysis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/analyzing"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=31&amp;/stylistic-analysis"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/authorshipAttribution"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/clusterAnalysis"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/contrastiveAnalysis"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/distanceMeasures"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/genreRecognition"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/machineLearning"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/principalComponentAnalysis"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/rhetoricalAnalysis"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/stylometry"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/textCategorization"/>
+    <skos:note xml:lang="en">stylistic analysis consists of identifying stylistic or formal features as a particular variety of digital objects such as language, physical artifacts, painting, music or movies. Computational stylistics analysis is in many cases applied to texts and based on linguistic features.</skos:note>
+    <skos:prefLabel xml:lang="it">Analisi Stilistica</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Analyse stylistique</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Análise estilística</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">Análisis estilístico</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Stilistische Analyse</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Stylistic Analysis</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Стилистичка анализа</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/improving">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/dataCleansing"/>
+    <skos:definition xml:lang="en">process of a thing moving from one state to another that is considered to be better, usually through some action intended to bring about that better state (Wikidata contributors, "Q21255975," Wikidata, https://www.wikidata.org/w/index.php?title=Q21255975&amp;oldid=1264546813 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Improving</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/structuralAnalysis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/analyzing"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=30&amp;/structural-analysis"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/collocationAnalysis"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/concordance"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/machineLearning"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/posTagging"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/treeTagging"/>
+    <skos:note xml:lang="en">structural analysis involves analysis of dimensions of the language system on the level of the relations between these structural elements such as morphology or syntax.</skos:note>
+    <skos:prefLabel xml:lang="it">Analisi Strutturale</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Analyse structurelle</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Análise estrutural</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">Análisis estructural</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Structural Analysis</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Strukturanalyse</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Структурална анализа</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/distanceMeasures">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/stylisticAnalysis"/>
+    <skos:definition xml:lang="en">definitions for distance between two objects or events in the universe (Wikidata contributors, "Q1344778," Wikidata, https://www.wikidata.org/w/index.php?title=Q1344778&amp;oldid=1172224550 (accessed July 30, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Distance Measures</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/discussing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/collaborating"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q98847226," Wikidata, https://www.wikidata.org/w/index.php?title=Q98847226&amp;oldid=1270663604 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Discussing</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/namedEntityRecognition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:altLabel xml:lang="en">NER</skos:altLabel>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/annotating"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/contentAnalysis"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/networkAnalysis"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/spatialAnalysis"/>
+    <skos:definition xml:lang="en">extraction of named entity mentions in unstructured text into pre-defined categories (Wikidata contributors, "Q403574," Wikidata, https://www.wikidata.org/w/index.php?title=Q403574&amp;oldid=1232404694 (accessed July 30, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Named Entity Recognition</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/tagging">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/annotating"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/contentAnalysis"/>
+    <skos:definition xml:lang="en">the act of labelling a piece of data or content wth a short string to express some metadata (Wikidata contributors, "Q43401994," Wikidata, https://www.wikidata.org/w/index.php?title=Q43401994&amp;oldid=1198888121 (accessed September 4, 2020)</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Tagging</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/instantMessaging">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/communicating"/>
+    <skos:definition xml:lang="en">form of communication over the Internet (Wikidata contributors, "Q58199," Wikidata, https://www.wikidata.org/w/index.php?title=Q58199&amp;oldid=1228360894 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Instant Messaging</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/extracting">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/capturing"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/dataMining"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/informationMining"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/knowledgeDiscovery"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/knowledgeExtraction"/>
+    <skos:note xml:lang="en">extracting refers to the process to distill structured information from texts, images or other machine-readable digital documents of a certain domain not necessarily in a human understandable form. Information extraction, knowledge extraction, knowledge discovery, information mining and data mining are methodologically similar. The activity of extracting also concerns processing human language texts by means of natural language processing (NLP).</skos:note>
+    <skos:prefLabel xml:lang="en">Extracting</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/managing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/organizing"/>
+    <skos:definition xml:lang="en">influence or authority over something; process of directing the operation of a device, system, or process (Wikidata contributors, "Q29017603," Wikidata, https://www.wikidata.org/w/index.php?title=Q29017603&amp;oldid=1238420285 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Managing</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/webScraping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/archiving"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/gathering"/>
+    <skos:definition xml:lang="en">data scraping used for extracting data from websites (Wikidata contributors, "Q665452," Wikidata, https://www.wikidata.org/w/index.php?title=Q665452&amp;oldid=1203621822 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Web Scraping</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/lemmatizing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/converting"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q2554325," Wikidata, https://www.wikidata.org/w/index.php?title=Q2554325&amp;oldid=1114054839 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Lemmatizing</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/correcting">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/dataCleansing"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/editing"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q98848041," Wikidata, https://www.wikidata.org/w/index.php?title=Q98848041&amp;oldid=1270670016 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Correcting</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/description">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/preserving"/>
+    <skos:definition xml:lang="en">text for clarification; one of four rhetorical modes (Wikidata contributors, "Q1200750," Wikidata, https://www.wikidata.org/w/index.php?title=Q1200750&amp;oldid=1266102146 (accessed September 5, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Description</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/persistentIdentifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:altLabel xml:lang="en">PID</skos:altLabel>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/identifying"/>
+    <skos:definition xml:lang="en">long-lasting digital name (Wikidata contributors, "Q420330," Wikidata, https://www.wikidata.org/w/index.php?title=Q420330&amp;oldid=1268700365 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Persistent Identifier</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/mindMapping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/visualAnalysis"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q98846887," Wikidata, https://www.wikidata.org/w/index.php?title=Q98846887&amp;oldid=1270658470 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Mind Mapping</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/videoCapture">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/recording"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q2778015," Wikidata, https://www.wikidata.org/w/index.php?title=Q2778015&amp;oldid=1112440881 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Video Capture</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/collocationAnalysis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/structuralAnalysis"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:note xml:lang="en">analysis of recurrent co-occurrences of two or more words in language.</skos:note>
+    <skos:prefLabel xml:lang="en">Collocation Analysis</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/merging">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/editing"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q98848337," Wikidata, https://www.wikidata.org/w/index.php?title=Q98848337&amp;oldid=1270671768 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Merging</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#altLabel">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/eMailing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/communicating"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q386274," Wikidata, https://www.wikidata.org/w/index.php?title=Q386274&amp;oldid=855343099 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">E-mailing</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/dataVisualization">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/visualAnalysis"/>
+    <skos:definition xml:lang="en">creation and study of the visual representation of data (Wikidata contributors, "Q6504956," Wikidata, https://www.wikidata.org/w/index.php?title=Q6504956&amp;oldid=1258700005 (accessed September 4, 2020).</skos:definition>
+    <skos:prefLabel xml:lang="en">Data Visualization</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/audioAnnotation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/annotating"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q98847703," Wikidata, https://www.wikidata.org/w/index.php?title=Q98847703&amp;oldid=1270667708 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Audio Annotation</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/adding">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/editing"/>
+    <skos:definition xml:lang="en">arithmetic operation (Wikidata contributors, "Q32043," Wikidata, https://www.wikidata.org/w/index.php?title=Q32043&amp;oldid=1268649023 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Adding</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/scanning">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/archiving"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/imaging"/>
+    <skos:definition xml:lang="en">process of creating digital images with a scanner (Wikidata contributors, "Q59155052," Wikidata, https://www.wikidata.org/w/index.php?title=Q59155052&amp;oldid=1184040702 (accessed July 30, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Scanning</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/dataMapping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/modeling"/>
+    <skos:definition xml:lang="en">process of linking data objects in distinct models (Wikidata contributors, "Q2330408," Wikidata, https://www.wikidata.org/w/index.php?title=Q2330408&amp;oldid=1185372641 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Data Mapping</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/crowdsourcing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/disseminating"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=46&amp;/crowdsourcing"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/gamification"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/userGeneratedContent"/>
+    <skos:note xml:lang="en">crowdsourcing refers to the paradigm of user-generated content by an open, large and constantly growing group of contributors in a collaborative and collective web context, applied here to the domain of digital humanities research.</skos:note>
+    <skos:prefLabel xml:lang="it">Cooperazione Collettiva</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Crowdsourcing</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Crowdsourcing</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Crowdsourcing</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Прибављање малих новчаних прилога од великог броја људи</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/commenting">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/disseminating"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=44&amp;/commenting"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/contextualizing"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/expressingOpinion"/>
+    <skos:note xml:lang="en">commenting is the activity of adding information to a piece of data, usually in a way that separates the data to which the comment is attached and the comment. It usually serves to express some opinion, to add contextual information, or to engage in communication or collaboration with others about the object commented on.</skos:note>
+    <skos:prefLabel xml:lang="es">Comentario</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Comentário</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Commentaire</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Commenting</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Commento</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Kommentieren</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Стављање коментара</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/querying">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/discovering"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q98847088," Wikidata, https://www.wikidata.org/w/index.php?title=Q98847088&amp;oldid=1270661541 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Querying</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#topConceptOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/description">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/contextualizing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/annotating"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/commenting"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/interpreting"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=34&amp;/contextualizing"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/associate"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/coOccurrence"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/integrating"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/mapping"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/semantification"/>
+    <skos:note xml:lang="en">contextualizing  refers to  creating associations between an object of investigation and other, more established or better-understood objects in a relation of geographical, temporal, or thematic proximity to the object of investigation, with the aim of ascribing meaning to that object.</skos:note>
+    <skos:prefLabel xml:lang="it">Contestualizzazione</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Contextualisation</skos:prefLabel>
+    <skos:prefLabel xml:lang="es">Contextualización</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Contextualização</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Contextualizing</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Kontextualisieren</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Контекстуализовање</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/semantification">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/contextualizing"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:note xml:lang="en">semantification refers to the process of identifying and associating explicit information with each other by facing challenges such as ambiguity and formalization of implicit knowledge to improve access, automatically data analysis and reuse.</skos:note>
+    <skos:prefLabel xml:lang="en">Semantification</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/integrating">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/contextualizing"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q98847635," Wikidata, https://www.wikidata.org/w/index.php?title=Q98847635&amp;oldid=1270667187 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Integrating</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/emulation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/preserving"/>
+    <skos:definition xml:lang="en">system that emulates a real system such that the behavior closely resembles the behavior of the real system (Wikidata contributors, "Q202871," Wikidata, https://www.wikidata.org/w/index.php?title=Q202871&amp;oldid=1159572399 (accessed July 30, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Emulation</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/contributor">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/textMessaging">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/communicating"/>
+    <skos:definition xml:lang="en">act of typing and sending a brief, digital message (Wikidata contributors, "Q17166101," Wikidata, https://www.wikidata.org/w/index.php?title=Q17166101&amp;oldid=1266645836 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Text Messaging</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/formatting">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/editing"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q98848248," Wikidata, https://www.wikidata.org/w/index.php?title=Q98848248&amp;oldid=1270671201 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Formatting</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/videoConference">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/communicating"/>
+    <skos:definition xml:lang="en">type of conference (Wikidata contributors, "Q238354," Wikidata, https://www.wikidata.org/w/index.php?title=Q238354&amp;oldid=1262194128 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Video Conference</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/license">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/digitalPublishing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/publishing"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q1224844," Wikidata, https://www.wikidata.org/w/index.php?title=Q1224844&amp;oldid=573797951 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Digital Publishing</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/userGeneratedContent">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/crowdsourcing"/>
+    <skos:definition xml:lang="en">online content created by users (Wikidata contributors, "Q579716," Wikidata, https://www.wikidata.org/w/index.php?title=Q579716&amp;oldid=1244820573 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">User Generated Content</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/textCategorization">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/stylisticAnalysis"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q57771142," Wikidata, https://www.wikidata.org/w/index.php?title=Q57771142&amp;oldid=1072020823 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Text Categorization</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/stylometry">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/relationalAnalysis"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/stylisticAnalysis"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:note xml:lang="en">stylometry refers to research methods and techniques for analyzing, characterizing and comparing writing styles to determine authorship via statistical probability. A typical stylometric approach is based on the observation the frequency of occurrence of individual words, length of sentences, complexity of sentences, frequent words, spelling errors, etc.</skos:note>
+    <skos:prefLabel xml:lang="en">Stylometry</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/creating">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:closeMatch rdf:resource="http://tadirah.dariah.eu/vocab/index.php?tema=15&amp;/2_creation"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/designing"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/programming"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/translating"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/webDevelopment"/>
+    <skos:narrower rdf:resource="https://vocabs.dariah.eu/tadirah/writing"/>
+    <skos:note xml:lang="en">creating generally refers to an achievement of producing born-digital objects as an own contribution, rather than creating an output by capturing and digitizing existing analog objects or enrichment of information. Creating can involve writing or translating natural language texts or could also concern other forms of expressions, such as creating an executable code (programming), composing a musical score, creating an image, or developing any design (designing) for any media or implementing these design concepts (web development).</skos:note>
+    <skos:prefLabel xml:lang="es">Creación</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Creating</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">Creazione</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Criação</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Création</skos:prefLabel>
+    <skos:prefLabel xml:lang="de">Erzeugen</skos:prefLabel>
+    <skos:prefLabel xml:lang="sr">Стварање</skos:prefLabel>
+    <skos:topConceptOf rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/webCrawling">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/gathering"/>
+    <skos:definition xml:lang="en">systematic access of resources across the web (Wikidata contributors, "Q61466324," Wikidata, https://www.wikidata.org/w/index.php?title=Q61466324&amp;oldid=1232626072 (accessed July 30, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Web Crawling</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/informationMining">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/extracting"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q98847165," Wikidata, https://www.wikidata.org/w/index.php?title=Q98847165&amp;oldid=1270662707 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Information Mining</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/preservationMetadata">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/preserving"/>
+    <skos:definition xml:lang="en">information that supports and documents acts of preservation on digital materials (Wikidata contributors, "Q7241044," Wikidata, https://www.wikidata.org/w/index.php?title=Q7241044&amp;oldid=1202709309 (accessed July 30, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Preservation Metadata</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/topicModeling">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/contentAnalysis"/>
+    <skos:definition xml:lang="en">set of techniques in computational linguistics and related fields (Wikidata contributors, "Q96468792," Wikidata, https://www.wikidata.org/w/index.php?title=Q96468792&amp;oldid=1211601100 (accessed July 30, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Topic Modeling</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/expressingOpinion">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/commenting"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:note xml:lang="en">expressing opinion refers to the activity of conveying one's feelings and/or thoughts about something to someone in writing or orally. Hereby existing opinions can be agreed or disagreed with, thus stimulating a discourse.</skos:note>
+    <skos:prefLabel xml:lang="en">Expressing Opinion</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/visualAnnotation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/annotating"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q98847784," Wikidata, https://www.wikidata.org/w/index.php?title=Q98847784&amp;oldid=1270668347 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Visual Annotation</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/compiling">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/converting"/>
+    <skos:definition xml:lang="en">translation of code written in a higher-level programming language to a lower-level form (Wikidata contributors, "Q56248166," Wikidata, https://www.wikidata.org/w/index.php?title=Q56248166&amp;oldid=1230644647 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Compiling</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/aggregating">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/gathering"/>
+    <skos:definition xml:lang="en">act of collecting together physical or conceptual objects (Wikidata contributors, "Q23007394," Wikidata, https://www.wikidata.org/w/index.php?title=Q23007394&amp;oldid=1210318642 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Aggregating</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/tweet">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/publishing"/>
+    <skos:definition xml:lang="en">individual post on the Twitter microblogging service (Wikidata contributors, "Q56119332," Wikidata, https://www.wikidata.org/w/index.php?title=Q56119332&amp;oldid=1249804975 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Tweet</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/informationRetrieval">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/contentAnalysis"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/discovering"/>
+    <skos:definition xml:lang="en">activity of obtaining information resources relevant to an information need from a collection of information resources (Wikidata contributors, "Q816826," Wikidata, https://www.wikidata.org/w/index.php?title=Q816826&amp;oldid=1228359828 (accessed July 30, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Information Retrieval</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/blogging">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/publishing"/>
+    <skos:definition xml:lang="en">action of writing articles or maintaining a weblog (Wikidata contributors, "Q21124681," Wikidata, https://www.wikidata.org/w/index.php?title=Q21124681&amp;oldid=1262333720 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Blogging</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/mapping">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/contextualizing"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/visualAnalysis"/>
+    <skos:definition xml:lang="en">binary relation which is left-total (defined on all its input set) (Wikidata contributors, "Q370502," Wikidata, https://www.wikidata.org/w/index.php?title=Q370502&amp;oldid=1183603611 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Mapping</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/abstractThinking">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/theorizing"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q25501084," Wikidata, https://www.wikidata.org/w/index.php?title=Q25501084&amp;oldid=1231655399 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Abstract Thinking</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/searching">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/discovering"/>
+    <skos:definition xml:lang="en">search for target data from a set of data (Wikidata contributors, "Q11540953," Wikidata, https://www.wikidata.org/w/index.php?title=Q11540953&amp;oldid=1207018344 (accessed July 30, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Searching</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/issued">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/identifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/identifying"/>
+    <skos:definition xml:lang="en">name that identifies either a unique object or a unique class of objects (Wikidata contributors, "Q853614," Wikidata, https://www.wikidata.org/w/index.php?title=Q853614&amp;oldid=1265951822 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Identifier</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#definition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/audioConferencing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/communicating"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q58199," Wikidata, https://www.wikidata.org/w/index.php?title=Q58199&amp;oldid=1228360894 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Audio Conferencing</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/namingConvention">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/identifying"/>
+    <skos:definition xml:lang="en">set of rules for naming variables, types, functions, etc. in programming (Wikidata contributors, "Q461984," Wikidata, https://www.wikidata.org/w/index.php?title=Q461984&amp;oldid=1221175218 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Naming Convention</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/clusterAnalysis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/relationalAnalysis"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/stylisticAnalysis"/>
+    <skos:definition xml:lang="en">task of grouping a set of objects in such a way that objects in the same group (called a cluster) are more similar (in some sense or another) to each other than to those in other groups (clusters) (Wikidata contributors, "Q622825," Wikidata, https://www.wikidata.org/w/index.php?title=Q622825&amp;oldid=1212288392 (accessed July 30, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Cluster Analysis</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/creator">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#ConceptScheme">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/sentimentAnalysis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/contentAnalysis"/>
+    <skos:definition xml:lang="en">use of natural language processing, text analysis and computational linguistics to identify and extract subjective information in source materials (Wikidata contributors, "Q2271421," Wikidata, https://www.wikidata.org/w/index.php?title=Q2271421&amp;oldid=1170108641 (accessed July 30, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Sentiment Analysis</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/authorshipAttribution">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/stylisticAnalysis"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:note xml:lang="en">authorship attribution means the theory and method of determining the author of a given piece of work, e.g. a text by appropriate characterization of stylistic and thematic features.</skos:note>
+    <skos:prefLabel xml:lang="en">Authorship Attribution</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/speechRecognizing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/transcribing"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q98846987," Wikidata, https://www.wikidata.org/w/index.php?title=Q98846987&amp;oldid=1270659968 (accessed September 4, 2020).</skos:definition>
+    <skos:prefLabel xml:lang="en">Speech Recognizing</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/lettering">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/writing"/>
+    <skos:definition xml:lang="en">creation of hand-drawn letters in graphic design and typography (Wikidata contributors, "Q5538738," Wikidata, https://www.wikidata.org/w/index.php?title=Q5538738&amp;oldid=1222349737 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Lettering</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/uniformResourceIdentifier">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:altLabel xml:lang="en">URI</skos:altLabel>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/identifying"/>
+    <skos:definition xml:lang="en">string of characters used to identify a name of a resource on a network such as the internet (Wikidata contributors, "Q61694," Wikidata, https://www.wikidata.org/w/index.php?title=Q61694&amp;oldid=1253478595 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Uniform Resource Identifier</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/patternRecognition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/relationalAnalysis"/>
+    <skos:definition xml:lang="en">branch of machine learning (Wikidata contributors, "Q378859," Wikidata, https://www.wikidata.org/w/index.php?title=Q378859&amp;oldid=1234461159 (accessed July 30, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Pattern Recognition</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/discourseAnalysis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/contentAnalysis"/>
+    <skos:definition xml:lang="en">generic term for the analysis of social, language policy or historiographical discourse phenomena (Wikidata contributors, "Q1129466," Wikidata, https://www.wikidata.org/w/index.php?title=Q1129466&amp;oldid=1269534863 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Discourse Analysis</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/genreRecognition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/stylisticAnalysis"/>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:note xml:lang="en">genre recognition refers to methods and technologies for analyzing pieces of art (e.g. literature, music, film), extracting and classifying features to associate them with different genres automatically or semi-automatically.</skos:note>
+    <skos:prefLabel xml:lang="en">Genre Recognition</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/rightsHolder">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#inScheme">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/exploration">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/discovering"/>
+    <skos:definition xml:lang="en">act of searching or traveling around a terrain for the purpose of discovery (Wikidata contributors, "Q6502154," Wikidata, https://www.wikidata.org/w/index.php?title=Q6502154&amp;oldid=1238428839 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Exploration</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/georeferencing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/annotating"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/spatialAnalysis"/>
+    <skos:definition xml:lang="en">identification of something to locations in physical space (Wikidata contributors, "Q772007," Wikidata, https://www.wikidata.org/w/index.php?title=Q772007&amp;oldid=1240907550 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Georeferencing</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/graphicsProgramming">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/programming"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q98845304," Wikidata, https://www.wikidata.org/w/index.php?title=Q98845304&amp;oldid=1270638847 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Graphics Programming</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/debugging">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/dataCleansing"/>
+    <skos:definition xml:lang="en">the process of finding and resolving defects or problems within a computer program that prevent correct operation of computer software or a system (Wikidata contributors, "Q845566," Wikidata, https://www.wikidata.org/w/index.php?title=Q845566&amp;oldid=1240856516 (accessed July 30, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Debugging</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/finding">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/organizing"/>
+    <skos:definition xml:lang="en">Wikidata contributors, "Q28195064," Wikidata, https://www.wikidata.org/w/index.php?title=Q28195064&amp;oldid=559043572 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Finding</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/transformation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/modeling"/>
+    <skos:definition xml:lang="en">process involving change into a qualitatively different form (Wikidata contributors, "Q65757353," Wikidata, https://www.wikidata.org/w/index.php?title=Q65757353&amp;oldid=1268189392 (accessed September 4, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Transformation</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://vocabs.dariah.eu/tadirah/gamification">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <skos:broader rdf:resource="https://vocabs.dariah.eu/tadirah/crowdsourcing"/>
+    <skos:definition xml:lang="en">the use of game thinking and game mechanics in non-game contexts to engage users in solving problems (Wikidata contributors, "Q1067402," Wikidata, https://www.wikidata.org/w/index.php?title=Q1067402&amp;oldid=1233709490 (accessed July 30, 2020).</skos:definition>
+    <skos:inScheme rdf:resource="https://vocabs.dariah.eu/tadirah/"/>
+    <skos:prefLabel xml:lang="en">Gamification</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#broader">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/created">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#narrower">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#related">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#note">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/modified">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#Concept">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/language">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/homepage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
+  </rdf:Description>
+</rdf:RDF>

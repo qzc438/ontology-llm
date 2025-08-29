@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:ex="http://example.org/">
+
+  <owl:Ontology rdf:about="http://example.org/"/>
+
+  <!-- Classes -->
+  <owl:Class rdf:about="http://example.org/TemperatureSensor">
+    <rdfs:subClassOf>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+
+          <!-- Restriction 1: hasUnit some Celsius -->
+          <owl:Restriction>
+            <owl:onProperty rdf:resource="http://example.org/hasUnit"/>
+            <owl:someValuesFrom rdf:resource="http://example.org/Celsius"/>
+          </owl:Restriction>
+
+          <!-- Restriction 2: measures only Temperature -->
+          <owl:Restriction>
+            <owl:onProperty rdf:resource="http://example.org/measures"/>
+            <owl:allValuesFrom rdf:resource="http://example.org/Temperature"/>
+          </owl:Restriction>
+
+        </owl:intersectionOf>
+      </owl:Class>
+    </rdfs:subClassOf>
+  </owl:Class>
+
+  <!-- Other named classes for clarity -->
+  <owl:Class rdf:about="http://example.org/Celsius"/>
+  <owl:Class rdf:about="http://example.org/Temperature"/>
+
+  <!-- Properties -->
+  <owl:ObjectProperty rdf:about="http://example.org/hasUnit"/>
+  <owl:ObjectProperty rdf:about="http://example.org/measures"/>
+
+</rdf:RDF>

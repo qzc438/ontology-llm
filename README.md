@@ -20,6 +20,7 @@
   - Disk Capacity: 6.1 TB
 - The operating system is Ubuntu 24.04.1 LTS.
 - The CUDA version is 12.2.
+- The Nvidia driver version is 535.247.01.
 
 ### 1. Install PostgreSQL Database:
 - PostgreSQL: https://www.postgresql.org/download/
@@ -74,6 +75,10 @@ pip install colorama==0.4.6
 pip install matplotlib==3.8.4
 pip install notebook
 pip install ipyparallel
+```
+- Alternatively, you can run the following script to install all required packages:
+```
+pip install -r requirements.txt
 ```
 - Deal with the blank page: https://stackoverflow.com/questions/55152948/juypter-notebook-shows-blank-page
 
@@ -199,6 +204,7 @@ llm = ChatOllama(model="gemma2:9b", temperature=0)
 # load GLM models
 llm = ChatOllama(model="glm4:9b", temperature=0)
 ```
+**Author Note**: To ensure consistency and reproducibility, we recommend using API-accessed models with a timestamp tag.
 - Select one embeddings service in the file `run_config.py`:
 ```
 # https://platform.openai.com/docs/guides/embeddings/embedding-models
@@ -209,7 +215,7 @@ vector_length = 1536
 embeddings_service = OpenAIEmbeddings(model="text-embedding-3-large")
 vector_length = 3072
 ```
-**Author Note**: It is possible to use embedding models other than OpenAI. For example, the following works for Llama 3 embedding models.
+- It is possible to use embedding models other than OpenAI. For example, the following works for Llama 3 embedding models.
 ```
 pip install langchain-ollama==0.1.0
 ```
@@ -219,8 +225,25 @@ from langchain_ollama import OllamaEmbeddings
 embeddings_service = OllamaEmbeddings(model="llama3:8b")
 vector_length = 4096
 ```
+**Author Note**: The current setting of Agent-OM for the OAEI 2025 campaign are as follows.
+- Agent-OM (Product Version):
+```
+llm = ChatOpenAI(model_name='gpt-4o-2024-05-13', temperature=0.0, seed=42, top_p=1.0, presence_penalty=0.0, frequency_penalty=0.0)
+embeddings_service = OpenAIEmbeddings(model="text-embedding-ada-002")
+vector_length = 1536
+```
+- Agent-OM-Lite (Lightweight Version):
+```
+llm = ChatOllama(model="llama3:8b", temperature=0.0, seed=42, top_p=1.0, top_k=1, repeat_penalty=1.0)
+embeddings_service = OllamaEmbeddings(model="llama3:8b")
+vector_length = 4096
+```
 
 ### 6. Setup Matching Task:
+- To ensure all the data uses the consistent reference schema, please run the following code:
+```
+python fix_inconsistent_reference.py
+```
 - Set your alignment in the file `run_config.py`. For example, if you would like to run the CMT-ConfOf alignment, then the settings are:
 ```
 context = "conference"
@@ -251,7 +274,10 @@ python run_config.py
 ## Repository Structure:
 
 ### 1. Data:
-- `data/`: data from three OAEI tracks.
+- `data/`: data from OAEI tracks.
+- `find_data_vocabulary.py`: summarise the vocabulary used in OAEI tracks.
+- `find_reference_only.py`: find the reference alignment only.
+- `fix_inconsistent_reference.py`: fix the URI issue of OAEI tracks.
 
 ### 2. Experiments:
 - `alignment/`: alignment results.
@@ -296,7 +322,6 @@ step = -0.05
 ### 3. Evaluation:
 - `generate_conference_benchmark.py`: generate the results of OAEI Conference Track.
 - `generate_anatomy_mse_benchmark.py`: generate the results of OAEI Anatomy Track and MSE Track.
-- `fix_inconsistent_reference.py`: fix the URI issue of OAEI tracks.
 - `benchmark_2022/`: results of OAEI 2022.
 - `benchmark_2023/`: results of OAEI 2023.
 
@@ -313,7 +338,7 @@ step = -0.05
 - We have created a debugging log for this project. [Click the link here.](DEBUGGING_LOG.md)
 
 ## Ethical Considerations:
-- AI-generated content (AIGC) is labelled as "AI-generated content". AIGC can contain harmful, unethical, prejudiced, or negative content (https://docs.mistral.ai/capabilities/guardrailing/). However, ontology matching tasks only check the meaning of domain-specific terminologies, and we have not observed such content being generated.
+- AI-generated content (AIGC) can contain harmful, unethical, prejudiced, or negative content (https://docs.mistral.ai/capabilities/guardrailing/). However, ontology matching tasks only check the meaning of domain-specific terminologies, and we have not observed such content being generated.
 
 ### Code Acknowledgements:
 - Our data-driven application architecture is inspired by: https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/main/cloud-sql/postgres/pgvector/notebooks/pgvector_gen_ai_demo.ipynb

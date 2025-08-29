@@ -1,7 +1,13 @@
+from __future__ import annotations
+
 import csv
 from operator import itemgetter
 
 import rdflib
+
+from typing import Set, Tuple
+from rdflib import Graph, URIRef, BNode, Literal
+from rdflib.term import Node
 
 from langchain.prompts import PromptTemplate
 from langchain_core.prompts import ChatPromptTemplate
@@ -130,8 +136,24 @@ def lexical(entity: str) -> str:
     extra_information_set = set()
     for s, p, o in ontology.triples((rdflib.URIRef(entity), rdflib.RDFS.comment, None)):
         extra_information_set.add(str(o))
+    for s, p, o in ontology.triples((rdflib.URIRef(entity), rdflib.RDF.value, None)):
+            extra_information_set.add(str(o))
     for s, p, o in ontology.triples((rdflib.URIRef(entity), rdflib.SKOS.definition, None)):
         extra_information_set.add(str(o))
+    for s, p, o in ontology.triples((rdflib.URIRef(entity), rdflib.SKOS.notation, None)):
+        extra_information_set.add(str(o))
+    for s, p, o in ontology.triples((rdflib.URIRef(entity), rdflib.SKOS.note, None)):
+        extra_information_set.add(str(o))
+    for s, p, o in ontology.triples((rdflib.URIRef(entity), rdflib.SKOS.scopeNote, None)):
+        extra_information_set.add(str(o))
+    for s, p, o in ontology.triples((rdflib.URIRef(entity), rdflib.SKOS.editorialNote, None)):
+        extra_information_set.add(str(o))
+    for s, p, o in ontology.triples((rdflib.URIRef(entity), rdflib.SKOS.historyNote, None)):
+        extra_information_set.add(str(o))
+    for s, p, o in ontology.triples((rdflib.URIRef(entity), rdflib.SKOS.changeNote, None)):
+        extra_information_set.add(str(o))
+    for s, p, o in ontology.triples((rdflib.URIRef(entity), rdflib.SKOS.example, None)):
+            extra_information_set.add(str(o))
     extra_information = ' '.join(extra_information_set)
     # create different prompts based on extra information
     if extra_information:
@@ -171,6 +193,8 @@ def lexical(entity: str) -> str:
 def semantic(entity: str) -> str:
     """Retrieve semantic information."""
     util.print_colored_text(f"Retrieve semantic information: {entity}", "magenta")
+    # variable to combine output
+    answer = ""
     # # find entity uri
     # global entity_uri
     # entity = entity_uri
@@ -178,8 +202,12 @@ def semantic(entity: str) -> str:
     subgraph = rdflib.Graph()
     # write the triples to the txt
     relevant_list = [rdflib.RDFS.subClassOf, rdflib.RDFS.subPropertyOf,
+                     rdflib.OWL.disjointWith, rdflib.RDFS.domain, rdflib.RDFS.range,
+                     rdflib.OWL.equivalentClass, rdflib.OWL.equivalentProperty,
                      rdflib.SKOS.broader, rdflib.SKOS.narrower,
-                     rdflib.OWL.disjointWith, rdflib.RDFS.domain, rdflib.RDFS.range]
+                     rdflib.SKOS.hasTopConcept, rdflib.SKOS.topConceptOf,
+                     rdflib.SKOS.exactMatch, rdflib.SKOS.closeMatch, rdflib.SKOS.broadMatch, rdflib.SKOS.narrowMatch,
+                     rdflib.SKOS.relatedMatch, rdflib.SKOS.related, rdflib.SKOS.semanticRelation,]
     for predicate in relevant_list:
         for s, p, o in ontology.triples((rdflib.URIRef(entity), predicate, None)):
             if o != rdflib.OWL.Thing and not isinstance(o, rdflib.BNode):
@@ -205,10 +233,21 @@ def semantic(entity: str) -> str:
         )
         chain = prompt | llm
         response = chain.invoke({'subgraph': serialized_subgraph})
-        answer = response.content
-    else:
+        answer += response.content
+    # generate subgraph for complex restrictions
+    complex_subgraph = expand_bnode_closure_named(entity, ontology, ontology_is_code, output_file="subgraph_complex.ttl")
+    if complex_subgraph:
+        prompt = PromptTemplate(
+            input_variables=["subgraph"],
+            template="Verbalise the subgraph into a natual language description: {subgraph}"
+        )
+        chain = prompt | llm
+        response = chain.invoke({'subgraph': complex_subgraph})
+        answer += response.content
+    # if no answer, return null value sentence
+    if answer == "":
         answer = null_value_sentence
-    # print
+
     print("semantic_information:", answer)
     return answer
 
@@ -256,6 +295,7 @@ def find_all_entities():
 
 def find_entity_information(path, entity_list, source_or_target, entity_type):
     # entity_list = ["http://cmt#User"] # test keyword
+    # entity_list = ["http://purl.obolibrary.org/obo/ENVO_01000083"] # test complex relationship
     # entity_list = ["http://www.geneontology.org/formats/oboInOwl#Definition"]
     with open(path, "a+", newline='') as f1:
         for entity in entity_list:
@@ -401,6 +441,108 @@ def create_tool_use_agent(tools, tool_chain):
     # define chain
     chain = prompt | llm | JsonOutputParser() | tool_chain
     return chain
+
+
+Triple = Tuple[Node, Node, Node]
+# trial function: capture complex restrictions
+def expand_bnode_closure_named(
+    entity_iri: str | URIRef,
+    ontology: str,
+    ontology_is_code: bool,
+    seed_only_if_has_bnode: bool = True,
+    max_triples: int | None = None,
+    output_file: str = "complex_subgraph.ttl",
+) -> Set[Tuple[str, str, str]]:
+    """
+    Expand blank nodes around `entity_iri` and return triples with entity
+    names resolved by get_entity_name(). Local URIs are shortened, other
+    nodes remain unchanged. Also saves the extracted subgraph to TTL.
+    """
+    if isinstance(entity_iri, str):
+        entity = URIRef(entity_iri)
+    else:
+        entity = entity_iri
+
+    def has_bnode(t: Triple) -> bool:
+        return any(isinstance(n, BNode) for n in t)
+
+    def iter_touching(node: Node):
+        yield from ontology.triples((node, None, None))
+        yield from ontology.triples((None, node, None))
+        yield from ontology.triples((None, None, node))
+
+    def normalize(node: Node) -> str:
+        if isinstance(node, URIRef):
+            entity_name = get_entity_name(node, ontology, ontology_is_code)
+            return entity_name
+        elif isinstance(node, BNode):
+            return f"_:{str(node)}"
+        elif isinstance(node, Literal):
+            return str(node)
+        else:
+            return str(node)
+
+    results: Set[Triple] = set()
+    seen_bnodes: Set[BNode] = set()
+    frontier: Set[BNode] = set()
+
+    # seed phase
+    seeded_any = False
+    for t in iter_touching(entity):
+        if seed_only_if_has_bnode and not has_bnode(t):
+            continue
+        results.add(t)
+        seeded_any = True
+        for n in t:
+            if isinstance(n, BNode):
+                frontier.add(n)
+        if max_triples is not None and len(results) >= max_triples:
+            break
+
+    if not seeded_any and not seed_only_if_has_bnode:
+        for t in iter_touching(entity):
+            results.add(t)
+            for n in t:
+                if isinstance(n, BNode):
+                    frontier.add(n)
+            if max_triples is not None and len(results) >= max_triples:
+                break
+
+    # expansion phase
+    while frontier:
+        b = frontier.pop()
+        if b in seen_bnodes:
+            continue
+        seen_bnodes.add(b)
+
+        for t in iter_touching(b):
+            if t in results:
+                continue
+            results.add(t)
+            for n in t:
+                if isinstance(n, BNode) and n not in seen_bnodes:
+                    frontier.add(n)
+            if max_triples is not None and len(results) >= max_triples:
+                frontier.clear()
+                break
+
+    # build normalized triple set
+    named_triples: Set[Tuple[str, str, str]] = set()
+    for s, p, o in results:
+        named_triples.add((normalize(s), normalize(p), normalize(o)))
+    # print(named_triples)
+
+    # save raw RDF subgraph to TTL file
+    subgraph = Graph()
+    for s, p, o in results:
+        subgraph.add((
+            Literal(normalize(s)),
+            Literal(normalize(p)),
+            Literal(normalize(o))
+        ))
+    subgraph.serialize(destination=output_file, format="turtle")
+
+    return named_triples
 
 
 if __name__ == '__main__':
