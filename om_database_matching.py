@@ -17,6 +17,7 @@ from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.tools import tool, render_text_description
 
 from langchain_community.callbacks import get_openai_callback
+from rdflib import URIRef
 
 import run_config as config
 import om_ontology_to_csv
@@ -338,6 +339,9 @@ def init():
 
     # find all entities
     e1_list_class, e2_list_class, e1_list_property, e2_list_property = om_ontology_to_csv.find_all_entities()
+    # remove exceptions
+    e1_list_class, e2_list_class, e1_list_property, e2_list_property = util.remove_exceptions(e1_list_class, e2_list_class, e1_list_property, e2_list_property)
+    # merge list
     e1_list = e1_list_class + e1_list_property
     e2_list = e2_list_class + e2_list_property
 
@@ -359,9 +363,9 @@ def init():
                 writer = csv.writer(f)
                 list_pair = [entity, candidate]
                 writer.writerow(list_pair)
-    # filter exclude concept
-    util.filter_exclude_concept(predict_source_path_no_validation)
-    util.filter_exclude_concept(predict_source_path)
+    # # filter exclude concept
+    # util.filter_exclude_concept(predict_source_path_no_validation)
+    # util.filter_exclude_concept(predict_source_path)
     # evaluation
     print(util.calculate_metrics(true_path, predict_source_path_no_validation, result_path, util.find_model_name(llm), alignment + "source_no_validation"))
     print(util.calculate_metrics(true_path, predict_source_path, result_path, util.find_model_name(llm), alignment + "source"))
@@ -385,9 +389,9 @@ def init():
                 writer = csv.writer(f)
                 list_pair = [entity, candidate]
                 writer.writerow(list_pair)
-    # filter exclude concept
-    util.filter_exclude_concept(predict_target_path_no_validation)
-    util.filter_exclude_concept(predict_target_path)
+    # # filter exclude concept
+    # util.filter_exclude_concept(predict_target_path_no_validation)
+    # util.filter_exclude_concept(predict_target_path)
     # evaluation
     print(util.calculate_metrics(true_path, predict_target_path_no_validation, result_path, util.find_model_name(llm), alignment + "target_no_validation"))
     print(util.calculate_metrics(true_path, predict_target_path, result_path, util.find_model_name(llm), alignment + "target"))

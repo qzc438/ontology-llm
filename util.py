@@ -5,7 +5,7 @@ import enchant
 import hunspell
 import colorama
 import pandas as pd
-
+from rdflib import URIRef
 
 # load dictionaries once globally (for performance)
 uk_dict = hunspell.HunSpell('/usr/share/hunspell/en_GB.dic', '/usr/share/hunspell/en_GB.aff')
@@ -246,25 +246,54 @@ def calculate_cost(total_tokens, total_cost, cost_path, llm, alignment):
 #     print("current tokens usage:", total_token_usage)
 
 
-def filter_exclude_concept(csv_path):
-    # read csv
-    df = pd.read_csv(csv_path)
-    # define the list of values to remove from "Entity1"
+def remove_exceptions(e1_list_class, e2_list_class, e1_list_property, e2_list_property):
+    # remove exceptions
     values_to_remove = [
-                        "http://www.geneontology.org/formats/oboInOwl#Subset", # anatomy
-                        "http://www.geneontology.org/formats/oboInOwl#Synonym", # anatomy
-                        "http://www.geneontology.org/formats/oboInOwl#DbXref", # anatomy
-                        "http://www.geneontology.org/formats/oboInOwl#ObsoleteClass", # anatomy
-                        "http://www.geneontology.org/formats/oboInOwl#SynonymType", # anatomy
-                        "http://www.geneontology.org/formats/oboInOwl#Definition", # anatomy
-                        "http://www.geneontology.org/formats/oboInOwl#ObsoleteProperty", # anatomy
-                        "http://mouse.owl#UNDEFINED_part_of", # anatomy
-                        "http://www.w3.org/2004/02/skos/core#Concept" # dh
-                        ]
-    # filter
-    filtered_df = df[~df["Entity1"].isin(values_to_remove)]
-    # write the filtered DataFrame back to a new CSV file
-    filtered_df.to_csv(csv_path, index=False)
+        "http://www.geneontology.org/formats/oboInOwl#Subset", # anatomy
+        "http://www.geneontology.org/formats/oboInOwl#Synonym", # anatomy
+        "http://www.geneontology.org/formats/oboInOwl#DbXref", # anatomy
+        "http://www.geneontology.org/formats/oboInOwl#ObsoleteClass", # anatomy
+        "http://www.geneontology.org/formats/oboInOwl#SynonymType", # anatomy
+        "http://www.geneontology.org/formats/oboInOwl#Definition", # anatomy
+        "http://www.geneontology.org/formats/oboInOwl#ObsoleteProperty", # anatomy
+        "http://mouse.owl#UNDEFINED_is_a", # anatomy
+        "http://mouse.owl#UNDEFINED_part_of", # anatomy
+        "http://human.owl#UNDEFINED_part_of",  # anatomy
+        "http://www.w3.org/2004/02/skos/core#Concept" # anatomy
+    ]
+    # convert to URIRef set for fast lookup
+    uris_to_remove = {URIRef(v) for v in values_to_remove}
+    # helper function to filter a list
+    def filter_entities(entity_list, uris_to_remove):
+        return [uri for uri in entity_list if uri not in uris_to_remove]
+    # apply filtering to all four lists
+    e1_list_class = filter_entities(e1_list_class, uris_to_remove)
+    e2_list_class = filter_entities(e2_list_class, uris_to_remove)
+    e1_list_property = filter_entities(e1_list_property, uris_to_remove)
+    e2_list_property = filter_entities(e2_list_property, uris_to_remove)
+
+    return e1_list_class, e2_list_class, e1_list_property, e2_list_property
+
+
+# def filter_exclude_concept(csv_path):
+#     # read csv
+#     df = pd.read_csv(csv_path)
+#     # define the list of values to remove from "Entity1"
+#     values_to_remove = [
+#                         "http://www.geneontology.org/formats/oboInOwl#Subset", # anatomy
+#                         "http://www.geneontology.org/formats/oboInOwl#Synonym", # anatomy
+#                         "http://www.geneontology.org/formats/oboInOwl#DbXref", # anatomy
+#                         "http://www.geneontology.org/formats/oboInOwl#ObsoleteClass", # anatomy
+#                         "http://www.geneontology.org/formats/oboInOwl#SynonymType", # anatomy
+#                         "http://www.geneontology.org/formats/oboInOwl#Definition", # anatomy
+#                         "http://www.geneontology.org/formats/oboInOwl#ObsoleteProperty", # anatomy
+#                         "http://mouse.owl#UNDEFINED_part_of", # anatomy
+#                         "http://www.w3.org/2004/02/skos/core#Concept" # dh
+#                         ]
+#     # filter
+#     filtered_df = df[~df["Entity1"].isin(values_to_remove)]
+#     # write the filtered DataFrame back to a new CSV file
+#     filtered_df.to_csv(csv_path, index=False)
 
 
 if __name__ == '__main__':

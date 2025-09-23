@@ -31,6 +31,6 @@ for alignment in alignment_list:
     os.environ['alignment'] = alignment
     try:
         subprocess.run(['python', 'run_config.py'], check=True)
-        print("run_config.py executed successfully.")
+        print("run_config.py executed successfully via run_series_conference.py")
     except subprocess.CalledProcessError as error:
         print(f"Failed to execute run_config.py: {error}")

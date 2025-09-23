@@ -31,7 +31,7 @@ os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 os.environ["ANTHROPIC_API_KEY"] = os.getenv("ANTHROPIC_API_KEY")
 
 # # load GPT, default timeout = None, do not have top_k setting
-# llm = ChatOpenAI(model_name='gpt-4o-2024-05-13', temperature=0.0, seed=42, top_p=1.0, presence_penalty=0.0, frequency_penalty=0.0)
+llm = ChatOpenAI(model_name='gpt-4o-2024-05-13', temperature=0.0, seed=42, top_p=1.0, presence_penalty=0.0, frequency_penalty=0.0)
 # llm = ChatOpenAI(model_name='gpt-4o', temperature=0.0, seed=42, top_p=1.0, presence_penalty=0.0, frequency_penalty=0.0)
 # llm = ChatOpenAI(model_name='gpt-4o-mini-2024-07-18', temperature=0.0, seed=42, top_p=1.0, presence_penalty=0.0, frequency_penalty=0.0)
 # llm = ChatOpenAI(model_name='gpt-4o-mini', temperature=0.0, seed=42, top_p=1.0, presence_penalty=0.0, frequency_penalty=0.0)
@@ -40,7 +40,7 @@ os.environ["ANTHROPIC_API_KEY"] = os.getenv("ANTHROPIC_API_KEY")
 # llm = ChatAnthropic(model="claude-3-sonnet-20240229", temperature=0.0, seed=42, top_p=1.0, top_k=1, presence_penalty=0.0, frequency_penalty=0.0)
 # llm = ChatAnthropic(model="claude-3-haiku-20240307", temperature=0.0, seed=42, top_p=1.0, top_k=1, presence_penalty=0.0, frequency_penalty=0.0)
 # # load Llama 3
-llm = ChatOllama(model="llama3:8b", temperature=0.0, seed=42, top_p=1.0, top_k=1, repeat_penalty=1.0) # top_p is ignored if top_k=1
+# llm = ChatOllama(model="llama3:8b", temperature=0.0, seed=42, top_p=1.0, top_k=1, repeat_penalty=1.0) # top_p is ignored if top_k=1
 # llm = ChatOllama(model="llama3.1:8b", temperature=0.0, seed=42, top_p=1.0, top_k=1, repeat_penalty=1.0)
 # # load Qwen
 # llm = ChatOllama(model="qwen2:7b", temperature=0.0, seed=42, top_p=1.0, top_k=1, repeat_penalty=1.0)
@@ -69,13 +69,13 @@ llm = ChatOllama(model="llama3:8b", temperature=0.0, seed=42, top_p=1.0, top_k=1
 # llm = ChatOllama(model="gpt-oss:20b", temperature=0.0, seed=42, top_p=1.0, top_k=1, repeat_penalty=1.0, reasoning=False)
 
 # embedding settings
-# embeddings_service = OpenAIEmbeddings(model="text-embedding-ada-002")
+embeddings_service = OpenAIEmbeddings(model="text-embedding-ada-002")
 # embeddings_service = OpenAIEmbeddings(model="text-embedding-3-small")
-# vector_length = 1536
+vector_length = 1536
 # embeddings_service = OpenAIEmbeddings(model="text-embedding-3-large")
 # vector_length = 3072
-embeddings_service = OllamaEmbeddings(model="llama3:8b")
-vector_length = 4096
+# embeddings_service = OllamaEmbeddings(model="llama3:8b")
+# vector_length = 4096
 
 # search settings
 similarity_threshold = 0.90
@@ -85,10 +85,10 @@ num_matches = 50
 # alignment settings
 
 # conference track
-context = "conference"
-o1_is_code = False
-o2_is_code = False
-alignment = "conference/cmt-conference/component/"
+# context = "conference"
+# o1_is_code = False
+# o2_is_code = False
+# alignment = "conference/cmt-conference/component/"
 # alignment = "conference/cmt-confof/component/"
 # alignment = "conference/cmt-edas/component/"
 # alignment = "conference/cmt-ekaw/component/"
@@ -110,7 +110,7 @@ alignment = "conference/cmt-conference/component/"
 # alignment = "conference/ekaw-sigkdd/component/"
 # alignment = "conference/iasted-sigkdd/component/"
 
-# activate when execute run_conference_series
+# activate when execute run_series_conference.py
 # if os.environ.get('alignment'):
 #     alignment = os.environ['alignment']
 
@@ -122,10 +122,10 @@ alignment = "conference/cmt-conference/component/"
 # alignment = "conference/dbpedia-sigkdd/component/"
 
 # anatomy track
-# context = "anatomy"
-# o1_is_code = True
-# o2_is_code = True
-# alignment = "anatomy/mouse-human-suite/component/"
+context = "anatomy"
+o1_is_code = True
+o2_is_code = True
+alignment = "anatomy/mouse-human-suite/component/"
 
 # metadata
 # e1_list_class: 2744
@@ -160,11 +160,19 @@ alignment = "conference/cmt-conference/component/"
 # o2_is_code = True
 # alignment = "multifarm/cmt-cmt-cn-en/component/"
 
-# archaeology
+# activate when execute run_series_multifarm.py
+# if os.environ.get('alignment'):
+#     alignment = os.environ['alignment']
+
+# archaeology track
 # context = "archaeology"
 # alignment = "archaeology/de-en/component/"
 # o1_is_code = True
 # o2_is_code = True
+
+# activate when execute run_series_archaeology.py
+# if os.environ.get('alignment'):
+#     alignment = os.environ['alignment']
 
 # ce track
 # context = "circular economy"
@@ -188,13 +196,13 @@ alignment = "conference/cmt-conference/component/"
 
 # large datasets
 
-# bio-ml
+# bio-ml track
 # context = "biomedical"
-# alignment = "bio-ml/ncit-doid/component/"
-# alignment = "bio-ml/omim-ordo/component/"
-# alignment = "bio-ml/snomed-fma.body/component/"
-# alignment = "bio-ml/snomed-ncit.neoplas/component/"
-# alignment = "bio-ml/snomed-ncit.pharm/component/"
+# alignment = "bio-ml/ncit-doid/component/" # large
+# alignment = "bio-ml/omim-ordo/component/" # large
+# alignment = "bio-ml/snomed-fma.body/component/" # very large
+# alignment = "bio-ml/snomed-ncit.neoplas/component/" # large
+# alignment = "bio-ml/snomed-ncit.pharm/component/" # large
 # o1_is_code = True
 # o2_is_code = True
 
@@ -223,15 +231,21 @@ alignment = "conference/cmt-conference/component/"
 # e1_list_property: 136
 # e2_list_property: 97
 
-# biodiv
+# biodiv track
 # context = "biodiversity and ecology"
 # alignment = "biodiv/envo-sweet/component/"
 # o1_is_code = True
 # o2_is_code = False
 
+# context = "biodiversity and ecology"
 # alignment = "biodiv/fish-zooplankton/component/"
 # alignment = "biodiv/macroalgae-macrozoobenthos/component/"
-# alignment = "biodiv/taxrefldPlantae-ncbitaxonPlantae/component/"
+# alignment = "biodiv/taxrefldAnimalia-ncbitaxonAnimalia/component/" # very large
+# alignment = "biodiv/taxrefldBacteria-ncbitaxonBacteria/component/"
+# alignment = "biodiv/taxrefldChromista-ncbitaxonChromista/component/"
+# alignment = "biodiv/taxrefldFungi-ncbitaxonFungi/component/" # large
+# alignment = "biodiv/taxrefldPlantae-ncbitaxonPlantae/component/" # large
+# alignment = "biodiv/taxrefldProtozoa-ncbitaxonProtozoa/component/"
 # o1_is_code = True
 # o2_is_code = True
 

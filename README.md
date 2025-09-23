@@ -5,7 +5,7 @@
 ## News:
 - This paper has been accepted by PVLDB 2025: https://dl.acm.org/doi/10.14778/3712221.3712222
 - A production version linked to the PVLDB 2025 paper can be found in the `Releases` section.
-- The slide presentation can be found in the `slide_presentation` folder.
+- The slide presentation of the PVLDB 2025 paper can be found in the `slide_presentation` folder.
 
 ## Important Notice:
 - For technical inquiries, please submit a GitHub issue.
@@ -84,8 +84,10 @@ pip install -r requirements.txt
 
 **Author Note**: There is a known issue with the `Enchant` and `PyEnchant` libraries, we suggest using the `hunspell` and `pyhunspell` libraries instead in the `util.py`.
 ```
-pip install hunspell==0.5.5
+sudo apt update
+sudo apt install -y build-essential pkg-config libhunspell-dev hunspell
 sudo apt install hunspell-en-gb hunspell-en-us
+pip install hunspell==0.5.5
 ```
 ```
 import hunspell
@@ -285,7 +287,9 @@ python run_config.py
 - `om_csv_to_database.py`: Retrieval Agent Part 2.
 - `om_database_matching.py`: Matching Agent.
 - `run_config.py`: main function of the project.
+- `run_series_archaeology.py`: run all the archaeology alignments at one time.
 - `run_series_conference.py`: run all the conference alignments at one time.
+- `run_series_multifarm.py`: run all the multifarm alignments at one time.
 - `run_series_similarity.py`: run different similarity thresholds for one alignment at one time.
 - `llm_matching.py`: examples using purely LLMs for general matching tasks.
 - `llm_om_only.py`: examples of using LLMs only for ontology matching.
@@ -302,7 +306,7 @@ Answer: You can simply ignore these columns. We add these columns to debug any i
 - Why do I find a slight difference for each run?  
 Answer: It is because https://community.openai.com/t/run-same-query-many-times-different-results/140588
 
-- How do I use the file `run_series_conference.py`?  
+- How do I use the file `run_series_archaeology.py` and `run_series_conference.py`, and `run_series_multifarm.py`?  
 Answer: Please uncomment the following code in the file `run_config.py`.
 ```
 import os
@@ -333,6 +337,9 @@ step = -0.05
 - Our visualisation is inspired by the following references:
   - https://joernhees.de/blog/2010/07/22/precision-recall-diagrams-including-fmeasure/
   - https://towardsai.net/p/l/precision-recall-curve
+
+### 5. Competitions and Challenges:
+- `campaign/OAEI-2025`: results of OAEI 2025 campaign.
 
 ## Debugging Log:
 - We have created a debugging log for this project. [Click the link here.](DEBUGGING_LOG.md)

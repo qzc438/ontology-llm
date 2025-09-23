@@ -348,6 +348,8 @@ def init():
     util.print_colored_text("Ontology Retrieval:", "blue")
     # find all entities
     e1_list_class, e2_list_class, e1_list_property, e2_list_property = find_all_entities()
+    # remove exceptions
+    e1_list_class, e2_list_class, e1_list_property, e2_list_property=util.remove_exceptions(e1_list_class, e2_list_class, e1_list_property, e2_list_property)
     # create csv
     header = ['entity', 'source_or_target', 'entity_type', 'syntactic_matching', 'lexical_matching', 'semantic_matching']
     util.create_document(csv_path, header=header)

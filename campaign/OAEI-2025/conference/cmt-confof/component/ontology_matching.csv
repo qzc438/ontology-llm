@@ -1,0 +1,979 @@
+entity,source_or_target,entity_type,syntactic_matching,lexical_matching,semantic_matching
+http://cmt#Acceptance,Source,Class,acceptance,"In the context of a conference, ""acceptance"" typically refers to the formal approval or agreement to participate in the event. This could mean the acceptance of a submitted paper or abstract for presentation, the acceptance of an invitation to speak or attend, or the confirmation of registration for the conference. It signifies that the organizers have reviewed and approved the submission or participation request, allowing the individual or group to be part of the conference proceedings.","Sure, here are the triples verbalised into phrases:
+
+1. ""Acceptance"" is a subclass of ""Decision"".
+2. ""Acceptance"" is disjoint with ""Rejection"".
+3. ""Rejection"" is disjoint with ""Acceptance""."
+http://cmt#Administrator,Source,Class,administrator,"In the context of a conference, an ""Administrator"" typically refers to an individual responsible for organizing, managing, and overseeing the logistical and operational aspects of the event. This can include tasks such as coordinating schedules, managing registrations, handling communications with speakers and attendees, arranging venues and accommodations, and ensuring that the conference runs smoothly. The Administrator plays a crucial role in ensuring that all details are attended to and that the event is successful.","Sure, here are the triples verbalized into phrases:
+
+1. The action ""acceptPaper"" is performed by an ""Administrator"".
+2. The action ""acceptedBy"" involves an ""Administrator"".
+3. The action ""addProgramCommitteeMember"" is performed by an ""Administrator"".
+4. The action ""addedBy"" involves an ""Administrator"".
+5. The action ""assignReviewer"" is performed by an ""Administrator"".
+6. The action ""assignedByAdministrator"" involves an ""Administrator"".
+7. The action ""detailsEnteredBy"" involves an ""Administrator"".
+8. The action ""enableVirtualMeeting"" is performed by an ""Administrator"".
+9. The action ""enterConferenceDetails"" is performed by an ""Administrator"".
+10. The action ""enterReviewCriteria"" is performed by an ""Administrator"".
+11. The action ""finalizePaperAssignment"" is performed by an ""Administrator"".
+12. The action ""hardcopyMailingManifestsPrintedBy"" involves an ""Administrator"".
+13. The action ""paperAssignmentFinalizedBy"" involves an ""Administrator"".
+14. The action ""paperAssignmentToolsRunBy"" involves an ""Administrator"".
+15. The action ""printHardcopyMailingManifests"" is performed by an ""Administrator"".
+16. The action ""rejectPaper"" is performed by an ""Administrator"".
+17. The action ""rejectedBy"" involves an ""Administrator"".
+18. The action ""reviewCriteriaEnteredBy"" involves an ""Administrator"".
+19. The action ""reviewerBiddingStartedBy"" involves an ""Administrator"".
+20. The action ""runPaperAssignmentTools"" is performed by an ""Administrator"".
+21. The action ""setMaxPapers"" is performed by an ""Administrator"".
+22. The action ""startReviewerBidding"" is performed by an ""Administrator"".
+23. The action ""virtualMeetingEnabledBy"" involves an ""Administrator"".
+24. An ""Administrator"" is a subclass of ""User""."
+http://cmt#AssociatedChair,Source,Class,associated chair,"In the context of a conference, an ""Associated Chair"" typically refers to an individual who assists the main conference chair in organizing and managing the event. This role may involve responsibilities such as coordinating with speakers, overseeing specific sessions or tracks, handling logistics, and ensuring that the conference runs smoothly. The Associated Chair acts as a key support figure to ensure the success of the conference.","Sure, here are the triples verbalised into phrases:
+
+1. The class ""AssociatedChair"" is a subclass of the class ""ConferenceMember"".
+2. The class ""AssociatedChair"" is disjoint with the class ""ConferenceChair"".
+3. The class ""ConferenceChair"" is disjoint with the class ""AssociatedChair"".The given subgraph can be described as follows:
+
+There is a class, denoted as _:N284be36b744c420eba266dcf913083a7, which is a union of three roles: AssociatedChair, ConferenceChair, and ProgramCommitteeChair. This class is equivalent to the class ""Chairman.""
+
+To break it down further:
+1. The class _:N284be36b744c420eba266dcf913083a7 is of type ""Class.""
+2. This class is defined as a union (unionOf) of another class _:N7f27c36789db4e4c819e4ac0123fa40a.
+3. The class _:N7f27c36789db4e4c819e4ac0123fa40a has ""AssociatedChair"" as its first element and another class _:Nc0a84b1a873845938dd8b96e80bfd97d as its rest.
+4. The class _:Nc0a84b1a873845938dd8b96e80bfd97d has ""ConferenceChair"" as its first element and another class _:Nd16e336a406c439887c1887cff9d1195 as its rest.
+5. The class _:Nd16e336a406c439887c1887cff9d1195 has ""ProgramCommitteeChair"" as its first element and ""nil"" as its rest, indicating the end of the list.
+
+In summary, the class ""Chairman"" is equivalent to a union of the roles ""AssociatedChair,"" ""ConferenceChair,"" and ""ProgramCommitteeChair."""
+http://cmt#Author,Source,Class,author,"In the context of a conference, an ""author"" typically refers to an individual who has written a paper, article, or presentation that is being presented or discussed at the event. This person is responsible for the research, content, and findings shared in their work, and they often participate in the conference to present their findings, answer questions, and engage in discussions with other attendees.","Sure, here are the triples verbalised into phrases:
+
+1. ""AuthorNotReviewer"" is a subclass of ""Author"".
+2. ""Co-author"" is a subclass of ""Author"".
+3. The property ""hasAuthor"" has a range of ""Author"".
+4. The property ""submitPaper"" has a domain of ""Author"".
+5. The property ""writePaper"" has a domain of ""Author"".
+6. ""Author"" is a subclass of ""ConferenceMember"".
+7. ""Author"" is a subclass of ""User"".The subgraph describes a class associated with the concept of ""markConflictOfInterest."" This class is defined as a union of three roles: Author, Reviewer, and Chairman. The structure indicates that an individual who holds any of these roles (Author, Reviewer, or Chairman) is relevant to the domain of marking conflicts of interest."
+http://cmt#AuthorNotReviewer,Source,Class,author not reviewer,"In the context of a conference, ""AuthorNotReviewer"" typically refers to a policy or rule that an individual who has submitted a paper (an author) is not allowed to review other submissions for the same conference. This is to avoid any potential conflicts of interest and to ensure the fairness and impartiality of the review process.","Sure, here are the triples verbalised into phrases:
+
+1. ""ProgramCommitteeMember"" is disjoint with ""AuthorNotReviewer"".
+2. ""Reviewer"" is disjoint with ""AuthorNotReviewer"".
+3. ""AuthorNotReviewer"" is a subclass of ""Author"".
+4. ""AuthorNotReviewer"" is disjoint with ""ProgramCommitteeMember"".
+5. ""AuthorNotReviewer"" is disjoint with ""Reviewer""."
+http://cmt#Bid,Source,Class,bid,"In the context of a conference, a ""bid"" typically refers to a formal proposal submitted by a city, organization, or institution to host the conference. This proposal usually includes details about the venue, accommodations, transportation, and other logistical aspects, as well as the benefits of holding the conference in that particular location. The bid is evaluated by the conference organizers or a selection committee, who then decide where the conference will be held based on the merits of the various bids received.","Sure, here are the triples verbalised into phrases:
+
+1. The range of ""adjustBid"" is ""Bid"".
+2. The domain of ""adjustedBy"" is ""Bid"".
+3. The range of ""hasBid"" is ""Bid"".
+4. ""Conference"" is disjoint with ""Bid"".
+5. ""Decision"" is disjoint with ""Bid"".
+6. ""Document"" is disjoint with ""Bid"".
+7. ""Person"" is disjoint with ""Bid"".
+8. ""Preference"" is disjoint with ""Bid"".
+9. ""ProgramCommittee"" is disjoint with ""Bid"".
+10. ""Bid"" is disjoint with ""Conference"", ""Decision"", ""Document"", ""Person"", ""Preference"", and ""ProgramCommittee""."
+http://cmt#Chairman,Source,Class,chairman,"In the context of a conference, the term ""Chairman"" refers to the individual who presides over the conference sessions. This person is responsible for leading the discussions, ensuring the agenda is followed, managing the time allocated for each speaker, and facilitating questions and interactions among participants. The Chairman plays a crucial role in maintaining order and ensuring the conference runs smoothly.","The class ""Chairman"" is a subclass of the class ""Person"".The provided subgraph can be described in natural language as follows:
+
+1. The term ""Chairman"" is equivalent to a class represented by a blank node (let's call it Node A).
+2. Node A is of type ""Class"".
+3. Node A is a union of several roles, represented by another blank node (let's call it Node B).
+4. Node B includes the role ""AssociatedChair"" and has a rest that points to another blank node (let's call it Node C).
+5. Node C includes the role ""ConferenceChair"" and has a rest that points to another blank node (let's call it Node D).
+6. Node D includes the role ""ProgramCommitteeChair"" and has a rest that is ""nil"", indicating the end of the list.
+
+Additionally:
+
+7. The action ""markConflictOfInterest"" has a domain that is a class represented by another blank node (let's call it Node E).
+8. Node E is of type ""Class"".
+9. Node E is a union of several roles, represented by another blank node (let's call it Node F).
+10. Node F includes the role ""Reviewer"" and has a rest that points to another blank node (let's call it Node G).
+11. Node G includes the role ""Chairman"" and has a rest that points to another blank node (let's call it Node H).
+12. Node H includes the role ""Author"" and has a rest that is ""nil"", indicating the end of the list.
+
+In summary, the subgraph describes a hierarchy and relationships among various roles such as Chairman, AssociatedChair, ConferenceChair, ProgramCommitteeChair, Reviewer, and Author, and how they relate to the action ""markConflictOfInterest""."
+http://cmt#Co-author,Source,Class,co author,"In the context of a conference, a ""co-author"" refers to an individual who has collaborated with one or more other individuals to contribute to the creation of a research paper, presentation, or other scholarly work that is being presented at the conference. Co-authors share responsibility for the content and findings of the work and are typically listed as such in the conference program and any associated publications.","Sure, here are the triples verbalised into phrases:
+
+1. The property ""co-writePaper"" has a domain of ""Co-author"".
+2. The property ""hasCo-author"" has a range of ""Co-author"".
+3. The class ""Co-author"" is a subclass of ""Author""."
+http://cmt#Conference,Source,Class,conference,"In the context of ""conference,"" the term refers to a formal meeting or gathering where individuals or groups come together to discuss specific topics, share information, and engage in collaborative discussions. Conferences can be held in various fields such as business, education, science, technology, and more, and they often include presentations, workshops, and networking opportunities.","Sure, here are the triples verbalized into phrases:
+
+1. The property ""acceptsHardcopySubmissions"" is associated with the domain ""Conference"".
+2. The property ""date"" is associated with the domain ""Conference"".
+3. The property ""detailsEnteredBy"" is associated with the domain ""Conference"".
+4. The property ""enableVirtualMeeting"" has the range ""Conference"".
+5. The property ""enterConferenceDetails"" has the range ""Conference"".
+6. The property ""enterReviewCriteria"" has the range ""Conference"".
+7. The property ""finalizePaperAssignment"" has the range ""Conference"".
+8. The property ""hardcopyMailingManifestsPrintedBy"" is associated with the domain ""Conference"".
+9. The property ""hasConferenceMember"" is associated with the domain ""Conference"".
+10. The property ""logoURL"" is associated with the domain ""Conference"".
+11. The property ""memberOfConference"" has the range ""Conference"".
+12. The property ""paperAssignmentFinalizedBy"" is associated with the domain ""Conference"".
+13. The property ""paperAssignmentToolsRunBy"" is associated with the domain ""Conference"".
+14. The property ""printHardcopyMailingManifests"" has the range ""Conference"".
+15. The property ""reviewCriteriaEnteredBy"" is associated with the domain ""Conference"".
+16. The property ""reviewerBiddingStartedBy"" is associated with the domain ""Conference"".
+17. The property ""reviewsPerPaper"" is associated with the domain ""Conference"".
+18. The property ""runPaperAssignmentTools"" has the range ""Conference"".
+19. The property ""siteURL"" is associated with the domain ""Conference"".
+20. The property ""startReviewerBidding"" has the range ""Conference"".
+21. The property ""virtualMeetingEnabledBy"" is associated with the domain ""Conference"".
+22. The class ""Bid"" is disjoint with the class ""Conference"".
+23. The class ""Decision"" is disjoint with the class ""Conference"".
+24. The class ""Document"" is disjoint with the class ""Conference"".
+25. The class ""Person"" is disjoint with the class ""Conference"".
+26. The class ""Preference"" is disjoint with the class ""Conference"".
+27. The class ""ProgramCommittee"" is disjoint with the class ""Conference"".
+28. The class ""Conference"" is disjoint with the classes ""Bid"", ""Decision"", ""Document"", ""Person"", ""Preference"", and ""ProgramCommittee"".The given subgraph can be described in natural language as follows:
+
+There is a class that is a union of the classes ""Conference"" and ""Person"". This class has a property ""name"" with a cardinality restriction of exactly 1. The class ""Conference"" is further restricted by having exactly 1 ""reviewsPerPaper"" and at least 1 ""date""."
+http://cmt#ConferenceChair,Source,Class,conference chair,"In the context of a conference, a ""Conference Chair"" refers to the individual who is responsible for overseeing and organizing the entire event. This person typically handles tasks such as coordinating with speakers, managing the schedule, ensuring that all logistical details are in place, and addressing any issues that arise during the conference. The Conference Chair plays a crucial role in ensuring the smooth execution and overall success of the conference.","Sure, here are the triples verbalized into phrases:
+
+1. ""AssociatedChair"" is disjoint with ""ConferenceChair"".
+2. ""ConferenceChair"" is a subclass of ""ConferenceMember"".
+3. ""ConferenceChair"" is disjoint with ""AssociatedChair"".The subgraph describes a class hierarchy and equivalence relationships among different types of chairs in an academic or organizational context. Here's a natural language description:
+
+1. There is a class denoted by an anonymous node (let's call it Class A) which is a union of three specific roles: Associated Chair, Conference Chair, and Program Committee Chair.
+2. The role of Associated Chair is the first element in this union, followed by Conference Chair, and finally Program Committee Chair.
+3. The role of Program Committee Chair is the last element in this union, indicating the end of the list.
+4. The class ""Chairman"" is equivalent to Class A, meaning that anyone who is a Chairman is also considered to be in the union of the three roles mentioned above.
+
+In summary, the class ""Chairman"" encompasses individuals who can be either an Associated Chair, a Conference Chair, or a Program Committee Chair."
+http://cmt#ConferenceMember,Source,Class,conference member,"In the context of a conference, a ""ConferenceMember"" refers to an individual who is a participant or attendee of the conference. This person may be involved in various activities such as attending sessions, presenting papers, participating in discussions, or networking with other attendees. The term encompasses all individuals who are officially part of the conference, including speakers, panelists, organizers, and general attendees.","Sure, here are the triples verbalized into phrases:
+
+1. ""AssociatedChair"" is a subclass of ""ConferenceMember"".
+2. ""Author"" is a subclass of ""ConferenceMember"".
+3. ""ConferenceChair"" is a subclass of ""ConferenceMember"".
+4. ""ProgramCommitteeMember"" is a subclass of ""ConferenceMember"".
+5. ""Reviewer"" is a subclass of ""ConferenceMember"".
+6. The property ""hasConferenceMember"" has a range of ""ConferenceMember"".
+7. The property ""memberOfConference"" has a domain of ""ConferenceMember"".
+8. ""ConferenceMember"" is a subclass of ""Person""."
+http://cmt#Decision,Source,Class,decision,"In the context of a conference, a ""decision"" refers to a conclusion or resolution reached after discussion and deliberation among the participants. It often involves choosing a course of action, setting policies, or making strategic plans based on the information and viewpoints presented during the conference sessions. Decisions made in a conference setting are typically aimed at addressing specific issues, achieving common goals, or advancing the objectives of the organization or group involved.","Sure, here are the triples verbalized into phrases:
+
+1. ""Acceptance"" is a subclass of ""Decision"".
+2. ""Rejection"" is a subclass of ""Decision"".
+3. The property ""hasDecision"" has a range of ""Decision"".
+4. ""Bid"" is disjoint with ""Decision"".
+5. ""Conference"" is disjoint with ""Decision"".
+6. ""Document"" is disjoint with ""Decision"".
+7. ""Person"" is disjoint with ""Decision"".
+8. ""Preference"" is disjoint with ""Decision"".
+9. ""ProgramCommittee"" is disjoint with ""Decision"".
+10. ""Decision"" is disjoint with ""Bid"".
+11. ""Decision"" is disjoint with ""Conference"".
+12. ""Decision"" is disjoint with ""Document"".
+13. ""Decision"" is disjoint with ""Person"".
+14. ""Decision"" is disjoint with ""Preference"".
+15. ""Decision"" is disjoint with ""ProgramCommittee""."
+http://cmt#Document,Source,Class,document,"In the context of a conference, a ""document"" typically refers to any written, printed, or digital material that is used or distributed during the event. This can include agendas, schedules, presentation slides, handouts, research papers, reports, and any other relevant materials that support the discussions and activities taking place at the conference. These documents are often used to provide information, facilitate communication, and serve as a record of the proceedings.","1. A ""Paper"" is a subclass of ""Document"".
+2. A ""Review"" is a subclass of ""Document"".
+3. The property ""hasConflictOfInterest"" has a range of ""Document"".
+4. ""Bid"" is disjoint with ""Document"".
+5. ""Conference"" is disjoint with ""Document"".
+6. ""Decision"" is disjoint with ""Document"".
+7. ""Person"" is disjoint with ""Document"".
+8. ""Preference"" is disjoint with ""Document"".
+9. ""ProgramCommittee"" is disjoint with ""Document"".
+10. ""Document"" is disjoint with ""Bid"", ""Conference"", ""Decision"", ""Person"", ""Preference"", and ""ProgramCommittee""."
+http://cmt#ExternalReviewer,Source,Class,external reviewer,"In the context of a conference, an External Reviewer is an individual who is tasked with evaluating a paper on behalf of another Reviewer. Although the External Reviewer provides their assessment and feedback on the paper, they do not hold the official title or role of a Reviewer within the conference's review process.","Sure, here are the triples verbalised into phrases:
+
+1. The range of ""assignExternalReviewer"" is ""ExternalReviewer"".
+2. The domain of ""assignedByReviewer"" is ""ExternalReviewer"".
+3. ""Reviewer"" is disjoint with ""ExternalReviewer"".
+4. ""ExternalReviewer"" is a subclass of ""Person"" and is disjoint with ""Reviewer"".The class ""ExternalReviewer"" is a subclass of a restriction. This restriction specifies that there is exactly one property, ""assignedByReviewer"", associated with instances of ""ExternalReviewer""."
+http://cmt#Meta-Review,Source,Class,meta review,"In the context of a conference, a ""Meta-Review"" refers to a summary and evaluation of the reviews provided by multiple reviewers for a particular paper or submission. The meta-review is typically written by a senior reviewer or an area chair who synthesizes the individual reviews, highlights key points, resolves discrepancies, and provides an overall recommendation regarding the acceptance or rejection of the paper. This process helps ensure a balanced and fair assessment of the submission.","The class ""Meta-Review"" is a subclass of the class ""Review""."
+http://cmt#Meta-Reviewer,Source,Class,meta reviewer,"In the context of a conference, a Meta-Reviewer is a special type of Reviewer who has the responsibility of overseeing the reviews submitted for a given paper. While there can be multiple Reviewers for a paper, there is only one Meta-Reviewer. The Meta-Reviewer reviews all the submitted reviews and can submit their own review. Their role is to ensure that the reviews are of high quality and consistent. The use of Meta-Reviewers is optional and must be decided before the paper assignment process begins.","Sure, here are the triples verbalised into phrases:
+
+1. The property ""readByMeta-Reviewer"" has a range of ""Meta-Reviewer"".
+2. The class ""Meta-Reviewer"" is a subclass of ""Reviewer""."
+http://cmt#Paper,Source,Class,paper,"In the context of a conference, a ""paper"" typically refers to a written document that presents research findings, theories, or arguments on a specific topic. These papers are often submitted by researchers, scholars, or professionals and are reviewed by a committee before being accepted for presentation at the conference. The authors may then present their papers during sessions, where they discuss their work and answer questions from the audience.","Sure, here are the triples verbalized into phrases:
+
+1. ""PaperAbstract"" is a subclass of ""Paper"".
+2. ""PaperFullVersion"" is a subclass of ""Paper"".
+3. The range of ""acceptPaper"" is ""Paper"".
+4. The domain of ""acceptedBy"" is ""Paper"".
+5. The domain of ""assignedTo"" is ""Paper"".
+6. The range of ""co-writePaper"" is ""Paper"".
+7. The domain of ""hasAuthor"" is ""Paper"".
+8. The range of ""hasBeenAssigned"" is ""Paper"".
+9. The domain of ""hasBid"" is ""Paper"".
+10. The domain of ""hasCo-author"" is ""Paper"".
+11. The domain of ""hasDecision"" is ""Paper"".
+12. The domain of ""hasSubjectArea"" is ""Paper"".
+13. The range of ""markConflictOfInterest"" is ""Paper"".
+14. The domain of ""paperID"" is ""Paper"".
+15. The domain of ""readByMeta-Reviewer"" is ""Paper"".
+16. The domain of ""readByReviewer"" is ""Paper"".
+17. The range of ""readPaper"" is ""Paper"".
+18. The range of ""rejectPaper"" is ""Paper"".
+19. The domain of ""rejectedBy"" is ""Paper"".
+20. The range of ""submitPaper"" is ""Paper"".
+21. The domain of ""title"" is ""Paper"".
+22. The range of ""writePaper"" is ""Paper"".
+23. ""Review"" is disjoint with ""Paper"".
+24. ""Paper"" is a subclass of ""Document"" and is disjoint with ""Review"".The class ""Paper"" is subject to several restrictions:
+
+1. A ""Paper"" must be read by at least one reviewer. This is indicated by a restriction on the property ""readByReviewer"" with a minimum cardinality of 1.
+2. A ""Paper"" can be read by at most one meta-reviewer. This is indicated by a restriction on the property ""readByMeta-Reviewer"" with a maximum cardinality of 1.
+3. A ""Paper"" can have zero or more decisions. This is indicated by a restriction on the property ""hasDecision"" with a minimum cardinality of 0.
+4. A ""Paper"" can have at most one decision. This is indicated by a restriction on the property ""hasDecision"" with a maximum cardinality of 1."
+http://cmt#PaperAbstract,Source,Class,paper abstract,"In the context of a conference, a ""Paper Abstract"" is a concise summary of a research paper that provides an overview of the main objectives, methods, results, and conclusions of the study. It is typically submitted to conference organizers as part of the paper submission process and is used to help reviewers and attendees quickly understand the key points and significance of the research. The abstract allows conference participants to decide which presentations and papers are most relevant to their interests.","The class ""PaperAbstract"" is a subclass of the class ""Paper""."
+http://cmt#PaperFullVersion,Source,Class,paper full version,"In the context of a conference, ""PaperFullVersion"" typically refers to the complete and final version of a research paper that is submitted for review or publication. This version includes all sections such as the abstract, introduction, methodology, results, discussion, conclusion, references, and any supplementary materials. It is the comprehensive document that presents the full details of the research study, as opposed to an abstract or a preliminary version.","The class ""PaperFullVersion"" is a subclass of the class ""Paper""."
+http://cmt#Person,Source,Class,person,"In the context of a conference, a ""person"" typically refers to an individual who is attending or participating in the event. This could include speakers, attendees, organizers, panelists, or any other individuals involved in the conference activities.","Sure, here are the triples verbalised into phrases:
+
+1. A Chairman is a subclass of a Person.
+2. A Conference Member is a subclass of a Person.
+3. An External Reviewer is a subclass of a Person.
+4. A Program Committee Member is a subclass of a Person.
+5. A User is a subclass of a Person.
+6. The property ""email"" has a domain of Person.
+7. The property ""has Conflict Of Interest"" has a domain of Person.
+8. A Bid is disjoint with a Person.
+9. A Conference is disjoint with a Person.
+10. A Decision is disjoint with a Person.
+11. A Document is disjoint with a Person.
+12. A Preference is disjoint with a Person.
+13. A Program Committee is disjoint with a Person.
+14. A Person is disjoint with a Bid, a Conference, a Decision, a Document, a Preference, and a Program Committee.The given subgraph can be described as follows:
+
+There is a class that is defined as a union of two entities: ""Conference"" and ""Person"". The domain of the property ""name"" is this class."
+http://cmt#Preference,Source,Class,preference,"In the context of a conference, ""preference"" refers to the choices or priorities of the attendees or organizers regarding various aspects of the event. This could include preferences for session topics, speakers, seating arrangements, meal options, or scheduling. Understanding these preferences helps in tailoring the conference experience to better meet the needs and expectations of the participants.","Sure, here are the triples verbalised into phrases:
+
+1. ""Bid"" is disjoint with ""Preference"".
+2. ""Conference"" is disjoint with ""Preference"".
+3. ""Decision"" is disjoint with ""Preference"".
+4. ""Document"" is disjoint with ""Preference"".
+5. ""Person"" is disjoint with ""Preference"".
+6. ""ProgramCommittee"" is disjoint with ""Preference"".
+7. ""Preference"" is disjoint with ""Bid"".
+8. ""Preference"" is disjoint with ""Conference"".
+9. ""Preference"" is disjoint with ""Decision"".
+10. ""Preference"" is disjoint with ""Document"".
+11. ""Preference"" is disjoint with ""Person"".
+12. ""Preference"" is disjoint with ""ProgramCommittee""."
+http://cmt#ProgramCommittee,Source,Class,program committee,"In the context of a conference, a Program Committee is a group of experts and professionals responsible for planning, organizing, and overseeing the academic and technical content of the conference. Their duties typically include selecting and reviewing submitted papers, organizing sessions, inviting keynote speakers, and ensuring the overall quality and relevance of the conference program. The committee plays a crucial role in maintaining the conference's standards and ensuring that it meets the interests and needs of its attendees.","1. The property ""hasProgramCommitteeMember"" has a domain of ""ProgramCommittee"".
+2. The property ""memberOfProgramCommittee"" has a range of ""ProgramCommittee"".
+3. The class ""Bid"" is disjoint with the class ""ProgramCommittee"".
+4. The class ""Conference"" is disjoint with the class ""ProgramCommittee"".
+5. The class ""Decision"" is disjoint with the class ""ProgramCommittee"".
+6. The class ""Document"" is disjoint with the class ""ProgramCommittee"".
+7. The class ""Person"" is disjoint with the class ""ProgramCommittee"".
+8. The class ""Preference"" is disjoint with the class ""ProgramCommittee"".
+9. The class ""ProgramCommittee"" is disjoint with the classes ""Bid"", ""Conference"", ""Decision"", ""Document"", ""Person"", and ""Preference""."
+http://cmt#ProgramCommitteeChair,Source,Class,program committee chair,"In the context of a conference, the ""Program Committee Chair"" is the individual responsible for overseeing the program committee, which is tasked with organizing the academic or technical content of the conference. This includes tasks such as selecting and reviewing submitted papers, coordinating with speakers, and ensuring the overall quality and coherence of the conference program. The Program Committee Chair plays a crucial role in shaping the intellectual and thematic direction of the conference.","Sure, here are the triples verbalized into phrases:
+
+1. The property ""endReview"" has a domain of ""ProgramCommitteeChair"".
+2. ""ProgramCommitteeChair"" is a subclass of ""ProgramCommitteeMember"".The given subgraph can be described as follows:
+
+There is a class, denoted as _:N284be36b744c420eba266dcf913083a7, which is of type ""Class"". This class is equivalent to the class ""Chairman"". The class _:N284be36b744c420eba266dcf913083a7 is defined as a union of another class, denoted as _:N7f27c36789db4e4c819e4ac0123fa40a.
+
+The class _:N7f27c36789db4e4c819e4ac0123fa40a consists of two elements:
+1. ""AssociatedChair"" as the first element.
+2. The rest of the elements are represented by another class, denoted as _:Nc0a84b1a873845938dd8b96e80bfd97d.
+
+The class _:Nc0a84b1a873845938dd8b96e80bfd97d consists of two elements:
+1. ""ConferenceChair"" as the first element.
+2. The rest of the elements are represented by another class, denoted as _:Nd16e336a406c439887c1887cff9d1195.
+
+The class _:Nd16e336a406c439887c1887cff9d1195 consists of two elements:
+1. ""ProgramCommitteeChair"" as the first element.
+2. The rest of the elements are nil, indicating the end of the list.
+
+In summary, the class ""Chairman"" is equivalent to a union of the classes ""AssociatedChair"", ""ConferenceChair"", and ""ProgramCommitteeChair""."
+http://cmt#ProgramCommitteeMember,Source,Class,program committee member,"In the context of a conference, a Program Committee Member is an individual who is part of the Program Committee, which includes all members of the conference except for Authors who are not also Reviewers. These members are typically responsible for tasks such as reviewing submitted papers, making decisions about which papers to accept, and helping to shape the conference program.","Sure, here are the triples verbalized into phrases:
+
+1. ""ProgramCommitteeChair"" is a subclass of ""ProgramCommitteeMember"".
+2. The range of ""addProgramCommitteeMember"" is ""ProgramCommitteeMember"".
+3. The domain of ""addedBy"" is ""ProgramCommitteeMember"".
+4. The range of ""hasProgramCommitteeMember"" is ""ProgramCommitteeMember"".
+5. The domain of ""maxPapers"" is ""ProgramCommitteeMember"".
+6. The domain of ""memberOfProgramCommittee"" is ""ProgramCommitteeMember"".
+7. The range of ""setMaxPapers"" is ""ProgramCommitteeMember"".
+8. ""AuthorNotReviewer"" is disjoint with ""ProgramCommitteeMember"".
+9. ""ProgramCommitteeMember"" is a subclass of both ""ConferenceMember"" and ""Person"".
+10. ""ProgramCommitteeMember"" is disjoint with ""AuthorNotReviewer""."
+http://cmt#Rejection,Source,Class,rejection,"In the context of a conference, ""rejection"" typically refers to the decision not to accept a submitted paper, abstract, or proposal for presentation. This can occur during the peer review process, where submissions are evaluated based on criteria such as relevance, originality, quality of research, and adherence to the conference's themes and standards. A rejection means that the submission did not meet the necessary criteria or was not deemed suitable for inclusion in the conference program.","Sure, here are the triples verbalised into phrases:
+
+1. ""Acceptance"" is disjoint with ""Rejection"".
+2. ""Rejection"" is a subclass of ""Decision"".
+3. ""Rejection"" is disjoint with ""Acceptance""."
+http://cmt#Review,Source,Class,review,"In the context of a conference, a ""review"" typically refers to the evaluation or assessment of submitted papers, presentations, or proposals by a panel of experts or peers. This process is crucial for maintaining the quality and relevance of the conference content. Reviewers provide feedback, suggest improvements, and recommend whether a submission should be accepted, revised, or rejected.","Sure, here are the triples verbalised into phrases:
+
+1. ""Meta-Review"" is a subclass of ""Review"".
+2. The range of ""endReview"" is ""Review"".
+3. The range of ""writeReview"" is ""Review"".
+4. The domain of ""writtenBy"" is ""Review"".
+5. ""Paper"" is disjoint with ""Review"".
+6. ""Review"" is a subclass of ""Document"".
+7. ""Review"" is disjoint with ""Paper""."
+http://cmt#Reviewer,Source,Class,reviewer,"In the context of a conference, a reviewer is an individual who evaluates and assesses the quality, relevance, and originality of submitted papers or presentations. Reviewers provide feedback and recommendations regarding whether a submission should be accepted, revised, or rejected. Their role is crucial in maintaining the academic and professional standards of the conference.","Sure, here are the triples verbalized into phrases:
+
+1. A ""Meta-Reviewer"" is a subclass of ""Reviewer"".
+2. The domain of ""adjustBid"" is ""Reviewer"".
+3. The range of ""adjustedBy"" is ""Reviewer"".
+4. The domain of ""assignExternalReviewer"" is ""Reviewer"".
+5. The range of ""assignReviewer"" is ""Reviewer"".
+6. The domain of ""assignedByAdministrator"" is ""Reviewer"".
+7. The range of ""assignedByReviewer"" is ""Reviewer"".
+8. The range of ""assignedTo"" is ""Reviewer"".
+9. The domain of ""hasBeenAssigned"" is ""Reviewer"".
+10. The range of ""readByReviewer"" is ""Reviewer"".
+11. The domain of ""readPaper"" is ""Reviewer"".
+12. The domain of ""writeReview"" is ""Reviewer"".
+13. The range of ""writtenBy"" is ""Reviewer"".
+14. ""AuthorNotReviewer"" is disjoint with ""Reviewer"".
+15. ""ExternalReviewer"" is disjoint with ""Reviewer"".
+16. ""Reviewer"" is a subclass of ""ConferenceMember"" and ""User"".
+17. ""Reviewer"" is disjoint with ""AuthorNotReviewer"" and ""ExternalReviewer"".The subgraph describes a class associated with the concept of ""markConflictOfInterest."" This class is defined as a union of three roles: Author, Reviewer, and Chairman. The structure indicates that any individual who is an Author, Reviewer, or Chairman can be considered within the domain of the ""markConflictOfInterest"" class."
+http://cmt#SubjectArea,Source,Class,subject area,"In the context of a conference, ""SubjectArea"" refers to the specific field or domain of knowledge that the conference focuses on. It encompasses the topics, themes, and disciplines that are covered in the presentations, discussions, and workshops during the event. For example, a conference on artificial intelligence would have a subject area that includes machine learning, neural networks, natural language processing, and other related topics.","The property ""hasSubjectArea"" has a range of ""SubjectArea""."
+http://cmt#User,Source,Class,user,"In the context of a conference, a ""user"" typically refers to an individual who utilizes or interacts with a particular system, service, or product being discussed or showcased at the event. This could include software users, customers, clients, or any other stakeholders who engage with the offerings presented at the conference.","Sure, here are the triples verbalised into phrases:
+
+1. An Administrator is a subclass of a User.
+2. An Author is a subclass of a User.
+3. A Reviewer is a subclass of a User.
+4. A User is a subclass of a Person."
+http://cmt#acceptPaper,Source,Property,accept paper,"In the context of a conference, ""acceptPaper"" refers to the decision made by the conference organizers or review committee to approve a submitted research paper for presentation at the conference. This means that the paper has passed the review process and meets the standards and criteria set by the conference, allowing the authors to present their findings to the conference attendees.","The action ""acceptPaper"" is performed by an entity of type ""Administrator"" and it involves an entity of type ""Paper""."
+http://cmt#acceptedBy,Source,Property,accepted by,"In the context of a conference, ""acceptedBy"" typically refers to the individual or committee that has reviewed and approved a submission, such as a research paper, presentation, or proposal, for inclusion in the conference program. This indicates that the submission has met the necessary criteria and standards set by the conference organizers.","The property ""acceptedBy"" has a domain of ""Paper"" and a range of ""Administrator"". This means that ""acceptedBy"" is a relationship where a ""Paper"" is accepted by an ""Administrator""."
+http://cmt#acceptsHardcopySubmissions,Source,Property,accepts hardcopy submissions,"In the context of a conference, ""acceptsHardcopySubmissions"" means that the conference allows participants to submit their papers, abstracts, or other required documents in physical, printed form, rather than solely through electronic or digital means. This indicates that the conference organizers are prepared to handle and review submissions that are mailed or delivered in hardcopy format.","The property ""acceptsHardcopySubmissions"" applies to instances of ""Conference"" and has a value of type ""boolean""."
+http://cmt#addProgramCommitteeMember,Source,Property,add program committee member,"In the context of a conference, ""addProgramCommitteeMember"" refers to the action of including a new member to the program committee. The program committee is typically responsible for reviewing and selecting the papers or presentations that will be included in the conference program. Adding a new member to this committee means that the individual will participate in these review and selection processes, contributing their expertise to ensure the quality and relevance of the conference content.","The property ""addProgramCommitteeMember"" has a domain of ""Administrator"" and a range of ""ProgramCommitteeMember"". This means that the action or function ""addProgramCommitteeMember"" is something that an ""Administrator"" can perform, and it involves adding an entity of type ""ProgramCommitteeMember""."
+http://cmt#addedBy,Source,Property,added by,"In the context of a conference, ""addedBy"" typically refers to the person or entity who has added a particular piece of information, such as a session, speaker, or attendee, to the conference schedule or database. This could be an organizer, administrator, or any authorized individual responsible for updating and managing the conference details.","The property ""addedBy"" has a domain of ""ProgramCommitteeMember"" and a range of ""Administrator"". This means that the ""addedBy"" property is used to indicate that a ""ProgramCommitteeMember"" was added by an ""Administrator""."
+http://cmt#adjustBid,Source,Property,adjust bid,"In the context of a conference, ""adjustBid"" likely refers to the process of modifying a proposal or offer, such as a bid for a speaking slot, sponsorship opportunity, or other participation-related aspects. This could involve changing the terms, amount, or conditions of the bid to better align with the conference's requirements or to increase the chances of acceptance.","The property ""adjustBid"" has a domain of ""Reviewer"" and a range of ""Bid"". This means that ""adjustBid"" is an action or relationship that is performed by a ""Reviewer"" and results in or involves a ""Bid""."
+http://cmt#adjustedBy,Source,Property,adjusted by,"In the context of a conference, ""adjustedBy"" typically refers to changes or modifications made by a specific person or entity. For example, if the schedule of the conference was altered, the term ""adjustedBy"" would indicate who made those changes. This could be an organizer, a speaker, or any other individual responsible for updating the conference details.","The property ""adjustedBy"" has a domain of ""Bid"" and a range of ""Reviewer"". This means that ""adjustedBy"" is a relationship where a ""Bid"" is adjusted by a ""Reviewer""."
+http://cmt#assignExternalReviewer,Source,Property,assign external reviewer,"In the context of a conference, ""assignExternalReviewer"" refers to the process of designating an external expert, who is not part of the conference's organizing committee or internal team, to review and evaluate submitted papers or presentations. This external reviewer provides an unbiased assessment of the work, ensuring the quality and relevance of the content being considered for inclusion in the conference program.","The property ""assignExternalReviewer"" has a domain of ""Reviewer"" and a range of ""ExternalReviewer""."
+http://cmt#assignReviewer,Source,Property,assign reviewer,"In the context of a conference, ""assignReviewer"" refers to the process of designating a specific individual, typically an expert in the relevant field, to evaluate and provide feedback on a submitted paper or presentation. This is a crucial step in the peer review process, where the quality, validity, and originality of the work are assessed before it is accepted for presentation or publication at the conference. The assigned reviewer will read the submission, critique it, and often suggest improvements or revisions.","The action ""assignReviewer"" is performed by an entity of type ""Administrator"" and it affects an entity of type ""Reviewer""."
+http://cmt#assignedByAdministrator,Source,Property,assigned by administrator,"In the context of a conference, ""assignedByAdministrator"" typically means that a task, role, or responsibility has been designated to a person or group by the conference administrator or organizer. This could include assignments such as speaking slots, session moderation, logistical duties, or other responsibilities necessary for the smooth operation of the conference.","The property ""assignedByAdministrator"" has a domain of ""Reviewer"" and a range of ""Administrator"". This means that the property ""assignedByAdministrator"" is used to indicate that a ""Reviewer"" is assigned by an ""Administrator""."
+http://cmt#assignedByReviewer,Source,Property,assigned by reviewer,"In the context of a conference, ""assignedByReviewer"" typically refers to the process or action where a reviewer assigns a particular task, paper, or responsibility to someone else. This could involve a reviewer assigning a paper to another reviewer for evaluation, or it could mean that a reviewer is delegating certain duties to another individual within the conference organization. The term indicates that the assignment is being made by someone in a reviewing capacity.","The property ""assignedByReviewer"" has a domain of ""ExternalReviewer"" and a range of ""Reviewer"". This means that ""assignedByReviewer"" is a relationship where an ""ExternalReviewer"" assigns something to a ""Reviewer"".The class ""ExternalReviewer"" is a subclass of a restriction. This restriction specifies that there is exactly one property, ""assignedByReviewer"", associated with instances of ""ExternalReviewer""."
+http://cmt#assignedTo,Source,Property,assigned to,"In the context of a conference, ""assignedTo"" typically refers to the person or group who has been designated responsibility for a specific task, role, or duty. This could include responsibilities such as organizing sessions, managing registrations, handling technical support, or any other logistical or administrative tasks necessary for the successful execution of the conference.","The property ""assignedTo"" has a domain of ""Paper"" and a range of ""Reviewer"". This means that the ""assignedTo"" relationship is used to link a ""Paper"" to a ""Reviewer""."
+http://cmt#co-writePaper,Source,Property,co writepaper,"In the context of a conference, ""co-writePaper"" refers to the collaborative process where multiple authors work together to write a research paper or academic paper that will be submitted for presentation at the conference. This involves sharing ideas, conducting research, writing, and revising the paper collectively to meet the standards and requirements of the conference.","The property ""co-writePaper"" has a domain of ""Co-author"" and a range of ""Paper"". 
+
+In other words, ""co-writePaper"" is a relationship where a ""Co-author"" is involved in the action of co-writing a ""Paper""."
+http://cmt#date,Source,Property,date,"In the context of a conference, the term ""date"" refers to the specific day or days on which the conference is scheduled to take place. This includes the start and end dates if the conference spans multiple days.","The property ""date"" has a domain of ""Conference"" and a range of ""date"".The class ""Conference"" is a subclass of a certain restriction. This restriction specifies that there must be at least one instance of the property ""date"" associated with it."
+http://cmt#detailsEnteredBy,Source,Property,details entered by,"In the context of a conference, ""detailsEnteredBy"" typically refers to the individual or entity who has inputted or provided specific information or details related to the conference. This could include details about the event, such as the schedule, speakers, venue, or any other relevant information. Essentially, it identifies the person responsible for entering the data into a system or database.","The property ""detailsEnteredBy"" has a domain of ""Conference"" and a range of ""Administrator"". This means that the ""detailsEnteredBy"" property is used to link a ""Conference"" to an ""Administrator"". In other words, the ""detailsEnteredBy"" property indicates that the details of a conference are entered by an administrator."
+http://cmt#email,Source,Property,email,"In the context of a conference, ""email"" refers to the electronic method of communication used to send and receive messages, updates, invitations, schedules, and other relevant information related to the conference. It is a crucial tool for organizers to communicate with attendees, speakers, and sponsors before, during, and after the event.","The property ""email"" has a domain of ""Person"" and a range of ""string""."
+http://cmt#enableVirtualMeeting,Source,Property,enable virtual meeting,"In the context of a conference, ""enableVirtualMeeting"" refers to the process or action of setting up and allowing participants to join and interact in a meeting or conference through virtual means, typically using online platforms and tools. This can include video conferencing software, online collaboration tools, and other digital technologies that facilitate remote communication and participation.","The property ""enableVirtualMeeting"" has a domain of ""Administrator"" and a range of ""Conference"". This means that the ""enableVirtualMeeting"" action is something that an ""Administrator"" can perform, and it is related to a ""Conference""."
+http://cmt#endReview,Source,Property,end review,"In the context of a conference, ""endReview"" typically refers to the conclusion of the review process for submitted papers or proposals. This is the point at which reviewers have completed their evaluations, and the conference organizers finalize decisions on which submissions will be accepted for presentation or publication.","The property ""endReview"" has a domain of ""ProgramCommitteeChair"" and a range of ""Review"". 
+
+In other words, the action or property ""endReview"" is something that is performed by a ""ProgramCommitteeChair"" and it pertains to a ""Review""."
+http://cmt#enterConferenceDetails,Source,Property,enter conference details,"In the context of a conference, ""enterConferenceDetails"" typically refers to the process of inputting or providing specific information about the conference. This can include details such as the conference name, date, time, location, agenda, list of speakers, topics to be covered, registration information, and any other relevant logistical or content-related information. This process is often part of setting up or organizing a conference, whether for an online platform, a registration system, or an event management tool.","The property ""enterConferenceDetails"" has a domain of ""Administrator"" and a range of ""Conference"". This means that the action or function ""enterConferenceDetails"" is something that an ""Administrator"" can perform, and it involves or results in a ""Conference""."
+http://cmt#enterReviewCriteria,Source,Property,enter review criteria,"In the context of a conference, ""enterReviewCriteria"" likely refers to the process of defining or inputting the specific standards or guidelines that will be used to evaluate submissions, such as research papers, presentations, or proposals. These criteria help reviewers assess the quality, relevance, originality, and significance of the submissions to ensure that only the most suitable and high-quality contributions are accepted for the conference.","The property ""enterReviewCriteria"" has a domain of ""Administrator"" and a range of ""Conference"". This means that the ""enterReviewCriteria"" action is something that an ""Administrator"" can perform, and it is related to a ""Conference""."
+http://cmt#finalizePaperAssignment,Source,Property,finalize paper assignment,"In the context of a conference, ""finalizePaperAssignment"" typically refers to the process of completing the allocation of submitted research papers to reviewers or session slots. This involves ensuring that each paper is assigned to appropriate reviewers for evaluation or to specific sessions for presentation, based on factors such as the paper's topic, the expertise of the reviewers, and the conference schedule. Finalizing the paper assignment is a crucial step in the conference organization process to ensure a smooth and effective review and presentation workflow.","The action ""finalizePaperAssignment"" is performed by an ""Administrator"" and is related to a ""Conference""."
+http://cmt#hardcopyMailingManifestsPrintedBy,Source,Property,hardcopy mailing manifests printed by,"In the context of a conference, ""hardcopyMailingManifestsPrintedBy"" likely refers to the physical documents or lists that detail the items being mailed, such as conference materials, attendee badges, or informational packets. These manifests are printed by a specific person or entity responsible for organizing and sending out these materials. Essentially, it indicates who is in charge of printing the hardcopy mailing manifests for the conference.","The property ""hardcopyMailingManifestsPrintedBy"" has a domain of ""Conference"" and a range of ""Administrator"". This means that in the context of a ""Conference"", the ""hardcopy mailing manifests"" are printed by an ""Administrator""."
+http://cmt#hasAuthor,Source,Property,has author,"In the context of a conference, ""hasAuthor"" typically refers to the relationship between a paper, presentation, or any other type of submission and the individual(s) who created it. It indicates that a particular work has one or more authors who are responsible for its content. For example, if a research paper is submitted to a conference, the ""hasAuthor"" attribute would list the names of the researchers who wrote the paper.","The property ""hasAuthor"" is used to link a ""Paper"" to an ""Author"". In other words, ""hasAuthor"" is a relationship where the subject is a ""Paper"" and the object is an ""Author""."
+http://cmt#hasBeenAssigned,Source,Property,has been assigned,"In the context of a conference, ""hasBeenAssigned"" typically means that a specific task, role, or responsibility has been allocated to a particular individual or group. For example, a speaker might have been assigned a time slot, a volunteer might have been assigned to manage registration, or a participant might have been assigned to a particular discussion group. It indicates that the assignment process is complete and the individual or group is now responsible for the designated task or role.","The property ""hasBeenAssigned"" has a domain of ""Reviewer"" and a range of ""Paper"". This means that ""hasBeenAssigned"" is a relationship where a ""Reviewer"" is assigned to a ""Paper""."
+http://cmt#hasBid,Source,Property,has bid,"In the context of a conference, ""hasBid"" typically refers to whether a particular entity, such as a city, organization, or venue, has submitted a proposal or application to host the conference. It indicates that the entity is actively seeking to be selected as the location or organizer for the event.","The property ""hasBid"" has a domain of ""Paper"" and a range of ""Bid"". This means that ""hasBid"" is a relationship where a ""Paper"" can have a ""Bid""."
+http://cmt#hasCo-author,Source,Property,hasco author,"In the context of a conference, ""hasCo-author"" refers to the relationship between an academic paper or presentation and the individuals who have contributed to its creation. Specifically, it indicates that the work has been authored by more than one person. These co-authors have collaborated on the research, writing, and preparation of the material being presented or published at the conference.","The property ""hasCo-author"" is used to indicate a relationship where the subject is a ""Paper"" and the object is a ""Co-author""."
+http://cmt#hasConferenceMember,Source,Property,has conference member,"In the context of a conference, ""hasConferenceMember"" typically refers to an attribute or relationship indicating that a particular conference includes or is associated with a specific member or participant. This could be used in various systems or databases to denote that an individual or entity is part of the conference, whether as a speaker, attendee, organizer, or in another role.","The property ""hasConferenceMember"" has a domain of ""Conference"" and a range of ""ConferenceMember"". This means that ""hasConferenceMember"" is a relationship where the subject is a ""Conference"" and the object is a ""ConferenceMember""."
+http://cmt#hasConflictOfInterest,Source,Property,has conflict of interest,"In the context of a conference, ""hasConflictOfInterest"" refers to a situation where an individual, such as a speaker, organizer, or reviewer, has a personal or financial interest that could potentially influence their decisions or actions in a way that is not impartial. This could include relationships with companies, financial investments, or other affiliations that might affect their objectivity or create a bias in their professional responsibilities related to the conference.","The property ""hasConflictOfInterest"" applies to instances of the class ""Person"" and relates them to instances of the class ""Document""."
+http://cmt#hasDecision,Source,Property,has decision,"In the context of a conference, ""hasDecision"" typically refers to the status or outcome of a submission, such as a research paper or proposal, that has been reviewed by the conference committee. It indicates that a decision has been made regarding the acceptance or rejection of the submission. For example, if a paper ""hasDecision,"" it means the authors will be informed whether their paper has been accepted for presentation at the conference or not.","The property ""hasDecision"" has a domain of ""Paper"" and a range of ""Decision"".The provided subgraph can be described as follows:
+
+A ""Paper"" is a subclass of two restrictions related to the property ""hasDecision"". The first restriction specifies that the minimum cardinality for ""hasDecision"" is 0, meaning a ""Paper"" can have zero or more decisions. The second restriction specifies that the maximum cardinality for ""hasDecision"" is 1, meaning a ""Paper"" can have at most one decision."
+http://cmt#hasProgramCommitteeMember,Source,Property,has program committee member,"In the context of a conference, ""hasProgramCommitteeMember"" refers to an individual who is a member of the program committee for that conference. The program committee is typically responsible for reviewing submitted papers, selecting which ones will be presented at the conference, and often shaping the overall structure and content of the conference program. Therefore, a ""hasProgramCommitteeMember"" indicates that the conference includes this person as part of its program committee.","The property ""hasProgramCommitteeMember"" has a domain of ""ProgramCommittee"" and a range of ""ProgramCommitteeMember"". This means that ""hasProgramCommitteeMember"" is a relationship where the subject is a ""ProgramCommittee"" and the object is a ""ProgramCommitteeMember""."
+http://cmt#hasSubjectArea,Source,Property,has subject area,"In the context of a conference, ""hasSubjectArea"" refers to the specific topics or fields of study that the conference focuses on. It indicates the particular areas of interest or expertise that the conference aims to cover through its sessions, presentations, and discussions. For example, a technology conference might have subject areas such as artificial intelligence, cybersecurity, and software development.","The property ""hasSubjectArea"" has a domain of ""Paper"" and a range of ""SubjectArea"". This means that ""hasSubjectArea"" is used to link a ""Paper"" to a ""SubjectArea""."
+http://cmt#logoURL,Source,Property,logo url,"In the context of a conference, ""logoURL"" typically refers to the web address (URL) where the logo of the conference, or a related entity such as a sponsor or organizer, is hosted. This URL can be used to display the logo on websites, promotional materials, or digital platforms associated with the conference.","The property ""logoURL"" has a domain of ""Conference"" and a range of ""anyURI""."
+http://cmt#markConflictOfInterest,Source,Property,mark conflict of interest,"In the context of a conference and using the extra information provided, ""markConflictOfInterest"" refers to the process of identifying and recording a conflict of interest between a specific Reviewer and a specific Paper. This conflict can be marked by Authors during the paper submission phase, by Reviewers during Phase 2, or by Chairmen during Phase 3. Once a conflict of interest is marked, the Reviewer in question will be restricted from bidding on, being assigned to, or viewing review submissions for that particular paper to ensure impartiality and fairness in the review process.","The property ""markConflictOfInterest"" has a range of ""Paper"".The subgraph describes a class associated with the concept of ""markConflictOfInterest."" This class is defined as a union of three roles: Author, Reviewer, and Chairman. The structure indicates that an individual who holds any of these roles (Author, Reviewer, or Chairman) is relevant to the domain of marking a conflict of interest."
+http://cmt#maxPapers,Source,Property,max papers,"In the context of a conference, ""maxPapers"" typically refers to the maximum number of papers that an individual can submit or present at the conference. This limit is often set by the conference organizers to ensure a fair distribution of presentation opportunities among participants and to manage the conference schedule effectively.","The property ""maxPapers"" has a domain of ""ProgramCommitteeMember"" and a range of ""int""."
+http://cmt#memberOfConference,Source,Property,member of conference,"In the context of a conference, ""memberOfConference"" typically refers to an individual who is a participant or attendee of the conference. This person is officially registered or recognized as part of the event, which may involve attending sessions, participating in discussions, or contributing to the conference in some capacity.","The property ""memberOfConference"" has a domain of ""ConferenceMember"" and a range of ""Conference"". This means that ""memberOfConference"" is a relationship where a ""ConferenceMember"" is associated with a ""Conference""."
+http://cmt#memberOfProgramCommittee,Source,Property,member of program committee,"In the context of a conference, ""memberOfProgramCommittee"" refers to an individual who is part of the program committee. This committee is responsible for organizing and overseeing the academic and logistical aspects of the conference. Duties typically include reviewing submitted papers, selecting which papers will be presented, organizing sessions, and sometimes inviting keynote speakers. Members of the program committee are usually experts in the field relevant to the conference.","The property ""memberOfProgramCommittee"" has a domain of ""ProgramCommitteeMember"" and a range of ""ProgramCommittee"". 
+
+In other words, the property ""memberOfProgramCommittee"" is used to indicate that an individual who is a ""ProgramCommitteeMember"" is associated with a ""ProgramCommittee""."
+http://cmt#name,Source,Property,name,"In the context of a conference, the ""name"" typically refers to the title or designation given to the event. This name often encapsulates the theme, focus, or subject matter of the conference, helping potential attendees understand what the event will cover and who it is intended for. For example, a conference named ""International Conference on Climate Change"" clearly indicates that the event will focus on issues related to climate change on a global scale.","The property ""name"" has a range of ""string"".The given subgraph can be described as follows:
+
+There is a class that is defined as a union of two entities: ""Conference"" and ""Person"". The class is associated with the property ""name"". 
+
+The ""Conference"" entity is a subclass of a restriction that specifies a cardinality of 1 on the property ""name"". This means that each instance of ""Conference"" must have exactly one ""name"".
+
+The ""Person"" entity is also part of this union class, but no additional restrictions or properties are specified for it in this subgraph."
+http://cmt#paperAssignmentFinalizedBy,Source,Property,paper assignment finalized by,"In the context of a conference, ""paperAssignmentFinalizedBy"" typically refers to the deadline or the specific date and time by which the assignment of papers to reviewers or session chairs must be completed. This ensures that all logistical and administrative tasks related to the review process are finalized in a timely manner, allowing the conference to proceed smoothly.","The property ""paperAssignmentFinalizedBy"" is used to describe a relationship where the subject is a ""Conference"" and the object is an ""Administrator"". In other words, ""paperAssignmentFinalizedBy"" indicates that a paper assignment is finalized by an administrator within the context of a conference."
+http://cmt#paperAssignmentToolsRunBy,Source,Property,paper assignment tools run by,"In the context of a conference, ""paperAssignmentToolsRunBy"" refers to the tools or systems used to assign submitted papers to reviewers or committee members. These tools are typically managed or operated by the conference organizers or the program committee to ensure that each paper is reviewed by appropriate experts in the field.","The property ""paperAssignmentToolsRunBy"" is used to describe a relationship where the subject is a ""Conference"" and the object is an ""Administrator"". In other words, ""paperAssignmentToolsRunBy"" indicates that a conference is managed or operated by an administrator."
+http://cmt#paperID,Source,Property,paper id,"In the context of a conference, a ""paperID"" refers to a unique identifier assigned to a research paper submitted for consideration. This identifier is used to track and manage the paper throughout the review process, from submission to acceptance or rejection, and often during the scheduling of presentations or publication in conference proceedings. The paperID helps ensure that each paper is easily and accurately referenced by authors, reviewers, and conference organizers.","The property ""paperID"" has a domain of ""Paper"" and a range of ""unsignedLong""."
+http://cmt#printHardcopyMailingManifests,Source,Property,print hardcopy mailing manifests,"In the context of a conference, ""printHardcopyMailingManifests"" likely refers to the process of printing physical documents that list the details of items being mailed, such as conference materials, brochures, or attendee information packets. These manifests are used to ensure that all necessary items are included and properly addressed for mailing to participants or stakeholders.","The action ""printHardcopyMailingManifests"" is performed by an ""Administrator"" and is related to a ""Conference""."
+http://cmt#readByMeta-Reviewer,Source,Property,readbymeta reviewer,"In the context of a conference, ""readByMeta-Reviewer"" typically refers to the status indicating that a submission or paper has been reviewed by a meta-reviewer. A meta-reviewer is usually a senior reviewer or an area chair who oversees the review process, ensuring that the reviews are thorough, fair, and consistent. The meta-reviewer may also provide an additional layer of evaluation and make recommendations based on the reviews submitted by other reviewers.","The property ""readByMeta-Reviewer"" has a domain of ""Paper"" and a range of ""Meta-Reviewer"". This means that the property ""readByMeta-Reviewer"" is used to indicate that a ""Paper"" is read by a ""Meta-Reviewer"".The class ""Paper"" is subject to a restriction that involves the property ""readByMeta-Reviewer"". Specifically, this restriction states that a paper can be read by at most one meta-reviewer."
+http://cmt#readByReviewer,Source,Property,read by reviewer,"In the context of a conference, ""readByReviewer"" typically refers to the status indicating that a submitted paper or abstract has been reviewed or read by a designated reviewer. This status is part of the review process where reviewers evaluate submissions to determine their suitability for presentation at the conference.","The property ""readByReviewer"" has a domain of ""Paper"" and a range of ""Reviewer"". This means that the property ""readByReviewer"" is used to indicate that a ""Paper"" is read by a ""Reviewer"".The class ""Paper"" is a subclass of a restriction that specifies the following conditions: there is a minimum cardinality of 1 on the property ""readByReviewer"". This means that each instance of ""Paper"" must be associated with at least one instance of ""readByReviewer""."
+http://cmt#readPaper,Source,Property,read paper,"In the context of a conference, ""readPaper"" typically refers to the act of presenting a research paper or academic paper to an audience. This involves the author or presenter reading or discussing the contents of their paper, including their research findings, methodologies, and conclusions, often followed by a question-and-answer session with the audience. This is a common practice in academic and professional conferences where researchers share their work with peers.","The property ""readPaper"" has a domain of ""Reviewer"" and a range of ""Paper"". This means that the ""readPaper"" property is used to link a ""Reviewer"" to a ""Paper"". In other words, a ""Reviewer"" reads a ""Paper""."
+http://cmt#rejectPaper,Source,Property,reject paper,"In the context of a conference, ""rejectPaper"" refers to the decision made by the conference organizers or review committee to not accept a submitted research paper for presentation or publication at the conference. This decision is typically based on the paper not meeting certain criteria such as quality, relevance, originality, or adherence to submission guidelines.","The action ""rejectPaper"" is performed by an ""Administrator"" and it applies to a ""Paper""."
+http://cmt#rejectedBy,Source,Property,rejected by,"In the context of a conference, ""rejectedBy"" typically refers to the entity or individual (such as a conference committee, reviewer, or organizer) that has declined or not accepted a submitted paper, proposal, or application. For example, if a research paper is submitted to a conference and does not meet the required standards or criteria, it may be ""rejectedBy"" the conference's review committee.","The property ""rejectedBy"" has a domain of ""Paper"" and a range of ""Administrator"". This means that the property ""rejectedBy"" is used to indicate that a ""Paper"" is rejected by an ""Administrator""."
+http://cmt#reviewCriteriaEnteredBy,Source,Property,review criteria entered by,"In the context of a conference, ""reviewCriteriaEnteredBy"" refers to the individual or entity that has input or specified the criteria used for reviewing submissions, such as research papers, presentations, or proposals. This could be a member of the conference organizing committee, a program chair, or any designated person responsible for setting the standards and guidelines that reviewers will follow when evaluating the submissions.","The property ""reviewCriteriaEnteredBy"" is associated with the domain ""Conference"" and the range ""Administrator"". This means that the property ""reviewCriteriaEnteredBy"" is used to indicate that an ""Administrator"" is responsible for entering review criteria for a ""Conference""."
+http://cmt#reviewerBiddingStartedBy,Source,Property,reviewer bidding started by,"In the context of a conference, ""reviewerBiddingStartedBy"" refers to the specific date and time when the process for reviewers to bid on papers or submissions begins. This is a phase in the conference's review process where reviewers can express their interest in evaluating certain papers based on their expertise and preferences. The ""reviewerBiddingStartedBy"" timestamp indicates when this bidding window opens, allowing reviewers to start selecting the papers they wish to review.","The property ""reviewerBiddingStartedBy"" has a domain of ""Conference"" and a range of ""Administrator"". This means that in the context of a conference, the action of starting the reviewer bidding process is performed by an administrator."
+http://cmt#reviewsPerPaper,Source,Property,reviews per paper,"In the context of a conference, ""reviewsPerPaper"" refers to the number of reviews that each submitted paper receives. This metric is important for ensuring that each paper is evaluated thoroughly and fairly by multiple reviewers, which helps in maintaining the quality and integrity of the conference's selection process.","The property ""reviewsPerPaper"" has a domain of ""Conference"" and a range of ""int"". This means that ""reviewsPerPaper"" is a characteristic or attribute that applies to instances of ""Conference"", and the values of ""reviewsPerPaper"" are expected to be of type ""int"" (integer).The class ""Conference"" has a restriction on the property ""reviewsPerPaper"" such that the cardinality of this property is exactly 1."
+http://cmt#runPaperAssignmentTools,Source,Property,run paper assignment tools,"In the context of a conference, ""runPaperAssignmentTools"" likely refers to the process of utilizing software tools or systems designed to assign submitted papers to appropriate reviewers. These tools help in automating and optimizing the matching process based on various criteria such as reviewer expertise, conflicts of interest, and workload balance. This ensures that each paper is reviewed by the most suitable experts, thereby maintaining the quality and integrity of the conference's peer review process.","The property ""runPaperAssignmentTools"" is used by an ""Administrator"" and applies to a ""Conference""."
+http://cmt#setMaxPapers,Source,Property,set max papers,"In the context of a conference, ""setMaxPapers"" likely refers to setting a maximum limit on the number of papers that can be submitted or accepted for the conference. This could be a parameter used by the conference organizers to manage the volume of submissions and ensure that the review process is manageable within the given timeframe and resources. For example, the conference might set a maximum number of papers that each author can submit, or a maximum number of papers that can be accepted for presentation at the conference.","The property ""setMaxPapers"" has a domain of ""Administrator"" and a range of ""ProgramCommitteeMember"". This means that the ""setMaxPapers"" function or property is applicable to instances of ""Administrator"" and it involves or affects instances of ""ProgramCommitteeMember""."
+http://cmt#siteURL,Source,Property,site url,"In the context of a conference, ""siteURL"" typically refers to the web address (URL) of the official website for the conference. This website usually contains important information about the event, such as the schedule, speakers, registration details, venue information, and other relevant resources for attendees.","The property ""siteURL"" has a domain of ""Conference"" and a range of ""anyURI""."
+http://cmt#startReviewerBidding,Source,Property,start reviewer bidding,"In the context of a conference, ""startReviewerBidding"" refers to the process where reviewers begin to express their preferences or interest in reviewing specific papers or presentations. This typically involves reviewers selecting or ranking the submissions they feel most qualified to evaluate or are most interested in. This process helps the conference organizers assign papers to reviewers in a way that aligns with the reviewers' expertise and interests, ensuring a more effective and fair review process.","The property ""startReviewerBidding"" has a domain of ""Administrator"" and a range of ""Conference"". This means that the action or function ""startReviewerBidding"" is something that an ""Administrator"" can perform, and it is related to a ""Conference"". In other words, an ""Administrator"" can initiate the process of ""startReviewerBidding"" for a ""Conference""."
+http://cmt#submitPaper,Source,Property,submit paper,"In the context of a conference, ""submitPaper"" refers to the process of submitting a research paper or academic article for consideration to be presented at the conference. This typically involves sending the paper to the conference organizers or through an online submission system by a specified deadline. The submitted paper is then reviewed by a panel of experts or peer reviewers who evaluate its quality, relevance, and originality. If accepted, the paper may be presented at the conference and possibly included in the conference proceedings or published in associated journals.","The action ""submitPaper"" is performed by an ""Author"" and results in a ""Paper""."
+http://cmt#title,Source,Property,title,"In the context of a conference, the term ""title"" typically refers to the name or designation given to a presentation, speech, workshop, or session. It serves to provide attendees with a clear idea of the topic or focus of that particular segment of the conference. The title is often used in the conference program, schedule, and promotional materials to help participants decide which sessions they are interested in attending.","The property ""title"" has a domain of ""Paper"" and a range of ""string""."
+http://cmt#virtualMeetingEnabledBy,Source,Property,virtual meeting enabled by,"In the context of a conference, ""virtualMeetingEnabledBy"" refers to the technology, platform, or service that facilitates the ability to hold virtual meetings. This could include software like Zoom, Microsoft Teams, or any other tool that allows participants to join and interact in a virtual environment. Essentially, it identifies the enabler or provider of the virtual meeting capability.","The property ""virtualMeetingEnabledBy"" has a domain of ""Conference"" and a range of ""Administrator"". This means that the property ""virtualMeetingEnabledBy"" is used to describe a relationship where a ""Conference"" is enabled by an ""Administrator""."
+http://cmt#writePaper,Source,Property,write paper,"In the context of a conference, ""writePaper"" refers to the process of creating a scholarly or academic paper that presents original research, findings, or insights on a specific topic. This paper is typically submitted to the conference organizers for review, and if accepted, it may be presented at the conference and included in the conference proceedings. The goal of writing such a paper is to contribute to the body of knowledge in a particular field and to share new ideas and discoveries with peers and experts in that field.","The property ""writePaper"" has a domain of ""Author"" and a range of ""Paper"". This means that the action or relationship denoted by ""writePaper"" is something that an ""Author"" does, and the result or object of this action is a ""Paper"". In other words, an ""Author"" writes a ""Paper""."
+http://cmt#writeReview,Source,Property,write review,"In the context of a conference, ""writeReview"" typically refers to the process where reviewers or participants provide their evaluations, feedback, or critiques on various aspects of the conference. This could include reviewing submitted papers, presentations, workshops, or the overall organization and execution of the event. The goal is to assess the quality, relevance, and impact of the content presented, and to provide constructive feedback to authors, organizers, or future attendees.","The property ""writeReview"" has a domain of ""Reviewer"" and a range of ""Review"". This means that the action or property ""writeReview"" is something that a ""Reviewer"" can perform, and the result or target of this action is a ""Review""."
+http://cmt#writtenBy,Source,Property,written by,"In the context of a conference, ""writtenBy"" typically refers to the author or authors who have written a paper, article, or presentation that is being presented or discussed at the conference. It indicates the individuals responsible for the creation of the content.","The property ""writtenBy"" has a domain of ""Review"" and a range of ""Reviewer"". This means that ""writtenBy"" is used to link a ""Review"" to a ""Reviewer""."
+http://confOf#Administrative_event,Target,Class,administrative event,"In the context of a conference, an ""administrative event"" refers to activities or sessions that are related to the organization, management, and logistical aspects of the conference. These can include registration, check-in procedures, opening and closing ceremonies, scheduling announcements, and any other events that help ensure the smooth operation and coordination of the conference. Administrative events are essential for maintaining order and providing attendees with necessary information and support throughout the conference.","1. ""Camera_Ready_event"" is a subclass of ""Administrative_event"".
+2. ""Registration_of_participants_event"" is a subclass of ""Administrative_event"".
+3. ""Reviewing_event"" is a subclass of ""Administrative_event"".
+4. ""Reviewing_results_event"" is a subclass of ""Administrative_event"".
+5. ""Submission_event"" is a subclass of ""Administrative_event"".
+6. The property ""follows"" has a domain of ""Administrative_event"" and a range of ""Administrative_event"".
+7. The property ""hasAdministrativeEvent"" has a range of ""Administrative_event"".
+8. The property ""parallel_with"" has a domain of ""Administrative_event"" and a range of ""Administrative_event"".
+9. ""Social_event"" is disjoint with ""Administrative_event"".
+10. ""Working_event"" is disjoint with ""Administrative_event"".
+11. ""Administrative_event"" is a subclass of ""Event"" and is disjoint with both ""Social_event"" and ""Working_event""."
+http://confOf#Administrator,Target,Class,administrator,"In the context of a conference and using the extra information provided about ""confTool,"" an ""Administrator"" typically refers to a person who has the highest level of access and control over the conference management system. This individual is responsible for overseeing the setup, configuration, and overall management of the conference through the confTool platform. Their duties may include managing user accounts, setting up submission and review processes, handling registrations, and ensuring the smooth operation of the conference management system.","The class ""Administrator"" is a subclass of the class ""Person""."
+http://confOf#Assistant,Target,Class,assistant,"In the context of a conference and using the extra information provided about ""confTool,"" an ""Assistant"" typically refers to a role or feature within the conference management software (confTool) that helps organizers and participants manage various aspects of the conference. This could include tasks such as scheduling sessions, managing registrations, facilitating communication between attendees, and providing support for the overall organization of the event. Essentially, the Assistant in this context acts as a digital helper to streamline the conference planning and execution process.","The class ""Assistant"" is a subclass of the class ""Person""."
+http://confOf#Author,Target,Class,author,"In the context of a conference and using the extra information provided about confTool, an ""Author"" typically refers to an individual who has submitted a paper, abstract, or presentation proposal for consideration to be included in the conference program. The author is responsible for the creation and content of the submitted work and may also be involved in presenting it during the conference if it is accepted. ConfTool is a conference management software that facilitates the submission, review, and management of these contributions.","Sure, here are the triples verbalised into phrases:
+
+1. The property ""writes"" has a domain of ""Author"". This means that if something writes something else, that something is an Author.
+2. The property ""writtenBy"" has a range of ""Author"". This means that if something is written by something else, that something else is an Author.
+3. The class ""Author"" is a subclass of ""Person"". This means that every Author is also a Person.The provided subgraph can be described in natural language as follows:
+
+An ""Author"" is a subclass of a restriction that specifies that the author writes some contributions. Additionally, an ""Author"" is also a subclass of another restriction that specifies that the author writes only contributions."
+http://confOf#Banquet,Target,Class,banquet,"In the context of a conference, a banquet refers to a formal, often elaborate meal that is typically organized as part of the event. It usually involves multiple courses and is attended by conference participants, speakers, and sometimes special guests. The banquet serves as an opportunity for networking, socializing, and celebrating the conference's achievements or milestones.","Sure, here are the triples verbalized into phrases:
+
+1. ""Reception"" is disjoint with ""Banquet"".
+2. ""Trip"" is disjoint with ""Banquet"".
+3. ""Banquet"" is a subclass of ""Social event"".
+4. ""Banquet"" is disjoint with ""Reception"".
+5. ""Banquet"" is disjoint with ""Trip""."
+http://confOf#Camera_Ready_event,Target,Class,camera ready event,"In the context of a conference, a ""Camera_Ready_event"" refers to the final submission of accepted contributions, such as papers or presentations, in their final, polished form. This version is ready for publication and will be included in the conference proceedings. The term ""camera-ready"" implies that the document is in its final state, free of errors, and formatted according to the conference's guidelines. This final upload is typically managed through a conference management tool like ConfTool.","1. The class ""Registration_of_participants_event"" is disjoint with the class ""Camera_Ready_event"".
+2. The class ""Reviewing_event"" is disjoint with the class ""Camera_Ready_event"".
+3. The class ""Reviewing_results_event"" is disjoint with the class ""Camera_Ready_event"".
+4. The class ""Submission_event"" is disjoint with the class ""Camera_Ready_event"".
+5. The class ""Camera_Ready_event"" is a subclass of the class ""Administrative_event"".
+6. The class ""Camera_Ready_event"" is disjoint with the classes ""Registration_of_participants_event"", ""Reviewing_event"", ""Reviewing_results_event"", and ""Submission_event""."
+http://confOf#Chair_PC,Target,Class,chair pc,"In the context of a conference and using the extra information provided (confTool), ""Chair_PC"" typically refers to the ""Program Committee Chair."" This is the individual responsible for overseeing the program committee, which is tasked with organizing the conference's academic or professional program, including the selection and review of submitted papers, scheduling sessions, and ensuring the overall quality and coherence of the conference content.","The class ""Chair_PC"" is a subclass of the class ""Person""."
+http://confOf#City,Target,Class,city,"In the context of a conference, ""City"" typically refers to the specific urban location where the conference is being held. It indicates the geographical setting and can be important for logistical planning, travel arrangements, and understanding the local culture and amenities available to conference attendees.","Sure, here are the triples verbalised into phrases:
+
+1. The property ""hasCity"" has a range of ""City"".
+2. ""Contribution"" is disjoint with ""City"".
+3. ""Event"" is disjoint with ""City"".
+4. ""Organization"" is disjoint with ""City"".
+5. ""Person"" is disjoint with ""City"".
+6. ""Topic"" is disjoint with ""City"".
+7. ""City"" is disjoint with ""Contribution"".
+8. ""City"" is disjoint with ""Event"".
+9. ""City"" is disjoint with ""Organization"".
+10. ""City"" is disjoint with ""Person"".
+11. ""City"" is disjoint with ""Topic"".The class ""Person"" is a subclass of a restriction that specifies that there must be some values from the class ""City"" on the property ""hasCity""."
+http://confOf#Company,Target,Class,company,"In the context of a conference, a ""company"" typically refers to a business organization or entity that is participating in or sponsoring the event. Companies may attend conferences to network, showcase their products or services, engage in industry discussions, and gain insights into market trends and innovations.","Sure, here are the triples verbalized into phrases:
+
+1. A ""Company"" is a subclass of an ""Organization"".
+2. A ""Company"" is disjoint with a ""University"".
+3. A ""University"" is disjoint with a ""Company""."
+http://confOf#Conference,Target,Class,conference,"In the context of ""conference,"" the term refers to a formal meeting or gathering where individuals or groups come together to discuss specific topics, share information, and engage in collaborative discussions. Conferences can be held in various fields such as business, education, science, technology, and more, and they often include presentations, workshops, and networking opportunities.","Sure, here are the triples verbalized into phrases:
+
+1. ""Tutorial"" is disjoint with ""Conference"".
+2. ""Workshop"" is disjoint with ""Conference"".
+3. ""Conference"" is a subclass of ""Working_event"".
+4. ""Conference"" is disjoint with ""Tutorial"".
+5. ""Conference"" is disjoint with ""Workshop""."
+http://confOf#Contribution,Target,Class,contribution,"In the context of a conference and using the extra information provided about ""confTool,"" the term ""Contribution"" typically refers to a submission made by a participant, such as a research paper, abstract, presentation, or poster. These contributions are usually reviewed by a committee and, if accepted, are included in the conference program. ConfTool is a conference management software that facilitates the submission, review, and management of these contributions.","Sure, here are the triples verbalized into phrases:
+
+1. A ""Paper"" is a subclass of ""Contribution"".
+2. A ""Poster"" is a subclass of ""Contribution"".
+3. A ""Short paper"" is a subclass of ""Contribution"".
+4. The property ""abstract"" has a domain of ""Contribution"".
+5. The property ""contactEmail"" has a domain of ""Contribution"".
+6. The property ""dealsWith"" has a domain of ""Contribution"".
+7. The property ""hasKeyword"" has a domain of ""Contribution"".
+8. The property ""hasTitle"" has a domain of ""Contribution"".
+9. The property ""remark"" has a domain of ""Contribution"".
+10. The property ""reviewes"" has a range of ""Contribution"".
+11. The property ""writes"" has a range of ""Contribution"".
+12. The property ""writtenBy"" has a domain of ""Contribution"".
+13. ""City"" is disjoint with ""Contribution"".
+14. ""Country"" is disjoint with ""Contribution"".
+15. ""Event"" is disjoint with ""Contribution"".
+16. ""Organization"" is disjoint with ""Contribution"".
+17. ""Person"" is disjoint with ""Contribution"".
+18. ""Topic"" is disjoint with ""Contribution"".
+19. ""Contribution"" is disjoint with ""City"", ""Country"", ""Event"", ""Organization"", ""Person"", and ""Topic"".The given subgraph can be described in natural language as follows:
+
+1. **Contribution** is a subclass of several restrictions:
+   - It must have at least one **contactEmail**.
+   - It must have at least one **hasKeyword**.
+   - It must have exactly one **abstract**.
+   - It must have exactly one **hasTitle**.
+   - It must deal with at least one **Topic**.
+
+2. **Member_PC** is a subclass of a restriction:
+   - It must review some **Contribution**.
+   - All the **reviewes** must be **Contribution**.
+
+3. **Author** is a subclass of two restrictions:
+   - It must write some **Contribution**.
+   - All the **writes** must be **Contribution**.
+
+4. **Contribution** must deal with **Topic**:
+   - All the **dealsWith** must be **Topic**.
+
+In summary, the subgraph describes the relationships and constraints involving **Contribution**, **Member_PC**, **Author**, and **Topic**. It specifies the properties and cardinalities that these classes must satisfy."
+http://confOf#Country,Target,Class,country,"In the context of a conference, the term ""country"" typically refers to a nation or state that is represented by its delegates or participants. It signifies the geographical and political entity from which individuals or groups are attending the conference. This can be important for understanding the diverse perspectives, policies, and interests that are brought to the discussions and proceedings of the conference.","1. The property ""hasCountry"" has a range of ""Country"".
+2. ""Contribution"" is disjoint with ""Country"".
+3. ""Event"" is disjoint with ""Country"".
+4. ""Organization"" is disjoint with ""Country"".
+5. ""Person"" is disjoint with ""Country"".
+6. ""Topic"" is disjoint with ""Country"".
+7. ""Country"" is disjoint with ""Contribution"", ""Event"", ""Organization"", ""Person"", and ""Topic"".The subgraph describes a restriction on the class ""Person."" Specifically, it states that a ""Person"" must have at least one value for the property ""hasCountry,"" and this value must be of the type ""Country."""
+http://confOf#Event,Target,Class,event,"In the context of a conference and using the extra information provided about ConfTool, an ""Event"" typically refers to a specific session, presentation, workshop, or any scheduled activity that is part of the overall conference program. ConfTool is a conference management software that helps in organizing and managing these events, including tasks such as scheduling, participant registration, and abstract submission.","Sure, here are the triples verbalized into phrases:
+
+1. ""Administrative_event"" is a subclass of ""Event"".
+2. ""Social_event"" is a subclass of ""Event"".
+3. ""Working_event"" is a subclass of ""Event"".
+4. ""ends_on"" has a domain of ""Event"".
+5. ""starts_on"" has a domain of ""Event"".
+6. ""City"" is disjoint with ""Event"".
+7. ""Contribution"" is disjoint with ""Event"".
+8. ""Country"" is disjoint with ""Event"".
+9. ""Organization"" is disjoint with ""Event"".
+10. ""Person"" is disjoint with ""Event"".
+11. ""Topic"" is disjoint with ""Event"".
+12. ""Event"" is disjoint with ""City"", ""Contribution"", ""Country"", ""Organization"", ""Person"", and ""Topic""."
+http://confOf#Member,Target,Class,member,"In the context of a conference and using the extra information provided about ConfTool, a ""Member"" typically refers to an individual who is part of a specific group or organization that is involved in the conference. This could include members of the organizing committee, participants who are part of a professional association, or individuals who have registered for the conference through the ConfTool system. ConfTool is a conference management software that helps in organizing and managing various aspects of a conference, including participant registration, paper submissions, and scheduling. Therefore, a ""Member"" in this context would be someone who has a recognized role or affiliation within the framework of the conference as managed by ConfTool.","The class ""Member"" is a subclass of the class ""Participant""."
+http://confOf#Member_PC,Target,Class,member pc,"In the context of a conference and using the extra information provided (Reviewer confTool), ""Member_PC"" typically refers to a ""Member of the Program Committee."" The Program Committee is a group of experts responsible for reviewing and selecting the papers or presentations that will be included in the conference. Members of the Program Committee (Member_PC) play a crucial role in maintaining the quality and relevance of the conference content by evaluating submissions and providing feedback.","Sure, here are the triples verbalized into phrases:
+
+1. The property ""expertOn"" has a domain of ""Member_PC"".
+2. The property ""reviewes"" has a domain of ""Member_PC"".
+3. The class ""Member_PC"" is a subclass of ""Person"".The class ""Member_PC"" is defined by several restrictions and relationships:
+
+1. ""Member_PC"" is a subclass of a restriction that specifies it must review some ""Contribution"".
+2. ""Member_PC"" is a subclass of another restriction that specifies it must review only ""Contribution"".
+3. ""Member_PC"" is a subclass of a restriction that specifies it must be an expert on some ""Topic"".
+4. ""Member_PC"" is a subclass of a restriction that specifies it must be an expert on only ""Topic"".
+
+In summary, a ""Member_PC"" is someone who reviews contributions and is an expert on topics, with specific constraints on the nature of these reviews and expertise."
+http://confOf#Organization,Target,Class,organization,"In the context of a conference, ""organization"" refers to the planning, coordination, and management of the event. This includes tasks such as scheduling sessions, arranging speakers, managing registrations, setting up the venue, and ensuring that all logistical details are handled smoothly to create a successful and efficient event.","Sure, here are the triples verbalized into phrases:
+
+1. A Company is a subclass of an Organization.
+2. A University is a subclass of an Organization.
+3. The property employedBy has a range of Organization.
+4. A City is disjoint with an Organization.
+5. A Contribution is disjoint with an Organization.
+6. A Country is disjoint with an Organization.
+7. An Event is disjoint with an Organization.
+8. A Person is disjoint with an Organization.
+9. A Topic is disjoint with an Organization.
+10. An Organization is disjoint with a City, a Contribution, a Country, an Event, a Person, and a Topic.The given subgraph describes a set of classes, restrictions, and properties related to ""Person"" and ""Organization"". Here is a natural language description of the subgraph:
+
+1. **Classes and Unions**:
+   - There is a class denoted as `_:Na65ff9d2115940f1a90fa5f66df079e4`, which is a union of another class `_:N1cf4eb00f0c745d18cb20e355a1ff83d`.
+   - The class `_:N1cf4eb00f0c745d18cb20e355a1ff83d` includes ""Organization"" and another class `_:N94b83054519d4b2996b7980a233ad047`.
+   - The class `_:N94b83054519d4b2996b7980a233ad047` includes ""Person"".
+   - Another class `_:Na96c344e75dc42f59d41dceefe825f51` is a union of `_:Na636fc30560b4ffd8a2c3034b68a0c3a`.
+   - The class `_:Na636fc30560b4ffd8a2c3034b68a0c3a` includes ""Organization"" and another class `_:N7aab4ddba1a34d87ad0a5d1ab17f3fc1`.
+   - The class `_:N7aab4ddba1a34d87ad0a5d1ab17f3fc1` includes ""Person"".
+   - Another class `_:Ne2cfa7c3199c411ba847d2589194cba7` is a union of `_:Ned3d9abe007d4b3aaea19f65456e8903`.
+   - The class `_:Ned3d9abe007d4b3aaea19f65456e8903` includes ""Person"" and another class `_:Naa23f57b07ab40b7ad2eda908681be28`.
+   - The class `_:Naa23f57b07ab40b7ad2eda908681be28` includes ""Organization"".
+   - Another class `_:Nc9da76bf5f4c45ab9386be95f134e072` is a union of `_:N1bad7318a81e466ab8f5b0b3441711ec`.
+   - The class `_:N1bad7318a81e466ab8f5b0b3441711ec` includes ""Person"" and another class `_:N643d373ad1e84f45bf9687cdf7a34992`.
+   - The class `_:N643d373ad1e84f45bf9687cdf7a34992` includes ""Organization"".
+
+2. **Restrictions**:
+   - The class ""Person"" is a subclass of `_:N09f7b2a2d2e643d0b8badd6346dfe8a2` and `_:Nac27431bc70b4e5592857f20e5cff74a`.
+   - The restriction `_:N09f7b2a2d2e643d0b8badd6346dfe8a2` specifies that ""Person"" must be employed by some ""Organization"".
+   - The restriction `_:Nac27431bc70b4e5592857f20e5cff74a` specifies that ""Person"" must be employed by all ""Organization"".
+
+3. **Properties**:
+   - The property `hasCountry` has a domain of the class `_:Na65ff9d2115940f1a90fa5f66df079e4`.
+   - The property `hasCity` has a domain of the class `_:Na96c344e75dc42f59d41dceefe825f51`.
+   - The property `hasStreet` has a domain of the class `_:Ne2cfa7c3199c411ba847d2589194cba7`.
+   - The property `hasPostalCode` has a domain of the class `_:Nc9da76bf5f4c45ab9386be95f134e072`.
+
+In summary, the subgraph defines a complex structure of classes and unions involving ""Person"" and ""Organization"", along with specific restrictions on employment relationships and properties related to geographical attributes."
+http://confOf#Paper,Target,Class,paper,"In the context of a conference and using the extra information provided (confTool), ""Paper"" refers to a scholarly article or research paper that is submitted by researchers or academics for presentation at the conference. These papers are typically reviewed by a committee or panel of experts before being accepted for inclusion in the conference program. ConfTool is a conference management software that facilitates the submission, review, and management of these papers.","Sure, here are the triples verbalised into phrases:
+
+1. ""Poster"" is disjoint with ""Paper"".
+2. ""Short_paper"" is disjoint with ""Paper"".
+3. ""Paper"" is a subclass of ""Contribution"".
+4. ""Paper"" is disjoint with ""Poster"".
+5. ""Paper"" is disjoint with ""Short_paper""."
+http://confOf#Participant,Target,Class,participant,"In the context of a conference, particularly when using a conference management tool like ConfTool, a ""Participant"" refers to an individual who attends the conference. This can include attendees, speakers, presenters, and other individuals who are registered to take part in the various sessions, workshops, and events organized as part of the conference. Participants typically engage in activities such as listening to presentations, networking with other attendees, and contributing to discussions.","Sure, here are the triples verbalised into phrases:
+
+1. A ""Member"" is a subclass of ""Participant"".
+2. A ""Regular"" is a subclass of ""Participant"".
+3. A ""Student"" is a subclass of ""Participant"".
+4. The domain of ""earlyRegistration"" is ""Participant"".
+5. A ""Participant"" is a subclass of ""Person""."
+http://confOf#Person,Target,Class,person,"In the context of a conference and using the extra information provided about confTool, a ""Person"" typically refers to an individual who is involved in the conference in some capacity. This could include attendees, speakers, organizers, reviewers, or any other participants who have a role in the event. ConfTool is a conference management software, so within this system, a ""Person"" would be an entity with a user profile that includes relevant details such as name, contact information, and their specific role or roles in the conference.","Sure, here are the triples verbalized into phrases:
+
+1. An Administrator is a subclass of Person.
+2. An Assistant is a subclass of Person.
+3. An Author is a subclass of Person.
+4. A Chair_PC is a subclass of Person.
+5. A Member_PC is a subclass of Person.
+6. A Participant is a subclass of Person.
+7. A Scholar is a subclass of Person.
+8. A Science_Worker is a subclass of Person.
+9. A Volunteer is a subclass of Person.
+10. The property employedBy has a domain of Person.
+11. The property hasEmail has a domain of Person.
+12. The property hasFax has a domain of Person.
+13. The property hasFirstName has a domain of Person.
+14. The property hasHomePage has a domain of Person.
+15. The property hasPhone has a domain of Person.
+16. The property hasSurname has a domain of Person.
+17. A City is disjoint with a Person.
+18. A Contribution is disjoint with a Person.
+19. A Country is disjoint with a Person.
+20. An Event is disjoint with a Person.
+21. An Organization is disjoint with a Person.
+22. A Topic is disjoint with a Person.
+23. A Person is disjoint with a City, a Contribution, a Country, an Event, an Organization, and a Topic.The given subgraph describes a complex ontology involving classes, restrictions, and properties. Here is a natural language description of the subgraph:
+
+1. **Classes and Subclasses:**
+   - There is a class named ""Person.""
+   - ""Person"" is a subclass of several restrictions:
+     - A restriction on the property ""hasStreet"" with a minimum cardinality of 1.
+     - A restriction on the property ""hasEmail"" with a minimum cardinality of 1.
+     - A restriction on the property ""hasCountry"" with some values from the class ""Country.""
+     - A restriction on the property ""hasCity"" with some values from the class ""City.""
+     - A restriction on the property ""employedBy"" with some values from the class ""Organization.""
+     - A restriction on the property ""hasPostalCode"" with a minimum cardinality of 1.
+     - A restriction on the property ""hasFirstName"" with a cardinality of 1.
+     - A restriction on the property ""hasSurname"" with a cardinality of 1.
+
+2. **Properties and Domains:**
+   - The property ""hasCountry"" has a domain of a class that is a union of ""Person"" and ""Organization.""
+   - The property ""hasCity"" has a domain of a class that is a union of ""Person"" and ""Organization.""
+   - The property ""hasStreet"" has a domain of a class that is a union of ""Person"" and ""Organization.""
+   - The property ""hasPostalCode"" has a domain of a class that is a union of ""Person"" and ""Organization.""
+
+3. **Restrictions:**
+   - There are several restrictions defined:
+     - A restriction on the property ""hasStreet"" with a minimum cardinality of 1.
+     - A restriction on the property ""hasEmail"" with a minimum cardinality of 1.
+     - A restriction on the property ""hasCountry"" with some values from the class ""Country.""
+     - A restriction on the property ""hasCity"" with some values from the class ""City.""
+     - A restriction on the property ""employedBy"" with some values from the class ""Organization.""
+     - A restriction on the property ""hasPostalCode"" with a minimum cardinality of 1.
+     - A restriction on the property ""hasFirstName"" with a cardinality of 1.
+     - A restriction on the property ""hasSurname"" with a cardinality of 1.
+
+4. **Unions:**
+   - There are several union classes defined:
+     - A union of ""Person"" and ""Organization.""
+     - A union of ""Person"" and ""Organization.""
+     - A union of ""Person"" and ""Organization.""
+
+In summary, the ontology defines a ""Person"" class with various restrictions on properties such as ""hasStreet,"" ""hasEmail,"" ""hasCountry,"" ""hasCity,"" ""employedBy,"" ""hasPostalCode,"" ""hasFirstName,"" and ""hasSurname."" These properties have specific domains and cardinality constraints, and there are several union classes involving ""Person"" and ""Organization."""
+http://confOf#Poster,Target,Class,poster,"In the context of a conference and using the extra information provided (confTool), a ""Poster"" typically refers to a visual presentation displayed on a large board or stand. It is used to convey research findings, project summaries, or other scholarly information in a concise and visually engaging manner. Conference attendees can view these posters during designated sessions, allowing for informal discussions and networking opportunities with the poster's author(s). ConfTool, a conference management software, often includes features for submitting, reviewing, and organizing poster presentations as part of the conference program.","Sure, here are the triples verbalised into phrases:
+
+1. ""Paper"" is disjoint with ""Poster"".
+2. ""Short paper"" is disjoint with ""Poster"".
+3. ""Poster"" is a subclass of ""Contribution"".
+4. ""Poster"" is disjoint with ""Paper"".
+5. ""Poster"" is disjoint with ""Short paper""."
+http://confOf#Reception,Target,Class,reception,"In the context of a conference, a ""reception"" typically refers to a social gathering or event that is organized to welcome attendees. It often takes place at the beginning of the conference and provides an opportunity for participants to network, meet other attendees, speakers, and organizers in a more informal setting. Receptions may include refreshments, light snacks, or even a full meal, and are designed to foster connections and set a positive tone for the conference.","Sure, here are the triples verbalised into phrases:
+
+1. ""Banquet"" is disjoint with ""Reception"".
+2. ""Trip"" is disjoint with ""Reception"".
+3. ""Reception"" is a subclass of ""Social_event"".
+4. ""Reception"" is disjoint with ""Banquet"".
+5. ""Reception"" is disjoint with ""Trip""."
+http://confOf#Registration_of_participants_event,Target,Class,registration of participants event,"In the context of a conference, ""Registration_of_participants_event"" refers to the process where individuals sign up or enroll to attend the conference. This typically involves collecting personal information, selecting sessions or workshops, and possibly making payment for attendance. The extra information about ""confTool Registration of new ConfTool users"" suggests that this registration process is managed through ConfTool, a software system designed to facilitate the organization and management of conferences. New users would need to create an account on ConfTool to register for the event.","1. The class ""Camera_Ready_event"" is disjoint with the class ""Registration_of_participants_event"".
+2. The class ""Reviewing_event"" is disjoint with the class ""Registration_of_participants_event"".
+3. The class ""Reviewing_results_event"" is disjoint with the class ""Registration_of_participants_event"".
+4. The class ""Submission_event"" is disjoint with the class ""Registration_of_participants_event"".
+5. The class ""Registration_of_participants_event"" is a subclass of the class ""Administrative_event"".
+6. The class ""Registration_of_participants_event"" is disjoint with the classes ""Camera_Ready_event"", ""Reviewing_event"", ""Reviewing_results_event"", and ""Submission_event""."
+http://confOf#Regular,Target,Class,regular,"In the context of a conference and using the extra information provided about confTool, ""Regular"" typically refers to a standard or typical participant or attendee of the conference. This could mean someone who is attending the conference without any special status, such as a student, speaker, or VIP. In confTool, which is a conference management software, ""Regular"" might be used to categorize a standard registration type or fee for general attendees.","The class ""Regular"" is a subclass of the class ""Participant""."
+http://confOf#Reviewing_event,Target,Class,reviewing event,"In the context of a conference and the reviewing procedure for submitted contributions using ConfTool, a ""Reviewing_event"" refers to the process or series of activities where submitted papers, abstracts, or other contributions are evaluated by reviewers. This process typically involves assessing the quality, relevance, and originality of the submissions to determine their suitability for presentation at the conference. The reviewing event ensures that only high-quality and pertinent contributions are included in the conference program.","1. ""Camera_Ready_event"" is disjoint with ""Reviewing_event"".
+2. ""Registration_of_participants_event"" is disjoint with ""Reviewing_event"".
+3. ""Reviewing_results_event"" is disjoint with ""Reviewing_event"".
+4. ""Submission_event"" is disjoint with ""Reviewing_event"".
+5. ""Reviewing_event"" is a subclass of ""Administrative_event"".
+6. ""Reviewing_event"" is disjoint with ""Camera_Ready_event"".
+7. ""Reviewing_event"" is disjoint with ""Registration_of_participants_event"".
+8. ""Reviewing_event"" is disjoint with ""Reviewing_results_event"".
+9. ""Reviewing_event"" is disjoint with ""Submission_event""."
+http://confOf#Reviewing_results_event,Target,Class,reviewing results event,"In the context of a conference, ""Reviewing_results_event"" refers to the stage or event where the outcomes of the paper review process are made available to the authors. This typically involves the authors being able to access feedback, decisions, and any other relevant information regarding the acceptance or rejection of their submitted papers through a system like ConfTool.","1. The ""Camera_Ready_event"" is disjoint with the ""Reviewing_results_event"".
+2. The ""Registration_of_participants_event"" is disjoint with the ""Reviewing_results_event"".
+3. The ""Reviewing_event"" is disjoint with the ""Reviewing_results_event"".
+4. The ""Submission_event"" is disjoint with the ""Reviewing_results_event"".
+5. The ""Reviewing_results_event"" is a subclass of the ""Administrative_event"".
+6. The ""Reviewing_results_event"" is disjoint with the ""Camera_Ready_event"".
+7. The ""Reviewing_results_event"" is disjoint with the ""Registration_of_participants_event"".
+8. The ""Reviewing_results_event"" is disjoint with the ""Reviewing_event"".
+9. The ""Reviewing_results_event"" is disjoint with the ""Submission_event""."
+http://confOf#Scholar,Target,Class,scholar,"In the context of a conference, the term ""scholar"" typically refers to an individual who is engaged in academic or scholarly activities, such as a researcher, professor, or student. The ""confTool price category - scholar"" indicates a specific pricing tier for conference registration that is designated for these individuals. This category often offers a discounted rate to make the conference more accessible to those in academia.","Sure, here are the triples verbalized into phrases:
+
+1. The property ""studyAt"" has a domain of ""Scholar"".
+2. ""Scholar"" is a subclass of ""Person"".The provided subgraph can be described in natural language as follows:
+
+A ""Scholar"" is a subclass of two types of restrictions related to the property ""studyAt"". The first restriction specifies that a Scholar must study at some University. The second restriction specifies that a Scholar must study only at Universities."
+http://confOf#Science_Worker,Target,Class,science worker,"In the context of a conference and based on the extra information provided, ""Science_Worker"" refers to a category of participants who are involved in scientific research or academic work. This category is likely used for pricing purposes in the conference registration system (confTool), indicating that individuals who fall under this category may have a specific registration fee tailored to them.","The class ""Science Worker"" is a subclass of the class ""Person""."
+http://confOf#Short_paper,Target,Class,short paper,"In the context of a conference and using the extra information provided (confTool), a ""Short_paper"" typically refers to a concise research paper that is shorter in length compared to a full paper. These papers usually present preliminary results, new ideas, or work-in-progress and are often subject to a different review process. They are intended to provide a platform for researchers to share their findings and receive feedback from the conference community. ConfTool is a conference management software that may be used to submit, review, and manage these short papers.","Sure, here are the triples verbalised into phrases:
+
+1. ""Paper"" is disjoint with ""Short paper"".
+2. ""Poster"" is disjoint with ""Short paper"".
+3. ""Short paper"" is a subclass of ""Contribution"".
+4. ""Short paper"" is disjoint with ""Paper"".
+5. ""Short paper"" is disjoint with ""Poster""."
+http://confOf#Social_event,Target,Class,social event,"In the context of a conference, a ""social event"" refers to organized activities or gatherings designed to facilitate networking, relaxation, and informal interaction among attendees. These events can include receptions, dinners, parties, or other social gatherings that provide opportunities for participants to connect on a personal level, share experiences, and build professional relationships outside the formal sessions of the conference.","Sure, here are the triples verbalised into phrases:
+
+1. A ""Banquet"" is a subclass of ""Social_event"".
+2. A ""Reception"" is a subclass of ""Social_event"".
+3. A ""Trip"" is a subclass of ""Social_event"".
+4. An ""Administrative_event"" is disjoint with a ""Social_event"".
+5. A ""Working_event"" is disjoint with a ""Social_event"".
+6. A ""Social_event"" is a subclass of ""Event"".
+7. A ""Social_event"" is disjoint with an ""Administrative_event"".
+8. A ""Social_event"" is disjoint with a ""Working_event"".The subgraph describes a classification and restriction system involving social and working events. Here is a natural language description of the subgraph:
+
+1. **Classes and Unions**:
+   - There are several classes: `_:Ndcab785b3b874efb86d00d30d5c95b3f`, `_:Nefa88dd5e4c041bfa941113c86d7c408`, `_:Nb464b164fb894a8695a5aabbc3b71f39`, `_:Nb7ae72dd05304c6ca33f46219eb34bb0`, `_:Ne6ad44a2155e44449428d0f128ae1dd2`, `_:N76babbb20d8f4c1ebddd0d2ebc30a981`, and `_:Nbf34093f218342449a999ad533546d44`.
+   - The class `_:Ndcab785b3b874efb86d00d30d5c95b3f` is a union of `_:N56ac8f0c2154493c9ab03ea490e23060`.
+   - The class `_:Nefa88dd5e4c041bfa941113c86d7c408` is a union of `_:Ncf90281c90814a7698c5b1fc860e1e0a`.
+   - The class `_:Nb464b164fb894a8695a5aabbc3b71f39` is a union of `_:N007d5c9321f441b587860bff729b7c35`.
+   - The class `_:Nb7ae72dd05304c6ca33f46219eb34bb0` is a union of `_:N673e30558b9342349c53f0575b89a84a`.
+   - The class `_:Nbf34093f218342449a999ad533546d44` is a union of `_:N99035241ba9a4c4e8958883539172318`.
+   - The class `_:Ne6ad44a2155e44449428d0f128ae1dd2` is a union of `_:N958753d1f2df4f45b4a98d8d4fa0aa21`.
+
+2. **Events**:
+   - `Social_event` and `Working_event` are instances of events.
+   - `Social_event` is a subclass of `_:Nc3d14f1a892c4160bbc482a12254062b`, `_:N6aab1d111c924019b13ffc32fbe7421e`, and `_:Nf18446934d5d4911b434e330c2e9bf55`.
+
+3. **Restrictions**:
+   - There are restrictions on properties:
+     - `_:Nc3d14f1a892c4160bbc482a12254062b` has a cardinality of 1 on the property `location`.
+     - `_:N6aab1d111c924019b13ffc32fbe7421e` has a cardinality of 1 on the property `has_title`.
+     - `_:Nf18446934d5d4911b434e330c2e9bf55` has a cardinality of 1 on the property `defaultChoice`.
+
+4. **Domains**:
+   - The property `has_title` has a domain of `_:Nb7ae72dd05304c6ca33f46219eb34bb0`.
+   - The property `has_short_title` has a domain of `_:Ne6ad44a2155e44449428d0f128ae1dd2`.
+   - The property `minChoice` has a domain of `_:Nb464b164fb894a8695a5aabbc3b71f39`.
+   - The property `hasVAT` has a domain of `_:Ndcab785b3b874efb86d00d30d5c95b3f`.
+   - The property `location` has a domain of `_:Nefa88dd5e4c041bfa941113c86d7c408`.
+   - The property `defaultChoice` has a domain of `_:N76babbb20d8f4c1ebddd0d2ebc30a981`.
+   - The property `maxChoice` has a domain of `_:Nbf34093f218342449a999ad533546d44`.
+
+5. **Lists**:
+   - Several lists are defined using `first` and `rest` properties:
+     - `_:Ncf90281c90814a7698c5b1fc860e1e0a` contains `Social_event` and `_:N7ac610153c9e40f6bd527d5c88ffdf6b`.
+     - `_:N7ac610153c9e40f6bd527d5c88ffdf6b` contains `Working_event` and `nil`.
+     - `_:N56ac8f0c2154493c9ab03ea490e23060` contains `Social_event` and `_:N703b40c996cd4facbee6ee76aff61c23`.
+     - `_:N703b40c996cd4facbee6ee76aff61c23` contains `Working_event` and `nil`.
+     - `_:N389c660d0ef147bab18f16af0dd5d505` contains `Social_event` and `_:Nf711246c59134503b4deff2b11ec7b14`.
+     - `_:Nf711246c59134503b4deff2b11ec7b14` contains `Working_event` and `nil`.
+     - `_:N007d5c9321f441b587860bff729b7c35` contains `Social_event` and `_:N4538028811994db0aa02ff55727ef427`.
+     - `_:N4538028811994db0aa02ff55727ef427` contains `Working_event` and `nil`.
+     - `_:N673e30558b9342349c53f0575b89a84a` contains `Social_event` and `_:Ne52e1e0b71084b0aa43a2d357c920ccd`.
+     - `_:Ne52e1e0b71084b0aa43a2d357c920ccd` contains `Working_event` and `nil`.
+     - `_:N99035241ba9a4c4e8958883539172318` contains `Social_event` and `_:N905a99c6c40e42b18414b0574cc5be03`.
+     - `_:N905a99c6c40e42b18414b0574cc5be03` contains `Working_event` and `nil`.
+     - `_:N958753d1f2df4f45b4a98d8d4fa0aa21` contains `Social_event` and `_:N25b6517f735b40f5930e09634b374a3b`.
+     - `_:N25b6517f735b40f5930e09634b374a3b` contains `Working_event` and `nil`.
+
+In summary, the subgraph defines a structure of classes, events, and restrictions, with specific properties and domains, and organizes events into lists."
+http://confOf#Student,Target,Class,student,"In the context of a conference and using the extra information provided about ""confTool,"" a ""Student"" typically refers to an individual who is currently enrolled in an educational institution, such as a university or college, and is attending the conference, possibly at a reduced registration fee. ConfTool is a conference management software that often categorizes participants, including students, to manage registrations, submissions, and other conference-related activities.","The class ""Student"" is a subclass of the class ""Participant""."
+http://confOf#Submission_event,Target,Class,submission event,"In the context of a conference and using the extra information provided, a ""Submission_event"" refers to the process or occasion when participants submit their contributions, such as research papers, abstracts, or presentations, to the conference organizers through a system like ConfTool. This event is a critical part of the conference preparation, as it allows organizers to collect, review, and select the contributions that will be included in the conference program.","1. The class ""Camera_Ready_event"" is disjoint with the class ""Submission_event"".
+2. The class ""Registration_of_participants_event"" is disjoint with the class ""Submission_event"".
+3. The class ""Reviewing_event"" is disjoint with the class ""Submission_event"".
+4. The class ""Reviewing_results_event"" is disjoint with the class ""Submission_event"".
+5. The class ""Submission_event"" is a subclass of the class ""Administrative_event"".
+6. The class ""Submission_event"" is disjoint with the classes ""Camera_Ready_event"", ""Registration_of_participants_event"", ""Reviewing_event"", and ""Reviewing_results_event""."
+http://confOf#Topic,Target,Class,topic,"In the context of a conference, particularly when using a conference management tool like ConfTool, a ""Topic"" refers to a specific subject area or theme under which conference papers, presentations, or discussions are categorized. Topics help organize the conference content, making it easier for participants to find sessions that align with their interests and expertise. For example, a conference on technology might have topics such as ""Artificial Intelligence,"" ""Cybersecurity,"" and ""Blockchain Technology.""","Sure, here are the triples verbalized into phrases:
+
+1. The property ""dealsWith"" has a range of ""Topic"".
+2. The property ""expertOn"" has a range of ""Topic"".
+3. The property ""hasTopic"" has a range of ""Topic"".
+4. The class ""City"" is disjoint with the class ""Topic"".
+5. The class ""Contribution"" is disjoint with the class ""Topic"".
+6. The class ""Country"" is disjoint with the class ""Topic"".
+7. The class ""Event"" is disjoint with the class ""Topic"".
+8. The class ""Organization"" is disjoint with the class ""Topic"".
+9. The class ""Person"" is disjoint with the class ""Topic"".
+10. The class ""Topic"" is disjoint with the classes ""City"", ""Contribution"", ""Country"", ""Event"", ""Organization"", and ""Person"".The given subgraph can be described in natural language as follows:
+
+1. **Member_PC** is a subclass of a class that has a restriction on the property **expertOn**, where all values must be of type **Topic**.
+2. **Member_PC** is also a subclass of a class that has a restriction on the property **expertOn**, where some values must be of type **Topic**.
+3. **Working_event** is a subclass of a class that has a restriction on the property **hasTopic**, where all values must be of type **Topic**.
+4. **Working_event** is also a subclass of a class that has a restriction on the property **hasTopic**, where some values must be of type **Topic**.
+5. **Contribution** is a subclass of a class that has a restriction on the property **dealsWith**, where all values must be of type **Topic**.
+6. **Contribution** is also a subclass of a class that has a restriction on the property **dealsWith**, where some values must be of type **Topic**.
+
+In summary, the subgraph describes relationships and restrictions involving the classes **Member_PC**, **Working_event**, and **Contribution** with respect to the properties **expertOn**, **hasTopic**, and **dealsWith**, all of which are related to the class **Topic**."
+http://confOf#Trip,Target,Class,trip,"In the context of a conference, a ""trip"" typically refers to the journey or travel undertaken by an individual to attend the event. This can include the planning and logistics of getting to the conference location, such as booking flights, accommodations, and transportation, as well as the actual travel experience itself.","Sure, here are the triples verbalized into phrases:
+
+1. ""Banquet"" is disjoint with ""Trip"".
+2. ""Reception"" is disjoint with ""Trip"".
+3. ""Trip"" is a subclass of ""Social event"".
+4. ""Trip"" is disjoint with ""Banquet"".
+5. ""Trip"" is disjoint with ""Reception""."
+http://confOf#Tutorial,Target,Class,tutorial,"In the context of a conference, a ""tutorial"" refers to a session or workshop designed to provide participants with in-depth instruction on a specific topic or skill. These sessions are typically led by experts and are intended to be educational, offering attendees the opportunity to learn new techniques, tools, or concepts in a more interactive and hands-on manner compared to standard presentations or lectures.","Sure, here are the triples verbalised into phrases:
+
+1. ""Conference"" is disjoint with ""Tutorial"".
+2. ""Workshop"" is disjoint with ""Tutorial"".
+3. ""Tutorial"" is a subclass of ""Working_event"".
+4. ""Tutorial"" is disjoint with ""Conference"".
+5. ""Tutorial"" is disjoint with ""Workshop""."
+http://confOf#University,Target,Class,university,"In the context of a conference, a ""university"" typically refers to an institution of higher education and research, which grants academic degrees in various fields. Universities often host or participate in conferences to share research findings, foster academic collaboration, and engage in discussions on specialized topics. These conferences can be platforms for scholars, researchers, and students to present their work, network with peers, and stay updated on advancements in their areas of study.","Sure, here are the triples verbalized into phrases:
+
+1. The property ""studyAt"" has a range of ""University"".
+2. The class ""Company"" is disjoint with the class ""University"".
+3. The class ""University"" is a subclass of the class ""Organization"".
+4. The class ""University"" is disjoint with the class ""Company"".The provided subgraph can be described in natural language as follows:
+
+A ""Scholar"" is a subclass of two types of restrictions related to the property ""studyAt"". 
+
+1. The first restriction specifies that a ""Scholar"" must study at some ""University"".
+2. The second restriction specifies that a ""Scholar"" must study only at a ""University""."
+http://confOf#Volunteer,Target,Class,volunteer,"In the context of a conference, particularly when using a system like ConfTool, a ""volunteer"" refers to an individual who offers their time and services without monetary compensation to help organize, manage, or facilitate various aspects of the conference. Volunteers may assist with tasks such as registration, guiding attendees, setting up sessions, technical support, and other logistical activities essential for the smooth running of the event. Their contributions are crucial in ensuring the conference operates efficiently and successfully.","The class ""Volunteer"" is a subclass of the class ""Person""."
+http://confOf#Working_event,Target,Class,working event,"In the context of a conference, a ""working event"" typically refers to a session or activity where participants actively engage in tasks, discussions, or collaborative efforts related to the conference's themes or objectives. This could include workshops, breakout sessions, panel discussions, or collaborative projects designed to produce tangible outcomes or advance understanding on specific topics.","1. A Conference is a subclass of a Working event.
+2. A Tutorial is a subclass of a Working event.
+3. A Workshop is a subclass of a Working event.
+4. The property hasAdministrativeEvent has a domain of Working event.
+5. The property hasTopic has a domain of Working event.
+6. An Administrative event is disjoint with a Working event.
+7. A Social event is disjoint with a Working event.
+8. A Working event is a subclass of an Event.
+9. A Working event is disjoint with an Administrative event and a Social event.The provided subgraph describes a complex ontology involving various classes, properties, and restrictions. Here is a natural language description of the subgraph:
+
+1. **Classes and Unions:**
+   - There are several classes defined, including `_:Ndcab785b3b874efb86d00d30d5c95b3f`, `_:Nefa88dd5e4c041bfa941113c86d7c408`, `_:Nbf34093f218342449a999ad533546d44`, `_:Nb464b164fb894a8695a5aabbc3b71f39`, `_:Nb7ae72dd05304c6ca33f46219eb34bb0`, `_:Ne6ad44a2155e44449428d0f128ae1dd2`, and `_:N76babbb20d8f4c1ebddd0d2ebc30a981`.
+   - The class `_:Ndcab785b3b874efb86d00d30d5c95b3f` is a union of `_:N56ac8f0c2154493c9ab03ea490e23060`.
+   - The class `_:Nefa88dd5e4c041bfa941113c86d7c408` is a union of `_:Ncf90281c90814a7698c5b1fc860e1e0a`.
+   - The class `_:Nbf34093f218342449a999ad533546d44` is a union of `_:N99035241ba9a4c4e8958883539172318`.
+   - The class `_:Nb464b164fb894a8695a5aabbc3b71f39` is a union of `_:N007d5c9321f441b587860bff729b7c35`.
+   - The class `_:Nb7ae72dd05304c6ca33f46219eb34bb0` is a union of `_:N673e30558b9342349c53f0575b89a84a`.
+   - The class `_:Ne6ad44a2155e44449428d0f128ae1dd2` is a union of `_:N958753d1f2df4f45b4a98d8d4fa0aa21`.
+   - The class `_:N76babbb20d8f4c1ebddd0d2ebc30a981` is a union of `_:N389c660d0ef147bab18f16af0dd5d505`.
+
+2. **Events:**
+   - `Social_event` and `Working_event` are instances that appear multiple times in the ontology.
+   - `Working_event` is a subclass of several restrictions, including `_:N99e1c780e87f4b059667697fee7ffa8f`, `_:Nad02193e6d074b81b50c8d436a1b703e`, `_:Nd791c310a273404991269c114cc12f48`, `_:N88e031df7f2145f59f2d49140557acf6`, and `_:N49f64acc809a4f8281643bc46d25f9ce`.
+
+3. **Properties and Restrictions:**
+   - The property `has_title` has a domain of `_:Nb7ae72dd05304c6ca33f46219eb34bb0`.
+   - The property `has_short_title` has a domain of `_:Ne6ad44a2155e44449428d0f128ae1dd2`.
+   - The property `minChoice` has a domain of `_:Nb464b164fb894a8695a5aabbc3b71f39`.
+   - The property `maxChoice` has a domain of `_:Nbf34093f218342449a999ad533546d44`.
+   - The property `hasVAT` has a domain of `_:Ndcab785b3b874efb86d00d30d5c95b3f`.
+   - The property `location` has a domain of `_:Nefa88dd5e4c041bfa941113c86d7c408`.
+   - The property `defaultChoice` has a domain of `_:N76babbb20d8f4c1ebddd0d2ebc30a981`.
+
+4. **Specific Restrictions:**
+   - The restriction `_:N99e1c780e87f4b059667697fee7ffa8f` is on the property `hasTopic` and has all values from `Topic`.
+   - The restriction `_:N49f64acc809a4f8281643bc46d25f9ce` is on the property `hasTopic` and has some values from `Topic`.
+   - The restriction `_:N88e031df7f2145f59f2d49140557acf6` is on the property `has_title` with a cardinality of 1.
+   - The restriction `_:Nd791c310a273404991269c114cc12f48` is on the property `location` with a cardinality of 1.
+   - The restriction `_:Nad02193e6d074b81b50c8d436a1b703e` is on the property `defaultChoice` with a cardinality of 1.
+
+5. **Lists and Sequences:**
+   - Several lists and sequences are defined using `first` and `rest` properties, indicating ordered collections of events such as `Social_event` and `Working_event`.
+
+In summary, the ontology defines various classes and their unions, properties with specific domains, and restrictions on properties with cardinality constraints. It also includes sequences of events, primarily `Social_event` and `Working_event`, and their relationships within the ontology."
+http://confOf#Workshop,Target,Class,workshop,"In the context of a conference, a workshop refers to a session where participants engage in interactive activities, discussions, and hands-on exercises to learn about a specific topic or develop particular skills. Unlike traditional lectures or presentations, workshops are typically more collaborative and involve active participation from attendees.","Sure, here are the triples verbalised into phrases:
+
+1. ""Conference"" is disjoint with ""Workshop"".
+2. ""Tutorial"" is disjoint with ""Workshop"".
+3. ""Workshop"" is a subclass of ""Working_event"".
+4. ""Workshop"" is disjoint with ""Conference"".
+5. ""Workshop"" is disjoint with ""Tutorial""."
+http://confOf#abstract,Target,Property,abstract,"In the context of a conference and using the extra information provided about ""confTool,"" an ""abstract"" refers to a concise summary of a research paper, presentation, or study that is submitted for consideration. This summary typically includes the main objectives, methods, results, and conclusions of the work. The abstract is used by conference organizers and attendees to quickly understand the essence of the research and to decide its relevance and interest for the conference program. ConfTool is a conference management software that often facilitates the submission, review, and management of these abstracts.","The property ""abstract"" has a domain of ""Contribution"" and a range of ""string"".The subgraph describes a class named ""Contribution"" which has a restriction applied to it. This restriction specifies that the ""Contribution"" class must have exactly one ""abstract"" property."
+http://confOf#contactEmail,Target,Property,contact email,"In the context of a conference and using the extra information provided about ConfTool, ""contactEmail"" refers to the email address designated for communication regarding the conference. This email address is typically used for inquiries, support, and any other correspondence related to the conference organization, registration, submissions, and other relevant matters. ConfTool is a conference management software, and within this system, the ""contactEmail"" would be the primary point of contact for participants and organizers to address their questions and concerns.","The property ""contactEmail"" has a domain of ""Contribution"" and a range of ""string"".The subgraph describes a restriction on the class ""Contribution."" Specifically, it states that a ""Contribution"" must have at least one ""contactEmail."" This is indicated by the restriction that has a minimum cardinality of 1 on the property ""contactEmail."""
+http://confOf#dealsWith,Target,Property,deals with,"In the context of a conference and using the extra information about ConfTool, ""dealsWith"" refers to the specific topics, subjects, or areas that a particular conference session, paper, or discussion is focused on. ConfTool is a conference management software, and within this system, ""dealsWith"" would likely be used to categorize or tag submissions, sessions, or presentations according to their relevant themes or subject matter. This helps in organizing the conference content and making it easier for participants to find sessions that match their interests.","The property ""dealsWith"" has a domain of ""Contribution"" and a range of ""Topic"". This means that ""dealsWith"" is used to link a ""Contribution"" to a ""Topic"".The class ""Contribution"" is defined with two restrictions related to the property ""dealsWith"". 
+
+Firstly, ""Contribution"" is a subclass of a restriction that specifies it must deal with at least one instance of ""Topic"". 
+
+Secondly, ""Contribution"" is also a subclass of another restriction that specifies it must deal exclusively with instances of ""Topic""."
+http://confOf#defaultChoice,Target,Property,default choice,"In the context of a conference and using the extra information provided about confTool, ""defaultChoice"" refers to the pre-selected or automatically chosen option within the conference management system. This could apply to various settings or selections within confTool, such as the default track for a paper submission, the default payment method for registration, or the default time slot for a session. Essentially, it is the option that is selected by the system unless the user actively chooses a different one.","The range of ""defaultChoice"" is ""positiveInteger"".The given subgraph can be described in natural language as follows:
+
+There is a class that is defined as the union of two types of events: Social_event and Working_event. This class is associated with the property ""defaultChoice"".
+
+1. The class is defined as a union of:
+   - Social_event
+   - Working_event
+
+2. The property ""defaultChoice"" has a domain that includes this class.
+
+3. There are restrictions associated with the property ""defaultChoice"":
+   - For Social_event, there is a restriction that specifies the cardinality of ""defaultChoice"" to be 1.
+   - For Working_event, there is a similar restriction that specifies the cardinality of ""defaultChoice"" to be 1.
+
+4. Both Social_event and Working_event are subclasses of their respective restrictions on the property ""defaultChoice"".
+
+In summary, the class is a union of Social_event and Working_event, and both types of events have a restriction that the ""defaultChoice"" property must have exactly one value."
+http://confOf#earlyRegistration,Target,Property,early registration,"In the context of a conference, ""early registration"" refers to the process of signing up to attend the event before a specified deadline, which is typically set well in advance of the conference dates. This period often comes with benefits such as discounted registration fees, priority access to certain sessions or workshops, and sometimes additional perks. The goal of early registration is to encourage attendees to commit to the event early, helping organizers with planning and logistics.","The property ""earlyRegistration"" applies to instances of ""Participant"" and has a value of type ""boolean""."
+http://confOf#employedBy,Target,Property,employed by,"In the context of a conference and using the extra information provided (confTool), ""employedBy"" typically refers to the organization or institution that employs a participant or speaker at the conference. This information is often collected during the registration process in confTool, a conference management software, to provide details about the professional affiliations of attendees.","The property ""employedBy"" has a domain of ""Person"" and a range of ""Organization"". This means that ""employedBy"" is a relationship where a ""Person"" is employed by an ""Organization"".The given subgraph can be described as follows:
+
+There are two restrictions related to the property ""employedBy"". The first restriction specifies that a person must be employed by at least one organization. The second restriction specifies that a person can only be employed by organizations. Therefore, a ""Person"" is a subclass of both these restrictions, meaning that every person must be employed by at least one organization and can only be employed by organizations."
+http://confOf#ends_on,Target,Property,ends on,"In the context of a conference and using the extra information provided (confTool), ""ends_on"" refers to the specific date and time when the conference officially concludes. ConfTool is a conference management software, and within this system, ""ends_on"" would be a parameter or field indicating the final day and time of the conference activities.","The property ""ends_on"" has a domain of ""Event"" and a range of ""string"". This means that ""ends_on"" is a property that applies to instances of ""Event"" and its value is expected to be a ""string""."
+http://confOf#expertOn,Target,Property,expert on,"In the context of a conference and using the extra information provided about confTool, ""expertOn"" likely refers to a feature or designation within the confTool system that identifies or highlights individuals who are recognized as experts on specific topics or subjects. This could be used to match conference attendees with relevant sessions, speakers, or networking opportunities based on their expertise.","The property ""expertOn"" has a domain of ""Member_PC"" and a range of ""Topic"". This means that ""expertOn"" is used to indicate that a member of the program committee (Member_PC) is an expert on a particular topic (Topic).The class ""Member_PC"" is a subclass of two restrictions. 
+
+The first restriction specifies that for the property ""expertOn,"" all values must be of the type ""Topic."" 
+
+The second restriction specifies that for the property ""expertOn,"" some values must be of the type ""Topic."""
+http://confOf#follows,Target,Property,follows,"In the context of a conference, ""follows"" typically refers to the sequence of events or presentations. It indicates what comes next in the schedule or agenda. For example, if a speaker's presentation follows a coffee break, it means the presentation will take place immediately after the coffee break.","The property ""follows"" has a domain of ""Administrative_event"" and a range of ""Administrative_event"". This means that the ""follows"" relationship is used to link one ""Administrative_event"" to another ""Administrative_event""."
+http://confOf#hasAdministrativeEvent,Target,Property,has administrative event,"In the context of a conference, ""hasAdministrativeEvent"" refers to an event or activity that is related to the administrative or organizational aspects of the conference. This could include sessions or meetings focused on planning, coordination, logistics, registration, scheduling, or other tasks necessary for the smooth operation of the conference. These events are typically aimed at ensuring that the conference runs efficiently and effectively.","The property ""hasAdministrativeEvent"" has a domain of ""Working_event"" and a range of ""Administrative_event"". 
+
+In other words, if something is described by the property ""hasAdministrativeEvent"", it must be a ""Working_event"" and it relates to an ""Administrative_event""."
+http://confOf#hasCity,Target,Property,has city,"In the context of a conference and using the extra information provided (confTool), ""hasCity"" likely refers to a property or attribute within the confTool system that specifies the city where the conference is being held. It is used to denote the location of the conference in terms of the city.","The property ""hasCity"" has a range of ""City"".The given subgraph can be described as follows:
+
+There is a class that is a union of two other classes: ""Organization"" and ""Person"". This union class is associated with the property ""hasCity"". The property ""hasCity"" has a domain that includes this union class. Additionally, there is a restriction on the property ""hasCity"" such that it must have some values from the class ""City"". The class ""Person"" is a subclass of this restriction."
+http://confOf#hasCountry,Target,Property,has country,"In the context of a conference and using the extra information provided about ConfTool, ""hasCountry"" likely refers to a data field or attribute within the ConfTool conference management system. This field is used to specify or record the country associated with a participant, speaker, or any other entity involved in the conference. It helps in organizing and managing information related to the geographical origin of the attendees or contributors.","The property ""hasCountry"" has a range of ""Country"".The given subgraph can be described as follows:
+
+There is a class that is defined as a union of two other classes: ""Organization"" and ""Person"". This class is associated with the property ""hasCountry"", which has a domain that includes this union class. The property ""hasCountry"" is restricted such that its values must be of the type ""Country"". Additionally, ""Person"" is a subclass of a restriction that specifies that the property ""hasCountry"" must have some values from the class ""Country""."
+http://confOf#hasEmail,Target,Property,has email,"In the context of a conference and using the extra information provided about ConfTool, ""hasEmail"" likely refers to a field or attribute within the ConfTool system that indicates whether a participant, speaker, or any other user associated with the conference has an email address on record. This could be used for communication purposes, such as sending updates, notifications, or other relevant information related to the conference.","The property ""hasEmail"" has a domain of ""Person"" and a range of ""string"".The subgraph describes a restriction on the class ""Person."" Specifically, it states that a ""Person"" must have at least one email address. This is represented by a restriction that applies to the property ""hasEmail,"" with a minimum cardinality of 1."
+http://confOf#hasFax,Target,Property,has fax,"In the context of a conference and using the extra information provided (confTool), ""hasFax"" likely refers to a field or attribute within the confTool system that indicates whether a participant or an entity associated with the conference has a fax number. This could be used for communication or documentation purposes within the conference management system.","The property ""hasFax"" applies to instances of ""Person"" and its values are of type ""string""."
+http://confOf#hasFirstName,Target,Property,has first name,"In the context of a conference and using the extra information provided, ""hasFirstName"" likely refers to a data field or attribute in a conference management tool, such as ConfTool, that stores the first name of an individual. This could be part of a larger dataset that includes other personal information such as middle name, last name, and other relevant details for participants, speakers, or attendees of the conference.","The property ""hasFirstName"" applies to instances of the class ""Person"" and its values are of type ""string"".The class ""Person"" is a subclass of a restriction that specifies the property ""hasFirstName"" must have a cardinality of 1."
+http://confOf#hasHomePage,Target,Property,has home page,"In the context of a conference and using the extra information provided (confTool), ""hasHomePage"" refers to an attribute or property indicating whether the conference has an official homepage or website. This homepage typically contains essential information about the conference, such as schedules, speakers, registration details, and other relevant updates. In confTool, which is a conference management software, ""hasHomePage"" would likely be a field or setting that specifies if the conference has a dedicated webpage that attendees and participants can visit for more information.","The property ""hasHomePage"" applies to instances of the class ""Person"" and its value should be a string."
+http://confOf#hasKeyword,Target,Property,has keyword,"In the context of a conference and using the extra information about ConfTool, ""hasKeyword"" likely refers to a specific attribute or tag associated with a conference paper, presentation, or session. This attribute is used within the ConfTool conference management system to categorize and identify content based on specific keywords. These keywords help in organizing the conference material, making it easier for participants to search for and find sessions or papers that match their interests.","The property ""hasKeyword"" has a domain of ""Contribution"" and a range of ""string"".The class ""Contribution"" is a subclass of a restriction that specifies the following conditions: it must have at least one ""hasKeyword"" property."
+http://confOf#hasPhone,Target,Property,has phone,"In the context of a conference and using the extra information provided about confTool, ""hasPhone"" likely refers to a field or attribute within the confTool system that indicates whether a participant or user has provided a phone number. This could be used for contact purposes, such as sending updates or emergency notifications related to the conference.","The property ""hasPhone"" applies to instances of the class ""Person"" and its values are of the type ""string""."
+http://confOf#hasPostalCode,Target,Property,has postal code,"In the context of a conference and using the extra information provided (confTool), ""hasPostalCode"" likely refers to a data field or attribute within the conference management system (confTool) that stores the postal code of a participant, organization, or venue. This field is used to capture and manage the postal code information for logistical, communication, or record-keeping purposes related to the conference.","The property ""hasPostalCode"" has a range of ""string"".The given subgraph can be described as follows:
+
+1. A ""Person"" is a subclass of an anonymous class (let's call it Class A).
+2. Class A has a restriction that specifies a minimum cardinality of 1 on the property ""hasPostalCode"".
+3. The property ""hasPostalCode"" has a domain that is an anonymous class (let's call it Class B).
+4. Class B is defined as a union of two classes: ""Person"" and ""Organization"".
+5. The union of ""Person"" and ""Organization"" is represented by a list structure where ""Person"" is the first element and ""Organization"" is the second element, followed by the end of the list (nil).
+
+In summary, the subgraph describes a structure where:
+- A ""Person"" must have at least one postal code.
+- The property ""hasPostalCode"" applies to instances of either ""Person"" or ""Organization""."
+http://confOf#hasStreet,Target,Property,has street,"In the context of a conference and using the extra information provided about confTool, ""hasStreet"" likely refers to a data field or attribute within the confTool system that indicates whether a street address is available or required for a particular entry, such as a participant's registration details or the venue's location. This field helps ensure that all necessary address information is collected and stored accurately for logistical and communication purposes.","The property ""hasStreet"" has a range of ""string"".The provided subgraph can be described in natural language as follows:
+
+There is a class that is a union of two entities: Person and Organization. This class is associated with the property ""hasStreet."" Specifically, there is a restriction on the class Person, which states that a Person must have at least one ""hasStreet"" property."
+http://confOf#hasSurname,Target,Property,has surname,"In the context of a conference and using the extra information about ConfTool, ""hasSurname"" likely refers to a field or attribute in the ConfTool system that indicates whether a participant or user has provided their surname (last name). ConfTool is a conference management software, and such a field would be used to ensure that the surname information is collected and stored for each participant or user in the system.","The property ""hasSurname"" applies to instances of the class ""Person"" and its values are of the type ""string"".The class ""Person"" is a subclass of a restriction that specifies the following conditions: it is restricted to having exactly one value for the property ""hasSurname""."
+http://confOf#hasTitle,Target,Property,has title,"In the context of a conference and using the extra information provided about ConfTool, ""hasTitle"" typically refers to a property or attribute associated with a conference paper, presentation, or session. It indicates that the item in question has a specific title. For example, in a conference management system like ConfTool, each submission or scheduled event would have a ""hasTitle"" attribute to denote its official title or name. This helps in organizing, categorizing, and referencing the various components of the conference program.","The property ""hasTitle"" has a domain of ""Contribution"" and a range of ""string"".The class ""Contribution"" is a subclass of a restriction that specifies exactly one property, ""hasTitle""."
+http://confOf#hasTopic,Target,Property,has topic,"In the context of a conference and using the extra information provided about ConfTool, ""hasTopic"" typically refers to a specific subject or area of interest that a conference session, paper, or presentation is focused on. In ConfTool, which is a conference management software, ""hasTopic"" might be used to categorize and organize submissions, sessions, or discussions according to their respective topics. This helps in structuring the conference program and allows participants to easily find sessions that match their interests.","The property ""hasTopic"" has a domain of ""Working_event"" and a range of ""Topic"". This means that ""hasTopic"" is used to link an instance of ""Working_event"" to an instance of ""Topic"".The class ""Working_event"" is subject to two restrictions. The first restriction specifies that ""Working_event"" must have at least one associated ""Topic"" through the property ""hasTopic"". The second restriction mandates that all values associated with ""Working_event"" through the property ""hasTopic"" must be of the type ""Topic""."
+http://confOf#hasVAT,Target,Property,has vat,"In the context of a conference and using the extra information provided, ""hasVAT"" refers to whether the conference fees or services include Value Added Tax (VAT). This term is likely used in the conference management system, such as ConfTool, to indicate if the prices listed for registration, tickets, or other services are inclusive of VAT.","The property ""hasVAT"" has a range of ""string"".The subgraph describes a class that is a union of two types of events: Social_event and Working_event. Specifically, it states that:
+
+1. There is a class (denoted by a blank node) that is a union of two other classes.
+2. The first class in this union is Social_event.
+3. The second class in this union is Working_event.
+4. The union class is of type ""Class"".
+5. The property ""hasVAT"" has this union class as its domain."
+http://confOf#has_short_title,Target,Property,has short title,"In the context of a conference and using the extra information provided about ConfTool, ""has_short_title"" likely refers to a field or attribute within the ConfTool conference management system that indicates whether a particular submission, presentation, or session has a shorter, possibly more concise title. This could be used for display purposes, such as in schedules or summaries, where space is limited.","The property ""has_short_title"" has a range of ""string"".The given subgraph describes a class that has a short title and is defined as the union of two types of events: social events and working events."
+http://confOf#has_title,Target,Property,has title,"In the context of a conference and using the extra information provided about ConfTool, ""has_title"" likely refers to a field or attribute within the ConfTool system that indicates whether a particular entry, such as a paper submission, presentation, or user profile, includes a title. This could be used to ensure that all necessary information is provided and properly formatted within the system.","The property ""has_title"" has a range of ""string"".The given subgraph describes a class that is a union of two subclasses: ""Working_event"" and ""Social_event"". Both of these subclasses have a restriction on the property ""has_title"" such that each instance of these subclasses must have exactly one title.
+
+Here is a more detailed breakdown:
+
+1. There is a class (denoted as `_:Nb7ae72dd05304c6ca33f46219eb34bb0`) which is defined as a union of two subclasses: ""Working_event"" and ""Social_event"".
+2. The class `_:Nb7ae72dd05304c6ca33f46219eb34bb0` is of type ""Class"".
+3. The property ""has_title"" is associated with this class as its domain.
+4. The subclass ""Working_event"" has a restriction on the property ""has_title"" such that it must have exactly one title. This restriction is represented by the node `_:N88e031df7f2145f59f2d49140557acf6`.
+5. Similarly, the subclass ""Social_event"" has a restriction on the property ""has_title"" such that it must have exactly one title. This restriction is represented by the node `_:N6aab1d111c924019b13ffc32fbe7421e`.
+6. Both restrictions (`_:N88e031df7f2145f59f2d49140557acf6` and `_:N6aab1d111c924019b13ffc32fbe7421e`) are of type ""Restriction"" and specify a cardinality of 1 for the property ""has_title"".
+7. The union of ""Working_event"" and ""Social_event"" is represented by a list structure where ""Working_event"" is the first element and the rest of the list points to another list structure where ""Social_event"" is the first element and the rest is ""nil"".
+
+In summary, the class is a union of ""Working_event"" and ""Social_event"", and both subclasses are restricted to having exactly one title."
+http://confOf#location,Target,Property,location,"In the context of a conference, the term ""location"" refers to the specific place or venue where the event is being held. This could be a convention center, hotel, university campus, or any other designated site. The term is often used in event management systems like ConfTool to provide attendees with details about where they need to go for the conference.","The property ""location"" has a range of ""string"".The given subgraph can be described as follows:
+
+There is a class that is a union of two events: a Social_event and a Working_event. Both Social_event and Working_event are subclasses of restrictions related to the property ""location"". Specifically, the restriction for Social_event has a cardinality of 1 on the property ""location"", and the restriction for Working_event also has a cardinality of 1 on the property ""location"". Additionally, the property ""location"" has a domain that includes the aforementioned class."
+http://confOf#maxChoice,Target,Property,max choice,"In the context of a conference and using the extra information provided about ConfTool, ""maxChoice"" typically refers to the maximum number of options or selections that a participant can choose from a given set. For example, if attendees are selecting sessions or workshops to attend, ""maxChoice"" would limit the number of sessions they can register for. This parameter helps in managing the allocation of resources and ensuring that sessions do not become overbooked.","The range of ""maxChoice"" is ""positiveInteger"".The subgraph describes a class that has a property called ""maxChoice."" This class is defined as a union of two types of events: ""Social_event"" and ""Working_event."""
+http://confOf#minChoice,Target,Property,min choice,"In the context of a conference and using the extra information provided about ConfTool, ""minChoice"" typically refers to the minimum number of choices or options that a participant must select in a given scenario. For example, when registering for sessions, workshops, or other activities within the conference management system ConfTool, there might be a requirement for participants to choose at least a certain number of options. ""minChoice"" would specify this minimum number to ensure that participants make a sufficient number of selections as required by the conference organizers.","The range of ""minChoice"" is ""positiveInteger"".The subgraph describes a class, identified by the node `_:Nb464b164fb894a8695a5aabbc3b71f39`, which is defined as a union of two types of events: a ""Social event"" and a ""Working event"". The ""Social event"" is listed first, followed by the ""Working event"". The class is associated with the property `minChoice` as its domain."
+http://confOf#parallel_with,Target,Property,parallel with,"In the context of a conference, ""parallel_with"" typically refers to multiple sessions, presentations, or events that are scheduled to occur at the same time. This means that attendees will have to choose which session to attend, as they cannot be present at all of them simultaneously. For example, if two workshops are ""parallel_with"" each other, they are happening concurrently, and participants must decide which one to join.","The property ""parallel_with"" has a domain of ""Administrative_event"" and a range of ""Administrative_event"". This means that ""parallel_with"" is a relationship that connects two instances of ""Administrative_event""."
+http://confOf#remark,Target,Property,remark,"In the context of a conference and using the extra information provided about confTool, the term ""remark"" typically refers to a comment or note made by a participant or organizer. This could be feedback, an observation, or a suggestion related to the conference proceedings, presentations, or organizational aspects. In confTool, which is a conference management software, remarks might be entered into the system to provide additional information or context about submissions, reviews, or scheduling.","The property ""remark"" has a domain of ""Contribution"" and a range of ""string""."
+http://confOf#reviewes,Target,Property,reviewes,"In the context of a conference, ""reviews"" refer to the evaluations or assessments provided by experts or peers regarding the quality, relevance, and significance of submitted papers or presentations. These reviews help determine which submissions are accepted for presentation at the conference and often provide feedback to the authors for improvement.","The property ""reviews"" has a domain of ""Member_PC"" and a range of ""Contribution"". This means that the property ""reviews"" is used to link instances of ""Member_PC"" to instances of ""Contribution"". In other words, a ""Member_PC"" reviews a ""Contribution"".The class ""Member_PC"" is a subclass of two restrictions. The first restriction specifies that ""Member_PC"" reviews some values from the class ""Contribution"". The second restriction specifies that ""Member_PC"" reviews only values from the class ""Contribution""."
+http://confOf#starts_on,Target,Property,starts on,"In the context of a conference and using the extra information provided about ConfTool, ""starts_on"" refers to the specific date and time when the conference or a particular session within the conference is scheduled to begin. ConfTool is a conference management software, and ""starts_on"" would be a parameter or field used to denote the commencement details of the event or session.","The property ""starts_on"" has a domain of ""Event"" and a range of ""string"". This means that ""starts_on"" is a property that applies to instances of ""Event"" and its values are expected to be of type ""string""."
+http://confOf#studyAt,Target,Property,study at,"In the context of a conference, ""studyAt"" typically refers to the educational institution or university where a participant, speaker, or attendee is currently studying or has studied. It provides information about their academic background and affiliation. For example, a conference attendee might list ""studyAt: Harvard University"" to indicate that they are a student or alumnus of Harvard.","The property ""studyAt"" has a domain of ""Scholar"" and a range of ""University"". This means that the subject of the ""studyAt"" relationship is a ""Scholar"" and the object is a ""University"". In other words, a ""Scholar"" studies at a ""University"".The provided subgraph can be described as follows:
+
+A ""Scholar"" is a subclass of two types of restrictions related to the property ""studyAt"". The first restriction specifies that a ""Scholar"" must study at some ""University"". The second restriction specifies that a ""Scholar"" must study only at ""Universities""."
+http://confOf#writes,Target,Property,writes,"In the context of a conference and using the extra information provided about ConfTool, ""writes"" typically refers to the act of submitting written content, such as papers, abstracts, or proposals, to the conference management system. ConfTool is a conference management software that facilitates the submission, review, and management of conference papers and abstracts. Therefore, ""writes"" in this context would mean the process by which authors prepare and submit their written work for consideration and review through the ConfTool system.","The property ""writes"" has a domain of ""Author"" and a range of ""Contribution"". This means that if an entity is connected to another entity by the ""writes"" property, the first entity must be an ""Author"" and the second entity must be a ""Contribution"".The provided subgraph can be described in natural language as follows:
+
+An ""Author"" is a subclass of a restriction that specifies the ""writes"" property must have some values from the class ""Contribution"". Additionally, an ""Author"" is also a subclass of another restriction that specifies the ""writes"" property must have all values from the class ""Contribution""."
+http://confOf#writtenBy,Target,Property,written by,"In the context of a conference and using the extra information provided about ConfTool, ""writtenBy"" typically refers to the author or authors who have written a paper, abstract, or any other submission for the conference. ConfTool is a conference management software that often includes fields for entering details about submissions, including the names of the authors. Therefore, ""writtenBy"" would be the field or attribute indicating the individuals who have authored the work being submitted to the conference.","The property ""writtenBy"" has a domain of ""Contribution"" and a range of ""Author"". This means that ""writtenBy"" is a relationship where the subject is a ""Contribution"" and the object is an ""Author""."
