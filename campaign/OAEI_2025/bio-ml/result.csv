@@ -1,0 +1,13 @@
+LLM,Alignment,Precision,Recall,F1
+llama3:8b,bio-ml/ncit-doid/component/source_no_validation,27.45,67.39,39.01
+llama3:8b,bio-ml/ncit-doid/component/source,57.53,67.24,62.01
+llama3:8b,bio-ml/ncit-doid/component/target_no_validation,36.11,67.52,47.06
+llama3:8b,bio-ml/ncit-doid/component/target,62.64,67.01,64.75
+llama3:8b,bio-ml/ncit-doid/component/no_validation,66.16,63.79,64.95
+llama3:8b,bio-ml/ncit-doid/component/llm_with_agent,89.53,63.66,74.41
+llama3:8b,bio-ml/omim-ordo/component/source_no_validation,14.79,27.33,19.19
+llama3:8b,bio-ml/omim-ordo/component/source,24.04,26.44,25.18
+llama3:8b,bio-ml/omim-ordo/component/target_no_validation,18.63,27.68,22.27
+llama3:8b,bio-ml/omim-ordo/component/target,29.49,26.69,28.02
+llama3:8b,bio-ml/omim-ordo/component/no_validation,52.07,26.42,35.05
+llama3:8b,bio-ml/omim-ordo/component/llm_with_agent,70.90,25.34,37.34

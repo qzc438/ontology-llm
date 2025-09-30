@@ -11,6 +11,8 @@ from langchain_community.chat_models import ChatOllama
 from langchain_openai import OpenAIEmbeddings
 from langchain_ollama import OllamaEmbeddings
 
+import time
+import csv
 import util
 
 
@@ -31,8 +33,8 @@ os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 os.environ["ANTHROPIC_API_KEY"] = os.getenv("ANTHROPIC_API_KEY")
 
 # # load GPT, default timeout = None, do not have top_k setting
-llm = ChatOpenAI(model_name='gpt-4o-2024-05-13', temperature=0.0, seed=42, top_p=1.0, presence_penalty=0.0, frequency_penalty=0.0)
-# llm = ChatOpenAI(model_name='gpt-4o', temperature=0.0, seed=42, top_p=1.0, presence_penalty=0.0, frequency_penalty=0.0)
+# llm = ChatOpenAI(model_name='gpt-4o-2024-05-13', temperature=0.0, seed=42, top_p=1.0, presence_penalty=0.0, frequency_penalty=0.0)
+llm = ChatOpenAI(model_name='gpt-4o', temperature=0.0, seed=42, top_p=1.0, presence_penalty=0.0, frequency_penalty=0.0)
 # llm = ChatOpenAI(model_name='gpt-4o-mini-2024-07-18', temperature=0.0, seed=42, top_p=1.0, presence_penalty=0.0, frequency_penalty=0.0)
 # llm = ChatOpenAI(model_name='gpt-4o-mini', temperature=0.0, seed=42, top_p=1.0, presence_penalty=0.0, frequency_penalty=0.0)
 # # load Anthropic, default timeout = None
@@ -312,8 +314,37 @@ if __name__ == '__main__':
         "om_csv_to_database.py",
         "om_database_matching.py",
     ]
-    for script in script_sequence:
-        try:
-            subprocess.run(["python", script], check=True)
-        except subprocess.CalledProcessError as error:
-            print(f"Error running {script}: {error}")
+    # run script sequence and log time in milliseconds
+    total_start = time.perf_counter()
+    # check file exists
+    file_exists = os.path.isfile("time.csv")
+    # open CSV in append mode
+    with open("time.csv", "a", newline="") as csvfile:
+        writer = csv.writer(csvfile)
+        # write header only if file does not exist or is empty
+        if not file_exists or os.stat("time.csv").st_size == 0:
+            writer.writerow(["LLM", "Alignment", "Retrieving", "Embedding", "Matching", "Total"])
+        # store times in order
+        times = []
+        # calculate time for each script
+        for script in script_sequence:
+            start = time.perf_counter()
+            try:
+                subprocess.run(["python", script], check=True)
+            except subprocess.CalledProcessError as error:
+                print(f"Error running {script}: {error}")
+                times.append("ERROR")
+                continue
+            end = time.perf_counter()
+            elapsed_ms = (end - start) * 1000
+            print(f"Running time for {script}: {elapsed_ms:.2f} ms")
+            times.append(f"{elapsed_ms:.2f}")
+        # calculate total time
+        total_end = time.perf_counter()
+        total_elapsed_ms = (total_end - total_start) * 1000
+        print(f"\nTotal running time: {total_elapsed_ms:.2f} ms")
+        # make sure list length = 3, fill with empty if fewer scripts
+        while len(times) < 3:
+            times.append("")
+        # append a row with metadata + times
+        writer.writerow([util.find_model_name(llm), alignment, *times, f"{total_elapsed_ms:.2f}"])

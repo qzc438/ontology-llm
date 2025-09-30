@@ -1,0 +1,1101 @@
+entity,source_or_target,entity_type,syntactic_matching,lexical_matching,semantic_matching
+http://ekaw#Abstract,Source,Class,abstract,"In the context of a conference, an ""abstract"" is a brief summary of a research paper, presentation, or study that is submitted for consideration. It typically includes the main objectives, methods, results, and conclusions of the work. The abstract allows conference organizers and attendees to quickly understand the essence of the research and decide its relevance and interest to them.","Sure, here are the triples verbalised into phrases:
+
+1. ""Invited_Talk_Abstract"" is a subclass of ""Abstract"".
+2. ""Tutorial_Abstract"" is a subclass of ""Abstract"".
+3. ""Abstract"" is a subclass of ""Document"".The given subgraph can be described as follows:
+
+1. There are two classes, denoted as `_:N82c7b3cffcd641fe8956e6d62ff7f027` and `_:N46f148b565af44009a986ded768d9c59`.
+2. The class `_:N82c7b3cffcd641fe8956e6d62ff7f027` is defined as a union of a collection, `_:N370437dcae674e8eaec1563f3b0ffdda`, which includes the elements ""Abstract"" and ""Paper"".
+3. The class `_:N46f148b565af44009a986ded768d9c59` is defined as a union of another collection, `_:Na61eb2d8b3d94e51a496896359decb6e`, which also includes the elements ""Abstract"" and ""Paper"".
+4. The property `paperPresentedAs` has a domain of the class `_:N46f148b565af44009a986ded768d9c59`.
+5. The property `presentationOfPaper` has a range of the class `_:N82c7b3cffcd641fe8956e6d62ff7f027`.
+
+In summary, the subgraph describes two classes that are unions of the same elements, ""Abstract"" and ""Paper"". Additionally, it specifies the domain and range of two properties, `paperPresentedAs` and `presentationOfPaper`, in relation to these classes."
+http://ekaw#Academic_Institution,Source,Class,academic institution,"In the context of a conference, an ""Academic Institution"" refers to an organization dedicated to education and research, such as a university, college, or research institute. These institutions often participate in conferences by sending representatives, such as faculty members, researchers, and students, to present their work, share knowledge, and collaborate with peers from other institutions.","1. A Research Institute is a subclass of an Academic Institution.
+2. A University is a subclass of an Academic Institution.
+3. The property ""scientificallyOrganisedBy"" has a range of Academic Institution.
+4. The property ""scientificallyOrganises"" has a domain of Academic Institution.
+5. An Organising Agency is disjoint with an Academic Institution.
+6. An Academic Institution is a subclass of an Organisation and is disjoint with an Organising Agency."
+http://ekaw#Accepted_Paper,Source,Class,accepted paper,"In the context of a conference, an ""Accepted Paper"" refers to a research paper that has been reviewed and approved by the conference's review committee to be included in the conference proceedings. This means the paper has met the necessary standards and criteria set by the conference organizers. It is important to note that a ""camera-ready paper,"" which is the final version prepared for publication, is not considered an ""accepted paper"" because it was accepted in a different, earlier form before final revisions were made.","Sure, here are the triples verbalised into phrases:
+
+1. ""Camera_Ready_Paper"" is disjoint with ""Accepted_Paper"".
+2. ""Rejected_Paper"" is disjoint with ""Accepted_Paper"".
+3. ""Accepted_Paper"" is a subclass of ""Evaluated_Paper"".
+4. ""Accepted_Paper"" is disjoint with ""Camera_Ready_Paper"".
+5. ""Accepted_Paper"" is disjoint with ""Rejected_Paper"".The given subgraph can be described in natural language as follows:
+
+1. **Proceedings** is a subclass of a restriction that applies to the property **volumeContainsPaper**. This restriction specifies that all values must belong to a certain class, denoted as **_:N0c8c7a6983634637a735afc7e8d89a8c**.
+
+2. The class **_:N0c8c7a6983634637a735afc7e8d89a8c** is defined as a union of two classes: **Accepted_Paper** and **Invited_Talk_Abstract**.
+
+3. **Accepted_Paper** is a subclass of a restriction that applies to the property **hasReview**. This restriction specifies that some values must be of the type **Positive_Review**.
+
+4. **Camera_Ready_Paper** is a subclass of a restriction that applies to the property **updatedVersionOf**. This restriction specifies that some values must be of the type **Accepted_Paper**.
+
+In summary, the subgraph describes a hierarchy and relationships between different types of papers and reviews within the context of proceedings, accepted papers, and camera-ready papers."
+http://ekaw#Agency_Staff_Member,Source,Class,agency staff member,"In the context of a conference, an ""Agency_Staff_Member"" refers to an individual who is employed by a specific agency and is attending or participating in the conference in their professional capacity. This person may be involved in organizing, managing, or supporting the event, or they may be attending to represent their agency, network, gather information, or engage in professional development activities.","The class ""Agency Staff Member"" is a subclass of the class ""Person""."
+http://ekaw#Assigned_Paper,Source,Class,assigned paper,"In the context of a conference, ""Assigned_Paper"" refers to a research paper or presentation that has been allocated to a specific reviewer, session chair, or committee member for evaluation, review, or presentation scheduling. This assignment is part of the conference's organizational process to ensure that each submission is properly assessed and managed according to the conference's standards and schedule.","Sure, here are the triples verbalised into phrases:
+
+1. ""Evaluated_Paper"" is a subclass of ""Assigned_Paper"".
+2. ""Assigned_Paper"" is a subclass of ""Submitted_Paper"".The class ""Assigned_Paper"" is a subclass of a restriction that specifies the following conditions: the restriction is on the property ""hasReviewer"" and requires a minimum cardinality of 3. This means that any instance of ""Assigned_Paper"" must have at least 3 reviewers."
+http://ekaw#Camera_Ready_Paper,Source,Class,camera ready paper,"In the context of a conference, a ""Camera-Ready Paper"" refers to the final version of a research paper that is ready to be published in the conference proceedings. This version has typically undergone peer review and any necessary revisions. It must adhere to the formatting and submission guidelines specified by the conference organizers. The term ""camera-ready"" implies that the paper is in its final form, with no further changes needed, and is ready for printing or digital distribution.","Sure, here are the triples verbalised into phrases:
+
+1. An ""Accepted_Paper"" is disjoint with a ""Camera_Ready_Paper"".
+2. An ""Evaluated_Paper"" is disjoint with a ""Camera_Ready_Paper"".
+3. A ""Submitted_Paper"" is disjoint with a ""Camera_Ready_Paper"".
+4. A ""Camera_Ready_Paper"" is a subclass of ""Paper"".
+5. A ""Camera_Ready_Paper"" is disjoint with an ""Accepted_Paper"".
+6. A ""Camera_Ready_Paper"" is disjoint with an ""Evaluated_Paper"".
+7. A ""Camera_Ready_Paper"" is disjoint with a ""Submitted_Paper"".The given subgraph can be described in natural language as follows:
+
+A ""Camera Ready Paper"" is a type of paper that is an updated version of an ""Accepted Paper"" and is written by a ""Conference Participant"". Additionally, a ""Contributed Talk"" is a type of presentation that presents a ""Camera Ready Paper""."
+http://ekaw#Conference,Source,Class,conference,"A conference, in the given context, refers to a formal meeting or gathering where individuals or groups come together to discuss specific topics, share information, and engage in collaborative activities. The term ""one edition of a conference"" implies a single instance or occurrence of such an event, typically held periodically (e.g., annually, biennially). Each edition of a conference may focus on a particular theme or set of issues relevant to the participants.","Sure, here are the triples verbalised into phrases:
+
+1. A ""Contributed Talk"" is disjoint with a ""Conference"".
+2. An ""Invited Talk"" is disjoint with a ""Conference"".
+3. A ""Session"" is disjoint with a ""Conference"".
+4. A ""Social Event"" is disjoint with a ""Conference"".
+5. A ""Track"" is disjoint with a ""Conference"".
+6. A ""Tutorial"" is disjoint with a ""Conference"".
+7. A ""Workshop"" is disjoint with a ""Conference"".
+8. A ""Conference"" is a subclass of a ""Scientific Event"".
+9. A ""Conference"" is disjoint with a ""Contributed Talk"".
+10. A ""Conference"" is disjoint with an ""Invited Talk"".
+11. A ""Conference"" is disjoint with a ""Session"".
+12. A ""Conference"" is disjoint with a ""Social Event"".
+13. A ""Conference"" is disjoint with a ""Track"".
+14. A ""Conference"" is disjoint with a ""Tutorial"".
+15. A ""Conference"" is disjoint with a ""Workshop"".The provided subgraph describes a hierarchical structure of events and their relationships. Here is a natural language description of the subgraph:
+
+1. **Classes and Restrictions:**
+   - There is a class named `Session`.
+   - `Session` is a subclass of a restriction that specifies it must be part of an event that is either a `Conference`, `Workshop`, or `Track`.
+   - There is another class named `Conference_Session`, which is a subclass of a restriction that specifies it must be part of a `Conference`.
+
+2. **Union and List Structures:**
+   - The restriction for `Session` involves a union of classes:
+     - One part of the union is a list that includes `Conference` and `Workshop`.
+     - Another part of the union is a list that includes `Conference`, `Workshop`, and `Track`.
+
+3. **Details of the Union Lists:**
+   - The first list in the union contains:
+     - `Conference` as the first element.
+     - The rest of the list contains `Workshop`, and then it ends (nil).
+   - The second list in the union contains:
+     - `Conference` as the first element.
+     - The rest of the list contains `Workshop`, and then it ends (nil).
+   - Another list contains:
+     - `Track` as the first element.
+     - The rest of the list contains `Workshop`, and then it ends (nil).
+
+4. **Properties:**
+   - The property `partOfEvent` is used in the restrictions to specify the relationships.
+   - The restriction for `Conference_Session` specifies that it must be part of a `Conference`.
+
+5. **Types:**
+   - The restrictions and classes are explicitly typed as `Restriction` and `Class` respectively.
+
+In summary, the subgraph defines a structure where `Session` can be part of a `Conference`, `Workshop`, or `Track`, and `Conference_Session` must be part of a `Conference`. The relationships are defined using restrictions and unions of classes."
+http://ekaw#Conference_Banquet,Source,Class,conference banquet,"In the context of a conference, a ""Conference Banquet"" refers to a formal meal or dinner event organized as part of the conference activities. It typically takes place in the evening and serves as an opportunity for attendees to network, socialize, and relax in a more informal setting compared to the conference sessions. The banquet may include speeches, entertainment, and the presentation of awards or recognitions. It is often one of the highlights of the conference, providing a chance for participants to connect on a personal level.","The class ""Conference Banquet"" is a subclass of the class ""Social Event""."
+http://ekaw#Conference_Paper,Source,Class,conference paper,"In the context of a conference, a ""Conference Paper"" refers to a scholarly paper that is written and presented by researchers or experts at a professional conference. These papers are typically subject to a peer-review process and are often included in the conference proceedings, which may be published in a book or a special issue of a journal. Conference papers are a way for researchers to share their latest findings, receive feedback from peers, and engage in discussions with other experts in their field.","Sure, here are the triples verbalised into phrases:
+
+1. ""Conference_Paper"" is a subclass of ""Paper"".
+2. ""Conference_Paper"" is disjoint with ""Workshop_Paper"".
+3. ""Workshop_Paper"" is disjoint with ""Conference_Paper"".The given subgraph can be described in natural language as follows:
+
+There is a class that is defined as a union of two types: ""Conference Paper"" and ""Invited Talk Abstract"". This class is referred to by an identifier. Additionally, there is a restriction placed on the class ""Conference Proceedings"". This restriction specifies that all values of the property ""volumeContainsPaper"" must be instances of the aforementioned class (the union of ""Conference Paper"" and ""Invited Talk Abstract"")."
+http://ekaw#Conference_Participant,Source,Class,conference participant,"In the context of a conference, a ""Conference_Participant"" refers to an individual who attends and takes part in the conference. This can include a variety of roles such as speakers, presenters, panelists, attendees, and sometimes even organizers. Participants engage in various activities such as listening to presentations, participating in discussions, networking with other attendees, and contributing to the overall objectives of the conference.","Sure, here are the triples verbalised into phrases:
+
+1. A ""Demo Chair"" is a subclass of ""Conference Participant"".
+2. An ""Early-Registered Participant"" is a subclass of ""Conference Participant"".
+3. A ""Late-Registered Participant"" is a subclass of ""Conference Participant"".
+4. An ""OC Member"" is a subclass of ""Conference Participant"".
+5. A ""PC Chair"" is a subclass of ""Conference Participant"".
+6. A ""Presenter"" is a subclass of ""Conference Participant"".
+7. A ""Session Chair"" is a subclass of ""Conference Participant"".
+8. A ""Tutorial Chair"" is a subclass of ""Conference Participant"".
+9. A ""Workshop Chair"" is a subclass of ""Conference Participant"".
+10. A ""Conference Participant"" is a subclass of ""Person"".A ""Camera Ready Paper"" is a type of document that must be written by at least one ""Conference Participant""."
+http://ekaw#Conference_Proceedings,Source,Class,conference proceedings,"In the context of a conference, ""Conference Proceedings"" refers to a collection of academic papers, presentations, or research findings that were presented during the conference. These proceedings are typically compiled and published as a record of the event, providing a comprehensive overview of the topics discussed and the advancements shared by the participants. They serve as an important resource for researchers, scholars, and professionals who are interested in the specific field or subject matter covered by the conference.","The class ""Conference Proceedings"" is a subclass of the class ""Proceedings"".The given subgraph can be described in natural language as follows:
+
+There is a class that is defined as a union of two types: ""Conference_Paper"" and ""Invited_Talk_Abstract"". This class is referred to as ""_:Need4bb9bfc8b457887abe2edef906a87"".
+
+Additionally, there is a restriction on the class ""Conference_Proceedings"". This restriction specifies that all values of the property ""volumeContainsPaper"" must be instances of the class ""_:Need4bb9bfc8b457887abe2edef906a87""."
+http://ekaw#Conference_Session,Source,Class,conference session,"In the context of a conference, a ""Conference_Session"" refers to a specific period during the event that is dedicated to a particular topic, presentation, or activity. These sessions are typically scheduled in advance and can include keynote speeches, panel discussions, workshops, or breakout sessions. Each session usually has a designated time slot, location, and set of speakers or facilitators who will present or lead the discussion on the given topic.","Sure, here are the triples verbalised into phrases:
+
+1. ""Industrial_Session"" is a subclass of ""Conference_Session"".
+2. ""Workshop_Session"" is disjoint with ""Conference_Session"".
+3. ""Conference_Session"" is a subclass of ""Session"".
+4. ""Conference_Session"" is disjoint with ""Workshop_Session"".The subgraph describes that a ""Conference Session"" is a subclass of a certain restriction. This restriction specifies that the ""Conference Session"" must be part of some ""Conference"" event. The restriction is defined on the property ""partOfEvent""."
+http://ekaw#Conference_Trip,Source,Class,conference trip,"In the context of a conference, a ""Conference Trip"" refers to the travel undertaken by an individual or a group to attend a conference. This trip typically involves planning and organizing transportation, accommodation, and other logistics to participate in the conference, which could be for professional, academic, or business purposes. The goal of a conference trip is to engage in networking, learning, and sharing knowledge with other attendees.","The class ""Conference_Trip"" is a subclass of the class ""Social_Event""."
+http://ekaw#Contributed_Talk,Source,Class,contributed talk,"In the context of a conference, a ""Contributed Talk"" refers to a presentation given by a participant who has submitted a proposal or abstract that has been accepted by the conference organizers. These talks are typically shorter than keynote or invited talks and are often selected through a peer-review process. Contributed talks provide an opportunity for researchers and professionals to share their work, findings, and ideas with the conference audience.","Sure, here are the triples verbalized into phrases:
+
+1. ""Conference"" is disjoint with ""Contributed Talk"".
+2. ""Invited Talk"" is disjoint with ""Contributed Talk"".
+3. ""Session"" is disjoint with ""Contributed Talk"".
+4. ""Social Event"" is disjoint with ""Contributed Talk"".
+5. ""Track"" is disjoint with ""Contributed Talk"".
+6. ""Tutorial"" is disjoint with ""Contributed Talk"".
+7. ""Contributed Talk"" is a subclass of ""Individual Presentation"".
+8. ""Contributed Talk"" is disjoint with ""Conference"".
+9. ""Contributed Talk"" is disjoint with ""Invited Talk"".
+10. ""Contributed Talk"" is disjoint with ""Session"".
+11. ""Contributed Talk"" is disjoint with ""Social Event"".
+12. ""Contributed Talk"" is disjoint with ""Track"".
+13. ""Contributed Talk"" is disjoint with ""Tutorial"".The subgraph describes the following relationships and restrictions:
+
+1. A ""Contributed Talk"" is a subclass of a restriction (let's call it Restriction1).
+2. Restriction1 is defined by the property ""presentationOfPaper"" and has a cardinality of 1, meaning that each ""Contributed Talk"" must be associated with exactly one paper.
+3. A ""Contributed Talk"" is also a subclass of another restriction (let's call it Restriction2).
+4. Restriction2 is defined by the property ""presentationOfPaper"" and requires that the paper presented must be a ""Camera Ready Paper"".
+
+In summary, a ""Contributed Talk"" must present exactly one paper, and that paper must be a ""Camera Ready Paper""."
+http://ekaw#Demo_Chair,Source,Class,demo chair,"In the context of a conference, ""Demo_Chair"" refers to the individual responsible for overseeing and organizing the demonstration sessions. These sessions typically involve showcasing new technologies, products, or research findings. The Demo_Chair ensures that the demonstrations run smoothly, coordinates with presenters, and manages the schedule and logistics related to the demo sessions.","The class ""Demo_Chair"" is a subclass of the class ""Conference_Participant""."
+http://ekaw#Demo_Paper,Source,Class,demo paper,"In the context of a conference, a ""Demo_Paper"" typically refers to a type of submission that describes a demonstration of a system, tool, or technology. Unlike full research papers, which focus on presenting new theoretical insights or empirical results, demo papers are intended to showcase practical implementations and allow attendees to see the work in action. These papers usually include a description of the system's functionality, its architecture, and the specific innovations it brings, along with details on how the demonstration will be conducted during the conference.","1. ""Industrial_Paper"" is disjoint with ""Demo_Paper"".
+2. ""Poster_Paper"" is disjoint with ""Demo_Paper"".
+3. ""Regular_Paper"" is disjoint with ""Demo_Paper"".
+4. ""Demo_Paper"" is a subclass of ""Paper"".
+5. ""Demo_Paper"" is disjoint with ""Industrial_Paper"".
+6. ""Demo_Paper"" is disjoint with ""Poster_Paper"".
+7. ""Demo_Paper"" is disjoint with ""Regular_Paper""."
+http://ekaw#Demo_Session,Source,Class,demo session,"In the context of a conference, a ""Demo_Session"" refers to a scheduled segment where presenters showcase their products, technologies, or services to the attendees. These sessions typically involve live demonstrations, allowing the audience to see the features and functionalities in action, ask questions, and gain a deeper understanding of the offering. Demo sessions are often interactive and aim to highlight the practical applications and benefits of the demonstrated items.","Sure, here are the triples verbalised into phrases:
+
+1. ""Poster_Session"" is disjoint with ""Demo_Session"".
+2. ""Regular_Session"" is disjoint with ""Demo_Session"".
+3. ""Demo_Session"" is a subclass of ""Session"".
+4. ""Demo_Session"" is disjoint with ""Poster_Session"".
+5. ""Demo_Session"" is disjoint with ""Regular_Session""."
+http://ekaw#Document,Source,Class,document,"In the context of a conference, a ""document"" typically refers to any written or printed material that is used or distributed during the event. This can include agendas, schedules, presentation slides, handouts, research papers, reports, and any other relevant materials that support the discussions and activities taking place at the conference. These documents are often used to provide information, facilitate communication, and serve as a record of the proceedings.","1. An Abstract is a subclass of Document.
+2. A Flyer is a subclass of Document.
+3. A Multi-author Volume is a subclass of Document.
+4. A Paper is a subclass of Document.
+5. A Programme Brochure is a subclass of Document.
+6. A Review is a subclass of Document.
+7. A Web Site is a subclass of Document.
+8. The property authorOf has a range of Document.
+9. The property hasUpdatedVersion has a domain of Document and a range of Document.
+10. The property updatedVersionOf has a domain of Document and a range of Document.
+11. The property writtenBy has a domain of Document.
+12. A Person is disjoint with Document.
+13. A Document is disjoint with Person."
+http://ekaw#Early-Registered_Participant,Source,Class,early registered participant,"In the context of a conference, an ""Early-Registered Participant"" refers to an individual who has registered to attend the conference during an early registration period. This period typically offers discounted rates or other incentives to encourage participants to commit to attending the event well in advance of the conference dates. Early registration helps conference organizers with planning and logistics by providing an estimate of attendance numbers ahead of time.","Sure, here are the triples verbalised into phrases:
+
+1. ""Early-Registered_Participant"" is a subclass of ""Conference_Participant"".
+2. ""Early-Registered_Participant"" is disjoint with ""Late-Registered_Participant"".
+3. ""Late-Registered_Participant"" is disjoint with ""Early-Registered_Participant""."
+http://ekaw#Evaluated_Paper,Source,Class,evaluated paper,"In the context of a conference, an ""Evaluated_Paper"" refers to a research paper or academic paper that has undergone a review process. This typically involves assessment by a panel of experts or peer reviewers who evaluate the paper's quality, originality, relevance, and contribution to the field. The evaluation process determines whether the paper meets the standards and criteria set by the conference for presentation and publication.","Sure, here are the triples verbalised into phrases:
+
+1. ""Accepted_Paper"" is a subclass of ""Evaluated_Paper"".
+2. ""Rejected_Paper"" is a subclass of ""Evaluated_Paper"".
+3. ""Camera_Ready_Paper"" is disjoint with ""Evaluated_Paper"".
+4. ""Evaluated_Paper"" is a subclass of ""Assigned_Paper"".
+5. ""Evaluated_Paper"" is disjoint with ""Camera_Ready_Paper"".The class ""Evaluated_Paper"" is a subclass of a restriction that specifies the following conditions: it must have at least three instances of the property ""hasReview""."
+http://ekaw#Event,Source,Class,event,"In the context of a conference, an ""event"" refers to a planned and organized occasion or activity that is part of the conference's schedule. This can include keynote speeches, panel discussions, workshops, networking sessions, presentations, and other activities designed to engage attendees, share knowledge, and facilitate professional development and collaboration.","Sure, here are the triples verbalised into phrases:
+
+1. A ""Scientific_Event"" is a subclass of an ""Event"".
+2. A ""Social_Event"" is a subclass of an ""Event"".
+3. The property ""eventOnList"" has a domain of ""Event"".
+4. The property ""hasEvent"" has a domain of ""Event"" and a range of ""Event"".
+5. The property ""heldIn"" has a domain of ""Event"".
+6. The property ""inverse_of_partOf_7"" has a range of ""Event"".
+7. The property ""listsEvent"" has a range of ""Event"".
+8. The property ""locationOf"" has a range of ""Event"".
+9. The property ""organisedBy"" has a domain of ""Event"".
+10. The property ""organises"" has a range of ""Event"".
+11. The property ""partOfEvent"" has a domain of ""Event"" and a range of ""Event"".
+12. A ""Person"" is disjoint with an ""Event"".
+13. An ""Event"" is disjoint with a ""Person"".The given subgraph can be described as follows:
+
+1. There is a class that covers topics, denoted as `_:Nde92c4bd41a14d01818c270bf2b0108a`.
+2. The topics covered by this class fall within a union of two types: `Paper` and `Event`.
+3. The class `_:Nde92c4bd41a14d01818c270bf2b0108a` is of type `Class`.
+4. There is another class, denoted as `_:N9861432d94434dc0ac122d97382c3a01`, which is also of type `Class`.
+5. The topics covered by the class `_:N9861432d94434dc0ac122d97382c3a01` fall within a union of two types: `Paper` and `Event`.
+
+In summary, both classes `_:Nde92c4bd41a14d01818c270bf2b0108a` and `_:N9861432d94434dc0ac122d97382c3a01` cover topics that can be either `Paper` or `Event`."
+http://ekaw#Flyer,Source,Class,flayer,"In the context of a conference, a ""flyer"" refers to a printed or digital document that provides information about the event. This typically includes details such as the date, time, location, agenda, speakers, and how to register or participate. Flyers are used to promote the conference and inform potential attendees about what to expect.","1. A Multi-author Volume is disjoint with a Flyer.
+2. A Paper is disjoint with a Flyer.
+3. Proceedings are disjoint with a Flyer.
+4. A Programme Brochure is disjoint with a Flyer.
+5. A Review is disjoint with a Flyer.
+6. A Web Site is disjoint with a Flyer.
+7. A Flyer is a subclass of a Document.
+8. A Flyer is disjoint with a Multi-author Volume, a Paper, Proceedings, a Programme Brochure, a Review, and a Web Site.The subgraph describes a class that is the range of the ""publisherOf"" property. This class is defined as a union of several types of publications. Specifically, the class includes ""Multi-author Volume"" and ""Programme Brochure"" as its first two elements, followed by ""Web Site"" and ""Flyer"". The structure of the union is such that ""Multi-author Volume"" is followed by ""Programme Brochure"", which is followed by ""Web Site"", and finally ""Flyer"" is the last element in the list."
+http://ekaw#Individual_Presentation,Source,Class,individual presentation,"In the context of a conference, an ""Individual Presentation"" refers to a session where a single presenter delivers a talk or presentation on a specific topic. This type of presentation typically involves one person sharing their research findings, insights, or expertise with the audience, often accompanied by visual aids such as slides. The presenter may also engage in a Q&A session with the audience at the end of their presentation.","1. ""Contributed_Talk"" is a subclass of ""Individual_Presentation"".
+2. ""Invited_Talk"" is a subclass of ""Individual_Presentation"".
+3. ""Tutorial"" is a subclass of ""Individual_Presentation"".
+4. The property ""paperPresentedAs"" has a range of ""Individual_Presentation"".
+5. The property ""presentationOfPaper"" has a domain of ""Individual_Presentation"".
+6. ""Workshop"" is disjoint with ""Individual_Presentation"".
+7. ""Individual_Presentation"" is a subclass of ""Scientific_Event"" and is disjoint with ""Workshop"".The class ""Session"" is a subclass of a restriction. This restriction specifies that the property ""hasEvent"" must have some values from the class ""Individual_Presentation""."
+http://ekaw#Industrial_Paper,Source,Class,industrial paper,"In the context of a conference, an ""Industrial Paper"" typically refers to a research paper or presentation that focuses on practical applications, case studies, or innovations from the industry. These papers are often authored by professionals working in the industry and aim to share insights, experiences, and advancements that are directly relevant to industrial practices. Unlike academic papers, which may focus more on theoretical research and methodologies, industrial papers emphasize real-world applications and solutions.","1. A Demo Paper is disjoint with an Industrial Paper.
+2. A Poster Paper is disjoint with an Industrial Paper.
+3. A Regular Paper is disjoint with an Industrial Paper.
+4. A Workshop Paper is disjoint with an Industrial Paper.
+5. An Industrial Paper is a subclass of a Paper.
+6. An Industrial Paper is disjoint with a Demo Paper, a Poster Paper, a Regular Paper, and a Workshop Paper."
+http://ekaw#Industrial_Session,Source,Class,industrial session,"In the context of a conference, an ""Industrial Session"" refers to a segment or series of presentations and discussions that focus on topics relevant to industry professionals. These sessions typically feature speakers from various companies and organizations who share insights, case studies, technological advancements, and practical applications related to the conference's theme. The goal is to bridge the gap between academic research and real-world industry practices, fostering collaboration and knowledge exchange between academia and industry.","The class ""Industrial Session"" is a subclass of the class ""Conference Session""."
+http://ekaw#Invited_Speaker,Source,Class,invited speaker,"In the context of a conference, an ""Invited Speaker"" refers to an individual who has been specifically asked by the conference organizers to give a presentation or lecture. This person is typically recognized as an expert or a prominent figure in their field and is invited to share their knowledge, insights, or research findings with the conference attendees. The invitation is often extended because the speaker's contributions are expected to add significant value to the event.","The class ""Invited Speaker"" is a subclass of the class ""Presenter""."
+http://ekaw#Invited_Talk,Source,Class,invited talk,"In the context of a conference, an ""Invited Talk"" refers to a presentation given by a speaker who has been specifically invited by the conference organizers due to their expertise, reputation, or significant contributions to the field. These talks are often a highlight of the conference and are typically delivered by well-known researchers, industry leaders, or distinguished professionals. Invited talks are usually scheduled as part of the main program and are intended to provide valuable insights, share cutting-edge research, or offer a unique perspective on relevant topics.","1. A ""Conference"" is disjoint with an ""Invited Talk"".
+2. A ""Contributed Talk"" is disjoint with an ""Invited Talk"".
+3. A ""Session"" is disjoint with an ""Invited Talk"".
+4. A ""Social Event"" is disjoint with an ""Invited Talk"".
+5. A ""Track"" is disjoint with an ""Invited Talk"".
+6. A ""Tutorial"" is disjoint with an ""Invited Talk"".
+7. A ""Workshop"" is disjoint with an ""Invited Talk"".
+8. An ""Invited Talk"" is a subclass of ""Individual Presentation"".
+9. An ""Invited Talk"" is disjoint with a ""Conference"".
+10. An ""Invited Talk"" is disjoint with a ""Contributed Talk"".
+11. An ""Invited Talk"" is disjoint with a ""Session"".
+12. An ""Invited Talk"" is disjoint with a ""Social Event"".
+13. An ""Invited Talk"" is disjoint with a ""Track"".
+14. An ""Invited Talk"" is disjoint with a ""Tutorial"".
+15. An ""Invited Talk"" is disjoint with a ""Workshop""."
+http://ekaw#Invited_Talk_Abstract,Source,Class,invited talk abstract,"In the context of a conference, an ""Invited Talk Abstract"" refers to a brief summary or overview of a presentation that has been specifically requested by the conference organizers. This abstract provides attendees with a concise description of the topic, key points, and significance of the talk, typically delivered by a distinguished speaker or expert in the field. The invited talk is usually a highlight of the conference, aimed at providing valuable insights and fostering discussion among participants.","The class ""Invited_Talk_Abstract"" is a subclass of the class ""Abstract"".The given subgraph can be described in natural language as follows:
+
+There are several classes and restrictions defined in the ontology. 
+
+1. The class ""Proceedings"" is a subclass of a restriction that specifies that all values from the property ""volumeContainsPaper"" must be of a certain type. This restriction is identified as ""_:N55e7656292e347e18f3d3cb43aff4a0b"".
+
+2. The restriction ""_:N55e7656292e347e18f3d3cb43aff4a0b"" requires that all values from the property ""volumeContainsPaper"" must be of a type that is a union of the classes ""Accepted_Paper"" and ""Invited_Talk_Abstract"". This union is represented by ""_:N0c8c7a6983634637a735afc7e8d89a8c"".
+
+3. The class ""Conference_Proceedings"" is a subclass of another restriction, identified as ""_:N9c39ba3102e84d2a875425575e1a872b"". This restriction also specifies that all values from the property ""volumeContainsPaper"" must be of a type that is a union of certain classes.
+
+4. The union of classes in the restriction ""_:N9c39ba3102e84d2a875425575e1a872b"" is represented by ""_:Need4bb9bfc8b457887abe2edef906a87"", which is a union of the classes ""Conference_Paper"" and ""Invited_Talk_Abstract"".
+
+5. The union ""_:N0c8c7a6983634637a735afc7e8d89a8c"" consists of the classes ""Accepted_Paper"" and ""Invited_Talk_Abstract"".
+
+6. The union ""_:Need4bb9bfc8b457887abe2edef906a87"" consists of the classes ""Conference_Paper"" and ""Invited_Talk_Abstract"".
+
+In summary, the ontology defines that both ""Proceedings"" and ""Conference_Proceedings"" must contain papers that are either ""Accepted_Paper"", ""Invited_Talk_Abstract"", or ""Conference_Paper""."
+http://ekaw#Late-Registered_Participant,Source,Class,late registered participant,"In the context of a conference, a ""Late-Registered Participant"" refers to an individual who has registered to attend the event after the official registration deadline has passed. This may involve different procedures, fees, or availability of certain conference materials or sessions compared to those who registered on time.","Sure, here are the triples verbalised into phrases:
+
+1. ""Early-Registered Participant"" is disjoint with ""Late-Registered Participant.""
+2. ""Late-Registered Participant"" is a subclass of ""Conference Participant.""
+3. ""Late-Registered Participant"" is disjoint with ""Early-Registered Participant.""
+
+Note that the third phrase is essentially a repetition of the first one, as disjointness is a symmetric property."
+http://ekaw#Location,Source,Class,location,"In the context of a conference, ""location"" refers to the specific place or venue where the conference is being held. This could be a convention center, hotel, university campus, or any other facility equipped to host such an event. The location includes the physical address and may also encompass details about the city or region, accessibility, nearby accommodations, and amenities available to attendees.","Sure, here are the triples verbalised into phrases:
+
+1. The property ""heldIn"" has a range of ""Location"".
+2. The property ""locationOf"" has a domain of ""Location"".
+3. ""Person"" is disjoint with ""Location"".
+4. ""Location"" is disjoint with ""Person""."
+http://ekaw#Multi-author_Volume,Source,Class,multi author volume,"In the context of a conference, a ""Multi-author Volume"" refers to a collection of written works or papers contributed by multiple authors. These volumes are typically compiled and edited to form a cohesive book or proceedings that are published as part of the conference's official documentation. Each paper or chapter within the volume is authored by different individuals or groups, often presenting research findings, reviews, or discussions relevant to the conference's theme or subject matter.","Sure, here are the triples verbalised into phrases:
+
+1. ""Proceedings"" is a subclass of ""Multi-author Volume"".
+2. ""Flyer"" is disjoint with ""Multi-author Volume"".
+3. ""Paper"" is disjoint with ""Multi-author Volume"".
+4. ""Programme Brochure"" is disjoint with ""Multi-author Volume"".
+5. ""Review"" is disjoint with ""Multi-author Volume"".
+6. ""Web Site"" is disjoint with ""Multi-author Volume"".
+7. ""Multi-author Volume"" is a subclass of ""Document"".
+8. ""Multi-author Volume"" is disjoint with ""Flyer"".
+9. ""Multi-author Volume"" is disjoint with ""Paper"".
+10. ""Multi-author Volume"" is disjoint with ""Programme Brochure"".
+11. ""Multi-author Volume"" is disjoint with ""Review"".
+12. ""Multi-author Volume"" is disjoint with ""Web Site"".The subgraph describes a class that is the range of the ""publisherOf"" property. This class is defined as a union of several types of publications. Specifically, the class includes ""Multi-author Volume"" and ""Programme Brochure"" as its first two elements. Additionally, the class includes ""Web Site"" and ""Flyer"" as subsequent elements. The structure of the union is such that ""Multi-author Volume"" is followed by ""Programme Brochure,"" which is followed by ""Web Site,"" and finally ""Flyer"" is the last element in the list."
+http://ekaw#Negative_Review,Source,Class,negative review,"In the context of a conference, a ""Negative Review"" refers to unfavorable feedback or criticism given by attendees, speakers, or reviewers regarding various aspects of the conference. This could include dissatisfaction with the organization, content, speakers, facilities, or overall experience. Negative reviews are important for organizers as they provide insights into areas that need improvement for future events.","1. ""Neutral_Review"" is disjoint with ""Negative_Review"".
+2. ""Positive_Review"" is disjoint with ""Negative_Review"".
+3. ""Negative_Review"" is a subclass of ""Review"" and is disjoint with both ""Neutral_Review"" and ""Positive_Review""."
+http://ekaw#Neutral_Review,Source,Class,neutral review,"In the context of a conference, a ""Neutral Review"" typically refers to an evaluation or assessment of a paper, presentation, or proposal that is neither particularly positive nor negative. It indicates that the reviewer found the work to be average or satisfactory but not outstanding or significantly flawed. This type of review might highlight both strengths and weaknesses without a strong bias towards either, suggesting that the work meets basic standards but may not stand out in a significant way.","Sure, here are the triples verbalised into phrases:
+
+1. ""Negative_Review"" is disjoint with ""Neutral_Review"".
+2. ""Positive_Review"" is disjoint with ""Neutral_Review"".
+3. ""Neutral_Review"" is a subclass of ""Review"".
+4. ""Neutral_Review"" is disjoint with ""Negative_Review"".
+5. ""Neutral_Review"" is disjoint with ""Positive_Review""."
+http://ekaw#OC_Chair,Source,Class,oc chair,"In the context of a conference, ""OC_Chair"" typically stands for ""Organizing Committee Chair."" This is the person responsible for leading the organizing committee, which is the group tasked with planning, coordinating, and executing the various aspects of the conference. The OC_Chair oversees the logistical arrangements, program development, speaker coordination, and other essential tasks to ensure the conference runs smoothly.","The class ""OC_Chair"" is a subclass of the class ""OC_Member""."
+http://ekaw#OC_Member,Source,Class,oc member,"In the context of a conference, ""OC_Member"" typically stands for ""Organizing Committee Member."" These are individuals who are part of the team responsible for planning, coordinating, and executing the various aspects of the conference. Their duties may include arranging speakers, managing logistics, handling registrations, and ensuring the overall smooth operation of the event.","Sure, here are the triples verbalised into phrases:
+
+1. ""OC_Chair"" is a subclass of ""OC_Member"".
+2. ""OC_Member"" is a subclass of ""Conference_Participant""."
+http://ekaw#Organisation,Source,Class,organization,"In the context of a conference, ""organisation"" refers to the planning, coordination, and management of the event. This includes tasks such as scheduling sessions, arranging speakers, managing registrations, setting up the venue, and ensuring that all logistical details are handled efficiently to ensure the conference runs smoothly.","1. An Academic Institution is a subclass of an Organisation.
+2. An Organising Agency is a subclass of an Organisation.
+3. A Proceedings Publisher is a subclass of an Organisation.
+4. The domain of publisherOf is an Organisation.
+5. The domain of technicallyOrganises is an Organisation.
+6. A Person is disjoint with an Organisation.
+7. An Organisation is disjoint with a Person.The provided subgraph describes a set of classes and their relationships in a natural language format as follows:
+
+1. There is a class denoted by the identifier `_:N05d729ec142f4e46a7d88ecb692b9ae6`, which is a union of two lists:
+   - The first list contains the class `Organisation` and another list.
+   - The second list contains the class `Person` and ends with `nil`.
+
+2. Another class, denoted by the identifier `_:N7e76e61a1e904bd0b9d510252da1fb59`, is also a union of two lists:
+   - The first list contains the class `Organisation` and another list.
+   - The second list contains the class `Person` and ends with `nil`.
+
+3. The property `organisedBy` has a range of the class `_:N05d729ec142f4e46a7d88ecb692b9ae6`.
+
+4. The property `organises` has a domain of the class `_:N7e76e61a1e904bd0b9d510252da1fb59`.
+
+In summary, the subgraph defines two classes that are unions of `Organisation` and `Person`, and specifies the domains and ranges for the properties `organises` and `organisedBy`."
+http://ekaw#Organising_Agency,Source,Class,organising agency,"In the context of a conference, the term ""Organising Agency"" refers to the organization or group responsible for planning, coordinating, and executing the various aspects of the conference. This includes tasks such as selecting the venue, managing registrations, arranging speakers, handling logistics, and ensuring that the event runs smoothly. The Organising Agency is essentially the entity that oversees the entire process of bringing the conference to fruition.","Sure, here are the triples verbalised into phrases:
+
+1. ""Academic Institution"" is disjoint with ""Organising Agency"".
+2. ""Organising Agency"" is a subclass of ""Organisation"".
+3. ""Organising Agency"" is disjoint with ""Academic Institution""."
+http://ekaw#PC_Chair,Source,Class,pc chair,"In the context of a conference, ""PC_Chair"" stands for ""Program Committee Chair."" This individual is responsible for overseeing the program committee, which is tasked with organizing the conference's academic or technical program. The PC Chair's duties typically include coordinating the review process for submitted papers, selecting which papers will be presented, and ensuring the overall quality and coherence of the conference program.","Sure, here are the triples verbalised into phrases:
+
+1. ""Tutorial_Chair"" is disjoint with ""PC_Chair"".
+2. ""Workshop_Chair"" is disjoint with ""PC_Chair"".
+3. ""PC_Chair"" is a subclass of ""Conference_Participant"".
+4. ""PC_Chair"" is a subclass of ""PC_Member"".
+5. ""PC_Chair"" is disjoint with ""Tutorial_Chair"".
+6. ""PC_Chair"" is disjoint with ""Workshop_Chair""."
+http://ekaw#PC_Member,Source,Class,pc member,"In the context of a conference, ""PC_Member"" stands for ""Program Committee Member."" A Program Committee Member is an individual who is part of the group responsible for reviewing submitted papers, selecting which ones will be presented at the conference, and often helping to organize sessions and other aspects of the conference program. These members are typically experts in the field relevant to the conference.","1. ""PC_Chair"" is a subclass of ""PC_Member"".
+2. ""SC_Member"" is a subclass of ""PC_Member"".
+3. ""Session_Chair"" is a subclass of ""PC_Member"".
+4. ""Tutorial_Chair"" is a subclass of ""PC_Member"".
+5. ""Workshop_Chair"" is a subclass of ""PC_Member"".
+6. ""PC_Member"" is a subclass of ""Possible_Reviewer""."
+http://ekaw#Paper,Source,Class,paper,"In the context of a conference, a ""paper"" typically refers to a written document that presents research findings, theories, or reviews on a specific topic. These papers are often submitted by researchers, scholars, or professionals and are subject to peer review before being accepted for presentation at the conference. The paper may be presented orally, as a poster, or in a panel discussion, and it contributes to the body of knowledge shared at the conference.","Sure, here are the triples verbalized into phrases:
+
+1. A Camera Ready Paper is a subclass of Paper.
+2. A Conference Paper is a subclass of Paper.
+3. A Demo Paper is a subclass of Paper.
+4. An Industrial Paper is a subclass of Paper.
+5. A Poster Paper is a subclass of Paper.
+6. A Regular Paper is a subclass of Paper.
+7. A Submitted Paper is a subclass of Paper.
+8. A Workshop Paper is a subclass of Paper.
+9. The domain of hasReview is Paper.
+10. The domain of hasReviewer is Paper.
+11. The range of reviewOfPaper is Paper.
+12. The range of reviewerOfPaper is Paper.
+13. A Flyer is disjoint with Paper.
+14. A Multi-author Volume is disjoint with Paper.
+15. Proceedings are disjoint with Paper.
+16. A Programme Brochure is disjoint with Paper.
+17. A Review is disjoint with Paper.
+18. A Web Site is disjoint with Paper.
+19. A Paper is a subclass of Document.
+20. A Paper is disjoint with Flyer, Multi-author Volume, Proceedings, Programme Brochure, Review, and Web Site.The given subgraph can be described in natural language as follows:
+
+There are several classes and relationships defined in this subgraph. 
+
+1. **Classes**:
+   - There is a class represented by the identifier `_:N46f148b565af44009a986ded768d9c59`.
+   - Another class is represented by the identifier `_:N9861432d94434dc0ac122d97382c3a01`.
+   - A third class is represented by the identifier `_:N82c7b3cffcd641fe8956e6d62ff7f027`.
+   - A fourth class is represented by the identifier `_:Nde92c4bd41a14d01818c270bf2b0108a`.
+
+2. **Unions**:
+   - The class `_:N46f148b565af44009a986ded768d9c59` is a union of `Abstract` and `Paper`.
+   - The class `_:N9861432d94434dc0ac122d97382c3a01` is a union of `Paper` and `Event`.
+   - The class `_:N82c7b3cffcd641fe8956e6d62ff7f027` is a union of `Abstract`, `Paper`, and `Event`.
+   - The class `_:Nde92c4bd41a14d01818c270bf2b0108a` is a union of `Paper` and `Event`.
+
+3. **Relationships**:
+   - The relationship `coversTopic` has a domain of the class `_:Nde92c4bd41a14d01818c270bf2b0108a`.
+   - The relationship `topicCoveredBy` has a range of the class `_:N9861432d94434dc0ac122d97382c3a01`.
+   - The relationship `presentationOfPaper` has a range of the class `_:N82c7b3cffcd641fe8956e6d62ff7f027`.
+   - The relationship `paperPresentedAs` has a domain of the class `_:N46f148b565af44009a986ded768d9c59`.
+
+In summary, the subgraph defines several classes and their unions, as well as relationships between these classes. The classes include `Abstract`, `Paper`, and `Event`, and the relationships describe how these classes are related in terms of topics covered and presentations of papers."
+http://ekaw#Paper_Author,Source,Class,paper author,"In the context of a conference, ""Paper_Author"" refers to the individual or group of individuals who have written and submitted a research paper or article to be presented at the conference. These authors are responsible for the content, research, and findings detailed in the paper, and they typically present their work during the conference sessions.","The class ""Paper_Author"" is a subclass of the class ""Person""."
+http://ekaw#Person,Source,Class,person,"In the context of a conference, a ""person"" typically refers to an individual who is attending or participating in the event. This could include speakers, attendees, organizers, panelists, or any other individuals involved in the conference activities.","1. An ""Agency_Staff_Member"" is a subclass of ""Person"".
+2. A ""Conference_Participant"" is a subclass of ""Person"".
+3. A ""Paper_Author"" is a subclass of ""Person"".
+4. A ""Possible_Reviewer"" is a subclass of ""Person"".
+5. A ""Student"" is a subclass of ""Person"".
+6. The domain of ""authorOf"" is ""Person"".
+7. The range of ""writtenBy"" is ""Person"".
+8. A ""Document"" is disjoint with ""Person"".
+9. An ""Event"" is disjoint with ""Person"".
+10. A ""Location"" is disjoint with ""Person"".
+11. An ""Organisation"" is disjoint with ""Person"".
+12. A ""Person"" is disjoint with ""Document"", ""Event"", ""Location"", and ""Organisation"".The provided subgraph describes a set of classes and their relationships in a natural language as follows:
+
+1. There is a class denoted by a blank node (let's call it Class1) which is defined as a union of two lists:
+   - The first list contains the class ""Organisation"" and ends with ""nil"".
+   - The second list contains the class ""Person"" and ends with ""nil"".
+
+2. Another class, denoted by a different blank node (let's call it Class2), is also defined as a union of two lists:
+   - The first list contains the class ""Organisation"" and points to another list.
+   - The second list contains the class ""Person"" and ends with ""nil"".
+
+3. The property ""organisedBy"" has a range of Class2, meaning that anything that is organised by something must be an instance of Class2.
+
+4. The property ""organises"" has a domain of Class1, meaning that anything that organises something must be an instance of Class1.
+
+In summary, the subgraph defines two classes, one of which (Class1) is a union of ""Organisation"" and ""Person"", and the other (Class2) is a union of lists containing ""Organisation"" and ""Person"". The properties ""organisedBy"" and ""organises"" are associated with these classes, specifying the types of entities that can organise or be organised by something."
+http://ekaw#Positive_Review,Source,Class,positive review,"In the context of a conference, a ""Positive Review"" refers to favorable feedback or evaluation given by attendees, speakers, or reviewers regarding various aspects of the conference. This could include praise for the quality of the presentations, the organization of the event, the relevance and impact of the topics discussed, the networking opportunities provided, and the overall experience. Positive reviews are often used to gauge the success of the conference and can influence future attendance and participation.","1. ""Negative_Review"" is disjoint with ""Positive_Review"".
+2. ""Neutral_Review"" is disjoint with ""Positive_Review"".
+3. ""Positive_Review"" is a subclass of ""Review"".
+4. ""Positive_Review"" is disjoint with ""Negative_Review"".
+5. ""Positive_Review"" is disjoint with ""Neutral_Review"".The subgraph describes a restriction related to accepted papers and their reviews. Specifically, it states that an ""Accepted Paper"" is a subclass of a certain restriction. This restriction requires that the property ""hasReview"" must have some values from the class ""Positive Review."" In other words, for a paper to be considered an ""Accepted Paper,"" it must have at least one review that is a ""Positive Review."""
+http://ekaw#Possible_Reviewer,Source,Class,possible reviewer,"In the context of a conference, ""Possible_Reviewer"" refers to an individual who is being considered or has the potential to serve as a reviewer for submitted papers or presentations. These individuals are typically experts in the relevant field and are responsible for evaluating the quality, validity, and significance of the submissions to ensure they meet the conference's standards. The term indicates that the person has not yet been confirmed as a reviewer but is a candidate for the role.","Sure, here are the triples verbalised into phrases:
+
+1. ""PC_Member"" is a subclass of ""Possible_Reviewer"".
+2. The property ""hasReviewer"" has a range of ""Possible_Reviewer"".
+3. The property ""reviewWrittenBy"" has a range of ""Possible_Reviewer"".
+4. The property ""reviewerOfPaper"" has a domain of ""Possible_Reviewer"".
+5. ""Possible_Reviewer"" is a subclass of ""Person""."
+http://ekaw#Poster_Paper,Source,Class,poster paper,"In the context of a conference, a ""Poster Paper"" refers to a type of academic presentation where researchers display their work on a large poster. This poster typically includes a summary of the research, key findings, and visual elements like graphs and charts. During the conference, the researcher stands by their poster to discuss their work with attendees, answer questions, and engage in discussions. This format allows for more interactive and informal exchanges compared to traditional oral presentations.","1. A Demo Paper is disjoint with a Poster Paper.
+2. An Industrial Paper is disjoint with a Poster Paper.
+3. A Regular Paper is disjoint with a Poster Paper.
+4. A Poster Paper is a subclass of a Paper.
+5. A Poster Paper is disjoint with a Demo Paper.
+6. A Poster Paper is disjoint with an Industrial Paper.
+7. A Poster Paper is disjoint with a Regular Paper."
+http://ekaw#Poster_Session,Source,Class,poster session,"In the context of a conference, a ""Poster Session"" refers to a designated period during which researchers and presenters display posters that summarize their research findings, methodologies, and results. These posters are typically set up in a large hall or designated area, and conference attendees can walk around, view the posters, and engage in discussions with the presenters. Poster sessions provide an opportunity for more informal, one-on-one interactions and networking, allowing for detailed discussions and feedback on the research presented.","Sure, here are the triples verbalised into phrases:
+
+1. ""Demo_Session"" is disjoint with ""Poster_Session"".
+2. ""Regular_Session"" is disjoint with ""Poster_Session"".
+3. ""Poster_Session"" is a subclass of ""Session"".
+4. ""Poster_Session"" is disjoint with ""Demo_Session"".
+5. ""Poster_Session"" is disjoint with ""Regular_Session""."
+http://ekaw#Presenter,Source,Class,presenter,"In the context of a conference, a ""Presenter"" is an individual who delivers a speech, lecture, or presentation to an audience. This person is responsible for sharing information, insights, research findings, or other relevant content related to the conference's theme or subject matter. The presenter typically uses visual aids, such as slides or videos, to enhance their presentation and engage the audience.","Sure, here are the triples verbalised into phrases:
+
+1. ""Invited Speaker is a subclass of Presenter.""
+2. ""Presenter is a subclass of Conference Participant."""
+http://ekaw#Proceedings,Source,Class,proceedings,"In the context of a conference, ""proceedings"" refer to the official record of the events, presentations, discussions, and papers presented during the conference. These documents are often compiled and published as a collection, providing a comprehensive overview of the contributions made by participants. Proceedings serve as a valuable resource for researchers and professionals who were unable to attend the conference or who wish to reference the material presented.","Sure, here are the triples verbalised into phrases:
+
+1. ""Conference_Proceedings"" is a subclass of ""Proceedings"".
+2. ""Flyer"" is disjoint with ""Proceedings"".
+3. ""Paper"" is disjoint with ""Proceedings"".
+4. ""Programme_Brochure"" is disjoint with ""Proceedings"".
+5. ""Review"" is disjoint with ""Proceedings"".
+6. ""Web_Site"" is disjoint with ""Proceedings"".
+7. ""Proceedings"" is a subclass of ""Multi-author_Volume"".
+8. ""Proceedings"" is disjoint with ""Flyer"".
+9. ""Proceedings"" is disjoint with ""Paper"".
+10. ""Proceedings"" is disjoint with ""Programme_Brochure"".
+11. ""Proceedings"" is disjoint with ""Review"".
+12. ""Proceedings"" is disjoint with ""Web_Site"".The description of the subgraph in natural language is as follows:
+
+The class ""Proceedings"" is a subclass of two restrictions. The first restriction specifies that the property ""volumeContainsPaper"" must have at least one value. The second restriction specifies that the property ""volumeContainsPaper"" must only have values from a certain class. This class is defined as a union of two types: ""Accepted_Paper"" and ""Invited_Talk_Abstract""."
+http://ekaw#Proceedings_Publisher,Source,Class,proceedings publisher,"In the context of a conference, ""Proceedings_Publisher"" refers to the entity or organization responsible for publishing the conference proceedings. Conference proceedings are a collection of academic papers presented at the conference. The publisher ensures that these papers are compiled, edited, and made available to the public, often in the form of a book, journal, or digital archive. The Proceedings_Publisher plays a crucial role in disseminating the research and findings shared during the conference to a wider audience.","The class ""Proceedings_Publisher"" is a subclass of the class ""Organisation""."
+http://ekaw#Programme_Brochure,Source,Class,programme brochure,"In the context of a conference, a ""Programme Brochure"" is a document or booklet that provides detailed information about the event. It typically includes the schedule of sessions, keynote speakers, workshop details, venue information, and other relevant details that attendees need to know. The brochure serves as a guide to help participants navigate the conference and make the most of the opportunities available.","1. A ""Flyer"" is disjoint with a ""Programme_Brochure"".
+2. A ""Multi-author_Volume"" is disjoint with a ""Programme_Brochure"".
+3. A ""Paper"" is disjoint with a ""Programme_Brochure"".
+4. ""Proceedings"" are disjoint with a ""Programme_Brochure"".
+5. A ""Review"" is disjoint with a ""Programme_Brochure"".
+6. A ""Web_Site"" is disjoint with a ""Programme_Brochure"".
+7. A ""Programme_Brochure"" is a subclass of ""Document"".
+8. A ""Programme_Brochure"" is disjoint with a ""Flyer"".
+9. A ""Programme_Brochure"" is disjoint with a ""Multi-author_Volume"".
+10. A ""Programme_Brochure"" is disjoint with a ""Paper"".
+11. A ""Programme_Brochure"" is disjoint with ""Proceedings"".
+12. A ""Programme_Brochure"" is disjoint with a ""Review"".
+13. A ""Programme_Brochure"" is disjoint with a ""Web_Site"".The given subgraph describes a set of classes and their relationships, particularly focusing on the types of publications and events. Here is a natural language description of the subgraph:
+
+1. There is a class represented by the node `_:N72980f7f2d2e416a84f33f202f49f559`, which is a union of two other classes:
+   - One class is represented by the node `_:N1290fafc69874f72a729f6164f8aa68d`, which includes:
+     - `Multi-author_Volume`
+     - `Programme_Brochure`
+   - The other class is represented by the node `_:Nd7c694d413fa43d2bcb838a07aeebfa1`, which includes:
+     - `Programme_Brochure`
+     - `Web_Site`
+   
+2. The class represented by the node `_:N6f4ed26f1c0f4b2a9b7c86f43784dca2` is a union of:
+   - `Programme_Brochure`
+   - `Web_Site`
+
+3. The class represented by the node `_:Nf8c7a8d980f64ef188c9d74936e01cf3` is a union of:
+   - `Programme_Brochure`
+   - `Web_Site`
+
+4. The class represented by the node `_:N52567eca383a4755a30153752abae619` includes:
+   - `Web_Site`
+   - `Flyer`
+
+5. The class represented by the node `_:N5f4530e4892e45ff9cacc21fd940189f` includes:
+   - `Flyer`
+
+6. The class represented by the node `_:N1733f1e9b91149d2b313b42d068c3675` includes:
+   - `Programme_Brochure`
+   - `Web_Site`
+
+7. The class represented by the node `_:Ncabbe40bf4bd43408e3a8311f640db95` includes:
+   - `Web_Site`
+
+8. The property `publisherOf` has a range of the class represented by the node `_:N72980f7f2d2e416a84f33f202f49f559`.
+
+9. The property `listsEvent` has a domain of the class represented by the node `_:N6f4ed26f1c0f4b2a9b7c86f43784dca2`.
+
+10. The property `eventOnList` has a range of the class represented by the node `_:Nf8c7a8d980f64ef188c9d74936e01cf3`.
+
+In summary, the subgraph defines several classes and their compositions, focusing on different types of publications and events, and specifies the domains and ranges of certain properties related to these classes."
+http://ekaw#Regular_Paper,Source,Class,regular paper,"In the context of a conference, a ""Regular Paper"" typically refers to a standard research paper that is submitted for consideration to be presented at the conference. These papers usually undergo a peer-review process where experts in the field evaluate the quality, originality, and significance of the research. If accepted, the authors are often invited to present their findings during the conference sessions, and the paper may be included in the conference proceedings. Regular Papers are distinct from other types of submissions such as short papers, posters, or workshop papers, which may have different requirements and review processes.","1. ""Demo_Paper"" is disjoint with ""Regular_Paper"".
+2. ""Industrial_Paper"" is disjoint with ""Regular_Paper"".
+3. ""Poster_Paper"" is disjoint with ""Regular_Paper"".
+4. ""Regular_Paper"" is a subclass of ""Paper"".
+5. ""Regular_Paper"" is disjoint with ""Demo_Paper"".
+6. ""Regular_Paper"" is disjoint with ""Industrial_Paper"".
+7. ""Regular_Paper"" is disjoint with ""Poster_Paper""."
+http://ekaw#Regular_Session,Source,Class,regular session,"In the context of a conference, a ""Regular Session"" refers to a scheduled period during which presentations, discussions, or lectures on specific topics are conducted. These sessions are typically part of the main agenda and are designed to provide attendees with insights, knowledge, and updates related to the conference's theme or subject matter. Regular sessions are often contrasted with other types of sessions such as keynote addresses, workshops, or special panels.","1. ""Demo_Session"" is disjoint with ""Regular_Session"".
+2. ""Poster_Session"" is disjoint with ""Regular_Session"".
+3. ""Regular_Session"" is a subclass of ""Session"".
+4. ""Regular_Session"" is disjoint with ""Demo_Session"".
+5. ""Regular_Session"" is disjoint with ""Poster_Session""."
+http://ekaw#Rejected_Paper,Source,Class,rejected paper,"In the context of a conference, a ""Rejected_Paper"" refers to a research paper or academic submission that has been reviewed by the conference's peer review committee and has not been accepted for presentation or publication. This rejection could be due to various reasons such as the paper not meeting the conference's standards, relevance, originality, or quality criteria.","Sure, here are the triples verbalized into phrases:
+
+1. ""Accepted_Paper"" is disjoint with ""Rejected_Paper"".
+2. ""Rejected_Paper"" is a subclass of ""Evaluated_Paper"".
+3. ""Rejected_Paper"" is disjoint with ""Accepted_Paper""."
+http://ekaw#Research_Institute,Source,Class,research institute,"In the context of a conference, a ""Research Institute"" refers to an organization or establishment dedicated to conducting research in a specific field or a variety of disciplines. These institutes often participate in conferences to present their findings, collaborate with other researchers, and stay updated on the latest developments in their areas of expertise. They may also host or sponsor conferences to facilitate the exchange of knowledge and foster innovation within the research community.","The class ""Research Institute"" is a subclass of the class ""Academic Institution""."
+http://ekaw#Research_Topic,Source,Class,research topic,"In the context of a conference, a ""Research Topic"" refers to a specific subject or area of study that is being investigated and discussed. It is the focal point around which presentations, papers, and discussions are centered. Researchers and experts present their findings, theories, and insights related to this topic, contributing to the collective understanding and advancement of knowledge in that particular field.","Sure, here are the triples verbalised into phrases:
+
+1. The property ""coversTopic"" has a range of ""Research_Topic"".
+2. The property ""topicCoveredBy"" has a domain of ""Research_Topic""."
+http://ekaw#Review,Source,Class,review,"In the context of a conference, a ""review"" typically refers to the evaluation or assessment of submitted papers, presentations, or proposals by a panel of experts or peers. This process is crucial for maintaining the quality and relevance of the conference content. Reviewers provide feedback, suggest improvements, and recommend whether a submission should be accepted, revised, or rejected.","1. ""Negative_Review"" is a subclass of ""Review"".
+2. ""Neutral_Review"" is a subclass of ""Review"".
+3. ""Positive_Review"" is a subclass of ""Review"".
+4. The property ""hasReview"" has a range of ""Review"".
+5. The property ""reviewOfPaper"" has a domain of ""Review"".
+6. The property ""reviewWrittenBy"" has a domain of ""Review"".
+7. ""Flyer"" is disjoint with ""Review"".
+8. ""Multi-author_Volume"" is disjoint with ""Review"".
+9. ""Paper"" is disjoint with ""Review"".
+10. ""Proceedings"" is disjoint with ""Review"".
+11. ""Programme_Brochure"" is disjoint with ""Review"".
+12. ""Web_Site"" is disjoint with ""Review"".
+13. ""Review"" is a subclass of ""Document"".
+14. ""Review"" is disjoint with ""Flyer"", ""Multi-author_Volume"", ""Paper"", ""Proceedings"", ""Programme_Brochure"", and ""Web_Site""."
+http://ekaw#SC_Member,Source,Class,sc member,"In the context of a conference, ""SC_Member"" typically refers to a member of the Steering Committee. The Steering Committee is a group of individuals responsible for guiding and overseeing the planning, organization, and execution of the conference. They play a crucial role in decision-making processes, setting the agenda, and ensuring that the conference meets its objectives.","The class ""SC_Member"" is a subclass of the class ""PC_Member""."
+http://ekaw#Scientific_Event,Source,Class,scientific event,"In the context of a conference, a ""Scientific Event"" refers to a gathering or session where researchers, scientists, and professionals present and discuss their latest findings, theories, and advancements in a specific field of study. These events can include presentations, lectures, poster sessions, workshops, and panel discussions, all aimed at sharing knowledge, fostering collaboration, and advancing the scientific community's understanding of various topics.","Sure, here are the triples verbalised into phrases:
+
+1. A Conference is a subclass of a Scientific Event.
+2. An Individual Presentation is a subclass of a Scientific Event.
+3. A Session is a subclass of a Scientific Event.
+4. A Track is a subclass of a Scientific Event.
+5. A Workshop is a subclass of a Scientific Event.
+6. A Scientific Event is a subclass of an Event."
+http://ekaw#Session,Source,Class,session,"In the context of a conference, a ""session"" refers to a specific period during which a particular topic, presentation, or discussion takes place. Sessions are typically scheduled in advance and can include keynote speeches, panel discussions, workshops, or breakout groups. Each session is designed to focus on a specific subject matter and is often led by one or more speakers or facilitators.","1. A ""Conference_Session"" is a subclass of ""Session"".
+2. A ""Demo_Session"" is a subclass of ""Session"".
+3. A ""Poster_Session"" is a subclass of ""Session"".
+4. A ""Regular_Session"" is a subclass of ""Session"".
+5. A ""Workshop_Session"" is a subclass of ""Session"".
+6. A ""Conference"" is disjoint with ""Session"".
+7. A ""Contributed_Talk"" is disjoint with ""Session"".
+8. An ""Invited_Talk"" is disjoint with ""Session"".
+9. A ""Track"" is disjoint with ""Session"".
+10. A ""Tutorial"" is disjoint with ""Session"".
+11. A ""Workshop"" is disjoint with ""Session"".
+12. A ""Session"" is a subclass of ""Scientific_Event"".
+13. A ""Session"" is disjoint with ""Conference"".
+14. A ""Session"" is disjoint with ""Contributed_Talk"".
+15. A ""Session"" is disjoint with ""Invited_Talk"".
+16. A ""Session"" is disjoint with ""Track"".
+17. A ""Session"" is disjoint with ""Tutorial"".
+18. A ""Session"" is disjoint with ""Workshop"".The given subgraph describes a classification and restriction system for different types of events and sessions. Here is a natural language description of the subgraph:
+
+1. **Session Classification**:
+   - A ""Session"" is a subclass of two specific restrictions:
+     - The first restriction specifies that a session must be part of an event that is an ""Individual Presentation"".
+     - The second restriction specifies that a session must be part of an event that belongs to a class defined by a union of ""Conference"" and ""Workshop"".
+
+2. **Event Types**:
+   - The class of events is defined by a union of ""Conference"" and ""Workshop"".
+   - ""Conference"" and ""Workshop"" are both elements of this union.
+
+3. **Track Classification**:
+   - A ""Track"" is part of a list that includes ""Conference"" and ""Workshop"".
+
+4. **Union Definitions**:
+   - There is a union class that includes ""Conference"" and ""Workshop"".
+   - Another union class includes ""Conference"" and ""Workshop"" as well, but it is part of a larger structure that also includes ""Track"".
+
+5. **Restrictions**:
+   - There are three main restrictions:
+     - One restriction specifies that a session must be part of an event that is an ""Individual Presentation"".
+     - Another restriction specifies that a session must be part of an event that belongs to a class defined by a union of ""Conference"" and ""Workshop"".
+     - The third restriction specifies that a session must be part of an event that is part of a union class that includes ""Conference"" and ""Workshop"".
+
+In summary, the subgraph defines a hierarchical structure where sessions are classified based on their association with different types of events, specifically ""Conferences"" and ""Workshops"", and further restricted by their participation in individual presentations and other event classifications."
+http://ekaw#Session_Chair,Source,Class,session chair,"In the context of a conference, a ""Session Chair"" is an individual responsible for overseeing and managing a specific session or segment of the conference. Their duties typically include introducing speakers, ensuring that the session runs on schedule, facilitating discussions, and handling audience questions. The Session Chair plays a crucial role in maintaining the flow and organization of the session, ensuring that it proceeds smoothly and efficiently.","The class ""Session_Chair"" is a subclass of both ""Conference_Participant"" and ""PC_Member""."
+http://ekaw#Social_Event,Source,Class,social event,"In the context of a conference, a ""Social Event"" refers to organized activities or gatherings designed to facilitate networking, relaxation, and informal interaction among attendees. These events can include dinners, cocktail parties, receptions, or other social gatherings that provide opportunities for participants to connect, share ideas, and build relationships outside the formal sessions of the conference.","Sure, here are the triples verbalized into phrases:
+
+1. ""Conference_Banquet"" is a subclass of ""Social_Event"".
+2. ""Conference_Trip"" is a subclass of ""Social_Event"".
+3. ""Conference"" is disjoint with ""Social_Event"".
+4. ""Contributed_Talk"" is disjoint with ""Social_Event"".
+5. ""Invited_Talk"" is disjoint with ""Social_Event"".
+6. ""Track"" is disjoint with ""Social_Event"".
+7. ""Tutorial"" is disjoint with ""Social_Event"".
+8. ""Workshop"" is disjoint with ""Social_Event"".
+9. ""Social_Event"" is a subclass of ""Event"".
+10. ""Social_Event"" is disjoint with ""Conference"".
+11. ""Social_Event"" is disjoint with ""Contributed_Talk"".
+12. ""Social_Event"" is disjoint with ""Invited_Talk"".
+13. ""Social_Event"" is disjoint with ""Track"".
+14. ""Social_Event"" is disjoint with ""Tutorial"".
+15. ""Social_Event"" is disjoint with ""Workshop""."
+http://ekaw#Student,Source,Class,student,"In the context of a conference, a ""student"" typically refers to an individual who is currently enrolled in an educational institution, such as a school, college, or university, and is attending the conference to learn, gain knowledge, or engage in academic or professional development activities. Students at conferences may participate in workshops, presentations, and networking opportunities to enhance their understanding of the subject matter and to connect with experts and peers in their field of study.","The class ""Student"" is a subclass of the class ""Person""."
+http://ekaw#Submitted_Paper,Source,Class,submitted paper,"In the context of a conference, a ""Submitted_Paper"" refers to a research paper or academic article that an author or group of authors has submitted to the conference organizers for consideration. This paper typically undergoes a review process where it is evaluated by experts in the field to determine its suitability for presentation at the conference. If accepted, the paper may be presented during the conference sessions and possibly included in the conference proceedings.","Sure, here are the triples verbalised into phrases:
+
+1. ""Assigned_Paper"" is a subclass of ""Submitted_Paper"".
+2. ""Camera_Ready_Paper"" is disjoint with ""Submitted_Paper"".
+3. ""Submitted_Paper"" is a subclass of ""Paper"".
+4. ""Submitted_Paper"" is disjoint with ""Camera_Ready_Paper""."
+http://ekaw#Track,Source,Class,track,"In the context of a conference, a ""track"" refers to a specific thematic or subject area within the event. Conferences often have multiple tracks running concurrently, each focusing on a different topic or field of interest. Attendees can choose to follow a particular track that aligns with their interests or professional needs, attending sessions, workshops, and presentations related to that theme. For example, a technology conference might have separate tracks for software development, cybersecurity, artificial intelligence, and data science.","Sure, here are the triples verbalised into phrases:
+
+1. ""Conference"" is disjoint with ""Track"".
+2. ""Contributed Talk"" is disjoint with ""Track"".
+3. ""Invited Talk"" is disjoint with ""Track"".
+4. ""Session"" is disjoint with ""Track"".
+5. ""Social Event"" is disjoint with ""Track"".
+6. ""Tutorial"" is disjoint with ""Track"".
+7. ""Workshop"" is disjoint with ""Track"".
+8. ""Track"" is a subclass of ""Scientific Event"".
+9. ""Track"" is disjoint with ""Conference"".
+10. ""Track"" is disjoint with ""Contributed Talk"".
+11. ""Track"" is disjoint with ""Invited Talk"".
+12. ""Track"" is disjoint with ""Session"".
+13. ""Track"" is disjoint with ""Social Event"".
+14. ""Track"" is disjoint with ""Tutorial"".
+15. ""Track"" is disjoint with ""Workshop"".The provided subgraph can be described in natural language as follows:
+
+There is a class named ""Session"" which is a subclass of a restriction. This restriction specifies that all instances must be part of an event and must belong to a class. This class is defined as a union of three specific types: ""Conference,"" ""Track,"" and ""Workshop."""
+http://ekaw#Tutorial,Source,Class,tutorial,"In the context of a conference, a ""tutorial"" refers to a session or workshop designed to provide attendees with in-depth instruction on a specific topic or skill. These sessions are typically led by experts and are intended to be educational, offering practical knowledge and hands-on experience. Tutorials at conferences often aim to help participants gain a deeper understanding of complex subjects, learn new techniques, or develop specific competencies relevant to their field.","1. A ""Conference"" is disjoint with a ""Tutorial"".
+2. A ""Contributed Talk"" is disjoint with a ""Tutorial"".
+3. An ""Invited Talk"" is disjoint with a ""Tutorial"".
+4. A ""Session"" is disjoint with a ""Tutorial"".
+5. A ""Social Event"" is disjoint with a ""Tutorial"".
+6. A ""Track"" is disjoint with a ""Tutorial"".
+7. A ""Workshop"" is disjoint with a ""Tutorial"".
+8. A ""Tutorial"" is a subclass of ""Individual Presentation"".
+9. A ""Tutorial"" is disjoint with a ""Conference"".
+10. A ""Tutorial"" is disjoint with a ""Contributed Talk"".
+11. A ""Tutorial"" is disjoint with an ""Invited Talk"".
+12. A ""Tutorial"" is disjoint with a ""Session"".
+13. A ""Tutorial"" is disjoint with a ""Social Event"".
+14. A ""Tutorial"" is disjoint with a ""Track"".
+15. A ""Tutorial"" is disjoint with a ""Workshop""."
+http://ekaw#Tutorial_Abstract,Source,Class,tutorial abstract,"In the context of a conference, a ""Tutorial_Abstract"" refers to a brief summary or overview of a tutorial session that will be presented at the event. This abstract typically includes key information such as the topic of the tutorial, the main points or skills that will be covered, the intended audience, and the qualifications of the presenter. The purpose of the Tutorial_Abstract is to provide potential attendees with enough information to decide whether the tutorial is relevant and beneficial for them to attend.","The class ""Tutorial_Abstract"" is a subclass of the class ""Abstract""."
+http://ekaw#Tutorial_Chair,Source,Class,tutorial chair,"In the context of a conference, the ""Tutorial Chair"" is a person responsible for organizing and overseeing the tutorial sessions. These sessions are typically educational presentations or workshops designed to provide attendees with in-depth knowledge on specific topics related to the conference theme. The Tutorial Chair's duties may include selecting tutorial topics, recruiting and coordinating with presenters, scheduling sessions, and ensuring that the tutorials run smoothly.","Sure, here are the triples verbalised into phrases:
+
+1. ""PC_Chair"" is disjoint with ""Tutorial_Chair"".
+2. ""Tutorial_Chair"" is a subclass of ""Conference_Participant"".
+3. ""Tutorial_Chair"" is a subclass of ""PC_Member"".
+4. ""Tutorial_Chair"" is disjoint with ""PC_Chair""."
+http://ekaw#University,Source,Class,university,"In the context of a conference, a ""university"" typically refers to an institution of higher education and research, which grants academic degrees in various fields. Universities often host or participate in conferences to share research findings, foster academic collaboration, and engage in intellectual discussions. These conferences can be platforms for scholars, researchers, and students to present their work, network with peers, and stay updated on developments in their areas of study.","The class ""University"" is a subclass of the class ""Academic Institution""."
+http://ekaw#Web_Site,Source,Class,web site,"In the context of a conference, a ""Web_Site"" refers to an online platform or a collection of web pages that provide information about the conference. This can include details such as the conference schedule, speaker bios, registration information, venue details, and any other relevant updates or resources for attendees. The website serves as a central hub for all information related to the conference, making it easier for participants to access and stay informed.","1. A ""Flyer"" is disjoint with a ""Web_Site"".
+2. A ""Multi-author_Volume"" is disjoint with a ""Web_Site"".
+3. A ""Paper"" is disjoint with a ""Web_Site"".
+4. ""Proceedings"" are disjoint with a ""Web_Site"".
+5. A ""Programme_Brochure"" is disjoint with a ""Web_Site"".
+6. A ""Review"" is disjoint with a ""Web_Site"".
+7. A ""Web_Site"" is a subclass of ""Document"".
+8. A ""Web_Site"" is disjoint with a ""Flyer"".
+9. A ""Web_Site"" is disjoint with a ""Multi-author_Volume"".
+10. A ""Web_Site"" is disjoint with a ""Paper"".
+11. A ""Web_Site"" is disjoint with ""Proceedings"".
+12. A ""Web_Site"" is disjoint with a ""Programme_Brochure"".
+13. A ""Web_Site"" is disjoint with a ""Review"".The given subgraph can be described in natural language as follows:
+
+There are three classes defined in the graph. The first class is represented by the node `_:N72980f7f2d2e416a84f33f202f49f559`, which is a union of two lists. The first list contains the items ""Multi-author Volume"" and ""Programme Brochure"". The second list contains the items ""Web Site"" and ""Flyer"".
+
+The second class is represented by the node `_:Nf8c7a8d980f64ef188c9d74936e01cf3`, which is a union of the items ""Programme Brochure"" and ""Web Site"".
+
+The third class is represented by the node `_:N6f4ed26f1c0f4b2a9b7c86f43784dca2`, which is a union of the items ""Programme Brochure"" and ""Web Site"".
+
+Additionally, there are two properties defined in the graph. The property `publisherOf` has a range of the first class (`_:N72980f7f2d2e416a84f33f202f49f559`), and the property `listsEvent` has a domain of the third class (`_:N6f4ed26f1c0f4b2a9b7c86f43784dca2`). The property `eventOnList` has a range of the second class (`_:Nf8c7a8d980f64ef188c9d74936e01cf3`)."
+http://ekaw#Workshop,Source,Class,workshop,"In the context of a conference, a workshop refers to a session or series of sessions where participants engage in intensive discussion and activity on a particular subject or project. Workshops are typically interactive and hands-on, allowing attendees to develop skills, collaborate on ideas, and gain practical experience under the guidance of an expert or facilitator.","Sure, here are the triples verbalised into phrases:
+
+1. A ""Conference"" is disjoint with a ""Workshop"".
+2. An ""Individual_Presentation"" is disjoint with a ""Workshop"".
+3. An ""Invited_Talk"" is disjoint with a ""Workshop"".
+4. A ""Session"" is disjoint with a ""Workshop"".
+5. A ""Social_Event"" is disjoint with a ""Workshop"".
+6. A ""Track"" is disjoint with a ""Workshop"".
+7. A ""Tutorial"" is disjoint with a ""Workshop"".
+8. A ""Workshop"" is a subclass of a ""Scientific_Event"".
+9. A ""Workshop"" is disjoint with a ""Conference"".
+10. A ""Workshop"" is disjoint with an ""Individual_Presentation"".
+11. A ""Workshop"" is disjoint with an ""Invited_Talk"".
+12. A ""Workshop"" is disjoint with a ""Session"".
+13. A ""Workshop"" is disjoint with a ""Social_Event"".
+14. A ""Workshop"" is disjoint with a ""Track"".
+15. A ""Workshop"" is disjoint with a ""Tutorial"".The provided subgraph describes a hierarchical structure of events and their relationships. Here is a natural language description of the subgraph:
+
+1. **Session** is a subclass of a restriction that specifies that it must be part of an event that is a union of **Conference** and **Workshop**.
+2. **Session** is also a subclass of another restriction that specifies that it must be part of an event that is a union of **Conference**, **Workshop**, and **Track**.
+3. The union of **Conference** and **Workshop** is represented by a list where **Conference** is the first element and **Workshop** is the rest of the list.
+4. The union of **Conference**, **Workshop**, and **Track** is represented by a list where **Conference** is the first element, followed by **Workshop**, and then **Track**.
+5. **Track** is part of a list where **Track** is the first element and **Workshop** is the rest of the list.
+6. **Workshop** is part of a list where **Workshop** is the first element and the rest of the list is nil, indicating the end of the list.
+7. **Conference** is part of a list where **Conference** is the first element and **Workshop** is the rest of the list.
+8. **Workshop** is part of a list where **Workshop** is the first element and the rest of the list is nil, indicating the end of the list.
+9. There are two restrictions, one specifying that the event must be part of a union of **Conference** and **Workshop**, and another specifying that the event must be part of a union of **Conference**, **Workshop**, and **Track**.
+10. **Class** is a type that is part of the union of **Conference** and **Workshop**.
+
+In summary, the subgraph defines a structure where a **Session** must be part of an event that can be a **Conference**, **Workshop**, or **Track**, and these events are organized in a hierarchical list structure."
+http://ekaw#Workshop_Chair,Source,Class,workshop chair,"In the context of a conference, the term ""Workshop Chair"" refers to the individual responsible for organizing and overseeing a specific workshop within the conference. This role typically includes tasks such as selecting topics, coordinating with speakers or presenters, managing the schedule, and ensuring that the workshop runs smoothly. The Workshop Chair plays a crucial role in ensuring the quality and success of the workshop, contributing to the overall success of the conference.","Sure, here are the triples verbalised into phrases:
+
+1. ""PC_Chair"" is disjoint with ""Workshop_Chair"".
+2. ""Workshop_Chair"" is a subclass of ""Conference_Participant"".
+3. ""Workshop_Chair"" is a subclass of ""PC_Member"".
+4. ""Workshop_Chair"" is disjoint with ""PC_Chair""."
+http://ekaw#Workshop_Paper,Source,Class,workshop paper,"In the context of a conference, a ""Workshop Paper"" refers to a research paper that is submitted and presented as part of a workshop session within the conference. Workshops are typically smaller, more focused sessions that delve into specific topics or emerging areas of research. These papers often undergo a review process and are selected based on their relevance and quality. The goal of a workshop paper is to foster discussion, receive feedback, and collaborate with other researchers who have similar interests.","Sure, here are the triples verbalised into phrases:
+
+1. A ""Conference_Paper"" is disjoint with a ""Workshop_Paper"".
+2. An ""Industrial_Paper"" is disjoint with a ""Workshop_Paper"".
+3. A ""Workshop_Paper"" is a subclass of ""Paper"".
+4. A ""Workshop_Paper"" is disjoint with a ""Conference_Paper"".
+5. A ""Workshop_Paper"" is disjoint with an ""Industrial_Paper""."
+http://ekaw#Workshop_Session,Source,Class,workshop session,"In the context of a conference, a ""Workshop_Session"" refers to a scheduled period during which participants engage in interactive, hands-on activities or discussions focused on a specific topic or skill. These sessions are typically designed to be more participatory and practical compared to traditional lecture-style presentations, allowing attendees to actively engage, practice new skills, and collaborate with others.","Sure, here are the triples verbalised into phrases:
+
+1. ""Conference_Session"" is disjoint with ""Workshop_Session"".
+2. ""Workshop_Session"" is a subclass of ""Session"".
+3. ""Workshop_Session"" is disjoint with ""Conference_Session"".
+
+Note that the third phrase is essentially a repetition of the first one, as the disjoint relationship is bidirectional."
+http://ekaw#authorOf,Source,Property,author of,"In the context of a conference, ""authorOf"" typically refers to the individual or individuals who have written a paper, article, or presentation that is being presented or discussed at the conference. It denotes the creator(s) of the intellectual content being shared. For example, if a research paper is being presented at a conference, the ""authorOf"" the paper would be the person or people who conducted the research and wrote the paper.","The property ""authorOf"" has a domain of ""Person"" and a range of ""Document"". This means that ""authorOf"" is a relationship where a ""Person"" is the author of a ""Document""."
+http://ekaw#coversTopic,Source,Property,covers topic,"In the context of a conference, ""coversTopic"" refers to the subjects or themes that are addressed or discussed during the event. It indicates the range of topics that the conference presentations, panels, workshops, or discussions will focus on. For example, a technology conference might cover topics such as artificial intelligence, cybersecurity, and software development.","The property ""coversTopic"" has a range of ""Research_Topic"".The domain covers a topic that is a class consisting of a union of two elements: Paper and Event."
+http://ekaw#eventOnList,Source,Property,event on list,"In the context of a conference, ""eventOnList"" typically refers to a specific event or session that is included in the conference's schedule or agenda. This could be a keynote speech, a panel discussion, a workshop, or any other scheduled activity that attendees can participate in. The term suggests that the event is officially listed and recognized as part of the conference program.","The property ""eventOnList"" has a domain of ""Event"".The subgraph describes a class named ""eventOnList"" which has a range that is a union of two types: ""Web_Site"" and ""Programme_Brochure"". The union is represented by a list where ""Programme_Brochure"" is the first element, followed by ""Web_Site"", and the list ends with ""nil""."
+http://ekaw#hasEvent,Source,Property,has event,"In the context of a conference, ""hasEvent"" typically refers to the inclusion or occurrence of specific events within the overall schedule of the conference. These events can include keynote speeches, panel discussions, workshops, networking sessions, and other activities that are part of the conference program. Essentially, ""hasEvent"" indicates that the conference features various planned events for attendees to participate in.","Sure, here are the triples verbalised into phrases:
+
+1. The property ""hasEvent"" has a domain of ""Event"".
+2. The property ""hasEvent"" has a range of ""Event"".
+3. The property ""hasEvent"" is a sub-property of ""hasPart"".The class ""Session"" is a subclass of a restriction. This restriction specifies that the property ""hasEvent"" must have some values from the class ""Individual_Presentation""."
+http://ekaw#hasPart,Source,Property,has part,"In the context of a conference, ""hasPart"" refers to the relationship between the conference as a whole and its individual components or segments. These parts can include various sessions, workshops, presentations, panels, or any other sub-events that collectively make up the entire conference. For example, a conference might have multiple keynote speeches, breakout sessions, and networking events, each of which would be considered a ""part"" of the overall conference.","Sure, here are the triples verbalised into phrases:
+
+1. The property ""hasEvent"" is a subproperty of the property ""hasPart"".
+2. The property ""inverse_of_partOf_7"" is a subproperty of the property ""hasPart""."
+http://ekaw#hasReview,Source,Property,has review,"In the context of a conference, ""hasReview"" typically refers to whether a submitted paper, abstract, or proposal has undergone a review process. This review process is usually conducted by a panel of experts or peers who evaluate the submission for quality, relevance, originality, and adherence to the conference's standards and guidelines. If a submission ""hasReview,"" it means it has been assessed and critiqued by reviewers, which is a common practice in academic and professional conferences to ensure the integrity and quality of the presented work.","The property ""hasReview"" is used to indicate that a ""Paper"" has a ""Review"". In other words, ""hasReview"" connects a ""Paper"" to its corresponding ""Review"".The given subgraph can be described in natural language as follows:
+
+An ""Evaluated Paper"" is a type of paper that must have at least three reviews. Additionally, an ""Accepted Paper"" is a type of paper that must have some reviews which are positive."
+http://ekaw#hasReviewer,Source,Property,has reviewer,"In the context of a conference, ""hasReviewer"" typically refers to the assignment or association of a reviewer to a particular paper or submission. This means that a specific individual, the reviewer, is responsible for evaluating the quality, validity, and relevance of the submission to determine if it meets the standards and criteria set by the conference. The reviewer's feedback is crucial in the decision-making process regarding the acceptance or rejection of the submission.","The property ""hasReviewer"" applies to instances of the class ""Paper"" and its values are instances of the class ""Possible_Reviewer"".The class ""Assigned_Paper"" is a subclass of a restriction that specifies the following conditions: the property ""hasReviewer"" must have a minimum cardinality of 3."
+http://ekaw#hasUpdatedVersion,Source,Property,has updated version,"In the context of a conference, ""hasUpdatedVersion"" likely refers to whether there is a newer or revised version of a document, presentation, schedule, or any other material related to the conference. It indicates that an update has been made to the original version, and the updated version is now available.","The property ""hasUpdatedVersion"" is defined with the following characteristics:
+- The domain of ""hasUpdatedVersion"" is ""Document"", meaning that it is a property that applies to instances of ""Document"".
+- The range of ""hasUpdatedVersion"" is also ""Document"", indicating that the value of this property is another instance of ""Document"".
+
+In simpler terms, ""hasUpdatedVersion"" is a property that links one document to another document that is its updated version."
+http://ekaw#heldIn,Source,Property,held in,"In the context of a conference, ""heldIn"" refers to the location or venue where the conference takes place. It indicates the specific place or city where the event is being conducted. For example, if a conference is ""held in"" New York, it means that New York is the location where the conference is occurring.","The property ""heldIn"" has a domain of ""Event"" and a range of ""Location"". This means that ""heldIn"" is a relationship where an ""Event"" is associated with a ""Location"". In other words, an event is held in a location."
+http://ekaw#inverse_of_partOf_7,Source,Property,inverse of partof 7,"In the context of a conference, ""inverse_of_partOf_7"" likely refers to a relationship in a data model or ontology where an entity is related to another entity in a way that is the inverse of a ""partOf"" relationship. Specifically, if ""partOf_7"" indicates that an entity is a component or segment of a larger entity (e.g., a session is part of a conference), then ""inverse_of_partOf_7"" would indicate the larger entity that the component belongs to (e.g., the conference that includes the session).
+
+In simpler terms, if ""partOf_7"" means ""is part of,"" then ""inverse_of_partOf_7"" means ""includes"" or ""contains."" For example, if a session is part of a conference, the inverse relationship would be that the conference includes the session.","The property ""inverse_of_partOf_7"" has a range of ""Event"" and is a subproperty of ""hasPart""."
+http://ekaw#listsEvent,Source,Property,lists event,"In the context of a conference, ""listsEvent"" likely refers to a feature or function that compiles and displays a list of events associated with the conference. This could include sessions, workshops, keynote speeches, networking events, and other scheduled activities. The purpose of ""listsEvent"" is to provide attendees with an organized overview of what is happening, when, and where, helping them to plan their participation effectively.","The property ""listsEvent"" has a range of ""Event"".The subgraph describes a class that is associated with a union of two elements: ""Programme_Brochure"" and ""Web_Site"". The class is identified by the blank node '_:N6f4ed26f1c0f4b2a9b7c86f43784dca2'. The union is represented by another blank node '_:N1733f1e9b91149d2b313b42d068c3675', which lists ""Programme_Brochure"" as its first element and points to '_:Ncabbe40bf4bd43408e3a8311f640db95' as the rest of the list. The node '_:Ncabbe40bf4bd43408e3a8311f640db95' lists ""Web_Site"" as its first element and ends the list with 'nil'. Additionally, the property 'listsEvent' has a domain that is this class."
+http://ekaw#locationOf,Source,Property,location of,"In the context of a conference, ""locationOf"" refers to the specific place or venue where the conference is being held. This could include details such as the name of the building, the address, the city, and any relevant information that helps attendees find and navigate to the conference site.","The property ""locationOf"" has a domain of ""Location"" and a range of ""Event""."
+http://ekaw#organisedBy,Source,Property,organised by,"In the context of a conference, ""organisedBy"" refers to the individual, group, or organization responsible for planning, coordinating, and executing the event. This includes tasks such as selecting the venue, arranging speakers, managing registrations, and overseeing the overall logistics to ensure the conference runs smoothly.","Sure, here are the triples verbalised into phrases:
+
+1. The property ""scientificallyOrganisedBy"" is a sub-property of ""organisedBy"".
+2. The property ""technicallyOrganisedBy"" is a sub-property of ""organisedBy"".
+3. The property ""organisedBy"" has a domain of ""Event"".The property ""organisedBy"" has a range that is a class. This class is defined as a union of two types: ""Organisation"" and ""Person""."
+http://ekaw#organises,Source,Property,organists,"In the context of a conference, ""organises"" refers to the process of planning, coordinating, and managing the various aspects of the event. This includes tasks such as selecting the venue, scheduling sessions, arranging speakers, handling registrations, and ensuring that all logistical details are taken care of to ensure the conference runs smoothly.","Sure, here are the triples verbalised into phrases:
+
+1. The property ""scientificallyOrganises"" is a sub-property of the property ""organises"".
+2. The property ""technicallyOrganises"" is a sub-property of the property ""organises"".
+3. The property ""organises"" has a range of ""Event"".The subgraph describes a class that is a union of two entities: ""Organisation"" and ""Person"". This class is associated with the property ""organises"". Specifically, the class is defined as follows:
+
+1. There is a list where the first element is ""Organisation"".
+2. The rest of the list points to another list.
+3. In this second list, the first element is ""Person"".
+4. The rest of this second list is ""nil"", indicating the end of the list.
+
+This union class is of type ""Class"" and is the domain of the property ""organises""."
+http://ekaw#paperInVolume,Source,Property,paper in volume,"In the context of a conference, ""paperInVolume"" typically refers to a specific research paper or article that is included in the published proceedings of the conference. These proceedings are often compiled into a single volume or a series of volumes, which contain all the papers presented at the conference. Each ""paperInVolume"" represents an individual contribution by researchers or scholars that has been accepted for presentation and publication as part of the conference's official record.",Information is not available.
+http://ekaw#paperPresentedAs,Source,Property,paper presented as,"In the context of a conference, ""paperPresentedAs"" refers to the format or category in which a research paper is presented. This could include various types of presentations such as oral presentations, poster presentations, or panel discussions. It indicates how the research findings are shared with the conference attendees.","The property ""paperPresentedAs"" has a range of ""Individual_Presentation"".The subgraph describes a class that is defined as a union of two elements: an abstract and a paper. The class is associated with the domain of ""paperPresentedAs."" The structure is as follows:
+
+1. There is a class (denoted as _:N46f148b565af44009a986ded768d9c59) which is of type ""Class.""
+2. This class is defined as a union of two elements:
+   - The first element is an ""Abstract.""
+   - The second element is a ""Paper.""
+3. The ""Paper"" element is the final element in the union (indicated by 'rest' being 'nil').
+4. The class is associated with the domain of ""paperPresentedAs.""
+
+In summary, the class represents a union of an abstract and a paper, and it is related to the concept of ""paperPresentedAs."""
+http://ekaw#partOf,Source,Property,part of,"In the context of a conference, ""partOf"" typically refers to a smaller event, session, or component that is included within the larger framework of the conference. For example, a workshop, panel discussion, or keynote speech can be considered ""partOf"" the overall conference. It signifies that these elements are integral components that contribute to the entirety of the conference experience.","The property ""partOfEvent"" is a subproperty of the property ""partOf""."
+http://ekaw#partOfEvent,Source,Property,part of event,"In the context of a conference, ""partOfEvent"" refers to a specific segment or component that is included within the larger event. This could be a session, workshop, keynote speech, panel discussion, or any other scheduled activity that is organized as a part of the overall conference. Essentially, it denotes that the particular activity is an integral element of the conference's program.","The property ""partOfEvent"" has a domain of ""Event"" and a range of ""Event"". Additionally, ""partOfEvent"" is a subproperty of ""partOf"".The given subgraph describes a hierarchical structure of events and their relationships. Here is a natural language description of the subgraph:
+
+1. **Classes and Restrictions:**
+   - There is a class named `Session`.
+   - `Session` is a subclass of a restriction that specifies it must be part of an event that is either a `Conference`, `Workshop`, or `Track`.
+   - There is another class named `Conference_Session`, which is a subclass of a restriction that specifies it must be part of a `Conference`.
+
+2. **Union and List Structures:**
+   - The restriction for `Session` involves a union of classes, which includes `Conference`, `Workshop`, and `Track`.
+   - The union of `Conference`, `Workshop`, and `Track` is represented using a list structure:
+     - The first element is `Conference`, followed by the rest of the list.
+     - The rest of the list contains `Track`, followed by another list.
+     - The next list contains `Workshop`, followed by `nil`, indicating the end of the list.
+
+3. **Properties:**
+   - The property `partOfEvent` is used in the restrictions to specify the relationship between `Session` and the events (`Conference`, `Workshop`, `Track`).
+
+4. **Types:**
+   - The restrictions and classes are explicitly typed as `Restriction` and `Class`, respectively.
+
+In summary, the subgraph defines a class hierarchy where `Session` can be part of a `Conference`, `Workshop`, or `Track`, and `Conference_Session` must be part of a `Conference`. The relationships are defined using restrictions and union structures to specify the possible types of events."
+http://ekaw#presentationOfPaper,Source,Property,presentation of paper,"In the context of a conference, ""presentation of paper"" refers to the act of delivering a talk or lecture where the author(s) of a research paper or academic article present their findings, methodologies, and conclusions to an audience. This typically involves summarizing the key points of the paper, often accompanied by visual aids such as slides, and may include a question-and-answer session to engage with the audience and address any queries or comments. The goal is to disseminate knowledge, foster discussion, and receive feedback from peers and experts in the field.","The property ""presentationOfPaper"" has a domain of ""Individual_Presentation"".The given subgraph can be described in natural language as follows:
+
+There is a class that is a union of the classes ""Abstract"" and ""Paper"". This class is involved in the range of the property ""presentationOfPaper"". 
+
+A ""Contributed Talk"" is a subclass of a restriction that specifies the property ""presentationOfPaper"" must have exactly one value. Additionally, a ""Contributed Talk"" is a subclass of another restriction that specifies the property ""presentationOfPaper"" must have some values from the class ""Camera Ready Paper"".
+
+In summary, a ""Contributed Talk"" involves presenting exactly one paper, which can be either an abstract or a full paper, and this paper must be a camera-ready paper."
+http://ekaw#publisherOf,Source,Property,publisher of,"In the context of a conference, ""publisherOf"" refers to the entity or organization responsible for publishing the proceedings, papers, or any official documents associated with the conference. This could include academic papers, presentations, and other materials that are disseminated to the attendees or made available to the public. The publisher ensures that the content is accessible, properly formatted, and distributed according to the standards of the conference.","The property ""publisherOf"" has a domain of ""Organisation"". This means that the property ""publisherOf"" is associated with entities that are of type ""Organisation"".The subgraph describes a class that is the range of the ""publisherOf"" property. This class is defined as a union of several types of documents. Specifically, the union includes ""Multi-author Volume,"" ""Programme Brochure,"" ""Web Site,"" and ""Flyer.""
+
+To break it down:
+1. The ""publisherOf"" property has a range that is a class.
+2. This class is a union of multiple document types.
+3. The document types included in this union are:
+   - ""Multi-author Volume""
+   - ""Programme Brochure""
+   - ""Web Site""
+   - ""Flyer""
+
+In summary, the ""publisherOf"" property can be associated with any of the following document types: Multi-author Volume, Programme Brochure, Web Site, or Flyer."
+http://ekaw#referencedIn,Source,Property,referenced in,"In the context of a conference, ""referencedIn"" typically means that a particular work, paper, or presentation has been cited or mentioned in other works, papers, or presentations. It indicates that the content has been acknowledged or used as a reference by other researchers or speakers within the conference proceedings or related academic discussions.",Information is not available.
+http://ekaw#references,Source,Property,references,"In the context of a conference, ""references"" typically refer to the list of sources or citations that a speaker or presenter uses to support the information, data, or claims made in their presentation. These references provide credibility and allow attendees to verify the information or explore the topic further. They can include books, journal articles, research papers, websites, and other relevant materials.",Information is not available.
+http://ekaw#reviewOfPaper,Source,Property,review of paper,"In the context of a conference, ""reviewOfPaper"" refers to the evaluation process where experts in the field (often referred to as reviewers or referees) assess the quality, validity, and relevance of a research paper submitted for presentation at the conference. This review process typically involves checking the paper for originality, significance of the research, clarity of presentation, methodology, and adherence to the conference's guidelines. The feedback from these reviews helps the conference organizers decide whether the paper should be accepted, revised, or rejected for inclusion in the conference program.","The property ""reviewOfPaper"" has a domain of ""Review"" and a range of ""Paper"". This means that ""reviewOfPaper"" is a relationship where the subject is a ""Review"" and the object is a ""Paper"". In other words, ""reviewOfPaper"" connects a ""Review"" to a ""Paper""."
+http://ekaw#reviewWrittenBy,Source,Property,review written by,"In the context of a conference, ""reviewWrittenBy"" typically refers to the individual or group of individuals who have authored a review of a paper, presentation, or other submission. This review is usually part of the peer review process, where experts in the field evaluate the quality, relevance, and originality of the work submitted to the conference. The ""reviewWrittenBy"" attribute identifies the reviewers responsible for providing feedback and recommendations regarding the acceptance or rejection of the submission.","Sure, here are the triples verbalised into phrases:
+
+1. The property ""reviewWrittenBy"" has a domain of ""Review"".
+2. The property ""reviewWrittenBy"" has a range of ""Possible_Reviewer"".
+3. The property ""reviewWrittenBy"" is a subproperty of ""writtenBy""."
+http://ekaw#reviewerOfPaper,Source,Property,reviewer of paper,"In the context of a conference, ""reviewerOfPaper"" refers to an individual who is responsible for evaluating and providing feedback on a research paper that has been submitted for consideration. The reviewer assesses the paper's quality, originality, relevance, and adherence to the conference's standards and guidelines. Their evaluation helps determine whether the paper should be accepted, revised, or rejected for presentation at the conference.","The property ""reviewerOfPaper"" has a domain of ""Possible_Reviewer"" and a range of ""Paper"". This means that ""reviewerOfPaper"" is a relationship where the subject is a ""Possible_Reviewer"" and the object is a ""Paper""."
+http://ekaw#scientificallyOrganisedBy,Source,Property,scientifically organised by,"In the context of a conference, ""scientificallyOrganisedBy"" refers to the individual, group, or organization responsible for the scientific planning and coordination of the conference. This includes tasks such as selecting topics, arranging speakers, organizing sessions, and ensuring the overall scientific integrity and quality of the conference content.","The property ""scientificallyOrganisedBy"" has a range of ""Academic_Institution"" and is a subproperty of ""organisedBy""."
+http://ekaw#scientificallyOrganises,Source,Property,scientifically organises,"In the context of a conference, ""scientifically organises"" refers to the process of planning and structuring the event in a manner that adheres to scientific principles and standards. This includes selecting relevant topics, inviting qualified speakers, ensuring the accuracy and reliability of the information presented, and facilitating discussions that advance scientific knowledge. The goal is to create a well-organized, credible, and informative event that contributes to the scientific community.","The property ""scientificallyOrganises"" has a domain of ""Academic_Institution"" and is a subproperty of ""organises""."
+http://ekaw#technicallyOrganisedBy,Source,Property,technically organised by,"In the context of a conference, ""technicallyOrganisedBy"" refers to the entity or organization responsible for the technical aspects of organizing the event. This can include tasks such as setting up the conference infrastructure, managing technical equipment, handling online platforms for virtual conferences, and ensuring that all technical requirements are met for the smooth execution of the event. This entity may not necessarily be the main organizer but plays a crucial role in the technical execution of the conference.","The property ""technicallyOrganisedBy"" is a subproperty of the property ""organisedBy""."
+http://ekaw#technicallyOrganises,Source,Property,technically organises,"In the context of a conference, ""technically organises"" refers to the responsibilities related to the technical aspects of planning and executing the event. This can include setting up and managing audio-visual equipment, ensuring internet connectivity, handling live streaming or virtual meeting platforms, managing presentation software, and troubleshooting any technical issues that arise during the conference. Essentially, it involves all the technical logistics that ensure the smooth operation of the conference.","The property ""technicallyOrganises"" has a domain of ""Organisation"" and is a subproperty of ""organises""."
+http://ekaw#topicCoveredBy,Source,Property,topic covered by,"In the context of a conference, ""topicCoveredBy"" refers to the specific subject matter or themes that are addressed or discussed by a particular session, presentation, or speaker. It indicates the content or focus areas that will be covered during that part of the conference.","The property ""topicCoveredBy"" has a domain of ""Research_Topic"".The subgraph describes a class that covers topics which are a union of ""Paper"" and ""Event"". Specifically, it states that there is a class (denoted by a blank node) which has a property ""topicCoveredBy"" with a range that is another blank node representing a class. This class is defined as a union of two elements: ""Paper"" and ""Event"". The union is represented by a list where ""Paper"" is the first element, followed by ""Event"", and the list ends with ""nil""."
+http://ekaw#updatedVersionOf,Source,Property,updated version of,"In the context of a conference, ""updatedVersionOf"" typically refers to a newer or revised edition of a document, presentation, or paper that has been previously submitted or presented. This could mean that the content has been improved, corrected, or expanded upon since its original version. For example, if a speaker presents an updated version of their research paper, it means they have made changes or additions to the original paper to reflect new findings, feedback, or additional information.","The property ""updatedVersionOf"" has a domain of ""Document"" and a range of ""Document"". This means that ""updatedVersionOf"" is used to indicate that one document is an updated version of another document.The class ""Camera_Ready_Paper"" is a subclass of a restriction that specifies that it must have some values from the class ""Accepted_Paper"" on the property ""updatedVersionOf""."
+http://ekaw#volumeContainsPaper,Source,Property,volume contains paper,"In the context of a conference, ""volumeContainsPaper"" typically refers to whether a particular volume (such as a conference proceedings book or journal issue) includes a specific paper. It indicates that the paper in question is part of the collection of works published in that volume.","The provided subgraph describes a set of relationships and restrictions involving different types of papers and proceedings in a conference context. Here is a natural language description of the subgraph:
+
+1. **Proceedings** are a subclass of two restrictions:
+   - The first restriction specifies that the property `volumeContainsPaper` must have a minimum cardinality of 1.
+   - The second restriction specifies that the property `volumeContainsPaper` must only contain instances of a certain class.
+
+2. **Conference_Proceedings** are a subclass of a restriction that specifies that the property `volumeContainsPaper` must only contain instances of a certain class.
+
+3. The class that the property `volumeContainsPaper` must contain is defined as a union of two other classes:
+   - **Accepted_Paper**
+   - **Invited_Talk_Abstract**
+
+4. The class **Accepted_Paper** is part of a list where the next element is **Invited_Talk_Abstract**, and this list ends with `nil`.
+
+5. The class **Conference_Paper** is part of another list where the next element is **Invited_Talk_Abstract**, and this list also ends with `nil`.
+
+In summary, the subgraph defines that proceedings must contain at least one paper, and these papers can be either accepted papers, invited talk abstracts, or conference papers."
+http://ekaw#writtenBy,Source,Property,written by,"In the context of a conference, ""writtenBy"" typically refers to the author or authors who have written a paper, article, or presentation that is being presented or discussed at the conference. It indicates the individuals responsible for the creation of the content.","Sure, here are the triples verbalised into phrases:
+
+1. The property ""reviewWrittenBy"" is a subproperty of the property ""writtenBy"".
+2. The property ""writtenBy"" has a domain of ""Document"".
+3. The property ""writtenBy"" has a range of ""Person"".A ""Camera Ready Paper"" is a type of document that must be written by at least one ""Conference Participant""."
+http://sigkdd#ACM_SIGKDD,Target,Class,acm sigkdd,"ACM_SIGKDD stands for the Association for Computing Machinery's Special Interest Group on Knowledge Discovery and Data Mining. It is a leading professional organization that focuses on the research and practice of data mining, knowledge discovery, and related fields. The ACM SIGKDD conference is a premier event where researchers, practitioners, and industry professionals gather to present their latest findings, share insights, and discuss advancements in the field.","Sure, here are the triples verbalised into phrases:
+
+1. The term ""design"" has a domain of ""ACM_SIGKDD"".
+2. The term ""designed_by"" has a range of ""ACM_SIGKDD"".
+3. The term ""hold"" has a domain of ""ACM_SIGKDD"".
+4. The term ""holded_by"" has a range of ""ACM_SIGKDD"".
+5. The term ""search"" has a domain of ""ACM_SIGKDD"".
+6. The term ""searched_by"" has a range of ""ACM_SIGKDD"".The subgraph describes the following relationships and restrictions:
+
+1. **ACM_SIGKDD** is a subclass of a restriction that involves the property **hold** and has some values from **Conference**.
+2. **ACM_SIGKDD** is also a subclass of another restriction that involves the property **search** and has some values from **Sponzor**.
+3. Additionally, **ACM_SIGKDD** is a subclass of a third restriction that involves the property **design** and has some values from **Deadline**.
+
+In summary, the entity **ACM_SIGKDD** is defined by three restrictions:
+- It holds some values from **Conference**.
+- It searches some values from **Sponzor**.
+- It designs some values from **Deadline**."
+http://sigkdd#Abstract,Target,Class,abstract,"In the context of a conference, an ""abstract"" is a brief summary of a research paper, presentation, or study that is submitted for consideration. It typically includes the main objectives, methods, results, and conclusions of the work. The abstract allows conference organizers and attendees to quickly understand the essence of the research and decide its relevance and interest to them.","The class ""Abstract"" is a subclass of the class ""Document"".The class ""Abstract"" is defined as equivalent to a restriction. This restriction specifies that there is a property ""submit_until"" which has some values from the class ""Deadline_Abstract_Submission""."
+http://sigkdd#Author,Target,Class,author,"In the context of a conference, an ""author"" typically refers to an individual who has written a paper, article, or study that is being presented or discussed at the event. This person is responsible for the research and content of the work and is often the one who presents their findings to the conference attendees.","Sure, here are the triples verbalised into phrases:
+
+1. ""Author_of_paper"" is a subclass of ""Author"".
+2. ""Author_of_paper_student"" is a subclass of ""Author"".
+3. The property ""notification_until"" has a domain of ""Author"".
+4. The property ""obtain"" has a domain of ""Author"".
+5. The property ""submit"" has a domain of ""Author"".
+6. ""Author"" is a subclass of ""Speaker"".The class ""Author"" is defined as equivalent to a class that has a restriction on the property ""submit"" such that some values from this property must be of type ""Paper"". Additionally, ""Author"" is a subclass of another class that has a restriction on the property ""notification_until"" such that some values from this property must be of type ""Deadline_Author_notification""."
+http://sigkdd#Author_of_paper,Target,Class,author of paper,"In the context of a conference, ""Author_of_paper"" refers to the individual or group of individuals who have written and contributed a research paper or academic article that is being presented or discussed at the conference. These authors are typically responsible for the research, analysis, and conclusions presented in the paper.","The class ""Author_of_paper"" is a subclass of the class ""Author"".The class ""Author_of_paper"" is a subclass of two restrictions. The first restriction specifies that the ""Author_of_paper"" has some values from ""Best_Research_Paper_Award"" on the property ""award"". The second restriction specifies that the ""Author_of_paper"" has some values from ""Best_Applications_Paper_Award"" on the property ""award""."
+http://sigkdd#Author_of_paper_student,Target,Class,author of paper student,"In the context of a conference, ""Author_of_paper_student"" refers to a student who has authored or co-authored a research paper that is being presented at the conference. This designation highlights the student's contribution to the academic work and their role in the research presented.","The class ""Author_of_paper_student"" is a subclass of the class ""Author"".The class ""Author_of_paper_student"" is a subclass of a restriction. This restriction specifies that the property ""award"" must have some values from the class ""Best_Student_Paper_Award""."
+http://sigkdd#Award,Target,Class,award,"In the context of a conference, an ""award"" refers to a recognition or honor given to individuals or groups for their outstanding contributions, achievements, or performance in a particular field or area of expertise. This could include awards for best research paper, outstanding presentation, significant innovation, or other notable accomplishments presented during the conference.","Sure, here are the triples verbalised into phrases:
+
+1. ""Best_Applications_Paper_Award"" is a subclass of ""Award"".
+2. ""Best_Research_Paper_Award"" is a subclass of ""Award"".
+3. ""Best_Student_Paper_Award"" is a subclass of ""Award"".
+4. The range of ""award"" is ""Award"".
+5. The domain of ""awarded_by"" is ""Award"".
+6. The range of ""obtain"" is ""Award"".The class ""Award"" is equivalent to a restriction that involves the property ""awarded_by"". This restriction specifies that the property ""awarded_by"" must have some values from the class ""Organizator""."
+http://sigkdd#Best_Applications_Paper_Award,Target,Class,best applications paper award,"In the context of a conference, the ""Best Applications Paper Award"" is an accolade given to the paper that is deemed to have the most significant and impactful application of research findings. This award typically recognizes the paper that demonstrates outstanding practical implementation, innovation, and contribution to the field through its application. The selection is usually based on criteria such as originality, technical quality, and the potential for real-world impact.","The ""Best Applications Paper Award"" is a subclass of ""Award"".The class ""Author of paper"" is a subclass of a restriction that specifies that the property ""award"" must have some values from the class ""Best Applications Paper Award."""
+http://sigkdd#Best_Paper_Awards_Committee,Target,Class,best paper awards committee,"In the context of a conference, the ""Best Paper Awards Committee"" refers to a group of experts and scholars who are responsible for evaluating and selecting the best research papers presented at the conference. This committee reviews submissions based on criteria such as originality, significance, technical quality, and clarity of presentation. The selected papers are then recognized with awards, often to highlight outstanding contributions to the field and to encourage high standards of research and presentation.","The class ""Best Paper Awards Committee"" is a subclass of the class ""Committee""."
+http://sigkdd#Best_Research_Paper_Award,Target,Class,best research paper award,"In the context of a conference, the ""Best Research Paper Award"" is an accolade given to the author(s) of the most outstanding research paper presented at the event. This award typically recognizes excellence in research quality, originality, significance, and presentation. It is intended to honor and encourage high standards of academic and scientific inquiry.","The ""Best Research Paper Award"" is a subclass of ""Award"".The class ""Author_of_paper"" is a subclass of a restriction. This restriction specifies that the property ""award"" must have some values from the class ""Best_Research_Paper_Award""."
+http://sigkdd#Best_Student_Paper_Award,Target,Class,best student paper award,"In the context of a conference, the ""Best Student Paper Award"" is an accolade given to the most outstanding research paper authored by a student or students. This award recognizes exceptional work in terms of originality, significance, and quality of research. It is typically judged by a panel of experts and is intended to encourage and reward high-caliber academic contributions from students.","The ""Best Student Paper Award"" is a subclass of ""Award"".The class ""Author_of_paper_student"" is a subclass of a restriction that specifies that the ""award"" property must have some values from the ""Best_Student_Paper_Award"" class."
+http://sigkdd#Best_Student_Paper_Supporter,Target,Class,best student paper supporter,"In the context of a conference, ""Best_Student_Paper_Supporter"" typically refers to an individual, organization, or sponsor that provides financial or other forms of support specifically for the award given to the best student paper presented at the conference. This support can include funding for the award itself, travel grants for the student, or other resources that help recognize and encourage high-quality research contributions from students.","The class ""Best Student Paper Supporter"" is a subclass of ""Sponsor""."
+http://sigkdd#Bronze_Supporter,Target,Class,bronze supporter,"In the context of a conference, a ""Bronze Supporter"" typically refers to an individual or organization that has contributed to the event at a specific sponsorship level, usually the third tier. This level of support often comes with certain benefits, such as recognition in conference materials, a logo on the event website, and possibly some limited promotional opportunities. The exact benefits can vary depending on the conference's sponsorship package details.","The class ""Bronze Supporter"" is a subclass of ""Sponsor""."
+http://sigkdd#Committee,Target,Class,committee,"In the context of a conference, a ""committee"" refers to a group of individuals who are appointed or elected to organize, plan, and oversee various aspects of the event. This can include tasks such as selecting speakers, arranging the schedule, managing logistics, and ensuring that the conference runs smoothly. The committee typically works together to make decisions and coordinate efforts to achieve the conference's objectives.","Sure, here are the triples verbalised into phrases:
+
+1. ""Best Paper Awards Committee"" is a subclass of ""Committee"".
+2. ""Organizing Committee"" is a subclass of ""Committee"".
+3. ""Program Committee"" is a subclass of ""Committee""."
+http://sigkdd#Conference,Target,Class,conference,"A conference is a formal meeting or gathering where individuals or groups come together to discuss specific topics, share information, and collaborate on issues of mutual interest. Conferences can be organized for various purposes, including professional development, academic research, business networking, and industry updates. They often feature presentations, panel discussions, workshops, and networking opportunities.","Sure, here are the triples verbalised into phrases:
+
+1. The property ""City_of_conference"" applies to instances of ""Conference"".
+2. The property ""End_of_conference"" applies to instances of ""Conference"".
+3. The property ""Name_of_conference"" applies to instances of ""Conference"".
+4. The property ""Start_of_conference"" applies to instances of ""Conference"".
+5. The property ""hold"" has a range of ""Conference"".
+6. The property ""holded_by"" applies to instances of ""Conference"".The class ""ACM_SIGKDD"" is a subclass of a restriction. This restriction specifies that there exists some value from the class ""Conference"" on the property ""hold""."
+http://sigkdd#Conference_hall,Target,Class,conference hall,"In the context of a conference, a ""conference hall"" refers to a large room or space specifically designed to host conferences, meetings, seminars, and other large gatherings. It is typically equipped with necessary amenities such as seating arrangements, audio-visual equipment, and sometimes facilities for catering, to accommodate the needs of the attendees and ensure the smooth conduct of the event.","The class ""Conference_hall"" is a subclass of the class ""Place""."
+http://sigkdd#Deadline,Target,Class,deadline,"In the context of a conference, a ""deadline"" refers to the final date or time by which certain tasks or submissions must be completed. This could include deadlines for submitting abstracts, registering for the conference, submitting full papers, or making payments. Meeting these deadlines is crucial for the smooth organization and operation of the conference.","Sure, here are the triples verbalised into phrases:
+
+1. The domain of ""Date"" is ""Deadline"".
+2. ""Deadline_Abstract_Submission"" is a subclass of ""Deadline"".
+3. ""Deadline_Author_notification"" is a subclass of ""Deadline"".
+4. ""Deadline_Paper_Submission"" is a subclass of ""Deadline"".
+5. The range of ""design"" is ""Deadline"".
+6. The domain of ""designed_by"" is ""Deadline"".
+7. The range of ""submit_until"" is ""Deadline"".The class ""ACM_SIGKDD"" is a subclass of a restriction. This restriction specifies that the property ""design"" must have some values from the class ""Deadline""."
+http://sigkdd#Deadline_Abstract_Submission,Target,Class,deadline abstract submission,"In the context of a conference, ""Deadline_Abstract_Submission"" refers to the final date by which participants must submit their abstracts for consideration. An abstract is a brief summary of the research or presentation that the participant intends to present at the conference. This deadline is crucial as it allows the conference organizers to review the submissions, select the most relevant and high-quality contributions, and finalize the conference program. Missing this deadline typically means that the participant's abstract will not be considered for inclusion in the conference.","The class ""Deadline_Abstract_Submission"" is a subclass of the class ""Deadline"".The class ""Abstract"" is defined as being equivalent to a restriction. This restriction specifies that there is a property ""submit_until"" which has some values from the class ""Deadline_Abstract_Submission""."
+http://sigkdd#Deadline_Author_notification,Target,Class,deadline author notification,"In the context of a conference, ""Deadline_Author_notification"" refers to the final date by which authors will be informed about the acceptance or rejection of their submitted papers or proposals. This notification typically includes feedback from the review process and any necessary revisions that need to be made before the final submission.","Sure, here are the triples verbalized into phrases:
+
+1. The property ""notification_until"" has a range of ""Deadline_Author_notification"".
+2. ""Deadline_Author_notification"" is a subclass of ""Deadline"".The class ""Author"" is a subclass of a certain restriction. This restriction specifies that there is a property called ""notification_until"" which must have some values from the class ""Deadline_Author_notification""."
+http://sigkdd#Deadline_Paper_Submission,Target,Class,deadline paper submission,"In the context of a conference, ""Deadline_Paper_Submission"" refers to the final date by which authors must submit their research papers or abstracts for consideration. This is a critical date for participants who wish to present their work at the conference, as submissions received after this deadline are typically not considered for review or inclusion in the conference program.","The class ""Deadline_Paper_Submission"" is a subclass of the class ""Deadline"".The class ""Paper"" is equivalent to a restriction that requires the property ""submit_until"" to have some values from the class ""Deadline_Paper_Submission""."
+http://sigkdd#Document,Target,Class,document,"In the context of a conference, a ""document"" typically refers to any written, printed, or digital material that is used or distributed during the event. This can include agendas, schedules, presentation slides, handouts, research papers, reports, and any other relevant materials that support the discussions and activities taking place at the conference. These documents are often used to provide information, facilitate communication, and serve as a record of the proceedings.","Sure, here are the triples verbalised into phrases:
+
+1. ""Abstract"" is a subclass of ""Document"".
+2. ""Paper"" is a subclass of ""Document"".
+3. ""Review"" is a subclass of ""Document"".
+4. The range of ""presentation"" is ""Document"".
+5. The domain of ""presentationed_by"" is ""Document"".
+6. The domain of ""submit_until"" is ""Document"".The class ""Speaker"" is equivalent to a restriction where the property ""presentation"" has some values from the class ""Document""."
+http://sigkdd#Exhibitor,Target,Class,exhibitor,"In the context of a conference, an ""exhibitor"" refers to an individual or organization that sets up a booth, display, or presentation area to showcase their products, services, or information to attendees. Exhibitors typically aim to engage with potential customers, partners, or other stakeholders, promote their offerings, and generate leads or interest in their business.","The class ""Exhibitor"" is a subclass of the class ""Sponzor""."
+http://sigkdd#Fee,Target,Class,fee,"In the context of a conference, a ""fee"" refers to the amount of money that participants are required to pay in order to attend the event. This fee can cover various aspects such as registration, access to sessions, materials, meals, and sometimes accommodation or other amenities provided during the conference.","Sure, here are the triples verbalised into phrases:
+
+1. ""Registration_fee"" is a subclass of ""Fee"".
+2. ""Sponzor_fee"" is a subclass of ""Fee""."
+http://sigkdd#General_Chair,Target,Class,general chair,"In the context of a conference, the ""General Chair"" is the individual who holds the primary leadership role and is responsible for overseeing the overall organization and execution of the event. This person typically coordinates various aspects of the conference, including planning, logistics, program development, and team management, to ensure that the conference runs smoothly and successfully. The General Chair often works closely with other committee members, sponsors, and stakeholders to achieve the conference's objectives.","The class ""General Chair"" is a subclass of the class ""Organizator""."
+http://sigkdd#Gold_Supporter,Target,Class,gold supporter,"In the context of a conference, a ""Gold Supporter"" typically refers to a sponsor or supporter who has contributed at a high level, often in exchange for significant recognition and benefits. This can include prominent branding opportunities, prime booth locations, speaking slots, and other perks that provide visibility and engagement with conference attendees. The ""Gold"" designation usually indicates a tiered sponsorship level, with Gold being one of the higher levels, often above Silver and Bronze, but below Platinum or Title sponsors.","The class ""Gold_Supporter"" is a subclass of the class ""Sponzor""."
+http://sigkdd#Hotel,Target,Class,hotel,"In the context of a conference, a ""hotel"" refers to an establishment that provides lodging, meals, and other services for guests. It often serves as the venue for the conference itself, offering meeting rooms, conference halls, and other facilities necessary for hosting events, seminars, and workshops. Additionally, hotels provide accommodations for attendees, making it convenient for them to stay on-site during the duration of the conference.","The class ""Hotel"" is a subclass of the class ""Place"".The subgraph describes a restriction related to the class ""Person."" Specifically, it states that a ""Person"" is a subclass of a restriction that involves the property ""can stay in."" This restriction specifies that the values for the property ""can stay in"" must be of the type ""Hotel."" In other words, a person can stay in entities that are classified as hotels."
+http://sigkdd#Invited_Speaker,Target,Class,invited speaker,"In the context of a conference, an ""Invited Speaker"" refers to an individual who has been specifically asked by the conference organizers to give a presentation or lecture. This person is typically recognized as an expert or a prominent figure in their field and is invited to share their knowledge, insights, or research findings with the conference attendees. The invitation is often extended because the speaker's contributions are expected to add significant value to the event.","The class ""Invited Speaker"" is a subclass of the class ""Speaker""."
+http://sigkdd#Listener,Target,Class,listener,"In the context of a conference, a ""listener"" refers to an individual who attends sessions, presentations, or discussions primarily to absorb information, gain knowledge, and understand the topics being discussed. Unlike speakers or presenters, listeners do not actively contribute to the presentation but may participate in Q&A sessions or discussions following the presentations.","The class ""Listener"" is a subclass of the class ""Person""."
+http://sigkdd#Main_office,Target,Class,main office,"In the context of a conference, ""Main_office"" typically refers to the primary administrative office responsible for organizing and managing the event. This office handles tasks such as registration, scheduling, communication with attendees and speakers, and overall coordination of the conference activities. It serves as the central point of contact for any inquiries or issues related to the conference.","The class ""Main office"" is a subclass of the class ""Place""."
+http://sigkdd#Organizator,Target,Class,organizator,"In the context of a conference, an ""Organizator"" refers to an individual or a group responsible for planning, coordinating, and managing the various aspects of the event. This includes tasks such as selecting the venue, arranging speakers, scheduling sessions, handling registrations, and ensuring that all logistical details are taken care of to ensure the conference runs smoothly. Essentially, the organizator is the key person or team behind the successful execution of the conference.","1. A General Chair is a type of Organizer.
+2. An Organizing Committee member is a type of Organizer.
+3. A Program Chair is a type of Organizer.
+4. A Program Committee member is a type of Organizer.
+5. A Webmaster is a type of Organizer.
+6. An Organizer is a type of Person.The class ""Award"" is equivalent to a restriction where the property ""awarded_by"" must have some values from the class ""Organizator""."
+http://sigkdd#Organizing_Committee,Target,Class,organizing committee,"In the context of a conference, the ""Organizing Committee"" refers to a group of individuals responsible for planning, coordinating, and executing the various aspects of the event. This committee typically handles tasks such as selecting the venue, arranging the schedule, inviting speakers, managing registrations, and overseeing logistics to ensure the conference runs smoothly. The Organizing Committee plays a crucial role in the overall success of the conference.","The class ""Organizing Committee"" is a subclass of the class ""Committee""."
+http://sigkdd#Organizing_Committee_member,Target,Class,organizing committee member,"In the context of a conference, an ""Organizing Committee member"" refers to an individual who is part of a group responsible for planning, coordinating, and executing the various aspects of the conference. This includes tasks such as selecting the venue, arranging the schedule, inviting speakers, managing registrations, and overseeing logistics. Organizing Committee members work collaboratively to ensure the conference runs smoothly and meets its objectives.","The class ""Organizing Committee member"" is a subclass of the class ""Organizator""."
+http://sigkdd#Paper,Target,Class,paper,"In the context of a conference, a ""paper"" typically refers to a written document that presents research findings, theories, or arguments on a specific topic. These papers are often submitted by researchers, scholars, or professionals and are reviewed by a committee before being accepted for presentation at the conference. The authors may then present their papers during sessions, where they discuss their work and answer questions from the audience.","Sure, here are the triples verbalised into phrases:
+
+1. The action ""submit"" has a range of ""Paper"".
+2. ""Paper"" is a subclass of ""Document"".The subgraph describes the following relationships:
+
+1. A ""Paper"" is equivalent to a class that has a restriction involving the property ""submit_until"" and some values from ""Deadline_Paper_Submission"".
+2. An ""Author"" is equivalent to a class that has a restriction involving the property ""submit"" and some values from ""Paper"".
+3. The class equivalent to ""Paper"" has a restriction that specifies it must be submitted until a certain ""Deadline_Paper_Submission"".
+4. The class equivalent to ""Author"" has a restriction that specifies it must submit some ""Paper""."
+http://sigkdd#Person,Target,Class,person,"In the context of a conference, a ""person"" typically refers to an individual who is attending or participating in the event. This could include speakers, attendees, organizers, panelists, or any other individuals involved in the conference activities.","Sure, here are the triples verbalised into phrases:
+
+1. The domain of ""E-mail"" is ""Person"".
+2. ""Listener"" is a subclass of ""Person"".
+3. The domain of ""Name"" is ""Person"".
+4. The domain of ""Nation"" is ""Person"".
+5. ""Organizator"" is a subclass of ""Person"".
+6. ""Speaker"" is a subclass of ""Person"".
+7. The domain of ""can_stay_in"" is ""Person"".
+8. The domain of ""pay"" is ""Person"".
+9. The range of ""payed_by"" is ""Person"".The given subgraph can be described as follows:
+
+A ""Person"" is defined by two restrictions. Firstly, a ""Person"" is someone who can stay in a ""Hotel"". Secondly, a ""Person"" is someone who pays a ""Registration_fee""."
+http://sigkdd#Place,Target,Class,place,"In the context of a conference, ""place"" typically refers to the physical location or venue where the conference is being held. This could be a convention center, hotel, university campus, or any other facility equipped to host such events. The ""place"" encompasses all the logistical aspects, including meeting rooms, auditoriums, and other spaces used for sessions, workshops, and networking activities.","Sure, here are the triples verbalised into phrases:
+
+1. ""Conference hall is a subclass of Place.""
+2. ""Hotel is a subclass of Place.""
+3. ""Main office is a subclass of Place.""
+4. ""The property can stay in has a range of Place."""
+http://sigkdd#Platinum_Supporter,Target,Class,platinum supporter,"In the context of a conference, a ""Platinum Supporter"" refers to an individual or organization that provides a high level of financial sponsorship or support. This typically includes significant contributions that help fund the event. In return, Platinum Supporters often receive prominent recognition, such as prime logo placement, special mentions during the event, premium booth locations, and other exclusive benefits that highlight their contribution and support.","""Platinum Supporter is a subclass of Sponzor."""
+http://sigkdd#Program_Chair,Target,Class,program chair,"In the context of a conference, the ""Program Chair"" is a key role responsible for overseeing the development and organization of the conference's program. This includes tasks such as selecting and inviting speakers, coordinating the review process for submitted papers or presentations, scheduling sessions, and ensuring that the overall content of the conference is of high quality and relevance to the attendees. The Program Chair works closely with other committee members and plays a crucial role in shaping the intellectual and logistical framework of the event.","The class ""Program Chair"" is a subclass of ""Organizator""."
+http://sigkdd#Program_Committee,Target,Class,program committee,"In the context of a conference, a Program Committee is a group of experts and professionals responsible for overseeing the development and organization of the conference's academic or technical program. Their duties typically include reviewing and selecting submitted papers, organizing sessions, inviting keynote speakers, and ensuring the overall quality and relevance of the conference content. The committee plays a crucial role in maintaining the conference's standards and ensuring that it meets the interests and needs of its attendees.","The class ""Program Committee"" is a subclass of the class ""Committee""."
+http://sigkdd#Program_Committee_member,Target,Class,program committee member,"In the context of a conference, a ""Program Committee member"" refers to an individual who is part of the group responsible for overseeing the academic and technical content of the conference. Their duties typically include reviewing submitted papers, selecting which papers will be presented, organizing sessions, and ensuring the overall quality and relevance of the conference program. Program Committee members are usually experts in the field related to the conference's theme.","The class ""Program_Committee_member"" is a subclass of the class ""Organizator""."
+http://sigkdd#Registration_Non-Member,Target,Class,registration non member,"In the context of a conference, ""Registration_Non-Member"" refers to the process or category for registering individuals who are not members of the organization or association hosting the conference. This typically means that these individuals do not have a membership status with the hosting entity and may be required to pay a different (often higher) registration fee compared to members.","The class ""Registration_Non-Member"" is a subclass of the class ""Registration_fee""."
+http://sigkdd#Registration_SIGKDD_Member,Target,Class,registration sigkdd member,"In the context of a conference, ""Registration_SIGKDD_Member"" refers to the registration category or process specifically for members of SIGKDD, which stands for the Special Interest Group on Knowledge Discovery and Data Mining. This typically means that individuals who are members of SIGKDD may receive certain benefits such as discounted registration fees or special access to events and materials at the conference.","The class ""Registration_SIGKDD_Member"" is a subclass of the class ""Registration_fee""."
+http://sigkdd#Registration_SIGMOD_Member,Target,Class,registration sigmod member,"In the context of a conference, ""Registration_SIGMOD_Member"" refers to the registration category or fee applicable to members of SIGMOD (Special Interest Group on Management of Data). SIGMOD is a professional group within the Association for Computing Machinery (ACM) that focuses on database management and data processing. Members of SIGMOD typically receive discounted registration rates for conferences and events organized by the group.","The class ""Registration_SIGMOD_Member"" is a subclass of the class ""Registration_fee""."
+http://sigkdd#Registration_Student,Target,Class,registration student,"In the context of a conference, ""Registration_Student"" typically refers to the process or category for students to register for the event. This often includes a discounted registration fee or special provisions for students who wish to attend the conference. It may require proof of student status, such as a valid student ID or enrollment verification, to qualify for the student rate.","The class ""Registration_Student"" is a subclass of the class ""Registration_fee""."
+http://sigkdd#Registration_fee,Target,Class,registration fee,"In the context of a conference, the term ""registration fee"" refers to the amount of money that participants are required to pay in order to attend the event. This fee typically covers various costs associated with organizing the conference, such as venue rental, materials, meals, and sometimes access to special sessions or workshops. The registration fee is usually paid in advance during the registration process.","Sure, here are the triples verbalised into phrases:
+
+1. The domain of ""Currency"" is ""Registration fee"".
+2. The domain of ""Price"" is ""Registration fee"".
+3. ""Registration Non-Member"" is a subclass of ""Registration fee"".
+4. ""Registration SIGKDD Member"" is a subclass of ""Registration fee"".
+5. ""Registration SIGMOD Member"" is a subclass of ""Registration fee"".
+6. ""Registration Student"" is a subclass of ""Registration fee"".
+7. The range of ""pay"" is ""Registration fee"".
+8. The domain of ""payed by"" is ""Registration fee"".
+9. ""Registration fee"" is a subclass of ""Fee"".The description can be verbalized as follows:
+
+A ""Person"" is defined as an entity that has a restriction on the property ""pay"" such that the value of this property must be some ""Registration_fee""."
+http://sigkdd#Review,Target,Class,review,"In the context of a conference, a ""review"" typically refers to the evaluation or assessment of submitted papers, presentations, or proposals by a panel of experts or peers. This process is crucial for maintaining the quality and relevance of the content presented at the conference. Reviewers provide feedback, suggest improvements, and recommend whether a submission should be accepted, revised, or rejected.","The class ""Review"" is a subclass of the class ""Document""."
+http://sigkdd#Silver_Supporter,Target,Class,silver supporter,"In the context of a conference, a ""Silver Supporter"" typically refers to a sponsor or organization that provides a mid-level tier of financial or in-kind support for the event. This level of sponsorship usually comes with specific benefits and recognition, such as having the organization's logo displayed on conference materials, access to certain events, or opportunities to promote their products or services to attendees. The exact benefits and requirements for being a Silver Supporter can vary depending on the conference's sponsorship structure.","The class ""Silver Supporter"" is a subclass of ""Sponsor""."
+http://sigkdd#Speaker,Target,Class,speaker,"In the context of a conference, a ""Speaker"" refers to an individual who is invited to deliver a talk, presentation, or lecture on a specific topic. This person is typically an expert or knowledgeable figure in their field and is responsible for sharing insights, information, and engaging with the audience during their allotted time.","Sure, here are the triples verbalised into phrases:
+
+1. An ""Author"" is a subclass of a ""Speaker"".
+2. An ""Invited_Speaker"" is a subclass of a ""Speaker"".
+3. A ""presentation"" is associated with a ""Speaker"".
+4. Something that is ""presentationed_by"" is a ""Speaker"".
+5. A ""Speaker"" is a subclass of a ""Person"".The class ""Speaker"" is equivalent to a restriction that requires the ""presentation"" property to have some values from the class ""Document""."
+http://sigkdd#Sponzor,Target,Class,sponzor,"In the context of a conference, a ""sponsor"" (sometimes spelled ""sponzor"" in certain languages or contexts) refers to an individual, organization, or company that provides financial or other support to the event. This support can help cover costs such as venue rental, speaker fees, promotional materials, and other expenses associated with organizing the conference. In return, sponsors often receive various benefits such as brand visibility, advertising opportunities, and the chance to network with attendees.","Sure, here are the triples verbalised into phrases:
+
+1. ""Best_Student_Paper_Supporter"" is a subclass of ""Sponzor"".
+2. ""Bronze_Supporter"" is a subclass of ""Sponzor"".
+3. ""Exhibitor"" is a subclass of ""Sponzor"".
+4. ""Gold_Supporter"" is a subclass of ""Sponzor"".
+5. The property ""Name_of_sponsor"" applies to instances of ""Sponzor"".
+6. ""Platinum_Supporter"" is a subclass of ""Sponzor"".
+7. ""Silver_Supporter"" is a subclass of ""Sponzor"".
+8. The property ""search"" has a range of ""Sponzor"".
+9. The property ""searched_by"" applies to instances of ""Sponzor"".The subgraph can be described as follows:
+
+1. ""Sponzor"" is equivalent to a class that has a restriction on the property ""pay"" with some values from ""Sponzor_fee"".
+2. ""ACM_SIGKDD"" is a subclass of a class that has a restriction on the property ""search"" with some values from ""Sponzor"".
+3. Both of these classes with restrictions are of type ""Restriction""."
+http://sigkdd#Sponzor_fee,Target,Class,sponzor fee,"In the context of a conference, ""sponsor fee"" refers to the amount of money that a company or individual pays to become a sponsor of the event. This fee typically grants the sponsor various benefits, such as brand visibility, promotional opportunities, and sometimes speaking slots or exhibition space, depending on the sponsorship package they choose. The sponsor fee helps cover the costs of organizing the conference and can also contribute to enhancing the overall experience for attendees.","The class ""Sponzor_fee"" is a subclass of the class ""Fee"".The class ""Sponzor"" is defined as equivalent to a restriction. This restriction specifies that there is a property ""pay"" which must have some values from the class ""Sponzor_fee""."
+http://sigkdd#Webmaster,Target,Class,webmaster,"In the context of a conference, a ""Webmaster"" refers to the individual responsible for maintaining and managing the website associated with the event. This includes tasks such as updating content, ensuring the site is functional and user-friendly, handling technical issues, and possibly managing online registration and information dissemination for conference attendees. The Webmaster plays a crucial role in ensuring that all online aspects of the conference run smoothly.","The class ""Webmaster"" is a subclass of the class ""Organizator""."
+http://sigkdd#City_of_conference,Target,Property,city of conference,"In the context of a conference, ""City_of_conference"" refers to the specific city where the conference is being held. It is the location where participants will gather for the event.","The property ""City_of_conference"" has a domain of ""Conference"" and a range of ""string""."
+http://sigkdd#Currency,Target,Property,currency,"In the context of a conference, ""currency"" typically refers to the system of money in general use in a particular country or economic region. It can also refer to the accepted medium of exchange for transactions, such as registration fees, purchases, or services provided during the event. Understanding the currency is important for international attendees to manage their expenses and payments effectively.","The property ""Currency"" has a domain of ""Registration_fee"" and a range of ""string""."
+http://sigkdd#Date,Target,Property,date,"In the context of a conference, ""date"" refers to the specific day or days on which the conference is scheduled to take place. This includes the start and end dates if the conference spans multiple days. For example, if a conference is scheduled from March 1 to March 3, the dates of the conference are March 1, March 2, and March 3.","The property ""Date"" has a domain of ""Deadline"" and a range of ""dateTime""."
+http://sigkdd#E-mail,Target,Property,e mail,"In the context of a conference, an E-mail (electronic mail) refers to a method of exchanging digital messages between people using electronic devices. It is commonly used for sending invitations, sharing agendas, distributing materials, coordinating logistics, and providing updates or follow-ups related to the conference.","The property ""E-mail"" has a domain of ""Person"" and a range of ""string""."
+http://sigkdd#End_of_conference,Target,Property,end of conference,"In the context of a conference, ""End_of_conference"" refers to the conclusion or final session of the event. It signifies that all scheduled activities, presentations, discussions, and networking opportunities have been completed, and the conference is officially over. This is typically marked by closing remarks, a summary of key takeaways, and sometimes a final networking opportunity or social event.","The property ""End_of_conference"" has a domain of ""Conference"" and a range of ""dateTime""."
+http://sigkdd#Name,Target,Property,name,"In the context of a conference, the term ""Name"" typically refers to the identification of an individual attending or participating in the event. This could include speakers, attendees, organizers, or any other participants. The name is used for registration, identification badges, networking, and communication purposes throughout the conference.","The property ""Name"" has a domain of ""Person"" and a range of ""string""."
+http://sigkdd#Name_of_conference,Target,Property,name of conference,"In the context of a conference, ""Name_of_conference"" refers to the specific title or designation given to the conference event. This name is used to identify and distinguish the conference from other events and often reflects the theme, focus, or organizing body of the conference. For example, ""International Conference on Artificial Intelligence"" or ""Global Health Summit 2023"" are names of conferences.","The property ""Name_of_conference"" has a domain of ""Conference"" and a range of ""string""."
+http://sigkdd#Name_of_sponsor,Target,Property,name of sponsor,"In the context of a conference, ""Name_of_sponsor"" refers to the specific individual, organization, or company that is providing financial support or resources for the event. This sponsor typically contributes funds, services, or products in exchange for promotional opportunities, such as having their name and logo displayed on conference materials, banners, and websites, or being mentioned in announcements and presentations.","The property ""Name_of_sponsor"" has a domain of ""Sponzor"" and a range of ""string""."
+http://sigkdd#Nation,Target,Property,nation,"In the context of a conference, the term ""nation"" typically refers to a large group of people who share a common identity, often characterized by shared language, culture, history, and sometimes a common government or political system. During a conference, discussions about a ""nation"" might involve topics such as national policies, international relations, cultural exchanges, economic strategies, or social issues pertinent to that specific group of people.","The property ""Nation"" has a domain of ""Person"" and a range of ""string"". This means that ""Nation"" is a property that applies to instances of ""Person"" and its value is expected to be a string."
+http://sigkdd#Price,Target,Property,price,"In the context of a conference, ""price"" typically refers to the cost of attending the event. This can include various types of fees such as registration fees, ticket prices, or costs for specific sessions, workshops, or networking events within the conference. The price may also cover additional items like conference materials, meals, and access to certain amenities or activities provided during the event.","The term ""Price"" has a domain of ""Registration_fee"" and a range of ""int""."
+http://sigkdd#Start_of_conference,Target,Property,start of conference,"In the context of a conference, ""Start_of_conference"" refers to the beginning or commencement of the conference event. This typically includes the initial activities such as registration, opening remarks, keynote speeches, or introductory sessions that mark the official start of the conference proceedings.","The property ""Start_of_conference"" has a domain of ""Conference"" and a range of ""dateTime"". This means that ""Start_of_conference"" is a property that applies to instances of ""Conference"" and its value is expected to be of type ""dateTime""."
+http://sigkdd#award,Target,Property,award,"In the context of a conference, an ""award"" refers to a recognition or honor given to an individual or group for their outstanding achievements, contributions, or performance in a particular field or area of expertise. This could include awards for best research paper, outstanding presentation, significant contributions to the field, or other notable accomplishments recognized by the conference organizers.","The property ""award"" has a range of ""Award"".The subgraph describes the following relationships and restrictions:
+
+1. There is a class called ""Author_of_paper"" which is a subclass of a restriction that involves the property ""award"" and has some values from ""Best_Research_Paper_Award"".
+2. ""Author_of_paper"" is also a subclass of another restriction that involves the property ""award"" and has some values from ""Best_Applications_Paper_Award"".
+3. There is another class called ""Author_of_paper_student"" which is a subclass of a restriction that involves the property ""award"" and has some values from ""Best_Student_Paper_Award"".
+
+In summary, the subgraph indicates that:
+- An ""Author_of_paper"" can be awarded either the ""Best_Research_Paper_Award"" or the ""Best_Applications_Paper_Award"".
+- An ""Author_of_paper_student"" can be awarded the ""Best_Student_Paper_Award""."
+http://sigkdd#awarded_by,Target,Property,awarded by,"In the context of a conference, ""awarded_by"" refers to the organization, committee, or individual responsible for giving out an award or recognition. This entity is the one that decides the criteria for the award, evaluates the candidates, and ultimately selects the recipient. For example, if a research paper is awarded a ""Best Paper"" award at a conference, the ""awarded_by"" would be the conference's organizing committee or a specific panel designated to judge the papers.","The property ""awarded_by"" has a domain of ""Award"".The class ""Award"" is equivalent to a restriction that involves the property ""awarded_by"" and specifies that this property must have some values from the class ""Organizator""."
+http://sigkdd#can_stay_in,Target,Property,can stay in,"In the context of a conference, ""can_stay_in"" typically refers to the ability or permission for attendees to stay in a particular location, such as a hotel or other accommodation, during the event. It may also imply that the venue has provisions for attendees to remain on-site for the duration of the conference, possibly including overnight stays.","The property ""can stay in"" has a domain of ""Person"" and a range of ""Place"". This means that the property ""can stay in"" is used to describe a relationship where a ""Person"" can stay in a ""Place"".The subgraph describes a restriction related to the class ""Person."" Specifically, it states that a ""Person"" is a subclass of a restriction that involves the property ""can_stay_in."" This restriction specifies that the values for the property ""can_stay_in"" must be of the type ""Hotel."" In other words, a person can stay in entities that are classified as hotels."
+http://sigkdd#design,Target,Property,design,"In the context of a conference, ""design"" typically refers to the process of planning and organizing the various elements that make up the event. This can include the layout of the venue, the schedule of sessions, the visual and thematic elements, and the overall experience for attendees. Effective design in this context aims to create a cohesive and engaging environment that facilitates learning, networking, and the exchange of ideas.","The term ""design"" has a domain of ""ACM_SIGKDD"" and a range of ""Deadline"".The class ""ACM_SIGKDD"" is a subclass of a restriction. This restriction specifies that the property ""design"" must have some values from the class ""Deadline""."
+http://sigkdd#designed_by,Target,Property,designed by,"In the context of a conference, ""designed_by"" typically refers to the individual or team responsible for planning and organizing the event. This can include tasks such as selecting the venue, arranging the schedule, coordinating speakers, and managing logistics to ensure the conference runs smoothly. Essentially, it denotes the creators or planners behind the conference's structure and execution.","The property ""designed_by"" has a domain of ""Deadline"" and a range of ""ACM_SIGKDD""."
+http://sigkdd#hold,Target,Property,hold,"In the context of a conference, ""hold"" typically means to organize, conduct, or host the event. For example, if someone says, ""We will hold the conference next month,"" it means they will organize and conduct the conference during that time.","The term ""hold"" has a domain of ""ACM_SIGKDD"" and a range of ""Conference"".The class ""ACM_SIGKDD"" is a subclass of a restriction. This restriction specifies that there exists some value from the class ""Conference"" on the property ""hold""."
+http://sigkdd#holded_by,Target,Property,holded by,"In the context of a conference, ""holded_by"" is likely a typographical error and should be ""held by."" It refers to the organization, institution, or individual responsible for organizing and conducting the conference. For example, if a conference is ""held by"" a university, it means that the university is the host and organizer of the event.","The property ""holded_by"" has a domain of ""Conference"" and a range of ""ACM_SIGKDD"". This means that the property ""holded_by"" is used to indicate that a ""Conference"" is held by ""ACM_SIGKDD""."
+http://sigkdd#notification_until,Target,Property,notification until,"In the context of a conference, ""notification_until"" typically refers to the deadline or the final date by which participants, such as speakers or attendees, will be notified about the acceptance of their proposals, papers, or registrations. It indicates the latest date by which the conference organizers will communicate their decisions to the participants.","The property ""notification_until"" has a domain of ""Author"" and a range of ""Deadline_Author_notification"".The class ""Author"" is a subclass of a certain restriction. This restriction specifies that there is a property called ""notification_until"" which must have some values from the class ""Deadline_Author_notification""."
+http://sigkdd#obtain,Target,Property,obtain,"In the context of a conference, ""obtain"" typically means to acquire or secure something. For example, you might obtain a ticket to attend the conference, obtain information from a speaker, or obtain materials and resources provided during the event.","The verb ""obtain"" has a domain of ""Author"" and a range of ""Award"". This means that the action of obtaining is performed by an Author and the object being obtained is an Award."
+http://sigkdd#pay,Target,Property,pay,"In the context of a conference, ""pay"" typically refers to the act of providing monetary compensation or fees for various aspects related to the event. This could include paying for conference registration, purchasing tickets, covering the cost of accommodations, or paying for additional services such as workshops, materials, or meals provided during the conference.","The action ""pay"" is performed by a ""Person"" and is directed towards a ""Registration_fee"".The subgraph describes two classes, ""Sponzor"" and ""Person,"" each defined by certain restrictions related to the property ""pay.""
+
+1. The class ""Sponzor"" is equivalent to a restriction where the property ""pay"" has some values from the class ""Sponzor_fee.""
+2. The class ""Person"" is equivalent to a restriction where the property ""pay"" has some values from the class ""Registration_fee.""
+
+In summary, a ""Sponzor"" is defined as an entity that pays a ""Sponzor_fee,"" and a ""Person"" is defined as an entity that pays a ""Registration_fee."""
+http://sigkdd#payed_by,Target,Property,payed by,"In the context of a conference, ""payed_by"" typically refers to the entity or individual responsible for covering the costs associated with the conference. This could include registration fees, travel expenses, accommodation, and other related costs. For example, if an attendee's company is covering these expenses, the ""payed_by"" field would list the company as the payer.","The property ""payed_by"" has a domain of ""Registration_fee"" and a range of ""Person"". This means that the ""payed_by"" relationship is used to link a ""Registration_fee"" to a ""Person"". In other words, a ""Registration_fee"" is paid by a ""Person""."
+http://sigkdd#presentation,Target,Property,presentation,"In the context of a conference, a presentation refers to the act of delivering information, research findings, or insights to an audience. This typically involves the use of visual aids such as slides, charts, or videos, and is often followed by a question-and-answer session. The goal of a presentation at a conference is to share knowledge, engage with attendees, and foster discussion on the topic being presented.","The term ""presentation"" has a domain of ""Speaker"" and a range of ""Document"".The class ""Speaker"" is equivalent to a restriction that requires the ""presentation"" property to have some values from the class ""Document""."
+http://sigkdd#presentationed_by,Target,Property,presentationed by,"In the context of a conference, ""presentationed_by"" likely refers to the individual or organization responsible for delivering a particular presentation. It indicates who is presenting the information or leading the session. For example, if a conference schedule lists a session on ""Innovative Technologies in Healthcare"" and it is ""presentationed_by Dr. Jane Smith,"" it means that Dr. Jane Smith is the presenter for that session.","The property ""presentationed_by"" has a domain of ""Document"" and a range of ""Speaker"". This means that the property ""presentationed_by"" is used to link a ""Document"" to a ""Speaker"". In other words, a ""Document"" is presented by a ""Speaker""."
+http://sigkdd#search,Target,Property,search,"In the context of a conference, ""search"" typically refers to the process of looking for specific information, sessions, speakers, or topics within the conference agenda or materials. This could involve using a search function on the conference website or app to quickly locate relevant sessions, finding details about particular speakers, or identifying networking opportunities that align with one's interests or professional goals.","The term ""search"" has a domain of ""ACM_SIGKDD"" and a range of ""Sponzor"".The class ""ACM_SIGKDD"" is a subclass of a restriction. This restriction is on the property ""search"" and specifies that the values for this property must be of the type ""Sponzor""."
+http://sigkdd#searched_by,Target,Property,searched by,"In the context of a conference, ""searched_by"" typically refers to the criteria or parameters used to find specific information or individuals within the conference. This could include searching for attendees, speakers, sessions, or topics based on certain keywords, names, or other identifying details. For example, an attendee might be ""searched_by"" their name, organization, or the topics they are presenting on.","The property ""searched_by"" has a domain of ""Sponzor"" and a range of ""ACM_SIGKDD"". This means that ""Sponzor"" is the subject that can be associated with the ""searched_by"" property, and ""ACM_SIGKDD"" is the object that can be associated with this property. In other words, a ""Sponzor"" can be ""searched_by"" an ""ACM_SIGKDD""."
+http://sigkdd#submit,Target,Property,submit,"In the context of a conference, ""submit"" typically means to send in a proposal, abstract, paper, or other required materials for consideration by the conference organizers. This could involve submitting a research paper for review, an abstract for a presentation, or other relevant documents needed to participate in the conference.","The action ""submit"" is performed by an ""Author"" and is directed towards a ""Paper"".The class ""Author"" is defined as being equivalent to a restriction. This restriction specifies that an ""Author"" is someone who has the property ""submit"" with some values from the class ""Paper""."
+http://sigkdd#submit_until,Target,Property,submit until,"In the context of a conference, ""submit_until"" typically refers to the deadline by which participants, such as researchers or speakers, must submit their papers, abstracts, or proposals for consideration. This is the final date and time by which all submissions must be received to be eligible for review and potential inclusion in the conference program.","The property ""submit_until"" has a domain of ""Document"" and a range of ""Deadline"".The subgraph describes the relationships and restrictions involving papers and abstracts in the context of submission deadlines. Specifically:
+
+1. A ""Paper"" is equivalent to a class that has a restriction involving the property ""submit_until"" and the value ""Deadline_Paper_Submission"".
+2. An ""Abstract"" is equivalent to a class that has a restriction involving the property ""submit_until"" and the value ""Deadline_Abstract_Submission"".
+3. Both the equivalent classes for ""Paper"" and ""Abstract"" are defined as restrictions.
+
+In summary, the subgraph indicates that both papers and abstracts have specific submission deadlines, with papers needing to be submitted by ""Deadline_Paper_Submission"" and abstracts by ""Deadline_Abstract_Submission""."

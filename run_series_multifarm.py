@@ -4,10 +4,10 @@ import os
 base_dir = "data/multifarm"
 alignment_list = []
 
-# Walk through the base directory and collect only folders (not files)
+# walk through the base directory and collect only folders (not files)
 for name in os.listdir(base_dir):
     folder_path = os.path.join(base_dir, name)
-    if os.path.isdir(folder_path):  # ensure it's a folder
+    if os.path.isdir(folder_path):  # ensure it is a folder
         alignment_list.append(f"multifarm/{name}/component/")
 
 # sort alphabetically

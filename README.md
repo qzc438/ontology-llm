@@ -3,9 +3,23 @@
 - The source code, data, and/or other artifacts are available at GitHub: https://github.com/qzc438/ontology-llm
 
 ## News:
-- This paper has been accepted by PVLDB 2025: https://dl.acm.org/doi/10.14778/3712221.3712222
-- A production version linked to the PVLDB 2025 paper can be found in the `Releases` section.
+- This paper has been accepted by PVLDB 2025.
 - The slide presentation of the PVLDB 2025 paper can be found in the `slide_presentation` folder.
+- A production version linked to the PVLDB 2025 paper can be found in the `Releases` section.
+```bibtex
+@article{qiang2023agent,
+    title={{Agent-OM}: Leveraging {LLM} Agents for Ontology Matching},
+    author={Zhangcheng Qiang and Weiqing Wang and Kerry Taylor},
+    journal={Proceedings of the {VLDB} Endowment},
+    year={2024},
+    volume={18},
+    number={3},
+    pages={516--529},
+    address={London, UK},
+    publisher={VLDB Endowment},
+    doi={10.14778/3712221.3712222}
+}
+```
 
 ## Important Notice:
 - For technical inquiries, please submit a GitHub issue.
@@ -268,10 +282,10 @@ num_matches = 50
 ```
 python run_config.py
 ```
-- The alignment result will be stored in the folder `alignment/`.
-- The performance evaluation will be stored in the file `result.csv`.
-- The cost evaluation will be stored in the file `cost.csv`.
-- The matching log will be stored in the file `agent.log`.
+- The alignment result will be stored in the folder `alignment/`. You can run the script `csv_to_alignment_api.py` to convert the CSV format to Alignment API format: https://moex.gitlabpages.inria.fr/alignapi/format.html
+- The performance evaluation will be stored in the file `result.csv`. The first five lines are the intermediate results for debugging purposes. For the final result, you should use the last line that ends with "llm_with_agent".
+- The cost evaluation will be stored in the file `cost.csv`. The cost calculation only works for API-accessed commercial LLMs.
+- The matching log will be stored in the file `agent.log`. This file will be rewritten when you run a new task.
 
 ## Repository Structure:
 
@@ -339,7 +353,7 @@ step = -0.05
   - https://towardsai.net/p/l/precision-recall-curve
 
 ### 5. Competitions and Challenges:
-- `campaign/OAEI-2025`: results of OAEI 2025 campaign.
+- `campaign/OAEI_2025`: results of OAEI 2025 campaign.
 
 ## Debugging Log:
 - We have created a debugging log for this project. [Click the link here.](DEBUGGING_LOG.md)
