@@ -285,6 +285,7 @@ python run_config.py
 - The alignment result will be stored in the folder `alignment/`. You can run the script `csv_to_alignment_api.py` to convert the CSV format to Alignment API format: https://moex.gitlabpages.inria.fr/alignapi/format.html
 - The performance evaluation will be stored in the file `result.csv`. The first five lines are the intermediate results for debugging purposes. For the final result, you should use the last line that ends with "llm_with_agent".
 - The cost evaluation will be stored in the file `cost.csv`. The cost calculation only works for API-accessed commercial LLMs.
+- The time evaluation will be stored in the file `time.csv`. The unit of measurement is milliseconds.
 - The matching log will be stored in the file `agent.log`. This file will be rewritten when you run a new task.
 
 ## Repository Structure:
