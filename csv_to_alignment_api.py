@@ -26,7 +26,7 @@ def csv_to_alignment_api(
     NS_RDF = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     NS_XSD = "http://www.w3.org/2001/XMLSchema#"
 
-    # Manually build <rdf:RDF> with all namespace declarations
+    # manually build <rdf:RDF> with all namespace declarations
     rdf_root = Element(
         "rdf:RDF",
         {
@@ -71,7 +71,7 @@ def csv_to_alignment_api(
 
             SubElement(cell, "relation").text = relation
 
-    # Pretty print with exact XML header
+    # use pretty print with exact XML header
     rough_xml = tostring(rdf_root, encoding="utf-8")
     pretty = minidom.parseString(rough_xml).toprettyxml(indent="  ", encoding="utf-8")
 
@@ -117,7 +117,6 @@ def batch_convert_predict_csv_to_xml(
     return converted
 
 
-# Example usage
 if __name__ == "__main__":
     batch_convert_predict_csv_to_xml(
         root_dir="campaign/OAEI_2025",

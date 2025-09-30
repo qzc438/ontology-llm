@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns="http://knowledgeweb.semanticweb.org/heterogeneity/alignment#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <Alignment>
+    <xml>yes</xml>
+    <level>0</level>
+    <type>??</type>
+    <map>
+      <Cell>
+        <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Current"/>
+        <entity2 rdf:resource="http://ontology.dumontierlab.com/ElectricCurrent"/>
+        <relation>=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#CurrentDensity"/>
+        <entity2 rdf:resource="http://ontology.dumontierlab.com/ElectricCurrentDensity"/>
+        <relation>=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Gas"/>
+        <entity2 rdf:resource="http://ontology.dumontierlab.com/GasPhase"/>
+        <relation>=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Liquid"/>
+        <entity2 rdf:resource="http://ontology.dumontierlab.com/LiquidPhase"/>
+        <relation>=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#Solvent"/>
+        <entity2 rdf:resource="http://ontology.dumontierlab.com/Solvent"/>
+        <relation>=</relation>
+      </Cell>
+    </map>
+    <map>
+      <Cell>
+        <entity1 rdf:resource="http://codata.jp/OML-MaterialInformation-reduced#pH"/>
+        <entity2 rdf:resource="http://ontology.dumontierlab.com/pH"/>
+        <relation>=</relation>
+      </Cell>
+    </map>
+  </Alignment>
+</rdf:RDF>
