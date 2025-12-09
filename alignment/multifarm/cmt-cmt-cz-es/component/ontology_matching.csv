@@ -1,0 +1,831 @@
+entity,source_or_target,entity_type,syntactic_matching,lexical_matching,semantic_matching
+http://cmt_cz#c-0075317-8076564,Source,Class,konference,"The term ""konference"" appears to be a variation or misspelling of ""conference."" In the context of a conference, it refers to a formal meeting or gathering where individuals come together to discuss specific topics, share information, and collaborate. Conferences can vary in size and purpose, ranging from academic and professional gatherings to industry-specific events.","Here are the verbalized phrases based on the provided triples:
+
+1. ""Akceptovány příspěvky konference pro tisk"" patří do domény konference.
+2. ""Brožury vytištěny kým"" patří do domény konference.
+3. ""Datum konference"" patří do domény konference.
+4. ""Dokončit přidělení příspěvků konference"" spadá do rozsahu konference.
+5. ""Konference má recenzí na článek"" patří do domény konference.
+6. ""Logo konference má URL"" patří do domény konference.
+7. ""Má člena konference"" patří do domény konference.
+8. ""Nástroj pro přídělení příspěvků spuštěn kým"" patří do domény konference.
+9. ""Podrobnosti vloženy kým"" patří do domény konference.
+10. ""Přidělení příspěvků dokončeno kým"" patří do domény konference.
+11. ""Spustil přidělování článků konference"" spadá do rozsahu konference.
+12. ""Tisk brožur konference"" spadá do rozsahu konference.
+13. ""Umožnit virtuální schůzku konferenci"" spadá do rozsahu konference.
+14. ""Virtuální schůzka konference umožněna kým"" patří do domény konference.
+15. ""Vložit kritéria recenze"" spadá do rozsahu konference.
+16. ""Vložit podrobnosti konference"" spadá do rozsahu konference.
+17. ""Vyjadření zájmu spuštěno kým"" patří do domény konference.
+18. ""Webová stránka konference má URL"" patří do domény konference.
+19. ""Zadání kritérií recenzí kým"" patří do domény konference.
+20. ""Zahájil vyjadřování zájmu recenzentů"" spadá do rozsahu konference.
+21. ""Člen konference"" spadá do rozsahu konference.
+22. ""Konference"" je disjunktní s ""dokument"", ""osoba"", ""preference"", ""programový výbor"", ""rozhodnutí"" a ""vyjádření zájmu"".The subgraph describes a conceptual framework related to a class called ""konference"" (conference). Here’s a natural language description of the relationships and restrictions defined in the subgraph:
+
+1. **Class Definition**: ""konference"" is defined as a subclass of a broader class, which is represented by an anonymous node. This indicates that ""konference"" inherits properties from this parent class.
+
+2. **Restrictions on Properties**: 
+   - There is a restriction that specifies that any instance of ""konference"" must have at least one associated property called ""má jméno"" (has a name). This restriction is defined by a minimum cardinality of 1.
+   - Additionally, there is another restriction that states that each ""konference"" must have exactly one associated property called ""datum konference"" (date of the conference).
+   - Furthermore, it is required that each ""konference"" must also have exactly one associated property called ""konference má recenzí na článek"" (conference has a review on an article).
+
+3. **Property Relationships**: 
+   - The property ""má jméno"" is linked to the domain of the ""konference"" class, meaning it is a characteristic that applies specifically to instances of ""konference"".
+   - The property ""datum konference"" is also linked to the ""konference"" class, indicating that it is another characteristic of conferences.
+   - The property ""konference má recenzí na článek"" is similarly linked, establishing that this property is relevant to the ""konference"" class.
+
+4. **Instance Relationships**: 
+   - The subgraph also includes a reference to an instance of ""osoba"" (person), which is related to the ""konference"" class, suggesting that there may be a relationship between conferences and individuals.
+
+In summary, the subgraph outlines a structured definition of the ""konference"" class, detailing its properties and the restrictions that govern how these properties must be fulfilled in any instance of a conference."
+http://cmt_cz#c-0128535-7854643,Source,Class,autor kter nen recenzent,"In the context of a conference, ""autor který není recenzent"" translates to ""author who is not a reviewer."" This typically refers to a situation where an individual has submitted a paper or presentation for consideration but is not involved in the peer review process for other submissions. This distinction is important in academic conferences to ensure that the review process remains unbiased and fair, as authors should not review their own work or that of their peers to avoid conflicts of interest.","The phrase can be verbalized as follows:
+
+""The class of 'authors who are not reviewers' is a subclass of 'authors' and is disjoint with both 'reviewers' and 'members of the program committee'."""
+http://cmt_cz#c-0452574-2080354,Source,Class,dokument,"In the context of a conference, ""dokument"" typically refers to a document or written material that is shared or presented during the event. This could include papers, presentations, reports, or any other form of documentation that provides information, outlines discussions, or supports the topics being addressed at the conference. It serves as a resource for attendees to reference and engage with the content being discussed.","1. The term ""konference"" is disjoint with the term ""dokument,"" meaning they cannot overlap in meaning or classification.
+
+2. The phrase ""má konflikt zájmu s příspěvkem"" has a range that is defined as ""dokument,"" indicating that it pertains to or is applicable within the context of documents.
+
+3. The term ""recenze"" is a subclass of ""dokument,"" meaning that every instance of ""recenze"" is also considered an instance of ""dokument.""
+
+4. The term ""článek"" is a subclass of ""dokument,"" indicating that every instance of ""článek"" is also classified as a ""dokument.""
+
+5. The term ""dokument"" is disjoint with the terms ""osoba,"" ""preference,"" ""programový výbor,"" ""rozhodnutí,"" and ""vyjádření zájmu,"" meaning that ""dokument"" cannot overlap with any of these terms in meaning or classification."
+http://cmt_cz#c-0578733-1857190,Source,Class,osoba,"In the context of a conference, ""osoba"" is a term from the Polish language that translates to ""person"" in English. It may refer to an individual attending the conference, such as a speaker, participant, or organizer. Understanding this term can be important for networking and communication during the event.","Here are the verbalized phrases based on the provided triples:
+
+1. The class ""dokument"" is disjoint with the class ""osoba.""
+2. The class ""externí recenzent"" is a subclass of the class ""osoba.""
+3. The class ""konference"" is disjoint with the class ""osoba.""
+4. The property ""má email"" has the domain ""osoba.""
+5. The property ""má konflikt zájmu s příspěvkem"" has the domain ""osoba.""
+6. The class ""osoba s účastí na konferenci"" is a subclass of the class ""osoba.""
+7. The class ""předseda"" is a subclass of the class ""osoba.""
+8. The class ""uživatel"" is a subclass of the class ""osoba.""
+9. The class ""člen programového výboru"" is a subclass of the class ""osoba.""
+10. The class ""osoba"" is disjoint with the classes ""preference,"" ""programový výbor,"" ""rozhodnutí,"" and ""vyjádření zájmu.""The subgraph describes a structure related to a class and its elements. It indicates that there is a class, identified by a unique identifier, which is defined as a type of ""Class."" This class has a name, ""osoba,"" and it is part of a union with another entity. The union is represented by another identifier, which contains two elements: the first element is ""konference,"" and the second element is the previously mentioned class ""osoba."" The relationship between these elements is that ""konference"" is the first element of the union, while ""osoba"" is the rest of the union. Additionally, there is a property called ""má jméno"" that relates to the class, indicating that it has a specific domain associated with it."
+http://cmt_cz#c-0754816-7898339,Source,Class,preference,"In the context of a conference, ""preference"" refers to the choices or inclinations of attendees regarding various aspects of the event. This could include preferences for specific sessions or topics they wish to attend, preferred speakers, networking opportunities, or even logistical aspects such as meal options or seating arrangements. Understanding attendee preferences can help organizers tailor the conference experience to better meet the needs and interests of participants, ultimately enhancing engagement and satisfaction.","1. The class ""dokument"" is disjoint with the class ""preference.""
+2. The class ""konference"" is disjoint with the class ""preference.""
+3. The class ""osoba"" is disjoint with the class ""preference.""
+4. The class ""preference"" is disjoint with the classes ""programový výbor,"" ""rozhodnutí,"" and ""vyjádření zájmu."""
+http://cmt_cz#c-0978466-4762816,Source,Class,p edm tn oblast,"In the context of a conference, ""předmětná oblast"" translates to ""subject area"" or ""topic area."" It refers to the specific field or domain of discussion that the conference is focused on. This could encompass various themes, issues, or topics that are relevant to the conference's objectives and the interests of the participants.","The phrase can be verbalized as: ""The subject matter pertains to the thematic area."""
+http://cmt_cz#c-1109430-9892691,Source,Class,p edseda,"In the context of a conference, ""předseda"" is a Czech term that translates to ""chairman"" or ""chairperson"" in English. It refers to the individual who presides over the conference, leading discussions, managing the agenda, and ensuring that the proceedings run smoothly.","The phrase can be verbalized as: ""The class 'předseda' is a subclass of the class 'osoba'.""The subgraph describes a structured relationship among various roles and classes related to a conference or committee setting. 
+
+1. There are two main classes defined: one is represented by the identifier `_:N552e9e66fff94de78e9dc3bdbb5d1787`, which is associated with the term ""označil konflikt zájmu"" (indicating a conflict of interest), and the other is represented by `_:Na28139b08a25408283fab5feef90c300`, which is linked to the term ""Class"".
+
+2. The roles within this structure include:
+   - ""předseda programového výboru"" (chairman of the program committee)
+   - ""předseda konference"" (chairman of the conference)
+   - ""spolupředseda"" (co-chair)
+   - ""recenzent"" (reviewer)
+
+3. The relationships indicate that:
+   - The ""předseda"" (chairman) is equivalent to the class represented by `_:Na28139b08a25408283fab5feef90c300`.
+   - The ""předseda konference"" and ""spolupředseda"" are part of a sequence that leads to the ""předseda programového výboru"".
+   - The ""recenzent"" is also part of a sequence that connects to the class associated with the conflict of interest.
+
+4. The structure is organized in a way that shows how these roles and classes are interconnected, with some roles being part of a union of other roles or classes, indicating a hierarchy or a network of responsibilities and classifications within the context of the conference or committee.
+
+In summary, this subgraph outlines the relationships and classifications of various roles within a conference setting, highlighting the connections between different positions and their relevance to the concept of conflict of interest."
+http://cmt_cz#c-1435667-7309116,Source,Class,dn l nek,"In the context of a conference, ""řádný článek"" translates to ""regular article"" in English. It typically refers to a formal written piece that is presented or published as part of the conference proceedings. This could include research findings, theoretical discussions, or reviews that contribute to the academic discourse within the conference's theme. Regular articles are usually subject to a peer-review process to ensure quality and relevance to the conference audience.","The phrase can be verbalized as: ""The class 'řádný článek' is a subclass of the class 'článek'."""
+http://cmt_cz#c-1710596-1174205,Source,Class,vyj d en z jmu,"""Vyjádření zájmu"" translates to ""expression of interest"" in English. In the context of a conference, it typically refers to a formal indication from individuals or organizations that they are interested in participating, attending, or contributing to the event. This could involve submitting proposals for presentations, workshops, or other forms of engagement, signaling their intent to be involved in the conference activities.","Here are the verbalized phrases based on the provided triples:
+
+1. ""Dokument is disjoint with vyjádření zájmu.""
+2. ""Konference is disjoint with vyjádření zájmu.""
+3. ""Má vyjádření zájmu has a range of vyjádření zájmu.""
+4. ""Osoba is disjoint with vyjádření zájmu.""
+5. ""Preference is disjoint with vyjádření zájmu.""
+6. ""Upravit vyjádření zájmu has a range of vyjádření zájmu.""
+7. ""Vyjádření zájmu upraveno has a domain of vyjádření zájmu.""
+8. ""Vyjádření zájmu is disjoint with programový výbor.""
+9. ""Vyjádření zájmu is disjoint with rozhodnutí."""
+http://cmt_cz#c-2063214-6676250,Source,Class,spolup edseda,"In the context of a conference, ""spolupředseda"" is a Czech term that translates to ""co-chair"" in English. It refers to a person who shares the leadership responsibilities of the conference with another chairperson. The co-chair typically assists in organizing the event, facilitating discussions, and ensuring that the conference runs smoothly alongside the main chair.","The term ""spolupředseda"" is a subclass of ""osoba s účastí na konferenci"" and is disjoint with ""předseda konference.""The subgraph describes a hierarchical structure related to a conference and its leadership roles. 
+
+At the top level, there is a class identified as ""předseda"" (which translates to ""chair"" in English), and it is equivalent to a specific class represented by a unique identifier. This class is defined as a type of ""Class"" and is composed of a union of various roles.
+
+Within this structure, there are specific roles mentioned: the ""předseda programového výboru"" (chair of the program committee) and the ""předseda konference"" (chair of the conference). Additionally, there is a role identified as ""spolupředseda"" (co-chair), which is part of the union of roles associated with the class.
+
+The relationships indicate that the ""předseda programového výboru"" is linked to a broader role, while the ""předseda konference"" is also part of this hierarchy. The subgraph captures the relationships and classifications of these leadership positions within the context of the conference."
+http://cmt_cz#c-2078968-5732070,Source,Class,len programov ho v boru,"In the context of a conference, ""člen programového výboru"" translates to ""member of the program committee."" This refers to an individual who is part of a group responsible for planning and organizing the conference's agenda, including selecting topics, reviewing submissions, and ensuring the quality of the presentations and discussions. Members of the program committee play a crucial role in shaping the content and overall success of the conference.","Here are the verbalized phrases based on the provided triples:
+
+1. ""An author who is not a reviewer is disjoint with a member of the program committee.""
+   
+2. ""The property 'has a member of the program committee' has a range of 'member of the program committee.'""
+
+3. ""The property 'set maximum number of reviews' has a domain of 'member of the program committee.'""
+
+4. ""The chair of the program committee is a subclass of 'member of the program committee.'""
+
+5. ""The property 'add a member of the program committee' has a range of 'member of the program committee.'""
+
+6. ""The property 'added member of the program committee' has a domain of 'member of the program committee.'""
+
+7. ""The property 'assignment of program committee members by the administrator' has a range of 'member of the program committee.'""
+
+8. ""The property 'member of the program committee' has a domain of 'member of the program committee' and is a subclass of 'person' and 'person participating in the conference.'"""
+http://cmt_cz#c-2277754-4158396,Source,Class,autor,"In the context of a conference, ""autor"" typically refers to the author or creator of a paper, presentation, or research work being discussed or presented. It signifies the individual or group responsible for the content being shared at the conference, highlighting their contributions to the field or topic being addressed.","Here are the verbalized phrases based on the provided RDF triples:
+
+1. ""An author who is not a reviewer is a subclass of an author.""
+2. ""The action of writing an article has an author as its domain.""
+3. ""The action of submitting an article has an author as its domain.""
+4. ""A co-author is a subclass of an author.""
+5. ""An article is written by an author.""
+6. ""An author is a subclass of a conference participant and a user.""The subgraph describes a structured relationship involving individuals and their roles, as well as a specific domain related to a conflict of interest. 
+
+1. There is a list that includes two primary roles: ""autor"" (author) and ""recenzent"" (reviewer). The ""recenzent"" is the first element in the list, followed by the ""autor.""
+2. The list continues with a reference to another entity that is associated with the ""autor.""
+3. Additionally, there is a mention of a ""předseda"" (chairperson) as the first element in another list, which is linked to a domain that indicates a conflict of interest.
+4. This domain is classified under a specific type, labeled as ""Class,"" and it is part of a union that includes the ""předseda.""
+
+In summary, the subgraph outlines a hierarchical structure of roles related to a review process, highlighting the relationships between the author, reviewer, and chairperson, while also addressing a domain concerning conflicts of interest."
+http://cmt_cz#c-3460865-4718819,Source,Class,l nek,"In the context of a conference, ""článek"" is a Czech word that translates to ""article"" in English. It typically refers to a written piece that may be presented, discussed, or published as part of the conference proceedings, often detailing research findings, theoretical discussions, or reviews relevant to the conference theme.","Here are the verbalized phrases based on the provided RDF triples:
+
+1. ""Krátký článek je podtřídou článku.""
+2. ""Článek má rozhodnutí.""
+3. ""Článek má spoluautora.""
+4. ""Článek má vyjádření zájmu.""
+5. ""Napsal článek je vlastnost, která se vztahuje k článku.""
+6. ""Odeslání článku je vlastnost, která se vztahuje k článku.""
+7. ""Označil konflikt zájmu je vlastnost, která se vztahuje k článku.""
+8. ""Článek pojednává o tématu.""
+9. ""Článek je přidělen recenzentovi.""
+10. ""Článek byl přijat kým.""
+11. ""Recenzuje článek je vlastnost, která se vztahuje k článku.""
+12. ""Spoluautor příspěvku je vlastnost, která se vztahuje k článku.""
+13. ""Zamítnul článek je vlastnost, která se vztahuje k článku.""
+14. ""Článek byl zamítnut kým.""
+15. ""Článek má ID.""
+16. ""Článek má název.""
+17. ""Článek napsal.""
+18. ""Článek byl přečten meta-recenzentem.""
+19. ""Článek byl přečten recenzentem.""
+20. ""Čte článek je vlastnost, která se vztahuje k článku.""
+21. ""Řádný článek je podtřídou článku.""
+22. ""Článek je podtřídou dokumentu a je disjunktní s recenzí."" 
+
+These phrases summarize the relationships and properties defined in the RDF triples.The subgraph describes a set of restrictions related to a class called ""článek"" (which translates to ""article"" in English). 
+
+1. The class ""článek"" is defined as a subclass of three restrictions:
+   - The first restriction requires that the property ""článek přečten meta-recenzentem"" (translated as ""article read by the meta-reviewer"") has a minimum cardinality of 1, meaning that each article must be read by at least one meta-reviewer.
+   - The second restriction specifies that the property ""má rozhodnutí"" (translated as ""has a decision"") has a maximum cardinality of 1, indicating that each article can have at most one decision associated with it.
+   - The third restriction states that the property ""článek přečten recenzentem"" (translated as ""article read by the reviewer"") has a minimum cardinality of 0, meaning that it is optional for an article to be read by a reviewer.
+
+In summary, the class ""článek"" must adhere to these restrictions regarding its properties, ensuring that it is read by at least one meta-reviewer, can have at most one decision, and may or may not be read by a reviewer."
+http://cmt_cz#c-4308335-5096551,Source,Class,u ivatel,"In the context of a conference, ""uživatel"" is a Czech word that translates to ""user"" in English. It typically refers to an individual who utilizes a service, product, or system being discussed or presented at the conference. For example, in a technology conference, ""uživatel"" might refer to the end-users of software or applications being showcased.","1. The class ""administrátor"" is a subclass of the class ""uživatel.""
+2. The class ""autor"" is a subclass of the class ""uživatel.""
+3. The class ""recenzent"" is a subclass of the class ""uživatel.""
+4. The class ""uživatel"" is a subclass of the class ""osoba."""
+http://cmt_cz#c-4396461-6855991,Source,Class,p ijet,"In the context of a conference, ""přijetí"" is a Czech word that translates to ""acceptance"" or ""reception"" in English. It often refers to the process of accepting a paper, proposal, or participant into the conference program. This could involve the acceptance of submitted research, presentations, or the acknowledgment of attendees at the event.","The term ""přijetí"" is a subclass of ""rozhodnutí"" and is disjoint with ""zamítnutí."""
+http://cmt_cz#c-4499023-9965815,Source,Class,p edseda konference,"In the context of a conference, ""předseda konference"" translates to ""chairman of the conference"" or ""conference chair."" This individual is responsible for leading the conference, facilitating discussions, managing the agenda, and ensuring that the event runs smoothly. The chair often plays a key role in guiding the participants and making decisions related to the conference proceedings.","1. ""Spolupředseda"" is disjoint with ""předseda konference.""
+2. ""Předseda konference"" is a subclass of ""osoba s účastí na konferenci.""The subgraph describes a hierarchical structure related to a conference and its leadership roles. 
+
+At the top level, there is a class identified as ""předseda,"" which is equivalent to a specific type represented by a class labeled as ""Class."" This class encompasses various roles, including the ""předseda programového výboru"" (chairman of the program committee) and the ""předseda konference"" (chairman of the conference). 
+
+Additionally, there is a role identified as ""spolupředseda"" (co-chair), which is part of the same class. The relationships indicate that the ""předseda programového výboru"" and ""předseda konference"" are both specific instances or roles within this class, while the ""spolupředseda"" is another role that is included in the union of these instances. 
+
+Overall, the structure illustrates the relationships between different leadership positions within a conference setting, highlighting their classifications and connections."
+http://cmt_cz#c-4568940-5424482,Source,Class,kr tk l nek,"In the context of a conference, ""krátký článek"" translates to ""short article"" in English. It typically refers to a brief written piece that summarizes key points, findings, or discussions related to the conference topics. Such articles are often used to provide attendees with concise information or insights that can be easily referenced or shared.","The phrase can be verbalized as: ""A short article is a subclass of an article."""
+http://cmt_cz#c-4768517-7614612,Source,Class,meta recenzent,"In the context of a conference, a ""meta-recenzent"" refers to a reviewer who evaluates the reviews of other reviewers. This role typically involves assessing the quality, thoroughness, and fairness of the peer reviews submitted for conference papers or presentations. The meta-recenzent ensures that the review process is rigorous and that the feedback provided to authors is constructive and based on sound criteria. This position is crucial for maintaining the integrity and credibility of the conference's review process.","1. The article is read by a meta-reviewer.
+2. A meta-reviewer is a subclass of a reviewer."
+http://cmt_cz#c-4971341-0156307,Source,Class,p edseda programov ho v boru,"In the context of a conference, ""předseda programového výboru"" translates to ""chairman of the program committee."" This individual is responsible for overseeing the development and organization of the conference program, including the selection of topics, speakers, and the overall agenda. The chairman plays a crucial role in ensuring that the conference meets its objectives and provides valuable content for attendees.","1. The action of ""uzavřít recenzi"" is associated with the role of ""předseda programového výboru.""
+   
+2. The role of ""předseda programového výboru"" is a subclass of the role ""člen programového výboru.""The subgraph describes a hierarchical structure related to a conference and its leadership roles. 
+
+At the top level, there is a class identified as ""předseda,"" which is equivalent to a specific type represented by a class labeled as ""Class."" This class encompasses various roles, including the ""předseda programového výboru"" (chairman of the program committee) and the ""předseda konference"" (chairman of the conference). 
+
+Additionally, there is a role identified as ""spolupředseda"" (co-chair), which is part of the same class. The relationships indicate that the ""předseda programového výboru"" and ""předseda konference"" are both part of a sequence or list, with ""spolupředseda"" being another role in this context. 
+
+Overall, the structure outlines the leadership positions within a conference, highlighting the roles of the chairman and co-chair, as well as their classification within a broader category."
+http://cmt_cz#c-5395109-0887878,Source,Class,recenze,"In the context of a conference, ""recenze"" is a Czech word that translates to ""review"" in English. It typically refers to a critical assessment or evaluation of a paper, presentation, or research work presented at the conference. Reviews are often conducted by peers to provide feedback, ensure quality, and determine the suitability of the work for publication or presentation.","Here are the verbalized phrases based on the provided triples:
+
+1. ""Meta-recenze is a subclass of recenze.""
+2. ""The property napsal recenzi has a range of recenze.""
+3. ""The property recenze napsána kým has a domain of recenze.""
+4. ""The property uzavřít recenzi has a range of recenze.""
+5. ""Článek is disjoint with recenze.""
+6. ""Recenze is a subclass of dokument."""
+http://cmt_cz#c-5802603-8520876,Source,Class,programov v bor,"In the context of a conference, ""programový výbor"" translates to ""program committee"" in English. This committee is typically responsible for overseeing the development and organization of the conference program, including the selection of topics, speakers, and sessions. They play a crucial role in ensuring the quality and relevance of the content presented at the conference.","Here are the verbalized phrases based on the provided triples:
+
+1. The term ""dokument"" is disjoint with ""programový výbor.""
+2. The term ""konference"" is disjoint with ""programový výbor.""
+3. The property ""má člena programového výboru"" has a domain of ""programový výbor.""
+4. The term ""osoba"" is disjoint with ""programový výbor.""
+5. The term ""preference"" is disjoint with ""programový výbor.""
+6. The term ""vyjádření zájmu"" is disjoint with ""programový výbor.""
+7. The property ""člen programového výboru"" has a range of ""programový výbor.""
+8. The term ""programový výbor"" is disjoint with ""rozhodnutí."""
+http://cmt_cz#c-6068065-2346935,Source,Class,rozhodnut,"In the context of a conference, ""rozhodnutí"" is a Czech word that translates to ""decision"" in English. It typically refers to a conclusion or resolution made during discussions, presentations, or deliberations at the conference. This could involve decisions on future actions, policies, or agreements among participants.","Here are the verbalized phrases based on the provided triples:
+
+1. The class ""dokument"" is disjoint with the class ""rozhodnutí.""
+2. The class ""konference"" is disjoint with the class ""rozhodnutí.""
+3. The property ""má rozhodnutí"" has a range of ""rozhodnutí.""
+4. The class ""osoba"" is disjoint with the class ""rozhodnutí.""
+5. The class ""preference"" is disjoint with the class ""rozhodnutí.""
+6. The class ""programový výbor"" is disjoint with the class ""rozhodnutí.""
+7. The class ""přijetí"" is a subclass of ""rozhodnutí.""
+8. The class ""vyjádření zájmu"" is disjoint with the class ""rozhodnutí.""
+9. The class ""zamítnutí"" is a subclass of ""rozhodnutí."""
+http://cmt_cz#c-6084724-9952967,Source,Class,extern recenzent,"In the context of a conference, ""externí recenzent"" refers to an external reviewer. This is typically an individual who is not affiliated with the organizing institution or the authors of the submitted work. The role of the externí recenzent is to evaluate the quality, relevance, and originality of the submitted papers or presentations, providing an unbiased assessment that helps ensure the integrity and academic standards of the conference.","Here are the verbalized phrases based on the provided triples:
+
+1. The term ""přidělen externí recenzent"" is associated with the range of ""externí recenzent.""
+2. The term ""přidělen meta-recenzent recenzentovi"" is defined within the domain of ""externí recenzent.""
+3. The class ""externí recenzent"" is a subclass of ""osoba"" and is disjoint with the class ""recenzent.""The subgraph describes a restriction in a conceptual framework. Specifically, it defines a restriction type that applies to the property ""přidělen meta-recenzent recenzentovi"" (which translates to ""assigned meta-reviewer to reviewer""). This restriction indicates that the class ""externí recenzent"" (meaning ""external reviewer"") is a subclass of the defined restriction. Furthermore, the restriction specifies that the cardinality for this property is set to 1, meaning that each external reviewer must have exactly one assigned meta-reviewer."
+http://cmt_cz#c-6909402-0737569,Source,Class,meta recenze,"In the context of a conference, ""meta-recenze"" likely refers to a type of review or critique that goes beyond the content of the presentations or papers being discussed. It could involve analyzing the overall themes, methodologies, or implications of the research presented at the conference, rather than focusing solely on individual contributions. This type of review might assess how the various works interconnect, the trends in the field, or the effectiveness of the conference format itself. Essentially, it is a higher-level evaluation that provides insights into the broader context of the conference's subject matter.","The class ""meta-recenze"" is a subclass of the class ""recenze."""
+http://cmt_cz#c-6954144-5167465,Source,Class,spoluautor,"In the context of a conference, ""spoluautor"" is a Slovak term that translates to ""co-author"" in English. It refers to an individual who collaborates with one or more authors in the creation of a paper, presentation, or research project that is being presented at the conference. Co-authors share responsibility for the content and findings, and their contributions are typically acknowledged in the conference materials.","Here are the verbalized phrases based on the provided RDF triples:
+
+1. The range of ""má spoluautora"" is defined as ""spoluautor.""
+2. The domain of ""spoluautor příspěvku"" is defined as ""spoluautor.""
+3. The class ""spoluautor"" is a subclass of ""autor."""
+http://cmt_cz#c-7762278-1333457,Source,Class,osoba s ast na konferenci,"The phrase ""osoba s účastí na konferenci"" translates to ""a person participating in the conference"" in English. In the context of a conference, it refers to an individual who is attending or involved in the event, whether as a speaker, panelist, or attendee.","Here are the verbalized phrases based on the provided RDF triples:
+
+1. The class ""autor"" is a subclass of the class ""osoba s účastí na konferenci"" (person participating in the conference).
+   
+2. The property ""má člena konference"" (has conference member) has a range that includes ""osoba s účastí na konferenci"" (person participating in the conference).
+
+3. The class ""předseda konference"" (conference chair) is a subclass of the class ""osoba s účastí na konferenci"" (person participating in the conference).
+
+4. The class ""recenzent"" (reviewer) is a subclass of the class ""osoba s účastí na konferenci"" (person participating in the conference).
+
+5. The class ""spolupředseda"" (co-chair) is a subclass of the class ""osoba s účastí na konferenci"" (person participating in the conference).
+
+6. The property ""člen konference"" (conference member) has a domain that includes ""osoba s účastí na konferenci"" (person participating in the conference).
+
+7. The class ""člen programového výboru"" (member of the program committee) is a subclass of the class ""osoba s účastí na konferenci"" (person participating in the conference).
+
+8. The class ""osoba s účastí na konferenci"" (person participating in the conference) is a subclass of the class ""osoba"" (person)."
+http://cmt_cz#c-8922348-5805928,Source,Class,zam tnut,"In the context of a conference, ""zamítnutí"" is a Czech term that translates to ""rejection"" in English. It typically refers to the decision to not accept a proposal, paper, or submission presented at the conference. This could apply to research papers that were submitted for consideration, where the committee decides not to include them in the conference program.","1. ""Přijetí"" is disjoint with ""zamítnutí.""
+2. ""Zamítnutí"" is a subclass of ""rozhodnutí."""
+http://cmt_cz#c-9510493-7314978,Source,Class,administr tor,"In the context of a conference, ""administrátor"" typically refers to an individual responsible for managing and overseeing various administrative tasks related to the event. This can include organizing schedules, coordinating logistics, handling registrations, and ensuring that the conference runs smoothly. The administrator plays a crucial role in facilitating communication among participants and ensuring that all necessary resources are available for a successful conference experience.","Here are the verbalized phrases based on the provided RDF triples:
+
+1. Brožury byly vytištěny administrátorem.
+2. Administrátor dokončil přidělení příspěvků konference.
+3. Nástroj pro přidělení příspěvků byl spuštěn administrátorem.
+4. Podrobnosti byly vloženy administrátorem.
+5. Administrátor přidal člena programového výboru.
+6. Člen programového výboru byl přidán administrátorem.
+7. Recenzent byl přidělen administrátorem.
+8. Recenzent byl přidělen administrátorovi.
+9. Přidělení příspěvků bylo dokončeno administrátorem.
+10. Přidělení členů programového výboru provedl administrátor.
+11. Administrátor přijal článek.
+12. Článek byl přijat administrátorem.
+13. Administrátor spustil přidělování článků konference.
+14. Tisk brožur konference provedl administrátor.
+15. Administrátor umožnil virtuální schůzku konference.
+16. Virtuální schůzka konference byla umožněna administrátorem.
+17. Administrátor vložil kritéria recenze.
+18. Administrátor vložil podrobnosti konference.
+19. Vyjadření zájmu bylo spuštěno administrátorem.
+20. Zadání kritérií recenzí provedl administrátor.
+21. Administrátor zahájil vyjadřování zájmu recenzentů.
+22. Administrátor zamítnul článek.
+23. Článek byl zamítnut administrátorem.
+24. Administrátor je podtřídou uživatele."
+http://cmt_cz#c-9999501-9567959,Source,Class,recenzent,"In the context of a conference, ""recenzent"" refers to a reviewer or evaluator who assesses submitted papers, presentations, or proposals. The recenzent's role is to provide feedback on the quality, relevance, and originality of the work, helping to determine whether it should be accepted for presentation or publication at the conference.","Here are the verbalized phrases based on the provided triples:
+
+1. The author who is not a reviewer is disjoint with the reviewer.
+2. The external reviewer is disjoint with the reviewer.
+3. The meta-reviewer is a subclass of the reviewer.
+4. The action of writing a review has a domain of the reviewer.
+5. The action of assigning an external reviewer has a domain of the reviewer.
+6. The action of assigning a meta-reviewer to a reviewer has a range of the reviewer.
+7. The action of assigning a reviewer has a range of the reviewer.
+8. The action of assigning a reviewer to an administrator has a domain of the reviewer.
+9. The action of assigning to a reviewer has a range of the reviewer.
+10. The question of who wrote the review has a range of the reviewer.
+11. The action of reviewing an article has a domain of the reviewer.
+12. The action of editing an expression of interest has a domain of the reviewer.
+13. The action of editing an expression of interest has a range of the reviewer.
+14. The action of reading an article has a range of the reviewer.
+15. The action of reading an article has a domain of the reviewer.
+16. The reviewer is a subclass of a conference participant and a user.The subgraph describes a structured relationship involving individuals and their roles, as well as a specific domain related to a conflict of interest. 
+
+1. There is a list that includes two primary roles: ""autor"" (author) and ""recenzent"" (reviewer). The ""recenzent"" is the first element in the list, followed by the ""autor.""
+2. The list continues with a third role, ""předseda"" (chairperson), which is also the first element in another list.
+3. The domain of interest is identified as ""označil konflikt zájmu"" (marked conflict of interest), which is associated with a specific class.
+4. This class is defined as a union of the previously mentioned roles, indicating that it encompasses both the ""autor"" and ""recenzent.""
+
+In summary, the subgraph outlines a relationship where an author and a reviewer are linked to a conflict of interest, with a chairperson also being involved in this context. The entire structure is categorized under a specific class that represents these roles and their connections."
+http://cmt_cz#ent-0734097-6608972,Source,Property,logo konference m url,"The phrase ""logo konference má URL"" translates from Czech to ""the conference logo has a URL."" In the context of a conference, this likely means that the logo associated with the conference is linked to a specific web address (URL). This could be used for various purposes, such as directing attendees to the conference website for more information, registration, or resources related to the event. The logo may serve as a clickable element in digital materials, promoting easy access to relevant online content.",The logo of the conference has a URL.
+http://cmt_cz#ent-3122496-0070100,Source,Property,konference m recenz na l nek,"The phrase ""konference má recenzí na článek"" translates to ""the conference has a review of the article"" in English. In the context of a conference, this typically means that the conference includes a process where submitted articles or papers are evaluated by experts (peer review) before being accepted for presentation or publication. This review process ensures the quality and relevance of the research being presented at the conference.","The conference has a review for the article.The subgraph describes a restriction related to the class ""konference."" Specifically, it indicates that ""konference"" is a subclass of a restriction that has a cardinality of 1. This restriction pertains to the property ""konference má recenzí na článek,"" which translates to ""conference has a review on the article."" In summary, every instance of ""konference"" must have exactly one review associated with an article."
+http://cmt_cz#ent-4323430-0231880,Source,Property,l nek m id,"In the context of a conference, ""článek má ID"" translates to ""the article has an ID."" This typically refers to a unique identifier assigned to a specific article or paper presented at the conference. The ID helps in organizing, referencing, and retrieving the article within conference proceedings or databases, ensuring that each submission can be easily identified and accessed by attendees, researchers, and organizers.","The phrase can be verbalized as: ""An article has an ID that is of type unsigned long."""
+http://cmt_cz#ent-4819789-5630843,Source,Property,nastavil maxim ln po et recenz,"In the context of a conference, ""nastavil maximální počet recenzí"" translates to ""set the maximum number of reviews."" This likely refers to a limit established by the conference organizers on the number of reviews that can be submitted for papers or presentations. This could be to ensure a manageable review process, maintain quality, or adhere to time constraints during the evaluation of submissions.","The phrase can be verbalized as: ""A member of the program committee sets a maximum number of reviews, which is an integer."""
+http://cmt_cz#ent-4932889-3833748,Source,Property,l nek m n zev,"In the context of a conference, ""článek má název"" translates to ""the article has a title"" in English. This phrase likely refers to the title of a paper or presentation that will be discussed or presented at the conference. It indicates that the article being referenced is formally identified by a specific title, which is important for organizing and categorizing the content being shared at the event.","The phrase can be verbalized as: ""An article has a title that is a string."""
+http://cmt_cz#ent-4999871-0113227,Source,Property,m jm no,"In the context of a conference, ""má jméno"" is a Czech phrase that translates to ""my name"" in English. It is often used when someone is introducing themselves or stating their name during a presentation or networking session.","The phrase can be verbalized as: ""The property 'má jméno' has a range of type 'string'.""The subgraph describes a structure in a knowledge representation system, likely related to ontology or semantic web concepts. Here’s a natural language description of the elements and their relationships:
+
+1. There is a class identified as ""Class"" which is represented by a node.
+2. This class has a property called ""má jméno"" (which translates to ""has name"" in English) that is associated with a specific domain, indicating that it applies to the aforementioned class.
+3. The class is further defined as a subclass of another entity, which is a restriction.
+4. This restriction specifies that there is a cardinality of 1, meaning that each instance of the subclass must have exactly one name.
+5. The subclass is named ""konference"" (which translates to ""conference""), and it is defined as a union of another set of elements.
+6. The union consists of a list where the first element is ""konference"" and the rest of the elements are represented by a placeholder node.
+7. The first element in the union is ""konference,"" and it is linked to the restriction that enforces the cardinality of the property ""má jméno.""
+
+In summary, the structure outlines a class hierarchy where ""konference"" is a subclass that must have exactly one name, and this requirement is enforced through a restriction on the property ""má jméno."""
+http://cmt_cz#ent-5109242-0314878,Source,Property,akceptov ny p sp vky konference pro tisk,"The phrase ""akceptovány příspěvky konference pro tisk"" translates to ""accepted conference contributions for publication"" in English. In the context of a conference, it means that certain papers or presentations submitted to the conference have been reviewed and accepted for inclusion in the conference proceedings or for publication in a related journal. This indicates that the contributions meet the required standards and are deemed valuable for sharing with the broader academic or professional community.","The phrase can be verbalized as: ""The conference accepts contributions for publication, which is a boolean value."""
+http://cmt_cz#ent-7179792-9328317,Source,Property,datum konference,"In the context of a conference, ""datum konference"" likely refers to a specific type of conference or a conference focused on data-related topics. The term ""datum"" is derived from Latin, meaning ""data"" or ""a piece of information."" Therefore, a ""datum konference"" could be an event where professionals gather to discuss data analysis, data science, data management, or related fields. It may involve presentations, workshops, and discussions aimed at sharing knowledge and advancements in the realm of data.","The phrase can be verbalized as: ""The property 'datum konference' has a domain of 'konference' and a range of 'date'.""The subgraph describes a restriction related to a property called ""datum konference."" Specifically, it indicates that there is a restriction that requires at least one instance of the property ""datum konference"" to be present. This restriction is associated with a class labeled ""konference,"" which is defined as a subclass of the restriction. In summary, the class ""konference"" must have at least one ""datum konference"" associated with it."
+http://cmt_cz#ent-8942207-0853588,Source,Property,m email,"In the context of a conference, ""má email"" likely refers to ""my email"" in a mix of languages, possibly indicating that someone is sharing their email address for communication purposes related to the conference. It could be used when a participant wants to provide their contact information for networking, follow-up discussions, or sharing conference materials.","The phrase can be verbalized as: ""The property 'má email' is associated with the domain 'osoba' and has a range of 'string'."""
+http://cmt_cz#ent-9613142-1273747,Source,Property,webov str nka konference m url,"The phrase ""webová stránka konference má URL"" translates to ""the conference website has a URL"" in English. In the context of a conference, this means that there is a specific web address (URL) where information about the conference can be found. This website typically includes details such as the conference schedule, speakers, registration information, and other relevant resources for attendees.",The conference webpage has a URL that can be any valid URI.
+http://cmt_cz#op-0432162-8398718,Source,Property,len konference,"In the context of a conference, ""člen konference"" translates from Czech to ""member of the conference."" This term typically refers to an individual who is part of the conference, which could include participants, speakers, organizers, or attendees who contribute to the event's discussions and activities.","The phrase can be verbalized as follows:
+
+""A member of the conference is a person who participates in the conference."""
+http://cmt_cz#op-0458224-9433253,Source,Property,dokon it p id len p sp vk konference,"The phrase ""dokončit přidělení příspěvků konference"" translates to ""complete the allocation of conference contributions"" in English. In the context of a conference, this likely refers to the process of finalizing which papers, presentations, or contributions will be accepted and assigned to specific sessions or panels within the conference program. It involves reviewing submissions and making decisions about their placement in the event schedule.","The phrase can be verbalized as: ""The administrator is responsible for completing the allocation of conference contributions."""
+http://cmt_cz#op-0623795-6074869,Source,Property,te l nek,"In the context of a conference, ""čte článek"" translates from Czech to ""reads the article."" This likely refers to a participant or speaker at the conference reading a paper or article, which could be part of a presentation or discussion during the event.","The phrase can be verbalized as: ""A reviewer reads an article."""
+http://cmt_cz#op-0966508-4834998,Source,Property,zad n krit ri recenz k m,"In the context of a conference, ""zadání kritérií recenzí kým"" translates to ""assignment of review criteria by whom."" This phrase likely refers to the process of determining who is responsible for establishing the criteria that will be used to evaluate submissions, such as research papers or presentations, for the conference. It emphasizes the importance of clarity regarding who sets these criteria, as they guide the review process and influence the selection of accepted works.","The phrase can be verbalized as: ""The criteria for reviews are assigned by an administrator in the context of a conference."""
+http://cmt_cz#op-1123799-1699346,Source,Property,spustil p id lov n l nk konference,"The phrase ""spustil přidělování článků konference"" translates to ""started the allocation of conference articles"" in English. In the context of a conference, this likely refers to the initiation of a process where articles or papers submitted for the conference are assigned to reviewers or sessions. This is a crucial step in the conference organization, as it ensures that each submission is evaluated and categorized appropriately for presentation or publication.",The administrator initiated the allocation of conference articles.
+http://cmt_cz#op-1170545-9807724,Source,Property,len programov ho v boru,"In the context of a conference, ""člen programového výboru"" translates to ""member of the program committee."" This refers to an individual who is part of a group responsible for planning and organizing the conference program, which may include selecting topics, reviewing submissions, and determining the schedule of presentations and sessions.","The phrase can be verbalized as: ""A member of the program committee is associated with the program committee."""
+http://cmt_cz#op-1303951-4931939,Source,Property,tisk bro ur konference,"The phrase ""tisk brožur konference"" translates from Czech to ""printing conference brochures"" in English. In the context of a conference, it refers to the process of creating and printing informational booklets or pamphlets that provide details about the event, such as the schedule, speakers, topics, and other relevant information for attendees. These brochures are typically distributed to participants to enhance their experience and help them navigate the conference effectively.","The phrase can be verbalized as: ""The administrator is responsible for the brochures of the conference."""
+http://cmt_cz#op-1541405-5409026,Source,Property,p id len recenzent administr torovi,"In the context of a conference, ""přidělen recenzent administrátorovi"" translates to ""assigned reviewer to the administrator."" This likely refers to the process where a reviewer is designated to evaluate submitted papers or proposals, and this assignment is managed by the conference administrator. The administrator oversees the review process, ensuring that each submission is reviewed by an appropriate expert in the field.","The phrase can be verbalized as: ""A reviewer is assigned to an administrator."""
+http://cmt_cz#op-1579152-3151797,Source,Property,odesl n l nku,"In the context of a conference, ""odeslání článku"" translates to ""submission of an article"" in English. It refers to the process of submitting a written paper or article for consideration, typically for presentation or publication at the conference. This is a common step in academic and professional conferences where participants share their research findings or insights.","The phrase can be verbalized as: ""The action of sending an article is associated with an author and pertains to an article."""
+http://cmt_cz#op-1979724-8617564,Source,Property,napsal l nek,"In the context of a conference, ""napsal článek"" translates from Czech to ""wrote an article."" This could refer to a participant or speaker at the conference who has authored a paper or article related to the conference topics, which may be presented or discussed during the event.","The phrase can be verbalized as: ""An author writes an article."""
+http://cmt_cz#op-2048853-9028952,Source,Property,bro ury vyti t ny k m,"The phrase ""brožury vytištěny kým?"" translates to ""who printed the brochures?"" in English. In the context of a conference, this question likely pertains to identifying the organization or individual responsible for printing the conference materials, such as brochures, which may contain information about the event, speakers, schedules, and other relevant details.","The phrase can be verbalized as: ""Brožury jsou vytištěny administrátorem konference."" 
+
+This translates to ""The brochures are printed by the administrator of the conference."""
+http://cmt_cz#op-2458065-0360190,Source,Property,l nek p e ten recenzentem,"In the context of a conference, ""článek přečten recenzentem"" translates to ""article read by the reviewer."" This phrase typically indicates that a submitted paper or article has been evaluated by a reviewer as part of the peer review process. The reviewer assesses the quality, relevance, and originality of the work to determine whether it meets the standards for presentation or publication at the conference.","The phrase can be verbalized as: ""A paper is read by a reviewer.""The subgraph describes a relationship in a knowledge structure where the term ""článek"" (which translates to ""article"" in English) is classified as a subclass of a restriction. This restriction specifies that there must be at least one instance (indicated by the minimum cardinality of 1) of the property ""článek přečten recenzentem"" (which translates to ""article read by the reviewer""). In summary, it indicates that for an article to be valid within this framework, it must have been read by at least one reviewer."
+http://cmt_cz#op-2594333-0978557,Source,Property,p id len len programov ho v boru administr torem,"The phrase ""přidělení členů programového výboru administrátorem"" translates to ""assignment of members of the program committee by the administrator."" In the context of a conference, this typically refers to the process where an administrator or organizer designates specific individuals to serve on the program committee. The program committee is responsible for reviewing submissions, selecting presentations, and shaping the overall content and agenda of the conference. This assignment is crucial for ensuring that the committee has the right expertise and diversity to evaluate the proposals effectively and contribute to the success of the event.",The assignment of program committee members by the administrator.
+http://cmt_cz#op-2719305-6116440,Source,Property,m rozhodnut,"In the context of a conference, ""má rozhodnutí"" translates from Czech to ""my decision"" in English. It typically refers to a conclusion or choice that the speaker has made regarding a particular topic or issue discussed during the conference. This phrase could indicate that the speaker is about to share their final thoughts or a resolution on a matter that has been deliberated during the event.","The phrase can be verbalized as: ""The decision is a domain of the article and has a range of decisions.""The subgraph describes a relationship between two types of restrictions and a class called ""článek"" (which translates to ""article"" in English). 
+
+1. There are two restrictions defined:
+   - The first restriction (identified by the node _:N644a3f8becf5481995efc70393c323b0) specifies that for the property ""má rozhodnutí"" (which translates to ""has a decision""), there can be a maximum of one instance associated with it.
+   - The second restriction (identified by the node _:N5aef2fba07b144139d7da029961f0277) indicates that for the same property ""má rozhodnutí,"" there can be a minimum of zero instances associated with it.
+
+2. The class ""článek"" is a subclass of both restrictions, meaning that any instance of ""článek"" must adhere to the rules set by these restrictions regarding the property ""má rozhodnutí.""
+
+In summary, the class ""článek"" is governed by two restrictions on the property ""má rozhodnutí,"" allowing for a maximum of one and a minimum of zero instances."
+http://cmt_cz#op-3100859-0106878,Source,Property,p id n len programov ho v boru,"The phrase ""přidán člen programového výboru"" translates to ""added member of the program committee"" in English. In the context of a conference, this typically means that an individual has been appointed or included as a new member of the committee responsible for planning and organizing the conference's program. This committee usually oversees the selection of topics, speakers, and the overall structure of the conference sessions.","The phrase can be verbalized as follows:
+
+""A member of the program committee has been added as an administrator."""
+http://cmt_cz#op-3145641-2703975,Source,Property,p ijal l nek,"In the context of a conference, ""přijal článek"" translates from Czech to ""accepted the article."" This likely refers to the process where a submitted paper or article has been reviewed and approved for presentation or publication at the conference.","The phrase can be verbalized as: ""An administrator accepted an article."""
+http://cmt_cz#op-3249689-5706056,Source,Property,m spoluautora,"In the context of a conference, ""má spoluautora"" translates from Czech to ""has a co-author."" This phrase typically indicates that the work being presented, such as a research paper or presentation, was created in collaboration with another individual. It highlights the collaborative nature of academic and professional work, where multiple authors contribute to the research or findings being discussed at the conference.","The phrase can be verbalized as: ""A 'článek' has a 'spoluautor'."""
+http://cmt_cz#op-3284481-2852944,Source,Property,vlo it krit ria recenze,"In the context of a conference, ""vložit kritéria recenze"" translates to ""insert review criteria."" This phrase typically refers to the process of establishing specific standards or guidelines that will be used to evaluate submissions, such as research papers or presentations. These criteria help reviewers assess the quality, relevance, and originality of the work being submitted, ensuring a fair and consistent evaluation process during the conference.","The phrase can be verbalized as: ""The administrator inserts review criteria for the conference."""
+http://cmt_cz#op-3288010-0134836,Source,Property,napsal recenzi,"In the context of a conference, ""napsal recenzi"" translates from Czech to ""wrote a review."" This likely refers to someone who has written a critique or evaluation of a presentation, paper, or the overall conference experience. Such reviews can provide feedback to the speakers and organizers and help future attendees understand the quality and relevance of the conference content.","The phrase can be verbalized as: ""A reviewer writes a review."""
+http://cmt_cz#op-3439303-1005047,Source,Property,p ijato k m,"In the context of a conference, ""přijato kým"" translates to ""accepted by whom"" in English. It typically refers to the entity or individual that has accepted a paper, proposal, or presentation for the conference. This could involve a review process where submissions are evaluated by a committee or specific individuals, and ""přijato kým"" would indicate who made the acceptance decision.","The phrase can be verbalized as: ""An article is accepted by an administrator."""
+http://cmt_cz#op-3595147-3775493,Source,Property,umo nit virtu ln sch zku konferenci,"The phrase ""umožnit virtuální schůzku konferenci"" translates to ""enable a virtual meeting conference"" in English. In the context of a conference, it refers to the facilitation of an online meeting or gathering where participants can connect and interact remotely, typically using video conferencing technology. This allows individuals to attend and participate in discussions, presentations, and networking opportunities without the need to be physically present at a specific location.","The phrase can be verbalized as: ""The administrator enables a virtual meeting for the conference."""
+http://cmt_cz#op-3866300-3329332,Source,Property,p id len extern recenzent,"In the context of a conference, ""přidělen externí recenzent"" translates to ""assigned external reviewer."" This refers to an individual who is not part of the organizing committee or the institution hosting the conference but is tasked with reviewing submitted papers or proposals. The role of the external reviewer is to provide an unbiased evaluation of the work, ensuring that the submissions meet the conference's standards for quality and relevance.","The phrase can be verbalized as: ""The assigned external reviewer is a type of reviewer."""
+http://cmt_cz#op-3939079-1765799,Source,Property,l nek napsal,"In the context of a conference, ""článek napsal"" translates from Czech to ""the article was written by"" in English. It typically precedes the name of the author or speaker who contributed to the conference proceedings or presented a paper.","The phrase can be verbalized as: ""An article is written by an author."""
+http://cmt_cz#op-3978264-5994210,Source,Property,zam tnut k m,"In the context of a conference, ""zamítnut kým"" translates from Czech to ""rejected by whom."" This phrase could refer to a situation where a proposal, paper, or presentation submitted for consideration at the conference has been rejected, and the speaker is inquiring about the identity of the person or committee that made the decision to reject it. Understanding who rejected the submission can provide insight into the evaluation process and criteria used during the conference's review.","The phrase can be verbalized as: ""A 'zamítnut kým' is associated with a 'článek' and is related to an 'administrátor'."""
+http://cmt_cz#op-4083995-9769205,Source,Property,vyj d en z jmu upraveno,"In the context of a conference, ""vyjádření zájmu upraveno"" translates to ""expression of interest modified"" or ""expression of interest adjusted."" This phrase typically indicates that there has been a change or update to the initial expression of interest from participants or stakeholders regarding the conference. It may refer to adjustments in participation, topics of interest, or other relevant details that have been refined or clarified since the original expression of interest was submitted.","The phrase can be verbalized as follows:
+
+""The expression of interest has been modified, with 'expression of interest' as the domain and 'reviewer' as the range."""
+http://cmt_cz#op-4417571-9636359,Source,Property,p id len recenzent,"In the context of a conference, ""přidělen recenzent"" translates to ""assigned reviewer"" in English. This term refers to an individual who has been designated to evaluate and provide feedback on submitted papers or presentations for the conference. The assigned reviewer is responsible for assessing the quality, relevance, and originality of the work, and their evaluations help determine which submissions will be accepted for presentation at the conference.","The phrase can be verbalized as: ""An administrator is assigned a reviewer."""
+http://cmt_cz#op-4503022-0671140,Source,Property,ozna il konflikt z jmu,"The phrase ""označil konflikt zájmu"" translates to ""identified a conflict of interest"" in English. In the context of a conference, this likely refers to a situation where a speaker, participant, or organization has acknowledged that their personal interests or affiliations may influence their objectivity or impartiality regarding the topics being discussed. This is an important ethical consideration in conferences, as it ensures transparency and maintains the integrity of the discussions and decisions made during the event.","The phrase can be verbalized as: ""The term 'označil konflikt zájmu' is associated with the concept of 'článek'.""The subgraph describes a structured relationship involving individuals and their roles, as well as a classification related to a conflict of interest. 
+
+1. There are two main entities: one is identified as a ""recenzent"" (reviewer) and the other as an ""autor"" (author). 
+2. The ""recenzent"" is the first element in a sequence, while the ""autor"" follows in the same sequence.
+3. The ""autor"" is linked to a subsequent entity that is part of a larger structure, indicating that there are more elements following it.
+4. Another entity, identified as ""předseda"" (chairperson), is also the first in its own sequence, which is part of a broader classification.
+5. This broader classification is associated with a domain that indicates a conflict of interest, suggesting that the relationships and roles may be scrutinized for potential biases.
+6. The classification itself is defined as a ""Class,"" indicating that it is part of a formal categorization system.
+
+In summary, the subgraph outlines a hierarchical structure of roles (author, reviewer, chairperson) and their connections, while also addressing the concept of a conflict of interest within a defined classification."
+http://cmt_cz#op-4698265-0483831,Source,Property,recenzuje l nek,"In the context of a conference, ""recenzuje článek"" translates to ""reviews an article"" in English. This typically refers to the process where experts evaluate a submitted paper or article for quality, relevance, and contribution to the field before it is accepted for presentation or publication at the conference. The review process is crucial for maintaining academic standards and ensuring that only high-quality research is shared with the conference attendees.","The phrase can be verbalized as: ""A reviewer reviews an article."""
+http://cmt_cz#op-4736258-3439701,Source,Property,uzav t recenzi,"In the context of a conference, ""uzavřít recenzi"" translates to ""close the review"" or ""conclude the review."" This typically refers to the process of finalizing the evaluation of submitted papers or presentations, where reviewers complete their assessments and submit their feedback or scores. It signifies the end of the review period for the conference submissions.","The phrase can be verbalized as follows:
+
+""The chairperson of the program committee can close a review."""
+http://cmt_cz#op-4925705-2193515,Source,Property,m konflikt z jmu s p sp vkem,"The phrase ""má konflikt zájmu s příspěvkem"" translates to ""has a conflict of interest with the contribution"" in English. In the context of a conference, this typically means that an individual or organization has a personal or financial interest that could potentially influence their objectivity regarding a particular presentation, paper, or contribution they are involved with. This could raise ethical concerns about the integrity of the conference proceedings or the validity of the information being presented. It is important for participants to disclose any such conflicts to maintain transparency and trust in the academic or professional discourse.","The phrase can be verbalized as: ""A person has a conflict of interest with a document."""
+http://cmt_cz#op-5049562-0017689,Source,Property,p id len meta recenzent recenzentovi,"In the context of a conference, ""přidělen meta-recenzent recenzentovi"" translates to ""assigned a meta-reviewer to the reviewer."" This typically means that a meta-reviewer has been designated to oversee or evaluate the work of a reviewer who is assessing submitted papers or proposals. The role of the meta-reviewer is to ensure that the review process is fair, thorough, and meets the conference's standards. They may provide additional insights, guidance, or feedback on the reviewer's evaluations to enhance the quality of the review process.","The phrase can be verbalized as: ""An external reviewer is assigned as a meta-reviewer to a reviewer.""The subgraph describes a restriction related to the assignment of a meta-reviewer to a reviewer. Specifically, it defines a restriction type that states there is a property called ""přidělen meta-recenzent recenzentovi"" (which translates to ""assigned meta-reviewer to reviewer""). This restriction indicates that the class ""externí recenzent"" (external reviewer) is a subclass of the defined restriction. Furthermore, the restriction specifies that the cardinality of this property is set to 1, meaning that each external reviewer can have exactly one assigned meta-reviewer."
+http://cmt_cz#op-5059116-9359721,Source,Property,p id len p sp vk dokon eno k m,"In the context of a conference, ""přidělení příspěvků dokončeno kým"" translates to ""allocation of contributions completed by whom."" This phrase likely refers to the process of assigning or finalizing the contributions (such as papers, presentations, or sessions) for the conference and indicates the person or committee responsible for this task. It suggests that there is a need to identify who has completed the allocation of these contributions, which is an important aspect of organizing a successful conference.","The phrase can be verbalized as: ""The allocation of contributions is completed by an administrator for the conference."""
+http://cmt_cz#op-5203575-7027520,Source,Property,virtu ln sch zka konference umo n na k m,"The phrase ""virtuální schůzka konference umožněna kým?"" translates to ""who enabled the virtual meeting of the conference?"" In the context of a conference, this question is asking about the person or organization responsible for facilitating or organizing the virtual meeting aspect of the event. This could refer to the conference organizers, a specific technology provider, or a platform that hosts the virtual meeting.","The phrase can be verbalized as: ""The conference is enabled by the administrator for a virtual meeting."""
+http://cmt_cz#op-5233762-3966768,Source,Property,spoluautor p sp vku,"In the context of a conference, ""spoluautor příspěvku"" translates to ""co-author of the contribution"" in English. This term refers to an individual who has collaborated with others to create a paper, presentation, or other scholarly work that will be presented at the conference. Co-authors share responsibility for the content and findings of the work, and their contributions are typically acknowledged in the conference materials.","The phrase can be verbalized as follows:
+
+""The co-author of the contribution is a co-author and is associated with an article."""
+http://cmt_cz#op-5235981-5122813,Source,Property,pojedn v o t matu,"The phrase ""pojednává o tématu"" translates to ""deals with the topic"" or ""discusses the topic"" in English. In the context of a conference, it typically refers to a presentation, paper, or discussion that focuses on a specific subject matter or theme relevant to the conference's agenda.","The phrase can be verbalized as: ""An article discusses a subject area."""
+http://cmt_cz#op-5595496-1359020,Source,Property,p idat lena programov ho v boru,"In the context of a conference, ""přidat člena programového výboru"" translates to ""add a member to the program committee."" This typically refers to the process of including an additional individual in the group responsible for planning and organizing the conference's agenda, sessions, and overall content. The program committee plays a crucial role in selecting topics, reviewing submissions, and ensuring the quality and relevance of the conference program.","The phrase can be verbalized as: ""An administrator can add a member to the program committee."""
+http://cmt_cz#op-5600782-3305758,Source,Property,p id leno recenzentovi,"In the context of a conference, ""přiděleno recenzentovi"" translates to ""assigned to a reviewer."" This typically refers to the process where submitted papers or abstracts are allocated to reviewers who will evaluate their quality, relevance, and suitability for presentation at the conference.","The phrase can be verbalized as: ""A review is assigned to a reviewer."""
+http://cmt_cz#op-5846805-0359309,Source,Property,n stroj pro p d len p sp vk spu t n k m,"The phrase ""nástroj pro přídělení příspěvků spuštěn kým"" translates to ""tool for allocating contributions launched by whom"" in English. In the context of a conference, this likely refers to a system or platform that has been developed or initiated to manage and distribute contributions, such as papers, presentations, or funding, and is inquiring about the entity or individual responsible for its launch. This could involve questions about who created the tool, who is overseeing its implementation, or which organization is facilitating the allocation process during the conference.","The phrase can be verbalized as: ""The tool for allocating contributions is initiated by an administrator at the conference."""
+http://cmt_cz#op-6176936-7944974,Source,Property,zah jil vyjad ov n z jmu recenzent,"The phrase ""zahájil vyjadřování zájmu recenzentů"" translates to ""initiated the expression of interest from reviewers."" In the context of a conference, this likely refers to the process where reviewers begin to show their interest in evaluating submitted papers or presentations. This could involve reviewers confirming their willingness to review specific submissions, indicating their expertise, or starting to provide feedback on the materials they are assigned. This step is crucial for the organization of the conference, as it ensures that the submissions are assessed by qualified individuals.",The administrator initiated the expression of interest from the reviewers for the conference.
+http://cmt_cz#op-6923946-9687405,Source,Property,vyjad en z jmu spu t no k m,"The phrase ""vyjadření zájmu spuštěno kým"" translates to ""expression of interest initiated by whom"" in English. In the context of a conference, this likely refers to identifying who has initiated or expressed interest in participating in the conference, whether it be individuals, organizations, or sponsors. It is important for organizers to know the sources of interest to tailor the event accordingly and engage with potential participants effectively.","The phrase can be verbalized as: ""The expression of interest is initiated by an administrator in the context of a conference."""
+http://cmt_cz#op-7603017-3460209,Source,Property,upravit vyj d en z jmu,"In the context of a conference, ""upravit vyjádření zájmu"" translates to ""edit the expression of interest."" This typically refers to the process of modifying or refining a statement or application that indicates a person's or organization's interest in participating in the conference, whether as a speaker, attendee, or contributor. It may involve updating details, clarifying intentions, or enhancing the content to better align with the conference's goals or requirements.","The phrase can be verbalized as: ""The action of 'upravit vyjádření zájmu' is associated with the domain of 'recenzent' and pertains to the range of 'vyjádření zájmu'."""
+http://cmt_cz#op-8454321-5609778,Source,Property,recenze naps na k m,"The phrase ""recenze napsána kým?"" translates to ""review written by whom?"" in English. In the context of a conference, this question likely pertains to identifying the author of a review or critique of a paper, presentation, or the conference itself. It emphasizes the importance of knowing the source of the review to assess its credibility and perspective.","The phrase can be verbalized as: ""A review is written by a reviewer."""
+http://cmt_cz#op-8492450-4994485,Source,Property,vlo it podrobnosti konference,"The phrase ""vložit podrobnosti konference"" translates from Czech to ""insert conference details"" in English. In the context of a conference, it typically means to provide or input specific information about the conference, such as the date, time, location, agenda, speakers, and any other relevant details that participants or attendees would need to know.","The phrase can be verbalized as: ""The administrator inserts details of the conference."""
+http://cmt_cz#op-8543092-2688723,Source,Property,zam tnul l nek,"In the context of a conference, ""zamítnul článek"" translates to ""the article was rejected."" This typically refers to a situation where a submitted paper or article for presentation or publication at the conference did not meet the required standards or criteria set by the reviewers or organizing committee, leading to its rejection.","The phrase can be verbalized as: ""The administrator rejected the article."""
+http://cmt_cz#op-8644966-5327331,Source,Property,m lena programov ho v boru,"The phrase ""má člena programového výboru"" translates to ""has a member of the program committee"" in English. In the context of a conference, this typically refers to an individual who is part of the committee responsible for planning and organizing the conference's agenda, including selecting topics, speakers, and overseeing the overall content of the event. This member plays a crucial role in ensuring that the conference meets its objectives and provides valuable insights and discussions for attendees.","The phrase can be verbalized as follows:
+
+""A member of the program committee is a member of the program committee."" 
+
+This indicates that the domain of the term ""member of the program committee"" is the ""program committee,"" and its range is defined as ""member of the program committee."""
+http://cmt_cz#op-9028664-9440680,Source,Property,podrobnosti vlo eny k m,"The phrase ""podrobnosti vloženy kým"" translates to ""details submitted by whom"" in English. In the context of a conference, this likely refers to the inquiry about who provided or submitted specific details or information related to the conference, such as presentations, papers, or agenda items. It may be used to clarify the source of certain contributions or to attribute responsibility for the content shared during the event.","The phrase can be verbalized as: ""The details are submitted by an administrator for the conference."""
+http://cmt_cz#op-9555015-4440565,Source,Property,m vyj d en z jmu,"The phrase ""má vyjádření zájmu"" translates to ""has expressed interest"" in English. In the context of a conference, it likely refers to individuals or organizations that have shown interest in participating, attending, or contributing to the event. This could involve submitting proposals, registering for attendance, or indicating a desire to engage with the conference's themes or activities.","The phrase can be verbalized as follows:
+
+""A 'článek' has an expression of interest."" 
+
+In this context, ""článek"" refers to an article, and ""vyjádření zájmu"" translates to ""expression of interest."""
+http://cmt_cz#op-9655662-7845361,Source,Property,l nek p e ten meta recenzentem,"In the context of a conference, ""článek přečten meta-recenzentem"" translates to ""the article has been read by a meta-reviewer."" This indicates that the paper or article submitted to the conference has undergone an additional layer of review by a meta-reviewer, who typically evaluates the reviews provided by other reviewers and assesses the overall quality and validity of the feedback. This process helps ensure that the evaluation of the paper is thorough and fair, contributing to the integrity of the conference's review process.","The phrase can be verbalized as: ""An article is read by a meta-reviewer.""The subgraph describes a restriction related to the property ""článek přečten meta-recenzentem"" (which translates to ""article read by the meta-reviewer""). This restriction indicates that an article can be read by a meta-reviewer at most once, as denoted by the maximum cardinality of 1. Additionally, the term ""článek"" (meaning ""article"") is classified as a subclass of this restriction. In summary, the structure outlines a rule that limits the reading of an article by a meta-reviewer to a single instance."
+http://cmt_cz#op-9778175-4696720,Source,Property,m lena konference,"The phrase ""má člena konference"" translates from Czech to ""has a member of the conference"" in English. In the context of a conference, it likely refers to an individual who is part of the conference, either as a participant, speaker, or organizer. This could imply that the conference includes various members who contribute to its discussions, presentations, or overall objectives.","The phrase can be verbalized as: ""A conference has a member who is a person participating in the conference."""
+http://cmt_es#c-0082809-9639382,Target,Class,rea tem tica,"In the context of a conference, ""área temática"" refers to a specific thematic area or topic of focus within the event. It typically designates a particular subject or field that the conference will address, guiding the discussions, presentations, and workshops. Participants may choose to engage with content that aligns with their interests or expertise within these defined thematic areas.","The phrase can be verbalized as: ""The property 'tiene área temática' has a range of 'área temática'."""
+http://cmt_es#c-0291674-8366353,Target,Class,coautor,"In the context of a conference, ""coautor"" refers to a co-author, which is an individual who collaborates with one or more authors to contribute to a research paper, presentation, or project. Co-authors share responsibility for the content and findings, and their contributions can include research, writing, and analysis. At a conference, co-authors may present their work together, highlighting their collective efforts and insights.","Here are the verbalized phrases based on the provided RDF triples:
+
+1. ""Es coautor de un artículo"" is a property that applies to the domain of ""coautor.""
+2. ""Tiene coautor"" indicates that the property has a range of ""coautor.""
+3. The class ""coautor"" is a subclass of ""autor."" 
+
+In summary:
+- A coauthor is someone who can be associated with an article.
+- An entity that has a coauthor is related to the concept of coauthorship.
+- The concept of a coauthor falls under the broader category of authors."
+http://cmt_es#c-0796534-0846894,Target,Class,preferencia,"In the context of a conference, ""preferencia"" typically refers to a preference or priority given to certain topics, speakers, or sessions. It may indicate the choices or inclinations of attendees regarding which presentations or discussions they find most relevant or interesting. This could also relate to the selection of participants for specific panels or workshops based on their expertise or the interests of the audience.","The term ""preferencia"" is disjoint with the following concepts: ""comité de programa,"" ""conferencia,"" ""decisión,"" ""documento,"" ""persona,"" and ""puja."""
+http://cmt_es#c-0967878-0642860,Target,Class,resumen del art culo,"""Resumen del artículo"" translates to ""summary of the article"" in English. In the context of a conference, it typically refers to a brief overview or synopsis of a research paper or presentation that highlights the main points, findings, and conclusions. This summary is often provided to give attendees a quick understanding of the content and significance of the work being presented, allowing them to decide which sessions to attend or to facilitate discussion during the conference.","The phrase can be verbalized as: ""The summary of the article is a subclass of the article."""
+http://cmt_es#c-1092610-2413708,Target,Class,miembro del comit de programa,"In the context of a conference, ""miembro del comité de programa"" translates to ""member of the program committee."" This refers to an individual who is part of a group responsible for planning and organizing the conference's agenda, including selecting topics, reviewing submitted papers or presentations, and ensuring the overall quality and relevance of the program. Members of the program committee typically have expertise in the conference's subject area and play a crucial role in shaping the event's content.","Here are the verbalized phrases based on the provided triples:
+
+1. ""Asigna un número máximo de artículos a un miembro del comité de programa.""
+2. ""Añade un miembro de comité de programa.""
+3. ""Un miembro del comité de programa es añadido por.""
+4. ""Es miembro del comité de programa.""
+5. ""El número máximo de artículos pertenece a un miembro del comité de programa.""
+6. ""El presidente del comité de programa es una subclase de miembro del comité de programa.""
+7. ""Tiene un miembro del comité de programa.""
+8. ""Un miembro del comité de programa es una subclase de miembro de la conferencia y de persona.""
+9. ""Un miembro del comité de programa es disjunto con autor, no revisor."""
+http://cmt_es#c-2100185-3996442,Target,Class,usuario,"In the context of a conference, ""usuario"" is a Spanish term that translates to ""user"" in English. It typically refers to an individual who participates in or utilizes the services, products, or technologies being discussed or presented at the conference. For example, a conference focused on technology might discuss the experiences and needs of usuarios in relation to software or applications.","Here are the verbalized phrases for the given RDF triples:
+
+1. ""Administrador is a subclass of Usuario.""
+2. ""Autor is a subclass of Usuario.""
+3. ""Revisor is a subclass of Usuario.""
+4. ""Usuario is a subclass of Persona."""
+http://cmt_es#c-2113698-8203323,Target,Class,vice presidente,"In the context of a conference, ""vice presidente"" refers to the position of a vice president, who is typically responsible for assisting the president or chairperson of the conference. This role may involve overseeing specific sessions, managing logistics, or stepping in for the president when necessary. The vice presidente often plays a crucial role in ensuring the smooth operation of the conference and may also represent the organization or group in various capacities.","The phrase can be verbalized as follows:
+
+""The vice presidente is a subclass of miembro de la conferencia and is disjoint with presidente de la conferencia.""The subgraph describes a structure related to a conference or committee leadership. It includes the following key points:
+
+1. There is a node representing the ""presidente de la conferencia,"" which is the first entity in a sequence.
+2. This node is connected to another node that represents the ""presidente del comité de programa,"" which is also the first entity in its own sequence.
+3. Additionally, there is a node that represents the ""vice presidente,"" which is the first entity in a different sequence.
+4. The ""presidente"" is defined as equivalent to a certain class, which is represented by another node.
+5. This class is a union of the node representing the ""vice presidente.""
+6. There is a connection indicating that the ""rest"" of the sequence following the ""presidente de la conferencia"" leads to a node that is defined as ""nil,"" suggesting the end of that sequence.
+7. The overall structure is categorized as a class.
+
+In summary, the subgraph outlines the relationships and hierarchy among the roles of a conference, specifically highlighting the president, vice president, and the committee chair, while also establishing a classification for these roles."
+http://cmt_es#c-2265323-9937316,Target,Class,administrador,"In the context of a conference, ""administrador"" typically refers to an administrator or manager who is responsible for overseeing the organization and logistics of the event. This person may handle tasks such as coordinating schedules, managing resources, ensuring that the conference runs smoothly, and addressing any issues that arise during the event. Their role is crucial for the successful execution of the conference.","Here are the verbalized phrases based on the provided RDF triples:
+
+1. El administrador acepta el artículo.
+2. El artículo es aceptado por el administrador.
+3. El administrador asigna un número máximo de artículos a.
+4. El artículo es asignado por el administrador.
+5. El administrador asigna un revisor.
+6. El administrador añade un miembro al comité de programa.
+7. El miembro del comité de programa es añadido por el administrador.
+8. El administrador gestiona copias en papel de los manifiestos de envío.
+9. Los detalles son introducidos por el administrador.
+10. El administrador finaliza la asignación de artículos.
+11. El administrador gestiona las herramientas para la asignación de artículos.
+12. El administrador inicia la puja de los artículos.
+13. El administrador introduce criterios de revisión.
+14. El administrador introduce detalles de la conferencia.
+15. La asignación de artículos ha sido finalizada por el administrador.
+16. La puja de los revisores ha sido iniciada por el administrador.
+17. Las copias en papel de los manifiestos de envío han sido impresas por el administrador.
+18. Las herramientas para la asignación de artículos han sido gestionadas por el administrador.
+19. Los criterios de revisión han sido introducidos por el administrador.
+20. El administrador permite reuniones virtuales.
+21. El administrador rechaza el artículo.
+22. El artículo es rechazado por el administrador.
+23. La reunión virtual se realiza mediante el administrador.
+24. El administrador es un tipo de usuario."
+http://cmt_es#c-2467658-7386622,Target,Class,autor,"In the context of a conference, ""autor"" typically refers to the author or creator of a paper, presentation, or research work being discussed or presented. It signifies the individual or group responsible for the content being shared at the conference.","Here are the verbalized phrases based on the provided RDF triples:
+
+1. ""The author is not the reviewer.""
+2. ""The co-author is a type of author.""
+3. ""The author sends the article.""
+4. ""The author writes the article.""
+5. ""The article has an author.""
+6. ""The author is a subclass of both a conference member and a user.""The subgraph describes a situation involving a conflict of interest. It identifies three key roles: an ""autor"" (author), a ""revisor"" (reviewer), and a ""presidente"" (president). 
+
+The ""presidente"" is linked to the ""revisor,"" indicating a hierarchical or supervisory relationship. The ""autor"" is also connected to the ""presidente,"" suggesting that the author may be under the president's oversight or influence. 
+
+The subgraph is categorized under a specific class that represents a type of entity, which is defined by the union of the roles of the author and the president. This indicates that the class encompasses the relationships and roles associated with these individuals, particularly in the context of the identified conflict of interest. 
+
+In summary, the description highlights a structure where the author, reviewer, and president are interconnected, with a focus on the implications of a conflict of interest within this framework."
+http://cmt_es#c-3087064-8732762,Target,Class,versi n completa del art culo,"In the context of a conference, ""versión completa del artículo"" translates to ""full version of the article."" This typically refers to the complete text of a research paper or article that provides detailed information, findings, and analyses presented at the conference. Attendees may be interested in accessing the full version to gain a deeper understanding of the research discussed during the event.","The phrase can be verbalized as: ""The complete version of the article is a subclass of the article."""
+http://cmt_es#c-3335261-0377996,Target,Class,meta revisor,"In the context of a conference, a ""meta revisor"" typically refers to an individual who reviews and evaluates the overarching themes, methodologies, and frameworks of the presentations or discussions taking place. This person may not only assess the content for accuracy and clarity but also provide insights on how the various topics interconnect, ensuring that the conference maintains a cohesive narrative or focus. Essentially, the meta revisor acts as a higher-level reviewer, looking at the bigger picture rather than just the specifics of individual presentations.","1. ""Leído por el meta revisor"" is associated with the range of ""meta revisor.""
+2. ""Meta revisor"" is a subclass of ""revisor."""
+http://cmt_es#c-4051802-3052589,Target,Class,autor no revisor,"In the context of a conference, ""autor, no revisor"" translates to ""author, not reviewer."" This phrase typically indicates that the person presenting or discussing a particular work is the original creator or author of the content, rather than someone who has reviewed or critiqued it. This distinction is important in academic and professional settings, as it emphasizes the perspective and insights of the author, who has firsthand knowledge and experience with the material being presented.","1. The phrase ""miembro del comité de programa"" is disjoint with ""autor, no revisor.""
+2. The class ""autor, no revisor"" is a subclass of ""autor.""
+3. The class ""autor, no revisor"" is disjoint with ""revisor."""
+http://cmt_es#c-4213390-7190524,Target,Class,comit de programa,"In the context of a conference, ""comité de programa"" refers to the program committee. This committee is typically responsible for overseeing the content and structure of the conference program. Its duties may include reviewing submitted papers or presentations, selecting speakers, organizing sessions, and ensuring that the conference meets its academic or professional standards. The program committee plays a crucial role in shaping the overall quality and relevance of the conference's offerings.","Here are the verbalized phrases based on the provided triples:
+
+1. ""Es miembro del comité de programa"" is related to the range of ""comité de programa.""
+2. ""Preferencia"" is disjoint with ""comité de programa.""
+3. ""Tiene miembro del comité de programa"" is associated with the domain of ""comité de programa.""
+4. ""Comité de programa"" is disjoint with ""conferencia,"" ""decisión,"" ""documento,"" ""persona,"" and ""puja."""
+http://cmt_es#c-4365365-7749367,Target,Class,conferencia,"In the context of ""conference,"" the term ""conferencia"" refers to a formal meeting or gathering where individuals come together to discuss specific topics, share information, and collaborate. It often involves presentations, discussions, and networking opportunities among participants who may be experts or interested parties in a particular field.","Here are the verbalized phrases based on the provided triples:
+
+1. ""La URL de la página web pertenece a la conferencia.""
+2. ""La URL del logotipo pertenece a la conferencia.""
+3. ""La conferencia acepta entregas en papel.""
+4. ""El comité de programa es disjunto de la conferencia.""
+5. ""La copia en papel de los manifiestos de envío está relacionada con la conferencia.""
+6. ""Los detalles son introducidos por la conferencia.""
+7. ""Es miembro de la conferencia.""
+8. ""La fecha está relacionada con la conferencia.""
+9. ""La asignación de artículos finaliza en la conferencia.""
+10. ""La conferencia gestiona las herramientas para la asignación de artículos.""
+11. ""La conferencia inicia la puja de los artículos.""
+12. ""La conferencia introduce criterios de revisión.""
+13. ""La conferencia introduce detalles de la conferencia.""
+14. ""La asignación de artículos ha sido finalizada por la conferencia.""
+15. ""La puja de los revisores ha sido iniciada por la conferencia.""
+16. ""Las copias en papel de los manifiestos de envío han sido impresas por la conferencia.""
+17. ""Las herramientas para la asignación de artículos han sido gestionadas por la conferencia.""
+18. ""Los criterios de revisión han sido introducidos por la conferencia.""
+19. ""La conferencia permite reunión virtual.""
+20. ""La preferencia es disjunta de la conferencia.""
+21. ""La reunión virtual es parte de la conferencia.""
+22. ""Las revisiones por artículo son parte de la conferencia.""
+23. ""La conferencia tiene miembros.""
+24. ""La conferencia es disjunta de la decisión, del documento, de la persona y de la puja.""The subgraph describes a set of relationships and constraints related to a class called ""conferencia"" (conference). 
+
+1. **Class Definition**: The ""conferencia"" is defined as a class that is a subclass of two restrictions. 
+
+2. **Union of Classes**: The class ""conferencia"" is part of a union of classes, which is represented by a specific identifier.
+
+3. **Properties and Restrictions**:
+   - There is a property called ""nombre"" (name) that is associated with the class ""conferencia"". This property has a domain defined by the union class.
+   - The property ""revisiones por artículo"" (reviews per article) is also linked to the class ""conferencia"" and is subject to a restriction.
+   - The property ""fecha"" (date) is another property associated with the class ""conferencia"", which is also subject to a restriction.
+
+4. **Cardinality Constraints**:
+   - The restrictions on the properties indicate that each ""conferencia"" must have exactly one ""nombre"" and one ""fecha"".
+   - Additionally, there is a restriction on the property ""revisiones por artículo"", which also requires exactly one associated value.
+
+5. **Minimum Cardinality**: The subclass of ""conferencia"" related to the property ""fecha"" has a minimum cardinality of 1, meaning that every instance of ""conferencia"" must have at least one associated date.
+
+6. **First Elements**: The first element of the list of properties for the union class is ""conferencia"", and the first element for the restriction on ""nombre"" is ""persona"" (person).
+
+In summary, the subgraph outlines the structure and constraints of the ""conferencia"" class, detailing its properties, the relationships to other classes, and the cardinality requirements for those properties."
+http://cmt_es#c-4762871-9518956,Target,Class,miembro de la conferencia,"""Miembro de la conferencia"" translates to ""member of the conference"" in English. In the context of a conference, it typically refers to an individual who is part of the conference, which could mean they are a participant, speaker, organizer, or attendee involved in the discussions, presentations, and activities taking place during the event.","Here are the verbalized phrases based on the provided triples:
+
+1. ""El autor es un tipo de miembro de la conferencia.""
+2. ""La relación 'es miembro de la conferencia' se aplica a los miembros de la conferencia.""
+3. ""El miembro del comité de programa es un tipo de miembro de la conferencia.""
+4. ""El presidente de la conferencia es un tipo de miembro de la conferencia.""
+5. ""El revisor es un tipo de miembro de la conferencia.""
+6. ""La relación 'tiene miembro de la conferencia' se refiere a los miembros de la conferencia.""
+7. ""El vice presidente es un tipo de miembro de la conferencia.""
+8. ""El miembro de la conferencia es un tipo de persona."""
+http://cmt_es#c-5045873-3273959,Target,Class,presidente,"In the context of a conference, ""presidente"" typically refers to the person who presides over the meeting or event. This individual is responsible for leading the discussions, managing the agenda, and ensuring that the conference runs smoothly. The presidente may also facilitate interactions among participants and represent the conference in official capacities.","The phrase can be verbalized as: ""A presidente is a subclass of persona.""The subgraph describes a structure involving various roles and relationships within an organization, likely related to a conference or committee. 
+
+1. **Conflict of Interest**: The subgraph begins by indicating that there is a noted conflict of interest, which is a significant concern in organizational settings.
+
+2. **Roles and Hierarchy**:
+   - The first role mentioned is that of the **revisor** (reviewer), who is part of a sequence of roles.
+   - Following the revisor, the hierarchy includes a **vice president**, a **president**, and a **president of the conference**. 
+   - Additionally, there is a **president of the program committee**, indicating a structured leadership within the organization.
+
+3. **Classifications**:
+   - The roles of **president** and **vice president** are classified under a broader category, suggesting they share common characteristics or functions.
+   - The **president** is also linked to an equivalent class, indicating that this role may have specific attributes or responsibilities that align with other similar roles.
+
+4. **Union of Roles**: 
+   - The subgraph indicates that the roles of the vice president and the president are part of a union, suggesting that they collectively contribute to a larger function or class within the organization.
+
+5. **Structure**: 
+   - The relationships are structured in a way that shows a clear hierarchy, with each role leading to the next, and some roles being defined as part of a larger class or union of roles.
+
+In summary, the subgraph outlines a structured hierarchy of roles within an organization, highlighting the presence of a conflict of interest and the relationships between various leadership positions, including the revisor, vice president, president, and president of the conference."
+http://cmt_es#c-5380354-4687776,Target,Class,presidente de la conferencia,"""Presidente de la conferencia"" translates to ""president of the conference"" in English. In the context of a conference, this term refers to the individual who is responsible for leading and overseeing the conference proceedings. The president typically facilitates discussions, manages the agenda, represents the conference to external parties, and ensures that the event runs smoothly. This role is crucial for maintaining order and guiding the overall direction of the conference activities.","1. The role of ""vice presidente"" is disjoint with the role of ""presidente de la conferencia.""
+2. The role of ""presidente de la conferencia"" is a subclass of ""miembro de la conferencia.""The subgraph describes a structure related to a conference or committee leadership. It includes the following key points:
+
+1. There is a class of entities represented by the term ""presidente,"" which is defined as equivalent to another class identified by a unique identifier.
+2. Within this structure, there are specific roles: the first role is ""presidente de la conferencia,"" and the second role is ""presidente del comité de programa.""
+3. Additionally, there is a mention of a ""vice presidente"" as the first role in another context.
+4. The relationships indicate that the ""presidente"" class is formed by uniting various roles, including the ""presidente de la conferencia"" and the ""presidente del comité de programa.""
+5. The term ""rest"" is used to denote additional unspecified roles or entities, with one of them being linked to ""nil,"" suggesting that there may be no further roles or entities in that particular context.
+
+Overall, the subgraph outlines a hierarchical structure of leadership roles within a conference or committee, emphasizing the relationships and classifications of these roles."
+http://cmt_es#c-5587546-6922524,Target,Class,rechazar,"In the context of a conference, ""rechazar"" is a Spanish verb that means ""to reject"" or ""to refuse."" It could refer to rejecting a proposal, a paper submission, or an idea presented during discussions. For example, if a conference committee decides not to accept a paper for presentation, they would be ""rechazando"" that submission.","The term ""rechazar"" is a subclass of ""decisión"" and is disjoint with ""aceptar."""
+http://cmt_es#c-6106355-2983413,Target,Class,documento,"In the context of a conference, ""documento"" typically refers to a document or written material that is presented, distributed, or discussed during the event. This could include conference papers, presentations, reports, agendas, or any other written resources that provide information or support the topics being addressed at the conference.","Here are the verbalized phrases based on the provided triples:
+
+1. The class ""artículo"" is a subclass of the class ""documento.""
+2. The class ""comité de programa"" is disjoint with the class ""documento.""
+3. The class ""conferencia"" is disjoint with the class ""documento.""
+4. The class ""preferencia"" is disjoint with the class ""documento.""
+5. The class ""revisión"" is a subclass of the class ""documento.""
+6. The property ""tiene conflicto de intereses"" has a range that includes the class ""documento.""
+7. The class ""documento"" is disjoint with the classes ""decisión,"" ""persona,"" and ""puja."""
+http://cmt_es#c-6685331-8774185,Target,Class,aceptar,"In the context of a conference, ""aceptar"" is a Spanish verb that means ""to accept."" It could refer to accepting an invitation to speak, agreeing to a proposal, or acknowledging a point made during discussions. For example, a speaker might ""aceptar"" a question from the audience or a participant might ""aceptar"" the terms of a collaboration discussed at the conference.","1. The term ""rechazar"" is disjoint with the term ""aceptar,"" meaning that they cannot coexist or be true at the same time.
+
+2. The term ""aceptar"" is a subclass of ""decisión,"" indicating that ""aceptar"" is a specific type of decision."
+http://cmt_es#c-6803415-4241794,Target,Class,art culo,"In the context of a conference, ""artículo"" typically refers to an article or paper that is presented or discussed during the event. It can denote a written work that contributes to the conference's themes or topics, often sharing research findings, theoretical discussions, or case studies relevant to the audience.","Here are the verbalized phrases based on the provided triples:
+
+1. ""El artículo acepta el artículo.""
+2. ""El artículo es aceptado por.""
+3. ""El artículo es asignado a.""
+4. ""El artículo envía el artículo.""
+5. ""El artículo es coautor de un artículo.""
+6. ""El artículo ha señalado conflicto de intereses.""
+7. ""El artículo ha sido asignado a.""
+8. ""El artículo tiene un identificador.""
+9. ""El artículo es leído por.""
+10. ""El artículo es leído por el meta revisor.""
+11. ""El artículo es leído por el revisor.""
+12. ""El artículo rechaza el artículo.""
+13. ""El artículo es rechazado por.""
+14. ""El artículo redacta el artículo.""
+15. ""El resumen del artículo es una subclase de artículo.""
+16. ""El artículo tiene un autor.""
+17. ""El artículo tiene un coautor.""
+18. ""El artículo tiene una decisión.""
+19. ""El artículo tiene una puja.""
+20. ""El artículo tiene un área temática.""
+21. ""El artículo tiene un título.""
+22. ""La versión completa del artículo es una subclase de artículo.""
+23. ""El artículo es una subclase de documento y es disjunto con revisión."" 
+
+These phrases capture the relationships and properties defined in the RDF triples.The subgraph describes a set of restrictions related to the class ""artículo"" (article) in a structured ontology. 
+
+1. The class ""artículo"" is defined as a subclass of three different restrictions:
+   - The first restriction requires that there is exactly one instance of the property ""tiene decisión"" (has decision) associated with an article.
+   - The second restriction allows for zero or more instances of the property ""tiene decisión"" associated with an article.
+   - The third restriction also requires that there is exactly one instance of the property ""leído por el revisor"" (read by the reviewer) associated with an article.
+
+2. Each of these restrictions is characterized by cardinality constraints:
+   - The first restriction on ""tiene decisión"" has a minimum cardinality of 1 and a maximum cardinality of 1, meaning that each article must have exactly one decision.
+   - The second restriction on ""tiene decisión"" has a minimum cardinality of 0 and a maximum cardinality of 1, indicating that an article may have at most one decision.
+   - The third restriction on ""leído por el revisor"" has a minimum cardinality of 1 and a maximum cardinality of 1, meaning that each article must be read by exactly one reviewer.
+
+In summary, the ontology defines the class ""artículo"" with specific restrictions on the properties ""tiene decisión"" and ""leído por el revisor,"" establishing clear rules about how these properties must be associated with instances of the class."
+http://cmt_es#c-7650337-8286527,Target,Class,revisor,"In the context of a conference, a ""revisor"" typically refers to an individual responsible for reviewing and editing content, such as papers, presentations, or reports, to ensure clarity, accuracy, and adherence to specific guidelines or standards. This role is crucial for maintaining the quality of the materials presented at the conference, ensuring that the information is well-organized and effectively communicated to the audience.","Here are the verbalized phrases based on the provided triples:
+
+1. The term ""asigna revisor externo"" is associated with the domain of ""revisor.""
+2. The term ""asignado a"" pertains to the range of ""revisor.""
+3. The term ""asignado por el administrador"" is linked to the domain of ""revisor.""
+4. The term ""asignado por el revisor"" relates to the range of ""revisor.""
+5. The term ""asignar revisor"" is connected to the range of ""revisor.""
+6. The term ""autor, no revisor"" is disjoint with ""revisor.""
+7. The term ""escrito por"" is associated with the range of ""revisor.""
+8. The term ""ha sido asignado a"" pertains to the domain of ""revisor.""
+9. The term ""lee el artículo"" is linked to the domain of ""revisor.""
+10. The term ""leído por el revisor"" relates to the range of ""revisor.""
+11. The term ""meta revisor"" is a subclass of ""revisor.""
+12. The term ""modifica la puja"" is associated with the domain of ""revisor.""
+13. The term ""modificada por"" pertains to the range of ""revisor.""
+14. The term ""redacta la revisión"" is linked to the domain of ""revisor.""
+15. The term ""revisor"" is a subclass of ""miembro de la conferencia"" and ""usuario,"" and is disjoint with ""revisor externo.""The subgraph describes a situation involving a conflict of interest. It identifies three key roles: an ""autor"" (author), a ""revisor"" (reviewer), and a ""presidente"" (president). 
+
+The ""presidente"" is linked to the ""revisor,"" indicating a hierarchical or supervisory relationship, while the ""autor"" is associated with the ""presidente."" The structure suggests that the ""presidente"" oversees the ""revisor,"" who is responsible for reviewing the work of the ""autor."" 
+
+Additionally, the subgraph categorizes the entire situation under a specific class that highlights the presence of a conflict of interest. This class is defined as a union of the roles of ""autor"" and ""presidente,"" indicating that the potential conflict arises from the relationships between these roles. 
+
+In summary, the subgraph outlines a scenario where an author, a reviewer, and a president are involved, with a noted conflict of interest stemming from their interconnected roles."
+http://cmt_es#c-8019834-6089135,Target,Class,presidente del comit de programa,"In the context of a conference, ""presidente del comité de programa"" translates to ""chairperson of the program committee."" This individual is responsible for overseeing the development and organization of the conference program, which includes selecting topics, inviting speakers, and ensuring that the sessions align with the conference's goals and themes. The chairperson plays a crucial role in shaping the content and structure of the event, facilitating discussions, and coordinating the efforts of committee members.","1. The action ""finaliza revisión"" is associated with the role of ""presidente del comité de programa.""
+2. The role of ""presidente del comité de programa"" is a subclass of ""miembro del comité de programa.""The subgraph describes a structured relationship among various roles and classifications within an organizational context. 
+
+1. There is a node representing the ""presidente de la conferencia,"" which is identified as the first element in a sequence.
+2. This node is linked to another node that represents the ""presidente del comité de programa,"" also identified as the first element in its own sequence.
+3. Additionally, there is a node that represents the ""vice presidente,"" which is the first element in a different sequence.
+4. The ""presidente"" is classified as equivalent to a certain class, which is defined by a union of the nodes representing the ""presidente"" and ""vice presidente.""
+5. The relationships also indicate that there are ""rest"" nodes, which suggest that there are additional elements or roles that follow the ""presidente"" and ""vice presidente,"" with one of these nodes leading to a ""nil"" value, indicating the end of that sequence.
+
+Overall, the subgraph outlines the hierarchical structure of leadership roles, specifically focusing on the president and vice president positions, and their classifications within a broader organizational framework."
+http://cmt_es#c-8220503-4178382,Target,Class,revisor externo,"In the context of a conference, ""revisor externo"" refers to an external reviewer or auditor who evaluates the content, quality, or compliance of submissions, presentations, or research papers. This individual is typically not affiliated with the organizing body of the conference and provides an unbiased assessment, ensuring that the material meets the required standards and criteria for acceptance or publication. Their role is crucial in maintaining the integrity and credibility of the conference proceedings.","Here are the verbalized phrases based on the provided triples:
+
+1. The term ""asigna revisor externo"" is associated with the range of ""revisor externo.""
+2. The term ""asignado por el revisor"" is defined within the domain of ""revisor externo.""
+3. The term ""revisor"" is disjoint from the term ""revisor externo.""
+4. The term ""revisor externo"" is a subclass of ""persona.""The subgraph describes a concept called ""revisor externo,"" which is classified as a subclass of a specific restriction. This restriction has a cardinality of 1, meaning that it allows only one instance. The restriction is applied to the property ""asignado por el revisor,"" indicating that the ""revisor externo"" must be assigned by a reviewer."
+http://cmt_es#c-8543365-7210971,Target,Class,pula,"In the context of a conference, ""puja"" refers to a ritualistic worship or offering, often performed to seek blessings or divine guidance for the event. It may involve prayers, the lighting of lamps, and the presentation of offerings to deities, symbolizing respect and reverence. Conducting a puja at a conference can serve to create a positive and auspicious atmosphere, fostering a sense of unity and purpose among participants.","Here are the verbalized phrases based on the provided triples:
+
+1. The ""comité de programa"" is disjoint with ""puja.""
+2. The ""conferencia"" is disjoint with ""puja.""
+3. The ""documento"" is disjoint with ""puja.""
+4. The phrase ""modifica la puja"" has a range of ""puja.""
+5. The phrase ""modificada por"" has a domain of ""puja.""
+6. The ""preferencia"" is disjoint with ""puja.""
+7. The phrase ""tiene puja"" has a range of ""puja.""
+8. The ""puja"" is disjoint with ""decisión.""
+9. The ""puja"" is disjoint with ""persona."""
+http://cmt_es#c-8629068-0675820,Target,Class,persona,"In the context of a conference, ""persona"" refers to the representation or identity that an individual or organization presents to others. This can include the way speakers, panelists, or attendees choose to communicate, engage, and interact with others at the event. It encompasses aspects such as professional demeanor, expertise, and the overall image one projects, which can influence networking opportunities, audience perception, and the effectiveness of presentations. Understanding and managing one's persona can be crucial for making meaningful connections and leaving a lasting impression during the conference.","Here are the verbalized phrases based on the provided triples:
+
+1. The ""comité de programa"" is disjoint with ""persona.""
+2. The ""conferencia"" is disjoint with ""persona.""
+3. The domain of ""correo electrónico"" is ""persona.""
+4. The ""documento"" is disjoint with ""persona.""
+5. A ""miembro de la conferencia"" is a subclass of ""persona.""
+6. A ""miembro del comité de programa"" is a subclass of ""persona.""
+7. The ""preferencia"" is disjoint with ""persona.""
+8. A ""presidente"" is a subclass of ""persona.""
+9. The ""puja"" is disjoint with ""persona.""
+10. A ""revisor externo"" is a subclass of ""persona.""
+11. The domain of ""tiene conflicto de intereses"" is ""persona.""
+12. A ""usuario"" is a subclass of ""persona.""
+13. The ""persona"" is disjoint with ""decisión.""The subgraph describes a structure related to a persona and a conference. It indicates that the first element of the persona is associated with a conference. Specifically, there is a class that is defined as a union of two elements: the first element is a conference, and the rest of the elements in this union lead back to the persona, which has no further elements (indicated by 'nil'). The class itself is identified by a name or domain. In summary, this structure outlines a relationship where a persona is linked to a conference, with the persona being the primary focus and the conference being the first element in this relationship."
+http://cmt_es#c-8634304-5227884,Target,Class,meta revisi n,"In the context of a conference, ""meta revisión"" refers to a systematic review or analysis of existing research studies on a particular topic. It involves evaluating and synthesizing findings from multiple studies to draw broader conclusions, identify trends, and assess the overall quality of the evidence. This type of review is often used to inform best practices, guide future research, and provide a comprehensive understanding of a specific area of interest within the conference's theme.","The phrase can be verbalized as: ""The class 'meta revisión' is a subclass of the class 'revisión'."""
+http://cmt_es#c-8924552-1758344,Target,Class,revisi n,"In the context of a conference, ""revisión"" typically refers to the process of reviewing or evaluating submitted papers, presentations, or proposals. This can involve assessing the quality, relevance, and originality of the work to determine whether it meets the standards for acceptance and presentation at the conference. It may also include feedback provided to authors for improvement before final submission.","Here are the verbalized phrases based on the provided triples:
+
+1. The term ""artículo"" is disjoint with ""revisión.""
+2. The property ""escrito por"" has a domain of ""revisión.""
+3. The property ""finaliza revisión"" has a range of ""revisión.""
+4. The class ""meta revisión"" is a subclass of ""revisión.""
+5. The property ""redacta la revisión"" has a range of ""revisión.""
+6. The class ""revisión"" is a subclass of ""documento."""
+http://cmt_es#c-9294907-9737267,Target,Class,decisi n,"In the context of a conference, ""decisión"" refers to a choice or resolution made after consideration of various options or discussions. It often pertains to the outcomes of deliberations, where participants may agree on a course of action, policy, or strategy to be implemented based on the insights and information shared during the conference.","Here are the verbalized phrases based on the provided triples:
+
+1. ""Aceptar"" is a subclass of ""decisión.""
+2. ""Comité de programa"" is disjoint with ""decisión.""
+3. ""Conferencia"" is disjoint with ""decisión.""
+4. ""Documento"" is disjoint with ""decisión.""
+5. ""Persona"" is disjoint with ""decisión.""
+6. ""Preferencia"" is disjoint with ""decisión.""
+7. ""Puja"" is disjoint with ""decisión.""
+8. ""Rechazar"" is a subclass of ""decisión.""
+9. The property ""tiene decisión"" has a range of ""decisión."""
+http://cmt_es#ent-0631163-7006593,Target,Property,fecha,"In the context of a conference, ""fecha"" is a Spanish word that translates to ""date"" in English. It typically refers to the specific day on which the conference is scheduled to take place.","The property ""fecha"" is associated with the domain ""conferencia"" and has a range of ""date.""The subgraph describes a concept related to a ""conferencia"" (conference). It indicates that a conference is a subclass of a certain restriction, which is defined by specific criteria. This restriction requires that there must be at least one instance of a property called ""fecha"" (date) associated with the conference. In summary, every conference must have at least one date associated with it."
+http://cmt_es#ent-1446461-5273541,Target,Property,nombre,"In the context of a conference, ""nombre"" is a Spanish word that translates to ""name"" in English. It may refer to the name of a speaker, participant, or the title of the conference itself. For example, attendees might be asked to provide their ""nombre"" when registering or introducing themselves.","The property ""nombre"" has a range of type ""string"".The subgraph describes a structure related to a class called ""conferencia"" (conference) and its properties. 
+
+1. The class ""conferencia"" is defined as a subclass of a restriction, which is characterized by the property ""nombre"" (name).
+2. This restriction has a cardinality of 1, meaning that there can only be one instance of the property ""nombre"" associated with each instance of ""conferencia.""
+3. The restriction is the first element in a union of classes, which includes the class ""persona"" (person) as its first element.
+4. The structure indicates that the property ""nombre"" is specifically related to the class that is defined by the restriction.
+
+In summary, the subgraph outlines a relationship where the class ""conferencia"" is restricted to having exactly one name, and this name is linked to the class ""persona"" through a union of classes."
+http://cmt_es#ent-3754849-8056703,Target,Property,acepta entregas en papel,"In the context of a conference, ""acepta entregas en papel"" translates to ""accepts paper submissions."" This typically means that the conference organizers are allowing participants to submit their work, such as research papers or presentations, in printed form rather than exclusively in digital format. This could be relevant for authors who prefer to present their work physically or for specific sessions that may require hard copies for review or distribution.","The phrase can be verbalized as: ""The conference accepts paper submissions."""
+http://cmt_es#ent-3761315-2509436,Target,Property,correo electr nico,"In the context of a conference, ""correo electrónico"" refers to email. It is often used for communication purposes, such as sending invitations, sharing information, or coordinating details related to the event. Participants may use their ""correo electrónico"" to register for the conference, receive updates, or connect with other attendees.","The phrase can be verbalized as: ""The domain of 'correo electrónico' is 'persona', and its range is 'string'."""
+http://cmt_es#ent-4219000-3514538,Target,Property,url del logotipo,"In the context of a conference, ""URL del logotipo"" refers to the web address (URL) where the logo of the conference or event can be found. This URL is typically used for branding purposes, allowing attendees, sponsors, and partners to access and download the official logo for promotional materials, presentations, or other related uses.","The phrase can be verbalized as:
+
+""The logo URL is associated with the conference and can be any valid URI."""
+http://cmt_es#ent-4370159-8606193,Target,Property,t tulo,"In the context of a conference, ""título"" typically refers to the title of a presentation, paper, or talk being given. It is the name or heading that summarizes the main topic or theme of the session, helping attendees understand what to expect from the content being presented.","The phrase can be verbalized as: ""The property 'título' is associated with the class 'artículo' and its value is of the type 'string'."""
+http://cmt_es#ent-4387366-7102189,Target,Property,identificador del art culo,"In the context of a conference, ""identificador del artículo"" refers to the unique identifier assigned to a specific article or paper presented at the event. This identifier is often used for citation purposes, to facilitate the organization of conference materials, and to help attendees and researchers easily locate and reference the work. It may take the form of a DOI (Digital Object Identifier) or another type of alphanumeric code that distinguishes the article from others in the conference proceedings.","The phrase can be verbalized as follows:
+
+""The identifier of the article has a domain of 'article' and a range of 'unsignedLong'."""
+http://cmt_es#ent-7984580-6454643,Target,Property,n mero m ximo de art culos,"In the context of a conference, ""número máximo de artículos"" refers to the maximum number of articles or papers that a participant can submit for consideration. This limit is often set by the conference organizers to ensure a manageable number of submissions for review and to maintain the quality of the conference proceedings.","The phrase can be verbalized as: ""The maximum number of articles is a property that applies to a program committee member and is represented as an integer."""
+http://cmt_es#ent-8701513-4965161,Target,Property,revisiones por art culo,"In the context of a conference, ""revisiones por artículo"" refers to the process of article reviews, where submitted papers or articles are evaluated by experts in the field. This peer review process is essential for ensuring the quality, validity, and originality of the research presented at the conference. It typically involves assessing the methodology, results, and overall contribution of the work to the field before it is accepted for presentation or publication.","The phrase can be verbalized as: ""The domain of 'revisiones por artículo' is 'conferencia', and its range is 'int'.""The subgraph describes a concept called ""conferencia,"" which is classified as a subclass of a certain entity represented by the identifier ""_:N8db4b588a007434aa6ac6d4e228a4ba3."" This entity is defined by a restriction that specifies a cardinality of 1, meaning that each instance of ""conferencia"" must have exactly one associated value for the property ""revisiones por artículo."" In summary, every conference must be linked to one and only one review per article."
+http://cmt_es#ent-8877404-2617733,Target,Property,url de la p gina web,"In the context of a conference, ""URL de la página web"" refers to the web address (Uniform Resource Locator) of the conference's official website. This URL is used to access information about the conference, such as schedules, speakers, registration details, and other relevant resources. It is essential for participants to have this URL to stay updated and access necessary materials related to the event.","The phrase can be verbalized as:
+
+""The URL of the webpage is associated with the domain of 'conference' and has a range of 'anyURI'."""
+http://cmt_es#op-0521685-2125451,Target,Property,es miembro de la conferencia,"The phrase ""es miembro de la conferencia"" translates to ""is a member of the conference"" in English. In the context of a conference, it typically means that an individual is part of a group or organization that is associated with the conference, possibly as a participant, speaker, or contributor. This membership could imply involvement in discussions, decision-making, or activities related to the conference's purpose or goals.","The phrase can be verbalized as: ""A member of the conference is associated with a conference."""
+http://cmt_es#op-0717235-3167060,Target,Property,la asignaci n de art culos ha sido finalizada por,"In the context of a conference, ""la asignación de artículos ha sido finalizada por"" translates to ""the assignment of articles has been completed by."" This phrase likely refers to the process of assigning specific articles or papers to reviewers, speakers, or participants for evaluation or presentation at the conference. It indicates that the task of distributing these articles has been concluded, possibly signaling that the next steps in the conference planning or review process can now proceed.","La frase verbalizada a partir de los triples proporcionados sería:
+
+""La asignación de artículos ha sido finalizada por un administrador en el contexto de una conferencia."""
+http://cmt_es#op-0744798-6414057,Target,Property,permite reuni n virtual,"""Permite reunión virtual"" translates to ""allows virtual meeting"" in English. In the context of a conference, it indicates that the conference platform or setup enables participants to join and engage in discussions remotely, rather than requiring physical attendance. This feature is particularly useful for accommodating attendees who may not be able to travel or prefer to participate online.","The phrase can be verbalized as: ""An administrator allows a virtual meeting."""
+http://cmt_es#op-1042582-2844696,Target,Property,modifica la puja,"In the context of a conference, ""modifica la puja"" can be interpreted as ""modify the bidding"" or ""change the auction."" This phrase suggests that there may be a discussion or proposal regarding adjustments to the bidding process or auction rules being presented at the conference. It could involve altering the terms, conditions, or strategies related to how bids are placed or evaluated.","The phrase can be verbalized as: ""The reviewer modifies the bid."""
+http://cmt_es#op-1079227-8198002,Target,Property,ha se alado conflicto de intereses,"In the context of a conference, ""ha señalado conflicto de intereses"" translates to ""has pointed out a conflict of interest."" This phrase typically refers to a situation where an individual or organization has competing interests or loyalties that could potentially influence their decisions or actions. During a conference, this could involve a speaker or participant highlighting that certain relationships, financial ties, or affiliations may affect the objectivity or integrity of the information being presented or discussed. It is an important consideration in ensuring transparency and credibility in discussions and presentations.","The phrase can be verbalized as: ""It has indicated a conflict of interest in the article.""The subgraph describes a situation involving a conflict of interest. It identifies three key roles: an ""autor"" (author), a ""revisor"" (reviewer), and a ""presidente"" (president). 
+
+The ""presidente"" is linked to the ""revisor,"" indicating a hierarchical or supervisory relationship. The ""autor"" is also connected to the ""presidente,"" suggesting that the author may be under the president's oversight or influence. 
+
+Additionally, the subgraph categorizes the entire structure as a ""Class"" that encompasses the relationships and roles mentioned. The presence of a conflict of interest is highlighted, indicating that the relationships among these roles may lead to potential biases or ethical concerns. 
+
+In summary, the subgraph outlines a framework where an author, a reviewer, and a president interact, with an emphasis on the potential for conflicts of interest within this dynamic."
+http://cmt_es#op-1506155-3919454,Target,Property,a adido por,"In the context of a conference, ""añadido por"" translates to ""added by"" in English. It typically refers to information, comments, or contributions that have been included or appended to a discussion, presentation, or document by a specific individual or group. For example, if a speaker or participant adds a point or a resource during a conference session, it may be noted as ""añadido por"" followed by their name.","The phrase can be verbalized as: ""The role of 'añadido por' is associated with a member of the program committee and pertains to an administrator."""
+http://cmt_es#op-1585272-3248977,Target,Property,asignado a,"In the context of a conference, ""asignado a"" translates to ""assigned to"" in English. It typically refers to a specific task, role, or responsibility that has been designated to an individual or group within the framework of the conference. For example, a speaker might be ""asignado a"" a particular session, or a team member might be ""asignado a"" manage logistics for the event.","The phrase can be verbalized as: ""The property 'asignado a' has a domain of 'artículo' and a range of 'revisor'."""
+http://cmt_es#op-1963067-7985851,Target,Property,a ade miembro de comit de programa,"In the context of a conference, ""añade miembro de comité de programa"" translates to ""add program committee member."" This phrase typically refers to the action of including an individual in the program committee responsible for planning and organizing the conference's agenda, sessions, and overall content. The program committee usually consists of experts who review submissions, select speakers, and ensure the quality and relevance of the conference program.","The phrase can be verbalized as: ""An administrator adds a member to the program committee."""
+http://cmt_es#op-1964778-5426203,Target,Property,copia en papel de los manifiestos de env o,"In the context of a conference, ""copia en papel de los manifiestos de envío"" refers to a physical copy of the shipping manifests. These documents typically detail the contents of shipments, including items being sent, their quantities, and any relevant information regarding their transport. Having a paper copy of these manifests is important for record-keeping, verification, and ensuring that all materials arrive as expected for the conference.","The phrase can be verbalized as follows:
+
+""The paper copy of the shipping manifests is associated with the administrator and pertains to the conference."""
+http://cmt_es#op-1986726-8625703,Target,Property,reuni n virtual mediante,"""Reunión virtual mediante"" translates to ""virtual meeting through"" in English. In the context of a conference, it refers to a virtual gathering or meeting that is conducted using online platforms or tools, allowing participants to connect and interact remotely rather than in person. This can involve video conferencing software, webinars, or other digital communication methods to facilitate discussions, presentations, and collaboration among attendees.","The phrase can be verbalized as: ""A virtual meeting is conducted through a conference by an administrator."""
+http://cmt_es#op-2296888-5209218,Target,Property,gestiona las herramientas para la asignaci n de art culos,"The phrase ""gestiona las herramientas para la asignación de artículos"" translates to ""manages the tools for the allocation of items."" In the context of a conference, this likely refers to the processes and systems in place for organizing and distributing materials, resources, or items needed for the event. This could involve managing registration tools, scheduling software, or inventory systems to ensure that all necessary articles, such as conference materials, promotional items, or equipment, are effectively allocated to participants or sessions.","The phrase can be verbalized as follows:
+
+""The administrator manages the tools for the assignment of articles in the conference."""
+http://cmt_es#op-2361287-7731841,Target,Property,tiene miembro de la conferencia,"The phrase ""tiene miembro de la conferencia"" translates to ""is a member of the conference"" in English. In the context of a conference, it typically refers to an individual or organization that holds membership or is part of the conference, which may involve participation in discussions, decision-making, or access to resources and networking opportunities associated with that conference.","La relación ""tiene miembro de la conferencia"" se aplica a la ""conferencia"" y se refiere a un ""miembro de la conferencia""."
+http://cmt_es#op-3190939-1433915,Target,Property,detalles introducidos por,"In the context of a conference, ""detalles introducidos por"" translates to ""details introduced by."" This phrase typically refers to specific information, points, or elements that are presented or explained by a speaker or presenter during the conference. It indicates that the following details are being attributed to or provided by a particular individual or source, often to clarify or enhance the topic being discussed.","The phrase can be verbalized as: ""The details introduced by the administrator pertain to the conference."""
+http://cmt_es#op-3834467-7078110,Target,Property,finaliza revisi n,"In the context of a conference, ""finaliza revisión"" translates to ""finalizes review"" in English. This phrase likely refers to the completion of the review process for submitted papers, presentations, or proposals. It indicates that the evaluation of the materials has been concluded, and decisions regarding acceptance, feedback, or necessary revisions have been made. This step is crucial in the conference organization process, as it determines which contributions will be included in the event.","The phrase can be verbalized as: ""The president of the program committee finalizes the review."""
+http://cmt_es#op-3859449-7649783,Target,Property,lee el art culo,"In the context of a conference, ""lee el artículo"" translates to ""read the article."" It likely refers to a request or instruction for participants to read a specific article related to the conference topic, which may provide background information, context, or key points that will be discussed during the event.","The phrase can be verbalized as: ""A revisor reads the article."""
+http://cmt_es#op-3903660-5149290,Target,Property,tiene rea tem tica,"In the context of a conference, ""tiene área temática"" translates to ""has a thematic area."" This phrase typically refers to the specific subject or focus of the conference, indicating the main topics or themes that will be addressed during the event. It helps participants understand the scope of the conference and what kind of discussions, presentations, or workshops they can expect related to that particular theme.","The phrase can be verbalized as: ""An article has a thematic area."""
+http://cmt_es#op-3955250-7730265,Target,Property,tiene autor,"In the context of a conference, ""tiene autor"" translates to ""has an author"" in English. This phrase could refer to a presentation, paper, or work being discussed that is attributed to a specific individual or group. It emphasizes the importance of acknowledging the creator or originator of the content being presented or shared at the conference.","The phrase can be verbalized as: ""An article has an author."""
+http://cmt_es#op-4167904-1008842,Target,Property,introduce detalles de la conferencia,"""Introduce detalles de la conferencia"" translates to ""Introduce details of the conference"" in English. In the context of a conference, this phrase typically refers to the act of presenting or providing specific information about the conference, such as its agenda, speakers, topics, location, schedule, and any other relevant details that attendees or participants need to know.","The phrase can be verbalized as: ""The administrator introduces details of the conference."""
+http://cmt_es#op-4246183-6784512,Target,Property,aceptado por,"In the context of a conference, ""aceptado por"" translates to ""accepted by."" It typically refers to a paper, presentation, or proposal that has been reviewed and approved for inclusion in the conference program. This indicates that the submission meets the conference's standards and criteria for quality and relevance.","The phrase can be verbalized as: ""An article is accepted by an administrator."""
+http://cmt_es#op-4928266-4640200,Target,Property,introduce criterios de revisi n,"In the context of a conference, ""introduce criterios de revisión"" translates to ""introduce review criteria."" This phrase typically refers to the process of establishing specific standards or guidelines that will be used to evaluate submissions, presentations, or research findings during the conference. These criteria help ensure that the evaluation process is consistent, fair, and transparent, allowing for a structured assessment of the quality and relevance of the contributions made by participants. Introducing these criteria is crucial for maintaining the integrity of the conference and ensuring that the best work is recognized and showcased.","The phrase can be verbalized as: ""The administrator introduces review criteria for the conference."""
+http://cmt_es#op-5084704-5721031,Target,Property,los criterios de revisi n han sido introducidos por,"In the context of a conference, ""los criterios de revisión han sido introducidos por"" translates to ""the review criteria have been introduced by."" This phrase typically refers to the guidelines or standards established by a specific individual or organization that outline how submissions, such as research papers or presentations, will be evaluated during the review process. It indicates that the criteria are set to ensure a consistent and fair assessment of the contributions presented at the conference.",The review criteria have been introduced by the administrator of the conference.
+http://cmt_es#op-5087514-6097696,Target,Property,la puja de los revisores ha sido iniciada por,"The phrase ""la puja de los revisores ha sido iniciada por"" translates to ""the bidding of the reviewers has been initiated by."" In the context of a conference, this likely refers to the process where reviewers or evaluators begin to assess submissions, proposals, or papers for the conference. It indicates that the formal evaluation process has started, possibly led by a specific individual or committee responsible for overseeing the review of the conference materials.","The phrase can be verbalized as: ""The review process has been initiated by the administrator of the conference."""
+http://cmt_es#op-5153804-1514666,Target,Property,asignar revisor,"In the context of a conference, ""asignar revisor"" translates to ""assign a reviewer."" This typically refers to the process of selecting individuals who will evaluate submitted papers, presentations, or proposals for the conference. Reviewers assess the quality, relevance, and originality of the submissions to ensure that only the best work is presented at the conference. This process is crucial for maintaining academic standards and providing constructive feedback to authors.","The phrase can be verbalized as: ""The role of an administrator is to assign a reviewer."""
+http://cmt_es#op-5310651-2660955,Target,Property,asignado por el administrador,"In the context of a conference, ""asignado por el administrador"" translates to ""assigned by the administrator."" This phrase typically refers to tasks, roles, or responsibilities that have been designated to individuals or groups by the conference administrator or organizer. It indicates that the administrator has made specific assignments to ensure the smooth operation and organization of the conference activities.","The phrase can be verbalized as: ""A revisor is assigned by an administrator."""
+http://cmt_es#op-5927153-7375038,Target,Property,las herramientas para la asignaci n de art culos han sido gestionadas por,"The phrase ""las herramientas para la asignación de artículos han sido gestionadas por"" translates to ""the tools for the assignment of articles have been managed by."" In the context of a conference, this likely refers to the systems or software used to organize, allocate, or manage articles or papers submitted for presentation or publication at the event. It suggests that there is a specific team or individual responsible for overseeing these tools to ensure that the articles are properly assigned to reviewers, sessions, or publication formats.",Las herramientas para la asignación de artículos están relacionadas con la conferencia y son gestionadas por un administrador.
+http://cmt_es#op-5970282-7800412,Target,Property,le do por el revisor,"In the context of a conference, ""leído por el revisor"" translates to ""read by the reviewer."" This phrase typically refers to a document, paper, or presentation that has been evaluated or critiqued by a reviewer, often as part of the peer review process. It indicates that the content has undergone scrutiny and feedback from an expert in the field, which is a common practice in academic and professional conferences to ensure quality and relevance of the material being presented.","The phrase can be verbalized as: ""An article is read by a reviewer.""The subgraph describes a relationship involving the term ""artículo."" Specifically, ""artículo"" is classified as a subclass of a certain restriction, which is represented by the identifier ""_:N4918e34bb1964354a1ce13cc979493f8."" This restriction has a minimum cardinality of 1, indicating that there must be at least one instance of the property it governs. The property in question is ""leído por el revisor,"" meaning that each ""artículo"" must be read by at least one reviewer. In summary, every ""artículo"" must have at least one associated reviewer who has read it."
+http://cmt_es#op-5999303-0178783,Target,Property,inicia la puja de los art culos,"""Inicia la puja de los artículos"" translates to ""The bidding for the items begins."" In the context of a conference, this phrase likely refers to the start of an auction or bidding process for various items, which could include products, services, or experiences being offered to attendees. This could be part of a fundraising effort, a silent auction, or a competitive event where participants can place bids on items of interest.","The phrase can be verbalized as: ""The administrator initiates the bidding of the articles in the conference."""
+http://cmt_es#op-6140520-7321763,Target,Property,asignado por el revisor,"In the context of a conference, ""asignado por el revisor"" translates to ""assigned by the reviewer."" This phrase typically refers to tasks, responsibilities, or roles that have been designated to individuals by a reviewer, who is responsible for evaluating submissions, presentations, or papers. It indicates that the reviewer has made decisions regarding who will present, discuss, or handle specific aspects of the conference based on their assessment.","The phrase can be verbalized as follows:
+
+""The external reviewer is assigned by the reviewer.""The subgraph describes a relationship involving the term ""revisor externo"" (external reviewer). It indicates that ""revisor externo"" is a subclass of a certain restriction, which is represented by the blank node identified as ""_:Nd0b22f9662d84cdca28193fa6ec36b04"". This restriction has a cardinality of 1, meaning that there is exactly one instance of the property it governs. The restriction specifically pertains to the property ""asignado por el revisor"" (assigned by the reviewer). 
+
+In summary, the external reviewer is defined as a subclass that must have exactly one assignment from a reviewer."
+http://cmt_es#op-6509924-1214179,Target,Property,le do por el meta revisor,"In the context of a conference, ""leído por el meta revisor"" translates to ""read by the meta reviewer."" This phrase typically refers to a process where a meta reviewer evaluates or reviews the content, findings, or presentations of the conference submissions. The meta reviewer is responsible for providing an overarching assessment, ensuring that the work meets the necessary standards and criteria for quality and relevance. This role is crucial in maintaining the integrity and academic rigor of the conference proceedings.","The phrase can be verbalized as: ""An article is read by a meta reviewer.""The subgraph describes a restriction related to a property in a certain context. Specifically, it defines a restriction type that applies to the property ""leído por el meta revisor."" This restriction indicates that the maximum cardinality for this property is set to 1, meaning that an instance can have at most one value for this property. Additionally, it states that ""artículo"" is a subclass of this restriction, implying that any instance of ""artículo"" must adhere to the defined restriction regarding the property ""leído por el meta revisor."""
+http://cmt_es#op-6574318-9367661,Target,Property,es coautor de un art culo,"""Es coautor de un artículo"" translates to ""He/She is a co-author of an article."" In the context of a conference, this means that the individual has collaborated with one or more authors to contribute to the research or content of the article being presented or discussed. Co-authorship typically implies that the person has played a significant role in the research, writing, or development of the article, and they share credit for the work with their co-authors.","The phrase can be verbalized as: ""is a co-author of an article."""
+http://cmt_es#op-6616039-5916802,Target,Property,tiene coautor,"In the context of a conference, ""tiene coautor"" translates to ""has a co-author."" This phrase typically indicates that the work being presented, such as a research paper or project, was collaboratively created by more than one individual. The presence of a co-author suggests a partnership in the research or writing process, highlighting the collaborative nature of academic and professional work.","The phrase can be verbalized as: ""An article has a co-author."""
+http://cmt_es#op-6659285-2195902,Target,Property,tiene miembro del comit de programa,"In the context of a conference, ""tiene miembro del comité de programa"" translates to ""has a member of the program committee."" This phrase typically indicates that a person is part of the group responsible for organizing the conference's agenda, selecting speakers, and reviewing submitted papers or presentations. Their role is crucial in ensuring the quality and relevance of the conference content.","The phrase can be verbalized as: ""A committee program has a member of the committee program."""
+http://cmt_es#op-6768382-6857970,Target,Property,redacta la revisi n,"In the context of a conference, ""redacta la revisión"" translates to ""draft the review"" in English. This typically refers to the process of writing or preparing a review of a paper, presentation, or session that was part of the conference. It involves summarizing the key points, evaluating the content, and providing feedback or insights based on the discussions and presentations that took place during the event.","The phrase can be verbalized as: ""A revisor performs the action of redacting a revisión."""
+http://cmt_es#op-6846702-5661277,Target,Property,las copias en papel de los manifiestos de env o han sido impresas por,"The phrase ""las copias en papel de los manifiestos de envío han sido impresas por"" translates to ""the paper copies of the shipping manifests have been printed by."" In the context of a conference, this likely refers to the logistical aspect of the event, indicating that printed copies of important shipping documents (manifests) related to the conference materials or equipment have been produced by a specific entity or service. This could be relevant for tracking shipments, ensuring proper delivery of materials, or managing inventory for the conference.",The printed paper copies of the shipping manifests have been produced by the administrator of the conference.
+http://cmt_es#op-7230110-3720108,Target,Property,acepta el art culo,"In the context of a conference, ""acepta el artículo"" translates to ""accept the article."" This phrase could refer to a request or instruction for participants to accept or approve a written paper, research article, or presentation that is being discussed or submitted for consideration at the conference. It may involve agreeing to the content, methodology, or findings presented in the article.","The phrase can be verbalized as: ""An administrator accepts the article."""
+http://cmt_es#op-7247666-5945614,Target,Property,asigna revisor externo,"In the context of a conference, ""asigna revisor externo"" translates to ""assign external reviewer."" This typically refers to the process of designating an external expert or reviewer to evaluate submissions, such as research papers or presentations, for quality, relevance, and adherence to the conference's standards. The role of the external reviewer is crucial in ensuring an impartial assessment and maintaining the integrity of the conference's academic contributions.","The phrase can be verbalized as: ""The external reviewer is assigned to the reviewer."""
+http://cmt_es#op-7319720-1806186,Target,Property,es miembro del comit de programa,"In the context of a conference, ""es miembro del comité de programa"" translates to ""is a member of the program committee."" This means that the individual is part of a group responsible for planning and organizing the conference's agenda, which may include selecting speakers, reviewing submitted papers, and determining the overall structure of the event. Their role is crucial in ensuring the quality and relevance of the conference content.","The phrase can be verbalized as follows:
+
+""Es miembro del comité de programa"" se refiere a una persona que forma parte de un ""comité de programa""."
+http://cmt_es#op-7584759-3257910,Target,Property,ha sido asignado a,"In the context of a conference, ""ha sido asignado a"" translates to ""has been assigned to."" This phrase typically refers to a person or a task that has been designated or allocated to a specific role, responsibility, or session within the conference framework. For example, a speaker might be ""ha sido asignado a"" a particular panel or workshop, indicating their role in that part of the event.","The phrase can be verbalized as: ""The reviewer has been assigned to the article."""
+http://cmt_es#op-7713148-1901438,Target,Property,env a el art culo,"In the context of a conference, ""envía el artículo"" translates to ""send the article."" This likely refers to a request or instruction for participants or speakers to submit their written articles or papers related to the conference topics for review, publication, or distribution.","The phrase can be verbalized as: ""The author sends the article."""
+http://cmt_es#op-7867139-3426802,Target,Property,escrito por,"In the context of a conference, ""escrito por"" translates to ""written by"" in English. It typically precedes the name of the author or speaker who has contributed to a paper, presentation, or any written material being discussed or presented at the conference.","The phrase can be verbalized as: ""A review is written by a reviewer."""
+http://cmt_es#op-7904286-5507452,Target,Property,tiene conflicto de intereses,"""Tiene conflicto de intereses"" translates to ""has a conflict of interest."" In the context of a conference, this phrase typically refers to a situation where an individual or organization may have competing interests that could potentially influence their decisions or actions related to the conference. For example, a speaker or panelist might have financial ties to a company that could benefit from the outcomes of the conference, which could compromise their objectivity. It's important for participants to disclose any potential conflicts of interest to maintain transparency and integrity in discussions and presentations.","The phrase can be verbalized as: ""A person has a conflict of interest related to a document."""
+http://cmt_es#op-7919811-5360214,Target,Property,modificada por,"In the context of a conference, ""modificada por"" translates to ""modified by"" in English. It typically refers to changes or adjustments made to a document, presentation, agenda, or any other material related to the conference. This phrase indicates that the original content has been altered or updated by a specific person or group.","The phrase can be verbalized as: ""The property 'modificada por' has a domain of 'puja' and a range of 'revisor'."""
+http://cmt_es#op-8098852-5851656,Target,Property,redacta el art culo,"In the context of a conference, ""redacta el artículo"" translates to ""draft the article."" It typically refers to the process of writing or preparing a written document, such as a paper or report, that may be presented or discussed during the conference. This could involve outlining key points, conducting research, and organizing the content to effectively communicate ideas to the audience.","The phrase can be verbalized as: ""The author redacts the article."""
+http://cmt_es#op-8352206-6259650,Target,Property,tiene decisi n,"In the context of a conference, ""tiene decisión"" can be interpreted as ""has determination"" or ""has decisiveness."" It suggests that a person or a group is exhibiting a strong commitment to making choices or taking actions, often in relation to the topics being discussed at the conference. This phrase could imply that the participants are ready to make important decisions or are confident in their ability to reach conclusions during the event.","The phrase can be verbalized as: ""An article has a decision.""The subgraph describes a set of restrictions related to a property called ""tiene decisión"" (which translates to ""has decision"" in English) within a hierarchical structure of classes. 
+
+1. There is a restriction (denoted by the identifier `_:N78ba8b8ff8444e519a2d061e32fe7867`) that specifies the property ""tiene decisión"" with a minimum cardinality of 0. This means that the property is optional for instances of the class it is associated with.
+
+2. The class ""artículo"" (which translates to ""article"") is a subclass of the aforementioned restriction, indicating that any instance of ""artículo"" may or may not have the property ""tiene decisión"".
+
+3. Additionally, there is another restriction (denoted by the identifier `_:N0eb8ed2eda014de08bb4e4df744872ae`) that also relates to the property ""tiene decisión"", but this one has a maximum cardinality of 1. This means that instances of the class associated with this restriction can have at most one instance of the property ""tiene decisión"".
+
+4. The class ""artículo"" is also a subclass of this second restriction, indicating that any instance of ""artículo"" can have either none or one instance of the property ""tiene decisión"".
+
+In summary, the structure outlines that the class ""artículo"" can have the property ""tiene decisión"" with the flexibility of having no instances or at most one instance of that property."
+http://cmt_es#op-8441479-8261009,Target,Property,asigna un n mero m ximo de art culos a,"In the context of a conference, ""asigna un número máximo de artículos a"" translates to ""assign a maximum number of articles to."" This phrase typically refers to the process of setting a limit on the number of research papers, presentations, or articles that can be submitted, accepted, or presented at the conference. This limit helps manage the conference schedule, ensures quality control, and allows for a more organized review and selection process.","The phrase can be verbalized as: ""An administrator assigns a maximum number of articles to a program committee member."""
+http://cmt_es#op-8804641-3598090,Target,Property,rechaza el art culo,"In the context of a conference, ""rechaza el artículo"" translates to ""rejects the article."" This could refer to a situation where a paper, proposal, or submission presented at the conference is not accepted for presentation or publication. It may indicate that the content did not meet the conference's standards, relevance, or quality criteria.","The phrase can be verbalized as: ""The administrator rejects the article."""
+http://cmt_es#op-9668696-9443901,Target,Property,tiene puja,"In the context of a conference, ""tiene puja"" could refer to a situation where there is a bidding or auction process involved, particularly if the conference includes elements like fundraising, art sales, or competitive proposals. ""Puja"" in Spanish can mean ""bidding"" or ""auction,"" so ""tiene puja"" would imply that there is an active bidding process taking place. It could also suggest that there is a competition for attention, resources, or opportunities within the conference setting.","The phrase can be verbalized as: ""An 'artículo' has a 'puja'."""
+http://cmt_es#op-9728576-3922788,Target,Property,rechazado por,"In the context of a conference, ""rechazado por"" translates to ""rejected by."" This phrase typically refers to a submission, such as a paper or presentation proposal, that has not been accepted for inclusion in the conference program. It indicates that the submission did not meet the criteria or standards set by the conference organizers or reviewers.","The phrase can be verbalized as: ""An article is rejected by an administrator."""
+http://cmt_es#op-9760078-3705917,Target,Property,finaliza la asignaci n de art culos,"In the context of a conference, ""finaliza la asignación de artículos"" translates to ""finalize the assignment of articles."" This likely refers to the process of completing the distribution or allocation of specific articles, papers, or presentations to participants, speakers, or sessions within the conference. It indicates that the organizers are wrapping up the task of assigning these materials, which may be essential for the conference's schedule and flow.","The phrase can be verbalized as: ""The administrator finalizes the assignment of articles for the conference."""
