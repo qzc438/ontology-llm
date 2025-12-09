@@ -3,7 +3,7 @@
 - The source code, data, and/or other artifacts are available at GitHub: https://github.com/qzc438/ontology-llm
 
 ## News:
-- This paper has been accepted by PVLDB 2025.
+- This paper has been accepted by PVLDB 2025: https://www.vldb.org/pvldb/volumes/18/paper/Agent-OM%3A%20Leveraging%20LLM%20Agents%20for%20Ontology%20Matching
 - The slide presentation of the PVLDB 2025 paper can be found in the `slide_presentation` folder.
 - A production version linked to the PVLDB 2025 paper can be found in the `Releases` section.
 ```bibtex
@@ -34,7 +34,6 @@
   - Disk Capacity: 6.1 TB
 - The operating system is Ubuntu 24.04.1 LTS.
 - The CUDA version is 12.2.
-- The Nvidia driver version is 535.247.01.
 
 ### 1. Install PostgreSQL Database:
 - PostgreSQL: https://www.postgresql.org/download/
