@@ -34,8 +34,8 @@ os.environ["ANTHROPIC_API_KEY"] = os.getenv("ANTHROPIC_API_KEY")
 
 # # load GPT, default timeout = None, do not have top_k setting
 # llm = ChatOpenAI(model_name='gpt-4o-2024-05-13', temperature=0.0, seed=42, top_p=1.0, presence_penalty=0.0, frequency_penalty=0.0)
-llm = ChatOpenAI(model_name='gpt-4o', temperature=0.0, seed=42, top_p=1.0, presence_penalty=0.0, frequency_penalty=0.0)
-# llm = ChatOpenAI(model_name='gpt-4o-mini-2024-07-18', temperature=0.0, seed=42, top_p=1.0, presence_penalty=0.0, frequency_penalty=0.0)
+# llm = ChatOpenAI(model_name='gpt-4o', temperature=0.0, seed=42, top_p=1.0, presence_penalty=0.0, frequency_penalty=0.0)
+llm = ChatOpenAI(model_name='gpt-4o-mini-2024-07-18', temperature=0.0, seed=42, top_p=1.0, presence_penalty=0.0, frequency_penalty=0.0)
 # llm = ChatOpenAI(model_name='gpt-4o-mini', temperature=0.0, seed=42, top_p=1.0, presence_penalty=0.0, frequency_penalty=0.0)
 # # load Anthropic, default timeout = None
 # llm = ChatAnthropic(model="claude-3-opus-20240229", temperature=0) # expensive
@@ -124,10 +124,10 @@ num_matches = 50
 # alignment = "conference/dbpedia-sigkdd/component/"
 
 # anatomy track
-context = "anatomy"
-o1_is_code = True
-o2_is_code = True
-alignment = "anatomy/mouse-human-suite/component/"
+# context = "anatomy"
+# o1_is_code = True
+# o2_is_code = True
+# alignment = "anatomy/mouse-human-suite/component/"
 
 # metadata
 # e1_list_class: 2744
@@ -157,14 +157,15 @@ alignment = "anatomy/mouse-human-suite/component/"
 # multilingual datasets
 
 # multifarm track
-# context = "conference"
-# o1_is_code = True
-# o2_is_code = True
+context = "conference"
+o1_is_code = True
+o2_is_code = True
 # alignment = "multifarm/cmt-cmt-cn-en/component/"
+alignment = "multifarm/cmt-cmt-fr-ar/component/"
 
 # activate when execute run_series_multifarm.py
-# if os.environ.get('alignment'):
-#     alignment = os.environ['alignment']
+if os.environ.get('alignment'):
+    alignment = os.environ['alignment']
 
 # archaeology track
 # context = "archaeology"

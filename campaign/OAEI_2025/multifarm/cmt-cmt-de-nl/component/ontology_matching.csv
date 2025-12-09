@@ -1,0 +1,833 @@
+entity,source_or_target,entity_type,syntactic_matching,lexical_matching,semantic_matching
+http://cmt_de#c-0277212-8406046,Source,Class,konferenzbeitrag,"In the context of a conference, ""Konferenzbeitrag"" is a German term that translates to ""conference contribution"" in English. It typically refers to a presentation, paper, or any other form of contribution made by a participant at a conference. This can include research findings, discussions, workshops, or any other content that adds value to the conference proceedings.","Here are the verbalized phrases based on the provided RDF triples:
+
+1. ""Zusammenfassung eines Konferenzbeitrags"" ist eine Unterklasse von ""Konferenzbeitrag"".
+2. ""abgewiesen von"" ist ein Attribut, das für ""Konferenzbeitrag"" gilt.
+3. ""akzeptiert von"" ist ein Attribut, das für ""Konferenzbeitrag"" gilt.
+4. ""gelesen von Gutachter"" ist ein Attribut, das für ""Konferenzbeitrag"" gilt.
+5. ""gelesen von Meta-Gutachter"" ist ein Attribut, das für ""Konferenzbeitrag"" gilt.
+6. ""geschrieben von"" ist ein Attribut, das für ""Konferenzbeitrag"" gilt.
+7. ""hat Beitrag eingesendet"" ist ein Attribut, das für ""Konferenzbeitrag"" gilt.
+8. ""hat Beitrag geschrieben"" ist ein Attribut, das für ""Konferenzbeitrag"" gilt.
+9. ""hat Beitrag mitverfasst"" ist ein Attribut, das für ""Konferenzbeitrag"" gilt.
+10. ""hat Gebot erhalten"" ist ein Attribut, das für ""Konferenzbeitrag"" gilt.
+11. ""hat Gegenstandsbereich"" ist ein Attribut, das für ""Konferenzbeitrag"" gilt.
+12. ""hat ID"" ist ein Attribut, das für ""Konferenzbeitrag"" gilt.
+13. ""hat Papier abgelehnt"" ist ein Attribut, das für ""Konferenzbeitrag"" gilt.
+14. ""hat Papier gelesen"" ist ein Attribut, das für ""Konferenzbeitrag"" gilt.
+15. ""hat Titel"" ist ein Attribut, das für ""Konferenzbeitrag"" gilt.
+16. ""hat akzeptiert"" ist ein Attribut, das für ""Konferenzbeitrag"" gilt.
+17. ""ist entschieden worden als"" ist ein Attribut, das für ""Konferenzbeitrag"" gilt.
+18. ""ist zugeordnet worden"" ist ein Attribut, das für ""Konferenzbeitrag"" gilt.
+19. ""mitverfasst von"" ist ein Attribut, das für ""Konferenzbeitrag"" gilt.
+20. ""steht in Interessen-Konflikt mit Beitrag"" ist ein Attribut, das für ""Konferenzbeitrag"" gilt.
+21. ""vollständiger Konferenzbeitrag"" ist eine Unterklasse von ""Konferenzbeitrag"".
+22. ""zugewiesen zu"" ist ein Attribut, das für ""Konferenzbeitrag"" gilt.
+23. ""Konferenzbeitrag"" ist eine Unterklasse von ""Dokument"" und steht im Widerspruch zu ""Gutachten"". 
+
+These phrases summarize the relationships and classifications defined in the RDF triples.The subgraph describes a set of restrictions and relationships concerning the class ""Konferenzbeitrag"" (conference contribution) in a structured ontology. 
+
+1. **Class Definition**: ""Konferenzbeitrag"" is defined as a subclass of several restrictions. These restrictions specify certain properties that must be adhered to for instances of ""Konferenzbeitrag.""
+
+2. **Restrictions**:
+   - There is a restriction that relates to the property ""ist entschieden worden als"" (has been decided as), which allows for a maximum of one instance (maxCardinality of 1) and a minimum of zero instances (minCardinality of 0).
+   - Another restriction pertains to the property ""gelesen von Gutachter"" (read by reviewer), which requires at least one instance (minCardinality of 1) and allows for a maximum of one instance (maxCardinality of 1).
+   - Additionally, there is a restriction related to the property ""gelesen von Meta-Gutachter"" (read by meta-reviewer), which also falls under the same cardinality constraints as the previous restrictions.
+
+In summary, the ""Konferenzbeitrag"" class is governed by specific restrictions that dictate how many instances of certain properties can be associated with it, ensuring that each conference contribution is reviewed and decided upon in a structured manner."
+http://cmt_de#c-1092336-2330592,Source,Class,entscheidung,"In the context of a conference, ""Entscheidung"" is a German word that translates to ""decision"" in English. It refers to the process of making a choice or reaching a conclusion, often after considering various options or factors. During a conference, discussions may lead to important ""Entscheidungen"" regarding strategies, policies, or actions to be taken by the participants or organizations involved.","Here are the verbalized phrases based on the provided triples:
+
+1. ""Akzeptanz"" is a subclass of ""Entscheidung.""
+2. ""Zurückweisung"" is a subclass of ""Entscheidung.""
+3. ""ist entschieden worden als"" has a range of ""Entscheidung.""
+4. ""Entscheidung"" is disjoint with ""Dokument,"" ""Gebot,"" ""Konferenz,"" ""Person,"" ""Programm-Komitee,"" and ""Präferenz."""
+http://cmt_de#c-1105419-5848060,Source,Class,zur ckweisung,"In the context of a conference, ""Zurückweisung"" is a German term that translates to ""rejection"" in English. It typically refers to the dismissal of a paper, proposal, or submission that has been evaluated by a committee or reviewers. This could occur during the peer review process for academic papers or presentations, where the submitted work does not meet the required standards or criteria for acceptance into the conference.","The term ""Zurückweisung"" is a subclass of ""Entscheidung"" and is disjoint with ""Akzeptanz."""
+http://cmt_de#c-1253837-4887221,Source,Class,vollst ndiger konferenzbeitrag,"The term ""vollständiger Konferenzbeitrag"" translates to ""full conference paper"" in English. In the context of a conference, it refers to a comprehensive research paper that is submitted for presentation at the event. This type of contribution typically includes detailed research findings, methodologies, discussions, and conclusions, and is often subject to a peer-review process before being accepted for presentation. Full conference papers are usually published in the conference proceedings, contributing to the academic discourse in the respective field.","The phrase can be verbalized as: ""A 'vollständiger Konferenzbeitrag' is a subclass of 'Konferenzbeitrag'."""
+http://cmt_de#c-2036030-6478102,Source,Class,gutachten,"In the context of a conference, ""Gutachten"" is a German term that translates to ""expert opinion"" or ""report."" It typically refers to a formal assessment or evaluation provided by an expert in a specific field. During a conference, a Gutachten might be presented to offer insights, recommendations, or analyses related to the topics being discussed, helping to inform participants and guide decision-making.","Here are the verbalized phrases based on the provided triples:
+
+1. ""Konferenzbeitrag"" is disjoint with ""Gutachten.""
+2. ""Meta-Gutachten (Gutachten über ein Gutachten)"" is a subclass of ""Gutachten.""
+3. The property ""geschrieben von"" has a domain of ""Gutachten.""
+4. The property ""hat Gutachten geschrieben"" has a range of ""Gutachten.""
+5. The property ""hat die Zeit des Begutachtens beendet"" has a range of ""Gutachten.""
+6. ""Gutachten"" is a subclass of ""Dokument."""
+http://cmt_de#c-2276280-7516043,Source,Class,vorsitzender,"In the context of a conference, ""Vorsitzender"" is a German term that translates to ""chairperson"" or ""chair"" in English. It refers to the individual who presides over the conference, leading discussions, managing the agenda, and ensuring that the proceedings run smoothly. The Vorsitzender is responsible for facilitating communication among participants and may also represent the conference in official capacities.","The term ""Vorsitzender"" is a subclass of ""Person.""The subgraph describes a classification of roles and their relationships within a committee or conference setting. It identifies a main class, which is a ""Class"" that encompasses various roles. 
+
+1. The roles include:
+   - ""Vorsitzender der Konferenz"" (Chair of the Conference)
+   - ""Vorsitzender des Programm-Komitees"" (Chair of the Program Committee)
+   - ""stellvertretender Vorsitz"" (Deputy Chair)
+   - ""Verfasser"" (Author)
+   - ""Gutachter"" (Reviewer)
+
+2. The ""Vorsitzender"" (Chair) is defined as being equivalent to the main class, indicating that this role is a key position within the structure.
+
+3. The relationships between these roles are hierarchical, with each role potentially having a ""first"" and ""rest"" component, suggesting a list or sequence of responsibilities or members. For example, the ""Vorsitzender"" has a ""rest"" that includes the ""Gutachter,"" indicating that the chair oversees or is associated with the reviewer role.
+
+4. Additionally, there is a mention of a conflict of interest related to a contribution, which is linked to the ""Vorsitzender"" role, suggesting that this position may have specific ethical considerations.
+
+Overall, the subgraph outlines a structured representation of roles within a committee, their relationships, and the potential for conflicts of interest, emphasizing the importance of these positions in the context of a conference or academic setting."
+http://cmt_de#c-2310106-7377133,Source,Class,akzeptanz,"In the context of a conference, ""Akzeptanz"" refers to the acceptance or approval of ideas, concepts, or practices presented during the event. It can pertain to how well participants embrace new information, methodologies, or technologies discussed at the conference. High levels of Akzeptanz among attendees can indicate a successful exchange of knowledge and a willingness to adopt innovative approaches within their respective fields.","1. ""Zurückweisung"" is disjoint with ""Akzeptanz.""
+2. ""Akzeptanz"" is a subclass of ""Entscheidung."""
+http://cmt_de#c-2600954-3812137,Source,Class,administrator,"In the context of a conference, an ""Administrator"" typically refers to an individual responsible for managing and organizing the event. This role may involve coordinating logistics, overseeing registration, handling communications, and ensuring that all aspects of the conference run smoothly. The administrator may also be involved in budgeting, scheduling sessions, and liaising with speakers and attendees to facilitate a successful conference experience.","Here are the verbalized phrases based on the provided RDF triples:
+
+1. Die Beitragszuordnung wurde abgeschlossen von einem Administrator.
+2. Die Beitragszuordnungs-Software wurde ausgeführt von einem Administrator.
+3. Details wurden eingefügt von einem Administrator.
+4. Die Gebotsphase wurde gestartet von einem Administrator.
+5. Kriterien zu Gutachten wurden eingefügt von einem Administrator.
+6. Der Papierausdruck des Mailing-Manifests wurde gedruckt von einem Administrator.
+7. Das Dokument wurde abgewiesen von einem Administrator.
+8. Das Dokument wurde akzeptiert von einem Administrator.
+9. Der Administrator bestimmt die maximale Anzahl an zugewiesenen Beiträgen.
+10. Der Administrator druckt den Papierausdruck des Mailing-Manifests.
+11. Der Administrator hat Details eingefügt in Bezug auf das Dokument.
+12. Der Administrator hat Kriterien zu Gutachten eingefügt.
+13. Der Administrator hat das Papier abgelehnt.
+14. Der Administrator hat das Dokument akzeptiert.
+15. Der Administrator hat die Beitrags-Zuordnungssoftware ausgeführt.
+16. Der Administrator hat die Gebotsphase gestartet.
+17. Der Administrator hat die Zuordnung der Beiträge abgeschlossen.
+18. Der Administrator hat etwas hinzugefügt.
+19. Der Administrator hat ein virtuelles Treffen veranlasst.
+20. Der Administrator hat etwas zugewiesen.
+21. Etwas wurde hinzugefügt von einem Administrator.
+22. Ein virtuelles Treffen wurde veranlasst von einem Administrator.
+23. Etwas wurde zugewiesen von einem Administrator.
+24. Der Administrator ist ein Benutzer. 
+
+These phrases encapsulate the relationships and actions described in the RDF triples."
+http://cmt_de#c-2636048-9047841,Source,Class,gebot,"In the context of a conference, ""Gebot"" is a German term that translates to ""bid"" or ""offer"" in English. It often refers to a proposal or an offer made during discussions, negotiations, or presentations at the conference. Participants may present their ""Gebot"" in terms of ideas, solutions, or collaborative opportunities, aiming to engage others and foster partnerships or agreements.","Here are the verbalized phrases based on the provided triples:
+
+1. ""Entscheidung is disjoint with Gebot.""
+2. ""The property 'abgeglichen von' has a domain of Gebot.""
+3. ""The property 'hat Gebot erhalten' has a range of Gebot.""
+4. ""The property 'hat abgeglichen' has a range of Gebot.""
+5. ""Gebot is disjoint with Dokument, Konferenz, Person, Programm-Komitee, and Präferenz."""
+http://cmt_de#c-3386094-8929437,Source,Class,dokument,"In the context of a conference, ""Dokument"" typically refers to a document or written material that is presented, shared, or discussed during the event. This could include research papers, presentations, agendas, minutes, or any other formal written content that contributes to the conference proceedings. It serves as a record of the information shared and can be used for reference by attendees.","Here are the verbalized phrases based on the provided triples:
+
+1. ""Entscheidung"" is disjoint with ""Dokument.""
+2. ""Gebot"" is disjoint with ""Dokument.""
+3. ""Gutachten"" is a subclass of ""Dokument.""
+4. ""Konferenzbeitrag"" is a subclass of ""Dokument.""
+5. ""hat Interessenskonflikt in Bezug auf"" has a range of ""Dokument.""
+6. ""Dokument"" is disjoint with ""Konferenz,"" ""Person,"" ""Programm-Komitee,"" and ""Präferenz."""
+http://cmt_de#c-3554876-1135672,Source,Class,programm komitee,"In the context of a conference, ""Programm-Komitee"" refers to the program committee, which is a group of experts responsible for overseeing the content and organization of the conference program. This committee typically reviews submitted papers, proposals, and presentations, selects speakers, and ensures that the conference meets its academic and thematic goals. Their role is crucial in maintaining the quality and relevance of the conference's offerings.","Here are the verbalized phrases based on the provided triples:
+
+1. The class ""Dokument"" is disjoint with the class ""Programm-Komitee.""
+2. The class ""Entscheidung"" is disjoint with the class ""Programm-Komitee.""
+3. The class ""Gebot"" is disjoint with the class ""Programm-Komitee.""
+4. The property ""hat Mitglied"" has a domain of ""Programm-Komitee.""
+5. The property ""ist Mitglied des Programm-Komitees"" has a range of ""Programm-Komitee.""
+6. The class ""Programm-Komitee"" is disjoint with the classes ""Konferenz,"" ""Person,"" and ""Präferenz."""
+http://cmt_de#c-4575828-4677716,Source,Class,verfasser der kein gutachter ist,"In the context of a conference, ""Verfasser, der kein Gutachter ist"" translates to ""author who is not a reviewer."" This typically refers to a situation where an individual has submitted a paper or presentation but is not involved in the peer review process for other submissions. In academic conferences, authors often submit their work for consideration, while reviewers evaluate the submissions for quality and relevance. This phrase indicates that the author in question does not have a dual role as a reviewer for the conference.","The phrase can be verbalized as follows:
+
+""The author who is not a reviewer is a subclass of 'author' and is disjoint from 'reviewer' and 'member of the program committee'."""
+http://cmt_de#c-4872876-3932965,Source,Class,mitglied des programm komitees,"""Mitglied des Programm-Komitees"" translates to ""member of the program committee"" in English. In the context of a conference, this refers to an individual who is part of a group responsible for planning and organizing the conference's program. This includes tasks such as reviewing submitted papers, selecting speakers, and determining the overall agenda and topics to be covered at the event. Members of the program committee typically have expertise in the conference's subject area and play a crucial role in ensuring the quality and relevance of the conference content.","Here are the verbalized phrases based on the provided triples:
+
+1. ""An author who is not a reviewer is distinct from a member of the program committee.""
+   
+2. ""The chairperson of the program committee is a subclass of a member of the program committee.""
+
+3. ""The maximum number of assigned contributions is defined for a member of the program committee.""
+
+4. ""A member of the program committee has members.""
+
+5. ""A member of the program committee has added contributions.""
+
+6. ""Contributions are added by a member of the program committee.""
+
+7. ""Being a member of the program committee is a requirement for contributions that are added.""
+
+8. ""The maximum number of assigned contributions is a requirement for a member of the program committee.""
+
+9. ""A member of the program committee is a subclass of a person and a participant in a conference."""
+http://cmt_de#c-5062955-9564132,Source,Class,gutachter,"In the context of a conference, ""Gutachter"" is a German term that translates to ""reviewer"" or ""assessor"" in English. It typically refers to an expert who evaluates submitted papers, presentations, or proposals to determine their quality, relevance, and suitability for inclusion in the conference program. The role of a Gutachter is crucial in maintaining the academic standards of the conference by providing constructive feedback and recommendations based on their expertise in the field.","Here are the verbalized phrases based on the provided triples:
+
+1. ""Meta-Gutachater is a subclass of Gutachter.""
+2. ""Verfasser, der kein Gutachter ist, is disjoint with Gutachter.""
+3. ""The range of 'abgeglichen von' is Gutachter.""
+4. ""The range of 'gelesen von' is Gutachter.""
+5. ""The range of 'geschrieben von' is Gutachter.""
+6. ""Gutachter has written Gutachten.""
+7. ""Gutachter has read Papier.""
+8. ""Gutachter has reconciled.""
+9. ""Gutachter has assigned.""
+10. ""Gutachter has been assigned.""
+11. ""Gutachter has been assigned by Administrator.""
+12. ""Gutachter has been assigned by another Gutachter.""
+13. ""The range of 'zugewiesen zu' is Gutachter.""
+14. ""Gutachter is a subclass of Benutzer and Teilnehmer einer Konferenz.""
+15. ""Gutachter is disjoint with externer Gutachter.""The subgraph describes a relationship involving several entities and their roles in a context that appears to be related to a conflict of interest in a contribution. 
+
+1. There is an entity identified as ""Verfasser"" (author) which is linked to a specific role.
+2. Another entity, ""Vorsitzender"" (chairperson), is also identified and is connected to the ""Gutachter"" (reviewer) role.
+3. The ""Vorsitzender"" is in a conflict of interest with a contribution, which is represented by the entity identified as ""Interessen-Konflikt mit Beitrag.""
+4. The ""Gutachter"" is linked to the ""Verfasser"" and is part of a sequence that connects back to the ""Vorsitzender.""
+5. The entity representing the conflict of interest is classified as a ""Class"" and is associated with the ""Vorsitzender.""
+
+In summary, the subgraph illustrates a scenario where the author and the chairperson are involved in a situation that raises a conflict of interest concerning a contribution, with the reviewer also playing a role in this context."
+http://cmt_de#c-5325416-2794476,Source,Class,benutzer,"In the context of a conference, ""Benutzer"" is a German term that translates to ""user"" in English. It typically refers to individuals who are utilizing a system, platform, or service, such as conference attendees, participants, or speakers who engage with the conference's resources, tools, or technology.","1. The class ""Administrator"" is a subclass of the class ""Benutzer.""
+2. The class ""Gutachter"" is a subclass of the class ""Benutzer.""
+3. The class ""Verfasser"" is a subclass of the class ""Benutzer.""
+4. The class ""Benutzer"" is a subclass of the class ""Person."""
+http://cmt_de#c-5336831-3519560,Source,Class,meta gutachater gutachter der gutachten begutachtet,"The term ""Meta-Gutachater"" refers to an individual who evaluates or reviews the evaluations (Gutachten) provided by other experts (Gutachter). In the context of a conference, this role is crucial for ensuring the quality and credibility of the assessments made on research papers, proposals, or projects. A Meta-Gutachater would analyze the feedback and recommendations from multiple Gutachter, providing an overarching critique or synthesis that helps in making informed decisions about the validity and significance of the work being presented. This process enhances the rigor of the peer review system and ensures that the evaluations are fair, consistent, and of high quality.","1. ""Gelesen von Meta-Gutachter"" has a range of ""Meta-Gutachter (Gutachter der Gutachten begutachtet).""
+
+2. ""Meta-Gutachter (Gutachter der Gutachten begutachtet)"" is a subclass of ""Gutachter."""
+http://cmt_de#c-5356419-0853732,Source,Class,vorsitzender der konferenz,"""Vorsitzender der Konferenz"" is a German phrase that translates to ""Chairman of the Conference"" in English. In the context of a conference, this term refers to the individual who presides over the conference, leading discussions, managing the agenda, and ensuring that the proceedings run smoothly. The Vorsitzender is typically responsible for facilitating communication among participants and may also represent the conference in official capacities.","The phrase can be verbalized as follows:
+
+""The position of 'Vorsitzender der Konferenz' is a subclass of 'Teilnehmer einer Konferenz' and is disjoint with 'stellvertretender Vorsitz'.""The subgraph describes a class structure related to a conference committee. It identifies a class that includes various roles within the committee. The first role mentioned is ""Vorsitzender der Konferenz"" (Chair of the Conference), followed by ""Vorsitzender des Programm-Komitees"" (Chair of the Program Committee) and ""stellvertretender Vorsitz"" (Deputy Chair). 
+
+The structure indicates that these roles are part of a union of classes, where ""Vorsitzender der Konferenz"" is the first element, followed by ""Vorsitzender des Programm-Komitees,"" and finally ""stellvertretender Vorsitz,"" which has no further elements (indicated by 'nil'). 
+
+Additionally, the term ""Vorsitzender"" (Chair) is defined as equivalent to the overarching class identified at the beginning of the subgraph. This suggests that all these roles are interconnected and fall under the same classification within the context of the conference's organizational structure."
+http://cmt_de#c-5403940-4193578,Source,Class,mitverfasser,"In the context of a conference, ""Mitverfasser"" is a German term that translates to ""co-author"" in English. It refers to an individual who collaborates with others in writing or contributing to a paper, presentation, or research work that is being presented at the conference. Co-authors share responsibility for the content and findings of the work, and their contributions are typically acknowledged in the conference materials.","Here are the verbalized phrases based on the provided RDF triples:
+
+1. The contribution is co-authored by a co-author.
+2. The relationship ""co-authored by"" pertains to a co-author.
+3. A co-author is a subclass of an author."
+http://cmt_de#c-5888543-5318130,Source,Class,externer gutachter,"In the context of a conference, ""externer Gutachter"" translates to ""external reviewer"" or ""external evaluator."" This term typically refers to an independent expert who is brought in to assess the quality, validity, or relevance of research, presentations, or proposals being discussed at the conference. Their role is to provide an unbiased evaluation, ensuring that the work presented meets certain standards and contributes meaningfully to the field.","Here are the verbalized phrases based on the provided triples:
+
+1. ""Gutachter"" is disjoint with ""externer Gutachter.""
+2. The property ""hat zugewiesen"" has a range that includes ""externer Gutachter.""
+3. The property ""zugewiesen von Gutachter"" has a domain that includes ""externer Gutachter.""
+4. ""externer Gutachter"" is a subclass of ""Person.""The subgraph describes a concept related to an ""external reviewer."" Specifically, it indicates that the ""external reviewer"" is a subclass of a certain restriction. This restriction has a cardinality of 1, meaning that there can only be one instance of this restriction. Additionally, the restriction is associated with the property ""assigned by reviewer."" In summary, the ""external reviewer"" must be assigned by exactly one reviewer."
+http://cmt_de#c-6476451-2581059,Source,Class,pr ferenz,"In the context of a conference, ""Präferenz"" refers to a preference or priority given to certain topics, speakers, or sessions over others. It can indicate the choices or inclinations of attendees regarding which presentations or discussions they find most relevant or appealing. Understanding these preferences can help organizers tailor the conference agenda to better meet the interests of participants.","Here are the verbalized phrases for the given triples:
+
+1. ""Dokument"" is disjoint with ""Präferenz.""
+2. ""Entscheidung"" is disjoint with ""Präferenz.""
+3. ""Gebot"" is disjoint with ""Präferenz.""
+4. ""Programm-Komitee"" is disjoint with ""Präferenz.""
+5. ""Präferenz"" is disjoint with ""Konferenz.""
+6. ""Präferenz"" is disjoint with ""Person."""
+http://cmt_de#c-7221579-7498183,Source,Class,gegenstandsbereich,"In the context of a conference, ""Gegenstandsbereich"" is a German term that translates to ""subject area"" or ""field of study."" It refers to the specific domain or topic that is being addressed or discussed during the conference. This could encompass various themes, research areas, or disciplines relevant to the conference's focus, guiding the discussions, presentations, and interactions among participants. Understanding the ""Gegenstandsbereich"" helps attendees align their contributions and expectations with the overarching goals of the event.","The phrase can be verbalized as: ""The range of 'hat Gegenstandsbereich' is 'Gegenstandsbereich'."""
+http://cmt_de#c-7511748-5827387,Source,Class,verfasser,"In the context of a conference, ""Verfasser"" is a German term that translates to ""author"" in English. It typically refers to the individual or individuals who have written or contributed to a paper, presentation, or any scholarly work being discussed or presented at the conference. The Verfasser is often responsible for the content and findings of the work, and their role may include presenting their research and engaging with attendees during discussions.","Here are the verbalized phrases based on the provided RDF triples:
+
+1. ""Mitverfasser"" is a subclass of ""Verfasser.""
+2. ""Verfasser, der kein Gutachter ist"" is a subclass of ""Verfasser.""
+3. The property ""geschrieben von"" has a range of ""Verfasser.""
+4. The property ""hat Beitrag eingesendet"" has a domain of ""Verfasser.""
+5. The property ""hat Beitrag geschrieben"" has a domain of ""Verfasser.""
+6. ""Verfasser"" is a subclass of both ""Benutzer"" and ""Teilnehmer einer Konferenz.""The subgraph describes a relationship involving several entities and their roles in a specific context. 
+
+1. There is an entity identified as ""Verfasser"" (author) which is linked to a node that represents a conflict of interest with a contribution.
+2. Another entity, ""Vorsitzender"" (chairperson), is also involved and is connected to a node that represents a ""Gutachter"" (reviewer).
+3. The ""Vorsitzender"" is linked to the ""Gutachter"" in a sequence, indicating a relationship where the chairperson is followed by the reviewer.
+4. The conflict of interest is associated with a specific domain, which is represented by a node that is classified as a ""Class.""
+5. The ""Gutachter"" is also linked back to the ""Verfasser,"" suggesting a circular relationship among these roles.
+
+In summary, the subgraph illustrates a network of roles (author, chairperson, reviewer) that are interconnected through a conflict of interest related to a contribution, with a classification indicating the nature of this relationship."
+http://cmt_de#c-7606498-1774261,Source,Class,vorsitzender des programm komitees,"The term ""Vorsitzender des Programm-Komitees"" translates to ""Chairperson of the Program Committee"" in English. In the context of a conference, this individual is responsible for overseeing the development and organization of the conference program. This includes tasks such as selecting topics, inviting speakers, coordinating sessions, and ensuring that the content aligns with the conference's goals and themes. The chairperson plays a crucial role in shaping the overall experience for attendees and ensuring the quality of the presentations and discussions.","1. ""Der Vorsitzende des Programm-Komitees hat die Zeit des Begutachtens beendet.""
+  
+2. ""Der Vorsitzende des Programm-Komitees ist eine Unterklasse von Mitglied des Programm-Komitees.""The subgraph describes a class structure related to a conference or committee. It identifies a class labeled as ""Class"" which encompasses various roles within the organization. 
+
+Within this class, there are three specific roles mentioned: 
+
+1. ""Vorsitzender der Konferenz"" (Chair of the Conference)
+2. ""Vorsitzender des Programm-Komitees"" (Chair of the Program Committee)
+3. ""stellvertretender Vorsitz"" (Deputy Chair)
+
+The structure indicates that the ""Vorsitzender der Konferenz"" is the first role in a sequence, followed by the ""Vorsitzender des Programm-Komitees,"" and finally the ""stellvertretender Vorsitz,"" which is noted to have no further roles following it (indicated by 'nil'). 
+
+Additionally, the ""Vorsitzender"" is defined as being equivalent to the overarching class identified at the beginning, suggesting that this role is a key representative of the class structure. 
+
+Overall, the subgraph outlines a hierarchy of leadership roles within a conference or committee setting, emphasizing the relationships and order of these roles."
+http://cmt_de#c-7914897-1988765,Source,Class,konferenz,"In the context of ""conference,"" the term ""Konferenz"" is the German word that translates to ""conference"" in English. It refers to a formal meeting or gathering of individuals, often organized to discuss specific topics, share information, or collaborate on projects. Konferenzen can vary in size and purpose, ranging from academic and professional meetings to larger events that include presentations, workshops, and networking opportunities.","Here are the verbalized phrases based on the provided triples:
+
+1. Die Beitragszuordnung wurde von der Konferenz abgeschlossen.
+2. Die Beitragszuordnungs-Software wurde von der Konferenz ausgeführt.
+3. Details wurden von der Konferenz eingefügt.
+4. Dokumente sind disjunkt mit der Konferenz.
+5. Entscheidungen sind disjunkt mit der Konferenz.
+6. Gebote sind disjunkt mit der Konferenz.
+7. Die Gebotsphase wurde von der Konferenz gestartet.
+8. Gutachten pro Beitrag sind Teil der Konferenz.
+9. Kriterien zu Gutachten wurden von der Konferenz eingefügt.
+10. Der Papierausdruck des Mailing-Manifests wurde von der Konferenz gedruckt.
+11. Das Programm-Komitee ist disjunkt mit der Konferenz.
+12. Präferenzen sind disjunkt mit der Konferenz.
+13. Teilnehmer sind Teil der Konferenz.
+14. Die Konferenz akzeptiert Hardcopy-Einsendungen.
+15. Die Konferenz druckt den Papierausdruck des Mailing-Manifests.
+16. Die Konferenz hat ein Datum.
+17. Die Konferenz hat Details in Bezug auf eingefügt.
+18. Die Konferenz hat Kriterien zu Gutachten eingefügt.
+19. Die Konferenz hat ein Logo an einer URL.
+20. Die Konferenz hat Teilnehmer.
+21. Die Konferenz hat eine Webseite an einer URL.
+22. Die Konferenz hat die Beitrags-Zuordnungssoftware ausgeführt.
+23. Die Konferenz hat die Gebotsphase gestartet.
+24. Die Konferenz hat die Zuordnung der Beiträge abgeschlossen.
+25. Die Konferenz hat ein virtuelles Treffen veranlasst.
+26. Ein virtuelles Treffen wurde von der Konferenz veranlasst.
+27. Die Konferenz ist disjunkt mit Personen.The subgraph describes a conceptual framework related to a ""Konferenz"" (conference) and its properties within a formal ontology. Here’s a natural language description of the subgraph:
+
+---
+
+In this ontology, a ""Konferenz"" is defined as a subclass of a certain restriction, which imposes specific conditions on its properties. Each conference must have at least one name (""hat Namen"") and one date (""hat Datum""). The property ""hat Namen"" is associated with a class that requires a single instance, indicating that each conference can only have one name.
+
+Additionally, the property ""Gutachten pro Beitrag"" is also defined as a restriction, which similarly requires that each conference has exactly one associated value. This means that for every conference, there is a unique review or assessment per contribution.
+
+The structure of the ontology indicates that a ""Konferenz"" can be represented as a collection of individuals, where the first individual is a ""Person,"" and the rest of the individuals can be further defined. The ontology also specifies that the domain of the property ""hat Namen"" is a particular class, ensuring that the property is applicable only within the context of the defined class.
+
+Overall, the ontology establishes clear constraints on the properties of a conference, ensuring that each conference is uniquely identified by its name and date, and that it adheres to specific cardinality requirements for its associated properties.
+
+--- 
+
+This description captures the essence of the relationships and restrictions defined in the subgraph."
+http://cmt_de#c-8082317-4346619,Source,Class,teilnehmer einer konferenz,"""Teilnehmer einer Konferenz"" is a German phrase that translates to ""participants of a conference"" in English. It refers to individuals who attend and engage in discussions, presentations, and activities during a conference. These participants can include speakers, attendees, organizers, and other stakeholders involved in the event.","Here are the verbalized phrases based on the provided RDF triples:
+
+1. ""Gutachter"" is a subclass of ""Teilnehmer einer Konferenz"" (Conference Participant).
+2. ""Mitglied des Programm-Komitees"" is a subclass of ""Teilnehmer einer Konferenz"" (Conference Participant).
+3. ""Teilnehmer von"" has a domain of ""Teilnehmer einer Konferenz"" (Conference Participant).
+4. ""Verfasser"" is a subclass of ""Teilnehmer einer Konferenz"" (Conference Participant).
+5. ""Vorsitzender der Konferenz"" is a subclass of ""Teilnehmer einer Konferenz"" (Conference Participant).
+6. ""hat Teilnehmer"" has a range of ""Teilnehmer einer Konferenz"" (Conference Participant).
+7. ""stellvertretender Vorsitz"" is a subclass of ""Teilnehmer einer Konferenz"" (Conference Participant).
+8. ""Teilnehmer einer Konferenz"" is a subclass of ""Person"". 
+
+These phrases summarize the relationships and classifications defined in the RDF triples."
+http://cmt_de#c-8330184-9824066,Source,Class,meta gutachten gutachten ber ein gutachten,"In the context of a conference, ""Meta-Gutachten"" refers to a review or evaluation of an existing report or assessment (Gutachten). It involves analyzing the methodology, findings, and conclusions of the original report to provide a higher-level critique or commentary. This process can help identify strengths and weaknesses in the original assessment, ensuring that the conclusions drawn are valid and reliable. A Meta-Gutachten can be particularly useful in academic, scientific, or policy discussions, where the quality and credibility of research findings are critical.","The phrase can be verbalized as: ""Meta-Gutachten is a subclass of Gutachten."""
+http://cmt_de#c-8450582-0542304,Source,Class,zusammenfassung eines konferenzbeitrags,"""Zusammenfassung eines Konferenzbeitrags"" translates to ""summary of a conference contribution"" in English. In the context of a conference, it refers to a brief overview or abstract of a presentation, paper, or discussion that will be presented at the event. This summary typically highlights the main points, objectives, and findings of the contribution, allowing attendees to understand the key aspects of the work being presented and decide whether to attend the full presentation.","The phrase can be verbalized as: ""A summary of a conference contribution is a subclass of a conference contribution."""
+http://cmt_de#c-9309131-3067692,Source,Class,stellvertretender vorsitz,"""Stellvertretender Vorsitz"" is a German term that translates to ""deputy chair"" or ""vice chair"" in English. In the context of a conference, it refers to a person who assists the chairperson in leading the conference and may take over their responsibilities in their absence. The stellvertretender Vorsitz typically helps facilitate discussions, manage the agenda, and ensure that the conference runs smoothly.","1. ""Vorsitzender der Konferenz"" is disjoint with ""stellvertretender Vorsitz.""
+2. ""Stellvertretender Vorsitz"" is a subclass of ""Teilnehmer einer Konferenz.""The subgraph describes a class structure related to a conference or committee leadership. It identifies a class that represents a group of roles, specifically focusing on leadership positions within a conference setting.
+
+1. The main class is defined as a ""Class.""
+2. Within this class, there are three specific roles:
+   - The first role is ""Vorsitzender der Konferenz,"" which translates to ""Chairperson of the Conference.""
+   - The second role is ""Vorsitzender des Programm-Komitees,"" meaning ""Chairperson of the Program Committee.""
+   - The third role is ""stellvertretender Vorsitz,"" which translates to ""Deputy Chair.""
+3. The structure indicates that the first role is the primary focus, followed by the other roles in a sequential manner.
+4. Additionally, the ""Vorsitzender"" (Chairperson) is noted to be equivalent to the main class defined at the beginning.
+
+In summary, this subgraph outlines a hierarchy of leadership roles within a conference, emphasizing the Chairperson's position and including the roles of the Program Committee Chair and Deputy Chair."
+http://cmt_de#c-9804348-4921383,Source,Class,person,"In the context of a conference, ""person"" typically refers to an individual attending the event, whether as a speaker, participant, organizer, or attendee. Each person may have different roles and responsibilities, contributing to the overall purpose of the conference, such as sharing knowledge, networking, or discussing specific topics related to the conference theme.","Here are the verbalized phrases based on the provided triples:
+
+1. ""Benutzer"" is a subclass of ""Person.""
+2. ""Dokument"" is disjoint with ""Person.""
+3. ""Entscheidung"" is disjoint with ""Person.""
+4. ""Gebot"" is disjoint with ""Person.""
+5. ""Konferenz"" is disjoint with ""Person.""
+6. ""Mitglied des Programm-Komitees"" is a subclass of ""Person.""
+7. ""Programm-Komitee"" is disjoint with ""Person.""
+8. ""Präferenz"" is disjoint with ""Person.""
+9. ""Teilnehmer einer Konferenz"" is a subclass of ""Person.""
+10. ""Vorsitzender"" is a subclass of ""Person.""
+11. ""externer Gutachter"" is a subclass of ""Person.""
+12. ""hat Email"" has a domain of ""Person.""
+13. ""hat Interessenskonflikt in Bezug auf"" has a domain of ""Person.""The subgraph describes a structure involving classes and their relationships. It indicates that there is a class named ""hat Namen,"" which is defined as a domain of another class represented by a blank node. This blank node is associated with the type ""Class."" 
+
+Additionally, there is a sequence of elements where the first element is ""Person,"" followed by ""Konferenz."" The relationship between these elements is such that ""Person"" is the first element in a list, and ""Konferenz"" follows it. The list ends with a nil value, indicating the end of the sequence.
+
+Furthermore, the class ""hat Namen"" is defined as a union of the sequence that includes ""Person"" and ""Konferenz."" Overall, the subgraph captures the relationships between these classes and their respective elements in a structured manner."
+http://cmt_de#ent-2502906-5126965,Source,Property,gutachten pro beitrag,"""**Gutachten pro Beitrag**"" is a German phrase that translates to ""expert opinion per contribution"" in English. In the context of a conference, it typically refers to a formal evaluation or assessment provided by experts regarding the quality, relevance, or significance of individual contributions, such as papers, presentations, or discussions. This process helps in determining the merit of each submission and can influence decisions on acceptance, publication, or awards within the conference framework. It emphasizes the importance of expert feedback in academic and professional settings.","The phrase can be verbalized as: ""The 'Gutachten pro Beitrag' is a property that belongs to the domain of 'Konferenz' and has a range of integer values.""The subgraph describes a restriction related to a conference. Specifically, it indicates that there is a restriction defined as having a cardinality of 1 on the property ""Gutachten pro Beitrag."" Furthermore, this restriction is a superclass of the class ""Konferenz,"" meaning that any instance of ""Konferenz"" must adhere to this restriction. In summary, for a conference, there is a requirement that it must have exactly one ""Gutachten pro Beitrag."""
+http://cmt_de#ent-3421629-9074086,Source,Property,akzeptiert hardcopy einsendungen,"In the context of a conference, ""akzeptiert Hardcopy-Einsendungen"" means that the conference accepts submissions in hard copy format. This indicates that participants can submit their papers or materials in printed form, rather than only electronically.","The phrase can be verbalized as: ""The conference accepts hardcopy submissions."""
+http://cmt_de#ent-3493763-1822072,Source,Property,hat datum,"In the context of a conference, ""hat datum"" likely refers to a specific piece of information or data point that is being discussed or presented. It could pertain to research findings, statistical data, or any relevant information that supports the topics being addressed at the conference. The term ""datum"" is the singular form of ""data,"" which means it represents a single unit of information. Therefore, ""hat datum"" could be highlighting a particular fact or figure that is significant to the conference's themes or discussions.","The phrase can be verbalized as: ""The property 'hat Datum' is associated with the domain 'Konferenz' and has a range of 'date'.""The subgraph describes a class called ""Konferenz"" (which translates to ""Conference"" in English) that is defined as a subclass of a certain restriction. This restriction specifies that there must be at least one instance of a property called ""hat Datum"" (meaning ""has date""). In summary, every conference must have at least one associated date."
+http://cmt_de#ent-4152612-5306614,Source,Property,hat email,"In the context of a conference, ""hat email"" likely refers to an email that is sent to participants or attendees regarding their roles or responsibilities at the event. It could also pertain to an email that discusses the various ""hats"" or roles individuals may wear during the conference, such as speaker, organizer, or attendee. Essentially, it serves to clarify expectations and provide important information related to the conference.","The phrase can be verbalized as: ""The property 'hat Email' is associated with the domain 'Person' and has a range of 'string'."""
+http://cmt_de#ent-5017088-6756639,Source,Property,hat webseite an url,"In the context of a conference, ""hat Webseite an URL"" translates to ""has website and URL."" This typically refers to the online presence of the conference, where attendees can find information such as schedules, speaker details, registration, and other relevant resources. The URL is the specific web address that directs users to the conference's website.","The phrase can be verbalized as: ""The website has a URL associated with the conference, and the URL is of any valid URI type."""
+http://cmt_de#ent-6414249-7356026,Source,Property,hat id,"In the context of a conference, ""hat ID"" typically refers to a form of identification or badge that attendees wear, often featuring their name, affiliation, and sometimes their role or interests. The term ""hat"" can metaphorically represent the different roles or responsibilities individuals may have at the conference, such as speaker, attendee, or organizer. The ""ID"" part signifies that it is an identification tool, helping participants recognize each other and facilitating networking and communication throughout the event.","The phrase can be verbalized as follows:
+
+""The 'hat ID' is a property that belongs to the domain of 'Konferenzbeitrag' and has a range of 'unsignedLong'."""
+http://cmt_de#ent-7027114-8569150,Source,Property,maximale anzahl an zugewiesenen beitr gen,"In the context of a conference, ""maximale Anzahl an zugewiesenen Beiträgen"" translates to ""maximum number of assigned contributions."" This phrase typically refers to the limit on the number of presentations, papers, or other contributions that can be allocated to a participant, session, or track within the conference. It helps organizers manage the schedule and ensure that the conference runs smoothly by controlling the volume of content presented.","The phrase can be verbalized as follows:
+
+""The maximum number of assigned contributions is defined for members of the program committee and is represented as an integer."""
+http://cmt_de#ent-7086815-3431611,Source,Property,hat logo an url,"In the context of a conference, a ""hat logo"" typically refers to a logo that is designed to be printed or embroidered on hats, often used as merchandise or promotional items for the event. It serves as a visual representation of the conference, helping to create a sense of identity and community among attendees.
+
+An ""URL"" in this context likely refers to a web address associated with the conference. This URL could lead to the conference's official website, where participants can find information about the event, such as schedules, speakers, registration details, and other resources. Together, the hat logo and URL can enhance the branding of the conference and provide attendees with a way to engage with the event both in-person and online.","The phrase can be verbalized as: ""The conference has a logo that is associated with a URL."""
+http://cmt_de#ent-7525433-8535515,Source,Property,hat titel,"In the context of a conference, ""hat Titel"" is German for ""the title."" It typically refers to the title of a presentation, paper, or session being discussed at the conference. The title is important as it gives attendees an idea of the topic and focus of the presentation, helping them decide which sessions to attend based on their interests.","The phrase can be verbalized as:
+
+""The property 'hat Titel' has a domain of 'Konferenzbeitrag' and a range of 'string'."""
+http://cmt_de#ent-7649389-3921230,Source,Property,hat namen,"In the context of a conference, ""hat Namen"" is German for ""has names."" It could refer to a discussion about the speakers, participants, or topics that are being presented at the conference. For example, it might be used to indicate that certain individuals or subjects are well-known or significant within the context of the event.","The phrase can be verbalized as: ""The range of 'hat Namen' is a string.""The subgraph describes a conceptual structure involving classes and properties related to a ""Konferenz"" (conference) and a ""Person."" 
+
+1. **Classes and Relationships**:
+   - ""Konferenz"" is defined as a subclass of a certain class represented by the identifier '_:N49b0d9d763874157bf0738f6156420ab'.
+   - There is a property called ""hat Namen"" (has name) that is associated with the class represented by the identifier '_:Ne3d86ae84cdb4327b7adc0b49b161be6'.
+
+2. **Restrictions**:
+   - The class identified by '_:N49b0d9d763874157bf0738f6156420ab' is characterized as a restriction, specifically indicating that it has a cardinality of 1. This means that for any instance of this class, there must be exactly one value for the property ""hat Namen.""
+
+3. **Instances**:
+   - An instance represented by '_:N96d6388991b042e89281bf78e5106d89' is the first element in a sequence that includes ""Konferenz.""
+   - Another instance represented by '_:N79a5735da1274ea68f5cf04dec9c94f8' is the first element in a sequence that includes ""Person.""
+
+4. **Union of Classes**:
+   - The class represented by '_:Ne3d86ae84cdb4327b7adc0b49b161be6' is defined as a union of the instances, including the one represented by '_:N96d6388991b042e89281bf78e5106d89'.
+
+In summary, the subgraph outlines a structure where a conference is a specific type of class that must have a name, and it is related to a person, with specific restrictions on the properties that define these relationships."
+http://cmt_de#op-0065286-3503316,Source,Property,zugewiesen zu,"In the context of a conference, ""zugewiesen zu"" translates to ""assigned to"" in English. It typically refers to tasks, roles, or responsibilities that have been allocated to specific individuals or groups within the framework of the conference. For example, a speaker might be ""zugewiesen zu"" a particular session, meaning they have been assigned to present or participate in that session.","The phrase can be verbalized as: ""A conference contribution is assigned to a reviewer."""
+http://cmt_de#op-0136947-6585575,Source,Property,virtuelles treffen veranlasst von,"The phrase ""virtuelles Treffen veranlasst von"" translates to ""virtual meeting organized by"" in English. In the context of a conference, it refers to a virtual gathering or meeting that has been arranged or initiated by a specific individual, organization, or group. This could involve discussions, presentations, or networking opportunities conducted online, allowing participants to engage remotely rather than in person.","The phrase can be verbalized as: ""A conference is organized by an administrator for virtual meetings."""
+http://cmt_de#op-0603706-6484397,Source,Property,zugewiesen von administrator,"In the context of a conference, ""zugewiesen von Administrator"" translates to ""assigned by administrator."" This typically means that a specific task, role, or responsibility has been allocated to an individual or group by the conference administrator. This could involve assignments related to scheduling, session management, or participant roles during the conference.","The phrase can be verbalized as: ""Assigned by an Administrator is a property that pertains to an Expert."""
+http://cmt_de#op-0995455-0619369,Source,Property,hat kriterien zu gutachten eingef gt,"The phrase ""hat Kriterien zu Gutachten eingefügt"" translates to ""has inserted criteria for assessments"" in English. In the context of a conference, this likely refers to the process of establishing specific standards or guidelines that will be used to evaluate presentations, papers, or research findings. These criteria help ensure that the assessment of contributions is consistent, fair, and aligned with the goals of the conference.","The phrase can be verbalized as: ""The Administrator has added criteria to the conference reports."""
+http://cmt_de#op-1108172-2047481,Source,Property,hat gutachten geschrieben,"In the context of a conference, ""hat Gutachten geschrieben"" translates to ""has written a report"" or ""has written an assessment."" This phrase typically refers to someone who has prepared a formal evaluation or analysis, often related to research, projects, or academic work, which may be presented or discussed during the conference.","The phrase can be verbalized as: ""A Gutachter has written a Gutachten."""
+http://cmt_de#op-1123568-3504213,Source,Property,beitragszuordnung abgeschlossen von,"In the context of a conference, ""Beitragszuordnung abgeschlossen von"" translates to ""Contribution assignment completed by."" This phrase likely refers to the process of assigning or categorizing contributions, such as papers, presentations, or discussions, to specific sessions or topics within the conference. It indicates that the task of organizing these contributions has been finalized, possibly by a committee or an individual responsible for the conference program.","The phrase can be verbalized as: ""The assignment of contributions is completed by an administrator in the context of a conference."""
+http://cmt_de#op-1333090-2653926,Source,Property,hat interessenskonflikt in bezug auf,"""Interessenskonflikt"" translates to ""conflict of interest"" in English. In the context of a conference, it refers to a situation where an individual's personal interests, financial interests, or relationships could potentially influence their professional judgment or actions related to the conference. This could involve speakers, organizers, or participants who may have vested interests that could affect the integrity of the conference proceedings, such as bias in presentations, research findings, or decision-making processes. It is important for conferences to address and disclose any potential conflicts of interest to maintain transparency and credibility.","The phrase can be verbalized as: ""The term 'Interessenskonflikt in Bezug auf' applies to a Person and is related to a Dokument."""
+http://cmt_de#op-1511461-8135444,Source,Property,hat mitglied,"In the context of a conference, ""hat Mitglied"" is German for ""is a member."" It typically refers to someone who is part of a group, organization, or association that is relevant to the conference. For example, if a speaker or participant is introduced as ""hat Mitglied,"" it indicates that they hold membership in a relevant professional body or organization related to the conference's theme.","The phrase can be verbalized as follows:
+
+""The term 'hat Mitglied' is associated with the domain 'Programm-Komitee' and has a range that refers to 'Mitglied des Programm-Komitees'."""
+http://cmt_de#op-1671215-9946432,Source,Property,druckt papierausdruck des mailing manifests,"The phrase ""druckt Papierausdruck des Mailing-Manifests"" translates to ""print paper copy of the mailing manifest"" in English. In the context of a conference, this likely refers to the process of producing a physical document that outlines the details of the mailing, such as the list of recipients, the items being sent, and any relevant logistics. This printed manifest can be used for tracking, organization, and ensuring that all materials are accounted for during the mailing process related to the conference.","The phrase can be verbalized as: ""The Administrator prints the paper output of the mailing manifest for the conference."""
+http://cmt_de#op-2010665-6629499,Source,Property,hat die zuordnung der beitr ge abgeschlossen,"The phrase ""hat die Zuordnung der Beiträge abgeschlossen"" translates to ""has completed the assignment of contributions"" in English. In the context of a conference, this likely means that the organizers have finished categorizing or assigning the submitted papers, presentations, or contributions to specific sessions or topics. This is an important step in the conference planning process, as it helps ensure that all contributions are appropriately placed and scheduled for presentation or discussion during the event.","The phrase can be verbalized as follows:
+
+""The Administrator has completed the assignment of the contributions for the Conference."""
+http://cmt_de#op-2369093-6627419,Source,Property,gebotsphase gestartet von,"In the context of a conference, ""Gebotsphase gestartet von"" translates to ""bidding phase started by."" This phrase likely indicates the beginning of a period during which participants can submit bids or offers, possibly related to auctioning items, services, or opportunities presented at the conference. It suggests that a specific individual or entity has initiated this phase, allowing attendees to engage in competitive bidding.","The phrase can be verbalized as: ""The bidding phase has been initiated by an administrator in the context of a conference."""
+http://cmt_de#op-2406368-4587748,Source,Property,bestimme maximale anzahl an zugewiesenen beitr gen,"In the context of a conference, ""bestimme maximale Anzahl an zugewiesenen Beiträgen"" translates to ""determine the maximum number of assigned contributions."" This phrase likely refers to setting a limit on how many presentations, papers, or contributions can be allocated to participants or sessions during the conference. It is important for organizing the schedule, ensuring that there is enough time for each contribution, and managing the overall flow of the event.","The phrase can be verbalized as follows:
+
+""The administrator determines the maximum number of assigned contributions for members of the program committee."""
+http://cmt_de#op-2666186-7725287,Source,Property,hat die zeit des begutachtens beendet,"The phrase ""hat die Zeit des Begutachtens beendet"" translates to ""has ended the review period"" in English. In the context of a conference, this likely means that the time allocated for reviewing submitted papers, abstracts, or proposals has concluded. This could indicate that the organizers are no longer accepting evaluations or feedback on submissions, and they may be moving forward with the next steps in the conference planning process, such as finalizing the program or notifying authors of decisions.","The phrase can be verbalized as follows:
+
+""The chairperson of the program committee has completed the review period for the evaluation."""
+http://cmt_de#op-2707356-6407444,Source,Property,teilnehmer von,"In the context of a conference, ""Teilnehmer von"" is a German phrase that translates to ""participants of"" in English. It refers to the individuals or groups who are attending or involved in the conference. This could include speakers, attendees, organizers, and any other stakeholders participating in the event.","The phrase can be verbalized as follows:
+
+""The participants of a conference are individuals who belong to the domain of conference participants and are associated with the range of conferences."""
+http://cmt_de#op-2899154-8812515,Source,Property,gelesen von meta gutachter,"In the context of a conference, ""gelesen von Meta-Gutachter"" translates to ""read by meta-reviewers"" in English. This typically refers to a process where submitted papers or presentations are evaluated by experts (meta-reviewers) who assess the quality and relevance of the work, often providing feedback or recommendations for acceptance or improvement. This term suggests a level of scrutiny beyond initial peer review, indicating that the work has been reviewed by individuals with a broader perspective on the field or topic.","The phrase can be verbalized as follows:
+
+""A conference contribution is read by a meta-reviewer, who is a reviewer of the reviews.""The subgraph describes a restriction related to the class ""Konferenzbeitrag"" (conference contribution). Specifically, it indicates that a conference contribution can be reviewed by at most one Meta-Gutachter (meta reviewer). This is represented by a restriction type that specifies the property ""gelesen von Meta-Gutachter"" (read by meta reviewer) with a maximum cardinality of one. In summary, each conference contribution can have only one associated meta reviewer."
+http://cmt_de#op-3286624-6409948,Source,Property,hat gegenstandsbereich,"In the context of a conference, ""Gegenstandsbereich"" can be translated to ""subject area"" or ""field of study."" It refers to the specific topic or domain that is being addressed or discussed during the conference. This could encompass various themes, research areas, or disciplines relevant to the conference's focus, guiding the discussions, presentations, and interactions among participants.","The phrase can be verbalized as follows:
+
+""The domain of 'hat Gegenstandsbereich' is 'Konferenzbeitrag', and its range is 'Gegenstandsbereich'."""
+http://cmt_de#op-3324750-0695052,Source,Property,hinzugef gt von,"""hinzugefügt von"" is a German phrase that translates to ""added by"" in English. In the context of a conference, it could refer to a person or entity that has contributed additional information, materials, or participants to the event. For example, it might be used in a program or agenda to indicate who has added a particular session or speaker to the conference lineup.","The phrase can be verbalized as follows:
+
+""The 'hinzugefügt von' property is associated with the domain 'Mitglied des Programm-Komitees' and has a range of 'Administrator'."""
+http://cmt_de#op-3382350-0510939,Source,Property,geschrieben von,"In the context of a conference, ""geschrieben von"" is a German phrase that translates to ""written by"" in English. It typically indicates the author or creator of a document, presentation, or paper being discussed or presented at the conference.","The phrase can be verbalized as: ""A conference contribution is written by an author."""
+http://cmt_de#op-3385838-2265419,Source,Property,hat teilnehmer,"In the context of a conference, ""hat Teilnehmer"" is a German phrase that translates to ""has participants"" in English. It refers to the individuals who are attending or taking part in the conference. This could include speakers, attendees, organizers, and anyone else involved in the event.","The phrase can be verbalized as follows:
+
+""The participants are associated with the conference and are defined as attendees of a conference."""
+http://cmt_de#op-3728281-3703353,Source,Property,hat hinzugef gt,"In the context of a conference, ""hat hinzugefügt"" is a German phrase that translates to ""has added"" in English. It typically refers to someone contributing additional information, insights, or materials to a discussion or presentation during the conference. For example, a speaker might say, ""Er hat hinzugefügt, dass die neuen Daten unsere Hypothese unterstützen,"" meaning ""He has added that the new data supports our hypothesis.""","The phrase can be verbalized as: ""An Administrator has the ability to add a Member of the Program Committee."""
+http://cmt_de#op-4119782-8661590,Source,Property,geschrieben von,"In the context of a conference, ""geschrieben von"" is a German phrase that translates to ""written by"" in English. It typically indicates the author or creator of a document, presentation, or paper being discussed or presented at the conference.","The phrase can be verbalized as: ""A Gutachten is written by a Gutachter."""
+http://cmt_de#op-4243914-3706839,Source,Property,ist entschieden worden als,"The phrase ""ist entschieden worden als"" translates to ""has been decided as"" in English. In the context of a conference, it likely refers to a decision that has been made regarding a specific topic, agenda item, or outcome related to the conference proceedings. This could involve decisions about speakers, topics to be discussed, or resolutions that have been reached during the event.","The phrase can be verbalized as: ""A conference contribution has been decided as a decision.""The subgraph describes a class called ""Konferenzbeitrag,"" which is a subclass of two restrictions. 
+
+1. The first restriction specifies that the property ""ist entschieden worden als"" (translated as ""has been decided as"") must have a minimum cardinality of 0. This means that it is not mandatory for instances of ""Konferenzbeitrag"" to have this property.
+
+2. The second restriction also pertains to the same property ""ist entschieden worden als,"" but it sets a maximum cardinality of 1. This indicates that instances of ""Konferenzbeitrag"" can have at most one value for this property.
+
+In summary, ""Konferenzbeitrag"" is defined as a class that can optionally have a single value for the property ""ist entschieden worden als."""
+http://cmt_de#op-4267478-9907556,Source,Property,steht in interessen konflikt mit beitrag,"In the context of a conference, the phrase ""steht in Interessen-Konflikt mit Beitrag"" translates to ""is in conflict of interest with the contribution."" This typically means that there is a potential conflict between the interests of an individual or organization and the content or purpose of the contribution they are making to the conference. It suggests that the person's or entity's personal or financial interests may compromise their objectivity or integrity regarding the topic being discussed or presented. This is an important consideration in academic and professional settings to ensure transparency and ethical standards.","The phrase can be verbalized as: ""The term 'steht in Interessen-Konflikt mit Beitrag' is associated with the range of 'Konferenzbeitrag'.""The subgraph describes a relationship involving several entities and their roles in a context that appears to be related to a committee or review process. 
+
+1. There is an entity identified as ""Verfasser"" (author) who is linked to a specific role.
+2. Another entity, ""Vorsitzender"" (chairperson), is also identified and is in a position of authority or leadership.
+3. The ""Vorsitzender"" is associated with a ""Gutachter"" (reviewer), indicating a connection between the chairperson and the reviewer.
+4. The ""Vorsitzender"" is noted to be in a conflict of interest with a contribution, which suggests that there may be ethical concerns regarding their involvement in a particular matter.
+5. The entity representing the conflict of interest is classified as a ""Class"" and is part of a union that includes the ""Vorsitzender.""
+6. The ""Gutachter"" is linked back to the ""Verfasser,"" indicating a cyclical relationship among these roles.
+
+Overall, the description highlights a network of relationships among an author, a chairperson, and a reviewer, with a specific emphasis on a conflict of interest that may affect the integrity of their interactions."
+http://cmt_de#op-4369028-9162599,Source,Property,hat beitrag mitverfasst,"The phrase ""hat Beitrag mitverfasst"" translates to ""co-authored the contribution"" in English. In the context of a conference, it typically means that the individual played a role in writing or developing a paper, presentation, or other materials that are being presented or discussed at the event. This indicates collaboration with one or more authors in creating the content that will be shared with the conference attendees.","The phrase can be verbalized as follows:
+
+""The co-author has contributed to the conference paper."""
+http://cmt_de#op-4385319-7522274,Source,Property,hat die beitrags zuordnungssoftware ausgef hrt,"The phrase ""hat die Beitrags-Zuordnungssoftware ausgeführt"" translates to ""has executed the contribution allocation software."" In the context of a conference, this likely refers to a software tool that has been used to allocate or assign contributions, possibly related to funding, resources, or participant inputs for the conference. It suggests that the software has completed its task of organizing or distributing contributions in a systematic way, which could be relevant for managing budgets, sponsorships, or participant roles during the event.","The phrase can be verbalized as: ""The Administrator executed the contribution allocation software for the conference."""
+http://cmt_de#op-4513167-2261392,Source,Property,beitragszuordnungs software ausgef hrt von,"In the context of a conference, ""Beitragszuordnungs-Software ausgeführt von"" translates to ""Contribution allocation software executed by."" This phrase likely refers to software that is used to manage and allocate contributions, such as papers, presentations, or funding, during the conference. It indicates that the software is being operated or implemented by a specific entity or organization, which could be responsible for handling submissions, organizing sessions, or managing participant contributions effectively.","The phrase can be verbalized as: ""The conference is associated with the contribution allocation software executed by an administrator."""
+http://cmt_de#op-5317809-8410933,Source,Property,abgewiesen von,"In the context of a conference, ""abgewiesen von"" translates to ""rejected by"" or ""dismissed by."" It typically refers to a situation where a submission, such as a paper or proposal, has not been accepted for presentation or participation at the conference. This phrase indicates that the submission did not meet the criteria or standards set by the conference organizers or review committee.","The phrase can be verbalized as: ""A conference contribution is rejected by an administrator."""
+http://cmt_de#op-5367618-4635788,Source,Property,papierausdruck des mailing manifests gedruckt von,"The phrase ""Papierausdruck des Mailing-Manifests gedruckt von"" translates to ""Paper printout of the mailing manifest printed by"" in English. In the context of a conference, this likely refers to a physical document that lists the details of mailings related to the event, such as invitations, brochures, or other materials sent out. The phrase indicates that the document was printed by a specific person or organization, which could be relevant for tracking or accountability purposes in the conference's logistics.","The phrase can be verbalized as: ""The printed paper version of the mailing manifest is associated with the conference and is managed by the administrator."""
+http://cmt_de#op-5563137-2349843,Source,Property,ist mitglied des programm komitees,"The phrase ""ist Mitglied des Programm-Komitees"" translates to ""is a member of the program committee"" in English. In the context of a conference, this means that the individual is part of a group responsible for planning and organizing the conference program. This typically involves reviewing submitted papers, selecting speakers, and determining the overall agenda and topics to be covered at the event. Being a member of the program committee indicates a level of expertise and involvement in the academic or professional community related to the conference's focus.","The phrase can be verbalized as follows:
+
+""A member of the program committee is part of the program committee."""
+http://cmt_de#op-5585072-3196242,Source,Property,abgeglichen von,"In the context of a conference, ""abgeglichen von"" can be translated to ""cross-checked by"" or ""aligned by."" It typically refers to the process of verifying or coordinating information, data, or schedules among different parties involved in the conference to ensure consistency and accuracy. For example, if a schedule is ""abgeglichen von"" a committee, it means that the committee has reviewed and confirmed the schedule's details.","The phrase can be verbalized as: ""The property 'abgeglichen von' has a domain of 'Gebot' and a range of 'Gutachter'."""
+http://cmt_de#op-5588430-7223994,Source,Property,hat beitrag eingesendet,"In the context of a conference, ""hat Beitrag eingesendet"" translates to ""has submitted a contribution"" in English. This typically refers to a participant who has submitted a paper, presentation, or other form of content for consideration at the conference. It indicates that the individual has contributed their work or research to be reviewed or presented during the event.","The phrase can be verbalized as: ""The author submits a conference contribution."""
+http://cmt_de#op-5944487-2995547,Source,Property,hat zugewiesen,"In the context of a conference, ""hat zugewiesen"" translates to ""has assigned"" in English. It typically refers to the allocation of tasks, roles, or responsibilities to specific individuals or groups during the event. For example, a conference organizer might say that they ""hat zugewiesen"" certain speakers to specific sessions or topics.","The phrase can be verbalized as: ""An Administrator is assigned to a Gutachter."""
+http://cmt_de#op-6570223-6428235,Source,Property,details eingef gt von,"In the context of a conference, ""Details eingefügt von"" translates from German to ""Details inserted by."" This phrase typically indicates that specific information or details have been added by a particular person or entity, possibly referring to the contributions made by a speaker, organizer, or participant regarding the conference agenda, presentations, or other relevant materials.","The phrase can be verbalized as: ""The details are added by an administrator in the context of a conference."""
+http://cmt_de#op-6662152-2690641,Source,Property,hat gebot erhalten,"In the context of a conference, ""hat Gebot erhalten"" translates to ""has received a bid"" in English. This phrase could refer to a situation where a participant or organization has received a proposal or offer, possibly related to a project, collaboration, or sponsorship during the conference. It indicates that there is an interest or intention to engage in a business or partnership opportunity.","The phrase can be verbalized as: ""The conference contribution has received a bid."""
+http://cmt_de#op-6688188-2661083,Source,Property,hat abgeglichen,"In the context of a conference, ""hat abgeglichen"" translates to ""has reconciled"" or ""has aligned."" It typically refers to the process of ensuring that all participants are on the same page regarding information, goals, or expectations. For example, if a team has ""hat abgeglichen"" their agendas, it means they have compared and aligned their plans to ensure coherence and collaboration during the conference.","The phrase can be verbalized as: ""The term 'hat abgeglichen' is associated with the domain of 'Gutachter' and the range of 'Gebot'."""
+http://cmt_de#op-6806056-6808473,Source,Property,kriterien zu gutachten eingef gt von,"The phrase ""Kriterien zu Gutachten eingefügt von"" translates to ""Criteria for assessments inserted by"" in English. In the context of a conference, this likely refers to specific criteria or guidelines that have been added to the evaluation process of presentations, papers, or research findings. It suggests that there are established standards or benchmarks that reviewers or assessors should consider when evaluating the submissions or contributions made during the conference. This could help ensure consistency and fairness in the assessment process.","The phrase can be verbalized as: ""The criteria for reports are added by an administrator in the context of a conference."""
+http://cmt_de#op-6999775-8658617,Source,Property,hat papier gelesen,"In the context of a conference, ""hat Papier gelesen"" translates from German to ""has read a paper."" This typically refers to a participant or speaker who has presented or discussed a research paper or academic work during the conference. It indicates that they have engaged with the material, likely summarizing findings or contributing to the discussion based on the content of the paper.","The phrase can be verbalized as: ""A Gutachter has read a paper related to a conference contribution."""
+http://cmt_de#op-7066350-8155982,Source,Property,mitverfasst von,"In the context of a conference, ""mitverfasst von"" translates to ""co-authored by"" in English. It indicates that the work, such as a paper, presentation, or report, has been written collaboratively by multiple authors. This phrase is often used to acknowledge the contributions of all individuals involved in the creation of the document or presentation.","The phrase can be verbalized as follows:
+
+""A conference contribution is co-authored by a co-author."""
+http://cmt_de#op-7181260-5606687,Source,Property,zugewiesen von gutachter,"In the context of a conference, ""zugewiesen von Gutachter"" translates to ""assigned by reviewers"" or ""allocated by assessors."" This phrase typically refers to the process where reviewers or experts are designated to evaluate submitted papers, presentations, or proposals for the conference. It indicates that the content has been assigned to specific individuals for assessment, feedback, or decision-making regarding acceptance or further consideration.","The phrase can be verbalized as: ""Assigned by an external reviewer to a reviewer.""The subgraph describes a concept related to an ""external reviewer"" (externer Gutachter). This concept is defined as a subclass of a certain restriction, which is represented by a blank node identified as ""_:N60871c5d076049c9a57b0c9b1aeae841"". 
+
+This restriction specifies that there is a cardinality of 1, meaning that each external reviewer must be assigned by exactly one reviewer, as indicated by the property ""zugewiesen von Gutachter"" (assigned by reviewer). In summary, the external reviewer is defined as having a single assignment from a reviewer, adhering to a specific restriction."
+http://cmt_de#op-7391170-1595630,Source,Property,hat details eingef gt in bezug auf,"In the context of a conference, ""hat Details eingefügt"" translates from German to ""has inserted details."" This phrase likely refers to someone adding specific information or clarifications to a presentation, agenda, or discussion points related to the conference. It suggests that additional context or data has been provided to enhance understanding or facilitate discussion among participants.","The phrase can be verbalized as: ""An Administrator has added details regarding a Conference."""
+http://cmt_de#op-7761501-2770581,Source,Property,hat beitrag geschrieben,"In the context of a conference, ""hat Beitrag geschrieben"" translates to ""has written a contribution"" in English. This phrase typically refers to someone who has authored a paper, presentation, or other form of content that is being shared or discussed at the conference. It indicates that the individual has made a scholarly or professional contribution to the event.","The phrase can be verbalized as follows:
+
+""The author has written a conference contribution."""
+http://cmt_de#op-7851598-8792255,Source,Property,akzeptiert von,"In the context of a conference, ""akzeptiert von"" translates to ""accepted by"" in English. It typically refers to a paper, presentation, or proposal that has been reviewed and approved by the conference organizers or committee for inclusion in the conference program. This indicates that the submission meets the required standards and criteria set by the conference.","The phrase can be verbalized as: ""A conference contribution is accepted by an administrator."""
+http://cmt_de#op-8350630-9441009,Source,Property,hat zugewiesen,"In the context of a conference, ""hat zugewiesen"" translates to ""has assigned"" in English. It typically refers to the allocation of tasks, roles, or responsibilities to specific individuals or groups during the event. For example, a conference organizer might say that they ""hat zugewiesen"" certain speakers to specific sessions or topics.","The phrase can be verbalized as: ""The term 'hat zugewiesen' is associated with the domain of 'Gutachter' and has a range that includes 'externer Gutachter'."""
+http://cmt_de#op-8743766-4367043,Source,Property,hat die gebotsphase gestartet,"The phrase ""hat die Gebotsphase gestartet"" translates to ""has started the bidding phase"" in English. In the context of a conference, this likely refers to the beginning of a period during which participants can submit bids or proposals, possibly for projects, sponsorships, or other opportunities related to the conference. It indicates that the formal process for making offers or competing for something has commenced.","The phrase can be verbalized as: ""The Administrator has started the bidding phase for the Conference."""
+http://cmt_de#op-8860290-4901047,Source,Property,gelesen von gutachter,"In the context of a conference, ""gelesen von Gutachter"" translates to ""read by reviewers"" or ""read by experts."" This phrase typically indicates that a paper, presentation, or research work has been evaluated or critiqued by qualified individuals (the Gutachter) in the field before being accepted for presentation or publication at the conference. It signifies that the work has undergone a peer review process, ensuring its quality and relevance to the conference's themes.","The phrase can be verbalized as: ""A conference contribution is read by a reviewer.""The subgraph describes a restriction related to a property in a classification system. Specifically, it indicates that there is a restriction (of type ""Restriction"") that applies to the property ""gelesen von Gutachter"" (translated as ""read by reviewer""). This restriction specifies that there must be at least one instance (minCardinality of 1) of this property. Furthermore, the class ""Konferenzbeitrag"" (translated as ""conference contribution"") is a subclass of this restriction, meaning that any instance of ""Konferenzbeitrag"" must adhere to the defined restriction regarding the property ""gelesen von Gutachter."""
+http://cmt_de#op-9131907-0871491,Source,Property,ist zugeordnet worden,"In the context of a conference, ""ist zugeordnet worden"" translates to ""has been assigned"" or ""has been allocated."" This phrase typically refers to the process of designating specific roles, tasks, or responsibilities to individuals or groups within the framework of the conference. For example, it could indicate that a particular speaker has been assigned to a session, or that certain topics have been allocated to specific panels.","The phrase can be verbalized as: ""The evaluator has been assigned to the conference contribution."""
+http://cmt_de#op-9262861-2168864,Source,Property,hat akzeptiert,"In the context of a conference, ""hat akzeptiert"" translates to ""has accepted"" in English. This phrase could refer to a participant or speaker who has accepted an invitation to attend or present at the conference. It may also indicate that a proposal, paper, or submission has been accepted for presentation or discussion at the event.","The phrase can be verbalized as: ""An Administrator hat akzeptiert einen Konferenzbeitrag."" 
+
+This translates to ""An Administrator accepts a conference contribution."""
+http://cmt_de#op-9668399-9499203,Source,Property,hat virtuelles treffen veranlasst,"The phrase ""hat virtuelles Treffen veranlasst"" translates to ""has initiated a virtual meeting"" in English. In the context of a conference, it suggests that someone has organized or prompted a virtual gathering or discussion, likely to facilitate communication, collaboration, or presentations among participants who may not be able to meet in person.","The phrase can be verbalized as: ""An administrator has initiated a virtual meeting."""
+http://cmt_de#op-9724235-4357611,Source,Property,hat papier abgelehnt,"In the context of a conference, ""hat Papier abgelehnt"" translates to ""has rejected the paper."" This typically means that a submitted research paper or presentation proposal was not accepted for presentation or publication at the conference. This could be due to various reasons such as not meeting the conference's standards, relevance, or quality criteria.","The phrase can be verbalized as: ""The Administrator has rejected the paper."""
+http://cmt_nl#c-0120110-7787945,Target,Class,onderwerp,"In the context of a conference, ""onderwerp"" is a Dutch word that translates to ""subject"" or ""topic"" in English. It refers to the main theme or focus of discussion during the conference sessions, presentations, or workshops. For example, the ""onderwerp"" of a conference could be a specific area of research, a particular industry trend, or a relevant issue that participants are gathering to explore and discuss.","The phrase can be verbalized as: ""The property 'heeft onderwerp' has a range of 'onderwerp'."""
+http://cmt_nl#c-0236412-8230972,Target,Class,recensent,"In the context of a conference, ""recensent"" typically refers to a person who reviews or critiques a paper, presentation, or research work. This individual is responsible for providing feedback, assessing the quality and relevance of the work, and often plays a role in the decision-making process regarding its acceptance for presentation or publication. The recensent's insights can help improve the work and contribute to the overall quality of the conference proceedings.","Here are the verbalized phrases based on the provided triples:
+
+1. ""Aangepast door"" has a range of ""recensent.""
+2. ""Artikel gelezen"" has a domain of ""recensent.""
+3. ""Gelezen door reviewer"" has a range of ""recensent.""
+4. ""Geschreven door"" has a range of ""recensent.""
+5. ""Is toegekend"" has a domain of ""recensent.""
+6. ""Metarecensent"" is a subclass of ""recensent.""
+7. ""Pas bod aan"" has a domain of ""recensent.""
+8. ""Schrijf recentie"" has a domain of ""recensent.""
+9. ""Toegewezen aan"" has a range of ""recensent.""
+10. ""Toegewezen door beheerder"" has a domain of ""recensent.""
+11. ""Toegewezen door recencent"" has a range of ""recensent.""
+12. ""Wijs externe recencent toe"" has a domain of ""recensent.""
+13. ""Wijs recencent toe"" has a range of ""recensent.""
+14. ""Recensent"" is a subclass of ""conferentielid"" and ""gebruiker.""
+15. ""Recensent"" is disjoint with ""auteur niet-recensent"" and ""externe recencent."" 
+
+These phrases summarize the relationships and classifications defined in the RDF triples.The subgraph describes a structure involving a collection of entities and their relationships. 
+
+1. There is a class represented by the identifier `_:N7031050ec272406f8e67eba3f85020f9`, which is associated with the domain of ""markeer belangenverstrengeling.""
+2. This class has a union of elements, represented by `_:N6f8eaf5d42a5474085b7d7836b0f1c86`.
+3. The union consists of a sequence where the first element is ""recensent,"" and the rest of the sequence leads to another element identified as `_:Nc208c071723443478f06cceb2a1696c5`.
+4. The element `_:Nc208c071723443478f06cceb2a1696c5` has ""voorzitter"" as its first element and ends with ""nil,"" indicating the end of the sequence.
+5. Additionally, the element `_:N04056554886d45399bfeb79270887ebd` is part of the union and has ""auteur"" as its first element, with ""nil"" as its rest, indicating it is a single-element sequence.
+
+In summary, the structure outlines a class related to conflicts of interest, which includes a union of roles such as ""recensent"" and ""voorzitter,"" along with an author role, forming a hierarchy of responsibilities or positions within this context."
+http://cmt_nl#c-0406770-7176287,Target,Class,voorzitter,"In the context of a conference, ""voorzitter"" is a Dutch term that translates to ""chairperson"" or ""chair"" in English. It refers to the individual who presides over the conference, leading discussions, managing the agenda, and ensuring that the proceedings run smoothly. The voorzitter is responsible for facilitating communication among participants and may also play a role in decision-making processes during the event.","The phrase can be verbalized as: ""The class of 'voorzitter' is a subclass of the class 'persoon'.""The subgraph describes a structured representation of various roles and their relationships within a specific context, likely related to a committee or organizational structure. 
+
+1. There is a class identified as ""voorzitter"" (chairperson), which is equivalent to a specific class represented by the identifier '_:N1c769306bb0a400f9fc0317b6473c530'.
+2. This class is defined as a union of two other classes, one of which is represented by '_:N9e07ce90d32c4892b6146bd8ce341d98' and the other by '_:N6f8eaf5d42a5474085b7d7836b0f1c86'.
+3. The class '_:N9e07ce90d32c4892b6146bd8ce341d98' includes roles such as ""medevoorzitter"" (co-chair) and has a rest element that connects to another role, ""conferentievoorzitter"" (conference chair).
+4. The class '_:N6f8eaf5d42a5474085b7d7836b0f1c86' includes the role ""recensent"" (reviewer) and is linked to the class '_:Nc208c071723443478f06cceb2a1696c5', which represents the role ""voorzitter"" (chair).
+5. The class '_:Nc208c071723443478f06cceb2a1696c5' also has a first element that is ""voorzitter"" and a rest element that leads to the class '_:N04056554886d45399bfeb79270887ebd', which includes the role ""auteur"" (author).
+6. Additionally, there is a class identified as '_:N7031050ec272406f8e67eba3f85020f9', which is related to the concept of ""markeer belangenverstrengeling"" (mark conflict of interest) and is defined as a class itself.
+
+In summary, the subgraph outlines a hierarchy of roles within a committee structure, detailing how these roles are interconnected and the specific classes they belong to, while also addressing the concept of conflict of interest in relation to these roles."
+http://cmt_nl#c-0744921-3144577,Target,Class,coauteur,"In the context of a conference, ""coauteur"" refers to a co-author, which is an individual who collaborates with one or more authors to contribute to a research paper, presentation, or other scholarly work. Coauthors share responsibility for the content and findings presented, and their contributions are typically acknowledged in the conference proceedings or publications.","Here are the verbalized phrases based on the provided RDF triples:
+
+1. The term ""co-schrijf artikel"" is associated with the domain of ""coauteur.""
+2. The term ""heeft coauteur"" is related to the range of ""coauteur.""
+3. The class ""coauteur"" is a subclass of ""auteur."""
+http://cmt_nl#c-0770334-7584608,Target,Class,bod,"In the context of a conference, ""BOD"" typically stands for ""Board of Directors."" This refers to a group of individuals elected to represent shareholders and oversee the activities and governance of an organization. During a conference, discussions may involve updates, decisions, or strategies related to the organization's direction as guided by the BOD.","Here are the verbalized phrases based on the provided triples:
+
+1. The property ""aangepast door"" has a domain of ""bod.""
+2. The property ""heeft bod"" has a range of ""bod.""
+3. The property ""pas bod aan"" has a range of ""bod.""
+4. The class ""bod"" is disjoint with the classes ""beslissing,"" ""conferentie,"" ""document,"" ""persoon,"" ""programmacommissie,"" and ""voorkeur."""
+http://cmt_nl#c-1467412-7387436,Target,Class,programmacommissie,"In the context of a conference, ""programmacommissie"" refers to a program committee. This is a group of individuals responsible for planning and organizing the conference program, which includes selecting topics, inviting speakers, reviewing submitted papers or presentations, and ensuring the overall quality and relevance of the conference content. The program committee plays a crucial role in shaping the conference's agenda and ensuring it meets the interests and needs of the attendees.","Here are the verbalized phrases based on the provided triples:
+
+1. The term ""bod"" is disjoint with the term ""programmacommissie.""
+2. The property ""heeft programmacommisie lid"" has a domain of ""programmacommissie.""
+3. The property ""lid van programmacommissie"" has a range of ""programmacommissie.""
+4. The term ""programmacommissie"" is disjoint with the terms ""beslissing,"" ""conferentie,"" ""document,"" ""persoon,"" and ""voorkeur."""
+http://cmt_nl#c-1711425-2244009,Target,Class,metarecentie,"The term ""metarecentie"" does not appear to be a widely recognized term in English or in academic discourse, and it may be a misspelling or a specialized term used in a specific context. However, if we break it down, ""meta-"" often refers to a concept that is self-referential or about itself, while ""recentie"" could be derived from ""recency,"" which relates to something being recent or current.
+
+In the context of a conference, ""metarecentie"" could potentially refer to discussions or analyses that reflect on recent trends, developments, or findings within a particular field, possibly examining how these recent events influence or shape the field itself. It might involve a higher-level critique or overview of current research or practices.
+
+If this term is specific to a particular conference or discipline, it would be best to consult the conference materials or organizers for a precise definition.","The class ""metarecentie"" is a subclass of the class ""recentie."""
+http://cmt_nl#c-2893658-5611916,Target,Class,auteur niet recensent,"In the context of a conference, ""auteur niet-recensent"" refers to a filmmaker or creator who is recognized for their distinctive style and personal vision in their work, but who does not engage in the practice of reviewing or critiquing the works of others. The term ""auteur"" suggests a strong individual artistic influence, while ""niet-recensent"" indicates a lack of involvement in critical analysis or commentary on other creators' films. This distinction highlights the focus on the creator's own artistic expression rather than their role as a critic within the film community.","1. The class ""recensent"" is disjoint with the class ""auteur niet-recensent,"" meaning that no individual can be both a recensent and a auteur niet-recensent at the same time.
+
+2. The class ""auteur niet-recensent"" is a subclass of the class ""auteur,"" indicating that all individuals classified as auteur niet-recensent are also considered auteurs.
+
+3. The class ""auteur niet-recensent"" is disjoint with the class ""programmacommissie lid,"" which means that no individual can be both an auteur niet-recensent and a programmacommissie lid simultaneously."
+http://cmt_nl#c-3276253-9620830,Target,Class,externe recencent,"In the context of a conference, ""externe recencent"" likely refers to external reviewers or evaluators who assess the quality and relevance of submitted papers, presentations, or research. These external reviewers provide feedback and recommendations, ensuring that the conference maintains high academic standards and that the content presented is credible and valuable to attendees. Their role is crucial in the peer review process, helping to curate the conference program and enhance the overall quality of the event.","Here are the verbalized phrases based on the provided triples:
+
+1. ""Recensent is disjoint with externe recensent.""
+2. ""Toegewezen door recencent has a domain of externe recensent.""
+3. ""Wijs externe recencent toe has a range of externe recensent.""
+4. ""Externe recensent is a subclass of persoon.""The subgraph describes a restriction in a semantic framework. It indicates that there is a restriction, identified by a unique identifier, which has a cardinality of 1. This restriction is applied to the property ""toegewezen door recencent."" Additionally, the entity ""externe recencent"" is classified as a subclass of this restriction. In summary, the restriction enforces that the property ""toegewezen door recencent"" can only have one value for instances of the subclass ""externe recencent."""
+http://cmt_nl#c-3466158-7243163,Target,Class,beslissing,"In the context of a conference, ""beslissing"" is a Dutch word that translates to ""decision"" in English. It refers to the conclusion or resolution made regarding a particular matter discussed during the conference, such as a vote on a proposal, a strategic direction, or an agreement among participants.","Here are the verbalized phrases based on the provided triples:
+
+1. The class ""acceptatie"" is a subclass of the class ""beslissing.""
+2. The class ""afwijzing"" is a subclass of the class ""beslissing.""
+3. The class ""bod"" is disjoint with the class ""beslissing.""
+4. The property ""heeft beslissing"" has a range that is defined as the class ""beslissing.""
+5. The class ""programmacommissie"" is disjoint with the class ""beslissing.""
+6. The class ""beslissing"" is disjoint with the classes ""conferentie,"" ""document,"" ""persoon,"" and ""voorkeur."""
+http://cmt_nl#c-3510433-8388657,Target,Class,conferentielid,"In the context of a conference, ""conferentielid"" likely refers to a participant or member of the conference. The term seems to be a combination of ""conference"" and ""lid,"" which could imply a person who is involved in or associated with the conference, possibly as a speaker, attendee, or organizer. However, it's worth noting that ""conferentielid"" is not a standard term in English, so its exact meaning may vary depending on the specific context in which it is used.","Here are the verbalized phrases based on the provided RDF triples:
+
+1. The class ""auteur"" is a subclass of ""conferentielid.""
+2. The class ""conferentievoorzitter"" is a subclass of ""conferentielid.""
+3. The property ""heeft conferentielid"" has a range of ""conferentielid.""
+4. The property ""lid van conferentie"" has a domain of ""conferentielid.""
+5. The class ""medevoorzitter"" is a subclass of ""conferentielid.""
+6. The class ""programmacommissie lid"" is a subclass of ""conferentielid.""
+7. The class ""recensent"" is a subclass of ""conferentielid.""
+8. The class ""conferentielid"" is a subclass of ""persoon."""
+http://cmt_nl#c-3874111-1901895,Target,Class,afwijzing,"In the context of a conference, ""afwijzing"" is a Dutch term that translates to ""rejection"" in English. It typically refers to the decision made by the conference organizers to decline a submitted paper, proposal, or abstract. This could occur for various reasons, such as not meeting the conference's criteria, lack of originality, or insufficient relevance to the conference theme.","The term ""afwijzing"" is a subclass of ""beslissing"" and is disjoint with ""acceptatie."""
+http://cmt_nl#c-4582130-1910383,Target,Class,voorkeur,"In the context of a conference, ""voorkeur"" is a Dutch word that translates to ""preference"" in English. It typically refers to the choices or inclinations of participants regarding topics, sessions, speakers, or activities they would like to engage with during the conference. Understanding the ""voorkeur"" of attendees can help organizers tailor the event to better meet the interests and needs of the participants.","Here are the verbalized phrases for the given triples:
+
+1. The concept of ""beslissing"" is disjoint with the concept of ""voorkeur.""
+2. The concept of ""bod"" is disjoint with the concept of ""voorkeur.""
+3. The concept of ""programmacommissie"" is disjoint with the concept of ""voorkeur.""
+4. The concept of ""voorkeur"" is disjoint with the concepts of ""conferentie,"" ""document,"" and ""persoon."""
+http://cmt_nl#c-4695512-1959604,Target,Class,programmacommissie lid,"In the context of a conference, ""programmacommissie lid"" translates to ""program committee member"" in English. This refers to an individual who is part of a committee responsible for planning and organizing the conference program. Their duties typically include reviewing submitted papers or proposals, selecting speakers, and ensuring that the content aligns with the conference's themes and objectives. Being a program committee member is a significant role, as it helps shape the overall quality and direction of the conference.","Here are the verbalized phrases based on the provided triples:
+
+1. ""An author who is not a reviewer is disjoint from a program committee member.""
+2. ""The property 'has program committee member' has a range of program committee member.""
+3. ""The property 'member of program committee' has a domain of program committee member.""
+4. ""The property 'maximum number of articles' has a domain of program committee member.""
+5. ""The property 'set maximum number of articles' has a range of program committee member.""
+6. ""The property 'added by' has a domain of program committee member.""
+7. ""The property 'add program committee member' has a range of program committee member.""
+8. ""The chair of the program committee is a subclass of program committee member.""
+9. ""A program committee member is a subclass of conference member and person."""
+http://cmt_nl#c-4855446-2072057,Target,Class,artikel,"In the context of a conference, ""artikel"" typically refers to an article or paper that is presented or discussed during the event. It can denote a written work that contributes to the conference's themes or topics, often sharing research findings, theoretical discussions, or case studies relevant to the attendees.","Here are the verbalized phrases based on the provided triples:
+
+1. The range of ""accepteer artikel"" is ""artikel"".
+2. The domain of ""afgewezen door"" is ""artikel"".
+3. The range of ""artikel gelezen"" is ""artikel"".
+4. The range of ""co-schrijf artikel"" is ""artikel"".
+5. The range of ""dien artikel in"" is ""artikel"".
+6. The domain of ""geaccepteerd door"" is ""artikel"".
+7. The domain of ""gelezen door metarecencent"" is ""artikel"".
+8. The domain of ""gelezen door reviewer"" is ""artikel"".
+9. The domain of ""heeft auteur"" is ""artikel"".
+10. The domain of ""heeft beslissing"" is ""artikel"".
+11. The domain of ""heeft bod"" is ""artikel"".
+12. The domain of ""heeft coauteur"" is ""artikel"".
+13. The domain of ""heeft onderwerp"" is ""artikel"".
+14. The range of ""is toegekend"" is ""artikel"".
+15. The range of ""markeer belangenverstrengeling"" is ""artikel"".
+16. The domain of ""paper ID"" is ""artikel"".
+17. The range of ""schrijf artikel"" is ""artikel"".
+18. ""synopsis"" is a subclass of ""artikel"".
+19. The domain of ""titel"" is ""artikel"".
+20. The domain of ""toegewezen aan"" is ""artikel"".
+21. ""volledig artikel"" is a subclass of ""artikel"".
+22. The range of ""wijs artikel af"" is ""artikel"".
+23. ""artikel"" is a subclass of ""document"" and is disjoint with ""recentie"". 
+
+These phrases summarize the relationships and classifications defined in the RDF triples.The subgraph describes a set of restrictions related to a class called ""artikel."" 
+
+1. The class ""artikel"" is defined as a subclass of several restrictions.
+2. The first restriction specifies that there must be at least one instance of the property ""gelezen door reviewer"" (read by reviewer) and at most one instance of this property.
+3. The second restriction indicates that there must be at least one instance of the property ""heeft beslissing"" (has decision) and at most one instance of this property.
+4. Additionally, there is a third restriction that allows for zero or more instances of the property ""heeft beslissing.""
+
+In summary, the ""artikel"" class is constrained by rules that dictate how many times certain properties can be associated with it, ensuring that each ""artikel"" has specific relationships with reviewers and decisions while allowing flexibility in the number of decisions associated with it."
+http://cmt_nl#c-4926854-0907990,Target,Class,document,"In the context of a conference, a ""document"" typically refers to any written or printed material that is presented, distributed, or referenced during the event. This can include agendas, research papers, presentation slides, handouts, reports, or any other materials that provide information or support discussions among participants. Documents serve to facilitate communication, share knowledge, and provide a record of the conference proceedings.","Here are the verbalized phrases based on the provided triples:
+
+1. The class ""artikel"" is a subclass of the class ""document.""
+2. The class ""beslissing"" is disjoint with the class ""document.""
+3. The class ""bod"" is disjoint with the class ""document.""
+4. The property ""heeft belangenverstrengeling"" has a range that is defined as ""document.""
+5. The class ""programmacommissie"" is disjoint with the class ""document.""
+6. The class ""recentie"" is a subclass of the class ""document.""
+7. The class ""voorkeur"" is disjoint with the class ""document.""
+8. The class ""document"" is disjoint with both the classes ""conferentie"" and ""persoon."""
+http://cmt_nl#c-4951597-8295121,Target,Class,acceptatie,"In the context of a conference, ""acceptatie"" is a Dutch term that translates to ""acceptance"" in English. It typically refers to the process of accepting proposals, papers, or presentations submitted for consideration at the conference. This could involve the review and approval of submitted works by a committee or organizers, determining which contributions will be included in the conference program. Acceptance is a crucial step in the conference process, as it signifies that the submitted work meets the required standards and relevance for the event.","1. ""Afwijzing"" is disjoint with ""acceptatie.""
+2. ""Acceptatie"" is a subclass of ""beslissing."""
+http://cmt_nl#c-4994957-2932971,Target,Class,conferentie,"The term ""conferentie"" is the Dutch word for ""conference."" In this context, it refers to a formal meeting or gathering where individuals come together to discuss specific topics, share information, and collaborate on ideas. Conferences can vary in size and purpose, ranging from academic and professional gatherings to industry-specific events.","Here are the verbalized phrases based on the provided triples:
+
+1. ""Accepteert hardcopy submissies"" is a property that applies to a ""conferentie.""
+2. ""Begin recentie bieden"" is a property that is applicable to a ""conferentie.""
+3. ""Beslissing"" is disjoint with ""conferentie,"" meaning they cannot overlap.
+4. ""Bod"" is disjoint with ""conferentie,"" indicating no shared elements.
+5. ""Datum"" is a property that pertains to a ""conferentie.""
+6. ""Details ingevuld door"" is a property that relates to a ""conferentie.""
+7. ""Document"" is disjoint with ""conferentie,"" signifying no commonality.
+8. ""Gebruik artikel toewijzings tool"" is a property that applies to a ""conferentie.""
+9. ""Hardcopy verstuurbewijs"" is a property that is relevant to a ""conferentie.""
+10. ""Hardcopy verstuurbewijs afgedrukt door"" is a property that pertains to a ""conferentie.""
+11. ""Heeft conferentielid"" is a property that relates to a ""conferentie.""
+12. ""Laat virtuele vergadering toe"" is a property that applies to a ""conferentie.""
+13. ""Lid van conferentie"" is a property that is relevant to a ""conferentie.""
+14. ""Logo URL"" is a property that pertains to a ""conferentie.""
+15. ""Maak toewijzing artikel af"" is a property that applies to a ""conferentie.""
+16. ""Programmacommissie"" is disjoint with ""conferentie,"" indicating no overlap.
+17. ""Recentie bieden begonnen door"" is a property that relates to a ""conferentie.""
+18. ""Recentie criteria ingevuld door"" is a property that pertains to a ""conferentie.""
+19. ""Recenties per artikel"" is a property that applies to a ""conferentie.""
+20. ""Toekenning artikel afgemaakt door"" is a property that relates to a ""conferentie.""
+21. ""Toekenning artikel tool gebruikt door"" is a property that pertains to a ""conferentie.""
+22. ""Virtuele vergadering toegelaten door"" is a property that applies to a ""conferentie.""
+23. ""Voorkeur"" is disjoint with ""conferentie,"" meaning they cannot overlap.
+24. ""Vul conferentie details in"" is a property that applies to a ""conferentie.""
+25. ""Vul recentie criteria in"" is a property that pertains to a ""conferentie.""
+26. ""Website URL"" is a property that relates to a ""conferentie.""
+27. ""Conferentie"" is disjoint with ""persoon,"" indicating no shared elements. 
+
+These phrases summarize the relationships and properties associated with ""conferentie"" and its disjoint status with other entities.The subgraph describes a structured ontology related to the concept of ""conferentie"" (conference) and its properties and restrictions. 
+
+1. **Class Definition**: The term ""conferentie"" is defined as a class that is a subclass of two restrictions. These restrictions specify certain properties that must be adhered to for instances of the class ""conferentie"".
+
+2. **Restrictions**:
+   - The first restriction indicates that there must be exactly one instance of the property ""recenties per artikel"" (recent articles per item) associated with each conference.
+   - The second restriction specifies that there must be at least one instance of the property ""datum"" (date) associated with each conference, which also has a cardinality of one.
+
+3. **Properties**:
+   - The property ""naam"" (name) is defined to belong to the domain of the class ""conferentie"", meaning that every conference must have a name.
+
+In summary, the ontology outlines that a conference must have a unique name, must be associated with exactly one recent article per item, and must have at least one date associated with it."
+http://cmt_nl#c-5118955-8762087,Target,Class,beheerder,"In the context of a conference, ""beheerder"" is a Dutch term that translates to ""administrator"" or ""manager"" in English. It typically refers to a person responsible for overseeing the organization, coordination, and management of the conference, ensuring that everything runs smoothly and efficiently. This could include tasks such as managing schedules, handling logistics, and facilitating communication among participants.","Here are the verbalized phrases based on the provided RDF triples:
+
+1. De beheerder accepteert een artikel.
+2. Een artikel wordt afgewezen door de beheerder.
+3. De beheerder begint met het bieden van een recentie.
+4. De details worden ingevuld door de beheerder.
+5. Een artikel is geaccepteerd door de beheerder.
+6. De beheerder gebruikt de artikel toewijzings tool.
+7. De beheerder verstuurt een hardcopy bewijs.
+8. Een hardcopy verstuurbewijs is afgedrukt door de beheerder.
+9. De beheerder laat een virtuele vergadering toe.
+10. De beheerder maakt de toewijzing van een artikel af.
+11. De recentie bieden is begonnen door de beheerder.
+12. De recentie criteria zijn ingevuld door de beheerder.
+13. De beheerder stelt het maximaal aantal artikelen in.
+14. Een artikel is toegevoegd door de beheerder.
+15. Een artikel is toegewezen door de beheerder.
+16. De toekenning van een artikel is afgemaakt door de beheerder.
+17. De toekenning artikel tool is gebruikt door de beheerder.
+18. Een virtuele vergadering is toegelaten door de beheerder.
+19. De beheerder voegt een lid van de programmacommissie toe.
+20. De beheerder vult de conferentie details in.
+21. De beheerder vult de recentie criteria in.
+22. De beheerder wijst een artikel af.
+23. De beheerder wijst een recencent toe.
+24. De beheerder is een subclass van gebruiker."
+http://cmt_nl#c-6073598-2118472,Target,Class,volledig artikel,"In the context of a conference, ""volledig artikel"" is a Dutch term that translates to ""full article"" in English. It typically refers to a complete written work or paper that presents research findings, discussions, or analyses in detail. During a conference, participants may be required to submit a ""volledig artikel"" for review, which will be presented or discussed during the event. This full article would include comprehensive information, methodologies, results, and conclusions relevant to the conference's theme or topics.","The phrase can be verbalized as: ""The class 'volledig artikel' is a subclass of the class 'artikel'."""
+http://cmt_nl#c-6791107-3060260,Target,Class,medevoorzitter,"In the context of a conference, ""medevoorzitter"" is a Dutch term that translates to ""co-chair"" in English. It refers to an individual who shares the responsibilities of leading or facilitating the conference alongside another chairperson. The medevoorzitter typically helps in managing sessions, guiding discussions, and ensuring that the conference runs smoothly.","The term ""medevoorzitter"" is a subclass of ""conferentielid"" and is disjoint from ""conferentievoorzitter.""The subgraph describes a classification and relationship structure involving various roles within a committee. 
+
+1. There is a class defined as ""voorzitter,"" which is equivalent to a specific class represented by a unique identifier.
+2. The class ""voorzitter"" includes a union of roles, specifically ""medevoorzitter"" (co-chair) and ""voorzitter programmacommissie"" (chair of the program committee).
+3. The role of ""medevoorzitter"" is the first in a sequence, followed by ""conferentievoorzitter"" (conference chair).
+4. The structure indicates that ""voorzitter"" is a type of class, and it has a defined relationship with other roles, showing how they are organized in a hierarchical manner.
+
+In summary, the subgraph outlines the relationships and classifications of various leadership roles within a committee, highlighting their equivalences and sequences."
+http://cmt_nl#c-6806494-0726611,Target,Class,gebruiker,"In the context of a conference, ""gebruiker"" is a Dutch word that translates to ""user"" in English. It typically refers to an individual who utilizes a product, service, or system being discussed or presented at the conference. For example, in a technology conference, ""gebruiker"" might refer to attendees who are using software or applications showcased during the event.","1. The class ""auteur"" is a subclass of the class ""gebruiker.""
+2. The class ""beheerder"" is a subclass of the class ""gebruiker.""
+3. The class ""recensent"" is a subclass of the class ""gebruiker.""
+4. The class ""gebruiker"" is a subclass of the class ""persoon."""
+http://cmt_nl#c-7849747-5068229,Target,Class,conferentievoorzitter,"The term ""conferentievoorzitter"" is Dutch for ""conference chair"" or ""conference president."" In the context of a conference, the conferentievoorzitter is the individual responsible for overseeing the event, facilitating discussions, managing sessions, and ensuring that the conference runs smoothly. This person often plays a key role in guiding the agenda, introducing speakers, and engaging with participants to foster a productive environment.","1. The term ""medevoorzitter"" is disjoint with the term ""conferentievoorzitter,"" meaning that they cannot refer to the same entity.
+
+2. The term ""conferentievoorzitter"" is a subclass of ""conferentielid,"" indicating that every ""conferentievoorzitter"" is also a ""conferentielid.""The subgraph describes a classification and relationship structure involving various roles within a committee. 
+
+1. There is a class defined as ""Class,"" which is equivalent to the role of ""voorzitter"" (chairperson).
+2. The role of ""voorzitter"" is represented as a union of two specific roles: ""medevoorzitter"" (co-chair) and ""voorzitter programmacommissie"" (chair of the program committee).
+3. The ""medevoorzitter"" is the first role in this union, followed by ""conferentievoorzitter"" (conference chair) as the next role in the sequence.
+4. The structure indicates that the ""voorzitter"" role encompasses these other roles, suggesting a hierarchy or categorization of leadership positions within a committee setting.
+
+In summary, the subgraph outlines the relationships and classifications of various chairperson roles within a committee, highlighting their equivalences and order."
+http://cmt_nl#c-8033257-4796081,Target,Class,metarecensent,"The term ""metarecensent"" is not a widely recognized word in English, and it appears to be a combination of ""meta"" and ""recensent."" In the context of a conference, it could refer to a discussion or analysis of the process of reviewing or critiquing works, such as academic papers or presentations. Essentially, it might involve reflecting on how reviews are conducted, the criteria used, and the implications of those reviews on the field or discipline being discussed. If this term is being used in a specific context at a conference, it would be best to refer to the conference materials or speakers for a precise definition.","1. ""Gelezen door metarecencent"" has a range of ""metarecensent.""
+2. ""Metarecensent"" is a subclass of ""recensent."""
+http://cmt_nl#c-8260644-2482124,Target,Class,auteur,"In the context of a conference, the term ""auteur"" refers to a filmmaker or creator who has a distinct and recognizable style, vision, or thematic focus in their work. This concept emphasizes the idea that the director or creator is the primary author of a film or artistic piece, shaping its narrative, aesthetic, and overall message. During discussions at the conference, participants might explore how the auteur theory influences filmmaking, the creative process, and the interpretation of films, as well as how it applies to various genres and media.","Here are the verbalized phrases based on the provided RDF triples:
+
+1. The class ""auteur niet-recensent"" is a subclass of the class ""auteur.""
+2. The class ""coauteur"" is a subclass of the class ""auteur.""
+3. The property ""dien artikel in"" has a domain of ""auteur.""
+4. The property ""heeft auteur"" has a range of ""auteur.""
+5. The property ""schrijf artikel"" has a domain of ""auteur.""
+6. The class ""auteur"" is a subclass of both ""conferentielid"" and ""gebruiker.""The subgraph describes a structure related to a class that represents a concept of ""markeer belangenverstrengeling"" (marking conflicts of interest). This class is defined with a specific domain. 
+
+Within this structure, there are several elements that are interconnected. The first element is a list that includes a ""voorzitter"" (chairperson) and an ""auteur"" (author). The ""voorzitter"" is the first element of a sequence, while the ""auteur"" is also the first element of another sequence that ends with ""nil,"" indicating the end of that list.
+
+Additionally, there is a union of two lists, where one list contains the ""recensent"" (reviewer) as its first element, followed by the ""voorzitter."" This indicates that the ""recensent"" and ""voorzitter"" are part of a combined set of elements related to the class.
+
+Overall, the subgraph outlines a hierarchical structure of roles (chairperson, author, reviewer) within the context of a class that deals with conflicts of interest."
+http://cmt_nl#c-9264154-4017894,Target,Class,recentie,"In the context of a conference, ""recentie"" typically refers to a review or commentary on a recent publication, research paper, or presentation. It involves summarizing the key points, evaluating the significance of the work, and discussing its implications within the field. This can be an important part of academic discussions, as it helps to contextualize new findings and foster dialogue among participants.","Here are the verbalized phrases based on the provided triples:
+
+1. The class ""artikel"" is disjoint with the class ""recentie.""
+2. The property ""eindrecentie"" has a range that is defined as ""recentie.""
+3. The property ""geschreven door"" has a domain that is defined as ""recentie.""
+4. The class ""metarecentie"" is a subclass of ""recentie.""
+5. The property ""schrijf recentie"" has a range that is defined as ""recentie.""
+6. The class ""recentie"" is a subclass of ""document."""
+http://cmt_nl#c-9405134-3973856,Target,Class,synopsis,"In the context of a conference, a synopsis refers to a brief summary or overview of a presentation, paper, or discussion topic. It typically outlines the main points, objectives, and conclusions of the work being presented, allowing attendees to quickly understand the key themes and relevance of the content. A well-crafted synopsis helps participants decide which sessions to attend and provides a concise reference for the material covered.","The phrase can be verbalized as: ""The class 'synopsis' is a subclass of the class 'artikel'."""
+http://cmt_nl#c-9414933-6644081,Target,Class,voorzitter programmacommissie,"In the context of a conference, ""voorzitter programmacommissie"" translates to ""chairperson of the program committee"" in English. This role typically involves overseeing the planning and organization of the conference program, including selecting speakers, topics, and sessions, as well as ensuring that the event runs smoothly and meets its objectives. The chairperson is responsible for leading the committee's discussions and decisions regarding the content and structure of the conference.","1. The term ""eindrecentie"" is associated with the domain of ""voorzitter programmacommissie.""
+2. The role of ""voorzitter programmacommissie"" is a subclass of ""programmacommissie lid.""The subgraph describes a classification and relationship structure involving various roles within a committee. 
+
+1. There is a class defined as ""Class,"" which is represented by a unique identifier.
+2. The term ""voorzitter"" (which translates to ""chairperson"" in English) is identified as an equivalent class to the aforementioned ""Class.""
+3. The structure includes a sequence of roles, starting with ""conferentievoorzitter"" (conference chair) as the first role, followed by ""medevoorzitter"" (co-chair), which is linked to the first role.
+4. Additionally, ""voorzitter programmacommissie"" (chairperson of the program committee) is also identified as the first role in another sequence.
+5. The overall structure indicates that the class ""voorzitter"" is a union of the roles ""medevoorzitter"" and ""voorzitter programmacommissie,"" suggesting that it encompasses both roles within its definition.
+
+In summary, the subgraph outlines the relationships and classifications of various chairperson roles within a committee, highlighting their equivalences and hierarchical structure."
+http://cmt_nl#c-9971141-2642146,Target,Class,persoon,"In the context of a conference, ""persoon"" is likely a misspelling or variation of the Dutch word ""persoon,"" which translates to ""person"" in English. It refers to an individual attending the conference, whether as a speaker, participant, or organizer. Understanding the role of each persoon at the conference can be crucial for networking and collaboration opportunities.","Here are the verbalized phrases based on the provided triples:
+
+1. The concept of ""beslissing"" is disjoint with the concept of ""persoon.""
+2. The concept of ""bod"" is disjoint with the concept of ""persoon.""
+3. The concept of ""conferentie"" is disjoint with the concept of ""persoon.""
+4. The concept of ""conferentielid"" is a subclass of ""persoon.""
+5. The concept of ""document"" is disjoint with the concept of ""persoon.""
+6. The domain of ""email"" is ""persoon.""
+7. The concept of ""externe recencent"" is a subclass of ""persoon.""
+8. The concept of ""gebruiker"" is a subclass of ""persoon.""
+9. The domain of ""heeft belangenverstrengeling"" is ""persoon.""
+10. The concept of ""programmacommissie"" is disjoint with the concept of ""persoon.""
+11. The concept of ""programmacommissie lid"" is a subclass of ""persoon.""
+12. The concept of ""voorkeur"" is disjoint with the concept of ""persoon.""
+13. The concept of ""voorzitter"" is a subclass of ""persoon.""The subgraph describes a relationship between two entities: a conference and a person. Specifically, it indicates that the conference is the first in a sequence, and the person is also the first in their respective sequence. Both the conference and the person are part of a class, which is defined by the identifier 'Class'. This class is a union of the conference entity. Additionally, the person entity has no further elements following it, indicated by 'nil', while the conference entity points to the person as its next element in the sequence. The property 'naam' is associated with the domain of the class, linking it to the defined class structure."
+http://cmt_nl#ent-0153188-2394879,Target,Property,recenties per artikel,"In the context of a conference, ""recenties per artikel"" likely refers to the number of recent citations or references per article presented or discussed at the event. This metric can indicate the relevance and impact of the research being shared, as it shows how often the articles are being cited in recent literature. It can also help attendees gauge the current trends and discussions within a specific field of study.","The phrase can be verbalized as: ""The property 'recenties per artikel' has a domain of 'conferentie' and a range of 'int'.""The subgraph describes a restriction related to the concept of ""conferentie."" Specifically, it indicates that ""conferentie"" is a subclass of a restriction that has a cardinality of 1 on the property ""recenties per artikel."" This means that for each instance of ""conferentie,"" there must be exactly one associated value for the property ""recenties per artikel."""
+http://cmt_nl#ent-0432108-2425971,Target,Property,accepteerd hardcopy submissies,"In the context of a conference, ""accepteerd hardcopy submissies"" means that the conference organizers are accepting physical (printed) copies of submissions, such as research papers or abstracts, rather than only digital submissions. This indicates that authors can submit their work in a traditional paper format, which may be required for certain types of presentations or reviews at the conference.","The phrase can be verbalized as: ""The conference accepts hardcopy submissions, which is a boolean value."""
+http://cmt_nl#ent-1080357-2529679,Target,Property,paper id,"In the context of a conference, a paper ID refers to a unique identifier assigned to a submitted research paper or abstract. This ID is used to track and manage the submission throughout the review process, allowing authors, reviewers, and conference organizers to easily reference and access the specific paper. The paper ID helps streamline communication and organization, ensuring that each submission is properly accounted for and evaluated.","The phrase can be verbalized as follows:
+
+""The 'paper ID' is a property that belongs to the domain of 'artikel' and has a range of 'unsignedLong'."""
+http://cmt_nl#ent-2204821-8186148,Target,Property,naam,"In the context of a conference, ""naam"" could refer to a name or designation, often used in discussions about identity, branding, or the significance of names in various cultural or professional settings. It may also pertain to the importance of recognizing and addressing individuals or organizations by their proper names during presentations or discussions. If the conference is focused on a specific theme, ""naam"" might also relate to the concept of identity within that theme.","The property ""naam"" has a range of type ""string.""The subgraph describes a structured relationship between various entities and their properties. It can be verbalized as follows:
+
+There is a class defined as ""Class,"" which includes a union of two elements: ""conferentie"" and ""persoon."" The entity ""conferentie"" is a subclass of a restriction that has a cardinality of one and is associated with the property ""naam."" This restriction specifies that the property ""naam"" must be present and is defined within the context of the ""Class."" 
+
+The ""conferentie"" entity has a first element that is linked to ""conferentie"" itself, and it also has a rest element that points to ""persoon."" The ""persoon"" entity, in turn, has a first element that is linked to ""persoon"" and a rest element that is nil, indicating the end of its list.
+
+In summary, the structure outlines a relationship where a conference is associated with a person, and both are part of a defined class with specific properties and restrictions."
+http://cmt_nl#ent-3886480-3876987,Target,Property,website url,"In the context of a conference, a website URL (Uniform Resource Locator) refers to the specific web address that participants can use to access the conference's official website. This URL typically contains information about the event, such as schedules, speakers, registration details, and resources for attendees. It serves as a digital gateway for individuals interested in learning more about the conference or participating in it.","The ""website URL"" is associated with the domain of ""conferentie"" and has a range of ""anyURI""."
+http://cmt_nl#ent-6307800-0367561,Target,Property,logo url,"In the context of a conference, a ""logo URL"" refers to the web address (URL) where the logo of the conference or its sponsors can be found. This URL is often used to link to the logo image that can be displayed on conference materials, websites, or promotional content. It allows for easy access and ensures that the correct logo is used consistently across various platforms and materials associated with the conference.","The ""logo URL"" is associated with the domain of ""conferentie"" and has a range of ""anyURI""."
+http://cmt_nl#ent-6646972-0021642,Target,Property,datum,"In the context of a conference, ""datum"" refers to a single piece of information or a fact that is presented or discussed. It can be a statistic, a finding from research, or any specific detail that contributes to the overall topic of the conference. Multiple data points (the plural of datum) are often analyzed to draw conclusions or support arguments during presentations and discussions.","The phrase can be verbalized as: ""The domain of 'datum' is 'conferentie', and its range is 'date'.""The subgraph describes a restriction related to the class ""conferentie."" Specifically, it indicates that ""conferentie"" is a subclass of a restriction that requires at least one instance of the property ""datum."" In other words, any instance of ""conferentie"" must have at least one associated ""datum."""
+http://cmt_nl#ent-7973835-4912921,Target,Property,maximum aantal artikelen,"In the context of a conference, ""maximum aantal artikelen"" translates to ""maximum number of articles."" This phrase likely refers to the limit on the number of articles or papers that can be submitted, presented, or discussed during the conference. It could pertain to the number of research papers allowed per participant, the total number of submissions accepted for presentation, or the maximum number of articles included in the conference proceedings.","The phrase can be verbalized as: ""The maximum number of articles is defined for a program committee member and is represented as an integer."""
+http://cmt_nl#ent-8290813-8218301,Target,Property,titel,"In the context of a conference, the term ""titel"" likely refers to the title of a presentation, paper, or session. It is the name or heading that summarizes the main topic or focus of the discussion, helping attendees understand what to expect from that particular segment of the conference. A well-crafted title can attract interest and convey the essence of the content being presented.","The property ""titel"" is associated with the domain ""artikel"" and has a range of ""string""."
+http://cmt_nl#ent-9559932-7500512,Target,Property,email,"In the context of a conference, ""email"" refers to the electronic communication method used to send messages, documents, and information between participants, organizers, and speakers. It serves as a vital tool for coordinating schedules, sharing agendas, providing updates, and facilitating discussions before, during, and after the event. Email allows for efficient communication and helps ensure that all attendees are informed and engaged.","The property ""email"" is associated with the domain ""persoon"" and has a range of ""string""."
+http://cmt_nl#op-0256661-7943957,Target,Property,virtuele vergadering toegelaten door,"In the context of a conference, ""virtuele vergadering toegelaten door"" translates to ""virtual meeting allowed by."" This phrase likely refers to the permission or approval for participants to join the conference remotely through a virtual platform, indicating that the organizers have made provisions for attendees to participate online rather than in person. This can enhance accessibility and convenience for those unable to attend physically.","The phrase can be verbalized as: ""A conference allows a virtual meeting to be conducted by a manager."""
+http://cmt_nl#op-0296431-9591147,Target,Property,markeer belangenverstrengeling,"""Markeer belangenverstrengeling"" translates to ""mark conflict of interest"" in English. In the context of a conference, this phrase likely refers to the practice of identifying and disclosing any potential conflicts of interest that speakers, panelists, or participants may have. This is important to ensure transparency and maintain the integrity of discussions, especially when topics may involve financial, professional, or personal interests that could influence opinions or decisions. Marking conflicts of interest helps attendees understand the context of the information being presented and fosters trust in the conference proceedings.","The phrase can be verbalized as: ""The term 'markeer belangenverstrengeling' is associated with the range of 'artikel'.""The subgraph describes a structure related to a class that represents a concept of ""markeer belangenverstrengeling"" (marking conflicts of interest). This class is defined with a specific domain. 
+
+Within this structure, there are several elements that are interconnected. The first element is a list that includes a ""voorzitter"" (chairperson) and an ""auteur"" (author). The ""voorzitter"" is the first element of a sequence, while the ""auteur"" is also the first element of another sequence that ends with ""nil,"" indicating the end of that list.
+
+Additionally, there is a union of two lists, where one list contains the ""recensent"" (reviewer) as its first element, followed by the ""voorzitter."" This indicates that the ""recensent"" and ""voorzitter"" are part of a combined set of elements.
+
+Overall, the subgraph outlines a hierarchical structure of roles (chairperson, author, reviewer) within the context of a class that deals with conflicts of interest, emphasizing the relationships and order of these roles."
+http://cmt_nl#op-0519334-3183285,Target,Property,dien artikel in,"In the context of a conference, ""dien artikel"" is likely a reference to a specific article or paper that is being discussed or presented. The phrase is Dutch, where ""dien"" translates to ""that"" or ""the"" and ""artikel"" means ""article."" Therefore, it could refer to ""that article"" or ""the article"" relevant to the conference topic. Participants might be asked to refer to or consider the contents of ""dien artikel"" during discussions or presentations.","The phrase can be verbalized as: ""The relationship 'dien artikel in' has 'auteur' as its domain and 'artikel' as its range."""
+http://cmt_nl#op-0523999-6462363,Target,Property,toekenning artikel afgemaakt door,"In the context of a conference, ""toekenning artikel afgemaakt door"" translates from Dutch to ""article awarded completed by."" This phrase likely refers to the completion or finalization of an article or paper that has been awarded or accepted for presentation or publication at the conference. It may indicate that the article has been finalized by a specific author or group of authors, possibly in relation to their contributions to the conference proceedings.","The phrase can be verbalized as: ""The conference is assigned an article completed by the administrator."""
+http://cmt_nl#op-0774476-4286529,Target,Property,gelezen door reviewer,"In the context of a conference, ""gelezen door reviewer"" translates from Dutch to ""read by reviewer."" This typically indicates that a submitted paper or abstract has been evaluated by a reviewer as part of the conference's peer review process. The phrase suggests that the reviewer has assessed the content for quality, relevance, and adherence to the conference's standards before making a decision on whether to accept or reject the submission for presentation at the conference.","The phrase can be verbalized as: ""An article is read by a reviewer.""The subgraph describes a restriction related to a class of articles. Specifically, it indicates that the class of articles is a subclass of a restriction that requires a minimum cardinality of 1 for the property ""gelezen door reviewer."" This means that for any instance of the class ""artikel,"" there must be at least one associated instance where the property ""gelezen door reviewer"" is fulfilled. In summary, every article must be reviewed by at least one reviewer."
+http://cmt_nl#op-0909364-0464715,Target,Property,heeft bod,"In the context of a conference, ""heeft bod"" is a Dutch phrase that translates to ""has a bid"" in English. It typically refers to a situation where an offer or proposal has been made, possibly in relation to a project, collaboration, or funding opportunity discussed during the conference. It indicates that someone has expressed interest or commitment to a particular initiative or idea presented at the event.","The phrase can be verbalized as: ""An 'artikel' has a 'bod'."""
+http://cmt_nl#op-1143720-6793544,Target,Property,accepteer artikel,"In the context of a conference, ""accepteer artikel"" translates from Dutch to ""accepted article."" This typically refers to a research paper or article that has been reviewed and approved for presentation or publication at the conference. It indicates that the work has met the necessary criteria and standards set by the conference organizers or review committee.","The phrase can be verbalized as: ""The action of accepting an article is associated with a manager and pertains to an article."""
+http://cmt_nl#op-1373374-6702784,Target,Property,geschreven door,"In the context of a conference, ""geschreven door"" is Dutch for ""written by."" It typically indicates the author of a paper, presentation, or any written material being discussed or presented at the conference.","The phrase can be verbalized as: ""A review is written by a reviewer."""
+http://cmt_nl#op-1467853-6286543,Target,Property,stel maximaal aantal artikelen in,"In the context of a conference, ""stel maximaal aantal artikelen in"" translates to ""set the maximum number of articles."" This likely refers to a guideline or instruction for participants regarding the limit on the number of articles or papers that can be submitted, presented, or discussed during the conference. It helps in managing the schedule and ensuring that all contributions can be accommodated within the available time and resources.","The phrase can be verbalized as follows:
+
+""A 'beheerder' (administrator) sets the maximum number of articles in the context of a 'programmacommissie lid' (program committee member)."""
+http://cmt_nl#op-1584408-3585676,Target,Property,toegevoegd door,"In the context of a conference, ""toegevoegd door"" is a Dutch phrase that translates to ""added by"" in English. It typically indicates who has contributed or added specific content, information, or participants to the conference agenda, materials, or discussions. For example, if a presentation or document is labeled ""toegevoegd door [Name],"" it means that person was responsible for adding that particular item.","The phrase can be verbalized as: ""A program committee member is added by a manager."""
+http://cmt_nl#op-1611615-2768409,Target,Property,lid van conferentie,"In the context of a conference, ""lid van conferentie"" is a Dutch phrase that translates to ""member of the conference"" in English. It typically refers to an individual who is part of the conference, either as a participant, speaker, or organizer. This designation implies that the person has a role or involvement in the activities and discussions taking place during the conference.","The phrase can be verbalized as follows:
+
+""The member of the conference is associated with the conference."""
+http://cmt_nl#op-1801780-9127544,Target,Property,gebruik artikel toewijzings tool,"In the context of a conference, ""gebruik artikel toewijzings tool"" translates from Dutch to ""use article assignment tool."" This likely refers to a tool or software used during the conference for assigning articles or papers to reviewers, sessions, or participants. It helps streamline the process of organizing submissions, ensuring that each article is appropriately matched with reviewers or discussion panels based on expertise or relevance. This tool can enhance the efficiency of the conference's review process and improve the overall experience for both authors and attendees.","The phrase can be verbalized as: ""The administrator uses the article assignment tool for the conference."""
+http://cmt_nl#op-1876243-7212286,Target,Property,heeft coauteur,"In the context of a conference, ""heeft coauteur"" translates from Dutch to ""has co-author."" This typically refers to a situation where a speaker or presenter has collaborated with one or more individuals in writing a paper, article, or research work that they are presenting at the conference. It indicates that the work is a joint effort, and the co-authors share responsibility for the content and findings being discussed.","The phrase can be verbalized as: ""An article has a co-author."""
+http://cmt_nl#op-2025749-1022648,Target,Property,eindrecentie,"The term ""eindrecentie"" does not appear to be a standard word in English or widely recognized terminology. It may be a misspelling or a specific term used in a particular context, such as a conference theme or topic. If it relates to a conference, it could potentially refer to a concept or idea being discussed, possibly in a specialized field. To provide a more accurate answer, additional context or clarification about the term's usage in the conference would be helpful.","The term ""eindrecentie"" is associated with the role of ""voorzitter programmacommissie"" and is related to the concept of ""recentie."""
+http://cmt_nl#op-2090498-3671647,Target,Property,co schrijf artikel,"In the context of a conference, ""co-schrijf artikel"" translates to ""co-write article"" in English. This typically refers to the collaborative process of writing an academic or research article by multiple authors. At a conference, participants may engage in co-writing to share insights, findings, or discussions that arise from the event, often leading to the publication of a paper that reflects the collective contributions and perspectives of the co-authors.","The phrase can be verbalized as: ""A co-author writes an article together."""
+http://cmt_nl#op-2364490-1036581,Target,Property,maak toewijzing artikel af,"In the context of a conference, ""maak toewijzing artikel af"" translates to ""complete the assignment of the article"" or ""finalize the allocation of the article."" This likely refers to the process of assigning specific articles or topics to speakers, presenters, or sessions within the conference agenda. It suggests that there is a need to finalize who will be responsible for discussing or presenting particular content during the event.","The phrase can be verbalized as: ""The administrator completes the assignment of the article for the conference."""
+http://cmt_nl#op-3259179-7759191,Target,Property,schrijf artikel,"In the context of a conference, ""schrijf artikel"" is Dutch for ""write article."" It likely refers to the task of writing an article, possibly summarizing the conference proceedings, presenting research findings, or contributing to a publication related to the conference topics. This could involve documenting discussions, keynotes, or workshops that took place during the event.","The phrase can be verbalized as: ""An author writes an article."""
+http://cmt_nl#op-3400188-4431436,Target,Property,wijs artikel af,"In the context of a conference, ""wijs artikel af"" translates from Dutch to ""point out the article"" or ""indicate the article."" It typically refers to the act of identifying or referencing a specific article or paper that is relevant to the discussion or presentation at the conference. This could involve highlighting key findings, methodologies, or conclusions from the article that contribute to the topic being addressed.","The phrase can be verbalized as: ""A manager rejects an article."""
+http://cmt_nl#op-4146848-9209857,Target,Property,artikel gelezen,"In the context of a conference, ""artikel gelezen"" is Dutch for ""article read."" It likely refers to a situation where participants are discussing or referencing an article that they have read prior to or during the conference. This could involve sharing insights, findings, or critiques related to the content of the article as part of the conference discussions or presentations.","The phrase can be verbalized as: ""A recensent has read an artikel."""
+http://cmt_nl#op-4196454-0996130,Target,Property,pas bod aan,"In the context of a conference, ""pas bod aan"" is a Dutch phrase that translates to ""just add"" or ""only add."" It typically refers to the idea of making a small addition or adjustment to something, such as a presentation, discussion, or proposal. It suggests that the change or enhancement being suggested is minimal and straightforward, encouraging participants to contribute their thoughts or ideas without overcomplicating the process.","The phrase can be verbalized as: ""The term 'pas bod aan' is associated with the domain of 'recensent' and has a range of 'bod'."""
+http://cmt_nl#op-4287320-9139181,Target,Property,vul recentie criteria in,"In the context of a conference, ""vul recentie criteria"" likely refers to the criteria for recent citations or references that are relevant to the topics being discussed. This could involve guidelines for how recent the research or literature must be to be considered valid or acceptable for presentation or discussion at the conference. It emphasizes the importance of using up-to-date information to ensure that the content is current and reflects the latest developments in the field.","The phrase can be verbalized as: ""The criteria for recent events are defined by the manager and pertain to the conference."""
+http://cmt_nl#op-4408599-6298536,Target,Property,vul conferentie details in,"The phrase ""vul conferentie details in"" is Dutch and translates to ""fill in conference details"" in English. In the context of a conference, it typically refers to a prompt or instruction for participants or organizers to provide specific information related to the conference, such as the date, location, agenda, speakers, and other relevant details necessary for planning or registration.","The phrase can be verbalized as: ""The administrator fills in conference details."""
+http://cmt_nl#op-4445321-5207067,Target,Property,heeft auteur,"In the context of a conference, ""heeft auteur"" is Dutch for ""has author."" This phrase could refer to a discussion or presentation about the authorship of a particular work, such as a paper, book, or research project. It may indicate that the speaker is addressing the contributions of the author(s) or discussing the importance of authorship in academic or creative contexts.","The phrase can be verbalized as: ""An article has an author."""
+http://cmt_nl#op-4599361-4435013,Target,Property,heeft onderwerp,"In the context of a conference, ""heeft onderwerp"" translates from Dutch to ""has a subject"" or ""has a topic."" It typically refers to the main theme or focus of a discussion, presentation, or session at the conference. This phrase might be used to indicate what specific issue or area will be addressed during a particular segment of the event.","The phrase can be verbalized as: ""An article has a subject."""
+http://cmt_nl#op-4936685-8956236,Target,Property,hardcopy verstuurbewijs,"In the context of a conference, ""hardcopy verstuurbewijs"" refers to a physical document or receipt that serves as proof of sending or dispatching materials related to the conference. This could include confirmation of registration, submission of papers, or any other relevant documents that need to be sent in a tangible format. The term ""hardcopy"" indicates that it is a printed version, as opposed to a digital or electronic confirmation.","The phrase can be verbalized as follows:
+
+""The hardcopy verstuurbewijs is associated with the domain of beheerder and is related to the range of conferentie."""
+http://cmt_nl#op-5132912-6035125,Target,Property,toekenning artikel tool gebruikt door,"In the context of a conference, ""toekenning artikel tool gebruikt door"" translates to ""allocation article tool used by."" This likely refers to a specific tool or software that is utilized for the allocation or assignment of articles, papers, or presentations during the conference. It may involve managing submissions, assigning reviewers, or organizing the schedule of presentations. The phrase suggests that the tool is employed by the conference organizers or participants to facilitate the process of managing conference content effectively.","The phrase can be verbalized as: ""The article allocation tool is used by the conference administrator."""
+http://cmt_nl#op-5928292-4023284,Target,Property,details ingevuld door,"In the context of a conference, ""details ingevuld door"" is Dutch for ""details filled in by."" This phrase typically refers to the section where specific information or details about a participant, speaker, or session are provided, indicating who has completed or submitted that information. It may be used in registration forms, schedules, or documentation related to the conference.","The phrase can be verbalized as: ""The details filled in by the conference are related to the administrator."""
+http://cmt_nl#op-6074302-8347468,Target,Property,heeft programmacommisie lid,"In the context of a conference, ""heeft programmacommissie lid"" translates to ""has a program committee member"" in English. This refers to an individual who is part of the program committee responsible for planning and organizing the conference's agenda, including selecting speakers, reviewing submissions, and ensuring the overall quality of the program. Their role is crucial in shaping the content and structure of the conference to meet the interests and needs of the attendees.","The phrase can be verbalized as: ""A program committee has a member."""
+http://cmt_nl#op-6212167-8679664,Target,Property,toegewezen door beheerder,"In the context of a conference, ""toegewezen door beheerder"" translates from Dutch to ""assigned by administrator."" This likely refers to tasks, roles, or resources that have been allocated or designated to participants or sessions by the conference administrator or organizer. It indicates that the administrator has made specific decisions regarding the distribution of responsibilities or access to certain areas or materials within the conference setting.","The phrase can be verbalized as: ""A reviewer is assigned by an administrator."""
+http://cmt_nl#op-6218286-1433549,Target,Property,toegewezen door recencent,"In the context of a conference, ""toegewezen door recencent"" translates from Dutch to ""assigned by reviewer."" This typically refers to the process where a paper or presentation submitted to the conference has been evaluated and assigned to a specific reviewer or committee member for assessment. The reviewer is responsible for providing feedback, recommendations, or decisions regarding the acceptance of the submission based on its quality, relevance, and adherence to the conference's standards.","The phrase can be verbalized as: ""Assigned by an external reviewer to a reviewer.""The subgraph describes a restriction in a semantic framework. It indicates that there is a restriction, identified by the blank node '_:N1aa9b09e6d5f4cdc836a29cf5de4959e', which has a cardinality of 1. This restriction applies to the property ""toegewezen door recencent"" (translated as ""assigned by reviewer""). Additionally, the entity ""externe recencent"" (translated as ""external reviewer"") is classified as a subclass of this restriction. In summary, the external reviewer must be associated with exactly one instance of the property ""assigned by reviewer."""
+http://cmt_nl#op-6828250-7051566,Target,Property,begin recentie bieden,"In the context of a conference, ""begin recentie bieden"" translates from Dutch to ""start offering a review"" or ""begin providing a review."" This phrase likely refers to the process of initiating a discussion or presentation where participants are invited to share their insights, critiques, or evaluations of a particular topic, paper, or presentation that has been presented at the conference. It suggests a focus on engaging with the material and providing constructive feedback or analysis.","The phrase can be verbalized as: ""The action of offering a recent conference is associated with the domain of a manager and pertains to the range of a conference."""
+http://cmt_nl#op-6831750-4006974,Target,Property,toegewezen aan,"In the context of a conference, ""toegewezen aan"" translates from Dutch to ""assigned to"" in English. It typically refers to tasks, roles, or responsibilities that have been allocated to specific individuals or groups within the framework of the conference. For example, a speaker might be ""toegewezen aan"" a particular session, or a participant might be ""toegewezen aan"" a specific workshop.","The phrase can be verbalized as: ""The property 'toegewezen aan' has a domain of 'artikel' and a range of 'recensent'."""
+http://cmt_nl#op-6921089-3789460,Target,Property,aangepast door,"In the context of a conference, ""aangepast door"" is a Dutch phrase that translates to ""adjusted by"" or ""modified by"" in English. It typically indicates that a particular aspect of the conference, such as the schedule, agenda, or presentation materials, has been altered or tailored by a specific person or organization. This could refer to changes made to better suit the needs of the attendees or to improve the overall experience of the conference.","The phrase can be verbalized as: ""The property 'aangepast door' has a domain of 'bod' and a range of 'recensent'."""
+http://cmt_nl#op-7140084-4068620,Target,Property,gelezen door metarecencent,"In the context of a conference, ""gelezen door metarecencent"" translates from Dutch to ""read by meta-reviewer."" This typically refers to a process where a meta-reviewer evaluates the reviews and assessments of submitted papers or presentations. The meta-reviewer provides an overarching analysis, ensuring that the reviews are fair, thorough, and consistent, and may also offer additional insights or recommendations regarding the acceptance or rejection of the submissions.","The phrase can be verbalized as follows:
+
+""The article is read by a metarecensent.""The subgraph describes a class hierarchy and a restriction related to the class ""artikel."" Specifically, ""artikel"" is defined as a subclass of a restriction. This restriction specifies that there is a property called ""gelezen door metarecencent,"" which indicates that an ""artikel"" can be read by at most one ""metarecencent."" In summary, an ""artikel"" can be associated with a maximum of one reader from the ""metarecencent"" category."
+http://cmt_nl#op-7248083-3019037,Target,Property,recentie criteria ingevuld door,"In the context of a conference, ""recentie criteria ingevuld door"" likely refers to the criteria or guidelines that have been filled out or completed by a reviewer or participant. This could pertain to the evaluation of submitted papers, presentations, or proposals, where specific criteria are used to assess the quality, relevance, and contribution of the work. The phrase suggests that someone has provided their input or assessment based on these established criteria.","The phrase can be verbalized as: ""The recentie criteria are filled in by the beheerder for the conferentie."""
+http://cmt_nl#op-7353509-4489319,Target,Property,hardcopy verstuurbewijs afgedrukt door,"In the context of a conference, ""hardcopy verstuurbewijs afgedrukt door"" translates from Dutch to ""hardcopy shipping receipt printed by."" This phrase likely refers to a physical document that serves as proof of shipment for materials or items related to the conference, indicating who printed the receipt. It may be used to track the delivery of conference materials, such as brochures, badges, or equipment, ensuring that everything is accounted for and properly managed during the event.","The phrase can be verbalized as: ""A hardcopy verstuurbewijs is printed by a beheerder in the context of a conferentie."""
+http://cmt_nl#op-7371149-4679769,Target,Property,voeg programmacommissie lid toe,"In the context of a conference, ""voeg programmacommissie lid toe"" translates from Dutch to ""add program committee member."" This likely refers to the action of including a new member into the program committee, which is responsible for planning and organizing the conference's agenda, sessions, and overall content. This could involve selecting speakers, reviewing submissions, and ensuring the program aligns with the conference's goals.","The phrase can be verbalized as: ""A manager adds a member to the program committee."""
+http://cmt_nl#op-7376349-1700696,Target,Property,geaccepteerd door,"In the context of a conference, ""geaccepteerd door"" translates to ""accepted by"" in English. It typically refers to a paper, presentation, or proposal that has been reviewed and approved by the conference organizers or committee for inclusion in the conference program. This indicates that the submission meets the required standards and criteria set by the conference.","The phrase can be verbalized as: ""An article is accepted by a manager."""
+http://cmt_nl#op-7834403-9736912,Target,Property,lid van programmacommissie,"In the context of a conference, ""lid van programmacommissie"" translates to ""member of the program committee"" in English. This refers to an individual who is part of a group responsible for planning and organizing the conference program, which may include selecting speakers, reviewing submissions, and determining the schedule of sessions and events. Their role is crucial in ensuring the quality and relevance of the conference content.","The phrase can be verbalized as follows:
+
+""A member of the program committee is associated with the program committee."""
+http://cmt_nl#op-7846388-0107925,Target,Property,heeft belangenverstrengeling,"""Belangenverstrengeling"" is a Dutch term that translates to ""conflict of interest"" in English. In the context of a conference, it refers to a situation where an individual's personal interests or relationships could potentially influence their professional decisions or actions, leading to biased outcomes. This is particularly important to address in conferences where decisions, recommendations, or collaborations are made, as it ensures transparency and integrity in the proceedings.","The phrase can be verbalized as: ""A person has a conflict of interest related to a document."""
+http://cmt_nl#op-8237122-7939633,Target,Property,afgewezen door,"In the context of a conference, ""afgewezen door"" translates to ""rejected by"" in English. This phrase typically refers to a submission, such as a paper or presentation proposal, that has not been accepted for inclusion in the conference program. It indicates that the proposal was reviewed and deemed unsuitable or not meeting the criteria set by the conference organizers.","The phrase can be verbalized as: ""An article is rejected by a manager."""
+http://cmt_nl#op-8406162-2537450,Target,Property,laat virtuele vergadering toe,"The phrase ""laat virtuele vergadering toe"" translates to ""allow virtual meeting"" in English. In the context of a conference, it suggests that participants are permitted to join the meeting or conference remotely, using virtual platforms or online tools, rather than being physically present at a specific location. This can facilitate broader participation and accessibility for attendees who may not be able to travel.","The phrase can be verbalized as: ""A manager allows a virtual meeting."""
+http://cmt_nl#op-8438559-9530997,Target,Property,heeft conferentielid,"In the context of a conference, ""heeft conferentielid"" translates from Dutch to ""has conference member."" It typically refers to an individual who is a member or participant of a conference, possibly indicating their role or status within the event. This could involve responsibilities such as attending sessions, contributing to discussions, or being part of a specific committee or group within the conference.","The phrase can be verbalized as: ""A conference has a conference member."""
+http://cmt_nl#op-8708592-1030663,Target,Property,recentie bieden begonnen door,"In the context of a conference, ""recentie bieden begonnen door"" likely refers to the act of providing a review or commentary that has been initiated by someone. This could involve a speaker or presenter who starts a discussion or feedback session, where participants are invited to share their insights, critiques, or additional information related to the topics presented. Essentially, it signifies the beginning of a collaborative dialogue or evaluation process among attendees regarding the conference content.","The phrase can be verbalized as: ""The conference offers a review that is initiated by the administrator."""
+http://cmt_nl#op-9403881-2957804,Target,Property,schrijf recentie,"In the context of a conference, ""schrijf recentie"" translates from Dutch to ""write a review."" It typically refers to the task of writing a critical assessment or evaluation of a presentation, paper, or session that took place during the conference. This review may include feedback on the content, delivery, and overall impact of the work presented, and it can be useful for both the presenters and the audience for future improvements and insights.","The phrase can be verbalized as: ""A recensent writes a recentie."""
+http://cmt_nl#op-9425328-4984900,Target,Property,wijs externe recencent toe,"""Wijs externe recencent toe"" is a Dutch phrase that translates to ""Assign external reviewer"" in English. In the context of a conference, this likely refers to the process of designating an external expert or reviewer to evaluate submitted papers, presentations, or proposals. This is typically done to ensure an impartial and thorough assessment of the work, contributing to the quality and credibility of the conference proceedings.","The phrase can be verbalized as: ""Assign an external reviewer to a reviewer."""
+http://cmt_nl#op-9539250-4477006,Target,Property,heeft beslissing,"In the context of a conference, ""heeft beslissing"" is Dutch for ""has decision."" It typically refers to a situation where a decision has been made or is being communicated regarding a particular matter discussed during the conference. This could involve decisions about conference proceedings, outcomes of discussions, or resolutions that need to be implemented.","The phrase can be verbalized as: ""An article has a decision.""The subgraph describes a set of restrictions related to a property called ""heeft beslissing"" (which translates to ""has decision""). There are two restrictions defined:
+
+1. The first restriction indicates that for the property ""heeft beslissing,"" there can be a maximum of one instance (maxCardinality of 1). This restriction is associated with a class that is a subclass of ""artikel"" (which means ""article"").
+
+2. The second restriction for the same property ""heeft beslissing"" allows for a minimum of zero instances (minCardinality of 0). This restriction is also associated with the class that is a subclass of ""artikel.""
+
+In summary, the class ""artikel"" has two restrictions regarding the property ""heeft beslissing"": it can have at most one decision and can also have none."
+http://cmt_nl#op-9645394-6959392,Target,Property,is toegekend,"In the context of a conference, ""is toegekend"" is Dutch for ""is awarded"" or ""has been granted."" It typically refers to the allocation of something, such as a grant, recognition, or a specific status, to an individual or group during the event. For example, it could indicate that a speaker has been awarded a prize or that a particular session has been granted official status.","The phrase can be verbalized as: ""A reviewer is assigned to an article."""
+http://cmt_nl#op-9991650-4002037,Target,Property,wijs recencent toe,"""Wijs recencent toe"" is a Dutch phrase that translates to ""Assign reviewer"" in English. In the context of a conference, it typically refers to the process of designating a person (the reviewer) who will evaluate submitted papers or proposals. This is an important step in the peer review process, ensuring that submissions are assessed by qualified individuals who can provide constructive feedback and help maintain the quality of the conference proceedings.","The phrase can be verbalized as: ""A manager assigns a reviewer."""

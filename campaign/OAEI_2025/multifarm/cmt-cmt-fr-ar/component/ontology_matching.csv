@@ -1,0 +1,881 @@
+entity,source_or_target,entity_type,syntactic_matching,lexical_matching,semantic_matching
+http://cmt_fr#c-0218338-0979990,Source,Class,document,"In the context of a conference, a ""document"" typically refers to any written or digital material that is presented, distributed, or referenced during the event. This can include agendas, research papers, presentation slides, handouts, reports, or any other materials that provide information or support the discussions and activities taking place at the conference. Documents serve to facilitate communication, share knowledge, and provide attendees with resources to enhance their understanding of the topics being addressed.","1. The class ""Article"" is a subclass of the class ""Document.""
+2. The class ""Rapport d'examen"" is a subclass of the class ""Document.""
+3. The phrase ""a un conflit d'intérêt à propos de"" has a range that includes ""Document.""
+4. The class ""Document"" is disjoint with the classes ""Comité de programme,"" ""Conférence,"" ""Décision,"" ""Personne,"" ""Proposition de relecture,"" and ""Préférence."""
+http://cmt_fr#c-0480911-0003886,Source,Class,auteur,"In the context of a conference, the term ""auteur"" refers to a filmmaker or creator who exerts significant control over the artistic and creative aspects of their work, often imbuing it with a distinct personal style or vision. This concept emphasizes the idea that the director or creator is the primary author of the film or project, shaping its narrative, themes, and aesthetic. Discussions at the conference may explore the implications of the auteur theory in film studies, the role of individual creativity in collaborative environments, and how this concept influences audience perception and critical analysis of cinematic works.","Here are the verbalized phrases based on the provided RDF triples:
+
+1. ""An author who is not a reviewer is a subclass of an author.""
+2. ""A co-author is a subclass of an author.""
+3. ""The property 'has an author' has a range of authors.""
+4. ""The property 'submits the article' has a domain of authors.""
+5. ""The property 'writes the article' has a domain of authors.""
+6. ""An author is a subclass of both a conference member and a user.""The subgraph describes a relationship involving several entities and their attributes. 
+
+1. There is a primary entity identified as ""Auteur,"" which is associated with a conflict of interest signal. This entity is linked to a domain represented by another entity, which is classified as a ""Class.""
+
+2. The entity ""Relecteur"" is also part of this structure and is connected to the ""Auteur"" entity. The relationship indicates that ""Relecteur"" is the first in a sequence that includes the ""Président"" entity, which is noted as the first in its own sequence but has no further connections (indicated by ""rest"" being ""nil"").
+
+3. The ""Relecteur"" and ""Président"" entities are part of a union that includes the primary entity associated with the conflict of interest.
+
+In summary, the description outlines a structure where an author (Auteur) is linked to a conflict of interest within a specific domain, while also being associated with a reviewer (Relecteur) and a president (Président), all of which are part of a broader classification."
+http://cmt_fr#c-0712755-6034378,Source,Class,acceptation,"In the context of a conference, ""acceptation"" refers to the formal acceptance or approval of ideas, proposals, or papers presented by participants. It signifies that the content has been recognized as valuable or relevant by the conference organizers or peers, often leading to further discussion, collaboration, or publication. This term can also imply the acknowledgment of diverse viewpoints and the willingness to engage with them in a constructive manner during the conference proceedings.","The class ""Acceptation"" is a subclass of the class ""Décision,"" and it is disjoint with the class ""Rejet."""
+http://cmt_fr#c-0743498-8291005,Source,Class,m ta relecteur,"In the context of a conference, ""Méta-relecteur"" can be understood as a term that refers to a meta-reviewer or a person who evaluates the evaluations of others. This role typically involves overseeing the review process, ensuring that the assessments of submitted works (such as papers or presentations) are fair, consistent, and of high quality. The méta-relecteur may provide additional insights or feedback on the reviews submitted by other reviewers, helping to maintain the integrity and rigor of the conference's selection process.","Here are the verbalized phrases based on the provided RDF triples:
+
+1. ""Est lu par le méta-relecteur"" is associated with the range ""Méta-relecteur.""
+2. ""Méta-relecteur"" is a subclass of ""Relecteur."""
+http://cmt_fr#c-0752747-4444619,Source,Class,relecteur,"In the context of a conference, ""Relecteur"" typically refers to a reviewer or an editor who evaluates submitted papers, presentations, or proposals. This individual is responsible for assessing the quality, relevance, and originality of the work, providing feedback, and determining whether it meets the standards for acceptance at the conference. The role of a relecteur is crucial in maintaining the integrity and academic rigor of the conference proceedings.","Here are the verbalized phrases based on the provided triples:
+
+1. ""Méta-relecteur"" is a subclass of ""Relecteur.""
+2. ""A été associé à"" has a domain of ""Relecteur.""
+3. ""Affecte le rôle de relecteur externe à"" has a domain of ""Relecteur.""
+4. ""Affecte le rôle de relecteur à"" has a range of ""Relecteur.""
+5. ""Ajuste la proposition de relecture"" has a domain of ""Relecteur.""
+6. ""Est affecté par l'administrateur"" has a domain of ""Relecteur.""
+7. ""Est affecté par le relecteur"" has a range of ""Relecteur.""
+8. ""Est ajusté par"" has a range of ""Relecteur.""
+9. ""Est assigné à"" has a range of ""Relecteur.""
+10. ""Est lu par le relecteur"" has a range of ""Relecteur.""
+11. ""Est écrit par"" has a range of ""Relecteur.""
+12. ""Lit l'article"" has a domain of ""Relecteur.""
+13. ""Écrit le rapport d'examen"" has a domain of ""Relecteur.""
+14. ""Relecteur"" is a subclass of ""Membre de conférence"" and ""Utilisateur.""
+15. ""Relecteur"" is disjoint with ""Auteur qui n'est pas relecteur"" and ""Relecteur externe.""The subgraph describes a relationship involving several entities and their attributes. 
+
+1. There is a primary entity identified as ""Auteur,"" which is associated with a conflict of interest signal. This entity is linked to a domain represented by another entity, which is classified as a ""Class.""
+
+2. The entity ""Relecteur"" is also part of this structure and is connected to the ""Auteur"" through a relationship that indicates a continuation or sequence (denoted by 'rest').
+
+3. Additionally, there is another entity identified as ""Président,"" which is the first in a sequence and is linked to the ""Relecteur"" entity, but it does not have any further connections (indicated by 'rest' being 'nil').
+
+4. The ""Relecteur"" and ""Président"" entities are part of a union that includes the primary entity associated with the conflict of interest.
+
+In summary, the description outlines a structure where an author (Auteur) is linked to a conflict of interest within a specific domain, while also being associated with a reviewer (Relecteur) and a president (Président), forming a union of these roles."
+http://cmt_fr#c-0917731-1974635,Source,Class,pr sident de comit de programme,"In the context of a conference, ""Président de comité de programme"" refers to the ""Chair of the Program Committee."" This individual is responsible for overseeing the development and organization of the conference program, which includes selecting topics, inviting speakers, and ensuring the quality and relevance of the presentations and sessions. The chair plays a crucial role in shaping the conference's content and ensuring that it meets the objectives and interests of the attendees.","1. The phrase ""finalise le processus de relecture"" is associated with the domain of ""Président de comité de programme.""
+   
+2. The term ""Président de comité de programme"" is a subclass of ""Membre de comité de programme.""The subgraph describes a classification and relationship structure involving the concept of a ""Président"" (President) and its equivalent class. 
+
+1. There is a class represented by a unique identifier, which is defined as a type of ""Class.""
+2. The term ""Président"" is identified as being equivalent to this class.
+3. The structure includes a list of roles or titles associated with the class, which are organized in a linked manner.
+4. The first role in this list is ""Président de conférence"" (Conference President).
+5. The second role is ""Président de comité de programme"" (Program Committee President).
+6. Additionally, there is a role titled ""Président adjoint de conférence"" (Deputy Conference President), which is part of a separate but related list.
+7. The relationships between these roles are represented in a way that indicates they are part of a union of roles associated with the class of ""Président.""
+
+In summary, the subgraph outlines a classification of the term ""Président"" and its equivalent class, along with a structured list of associated roles, highlighting their interconnections."
+http://cmt_fr#c-1646923-7206967,Source,Class,m ta rapport d examen,"In the context of a conference, ""Méta-rapport d'examen"" refers to a comprehensive report that synthesizes and analyzes the findings from various examinations or assessments conducted during the event. This type of report typically aims to provide an overarching view of the discussions, insights, and conclusions drawn from the conference sessions, workshops, or presentations. It may also include recommendations for future actions or research based on the collective input of participants. Essentially, it serves as a meta-analysis of the conference's content, highlighting key themes and takeaways.","The phrase can be verbalized as: ""The 'Méta-rapport d'examen' is a subclass of 'Rapport d'examen'."""
+http://cmt_fr#c-2724520-3587324,Source,Class,membre de conf rence,"In the context of a conference, ""Membre de conférence"" is a French term that translates to ""Conference Member"" in English. It typically refers to an individual who is a participant or a member of a conference, often involved in discussions, presentations, or workshops. This role may include sharing expertise, contributing to the agenda, or engaging with other attendees to foster collaboration and knowledge exchange.","1. The class ""Auteur"" is a subclass of the class ""Membre de conférence.""
+2. The class ""Membre de comité de programme"" is a subclass of the class ""Membre de conférence.""
+3. The class ""Président adjoint de conférence"" is a subclass of the class ""Membre de conférence.""
+4. The class ""Président de conférence"" is a subclass of the class ""Membre de conférence.""
+5. The class ""Relecteur"" is a subclass of the class ""Membre de conférence.""
+6. The property ""a pour membre de conférence"" has a range of ""Membre de conférence.""
+7. The class ""Membre de conférence"" has a domain of ""Membre de conférence"" and is a subclass of ""Personne."""
+http://cmt_fr#c-2745207-1642565,Source,Class,pr sident,"In the context of a conference, ""Président"" typically refers to the person who presides over the meeting or session. This individual is responsible for leading discussions, managing the agenda, ensuring that the conference runs smoothly, and facilitating interactions among participants. The role may also involve making decisions about the order of speakers, addressing questions, and summarizing key points.","The phrase can be verbalized as: ""The class of 'Président' is a subclass of the class 'Personne'.""The subgraph describes a structured relationship among various roles and classes related to a conference or program committee. 
+
+1. There is a class identified as ""Class"" which is equivalent to the role of ""Président"" (President).
+2. The ""Président"" is part of a union that includes the role of ""Président de comité de programme"" (Chair of the Program Committee) and ""Président adjoint de conférence"" (Vice President of the Conference).
+3. The ""Président"" is also associated with the role of ""Auteur"" (Author) in a sequence that does not lead to any further roles (indicated by 'nil').
+4. Another role, ""Relecteur"" (Reviewer), is linked to the class ""Class"" and is followed by the ""Président"" in a similar sequence.
+5. Additionally, there is a mention of a conflict of interest related to a specific domain, which is represented in the graph.
+
+Overall, the subgraph outlines the hierarchical and relational structure of various roles within a conference setting, emphasizing the connections between the President, committee chairs, and other related positions."
+http://cmt_fr#c-3407699-0090940,Source,Class,version compl te d article,"In the context of a conference, ""Version complète d'article"" translates to ""full version of the article."" This typically refers to the complete text of a research paper or article that has been presented or discussed at the conference, as opposed to a summary or abstract. Attendees may be interested in accessing the full version for detailed information, methodologies, results, and conclusions related to the research presented.","The phrase can be verbalized as: ""The complete version of an article is a subclass of an article."""
+http://cmt_fr#c-3962194-2541126,Source,Class,relecteur externe,"In the context of a conference, ""Relecteur externe"" refers to an external reviewer or external evaluator. This is typically an individual who is not affiliated with the organizing body of the conference and is brought in to assess the quality of submitted papers, presentations, or proposals. Their role is to provide an unbiased evaluation, ensuring that the content meets the conference's standards for academic rigor and relevance. External reviewers often have expertise in the subject matter and contribute to the selection process by offering constructive feedback and recommendations.","Here are the verbalized phrases based on the provided triples:
+
+1. ""Relecteur"" is disjoint with ""Relecteur externe.""
+2. ""affecte le rôle de relecteur externe à"" has a range of ""Relecteur externe.""
+3. ""est affecté par le relecteur"" has a domain of ""Relecteur externe.""
+4. ""Relecteur externe"" is a subclass of ""Personne.""The subgraph describes a concept called ""Relecteur externe,"" which is classified as a type of ""Restriction."" This restriction specifies that there is a property called ""est affecté par le relecteur"" (is affected by the relecteur), and it enforces a cardinality of 1, meaning that each instance of ""Relecteur externe"" must be associated with exactly one instance of this property."
+http://cmt_fr#c-4497134-7374494,Source,Class,personne,"In the context of a conference, ""Personne"" is a French word that translates to ""person"" in English. It may refer to an individual attending the conference, a speaker, or a participant involved in discussions or presentations. Depending on the specific context of the conference, it could also imply the importance of personal interactions and networking among attendees.","Here are the verbalized phrases based on the provided triples:
+
+1. The class ""Document"" is disjoint with the class ""Personne.""
+2. The class ""Membre de comité de programme"" is a subclass of the class ""Personne.""
+3. The class ""Membre de conférence"" is a subclass of the class ""Personne.""
+4. The class ""Président"" is a subclass of the class ""Personne.""
+5. The class ""Relecteur externe"" is a subclass of the class ""Personne.""
+6. The class ""Utilisateur"" is a subclass of the class ""Personne.""
+7. The property ""a un conflit d'intérêt à propos de"" has the domain ""Personne.""
+8. The property ""courriel"" has the domain ""Personne.""
+9. The class ""Personne"" is disjoint with the classes ""Comité de programme,"" ""Conférence,"" ""Décision,"" ""Proposition de relecture,"" and ""Préférence.""The subgraph describes a structure in which there is a class represented by an identifier (denoted as '_:N34e601740bc74f54a61ceaf6076bb268') that is defined as a union of another structure (identified as '_:Nf2a2b4ee1e6540e4b02347b90e4b54e8'). This union consists of a list where the first element is the term ""Personne"" and the rest of the list contains a single element, which is ""Conférence"".
+
+In summary, the main class is a union of two elements: the first element is ""Personne"" and the second element is ""Conférence"". The class is associated with the domain of the term ""nom""."
+http://cmt_fr#c-4519548-1775663,Source,Class,pr sident de conf rence,"In the context of a conference, ""Président de conférence"" refers to the individual who serves as the chair or president of the conference. This person is responsible for overseeing the event, facilitating discussions, managing the schedule, and ensuring that the conference runs smoothly. The Président de conférence may also introduce speakers, moderate panels, and engage with participants to foster a productive environment for sharing ideas and knowledge.","The phrase can be verbalized as follows:
+
+""The class 'Président de conférence' is a subclass of the class 'Membre de conférence' and is disjoint with the class 'Président adjoint de conférence'.""The subgraph describes a classification and relationship structure involving the concept of a ""Président"" (President) and its equivalent class. 
+
+1. There is a class represented by a unique identifier (denoted as '_:N5bc4f1fa34bf404783133f4a7cada9e8'), which is defined as a type of ""Class.""
+2. The term ""Président"" is identified as being equivalent to this class.
+3. The structure includes a list of roles or titles associated with the concept of ""Président,"" which are organized in a sequence.
+4. The first title in this sequence is ""Président de conférence"" (Conference President).
+5. The second title is ""Président de comité de programme"" (Program Committee President).
+6. The third title is ""Président adjoint de conférence"" (Deputy Conference President).
+7. The sequence of titles is represented as a union of two lists, where one list contains the titles of ""Président de conférence"" and ""Président de comité de programme,"" and the other list contains the title ""Président adjoint de conférence.""
+
+Overall, the subgraph outlines the classification of the role of ""Président"" and lists various associated titles within a structured format."
+http://cmt_fr#c-5301001-2369434,Source,Class,pr sident adjoint de conf rence,"In the context of a conference, ""Président adjoint de conférence"" translates to ""Deputy Conference Chair"" or ""Co-Chair."" This role typically involves assisting the main conference chair in organizing and managing the conference proceedings, overseeing sessions, facilitating discussions, and ensuring that the event runs smoothly. The deputy chair may also step in to lead sessions or represent the chair when necessary.","1. The role of ""Président de conférence"" is distinct from the role of ""Président adjoint de conférence.""
+2. The role of ""Président adjoint de conférence"" is a subclass of ""Membre de conférence.""The subgraph describes a classification and relationship structure involving the concept of a ""Président"" (President) and its various roles. 
+
+1. The entity represented by the identifier '_:N5bc4f1fa34bf404783133f4a7cada9e8' is defined as a class.
+2. The term ""Président"" is identified as being equivalent to this class.
+3. There are several roles associated with this class, organized in a list-like structure:
+   - The first role is ""Président de conférence"" (Conference President).
+   - The second role is ""Président de comité de programme"" (Program Committee President).
+   - The third role is ""Président adjoint de conférence"" (Deputy Conference President).
+4. The roles are linked in a sequence, where ""Président de comité de programme"" is followed by ""Président de conférence,"" and ""Président adjoint de conférence"" is the last in the sequence.
+
+Overall, this subgraph outlines the classification of the term ""Président"" and lists its associated roles in a structured manner."
+http://cmt_fr#c-5413559-6236750,Source,Class,administrateur,"In the context of a conference, ""Administrateur"" typically refers to an administrator or a person responsible for managing and overseeing the event's operations. This role may involve coordinating logistics, handling registrations, managing schedules, and ensuring that the conference runs smoothly. The Administrateur may also serve as a point of contact for attendees and speakers, addressing any issues that arise during the event.","Here are the verbalized phrases based on the provided RDF triples:
+
+1. L'administrateur accepte l'article.
+2. L'administrateur affecte le rôle de relecteur à un membre.
+3. L'administrateur ajoute un membre au comité de programme.
+4. L'administrateur définit le nombre maximum d'articles à soumettre.
+5. Un article est accepté par l'administrateur.
+6. Un article est affecté par l'administrateur.
+7. Un membre est ajouté par l'administrateur.
+8. Un article est rejeté par l'administrateur.
+9. L'administrateur exécute les outils d'attribution d'articles.
+10. L'administrateur finalise l'attribution d'articles.
+11. L'administrateur imprime les courriers de la manifestation.
+12. L'administrateur initialise l'attribution de propositions aux relecteurs.
+13. L'attribution de propositions aux relecteurs est initialisée par l'administrateur.
+14. L'attribution des articles est finalisée par l'administrateur.
+15. La réunion virtuelle est activée par l'administrateur.
+16. Les critères d'évaluation sont remplis par l'administrateur.
+17. Les détails sont saisis par l'administrateur.
+18. Les exemplaires papier des courriers de la manifestation sont imprimés par l'administrateur.
+19. Les outils d'attribution d'articles sont exécutés par l'administrateur.
+20. L'administrateur met en place la réunion virtuelle.
+21. L'administrateur rejette l'article.
+22. L'administrateur saisit les critères d'évaluation.
+23. L'administrateur saisit les détails de la conférence.
+24. L'administrateur est un sous-type d'utilisateur."
+http://cmt_fr#c-5416499-8931739,Source,Class,rejet,"In the context of a conference, ""Rejet"" likely refers to the process of rejecting a submission, such as a paper or presentation proposal. This term is often used in academic and professional settings where participants submit their work for consideration, and a review committee evaluates these submissions. If a submission does not meet the required standards or criteria, it may be ""rejet"" or rejected from being presented at the conference.","1. ""Acceptation"" is disjoint with ""Rejet.""
+2. ""Rejet"" is a subclass of ""Décision."""
+http://cmt_fr#c-5579543-7208566,Source,Class,proposition de relecture,"In the context of a conference, ""Proposition de relecture"" translates to ""Proposal for review"" or ""Proposal for re-evaluation."" It typically refers to a suggestion made by a participant or speaker to revisit or reassess a particular topic, paper, or presentation. This could involve asking for feedback, seeking clarification, or proposing changes to improve the content or understanding of the subject matter being discussed.","Here are the verbalized phrases based on the provided triples:
+
+1. The class ""Document"" is disjoint with the class ""Proposition de relecture.""
+2. The class ""Personne"" is disjoint with the class ""Proposition de relecture.""
+3. The property ""a pour proposition de relecture"" has a range that is defined as ""Proposition de relecture.""
+4. The property ""ajuste la proposition de relecture"" has a range that is defined as ""Proposition de relecture.""
+5. The property ""est ajusté par"" has a domain that is defined as ""Proposition de relecture.""
+6. The class ""Proposition de relecture"" is disjoint with the classes ""Comité de programme,"" ""Conférence,"" ""Décision,"" and ""Préférence."""
+http://cmt_fr#c-5886865-8763032,Source,Class,utilisateur,"In the context of a conference, ""utilisateur"" is a French term that translates to ""user"" in English. It typically refers to an individual or entity that utilizes a product, service, or system being discussed at the conference. This could involve participants who are engaging with technology, software, or any other resources presented during the event. Understanding the needs and experiences of ""utilisateurs"" is often a key focus in discussions about user experience, product development, and service delivery at such conferences.","1. The class ""Administrateur"" is a subclass of the class ""Utilisateur.""
+2. The class ""Auteur"" is a subclass of the class ""Utilisateur.""
+3. The class ""Relecteur"" is a subclass of the class ""Utilisateur.""
+4. The class ""Utilisateur"" is a subclass of the class ""Personne."""
+http://cmt_fr#c-5982584-2694829,Source,Class,th matique,"In the context of a conference, ""thématique"" refers to the central theme or subject matter that the event focuses on. It encompasses the main topics, issues, or ideas that will be discussed, explored, or presented during the conference. The thématique helps to guide the agenda, attract relevant speakers and participants, and ensure that the discussions are cohesive and aligned with the interests of the attendees.","The phrase can be verbalized as: ""The theme is categorized as a 'Thématique'."""
+http://cmt_fr#c-6282668-8946550,Source,Class,rapport d examen,"In the context of a conference, ""Rapport d'examen"" refers to a review report or examination report. It typically summarizes the findings, evaluations, and recommendations based on the discussions, presentations, or research presented during the conference. This report may be used to assess the quality of the work presented, provide feedback to the participants, and guide future actions or improvements in the relevant field.","Here are the verbalized phrases based on the provided triples:
+
+1. ""Méta-rapport d'examen"" is a subclass of ""Rapport d'examen.""
+2. ""Rapport d'examen"" is the domain of the property ""est écrit par.""
+3. The property ""finalise le processus de relecture"" has a range of ""Rapport d'examen.""
+4. The property ""écrit le rapport d'examen"" has a range of ""Rapport d'examen.""
+5. ""Rapport d'examen"" is a subclass of ""Document"" and is disjoint with ""Article."""
+http://cmt_fr#c-6425593-9645104,Source,Class,membre de comit de programme,"In the context of a conference, ""Membre de comité de programme"" translates to ""Member of the Program Committee."" This refers to an individual who is part of a group responsible for planning and organizing the conference's agenda, including selecting topics, reviewing submitted papers or presentations, and ensuring the overall quality and relevance of the program. Members of the program committee typically have expertise in the conference's subject area and play a crucial role in shaping the event's content.","Here are the verbalized phrases based on the provided triples:
+
+1. ""Le Président de comité de programme est une sous-classe de Membre de comité de programme.""
+   
+2. ""L'expression 'a pour membre du comité de programme' a pour portée Membre de comité de programme.""
+
+3. ""L'expression 'ajoute membre du comité de programme' a pour portée Membre de comité de programme.""
+
+4. ""L'expression 'définit le nombre maximum d'articles de' a pour portée Membre de comité de programme.""
+
+5. ""L'expression 'est ajouté par' a pour domaine Membre de comité de programme.""
+
+6. ""L'expression 'nombre maximum d'articles' a pour domaine Membre de comité de programme.""
+
+7. ""Membre de comité de programme a pour domaine Membre de comité de programme, est une sous-classe de Membre de conférence et Personne, et est disjoint avec Auteur qui n'est pas relecteur."""
+http://cmt_fr#c-6515186-6166981,Source,Class,co auteur,"In the context of a conference, ""co-auteur"" refers to a co-author, which is an individual who collaborates with one or more authors in the creation of a paper, presentation, or research project. Co-auteurs share responsibility for the content and findings presented, and their contributions are typically acknowledged in the conference proceedings or publications. This collaboration can enhance the quality of the work by bringing together diverse expertise and perspectives.","Here are the verbalized phrases based on the provided RDF triples:
+
+1. ""A co-author is defined as someone who collaborates on a work.""
+2. ""A co-author is responsible for co-writing the article.""
+3. ""A co-author is a subclass of an author."""
+http://cmt_fr#c-6624877-8973875,Source,Class,article,"In the context of a conference, an ""article"" typically refers to a written work that presents research findings, theoretical discussions, or reviews on a specific topic. Articles are often submitted by researchers or scholars for presentation at the conference and may be published in conference proceedings. They serve to share knowledge, stimulate discussion, and contribute to the academic discourse within the conference's field of study.","Here are the verbalized phrases based on the provided triples:
+
+1. ""Rapport d'examen"" is disjoint with ""Article.""
+2. ""Résumé d'article"" is a subclass of ""Article.""
+3. ""Version complète d'article"" is a subclass of ""Article.""
+4. An ""Article"" has an author.
+5. An ""Article"" has a co-author.
+6. An ""Article"" has a decision.
+7. An ""Article"" has a proposal for review.
+8. An ""Article"" has a theme.
+9. An ""Article"" has been associated with something.
+10. An ""Article"" accepts the article.
+11. An ""Article"" co-writes the article.
+12. An ""Article"" is accepted by someone.
+13. An ""Article"" is assigned to someone.
+14. An ""Article"" is read by the meta-reviewer.
+15. An ""Article"" is read by the reviewer.
+16. An ""Article"" is rejected by someone.
+17. An ""Article"" has an identifier.
+18. Someone reads the article.
+19. Someone rejects the article.
+20. Someone signals a conflict of interest for the article.
+21. Someone submits the article.
+22. An ""Article"" has a title.
+23. Someone writes the article.
+24. An ""Article"" is a subclass of ""Document.""The subgraph describes a set of restrictions related to the class ""Article"" in a structured ontology. 
+
+1. There are three restrictions defined for the class ""Article"":
+   - The first restriction specifies that an ""Article"" must have at least one property that is read by a reviewer (indicated by the property ""est lu par le relecteur""). This restriction is defined with a minimum cardinality of 1.
+   - The second restriction indicates that an ""Article"" can have a property that states ""a pour décision"" (which translates to ""has a decision""). This property can be present zero or more times, as indicated by a minimum cardinality of 0.
+   - The third restriction also allows for the property ""a pour décision"" but is defined separately, allowing for a maximum of one occurrence of this property.
+
+2. Additionally, there is a restriction that specifies that an ""Article"" can be read by a meta-reviewer (indicated by the property ""est lu par le méta-relecteur""), with a maximum of one occurrence of this property.
+
+In summary, the ""Article"" class is subject to multiple restrictions regarding its properties, including requirements for review and decision-making, with specific cardinality constraints on how many times these properties can occur."
+http://cmt_fr#c-6784528-8405992,Source,Class,d cision,"In the context of a conference, ""décision"" refers to the process of making a choice or reaching a conclusion regarding a particular issue or topic discussed during the event. It often involves evaluating options, considering input from participants, and ultimately determining a course of action or policy that will guide future steps or initiatives related to the conference's objectives.","Here are the verbalized phrases based on the provided triples:
+
+1. ""Acceptation"" is a subclass of ""Décision.""
+2. ""Document"" is disjoint with ""Décision.""
+3. ""Personne"" is disjoint with ""Décision.""
+4. ""Proposition de relecture"" is disjoint with ""Décision.""
+5. ""Rejet"" is a subclass of ""Décision.""
+6. The property ""a pour décision"" has a range of ""Décision.""
+7. ""Décision"" is disjoint with ""Comité de programme,"" ""Conférence,"" and ""Préférence."""
+http://cmt_fr#c-7635033-5406957,Source,Class,conf rence,"In the context of ""conference,"" the term ""conférence"" refers to a formal meeting or gathering where individuals come together to discuss specific topics, share information, and collaborate. It often involves presentations, discussions, and networking opportunities among participants who may be experts or stakeholders in a particular field.","Here are the verbalized phrases based on the provided triples:
+
+1. The ""Document"" is disjoint with ""Conférence.""
+2. The ""Décision"" is disjoint with ""Conférence.""
+3. The range of ""Membre de conférence"" is ""Conférence.""
+4. The ""Personne"" is disjoint with ""Conférence.""
+5. The ""Proposition de relecture"" is disjoint with ""Conférence.""
+6. The ""URL du logo"" has a domain of ""Conférence.""
+7. The ""URL du site"" has a domain of ""Conférence.""
+8. The property ""a pour membre de conférence"" has a domain of ""Conférence.""
+9. The property ""accepte les soumissions d'articles au format papier"" has a domain of ""Conférence.""
+10. The property ""date"" has a domain of ""Conférence.""
+11. The property ""exécute les outils d'attribution d'articles de"" has a range of ""Conférence.""
+12. The property ""finalise l'attribution d'articles"" has a range of ""Conférence.""
+13. The property ""imprime les courriers de la manifestation"" has a range of ""Conférence.""
+14. The property ""initialise l'attribution de propositions aux relecteurs de"" has a range of ""Conférence.""
+15. The property ""l'attribution de propositions aux relecteurs est initialisée par"" has a domain of ""Conférence.""
+16. The property ""l'attribution des articles finalisée par"" has a domain of ""Conférence.""
+17. The property ""la réunion virtuelle activée par"" has a domain of ""Conférence.""
+18. The property ""les critères d'évaluation sont remplis par"" has a domain of ""Conférence.""
+19. The property ""les détails sont saisis par"" has a domain of ""Conférence.""
+20. The property ""les exemplaires papier des courriers de la manifestation imprimés par"" has a domain of ""Conférence.""
+21. The property ""les outils d'attribution d'articles sont exécutés par"" has a domain of ""Conférence.""
+22. The property ""met en place la réunion virtuelle"" has a range of ""Conférence.""
+23. The property ""nombre de rapports d'examen par article"" has a domain of ""Conférence.""
+24. The property ""saisit les critères d'évaluation de"" has a range of ""Conférence.""
+25. The property ""saisit les détails de la conférence"" has a range of ""Conférence.""
+26. The ""Conférence"" is disjoint with ""Comité de programme.""
+27. The ""Conférence"" is disjoint with ""Préférence.""The subgraph describes a set of relationships and restrictions related to the concept of a ""Conférence"" (Conference). 
+
+1. **Type and Subclass Relationships**:
+   - A ""Conférence"" is classified as a type of ""Restriction.""
+   - Additionally, ""Conférence"" is a subclass of another restriction that is defined by a specific property.
+
+2. **Properties and Restrictions**:
+   - There are restrictions on the properties associated with ""Conférence."" 
+   - Specifically, there is a restriction on the property ""nom"" (name), which must have a cardinality of 1, meaning each conference must have exactly one name.
+   - There is also a restriction on the property ""date,"" indicating that each conference must have exactly one date.
+   - Furthermore, there is a restriction related to the property ""nombre de rapports d'examen par article"" (number of review reports per article), which also has a cardinality of 1, meaning each conference must have exactly one value for this property.
+
+3. **Class Definitions**:
+   - The class associated with the property ""nom"" is defined, and it is linked to the ""Conférence"" class.
+   - The subgraph also indicates that the property ""nom"" is part of a union of classes, which includes ""Personne"" (Person) as the first element and ""Conférence"" as the next.
+
+4. **Cardinality Constraints**:
+   - The cardinality constraints ensure that each conference is uniquely identified by its name, date, and the number of review reports per article, enforcing a strict structure for the data related to conferences.
+
+In summary, the subgraph outlines the structure and constraints governing the ""Conférence"" class, emphasizing the importance of specific properties and their cardinality in defining what constitutes a conference."
+http://cmt_fr#c-7886248-9730062,Source,Class,r sum d article,"In the context of a conference, ""Résumé d'article"" refers to a summary or abstract of an article or paper that is being presented. It typically provides a concise overview of the main points, findings, and significance of the research or topic discussed in the article. This summary is often used to give attendees a quick understanding of the content and relevance of the work being presented, helping them decide which sessions to attend or which papers to read in more detail.","The phrase can be verbalized as: ""The class 'Résumé d'article' is a subclass of the class 'Article'."""
+http://cmt_fr#c-8504144-9632689,Source,Class,comit de programme,"In the context of a conference, ""Comité de programme"" refers to the program committee, which is a group of experts responsible for overseeing the content and organization of the conference program. This committee typically reviews submitted papers, selects speakers, and ensures that the sessions align with the conference's themes and objectives. Their role is crucial in maintaining the quality and relevance of the conference presentations and discussions.","1. ""Conférence"" is disjoint with ""Comité de programme.""
+2. ""Document"" is disjoint with ""Comité de programme.""
+3. ""Décision"" is disjoint with ""Comité de programme.""
+4. ""Membre de comité de programme"" has a range of ""Comité de programme.""
+5. ""Personne"" is disjoint with ""Comité de programme.""
+6. ""Proposition de relecture"" is disjoint with ""Comité de programme.""
+7. ""Comité de programme"" has a domain of ""a pour membre du comité de programme.""
+8. ""Comité de programme"" is disjoint with ""Préférence."""
+http://cmt_fr#c-9058566-4923189,Source,Class,pr f rence,"In the context of a conference, ""préférence"" typically refers to a preference or choice regarding certain topics, sessions, or speakers that attendees may have. It can also relate to the selection of specific workshops or breakout sessions that participants favor based on their interests or professional needs. Understanding attendees' préférences can help organizers tailor the conference experience to better meet the audience's expectations and enhance engagement.","The following phrases can be derived from the provided triples:
+
+1. The ""Comité de programme"" is disjoint with ""Préférence.""
+2. The ""Conférence"" is disjoint with ""Préférence.""
+3. The ""Document"" is disjoint with ""Préférence.""
+4. The ""Décision"" is disjoint with ""Préférence.""
+5. The ""Personne"" is disjoint with ""Préférence.""
+6. The ""Proposition de relecture"" is disjoint with ""Préférence."""
+http://cmt_fr#c-9412558-6009078,Source,Class,auteur qui n est pas relecteur,"In the context of a conference, the phrase ""Auteur qui n'est pas relecteur"" translates to ""Author who is not a reviewer."" This typically refers to a situation where an author of a paper or work is not involved in the peer review process of their own submission. This distinction is important in academic and professional settings, as it emphasizes the objectivity and integrity of the review process, ensuring that the work is evaluated by independent experts rather than the authors themselves. This separation helps maintain the quality and credibility of scholarly communication.","Here are the verbalized phrases based on the provided triples:
+
+1. ""Membre de comité de programme"" is disjoint with ""Auteur qui n'est pas relecteur.""
+2. ""Relecteur"" is disjoint with ""Auteur qui n'est pas relecteur.""
+3. ""Auteur qui n'est pas relecteur"" is a subclass of ""Auteur."""
+http://cmt_fr#ent-4724406-3539421,Source,Property,titer,"In the context of a conference, ""titre"" typically refers to the concentration or amount of a substance in a solution, often used in scientific discussions, particularly in fields like chemistry or biology. It can indicate the strength of a solution or the level of a specific component, such as an antibody or antigen, in a sample. Presentations or discussions at the conference may involve the determination of titres in various experiments or studies, highlighting their significance in research findings or applications.","The property ""titre"" is associated with the domain ""Article"" and has a range of ""string""."
+http://cmt_fr#ent-4761498-2044262,Source,Property,nombre de rapports d examen par article,"In the context of a conference, ""nombre de rapports d'examen par article"" translates to ""number of review reports per article."" This typically refers to the number of peer review reports that each submitted article receives during the review process. It is an important metric in academic conferences as it indicates the thoroughness of the review process and can impact the quality and credibility of the published research.","The phrase can be verbalized as: ""The number of examination reports per article is associated with the domain of Conference and has a range of integer values.""The subgraph describes a restriction related to the concept of ""Conférence."" Specifically, it indicates that ""Conférence"" is a subclass of a restriction type. This restriction specifies that there is a cardinality of 1, meaning that there can only be one instance of a certain property. The property in question is ""nombre de rapports d'examen par article,"" which translates to ""number of review reports per article."" In summary, this structure establishes that each conference must have exactly one associated value for the number of review reports per article."
+http://cmt_fr#ent-5571423-1892362,Source,Property,url du site,"In the context of a conference, ""URL du site"" translates to ""URL of the site"" in English. It refers to the web address where information about the conference can be found, such as details on registration, schedules, speakers, and other relevant content. Participants or interested individuals would use this URL to access the conference's official website for updates and resources.","The phrase can be verbalized as follows:
+
+""The domain of 'URL du site' is 'Conférence', and its range is 'anyURI'."""
+http://cmt_fr#ent-6474161-2405628,Source,Property,nom,"In the context of a conference, ""nom"" could refer to ""nomination,"" which is the process of formally proposing someone for a position, award, or recognition during the event. It may also be shorthand for ""nominee,"" indicating a person who has been nominated. Additionally, in a more informal context, ""nom"" can be a playful expression related to food, often used to convey enjoyment (as in ""nom nom nom""), but this usage is less likely to be relevant in a formal conference setting.","The property ""nom"" has a range of type ""string.""The subgraph describes a conceptual structure related to a ""Conférence"" (Conference). 
+
+1. **Class Definition**: ""Conférence"" is defined as a subclass of a certain entity, represented by a blank node (denoted as _:N330ae3dd7f8b49a9bb28f5cbaca5ee6f). This indicates that ""Conférence"" inherits properties from this parent class.
+
+2. **Cardinality Restriction**: The blank node associated with ""Conférence"" has a cardinality restriction of 1, meaning that there can be exactly one instance of this class related to the property defined.
+
+3. **Property Definition**: The blank node is also defined as a restriction on the property ""nom"" (name), indicating that this property must be present and is subject to the cardinality rule.
+
+4. **Union of Classes**: There is a union of classes represented by another blank node (denoted as _:N34e601740bc74f54a61ceaf6076bb268), which includes at least one class, ""Personne"" (Person). This union is defined to include multiple classes, with ""Personne"" being the first in the list.
+
+5. **Class Structure**: The blank node representing the union is classified as a class itself, indicating that it serves as a category for the entities it encompasses.
+
+6. **List Structure**: The union of classes is structured as a list, where ""Personne"" is the first element, and it is followed by a ""nil"" indicating the end of the list.
+
+In summary, the subgraph outlines a structure where ""Conférence"" is a specific type of entity that must have a name and is related to a class of entities that includes ""Personne."" The cardinality restriction ensures that each ""Conférence"" has exactly one name associated with it."
+http://cmt_fr#ent-6818761-0126481,Source,Property,accepte les soumissions d articles au format papier,"The phrase ""accepte les soumissions d'articles au format papier"" translates to ""accepts submissions of articles in paper format."" In the context of a conference, this means that the organizers are inviting participants to submit their research papers or articles in a physical, printed format, rather than electronically or digitally. This could imply that the conference may have specific requirements for how the papers should be formatted and presented in their physical form.","The phrase can be verbalized as: ""The conference accepts paper submissions."""
+http://cmt_fr#ent-7278298-5023089,Source,Property,nombre maximum d articles,"In the context of a conference, ""nombre maximum d'articles"" translates to ""maximum number of articles."" This typically refers to the limit set on the number of articles or papers that a participant can submit for presentation or publication at the conference. It is a guideline to ensure that the conference remains manageable and that all submissions can be adequately reviewed and presented.","The phrase can be verbalized as follows:
+
+""The maximum number of articles is defined for a program committee member and is represented as an integer."""
+http://cmt_fr#ent-7490112-7877912,Source,Property,date,"In the context of a conference, the term ""date"" typically refers to the specific day or days on which the conference is scheduled to take place. It is important for attendees to know the date to plan their travel, accommodations, and participation in the event.","The phrase can be verbalized as follows:
+
+""The property 'date' is associated with the domain 'Conférence' and has a range of 'date'.""The subgraph describes a restriction related to the class ""Conférence."" Specifically, it indicates that ""Conférence"" is a subclass of a restriction that has the following characteristics: it is defined as a type of ""Restriction,"" it applies to the property ""date,"" and it enforces a minimum cardinality of 1. This means that any instance of ""Conférence"" must have at least one associated date."
+http://cmt_fr#ent-8219716-4961949,Source,Property,url du logo,"In the context of a conference, ""URL du logo"" refers to the web address (Uniform Resource Locator) where the logo of the conference can be found or accessed online. This URL is typically used for promotional materials, websites, or digital presentations related to the conference, allowing attendees and participants to easily locate and use the official logo for branding or informational purposes.","The phrase can be verbalized as: ""The logo URL is associated with the domain of the conference and has a range of any URI."""
+http://cmt_fr#ent-8959215-2725585,Source,Property,courriel,"In the context of a conference, ""courriel"" is the French term for ""email."" It refers to electronic mail, which is often used for communication regarding conference details, such as registration, schedules, and updates.","The term ""courriel"" is associated with the domain of ""Personne"" and has a range of ""string."""
+http://cmt_fr#ent-9275526-7398528,Source,Property,identifiant de l article,"In the context of a conference, ""identifiant de l'article"" translates to ""article identifier."" This typically refers to a unique code or number assigned to a specific article or paper presented at the conference. This identifier helps in cataloging, referencing, and retrieving the article within conference proceedings or databases, ensuring that attendees and researchers can easily find and cite the work.","The phrase can be verbalized as follows:
+
+""The identifier of the article is associated with the domain of 'Article' and has a range of 'unsignedLong'."""
+http://cmt_fr#op-0678707-8568652,Source,Property,l attribution des articles finalis e par,"In the context of a conference, ""l'attribution des articles finalisée par"" refers to the process of finalizing the assignment or allocation of articles, papers, or presentations that will be featured or discussed during the event. This could involve determining which submissions will be accepted, who will present them, and how they will be organized within the conference schedule. Essentially, it signifies the completion of the selection process for the conference content.","The phrase can be verbalized as: ""The assignment of articles is finalized by the Administrator in the context of the Conference."""
+http://cmt_fr#op-1277237-7526917,Source,Property,a pour co auteur,"In the context of a conference, ""pour co-auteur"" translates from French to ""for co-author."" It typically refers to a section or acknowledgment in conference materials, such as a paper, presentation, or program, where the contributions of co-authors are recognized. This could involve highlighting the roles of individuals who collaborated on research or a project being presented at the conference. It emphasizes the importance of teamwork and shared contributions in academic and professional settings.","The phrase can be verbalized as: ""An article has a co-author."""
+http://cmt_fr#op-1834043-2526986,Source,Property,crit l article,"In the context of a conference, ""écrit l'article"" translates from French to ""write the article."" It likely refers to the task of drafting or composing an article, possibly related to the conference's themes, findings, or discussions. This could involve summarizing presentations, sharing research results, or documenting the proceedings of the conference for publication or dissemination.","The phrase can be verbalized as: ""An author writes an article."""
+http://cmt_fr#op-1952954-9976197,Source,Property,ajoute membre du comit de programme,"In the context of a conference, ""ajoute membre du comité de programme"" translates to ""add member of the program committee."" This typically refers to the action of including an individual in the group responsible for planning and organizing the conference's agenda, which may involve selecting speakers, reviewing submissions, and ensuring the overall quality of the program.","The phrase can be verbalized as follows:
+
+""An administrator adds a member to the program committee."""
+http://cmt_fr#op-1977308-1366465,Source,Property,est ajout par,"In the context of a conference, ""est ajouté par"" translates to ""is added by"" in English. This phrase could refer to a speaker, topic, or item that is included or contributed to the conference agenda or program by a specific individual or organization. For example, it might indicate that a particular session or presentation has been included in the schedule by a certain presenter or committee.","The phrase can be verbalized as: ""A program committee member is added by an administrator."""
+http://cmt_fr#op-2275862-2556166,Source,Property,accepte l article,"In the context of a conference, ""accepte l'article"" translates to ""accept the article."" This typically refers to the process of a conference committee or reviewers agreeing to include a submitted paper or article in the conference program or proceedings. Acceptance usually indicates that the article has met the necessary criteria for quality, relevance, and contribution to the field being discussed at the conference.","The phrase can be verbalized as: ""An Administrator accepts the article."""
+http://cmt_fr#op-2391526-8438986,Source,Property,les exemplaires papier des courriers de la manifestation imprim s par,"The phrase ""les exemplaires papier des courriers de la manifestation imprimés par"" translates to ""the paper copies of the letters regarding the event printed by."" In the context of a conference, this likely refers to the physical documents or correspondence related to the event that have been printed out. These could include invitations, schedules, or informational materials that are distributed to participants or attendees of the conference. The phrase suggests that there is a specific entity or organization responsible for printing these documents.",The paper copies of the letters from the event are printed by the Administrator in the context of the Conference.
+http://cmt_fr#op-2414470-7819093,Source,Property,ex cute les outils d attribution d articles de,"The phrase ""exécute les outils d'attribution d'articles de"" translates to ""executes the article attribution tools of"" in English. In the context of a conference, this likely refers to the implementation or use of tools or systems designed to assign or attribute articles, possibly for purposes such as organizing presentations, managing submissions, or facilitating discussions related to specific topics or research areas. It suggests a focus on the processes involved in categorizing or linking articles to their respective authors, topics, or sessions during the conference.",L'administrateur exécute les outils d'attribution d'articles de la conférence.
+http://cmt_fr#op-2463475-1302676,Source,Property,finalise l attribution d articles,"In the context of a conference, ""finalise l'attribution d'articles"" refers to the process of completing the assignment or allocation of articles, which could include research papers, presentations, or other written materials that will be presented or discussed during the event. This may involve confirming which articles will be included in the conference program, assigning them to specific sessions, or designating speakers or presenters for each article. Essentially, it is about finalizing the details regarding which content will be featured and how it will be organized within the conference framework.","The phrase can be verbalized as: ""The administrator finalizes the allocation of articles for the conference."""
+http://cmt_fr#op-2528682-2433166,Source,Property,est affect par l administrateur,"The phrase ""est affecté par l'administrateur"" translates to ""is affected by the administrator"" in English. In the context of a conference, this could refer to how decisions or actions taken by the conference administrator impact the event, its organization, or the participants. It may involve aspects such as scheduling, resource allocation, or communication, indicating that the administrator's role is crucial in shaping the overall experience and outcomes of the conference.","The phrase can be verbalized as: ""A Relecteur is affected by an Administrateur."""
+http://cmt_fr#op-2675499-5395227,Source,Property,d finit le nombre maximum d articles de,"In the context of a conference, ""définit le nombre maximum d'articles de"" translates to ""defines the maximum number of articles of."" This phrase likely refers to a guideline or rule that specifies how many articles or papers can be submitted, presented, or included in the conference proceedings. It sets a limit to ensure that the conference remains manageable and that all submissions can be adequately reviewed and presented.","The phrase can be verbalized as follows:
+
+""The term 'définit le nombre maximum d'articles de' is associated with the domain 'Administrateur' and the range 'Membre de comité de programme'."""
+http://cmt_fr#op-3329102-5307912,Source,Property,est rejet par,"In the context of a conference, ""est rejeté par"" translates to ""is rejected by"" in English. This phrase could refer to a proposal, paper, or idea that has been dismissed or not accepted by a committee, audience, or panel during the conference proceedings. It indicates that the subject in question did not meet the necessary criteria or standards for approval or acceptance.","The phrase can be verbalized as: ""An Article is rejected by an Administrator."""
+http://cmt_fr#op-3330571-4568520,Source,Property,membre de conf rence,"In the context of a conference, ""Membre de conférence"" is a French term that translates to ""Member of the conference"" in English. It typically refers to an individual who is a participant or a member of a conference, often involved in discussions, presentations, or collaborative activities. This designation can apply to speakers, panelists, or attendees who contribute to the conference's objectives and discussions.","The phrase can be verbalized as: ""A 'Membre de conférence' is associated with a 'Conférence'."""
+http://cmt_fr#op-3407046-2338151,Source,Property,est crit par,"In the context of a conference, ""est écrit par"" is French for ""is written by."" It typically refers to the authorship of a document, paper, or presentation being discussed or presented at the conference. For example, if a conference program states that a particular paper ""est écrit par"" a specific author, it indicates that the author is the one who wrote that paper.","The phrase can be verbalized as: ""The review report is written by the reviewer."""
+http://cmt_fr#op-3503714-3089656,Source,Property,a t associ,"In the context of a conference, ""a été associé à"" translates to ""has been associated with"" in English. This phrase typically indicates a connection or relationship between a person, organization, or concept and the conference. For example, it might refer to a speaker who has been linked to the event, a topic that is relevant to the conference theme, or a partnership with a sponsoring organization.","The phrase can be verbalized as: ""A relecteur a été associé à un article."" 
+
+This translates to ""A reviewer has been associated with an article."""
+http://cmt_fr#op-3676239-0431045,Source,Property,soumet l article,"In the context of a conference, ""soumet l'article"" translates to ""submit the article"" in English. This typically refers to the process of submitting a research paper or article for consideration, review, or presentation at the conference. It is a common step for authors who wish to share their findings or contributions with the academic community during the event.","The phrase can be verbalized as: ""An author submits an article."""
+http://cmt_fr#op-3693648-9226478,Source,Property,membre de comit de programme,"In the context of a conference, ""Membre de comité de programme"" translates to ""Member of the Program Committee."" This refers to an individual who is part of a group responsible for planning and organizing the conference's agenda, including selecting topics, reviewing submitted papers or presentations, and ensuring the overall quality and relevance of the program. Members of the program committee typically have expertise in the conference's subject area and play a crucial role in shaping the event's content.","The phrase can be verbalized as follows:
+
+""A member of a program committee is associated with a program committee."""
+http://cmt_fr#op-3723632-9161948,Source,Property,a pour membre de conf rence,"In the context of a conference, ""pour membre de conférence"" translates from French to ""for conference members."" This phrase typically refers to materials, information, or activities that are specifically intended for individuals who are participating in the conference. It may include access to exclusive sessions, resources, or networking opportunities designed for attendees.","The phrase can be verbalized as: ""A conference has a member of the conference."""
+http://cmt_fr#op-3731016-4868439,Source,Property,a un conflit d int r t propos de,"In the context of a conference, ""un conflit d'intérêt à propos de"" refers to a situation where an individual's personal interests, relationships, or financial stakes may compromise their impartiality or objectivity regarding a specific topic or decision being discussed. This could involve speakers, panelists, or participants who may have biases due to their affiliations, sponsorships, or personal investments that could influence their contributions or the outcomes of discussions at the conference. It is important to disclose any such conflicts to maintain transparency and integrity in the proceedings.","The phrase can be verbalized as: ""A person has a conflict of interest regarding a document."""
+http://cmt_fr#op-3821472-6823797,Source,Property,est lu par le relecteur,"In the context of a conference, ""est lu par le relecteur"" translates from French to ""is read by the reviewer."" This phrase likely refers to a process where a paper, presentation, or document is reviewed and evaluated by a designated individual (the reviewer) to ensure its quality, accuracy, and relevance before it is presented or published. This step is crucial in academic and professional settings to maintain standards and provide constructive feedback.","The phrase can be verbalized as: ""An article is read by a reviewer.""The subgraph describes a restriction related to an article. Specifically, it indicates that there is a restriction defined as ""est lu par le relecteur"" (translated as ""is read by the reviewer""). This restriction is classified as a type of ""Restriction."" Furthermore, it specifies that the class ""Article"" is a subclass of this restriction, meaning that any instance of an article must adhere to the defined restriction. Additionally, the restriction enforces a minimum cardinality of 1, indicating that at least one instance of the property ""est lu par le relecteur"" must be present for an article."
+http://cmt_fr#op-4133318-3983517,Source,Property,est affect par le relecteur,"In the context of a conference, the phrase ""est affecté par le relecteur"" translates to ""is affected by the reviewer."" This likely refers to how the feedback or evaluation provided by a reviewer influences the work being presented, such as a paper or project. The reviewer's comments can impact the final outcome, revisions, or the overall perception of the work during the conference.","The phrase can be verbalized as follows:
+
+""The external reviewer is affected by the reviewer.""The subgraph describes a concept called ""Relecteur externe,"" which is classified as a type of restriction. This restriction specifies that there is a property called ""est affecté par le relecteur"" (is affected by the relecteur) that must be associated with it. Furthermore, the restriction enforces a cardinality of 1, meaning that each instance of ""Relecteur externe"" must be associated with exactly one instance of the property ""est affecté par le relecteur."""
+http://cmt_fr#op-4158971-7855975,Source,Property,la r union virtuelle activ e par,"In the context of a conference, ""la réunion virtuelle activée par"" translates to ""the virtual meeting activated by."" This phrase typically refers to a virtual meeting or conference that has been initiated or set up by a specific person, organization, or platform. It indicates that the meeting is being conducted online, allowing participants to join remotely, often through video conferencing tools or software.","The phrase can be verbalized as: ""The virtual meeting activated by the Administrator is associated with the Conference."""
+http://cmt_fr#op-4436097-6709983,Source,Property,a pour d cision,"In the context of a conference, ""pour décision"" is a French phrase that translates to ""for decision"" in English. It typically refers to items or topics that are presented to a group for consideration and a formal decision-making process. This could involve voting, discussion, or consensus-building among participants regarding specific issues, proposals, or actions that need to be taken.","The phrase can be verbalized as: ""An Article has a decision.""The subgraph describes a relationship between two restrictions related to the concept of ""Article."" 
+
+1. There are two restrictions, identified by unique identifiers (N8478769dc2b841468c7d47423dd0bc52 and N5d065b83fcc843039f1c744e9459940f), both of which are associated with the property ""a pour décision"" (which translates to ""has a decision"" in English).
+
+2. The first restriction (N8478769dc2b841468c7d47423dd0bc52) specifies that the minimum cardinality is 0, indicating that it is optional for an article to have a decision.
+
+3. The second restriction (N5d065b83fcc843039f1c744e9459940f) specifies a maximum cardinality of 1, meaning that an article can have at most one decision.
+
+4. Both restrictions are defined as subclasses of the class ""Article,"" indicating that they are specific types of articles that adhere to these cardinality constraints.
+
+In summary, the subgraph outlines that an ""Article"" can optionally have a decision, but if it does, it can only have one decision associated with it."
+http://cmt_fr#op-4660494-3439234,Source,Property,ajuste la proposition de relecture,"In the context of a conference, ""ajuste la proposition de relecture"" translates to ""adjust the proofreading proposal."" This likely refers to the process of revising or refining a document, presentation, or paper that is to be reviewed or presented at the conference. It suggests that there may be a need to make changes to ensure clarity, accuracy, or adherence to specific guidelines before the final submission or presentation.","The phrase can be verbalized as follows:
+
+""The action of adjusting the review proposal is associated with the role of a reviewer and pertains to the review proposal itself."""
+http://cmt_fr#op-4935244-2451760,Source,Property,crit le rapport d examen,"In the context of a conference, ""écrit le rapport d'examen"" translates to ""write the examination report."" This phrase likely refers to the task of documenting the findings, discussions, and conclusions from an examination or review process that took place during the conference. The report would typically summarize key points, evaluations, and recommendations based on the examination conducted.","The phrase can be verbalized as: ""The reviewer writes the examination report."""
+http://cmt_fr#op-5315618-7011868,Source,Property,a pour th matique,"In the context of a conference, ""pour thématique"" translates to ""for thematic"" in English. It typically refers to a specific theme or topic that the conference is centered around. This could involve discussions, presentations, and workshops that are all related to that particular theme. The phrase suggests that the content and activities of the conference are organized to align with this central theme, guiding the focus of the event and the contributions of the speakers and participants.","The phrase can be verbalized as: ""An article has a theme."""
+http://cmt_fr#op-5379083-2635350,Source,Property,initialise l attribution de propositions aux relecteurs de,"In the context of a conference, ""initialise l'attribution de propositions aux relecteurs de"" translates to ""initialize the assignment of proposals to reviewers."" This phrase refers to the process of assigning submitted proposals or papers to reviewers who will evaluate them for quality, relevance, and suitability for the conference. This step is crucial in the conference organization process, as it ensures that each submission is reviewed by qualified individuals who can provide constructive feedback and make informed decisions about acceptance or rejection.","The phrase can be verbalized as follows:
+
+""The action of initializing the assignment of proposals to reviewers is associated with the domain of 'Administrator' and pertains to the range of 'Conference'."""
+http://cmt_fr#op-5536003-6834447,Source,Property,saisit les crit res d valuation de,"In the context of a conference, ""saisit les critères d'évaluation de"" translates to ""grasp the evaluation criteria of."" This phrase suggests that participants or speakers at the conference are expected to understand and engage with the specific standards or benchmarks that will be used to assess presentations, discussions, or research contributions. It emphasizes the importance of being aware of what will be evaluated, which can include aspects like clarity, relevance, originality, and impact of the content presented.","The phrase can be verbalized as: ""The Administrator defines the evaluation criteria for the Conference."""
+http://cmt_fr#op-5763161-7747081,Source,Property,affecte le r le de relecteur externe,"In the context of a conference, the phrase ""affecte le rôle de relecteur externe à"" translates to ""assigns the role of external reviewer to."" This typically refers to the process of designating an individual or a group of individuals who will evaluate and provide feedback on submitted papers, presentations, or research proposals from an outside perspective. The external reviewer is expected to assess the quality, relevance, and originality of the work, contributing to the overall integrity and academic rigor of the conference proceedings.","The phrase can be verbalized as: ""The role of an external reviewer affects the role of a reviewer."""
+http://cmt_fr#op-6231018-4689091,Source,Property,est lu par le m ta relecteur,"In the context of a conference, ""est lu par le méta-relecteur"" translates to ""is read by the meta-reviewer."" This phrase likely refers to the process in which a meta-reviewer evaluates or reviews a paper, presentation, or submission that has already undergone initial reviews. The meta-reviewer typically assesses the feedback provided by other reviewers, synthesizes their comments, and offers an overarching evaluation of the work, which can influence decisions regarding acceptance or further revisions. This role is crucial in ensuring a fair and comprehensive review process at academic conferences.","The phrase can be verbalized as: ""An article is read by the meta-reviewer.""The subgraph describes a relationship in a knowledge structure where the class ""Article"" is defined as a subclass of a restriction. This restriction specifies that there is a maximum cardinality of 1 for a certain property. Specifically, this property is identified as ""est lu par le méta-relecteur,"" indicating that each instance of the class ""Article"" can be associated with at most one instance of the property ""est lu par le méta-relecteur."""
+http://cmt_fr#op-6499331-0925740,Source,Property,met en place la r union virtuelle,"""Met en place la réunion virtuelle"" translates to ""set up the virtual meeting"" in English. In the context of a conference, it refers to the process of organizing and preparing for an online meeting, which may include scheduling the meeting, sending out invitations, and ensuring that the necessary technology and platforms are ready for participants to join.","The phrase can be verbalized as: ""The Administrator sets up the virtual meeting in the Conference."""
+http://cmt_fr#op-6500113-0482123,Source,Property,imprime les courriers de la manifestation,"In the context of a conference, ""imprime les courriers de la manifestation"" translates to ""print the letters/documents of the event."" This likely refers to the need to print out any official correspondence, materials, or documentation related to the conference or event being organized, such as invitations, schedules, or informational brochures.","The phrase can be verbalized as: ""The Administrator prints the letters for the Conference."""
+http://cmt_fr#op-6616205-9179416,Source,Property,co crit l article,"In the context of a conference, ""co-écrit l'article"" means ""co-authored the article."" It indicates that the individual collaborated with others to write a scholarly article or paper that may be presented or discussed at the conference. This collaboration often involves sharing ideas, research findings, and writing responsibilities among multiple authors.","The phrase can be verbalized as: ""A co-author co-writes an article."""
+http://cmt_fr#op-6665981-5434654,Source,Property,signale un conflit d int r t pour,"In the context of a conference, ""signale un conflit d'intérêt pour"" translates to ""report a conflict of interest for."" This phrase typically refers to the process of disclosing any potential conflicts of interest that a participant, speaker, or organizer may have regarding the topics being discussed or the sponsors involved in the conference. It is important for maintaining transparency and integrity in academic and professional settings, ensuring that all parties are aware of any biases that could influence the information presented or the decisions made during the conference.","The phrase can be verbalized as: ""Indicates a conflict of interest for an Article.""The subgraph describes a relationship involving several entities and their attributes. 
+
+At the center of this description is a conflict of interest signal, which is categorized under a specific domain. This domain is represented by a class entity. The class is associated with two roles: ""Auteur"" (Author) and ""Relecteur"" (Reviewer). 
+
+The ""Auteur"" is linked to a president, who is identified as the first in a sequence, while the ""Relecteur"" is connected to the same president but has no further connections (indicated by 'nil'). 
+
+Additionally, the ""Relecteur"" and the ""Auteur"" are part of a union that includes the conflict of interest signal. This structure suggests a hierarchical relationship where the roles of author and reviewer are defined within the context of a conflict of interest, with the president serving as a key figure in this arrangement."
+http://cmt_fr#op-6987320-6104201,Source,Property,rejette l article,"In the context of a conference, ""rejette l'article"" translates to ""reject the article."" This phrase likely refers to a decision or motion to dismiss or not accept a particular article, which could be a paper, proposal, or document being discussed at the conference. It indicates that the attendees or committee members do not agree with the content or findings presented in that article.","The phrase can be verbalized as: ""The administrator rejects the article."""
+http://cmt_fr#op-6997809-5722146,Source,Property,a pour proposition de relecture,"In the context of a conference, ""pour proposition de relecture"" translates to ""for a proposal for review"" or ""for a proposal for proofreading."" This phrase typically refers to the process of submitting a document, paper, or presentation for feedback, editing, or evaluation by peers or experts before it is finalized or presented. It emphasizes the importance of collaboration and quality assurance in academic or professional settings, ensuring that the content is clear, accurate, and well-prepared for the audience.","The phrase can be verbalized as: ""An article has a proposal for review."""
+http://cmt_fr#op-7150942-3233248,Source,Property,affecte le r le de relecteur,"In the context of a conference, the phrase ""affecte le rôle de relecteur à"" translates to ""assigns the role of reviewer to."" This typically refers to the process of designating individuals to review submitted papers or presentations for the conference, ensuring that they meet the required standards and contribute to the overall quality of the event. The role of a reviewer is crucial in academic and professional conferences, as it helps maintain the integrity and rigor of the content being presented.","The phrase can be verbalized as: ""The role of an administrator affects the role of a relecteur."""
+http://cmt_fr#op-7369513-4372573,Source,Property,saisit les d tails de la conf rence,"The phrase ""saisit les détails de la conférence"" translates to ""captures the details of the conference"" in English. In the context of a conference, it likely refers to the act of recording or noting down important information, discussions, or outcomes that occur during the event. This could involve taking minutes, summarizing key points, or documenting presentations and discussions for future reference.","The phrase can be verbalized as: ""The administrator captures the details of the conference."""
+http://cmt_fr#op-7412441-9911534,Source,Property,les outils d attribution d articles sont ex cut s par,"In the context of a conference, the phrase ""les outils d'attribution d'articles sont exécutés par"" translates to ""the article attribution tools are executed by."" This likely refers to the systems or software used to assign or categorize articles, possibly in relation to research papers, presentations, or publications being discussed at the conference. It suggests that there are specific tools or methodologies in place to manage how articles are attributed to authors or topics, and these tools are operated or implemented by certain individuals or teams at the conference.","The phrase can be verbalized as: ""The article attribution tools are executed by the Administrator in the context of the Conference."""
+http://cmt_fr#op-7648680-2906834,Source,Property,est ajust par,"In the context of a conference, ""est ajusté par"" translates to ""is adjusted by"" in English. This phrase typically refers to a process or mechanism where certain parameters, settings, or conditions are modified or fine-tuned by a specific factor or individual. For example, it could relate to how a presentation schedule is adjusted by feedback from participants or how technical settings are adjusted by the conference organizers to enhance the overall experience.","The phrase can be verbalized as: ""A 'Proposition de relecture' is adjusted by a 'Relecteur'."""
+http://cmt_fr#op-7941198-0671399,Source,Property,a pour membre du comit de programme,"In the context of a conference, ""pour membre du comité de programme"" translates to ""for a member of the program committee."" This refers to an individual who is part of a group responsible for organizing the conference's academic content, which may include reviewing submitted papers, selecting speakers, and determining the overall agenda. Members of the program committee play a crucial role in ensuring the quality and relevance of the conference presentations and discussions.","The phrase can be verbalized as follows:
+
+""A member of the program committee is part of the program committee."""
+http://cmt_fr#op-8026307-8225502,Source,Property,finalise le processus de relecture,"In the context of a conference, ""finalise le processus de relecture"" translates to ""finalize the proofreading process."" This likely refers to the completion of reviewing and editing documents, presentations, or materials that will be used during the conference to ensure they are accurate, clear, and polished before the event takes place.","The phrase can be verbalized as follows:
+
+""The President of the program committee finalizes the review process for the examination report."""
+http://cmt_fr#op-8126222-6511113,Source,Property,est accept par,"In the context of a conference, ""est accepté par"" translates to ""is accepted by"" in English. This phrase typically refers to a proposal, paper, or presentation that has been approved or acknowledged by the conference organizers or committee. It indicates that the submission meets the required standards and criteria set by the conference for inclusion in the program or proceedings.","The phrase can be verbalized as: ""An Article is accepted by an Administrator."""
+http://cmt_fr#op-8128023-0460106,Source,Property,est assign,"In the context of a conference, ""est assigné à"" translates to ""is assigned to"" in English. It typically refers to a specific task, role, or responsibility that has been designated to an individual or group within the framework of the conference. For example, a speaker might be ""assigné à"" a particular session, or a committee might be ""assigné à"" organizing a specific aspect of the event.","The phrase can be verbalized as: ""The property 'est assigné à' has a domain of 'Article' and a range of 'Relecteur'."""
+http://cmt_fr#op-8484350-3429635,Source,Property,a pour auteur,"In the context of a conference, ""pour auteur"" is a French phrase that translates to ""for the author"" in English. It typically refers to a section or segment dedicated to the author of a work, such as a book, paper, or presentation. This could involve discussions about the author's insights, motivations, and the significance of their work, as well as providing a platform for the author to share their thoughts and engage with the audience. It emphasizes the importance of the author's perspective and contributions within the broader context of the conference.","The phrase can be verbalized as: ""An article has an author."""
+http://cmt_fr#op-8918513-2667584,Source,Property,les crit res d valuation sont remplis par,"In the context of a conference, ""les critères d'évaluation sont remplis par"" translates to ""the evaluation criteria are met by."" This phrase typically refers to the standards or benchmarks that need to be satisfied for a presentation, paper, or project to be considered acceptable or successful. It implies that the submitted work has fulfilled the necessary requirements set by the conference organizers or evaluators.",The evaluation criteria are fulfilled by the Administrator in the context of the Conference.
+http://cmt_fr#op-9173847-3955614,Source,Property,l attribution de propositions aux relecteurs est initialis e par,"In the context of a conference, ""l'attribution de propositions aux relecteurs est initialisée par"" translates to ""the assignment of proposals to reviewers is initialized by."" This phrase typically refers to the process by which submitted proposals or papers are assigned to reviewers for evaluation. The initialization could involve various factors such as the expertise of the reviewers, the topics of the proposals, and the overall organization of the review process. This step is crucial for ensuring that each proposal is assessed by someone knowledgeable in the relevant field, thereby maintaining the quality and integrity of the conference proceedings.",The assignment of proposals to reviewers is initiated by a conference and is the responsibility of an administrator.
+http://cmt_fr#op-9232056-7617405,Source,Property,lit l article,"In the context of a conference, ""lit l'article"" translates from French to ""reads the article."" It likely refers to a participant or speaker discussing or referencing a specific article during the conference, possibly to support their arguments or provide background information on a topic being presented.","The phrase can be verbalized as: ""The action of 'lit l'article' is associated with the domain of 'Relecteur' and the range of 'Article'."""
+http://cmt_fr#op-9859591-8891558,Source,Property,les d tails sont saisis par,"In the context of a conference, ""les détails sont saisis par"" translates to ""the details are captured by"" or ""the details are recorded by."" This phrase typically refers to the process of documenting or noting important information, discussions, or outcomes during the conference. It implies that specific individuals or systems are responsible for ensuring that all relevant details are accurately noted for future reference or action.",The details are entered by an administrator in the context of a conference.
+http://cmt_ar#c-0197956-6725851,Target,Class,رئيس اللجنة العلمية,"In the context of a conference, ""رئيس اللجنة العلمية"" translates to ""Chair of the Scientific Committee."" This individual is responsible for overseeing the scientific aspects of the conference, including the review of submitted papers, organizing sessions, and ensuring the quality and relevance of the scientific content presented.","1. ""وقت إنتهاء مراجعة"" هو مجال ""رئيس اللجنة العلمية"".
+2. ""رئيس اللجنة العلمية"" هو نوع من ""عضو في اللجنة العلمية"".The subgraph describes a hierarchical structure of leadership roles within an organization, specifically focusing on three key positions: the ""رئيس المرتبطة"" (Chair of the Association), the ""رئيس المؤتمر"" (Chair of the Conference), and the ""رئيس اللجنة العلمية"" (Chair of the Scientific Committee). 
+
+1. The ""رئيس المرتبطة"" is identified as the first position in a sequence, followed by the ""رئيس المؤتمر"" as the next role in the hierarchy.
+2. The ""رئيس المؤتمر"" is also the first in its own sequence, which indicates that it may have additional roles or responsibilities associated with it.
+3. The ""رئيس اللجنة العلمية"" is the first role in another sequence, suggesting it is a primary position within its context.
+4. The overall structure is classified as a ""Class,"" indicating that these roles are part of a broader category of leadership positions.
+5. The union of these roles is represented in a way that shows they collectively form a comprehensive understanding of the leadership hierarchy within the organization.
+
+In summary, the subgraph outlines a structured representation of leadership roles, emphasizing their interconnections and classifications within an organizational framework."
+http://cmt_ar#c-0471234-6892254,Target,Class,لاشيء,"In the context of a conference, the phrase ""لاشيء"" translates to ""nothing"" in English. It could imply a lack of content, significance, or substance in a particular discussion or presentation. For example, if someone were to say ""لاشيء"" in response to a question about the outcomes of a session, it might suggest that they found the session unproductive or lacking in valuable information.","The phrase can be verbalized as: ""The conference is a subclass of nothing.""The subgraph describes a structured relationship involving the concept of ""البحث"" (research) and its classifications and restrictions related to external reviewers (""المراجع خارجي""). 
+
+1. **Research Classification**: The entity ""البحث"" is classified as a subclass of several restrictions, indicating that it has specific properties and constraints associated with it.
+
+2. **Restrictions**: 
+   - There is a restriction that requires ""البحث"" to be read by at least one external reviewer, as indicated by the property ""قراءته من قبل مراجع"" (read by a reviewer).
+   - Additionally, there is a restriction that specifies that ""البحث"" can have a maximum of one external reviewer, as denoted by the property ""قراءته من قبل مراجع الفوقي"" (read by a superior reviewer).
+
+3. **Cardinality Constraints**: 
+   - The research must have at least one external reviewer (minQualifiedCardinality of 1).
+   - The research can have a maximum of one external reviewer (maxQualifiedCardinality of 1).
+   - There are also other restrictions that allow for a minimum of zero external reviewers in certain contexts.
+
+4. **Properties of External Reviewers**: The external reviewers themselves are also classified under restrictions, which include properties that they must fulfill, such as being able to report whether the research is accepted or rejected.
+
+5. **General Structure**: The overall structure indicates that both ""البحث"" and ""المراجع خارجي"" are subject to specific rules and properties that govern their relationships, ensuring that the research process is regulated by defined criteria for external review.
+
+In summary, the subgraph outlines a framework where research is systematically evaluated by external reviewers under strict guidelines, ensuring quality and accountability in the review process."
+http://cmt_ar#c-0625239-2425775,Target,Class,موضوع المحور,"In the context of a conference, ""موضوع المحور"" translates to ""the main topic"" or ""the central theme."" It refers to the primary subject or focus around which the conference discussions, presentations, and activities are organized. This topic is typically chosen to guide the agenda and ensure that all participants are aligned in their discussions and contributions.","The phrase can be verbalized as: ""The subject has a range of the main topic."""
+http://cmt_ar#c-0634254-3328105,Target,Class,رئيس المرتبطة,"In the context of a conference, ""رئيس المرتبطة"" translates to ""Chair of the Committee"" or ""Chair of the Associated Group."" This title typically refers to the person who leads or oversees a specific committee or group that is connected to the main conference activities. The chair is responsible for guiding discussions, facilitating meetings, and ensuring that the objectives of the committee are met.","The phrase can be verbalized as follows:
+
+""The 'رئيس المرتبطة' (Chair of the Association) is a subclass of 'عضو المؤتمر' (Member of the Conference) and is disjoint with 'رئيس المؤتمر' (Chair of the Conference).""The subgraph describes a hierarchical structure of leadership roles within an organization, specifically focusing on three key positions: the ""رئيس المرتبطة"" (Chair of the Association), the ""رئيس المؤتمر"" (Chair of the Conference), and the ""رئيس اللجنة العلمية"" (Chair of the Scientific Committee). 
+
+1. The ""رئيس المرتبطة"" is identified as the first position in a sequence, which also includes the ""رئيس المؤتمر"" as the subsequent role in the hierarchy.
+2. The ""رئيس المؤتمر"" is similarly positioned as the first role in another sequence, which concludes with a nil value, indicating there are no further roles in that particular sequence.
+3. The ""رئيس اللجنة العلمية"" is also noted as the first role in a sequence that leads to the ""رئيس المرتبطة.""
+4. The term ""رئيس"" (Chair) is defined as equivalent to a broader class represented by a union of the roles mentioned above, indicating that these roles share common characteristics and belong to the same classification.
+
+Overall, the structure illustrates the relationships and classifications of these leadership roles within the organization, emphasizing their interconnectedness and the hierarchical nature of their positions."
+http://cmt_ar#c-1031803-6530562,Target,Class,قرار,"In the context of a conference, the word ""قرار"" (qarar) typically means ""resolution"" or ""decision."" It refers to a formal agreement or conclusion reached by the participants during the conference discussions.","Here are the verbalized phrases based on the provided RDF triples:
+
+1. ""تم تقرير أن يكون مقبول أو مرفوض هو نوع من القرار.""
+2. ""الرفض هو نوع من القرار.""
+3. ""القبول هو نوع من القرار.""
+4. ""القرار هو متعارض مع أفضلية، شخص، لجنة العلمية، مؤتمر، مزايدة، و وثيقة."""
+http://cmt_ar#c-1232161-0048624,Target,Class,لجنة العلمية,"In the context of a conference, ""لجنة العلمية"" translates to ""Scientific Committee"" in English. This committee is typically responsible for overseeing the academic and scientific aspects of the conference, including the review of submitted papers, organizing sessions, and ensuring the quality and relevance of the content presented.","Here are the verbalized phrases based on the provided RDF triples:
+
+1. ""عضو في اللجنة العلمية"" is a member of the ""لجنة العلمية"".
+2. ""قرار"" is disjoint with ""لجنة العلمية"", meaning they do not overlap.
+3. ""لديه عضو"" pertains to the ""لجنة العلمية"", indicating that the committee has members.
+4. ""لجنة العلمية"" is disjoint with ""أفضلية"", ""شخص"", ""مؤتمر"", ""مزايدة"", and ""وثيقة"", indicating that the committee does not overlap with these entities."
+http://cmt_ar#c-1708774-9125777,Target,Class,مشرف,"In the context of a conference, the term ""مشرف"" (mushrif) typically refers to a supervisor or overseer. This person is responsible for overseeing the proceedings of the conference, ensuring that everything runs smoothly, and managing various aspects such as scheduling, coordination, and participant engagement. The مشرف plays a crucial role in facilitating discussions and maintaining order during the event.","1. ""أضافته من قبل"" هو نطاقه ""مشرف"".
+2. ""إدخال التفاصيل حول"" هو مجاله ""مشرف"".
+3. ""إدخال معايير المراجعة"" هو مجاله ""مشرف"".
+4. ""اجتماع الظاهري ممكن من قبل"" هو نطاقه ""مشرف"".
+5. ""احالة أدوات البحث مشغل من قبل"" هو نطاقه ""مشرف"".
+6. ""احالة البحث منتهي من قبل"" هو نطاقه ""مشرف"".
+7. ""استكمال احالة البحث"" هو مجاله ""مشرف"".
+8. ""بحث مرفوض"" هو مجاله ""مشرف"".
+9. ""بدء تقديم العطاءات المراجع"" هو مجاله ""مشرف"".
+10. ""بدأ تقديم العطاءات المراجع من قبل"" هو نطاقه ""مشرف"".
+11. ""تحديد مجموعة عدد أقصى من الابحاث المسندة"" هو مجاله ""مشرف"".
+12. ""تشغيل أدوات احالة البحث"" هو مجاله ""مشرف"".
+13. ""تعيينه من قبل مشرف"" هو نطاقه ""مشرف"".
+14. ""تفاصيل مدخلة من قبل"" هو نطاقه ""مشرف"".
+15. ""تمكين الاجتماع الظاهري"" هو مجاله ""مشرف"".
+16. ""رفض من قبل"" هو نطاقه ""مشرف"".
+17. ""طباعة نسخة من البريد الالكتروني للمظاهرات"" هو مجاله ""مشرف"".
+18. ""قبوله من قبل"" هو نطاقه ""مشرف"".
+19. ""معايير مراجعة أدخلت من قبل"" هو نطاقه ""مشرف"".
+20. ""نسخة من البريد الالكتروني للمظاهرات مطبوعة من قبل"" هو نطاقه ""مشرف"".
+21. ""يضيف"" هو مجاله ""مشرف"".
+22. ""يعيين"" هو مجاله ""مشرف"".
+23. ""يقبل"" هو مجاله ""مشرف"".
+24. ""مشرف"" هو فئة فرعية من ""المستخدم""."
+http://cmt_ar#c-1753052-0526039,Target,Class,ملخص البحث,"ملخص البحث translates to ""research summary"" in English. In the context of a conference, it refers to a brief overview or abstract of a research paper or presentation that highlights the main objectives, methods, findings, and conclusions of the research. This summary is often used to give attendees a quick understanding of the research topic and its significance, helping them decide which sessions to attend.","The phrase can be verbalized as: ""ملخص البحث هو نوع من أنواع البحث."" 
+
+This translates to ""The research summary is a subclass of research."""
+http://cmt_ar#c-1776859-6098962,Target,Class,أفضلية,"In the context of a conference, ""أفضلية"" (which translates to ""preference"" or ""advantage"" in English) could refer to the prioritization of certain topics, speakers, or sessions over others. It may also indicate the advantages or benefits that certain participants or ideas have in the discussions or presentations taking place at the conference. This term could be used to highlight which aspects are deemed more important or valuable in the context of the event.","Here are the verbalized phrases based on the provided triples:
+
+1. ""قرار"" is disjoint with ""أفضلية"".
+2. ""لجنة العلمية"" is disjoint with ""أفضلية"".
+3. ""أفضلية"" is disjoint with ""شخص"".
+4. ""أفضلية"" is disjoint with ""مؤتمر"".
+5. ""أفضلية"" is disjoint with ""مزايدة"".
+6. ""أفضلية"" is disjoint with ""وثيقة""."
+http://cmt_ar#c-2220987-5331821,Target,Class,عضو المؤتمر,"In the context of a conference, ""عضو المؤتمر"" translates to ""conference member"" or ""conference participant."" It refers to an individual who is a part of the conference, either as an attendee, speaker, or contributor to the discussions and activities taking place during the event.","Here are the verbalized phrases based on the provided RDF triples:
+
+1. ""الكاتب"" هو نوع من ""عضو المؤتمر"".
+2. ""المراجع"" هو نوع من ""عضو المؤتمر"".
+3. ""رئيس المؤتمر"" هو نوع من ""عضو المؤتمر"".
+4. ""رئيس المرتبطة"" هو نوع من ""عضو المؤتمر"".
+5. ""عضو في اللجنة العلمية"" هو نوع من ""عضو المؤتمر"".
+6. ""لديه عضو"" يشير إلى ""عضو المؤتمر"".
+7. ""عضو المؤتمر"" هو نوع من ""شخص""."
+http://cmt_ar#c-3101760-6220913,Target,Class,مزايدة,"In the context of a conference, ""مزايدة"" (pronounced ""muzayada"") typically refers to a bidding process or auction. It can involve participants competing to offer the highest bid for a particular item, service, or opportunity presented during the conference. This term may also be used metaphorically to describe a situation where individuals or organizations compete to showcase their ideas, proposals, or innovations in a way that seeks to attract attention or support from attendees or stakeholders.","Here are the verbalized phrases based on the provided triples:
+
+1. ""أفضلية"" is disjoint with ""مزايدة"".
+2. The domain of ""تعديله من قبل"" is ""مزايدة"".
+3. The range of ""ضبط"" is ""مزايدة"".
+4. ""قرار"" is disjoint with ""مزايدة"".
+5. ""لجنة العلمية"" is disjoint with ""مزايدة"".
+6. The range of ""لديه مزايدة"" is ""مزايدة"".
+7. ""مزايدة"" is disjoint with ""شخص"", ""مؤتمر"", and ""وثيقة""."
+http://cmt_ar#c-3194825-5346027,Target,Class,مراجعة,"In the context of a conference, the term ""مراجعة"" (pronounced ""muraja'a"") typically means ""review"" or ""revision."" It can refer to the process of evaluating or assessing the content presented at the conference, such as papers, presentations, or discussions. This could involve feedback from peers, discussions on the findings, or a critical analysis of the topics covered during the event.","Here are the verbalized phrases based on the provided RDF triples:
+
+1. ""المراجعة كتابية"" has a range of ""مراجعة"".
+2. ""كتابته من قبل"" has a domain of ""مراجعة"".
+3. ""مراجعة فوقية"" is a subclass of ""مراجعة"".
+4. ""وقت إنتهاء مراجعة"" has a range of ""مراجعة"".
+5. ""مراجعة"" is a subclass of ""وثيقة"" and is disjoint with ""البحث""."
+http://cmt_ar#c-3714057-1039146,Target,Class,الكاتب المشترك,"In the context of a conference, ""الكاتب المشترك"" translates to ""co-author"" in English. This term typically refers to an individual who collaborates with one or more authors in writing a paper, article, or presentation that is being discussed or presented at the conference. Co-authors share responsibility for the content and contributions of the work.","Here are the verbalized phrases based on the provided RDF triples:
+
+1. The range of ""كاتب مشترك من قبل"" is ""الكاتب المشترك.""
+2. The domain of ""مشترك في الكتابة"" is ""الكاتب المشترك.""
+3. ""الكاتب المشترك"" is a subclass of ""الكاتب."""
+http://cmt_ar#c-3930288-3644648,Target,Class,رئيس,"In the context of a conference, the term ""رئيس"" (pronounced ""ra'ees"") typically means ""chair"" or ""president."" It refers to the person who presides over the conference, leading the discussions, managing the agenda, and ensuring that the proceedings run smoothly.","The phrase can be verbalized as: ""The class of 'رئيس' (President) is a subclass of the class 'شخص' (Person).""The subgraph describes a structured representation of various roles and their relationships within a specific context, likely related to a committee or organization. 
+
+1. At the core, there is a class identified as ""Class.""
+2. Within this class, there are several roles:
+   - The first role is ""رئيس المرتبطة"" (translated as ""Chair of the Association"").
+   - The second role is ""رئيس"" (translated as ""Chair"").
+   - The third role is ""رئيس المؤتمر"" (translated as ""Chair of the Conference"").
+   - The fourth role is ""رئيس اللجنة العلمية"" (translated as ""Chair of the Scientific Committee"").
+   - Additionally, there is a role for ""الكاتب"" (translated as ""Writer"") and ""المراجع"" (translated as ""Reviewer"").
+
+3. The relationships between these roles are defined in a list format, where each role can have a ""first"" element (the role itself) and a ""rest"" element (which points to the next role in the sequence or indicates the end of the list with ""nil"").
+
+4. The ""رئيس"" (Chair) is noted to be equivalent to another class, which is represented in the graph.
+
+5. The concept of ""علامة تضارب المصالح"" (translated as ""Conflict of Interest"") is associated with the main class, indicating that this class may be relevant in discussions or considerations regarding conflicts of interest.
+
+6. The union of the roles is represented, suggesting that they collectively form a larger category or classification.
+
+In summary, this subgraph outlines a hierarchy of roles within a committee or organization, detailing their relationships and classifications, while also addressing the concept of conflict of interest in this context."
+http://cmt_ar#c-3945225-6300796,Target,Class,المراجع خارجي,"In the context of a conference, ""المراجع خارجي"" translates to ""external reviewer"" or ""external references."" This typically refers to individuals or sources that are not part of the organizing committee or the institution hosting the conference but are brought in to provide an independent assessment or evaluation of the conference papers, presentations, or overall proceedings. External reviewers are often experts in the relevant field and their feedback is crucial for maintaining the quality and credibility of the conference.","Here are the verbalized phrases based on the provided triples:
+
+1. The term ""مسند من قبل مراجع"" is associated with the domain of ""المراجع خارجي"".
+2. The term ""يعيين"" is related to the range of ""المراجع خارجي"".
+3. The class ""المراجع خارجي"" is a subclass of ""شخص"" and is disjoint with the class ""المراجع"".The subgraph describes a restriction in a semantic framework. It defines a class labeled ""لاشيء"" (which translates to ""nothing"" in English) that has a property ""مسند من قبل مراجع"" (meaning ""supported by references""). This class has a qualified cardinality of ""1,"" indicating that there must be exactly one instance of this property. Additionally, there is a subclass called ""المراجع خارجي"" (meaning ""external references"") that is categorized under the previously mentioned class. The overall type of this structure is identified as a ""Restriction."""
+http://cmt_ar#c-4595043-4384026,Target,Class,المستخدم,"In the context of a conference, ""المستخدم"" translates to ""the user"" in English. It typically refers to the individual or participant who is engaging with the conference content, whether that be through attending sessions, interacting with speakers, or utilizing conference materials and resources.","Here are the verbalized phrases for the given RDF triples:
+
+1. ""الكاتب"" هو نوع من ""المستخدم"".
+2. ""المراجع"" هو نوع من ""المستخدم"".
+3. ""مشرف"" هو نوع من ""المستخدم"".
+4. ""المستخدم"" هو نوع من ""شخص""."
+http://cmt_ar#c-4901776-6249690,Target,Class,الكاتب، الذي ليس المراجع,"In the context of a conference, the phrase ""الكاتب، الذي ليس المراجع"" translates to ""the author, who is not the reviewer."" This likely refers to a distinction being made between the person who wrote a paper or presentation (the author) and the person who evaluates or critiques it (the reviewer). This distinction is important in academic and professional settings, as it highlights the different roles individuals play in the dissemination and assessment of knowledge. The author is responsible for the content, while the reviewer provides feedback and validation.","Here are the verbalized phrases based on the provided triples:
+
+1. ""The author, who is not the reviewer, is a subclass of the author.""
+2. ""The author, who is not the reviewer, is disjoint with the reviewer.""
+3. ""The author, who is not the reviewer, is also disjoint with the member of the scientific committee."""
+http://cmt_ar#c-5258810-6413397,Target,Class,النسخة الكاملة من البحث,النسخة الكاملة من البحث تعني النسخة الكاملة والمفصلة من الدراسة أو الورقة البحثية التي تم إعدادها لتقديمها في المؤتمر. هذه النسخة تحتوي على جميع العناصر الأساسية مثل المقدمة، المنهجية، النتائج، المناقشة، والاستنتاجات، مما يسمح للحضور بفهم شامل للموضوع المطروح.,The complete version of the research is a subclass of the research.
+http://cmt_ar#c-5515515-7655801,Target,Class,مراجعة فوقية,"In the context of a conference, ""مراجعة فوقية"" (which translates to ""supervisory review"" or ""overarching review"") typically refers to a high-level assessment or evaluation of the topics, presentations, or discussions taking place. This could involve a panel of experts or senior figures who provide insights, feedback, or summaries on the proceedings, ensuring that the key points are addressed and that the conference objectives are met. It may also involve a review of the overall effectiveness and impact of the conference itself.","The phrase can be verbalized as: ""The class 'مراجعة فوقية' is a subclass of the class 'مراجعة'."""
+http://cmt_ar#c-5605295-3101146,Target,Class,المراجع الفوقي,"In the context of a conference, ""المراجع الفوقي"" (translated as ""superior references"" or ""higher references"") typically refers to authoritative sources or higher-level documents that provide guidance, standards, or frameworks relevant to the topics being discussed. These could include official guidelines, regulatory documents, or foundational research that underpin the themes of the conference. Participants may refer to المراجع الفوقي to ensure that their discussions and findings align with established knowledge and best practices in the field.","1. ""قراءته من قبل مراجع الفوقي"" يتضمن ""المراجع الفوقي"".
+2. ""المراجع الفوقي"" هو نوع من ""المراجع""."
+http://cmt_ar#c-6326453-4709586,Target,Class,القبول,"In the context of a conference, ""القبول"" (al-qubool) typically refers to the acceptance of submitted papers, proposals, or participants. It signifies that a particular submission has been reviewed and approved for presentation or participation in the conference. This term is crucial in academic and professional settings, as it determines which contributions will be included in the event.","The term ""القبول"" (acceptance) is a subclass of ""قرار"" (decision) and is disjoint with ""الرفض"" (rejection)."
+http://cmt_ar#c-6407650-6197378,Target,Class,مؤتمر,"The term ""مؤتمر"" in Arabic translates to ""conference"" in English. It refers to a formal meeting or gathering of individuals, often organized to discuss specific topics, share information, or collaborate on various issues.","Here are the verbalized phrases based on the provided triples:
+
+1. ""أفضلية"" is disjoint with ""مؤتمر"".
+2. ""إدخال التفاصيل حول"" has a range of ""مؤتمر"".
+3. ""إدخال معايير المراجعة"" has a range of ""مؤتمر"".
+4. ""اجتماع الظاهري ممكن من قبل"" has a domain of ""مؤتمر"".
+5. ""احالة أدوات البحث مشغل من قبل"" has a domain of ""مؤتمر"".
+6. ""احالة البحث منتهي من قبل"" has a domain of ""مؤتمر"".
+7. ""استكمال احالة البحث"" has a range of ""مؤتمر"".
+8. ""بدء تقديم العطاءات المراجع"" has a range of ""مؤتمر"".
+9. ""بدأ تقديم العطاءات المراجع من قبل"" has a domain of ""مؤتمر"".
+10. ""تشغيل أدوات احالة البحث"" has a range of ""مؤتمر"".
+11. ""تفاصيل مدخلة من قبل"" has a domain of ""مؤتمر"".
+12. ""تقبل نسخة المرسلات"" has a domain of ""مؤتمر"".
+13. ""تمكين الاجتماع الظاهري"" has a range of ""مؤتمر"".
+14. ""طباعة نسخة من البريد الالكتروني للمظاهرات"" has a range of ""مؤتمر"".
+15. ""عضو المؤتمر"" has a range of ""مؤتمر"".
+16. ""قرار"" is disjoint with ""مؤتمر"".
+17. ""لجنة العلمية"" is disjoint with ""مؤتمر"".
+18. ""لديه التاريخ"" has a domain of ""مؤتمر"".
+19. ""لديه الشعار في رابط"" has a domain of ""مؤتمر"".
+20. ""لديه عضو"" has a domain of ""مؤتمر"".
+21. ""لديه موقع على رابط"" has a domain of ""مؤتمر"".
+22. ""مراجعة/تعليقات لكل بحث"" has a domain of ""مؤتمر"".
+23. ""مزايدة"" is disjoint with ""مؤتمر"".
+24. ""معايير مراجعة أدخلت من قبل"" has a domain of ""مؤتمر"".
+25. ""نسخة من البريد الالكتروني للمظاهرات مطبوعة من قبل"" has a domain of ""مؤتمر"".
+26. ""مؤتمر"" is a subclass of ""لاشيء"" and is disjoint with ""شخص"" and ""وثيقة"".The subgraph describes a conceptual framework related to a ""مؤتمر"" (conference) and its properties. Here’s a natural language description of the relationships and constraints depicted in the subgraph:
+
+1. A ""مؤتمر"" (conference) is defined as a subclass of two restrictions, indicating that it has specific properties that must be adhered to.
+2. One of the properties of a conference is that it must have a ""اسم"" (name), which is required to have exactly one instance (cardinality of 1).
+3. Additionally, a conference must have a ""تاريخ"" (date), which also requires at least one instance (minimum cardinality of 1).
+4. Each conference is associated with a ""شخص"" (person), which is the first element in a list that may contain additional elements, but in this case, it is followed by ""nil,"" indicating that there are no further elements in this particular list.
+5. Furthermore, each conference must include ""مراجعة/تعليقات لكل بحث"" (reviews/comments for each paper), which is another property that must be satisfied.
+6. The overall structure indicates that the properties of a conference are defined within a class that encompasses these restrictions, ensuring that any instance of a conference adheres to these defined characteristics.
+
+In summary, the subgraph outlines the essential attributes and constraints that define what constitutes a conference, emphasizing the necessity of having a name, a date, and reviews for each paper presented at the conference."
+http://cmt_ar#c-6855502-1595452,Target,Class,البحث,"In the context of a conference, the term ""البحث"" (al-bahth) translates to ""research"" or ""study"" in English. It typically refers to the systematic investigation or inquiry into a specific topic or subject matter that is often presented or discussed during academic or professional conferences. Researchers may present their findings, methodologies, and conclusions related to their ""البحث"" to share knowledge and foster discussions among peers.","Here are the verbalized phrases based on the provided RDF triples:
+
+1. ""تم تقرير (ليكون مقبول، مرفوض) هو خاص بـ البحث.""
+2. ""ارسال البحث هو جزء من البحث.""
+3. ""النسخة الكاملة من البحث هي نوع من البحث.""
+4. ""بحث مرفوض هو جزء من البحث.""
+5. ""تعيين من اجل هو خاص بـ البحث.""
+6. ""تم تعيين هو جزء من البحث.""
+7. ""رفض من قبل هو خاص بـ البحث.""
+8. ""علامة تضارب المصالح هي جزء من البحث.""
+9. ""قبوله من قبل هو خاص بـ البحث.""
+10. ""قراءة البحث هي جزء من البحث.""
+11. ""قراءته من قبل مراجع هو خاص بـ البحث.""
+12. ""قراءته من قبل مراجع الفوقي هو خاص بـ البحث.""
+13. ""كاتب مشترك من قبل هو خاص بـ البحث.""
+14. ""كتابة البحث هي جزء من البحث.""
+15. ""كتابته من قبل هو خاص بـ البحث.""
+16. ""لديه عنوان هو خاص بـ البحث.""
+17. ""لديه مزايدة هو خاص بـ البحث.""
+18. ""لديه معرف هو خاص بـ البحث.""
+19. ""لديه موضوع المحور هو خاص بـ البحث.""
+20. ""مراجعة هي غير متوافقة مع البحث.""
+21. ""مشترك في الكتابة هو جزء من البحث.""
+22. ""ملخص البحث هو نوع من البحث.""
+23. ""يقبل هو جزء من البحث.""
+24. ""البحث هو نوع من وثيقة."" 
+
+These phrases articulate the relationships and classifications defined in the RDF triples.The subgraph describes a class hierarchy and restrictions related to the concept of ""البحث"" (which translates to ""research"" in English). 
+
+1. **Class Hierarchy**: 
+   - ""البحث"" is a subclass of several restrictions, indicating that it inherits certain properties and constraints.
+   - The first restriction (identified as _:N118bc441e7e74eacb8b7029c0d019fc1) specifies that there must be at least one instance of ""قراءته من قبل مراجع"" (translated as ""read by a reviewer"") associated with ""البحث"".
+   - The second restriction (identified as _:N792ce1ae0dab4631a2af4816de85f21c) indicates that there can be at most one instance of ""قراءته من قبل مراجع الفوقي"" (translated as ""read by a senior reviewer"") associated with ""البحث"".
+   - The third restriction (identified as _:Nc302d5e3c34a41eb8a551c9f444d15da) allows for zero or more instances of a property that involves reporting (translated as ""reported as accepted or rejected"") related to ""البحث"".
+
+2. **Cardinality Constraints**:
+   - The first restriction requires a minimum of one instance of the property ""قراءته من قبل مراجع"".
+   - The second and third restrictions impose a maximum of one instance for ""قراءته من قبل مراجع الفوقي"" and allow for zero instances for the reporting property, respectively.
+
+3. **Type of Restrictions**: 
+   - All restrictions are classified as ""Restriction"", indicating that they impose specific conditions on how instances of ""البحث"" can relate to other entities.
+
+In summary, the subgraph outlines that ""البحث"" must be read by at least one reviewer, can be read by at most one senior reviewer, and may have zero or more reports regarding its acceptance or rejection."
+http://cmt_ar#c-6884283-5550269,Target,Class,المراجع,"In the context of a conference, ""المراجع"" (al-maraji') typically refers to the references or sources that are cited or used in presentations, papers, or discussions. It can also imply the individuals or experts who are consulted for their knowledge or authority on a particular subject. In academic or professional settings, having proper المراجع is essential for supporting claims and providing credibility to the information being presented.","Here are the verbalized phrases based on the provided triples:
+
+1. ""The author is disjoint from the reviewer.""
+2. ""The superior reviewer is a subclass of the reviewer.""
+3. ""The external reviewer is disjoint from the reviewer.""
+4. ""The written review has a domain of the reviewer.""
+5. ""Modification is in the range of the reviewer.""
+6. ""Appointment is in the range of the reviewer.""
+7. ""His appointment is in the domain of the reviewer.""
+8. ""Being appointed is in the domain of the reviewer.""
+9. ""Control is in the domain of the reviewer.""
+10. ""Reading the research is in the domain of the reviewer.""
+11. ""His reading is in the range of the reviewer.""
+12. ""His writing is in the range of the reviewer.""
+13. ""Being endorsed by a reviewer is in the range of the reviewer.""
+14. ""Appointment is in the domain of the reviewer and is also in the range of the reviewer.""
+15. ""The reviewer is a subclass of the user and a conference member.""The subgraph describes a class structure related to a specific domain. It defines a class that is identified by a unique identifier. This class has a union of elements, one of which is a list that begins with the term ""رئيس"" (which translates to ""Chair"" in English) and continues with ""المراجع"" (meaning ""Reviewer"") followed by ""الكاتب"" (meaning ""Author""). 
+
+The class is associated with the domain labeled ""علامة تضارب المصالح"" (which translates to ""Conflict of Interest Indicator""). The structure indicates that the first element in the list is ""رئيس,"" and it is followed by ""المراجع,"" which in turn is followed by ""الكاتب."" The list ends with a nil value, indicating the end of the sequence. 
+
+In summary, this subgraph outlines a class related to conflict of interest indicators, consisting of a hierarchy of roles: Chair, Reviewer, and Author."
+http://cmt_ar#c-7572681-2355237,Target,Class,عضو في اللجنة العلمية,"The phrase ""عضو في اللجنة العلمية"" translates to ""member of the scientific committee"" in English. In the context of a conference, this typically refers to an individual who is part of a group responsible for overseeing the scientific aspects of the event, such as reviewing submitted papers, selecting speakers, and ensuring the quality and relevance of the conference content.","Here are the verbalized phrases based on the provided RDF triples:
+
+1. ""أضافته من قبل"" is a property that applies to ""عضو في اللجنة العلمية"".
+2. ""العدد الأقصى من الابحاث المسندة"" is a property that applies to ""عضو في اللجنة العلمية"".
+3. ""الكاتب، الذي ليس المراجع"" is disjoint with ""عضو في اللجنة العلمية"".
+4. ""تحديد مجموعة عدد أقصى من الابحاث المسندة"" has a range of ""عضو في اللجنة العلمية"".
+5. ""رئيس اللجنة العلمية"" is a subclass of ""عضو في اللجنة العلمية"".
+6. ""لديه عضو"" has a range of ""عضو في اللجنة العلمية"".
+7. ""يضيف"" has a range of ""عضو في اللجنة العلمية"".
+8. ""عضو في اللجنة العلمية"" is a property that applies to ""عضو في اللجنة العلمية"" and is a subclass of both ""شخص"" and ""عضو المؤتمر""."
+http://cmt_ar#c-8335305-4555146,Target,Class,الكاتب ,"In the context of a conference, ""الكاتب"" translates to ""the writer"" or ""the author"" in English. It typically refers to a person who is responsible for writing or presenting content, such as papers, articles, or presentations, during the conference.","Here are the verbalized phrases based on the provided RDF triples:
+
+1. ""ارسال البحث"" is a domain of ""الكاتب"".
+2. ""الكاتب المشترك"" is a subclass of ""الكاتب"".
+3. ""الكاتب، الذي ليس المراجع"" is a subclass of ""الكاتب"".
+4. ""كتابة البحث"" is a domain of ""الكاتب"".
+5. ""كتابته من قبل"" has a range of ""الكاتب"".
+6. ""الكاتب"" is a subclass of both ""المستخدم"" and ""عضو المؤتمر"".The subgraph describes a class related to the concept of ""علامة تضارب المصالح"" (Conflict of Interest Indicator). This class is defined as a union of two elements. The first element is a list that begins with the term ""رئيس"" (Chairperson) and continues with another element, which is ""المراجع"" (Reviewer). The second element in this list is ""الكاتب"" (Author), which is also part of the same structure. The list concludes with a nil value, indicating the end of the sequence. 
+
+In summary, the subgraph outlines a classification system that includes roles such as Chairperson, Reviewer, and Author, all of which are associated with the concept of conflict of interest."
+http://cmt_ar#c-8895015-9423071,Target,Class,الرفض,"In the context of a conference, ""الرفض"" (which translates to ""rejection"" in English) can refer to the act of declining or dismissing certain ideas, proposals, or contributions presented during the event. It may involve participants expressing disagreement with specific viewpoints, methodologies, or outcomes discussed in the conference. This rejection can be a critical part of academic and professional discourse, as it encourages debate, refinement of ideas, and the pursuit of more robust solutions or theories.","1. ""القبول"" is disjoint with ""الرفض.""
+2. ""الرفض"" is a subclass of ""قرار."""
+http://cmt_ar#c-9476305-1556488,Target,Class,وثيقة,"In the context of a conference, the term ""وثيقة"" (which translates to ""document"" in English) typically refers to a formal written record or paper that outlines important information, agreements, findings, or guidelines related to the conference. This could include conference proceedings, research papers, policy documents, or any other materials that are distributed or presented during the event.","Here are the verbalized phrases based on the provided triples:
+
+1. ""أفضلية"" is disjoint with ""وثيقة"".
+2. ""البحث"" is a subclass of ""وثيقة"".
+3. ""قرار"" is disjoint with ""وثيقة"".
+4. ""لجنة العلمية"" is disjoint with ""وثيقة"".
+5. ""لديه تضارب في المصالح مع احترام"" has a range of ""وثيقة"".
+6. ""مؤتمر"" is disjoint with ""وثيقة"".
+7. ""مراجعة"" is a subclass of ""وثيقة"".
+8. ""مزايدة"" is disjoint with ""وثيقة"".
+9. ""وثيقة"" is disjoint with ""شخص""."
+http://cmt_ar#c-9541928-7173577,Target,Class,شخص,"In the context of a conference, the Arabic word ""شخص"" (pronounced ""shakhs"") means ""person"" or ""individual."" It typically refers to a participant, speaker, or attendee at the conference.","Here are the verbalized phrases based on the provided triples:
+
+1. ""أفضلية"" is disjoint with ""شخص"".
+2. ""المراجع خارجي"" is a subclass of ""شخص"".
+3. ""المستخدم"" is a subclass of ""شخص"".
+4. ""رئيس"" is a subclass of ""شخص"".
+5. ""عضو المؤتمر"" is a subclass of ""شخص"".
+6. ""عضو في اللجنة العلمية"" is a subclass of ""شخص"".
+7. ""قرار"" is disjoint with ""شخص"".
+8. ""لجنة العلمية"" is disjoint with ""شخص"".
+9. ""شخص"" has the property ""لديه بريد الكتروني"".
+10. ""شخص"" has the property ""لديه تضارب في المصالح مع احترام"".
+11. ""مؤتمر"" is disjoint with ""شخص"".
+12. ""مزايدة"" is disjoint with ""شخص"".
+13. ""وثيقة"" is disjoint with ""شخص"".The subgraph describes a structure that represents a collection of entities and their relationships. 
+
+At the top level, there is an entity that has a first element labeled ""مؤتمر"" (which translates to ""conference"" in English) and a rest element that leads to another entity. This second entity has a first element labeled ""شخص"" (meaning ""person"") and a rest element that points to a nil value, indicating the end of a list.
+
+Additionally, there is a relationship indicating that the first entity has a name, which is associated with another entity that is classified as a ""Class."" This class is defined as a union of the first entity, suggesting that it encompasses or includes the characteristics of the conference entity.
+
+In summary, the structure outlines a conference that is associated with a person, and it is part of a broader classification system that defines its properties."
+http://cmt_ar#c-9634422-4066717,Target,Class,رئيس المؤتمر,"The term ""رئيس المؤتمر"" translates to ""conference president"" or ""conference chair"" in English. It refers to the individual who presides over a conference, overseeing the proceedings, managing discussions, and ensuring that the event runs smoothly. This person is typically responsible for setting the agenda, facilitating sessions, and representing the conference to attendees and external parties.","1. ""رئيس المرتبطة"" is disjoint with ""رئيس المؤتمر.""
+2. ""رئيس المؤتمر"" is a subclass of ""عضو المؤتمر.""The subgraph describes a hierarchical structure of leadership roles within an organization, specifically focusing on three key positions: the ""رئيس المرتبطة"" (Chair of the Association), the ""رئيس المؤتمر"" (Chair of the Conference), and the ""رئيس اللجنة العلمية"" (Chair of the Scientific Committee). 
+
+1. The ""رئيس المرتبطة"" is identified as the first position in a sequence, followed by the ""رئيس المؤتمر"" as the next role in the hierarchy.
+2. The ""رئيس المؤتمر"" is also the first in its own sequence, which concludes with no further roles (indicated by 'nil').
+3. The ""رئيس اللجنة العلمية"" is another first position in a separate sequence, which is linked to the ""رئيس المرتبطة"" as its subsequent role.
+4. All these roles are classified under a broader category represented by an equivalent class, which is defined as a union of the sequences containing these leadership positions.
+5. The overarching classification of these roles is categorized as a ""Class.""
+
+In summary, the structure outlines a classification of leadership roles, emphasizing their relationships and the hierarchical order in which they are organized."
+http://cmt_ar#ent-0474024-8645389,Target,Property,لديه عنوان,"In the context of a conference, ""لديه عنوان"" translates to ""he has a title"" or ""he has a topic."" This could refer to a speaker or presenter at the conference who has a specific title for their presentation or a subject they will be discussing.","The triple can be verbalized as follows:
+
+""The property 'لديه عنوان' (has a title) is associated with the domain 'البحث' (research) and has a range of type 'string'."""
+http://cmt_ar#ent-0888652-2952644,Target,Property,لديه اسم,"In the context of a conference, ""لديه اسم"" translates to ""he has a name"" or ""it has a name."" This phrase could refer to the identification of a speaker, a topic, or a specific session at the conference. It emphasizes the importance of recognizing or acknowledging the identity associated with the subject being discussed.","The triple can be verbalized as: ""It has a name that is of type string.""The subgraph describes a relationship between various entities and their properties in a structured format. Here’s a natural language description of the information conveyed:
+
+There is a class called ""مؤتمر"" (which translates to ""Conference"") that is a subclass of a restriction type. This restriction is defined by the property ""لديه اسم"" (which translates to ""has a name""). The restriction specifies that there must be exactly one instance of this property associated with the class ""مؤتمر."" 
+
+In this context, the class ""مؤتمر"" is represented as the first element in a list, which also includes ""شخص"" (meaning ""Person"") as the first element of another list. The list of entities is structured such that the first element is ""مؤتمر,"" and it has a rest that leads to a nil value, indicating the end of the list.
+
+Overall, the structure indicates that every instance of ""مؤتمر"" must have a unique name, and it is related to the concept of a person within the defined framework."
+http://cmt_ar#ent-1697241-5302844,Target,Property,مراجعة/تعليقات لكل بحث,"In the context of a conference, ""مراجعة/تعليقات لكل بحث"" translates to ""Review/Comments for each paper."" This typically refers to the feedback or evaluations provided by reviewers or attendees regarding the research papers presented at the conference. Such reviews are essential for assessing the quality, relevance, and contribution of the research, and they may include suggestions for improvement, strengths of the work, and overall impressions. This process helps ensure that the research presented meets the standards of the conference and contributes to the academic discourse.","The phrase can be verbalized as: ""The domain of 'مراجعة/تعليقات لكل بحث' is 'مؤتمر', and its range is 'int'.""The subgraph describes a restriction that is defined for a class related to the term ""مؤتمر"" (which translates to ""conference"" in English). This restriction specifies that there is a cardinality of 1, meaning that for each instance of the class ""مؤتمر,"" there must be exactly one value associated with the property ""مراجعة/تعليقات لكل بحث"" (which translates to ""reviews/comments for each paper""). In summary, every conference must have one and only one review or comment for each paper presented."
+http://cmt_ar#ent-1721348-6878918,Target,Property,لديه التاريخ,"In the context of a conference, ""لديه التاريخ"" translates to ""he has the history"" or ""he has the background."" This phrase could imply that a speaker or participant has relevant experience or a significant past related to the conference topic, suggesting they bring valuable insights or knowledge to the discussion.","The phrase can be verbalized as: ""The conference has a date.""The subgraph describes a restriction in a semantic framework. Specifically, it defines a restriction type that has a minimum cardinality of 1. The term ""مؤتمر"" (which translates to ""conference"" in English) is classified as a subclass of this restriction. Additionally, the restriction is applied to the property ""لديه التاريخ"" (which translates to ""has a date""). In summary, this indicates that any instance of ""مؤتمر"" must have at least one associated date."
+http://cmt_ar#ent-4299333-0273163,Target,Property,العدد الأقصى من الابحاث المسندة,"The phrase ""العدد الأقصى من الابحاث المسندة"" translates to ""the maximum number of supported papers"" in English. In the context of a conference, it typically refers to the limit on the number of research papers or presentations that can be accepted or presented at the event. This could pertain to guidelines set by the conference organizers regarding how many submissions a participant can make or how many papers will be included in the conference program.",The maximum number of assigned research papers is a property that belongs to a member of the scientific committee and is represented as an integer.
+http://cmt_ar#ent-6252776-8181806,Target,Property,تقبل نسخة المرسلات,"In the context of a conference, ""تقبل نسخة المرسلات"" translates to ""Please accept the copy of the sent documents"" or ""Please acknowledge receipt of the sent documents."" It typically refers to a request for confirmation that the recipient has received the materials or documents that were sent in relation to the conference. This could include agendas, presentations, or other relevant information necessary for the event.","The phrase can be verbalized as follows:
+
+""The acceptance of the senders' copy is a property of a conference and its value is of boolean type."""
+http://cmt_ar#ent-6395384-0777412,Target,Property,لديه الشعار في رابط,"The phrase ""لديه الشعار في رابط"" translates to ""He has the logo in the link."" In the context of a conference, this likely means that the individual or organization has included their logo in a hyperlink, possibly directing attendees to a website or digital resource related to the conference. This could be for branding purposes, to provide additional information, or to promote their participation in the event.","The phrase can be verbalized as: ""The conference has a logo at a link."""
+http://cmt_ar#ent-6629428-4947742,Target,Property,لديه معرف,"In the context of a conference, ""لديه معرف"" translates to ""he has an identifier"" or ""he has an ID."" This could refer to a participant's identification number, badge, or any unique identifier used to register or track attendees at the conference. It is important for managing access, networking, and ensuring that all participants are accounted for during the event.","The phrase can be verbalized as: ""The search has an identifier of type unsignedLong."""
+http://cmt_ar#ent-6657622-4246440,Target,Property,لديه موقع على رابط,"In the context of a conference, the phrase ""لديه موقع على رابط"" translates to ""he has a site on a link"" or ""he has a presence on a link."" This likely refers to an individual or organization having a webpage or online platform that is accessible via a specific URL. It suggests that they may have information, resources, or materials related to the conference available online for attendees or interested parties.","The triple can be verbalized as follows:
+
+""The conference has a website at a link."""
+http://cmt_ar#ent-9784858-1898461,Target,Property,لديه بريد الكتروني,"The phrase ""لديه بريد الكتروني"" translates to ""He has an email"" in English. In the context of a conference, this could imply that the person has an email address that can be used for communication related to the conference, such as receiving updates, sharing information, or networking with other attendees.","The phrase can be verbalized as: ""A person has an email address."""
+http://cmt_ar#op-0077265-3002157,Target,Property,لديه عضو,"In the context of a conference, the phrase ""لديه عضو"" translates to ""he has a member"" or ""he has a participant."" This could refer to an individual who is part of a committee, organization, or group involved in the conference. It implies that the person holds a position or role within the conference's structure.","The phrase can be verbalized as: ""A conference has a member."""
+http://cmt_ar#op-0124511-1789830,Target,Property,تعيين من اجل,"The phrase ""تعيين من اجل"" translates to ""appointment for the purpose of"" in English. In the context of a conference, it could refer to the designation or selection of individuals for specific roles or responsibilities related to the conference's objectives or themes. For example, it might involve appointing speakers, panelists, or committee members to fulfill certain functions that align with the goals of the event.","The phrase can be verbalized as: ""The term 'تعيين من اجل' is associated with the domain of 'البحث' and has a range of 'المراجع'."""
+http://cmt_ar#op-0662627-4814294,Target,Property,يضيف,"In the context of a conference, the Arabic word ""يضيف"" (pronounced ""yudheef"") means ""to add"" or ""to include."" It can refer to adding information, speakers, or topics to the agenda of the conference. For example, if someone says ""يضيف المتحدث موضوعًا جديدًا,"" it means ""the speaker adds a new topic.""","The phrase can be verbalized as: ""The role of 'مشرف' (Supervisor) includes the action of 'يضيف' (adding) a 'عضو في اللجنة العلمية' (member of the scientific committee)."""
+http://cmt_ar#op-1026354-7274154,Target,Property,احالة أدوات البحث مشغل من قبل,"The phrase ""احالة أدوات البحث مشغل من قبل"" translates to ""Referral of research tools operated by"" in English. In the context of a conference, this likely refers to the process of directing or assigning research tools or resources that have been previously managed or utilized by a specific entity or individual. It may involve discussing the use of these tools in research presentations, workshops, or collaborative projects during the conference.","The phrase can be verbalized as follows:
+
+""The conference has a search tool that is operated by a supervisor."""
+http://cmt_ar#op-1374410-6089444,Target,Property,تحديد مجموعة عدد أقصى من الابحاث المسندة ,"The phrase ""تحديد مجموعة عدد أقصى من الابحاث المسندة"" translates to ""determining a maximum number of supported research papers."" In the context of a conference, this likely refers to the process of setting a limit on the number of research papers that can be accepted or presented at the event. This could be due to constraints such as time, resources, or the need to maintain a high standard of quality for the presentations. The goal is to ensure that the conference remains manageable and that each selected paper receives adequate attention and discussion.","The phrase can be verbalized as follows:
+
+""The domain of 'تحديد مجموعة عدد أقصى من الابحاث المسندة' is 'مشرف' and its range is 'عضو في اللجنة العلمية'."""
+http://cmt_ar#op-1512138-2288119,Target,Property,لديه مزايدة,"In the context of a conference, ""لديه مزايدة"" translates to ""he has a bid"" or ""he has a proposal."" This phrase typically indicates that an individual or organization is presenting a competitive offer or proposal, possibly in relation to a project, contract, or opportunity being discussed at the conference. It suggests that the person is actively participating in a competitive process, such as a bidding or auction scenario.","The phrase can be verbalized as: ""The search has a bid."""
+http://cmt_ar#op-1906733-2277684,Target,Property,عضو في اللجنة العلمية,"The phrase ""عضو في اللجنة العلمية"" translates to ""member of the scientific committee"" in English. In the context of a conference, this typically refers to an individual who is part of a group responsible for reviewing submissions, organizing sessions, and ensuring the scientific quality of the conference program. Members of the scientific committee play a crucial role in evaluating research papers, selecting speakers, and guiding the overall academic direction of the event.","The phrase can be verbalized as follows:
+
+""A member of the scientific committee is associated with the scientific committee."""
+http://cmt_ar#op-1942381-2978009,Target,Property,اجتماع الظاهري ممكن من قبل,"The phrase ""اجتماع الظاهري ممكن من قبل"" translates to ""A virtual meeting is possible beforehand."" In the context of a conference, this likely means that participants have the option to hold a preliminary or preparatory meeting online before the actual event takes place. This could facilitate discussions, planning, or coordination among attendees, ensuring that everyone is aligned and ready for the main conference.","The phrase can be verbalized as follows:
+
+""The virtual meeting is possible by the supervisor of the conference."""
+http://cmt_ar#op-1947892-8022039,Target,Property,تعديله من قبل,"In the context of a conference, the phrase ""تعديله من قبل"" translates to ""its modification by"" or ""its amendment by."" This typically refers to changes or adjustments made to a document, agenda, or presentation by a specific individual or group. It suggests that someone has taken the initiative to revise or update the content in question, which could be relevant to discussions or decisions made during the conference.","The phrase can be verbalized as: ""The modification is made by the reviewer in the context of the bidding."""
+http://cmt_ar#op-2082117-7310815,Target,Property,تمكين الاجتماع الظاهري,تمكين الاجتماع الظاهري يعني توفير الأدوات والموارد اللازمة لتسهيل الاجتماعات التي تتم عبر الإنترنت أو من خلال منصات رقمية. في سياق المؤتمر، يشير ذلك إلى استخدام التكنولوجيا لتمكين المشاركين من التواصل والتفاعل بشكل فعال، بغض النظر عن مواقعهم الجغرافية. يتضمن ذلك استخدام برامج الفيديو، وتطبيقات الدردشة، ووسائل التواصل الاجتماعي، مما يسهل تبادل الأفكار والمعلومات بين المشاركين في المؤتمر.,"The phrase can be verbalized as follows:
+
+""The domain of 'تمكين الاجتماع الظاهري' is 'مشرف', and its range is 'مؤتمر'."""
+http://cmt_ar#op-2398058-4371549,Target,Property,ضبط,"In the context of a conference, the Arabic word ""ضبط"" (pronounced ""dhabt"") can mean ""control"" or ""regulation."" It often refers to the management and organization of the conference proceedings, ensuring that discussions stay on track, time is adhered to, and that the overall flow of the event is maintained effectively. It can also imply the enforcement of rules or guidelines during the conference to facilitate a productive environment.","The term ""ضبط"" is associated with the domain of ""المراجع"" and has a range that pertains to ""مزايدة""."
+http://cmt_ar#op-2532909-8512587,Target,Property,استكمال احالة البحث,"The phrase ""استكمال احالة البحث"" translates to ""completion of the research referral"" in English. In the context of a conference, it likely refers to the process of finalizing or completing the submission and review of research papers or studies. This could involve ensuring that all necessary documentation is in order, that the research has been properly evaluated, and that any feedback or revisions have been addressed before the research is presented or published.","The phrase can be verbalized as: ""The domain of 'استكمال احالة البحث' is 'مشرف' and its range is 'مؤتمر'."""
+http://cmt_ar#op-2621489-2639155,Target,Property,بدء تقديم العطاءات المراجع,"The phrase ""بدء تقديم العطاءات المراجع"" translates to ""Start of submission of reference bids"" in English. In the context of a conference, this likely refers to the initiation of a process where participants or companies are invited to submit their proposals or bids for a project, service, or opportunity that is being discussed or offered at the conference. This could involve submitting documents that outline their qualifications, project plans, or pricing, which will then be reviewed by the conference organizers or decision-makers.","The phrase can be verbalized as follows:
+
+""The domain of 'بدء تقديم العطاءات المراجع' is 'مشرف' and its range is 'مؤتمر'."""
+http://cmt_ar#op-3146868-7245125,Target,Property,كاتب مشترك من قبل,"The phrase ""كاتب مشترك من قبل"" translates to ""co-author previously"" in English. In the context of a conference, it likely refers to an individual who has previously collaborated as a co-author on a paper or project related to the conference's theme or subject matter. This could imply that the person has a history of working with others in academic or research settings, contributing to joint publications or presentations.","The phrase can be verbalized as follows:
+
+""The term 'كاتب مشترك من قبل' is associated with the domain of 'البحث' and has a range that includes 'الكاتب المشترك'."""
+http://cmt_ar#op-3462160-0135119,Target,Property,طباعة نسخة من البريد الالكتروني للمظاهرات,"The phrase ""طباعة نسخة من البريد الالكتروني للمظاهرات"" translates to ""Printing a copy of the email regarding the demonstrations."" In the context of a conference, this likely refers to the action of printing out an email that contains information or details about upcoming demonstrations, which could be relevant to the conference discussions or activities. This could involve logistics, participant information, or any announcements related to the demonstrations that are pertinent to the conference attendees.","The phrase can be verbalized as follows:
+
+""The action of printing a copy of the email for the demonstrations is associated with the domain of a supervisor and pertains to the range of a conference."""
+http://cmt_ar#op-3738146-7132581,Target,Property,تفاصيل مدخلة من قبل,"The phrase ""تفاصيل مدخلة من قبل"" translates to ""details entered by"" in English. In the context of a conference, it likely refers to information or specifics that have been provided or submitted by a particular individual or organization prior to the event. This could include agenda items, speaker information, or any other relevant details that contribute to the organization and planning of the conference.","The phrase can be verbalized as follows:
+
+""The details are entered by a supervisor in the context of a conference."""
+http://cmt_ar#op-3998076-6312950,Target,Property,المراجعة كتابية,"In the context of a conference, ""المراجعة كتابية"" translates to ""written review"" or ""written feedback."" It typically refers to the process of evaluating or providing commentary on a document, presentation, or research paper in a formal written format. This could involve summarizing key points, assessing the quality of the work, and offering suggestions for improvement. Such written reviews are often used in academic and professional settings to ensure thorough evaluation and constructive criticism.","The phrase can be verbalized as: ""The reviewer has a written review."""
+http://cmt_ar#op-4249215-9846680,Target,Property,يعيين,"In the context of a conference, the term ""يعيين"" (pronounced ""ya'yeen"") can be translated to mean ""they appoint"" or ""they designate."" It typically refers to the act of assigning roles, responsibilities, or positions to individuals within the framework of the conference, such as appointing speakers, moderators, or committee members.","The phrase can be verbalized as: ""The term 'يعيين' is associated with the domain of 'مشرف' and the range of 'المراجع'."""
+http://cmt_ar#op-4356631-9076520,Target,Property,مسند من قبل مراجع,"In the context of a conference, the phrase ""مسند من قبل مراجع"" translates to ""endorsed by references"" or ""supported by authorities."" This typically means that the information, research, or findings presented at the conference have been validated or backed by credible sources or experts in the field. It suggests that the content has undergone a review process and has received approval from recognized figures or institutions, adding to its credibility and reliability.","The phrase can be verbalized as follows:
+
+""The term 'مسند من قبل مراجع' is associated with the domain 'المراجع خارجي' and has a range of 'المراجع'.""The subgraph describes a restriction in a semantic framework. It defines a class labeled ""لاشيء"" (which translates to ""nothing"" in English) that has a property ""مسند من قبل مراجع"" (meaning ""supported by references""). This class has a qualified cardinality of ""1,"" indicating that there must be exactly one instance of this property. Additionally, there is a subclass called ""المراجع خارجي"" (which translates to ""external references"") that is categorized under the class ""لاشيء."" The overall type of this structure is identified as a ""Restriction."""
+http://cmt_ar#op-4375254-0101062,Target,Property,احالة البحث منتهي من قبل,"The phrase ""احالة البحث منتهي من قبل"" translates to ""the research has been previously concluded"" in English. In the context of a conference, this likely means that the research paper or study being discussed has already been completed and possibly reviewed or presented in the past. It may indicate that the work is not new or that it has already undergone a prior evaluation process, which could affect its acceptance or relevance for the current conference.","The phrase can be verbalized as follows:
+
+""The conference has a domain of 'Research Referral Completed By' and a range of 'Supervisor'."""
+http://cmt_ar#op-4636674-1359847,Target,Property,لديه عضو,"In the context of a conference, the phrase ""لديه عضو"" translates to ""he has a member"" or ""he has a participant."" This could refer to an individual who is part of a committee, organization, or group involved in the conference. It implies that the person holds a position or role within the conference's structure.","The phrase can be verbalized as: ""The scientific committee has a member who is part of the scientific committee."""
+http://cmt_ar#op-4915323-2210432,Target,Property,كتابته من قبل,"In the context of a conference, ""كتابته من قبل"" translates to ""written by"" or ""authored by."" It typically refers to a document, paper, or presentation that has been prepared or composed by a specific individual or group prior to the conference. This phrase might be used to attribute authorship or to indicate the source of information being discussed or presented at the event.","The phrase can be verbalized as: ""The author of the research is the one who wrote it."""
+http://cmt_ar#op-5074777-6797175,Target,Property,ارسال البحث,"In the context of a conference, ""ارسال البحث"" translates to ""submission of the research"" in English. It refers to the process of submitting a research paper or abstract for consideration to be presented at the conference.","The phrase can be verbalized as: ""The author sends the research."""
+http://cmt_ar#op-5466717-2620633,Target,Property,عضو المؤتمر,"In the context of a conference, ""عضو المؤتمر"" translates to ""conference member"" or ""conference participant."" It refers to an individual who is a part of the conference, either as an attendee, speaker, or contributor to the discussions and activities taking place during the event.","The phrase can be verbalized as: ""The domain of 'عضو المؤتمر' is 'عضو المؤتمر' and its range is 'مؤتمر'."""
+http://cmt_ar#op-5783340-2574236,Target,Property,(... ،تم تقرير (ليكون مقبول، مرفوض,"In the context of a conference, the phrase ""تم تقرير (ليكون مقبول، مرفوض)"" translates to ""It has been decided (to be accepted, rejected)."" This typically refers to the decision-making process regarding submitted papers, presentations, or proposals for the conference. It indicates that a determination has been made about whether a submission will be accepted for presentation at the conference or rejected.","The triple can be verbalized into a phrase as follows:
+
+""In the context of research, a decision can be made to either accept or reject it.""The subgraph describes a hierarchical relationship involving restrictions on classes and properties in a conceptual framework. 
+
+1. There is a class labeled ""البحث"" (which translates to ""Research"") that is a subclass of two different restrictions.
+2. The first restriction, identified by the blank node `_:Nc302d5e3c34a41eb8a551c9f444d15da`, has the following characteristics:
+   - It is of type ""Restriction.""
+   - It applies to the class ""لاشيء"" (which translates to ""Nothing"").
+   - It has a minimum qualified cardinality of 0 for a specific property, which is related to the acceptance or rejection of something (as indicated by the property description).
+3. The second restriction, identified by the blank node `_:N1cd135bb4c934e1bb32d2b18c4abc1d2`, also has the following characteristics:
+   - It is of type ""Restriction.""
+   - It applies to the same class ""لاشيء.""
+   - It has a maximum qualified cardinality of 1 for the same property related to acceptance or rejection.
+
+In summary, the ""البحث"" class is defined by two restrictions that specify the cardinality constraints on a property associated with the class ""لاشيء,"" allowing for a flexible interpretation of the relationship between the concepts of acceptance and rejection."
+http://cmt_ar#op-5894858-9261514,Target,Property,وقت إنتهاء مراجعة,"In the context of a conference, ""وقت إنتهاء مراجعة"" translates to ""Review End Time."" It refers to the deadline by which participants or reviewers must complete their evaluations or feedback on submitted materials, such as papers or presentations, before the conference proceeds to the next stages of planning or decision-making.","The phrase can be verbalized as follows:
+
+""The end time of the review is associated with the chair of the scientific committee and pertains to the review process."""
+http://cmt_ar#op-6147118-8808919,Target,Property,نسخة من البريد الالكتروني للمظاهرات مطبوعة من قبل,"The phrase ""نسخة من البريد الالكتروني للمظاهرات مطبوعة من قبل"" translates to ""a printed copy of the email regarding the demonstrations."" In the context of a conference, this likely refers to a printed version of an email that contains information or details about demonstrations related to the conference, such as schedules, locations, or topics of discussion. This printed copy may be used for reference or distribution among attendees.","The phrase can be verbalized as follows:
+
+""A printed copy of the email regarding the demonstrations is produced by a supervisor at the conference."""
+http://cmt_ar#op-6266157-6462507,Target,Property,بدأ تقديم العطاءات المراجع من قبل ,"The phrase ""بدأ تقديم العطاءات المراجع من قبل"" translates to ""The submission of reviewed bids has begun."" In the context of a conference, this likely refers to the process where participants or organizations are invited to submit their proposals or bids for consideration, which have been previously reviewed or vetted. This could pertain to proposals for presentations, workshops, or other contributions to the conference.","يمكن التعبير عن الثلاثيات في عبارات كالتالي:
+
+""مؤتمر"" هو المجال الذي ينتمي إليه ""مشرف"" في سياق تقديم العطاءات المراجع."
+http://cmt_ar#op-6389051-2982777,Target,Property,معايير مراجعة أدخلت من قبل,"The phrase ""معايير مراجعة أدخلت من قبل"" translates to ""review criteria introduced by"" in English. In the context of a conference, this likely refers to the specific standards or guidelines that have been established or implemented by a particular entity (such as the conference organizers or a governing body) for evaluating submissions, presentations, or research papers. These criteria are used to ensure that the review process is consistent, fair, and aligned with the conference's objectives.","The phrase can be verbalized as follows:
+
+""The criteria for review are introduced by a supervisor in the context of a conference."""
+http://cmt_ar#op-6438608-6997044,Target,Property,تم تعيين,"In the context of a conference, ""تم تعيين"" translates to ""has been appointed"" or ""has been designated."" This phrase could refer to someone being assigned a specific role or responsibility related to the conference, such as a speaker, organizer, or panelist.","The phrase can be verbalized as: ""The term 'تم تعيين' is associated with the domain of 'المراجع' and the range of 'البحث'."""
+http://cmt_ar#op-6477014-2447390,Target,Property,كتابة البحث,"In the context of a conference, ""كتابة البحث"" translates to ""writing the research"" in English. It refers to the process of preparing a research paper or presentation that will be shared with attendees. This typically involves conducting thorough research on a specific topic, organizing findings, and articulating them clearly in written form to contribute to academic discussions and knowledge sharing at the conference.","The phrase can be verbalized as follows:
+
+""The act of writing a research paper is associated with the author and pertains to the research."""
+http://cmt_ar#op-6683020-8838246,Target,Property,كتابته من قبل,"In the context of a conference, ""كتابته من قبل"" translates to ""written by"" or ""authored by."" It typically refers to a document, paper, or presentation that has been prepared or composed by a specific individual or group prior to the conference. This phrase may be used to attribute the work to its original author during discussions or presentations at the event.","The phrase can be verbalized as: ""The act of writing is associated with the domain of review and the range of the reviewer."""
+http://cmt_ar#op-6776481-7922961,Target,Property,قراءة البحث,"In the context of a conference, ""قراءة البحث"" translates to ""reading the research"" or ""presentation of the research."" It typically refers to the process where a researcher presents their findings, methodologies, and conclusions to an audience, often as part of a formal session where various studies are shared and discussed. This is a crucial aspect of academic conferences, allowing for the dissemination of knowledge and fostering dialogue among peers in the field.","The phrase can be verbalized as: ""The references are related to the research through the act of reading the research."""
+http://cmt_ar#op-6823078-4797319,Target,Property,تشغيل أدوات احالة البحث  ,"The phrase ""تشغيل أدوات احالة البحث"" translates to ""Activating search referral tools"" in English. In the context of a conference, this likely refers to the implementation or utilization of tools and systems that help in directing or referring participants to relevant research, resources, or information. This could involve using software or platforms that facilitate the discovery of research papers, presentations, or discussions that align with the interests of the conference attendees.","The phrase can be verbalized as follows:
+
+""The domain of 'تشغيل أدوات احالة البحث' is 'مشرف', and its range is 'مؤتمر'."""
+http://cmt_ar#op-6930500-2740802,Target,Property,قراءته من قبل مراجع الفوقي,"The phrase ""قراءته من قبل مراجع الفوقي"" translates to ""its reading by the higher authorities"" in English. In the context of a conference, this likely refers to the process where a document, report, or presentation is reviewed or evaluated by senior officials or higher-level authorities. This step is often crucial for ensuring that the content aligns with organizational standards, policies, or strategic goals before it is finalized or disseminated.","The phrase can be verbalized as: ""The reading is conducted by the supervisory reviewer within the context of the research.""The subgraph describes a restriction related to a certain class in a knowledge structure. Specifically, it indicates that there is a restriction defined as a type of ""Restriction"" that has a maximum qualified cardinality of 1. This restriction is associated with the property ""قراءته من قبل مراجع الفوقي"" (translated as ""read by the superior reviewer""). Additionally, it is noted that the class to which this restriction applies is categorized as ""لاشيء"" (translated as ""nothing""). Furthermore, the entity labeled ""البحث"" (translated as ""the research"") is identified as a subclass of the aforementioned restriction."
+http://cmt_ar#op-7141547-2558957,Target,Property,قراءته من قبل مراجع,"In the context of a conference, the phrase ""قراءته من قبل مراجع"" translates to ""its reading by reviewers"" or ""its review by referees."" This typically refers to the process where submitted papers or presentations are evaluated by experts in the field (the reviewers) to assess their quality, relevance, and contribution to the conference's themes before being accepted for presentation or publication.","The phrase can be verbalized as: ""The act of reading is associated with the domain of research and the range of reviewers.""The subgraph describes a restriction related to a class in a semantic framework. Specifically, it defines a restriction that is associated with the concept of ""البحث"" (which translates to ""research""). This restriction indicates that for the class ""البحث,"" there is a property called ""قراءته من قبل مراجع"" (meaning ""read by a reviewer"") that must be fulfilled. 
+
+Furthermore, the restriction specifies a minimum qualified cardinality of 1, meaning that at least one instance of the property ""قراءته من قبل مراجع"" must be present for any instance of ""البحث."" The restriction is categorized under a type labeled ""Restriction"" and is associated with a class referred to as ""لاشيء"" (which translates to ""nothing""). 
+
+In summary, the description outlines that every instance of research must be read by at least one reviewer, adhering to the defined restriction."
+http://cmt_ar#op-7376977-4507172,Target,Property,بحث مرفوض,"In the context of a conference, ""بحث مرفوض"" translates to ""rejected discussion"" or ""rejected research."" This phrase typically indicates that a particular paper, proposal, or topic of discussion has not been accepted for presentation or consideration at the conference. It suggests that the content did not meet the required standards or criteria set by the conference organizers or reviewers.","The phrase can be verbalized as follows:
+
+""The term 'بحث مرفوض' is associated with the domain of 'مشرف' and the range of 'البحث'."""
+http://cmt_ar#op-7547975-1395694,Target,Property,أضافته من قبل,"The phrase ""أضافته من قبل"" translates to ""added it before"" in English. In the context of a conference, it likely refers to a point or topic that has been previously included or mentioned in discussions, presentations, or materials related to the conference. It suggests that the information or contribution in question is not new and has been acknowledged or incorporated in earlier sessions or documents.","The phrase can be verbalized as follows:
+
+""The member of the scientific committee has previously added a supervisor."""
+http://cmt_ar#op-7617874-9671290,Target,Property,إدخال التفاصيل حول,"The phrase ""إدخال التفاصيل حول"" translates to ""entering the details about"" in English. In the context of a conference, it likely refers to the process of providing or inputting specific information related to the conference, such as agenda items, speaker details, participant information, or logistical arrangements. This could involve filling out forms, updating a conference website, or sharing information with attendees.","The phrase can be verbalized as: ""The domain of 'إدخال التفاصيل حول' is 'مشرف' and the range is 'مؤتمر'."""
+http://cmt_ar#op-7726218-5131887,Target,Property,علامة تضارب المصالح,علامة تضارب المصالح (Conflict of Interest Indicator) تشير إلى وجود حالة قد تؤثر على نزاهة أو موضوعية الأفراد أو المؤسسات في اتخاذ القرارات. في سياق المؤتمر، يمكن أن تعني هذه العلامة وجود مصلحة شخصية أو مالية قد تؤثر على سلوك المتحدثين أو المشاركين، مما قد يؤدي إلى تحيز في المعلومات المقدمة أو التوصيات المطروحة. من المهم التعرف على هذه العلامات لضمان الشفافية والمصداقية في المناقشات والقرارات المتخذة خلال المؤتمر.,"The phrase can be verbalized as: ""The range of 'علامة تضارب المصالح' is 'البحث'.""The subgraph describes a class related to the concept of ""علامة تضارب المصالح"" (Conflict of Interest Indicator). This class is defined as a union of two elements. The first element is a list that begins with the term ""رئيس"" (Chairperson) and continues with ""المراجع"" (Reviewer), followed by ""الكاتب"" (Author). The list of these elements is structured such that ""رئيس"" is the first item, and ""المراجع"" is followed by ""الكاتب,"" which concludes the list. The second element in the union is a nil value, indicating the end of the list. Overall, this structure outlines a classification system that categorizes roles or titles associated with the concept of conflict of interest."
+http://cmt_ar#op-7940247-9734251,Target,Property,يقبل,"In the context of a conference, the Arabic word ""يقبل"" (pronounced ""yaqbal"") generally means ""to accept"" or ""to receive."" It can refer to accepting an invitation to speak, participate, or attend the conference. For example, if someone says ""يقبل الدعوة"" (yaqbal al-da'wah), it means ""he/she accepts the invitation.""","The phrase can be verbalized as: ""The domain of 'يقبل' is 'مشرف' and its range is 'البحث'."""
+http://cmt_ar#op-7987969-7509674,Target,Property,مشترك في الكتابة,"In the context of a conference, ""مشترك في الكتابة"" translates to ""shared in writing"" or ""jointly authored."" It typically refers to participants who collaborate on written works, such as papers, articles, or presentations, contributing their ideas and expertise collectively. This phrase emphasizes the collaborative nature of the writing process among conference attendees.","The phrase can be verbalized as follows:
+
+""The shared writer is involved in the research."""
+http://cmt_ar#op-8508521-5721137,Target,Property,رفض من قبل,"In the context of a conference, ""رفض من قبل"" translates to ""rejected by"" or ""declined by."" This phrase could refer to a proposal, paper, or submission that has been turned down by the conference organizers or review committee. It indicates that the submission did not meet the necessary criteria or standards for acceptance into the conference program.","The phrase can be verbalized as: ""The action of 'رفض من قبل' (rejected by) is associated with the domain of 'البحث' (research) and has a range of 'مشرف' (supervisor)."""
+http://cmt_ar#op-8625931-9644071,Target,Property,قبوله من قبل ,"In the context of a conference, ""قبوله من قبل"" translates to ""its acceptance by"" or ""its approval by."" This phrase typically refers to the acceptance of a paper, proposal, or presentation by the conference organizers or committee. It indicates that the submitted work has been reviewed and deemed suitable for inclusion in the conference program.","The phrase can be verbalized as: ""The acceptance by the supervisor is related to the research."""
+http://cmt_ar#op-8681941-3178471,Target,Property,تعيينه من قبل مشرف ,"The phrase ""تعيينه من قبل مشرف"" translates to ""his appointment by the supervisor"" in English. In the context of a conference, this likely refers to an individual being designated or assigned a specific role or responsibility at the conference by a supervisor or an overseeing authority. This could involve tasks such as organizing sessions, managing logistics, or overseeing participants.","The phrase can be verbalized as: ""The appointment is made by a supervisor for the auditor."""
+http://cmt_ar#op-9193814-5047447,Target,Property,لديه موضوع المحور,"In the context of a conference, ""لديه موضوع المحور"" translates to ""he has the main topic"" or ""he has the central theme."" This phrase typically indicates that a speaker or participant is responsible for discussing or presenting on a key subject that is central to the conference's agenda. It suggests that this topic is significant and likely serves as a focal point for discussions and presentations during the event.","The phrase can be verbalized as follows:
+
+""The research has a subject of focus."""
+http://cmt_ar#op-9439554-2925691,Target,Property,لديه تضارب في المصالح مع احترام,"The phrase ""لديه تضارب في المصالح مع احترام"" translates to ""he has a conflict of interest with respect."" In the context of a conference, this likely means that an individual involved in the conference has interests or affiliations that may influence their decisions or actions, potentially compromising their objectivity. The use of ""مع احترام"" (with respect) suggests that this acknowledgment is made in a polite or formal manner, indicating an awareness of the ethical implications of such conflicts while maintaining a respectful tone. It is important in conference settings to address and manage conflicts of interest to ensure transparency and integrity in discussions and decisions.","يمكن التعبير عن الثلاثيات كالتالي:
+
+""الشخص لديه تضارب في المصالح مع احترام الوثيقة."""
+http://cmt_ar#op-9524919-6736172,Target,Property,يعيين,"In the context of a conference, the term ""يعيين"" (pronounced ""ya'yeen"") can be translated to mean ""they appoint"" or ""they designate."" It typically refers to the act of assigning roles, responsibilities, or positions to individuals within the framework of the conference, such as appointing speakers, moderators, or committee members.","The phrase can be verbalized as follows:
+
+""The term 'يعيين' is associated with the domain of 'المراجع' and has a range that includes 'المراجع خارجي'."""
+http://cmt_ar#op-9993047-2293020,Target,Property,إدخال معايير المراجعة,"In the context of a conference, ""إدخال معايير المراجعة"" translates to ""introducing review criteria."" This typically refers to the process of establishing specific standards or guidelines that will be used to evaluate submissions, presentations, or research papers during the conference. These criteria help ensure that the evaluation process is fair, consistent, and aligned with the conference's objectives, allowing for the selection of high-quality contributions.","The phrase can be verbalized as: ""The action of 'إدخال معايير المراجعة' is associated with the domain of 'مشرف' and the range of 'مؤتمر'."""
