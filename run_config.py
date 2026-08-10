@@ -33,9 +33,10 @@ os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 os.environ["ANTHROPIC_API_KEY"] = os.getenv("ANTHROPIC_API_KEY")
 
 # # load GPT, default timeout = None, do not have top_k setting
+llm = ChatOpenAI(model_name='gpt-5', reasoning_effort="minimal", verbosity="low")
 # llm = ChatOpenAI(model_name='gpt-4o-2024-05-13', temperature=0.0, seed=42, top_p=1.0, presence_penalty=0.0, frequency_penalty=0.0)
 # llm = ChatOpenAI(model_name='gpt-4o', temperature=0.0, seed=42, top_p=1.0, presence_penalty=0.0, frequency_penalty=0.0)
-llm = ChatOpenAI(model_name='gpt-4o-mini-2024-07-18', temperature=0.0, seed=42, top_p=1.0, presence_penalty=0.0, frequency_penalty=0.0)
+# llm = ChatOpenAI(model_name='gpt-4o-mini-2024-07-18', temperature=0.0, seed=42, top_p=1.0, presence_penalty=0.0, frequency_penalty=0.0)
 # llm = ChatOpenAI(model_name='gpt-4o-mini', temperature=0.0, seed=42, top_p=1.0, presence_penalty=0.0, frequency_penalty=0.0)
 # # load Anthropic, default timeout = None
 # llm = ChatAnthropic(model="claude-3-opus-20240229", temperature=0) # expensive
@@ -87,10 +88,10 @@ num_matches = 50
 # alignment settings
 
 # conference track
-# context = "conference"
-# o1_is_code = False
-# o2_is_code = False
-# alignment = "conference/cmt-conference/component/"
+context = "conference"
+o1_is_code = False
+o2_is_code = False
+alignment = "conference/cmt-conference/component/"
 # alignment = "conference/cmt-confof/component/"
 # alignment = "conference/cmt-edas/component/"
 # alignment = "conference/cmt-ekaw/component/"
@@ -157,11 +158,11 @@ num_matches = 50
 # multilingual datasets
 
 # multifarm track
-context = "conference"
-o1_is_code = True
-o2_is_code = True
+# context = "conference"
+# o1_is_code = True
+# o2_is_code = True
 # alignment = "multifarm/cmt-cmt-cn-en/component/"
-alignment = "multifarm/cmt-cmt-fr-ar/component/"
+# alignment = "multifarm/cmt-cmt-fr-ar/component/"
 
 # activate when execute run_series_multifarm.py
 if os.environ.get('alignment'):

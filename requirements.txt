@@ -1,15 +1,15 @@
 # install LangChain packages:
-langchain==0.2.10
-langchain-openai==0.1.17
-langchain-anthropic==0.1.20
-langchain-ollama==0.1.0
-langchain_community==0.2.9
+langchain==0.3.27
+langchain-openai==0.3.35
+langchain-anthropic==0.3.17
+langchain-ollama==0.2.3
+langchain_community==0.3.27
 # install other packages:
 pandas==2.0.3
 rdflib==7.0.0
 nltk==3.9.1
 python-dotenv==1.0.1
-pyenchant==3.2.2
+breame==0.1.2
 tiktoken==0.7.0
 asyncpg==0.28.0
 psycopg2_binary==2.9.9
@@ -17,7 +17,6 @@ pgvector==0.1.8
 commentjson==0.9.0
 transformers==4.41.1
 colorama==0.4.6
-hunspell==0.5.5
 # install visualisation packages:
 matplotlib==3.8.4
 notebook

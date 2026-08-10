@@ -1,15 +1,10 @@
 import os
 import csv
 import re
-import enchant
-import hunspell
 import colorama
 import pandas as pd
 from rdflib import URIRef
-
-# load dictionaries once globally (for performance)
-uk_dict = hunspell.HunSpell('/usr/share/hunspell/en_GB.dic', '/usr/share/hunspell/en_GB.aff')
-us_dict = hunspell.HunSpell('/usr/share/hunspell/en_US.dic', '/usr/share/hunspell/en_US.aff')
+from breame.spelling import get_american_spelling
 
 # initialize colorama
 colorama.init(autoreset=True)
@@ -118,24 +113,16 @@ def repair_acronyms(name):
 
 
 # change British spelling to American spelling
-# def change_british_to_american(word):
-#     uk_dict = enchant.Dict("en_GB")
-#     us_dict = enchant.Dict("en_US")
-#     # check whether the word is british spelling
-#     suggestions = None
-#     if uk_dict.check(word) and not us_dict.check(word):
-#         suggestions = us_dict.suggest(word)
-#     # return american spelling
-#     return suggestions[0] if suggestions else word
-
-
-# optional if the code above change_british_to_american is not working for YOUR OS
+# breame is a curated British -> American mapping. A spellchecker's suggest() cannot be
+# used here: it ranks candidates by spelling similarity, so suggest("programme")[0] is
+# "programmer" rather than "program".
 def change_british_to_american(word):
-    # check if it's a British spelling not accepted in US
-    if uk_dict.spell(word) and not us_dict.spell(word):
-        suggestions = us_dict.suggest(word)
-        return suggestions[0] if suggestions else word
-    return word
+    return get_american_spelling(word)
+
+
+def change_phrase_british_to_american(phrase):
+    # breame looks up one word at a time, so a phrase has to be split first
+    return " ".join(get_american_spelling(word) for word in phrase.split())
 
 
 # https://stackoverflow.com/questions/5843518/remove-all-special-characters-punctuation-and-spaces-from-string
@@ -146,7 +133,7 @@ def cleaning(name):
     if " " not in cleaned_name:
         cleaned_name = change_to_snake_case(cleaned_name)
     cleaned_name = cleaned_name.lower()
-    cleaned_name = change_british_to_american(cleaned_name)
+    cleaned_name = change_phrase_british_to_american(cleaned_name)
     cleaned_name = cleaned_name.strip()
     if cleaned_name:
         return cleaned_name
