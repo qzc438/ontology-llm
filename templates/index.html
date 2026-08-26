@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agent-OM Web Interface</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<link rel="stylesheet" href="{{ url_for('static', filename='anu.css') }}">
+<style>
+  /* Page-specific pieces. Everything shared with the Design System page lives
+     in anu.css; only the arrangement of this particular screen is here. */
+
+  .masthead { border-bottom: 3px solid var(--anu-gold); }
+  .masthead .container {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: var(--space-2); flex-wrap: wrap;
+    padding-top: var(--space-2); padding-bottom: var(--space-2);
+  }
+  .masthead h1 { margin: 0; font-size: 1.7em; color: var(--anu-white); }
+  .masthead nav a { color: var(--anu-white); font-size: 0.9em; }
+  .masthead nav a:hover { color: var(--anu-gold); }
+
+  main { padding-top: var(--space-3); padding-bottom: var(--space-4); }
+
+  /* a card is an ANU bordered box with a black header bar */
+  .card { border: 1px solid var(--anu-black); background: var(--anu-white); margin-bottom: var(--space-2); }
+  .card > .card-head {
+    display: flex; align-items: center; gap: var(--space-1); flex-wrap: wrap;
+    background: var(--anu-black); color: var(--anu-white);
+    padding: 9px var(--space-2);
+  }
+  .card > .card-head h2 {
+    margin: 0; font-size: 1.05em; font-weight: 600; color: var(--anu-white); flex: 1;
+  }
+  .card > .card-head .info { border-color: #9a9a9a; color: var(--anu-white); }
+  .card > .card-head .info:hover, .card > .card-head .info:focus-visible { border-color: var(--anu-gold); color: var(--anu-gold); }
+  .card > .card-body { padding: var(--space-2); }
+
+  .sub { font-size: 0.85em; color: var(--anu-unigrey); }
+
+  /* file pickers */
+  label.file {
+    display: block; margin-bottom: var(--space-1); cursor: pointer;
+    border: 1px dashed var(--anu-unigrey); background: var(--anu-white);
+    padding: var(--space-1) 12px;
+  }
+  label.file:hover { border-color: var(--anu-gold); background: var(--anu-gold-tint); }
+  label.file.filled { border-style: solid; border-color: var(--anu-gold); background: var(--anu-gold-tint); }
+  label.file.dragover { border-color: var(--anu-gold); background: var(--anu-gold-tint); }
+  label.file .file-line { display: flex; justify-content: space-between; align-items: center; gap: var(--space-1); }
+  label.file .name { font-weight: 700; }
+  label.file .formats { font-size: 0.8em; color: var(--anu-unigrey); }
+  label.file .chosen {
+    display: block; margin-top: 3px; font-size: 0.85em; color: var(--anu-unigrey);
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  label.file input[type=file] { display: none; }
+
+  .buttons { display: flex; gap: var(--space-1); align-items: center; flex-wrap: wrap; }
+
+  /* the error banner reuses the ANU error message style */
+  .banner { display: none; }
+  .banner.show { display: block; }
+
+  /* environment checks */
+  .check { display: flex; gap: var(--space-1); align-items: flex-start; margin-bottom: var(--space-1); font-size: 0.9em; }
+  .check:last-child { margin-bottom: 0; }
+  .dot { width: 9px; height: 9px; margin-top: 6px; flex: none; background: var(--anu-unigrey); border-radius: 50%; }
+  .dot.ok { background: #1e7b34; }
+  .dot.bad { background: #c8102e; }
+  .check .detail { font-size: 0.85em; color: var(--anu-unigrey); word-break: break-all; }
+
+  /* settings fields, marked when moved away from the run_config.py value */
+  .field.dirty > label { color: var(--anu-gold); }
+  .changed { color: var(--anu-link); font-weight: 400; }
+
+  .toggle { display: inline-flex; align-items: center; gap: 6px; font-size: 0.85em; color: var(--anu-unigrey); cursor: pointer; }
+
+  /* terminal panel */
+  .term-head { display: flex; align-items: center; gap: var(--space-1); flex-wrap: wrap; }
+  #terminal { height: 62vh; min-height: 400px; }
+  /* the settings column is much taller than the terminal, so keep the output
+     in view while it is scrolled */
+  @media (min-width: 992px) {
+    .terminal-col .card { position: sticky; top: var(--space-2); }
+  }
+  .status {
+    font-size: 0.8em; font-weight: 700; padding: 2px 10px;
+    border: 1px solid var(--anu-unigrey); color: var(--anu-unigrey); background: var(--anu-white);
+  }
+  .status.running { border-color: var(--anu-link); color: var(--anu-link); }
+  .status.finished { border-color: #1e7b34; color: #1e7b34; }
+  .status.failed { border-color: #c8102e; color: #c8102e; }
+  .status.cancelled { border-color: var(--anu-gold); color: #7a5409; }
+
+  .results { display: none; margin-top: var(--space-2); }
+  .results.show { display: block; }
+  .results h3 { font-size: 1.05em; font-weight: 600; }
+  .results ul { list-style: none; padding: 0; margin: 0; }
+  .results li {
+    display: flex; justify-content: space-between; align-items: center; gap: var(--space-1);
+    border: 1px solid var(--anu-unigrey); padding: 7px var(--space-1); margin-bottom: 6px; font-size: 0.9em;
+  }
+  .results .size { color: var(--anu-unigrey); font-size: 0.85em; }
+  .results-head { display: flex; align-items: baseline; gap: var(--space-1); flex-wrap: wrap; }
+  .results-head h3 { flex: 1; }
+  .file-group { margin-top: var(--space-2); }
+  .file-group h4 { font-size: 1em; font-weight: 700; margin-bottom: 2px; }
+  .file-group .sub { display: block; margin-bottom: 6px; }
+  .file-group.empty { display: none; }
+
+  /* the headline precision, recall and F1 for the run */
+  .scores { display: flex; gap: var(--space-1); flex-wrap: wrap; margin-bottom: var(--space-2); }
+  .score {
+    flex: 1 1 130px; border: 1px solid var(--anu-black);
+    border-top: 3px solid var(--anu-gold); padding: var(--space-1) var(--space-2);
+  }
+  .score .label { font-size: 0.8em; color: var(--anu-unigrey); }
+  .score .value { font-size: 1.9em; letter-spacing: 0.01em; line-height: 1.2; }
+  .score .value .unit { font-size: 0.5em; color: var(--anu-unigrey); }
+  .scores .note { font-size: 0.8em; color: var(--anu-unigrey); flex-basis: 100%; margin: 0; }
+  /* only the column headers are tinted, so the final row stands out on its own */
+  #metrics-table tbody th { background: var(--anu-white); font-weight: 400; }
+  #metrics-table tbody tr.final,
+  #metrics-table tbody tr.final th { background: var(--anu-gold-tint); font-weight: 700; }
+  #metrics-table td.number { text-align: right; font-family: var(--font-mono); font-size: 0.9em; }
+
+  .site-footer { border-top: 3px solid var(--anu-gold); }
+  .site-footer .container { padding-top: var(--space-2); padding-bottom: var(--space-2); font-size: 0.85em; }
+</style>
+</head>
+<body>
+
+<header class="band-black-wrap masthead">
+  <div class="container">
+    <h1>Agent-OM Web Interface</h1>
+    <nav aria-label="Site">
+      <a href="{{ url_for('design_system') }}">Design System</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <div class="row">
+    <div class="col-12 col-lg-4">
+
+      <form id="form" class="card">
+        <div class="card-head">
+          <h2>Input ontologies</h2>
+          <span class="info" tabindex="0" role="note"
+            aria-label="Files are saved to data/uploads/&lt;job&gt;/component/ and the run is started with that folder as the alignment setting."
+            >i<span class="tip">Files are saved to <code>data/uploads/&lt;job&gt;/component/</code>
+            and the run is started with that folder as the <code>alignment</code> setting.</span></span>
+        </div>
+        <div class="card-body">
+          <div id="banner" class="banner msg-error"></div>
+
+          <label class="file" data-field="source">
+            <span class="file-line"><span class="name">source</span><span class="formats">.xml .rdf .owl</span></span>
+            <span class="chosen">no file chosen</span>
+            <input type="file" name="source" accept=".xml,.rdf,.owl">
+          </label>
+          <label class="file" data-field="target">
+            <span class="file-line"><span class="name">target</span><span class="formats">.xml .rdf .owl</span></span>
+            <span class="chosen">no file chosen</span>
+            <input type="file" name="target" accept=".xml,.rdf,.owl">
+          </label>
+          <label class="file" data-field="reference">
+            <span class="file-line"><span class="name">reference</span><span class="formats">.xml .rdf .owl</span></span>
+            <span class="chosen">no file chosen</span>
+            <input type="file" name="reference" accept=".xml,.rdf,.owl">
+          </label>
+
+          <div class="buttons mt-1">
+            <button type="submit" class="anu-btn-black" id="start">Start matching</button>
+            <button type="button" class="anu-btn" id="stop" disabled>Stop</button>
+          </div>
+        </div>
+      </form>
+
+      <div class="card">
+        <div class="card-head">
+          <h2>API keys</h2>
+          <span class="info" tabindex="0" role="note"
+            aria-label="Your keys are loaded from the .env file. A key you type here is kept in memory for this session only. Tick also save to .env to keep it for future sessions. Click Save keys when you are ready."
+            >i<span class="tip tip-wide">Your keys are loaded from the <code>.env</code> file.
+            A key you type here is kept in memory for this session only. Tick
+            <strong>also save to .env</strong> to keep it for future sessions. Click
+            <strong>Save keys</strong> when you are ready.</span></span>
+        </div>
+        <div class="card-body">
+          <div id="keys"><span class="sub">loading…</span></div>
+          <label class="toggle mt-1">
+            <input type="checkbox" id="save-env"> also save to <code>.env</code>
+          </label>
+          <div class="buttons mt-1">
+            <button type="button" class="anu-btn" id="save-keys">Save keys</button>
+            <span class="sub" id="keys-status"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h2>Environment Variables</h2></div>
+        <div class="card-body">
+          <div id="checks"><span class="sub">checking…</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h2>Settings</h2>
+          <span class="info" tabindex="0" role="note"
+            aria-label="Every option comes from run_config.py, including the ones commented out there. Choices apply to this run only; run_config.py is never written to."
+            >i<span class="tip">Every option comes from <code>run_config.py</code>, including the
+            ones commented out there. Choices apply to this run only; <code>run_config.py</code>
+            is never written to.</span></span>
+          <button type="button" class="anu-btn btn-small" id="reset-settings">Reset</button>
+        </div>
+        <div class="card-body">
+          <div id="settings"><span class="sub">loading…</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-12 col-lg-8 terminal-col">
+      <div class="card">
+        <div class="card-head term-head">
+          <h2>Terminal output</h2>
+          <span class="status" id="status">Idle</span>
+          <label class="toggle" style="color:#d0d0d0"><input type="checkbox" id="follow" checked> auto-scroll</label>
+          <button type="button" class="anu-btn btn-small" id="download-log" disabled>Save log</button>
+        </div>
+        <div class="card-body">
+          <pre id="terminal" class="anu-terminal" tabindex="0" aria-label="Terminal output of run_config.py"><span class="placeholder">Output of run_config.py appears here while the task runs.</span></pre>
+          <div class="results" id="metrics">
+            <h3>Evaluation</h3>
+            <div class="scores" id="score-row"></div>
+            <table class="tbl-row-bdr" id="metrics-table">
+              <caption>Every stage measured by util.calculate_metrics, final row last</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Stage</th>
+                  <th scope="col">Precision</th>
+                  <th scope="col">Recall</th>
+                  <th scope="col">F1</th>
+                </tr>
+              </thead>
+              <tbody id="metrics-body"></tbody>
+            </table>
+          </div>
+          <div class="results" id="results">
+            <div class="results-head">
+              <h3>Result files</h3>
+              <button type="button" class="anu-btn btn-small" id="download-all" disabled>Download all</button>
+            </div>
+            <div class="file-group" id="group-original">
+              <h4>Original Files</h4>
+              <p class="sub">Produced during the matching.</p>
+              <ul></ul>
+            </div>
+            <div class="file-group" id="group-performance">
+              <h4>Performance Summary</h4>
+              <p class="sub">How the run scored and how long it took.</p>
+              <ul></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="band-tint-wrap site-footer">
+  <div class="container">
+    Styled with the <a href="{{ url_for('design_system') }}">Agent-OM Design System</a>,
+    derived from the
+    <a href="https://webpublishing.anu.edu.au/web-style-guide" class="link-ext"
+       title="Opens the ANU Web Style Guide in this window">ANU Web Style Guide</a>.
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  const form = document.getElementById("form");
+  const banner = document.getElementById("banner");
+  const startButton = document.getElementById("start");
+  const stopButton = document.getElementById("stop");
+  const terminal = document.getElementById("terminal");
+  const statusChip = document.getElementById("status");
+  const followBox = document.getElementById("follow");
+  const downloadButton = document.getElementById("download-log");
+  const results = document.getElementById("results");
+  const groupOriginal = document.getElementById("group-original");
+  const groupPerformance = document.getElementById("group-performance");
+  const downloadAllButton = document.getElementById("download-all");
+  const metricsPanel = document.getElementById("metrics");
+  const scoreRow = document.getElementById("score-row");
+  const metricsBody = document.getElementById("metrics-body");
+
+  let currentJob = null;
+  let source = null;
+  let firstLine = true;
+
+  // ---- file pickers -------------------------------------------------------
+
+  document.querySelectorAll("label.file").forEach(function (label) {
+    const input = label.querySelector("input[type=file]");
+    const chosen = label.querySelector(".chosen");
+
+    input.addEventListener("change", function () {
+      const file = input.files[0];
+      chosen.textContent = file ? file.name + "  (" + formatSize(file.size) + ")" : "no file chosen";
+      label.classList.toggle("filled", Boolean(file));
+    });
+
+    // dropping a file straight onto the box
+    ["dragenter", "dragover"].forEach(function (name) {
+      label.addEventListener(name, function (event) {
+        event.preventDefault();
+        label.classList.add("dragover");
+      });
+    });
+    ["dragleave", "drop"].forEach(function (name) {
+      label.addEventListener(name, function () { label.classList.remove("dragover"); });
+    });
+    label.addEventListener("drop", function (event) {
+      event.preventDefault();
+      if (event.dataTransfer.files.length) {
+        input.files = event.dataTransfer.files;
+        input.dispatchEvent(new Event("change"));
+      }
+    });
+  });
+
+  function formatSize(bytes) {
+    if (bytes < 1024) return bytes + " B";
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
+    return (bytes / (1024 * 1024)).toFixed(1) + " MB";
+  }
+
+  // ---- terminal -----------------------------------------------------------
+
+  // Minimal SGR handling: colorama emits plain 30-37/90-97 colours plus reset.
+  function appendLine(text) {
+    if (firstLine) { terminal.textContent = ""; firstLine = false; }
+    const line = document.createElement("div");
+    const pattern = /\x1b\[([0-9;]*)m/g;
+    let index = 0;
+    let classes = [];
+    let match;
+    while ((match = pattern.exec(text)) !== null) {
+      if (match.index > index) line.appendChild(span(text.slice(index, match.index), classes));
+      classes = applyCodes(classes, match[1]);
+      index = pattern.lastIndex;
+    }
+    const tail = text.slice(index);
+    // keep empty lines visible
+    if (tail || !line.childNodes.length) line.appendChild(span(tail || "​", classes));
+    terminal.appendChild(line);
+  }
+
+  function span(text, classes) {
+    const element = document.createElement("span");
+    if (classes.length) element.className = classes.join(" ");
+    element.textContent = text;
+    return element;
+  }
+
+  function applyCodes(classes, raw) {
+    const codes = (raw || "0").split(";");
+    let next = classes.slice();
+    codes.forEach(function (item) {
+      const code = parseInt(item || "0", 10);
+      if (code === 0) next = [];
+      else if (code === 1) next.push("b");
+      else if (code === 22) next = next.filter(function (c) { return c !== "b"; });
+      else if (code === 39) next = next.filter(function (c) { return c.indexOf("fg-") !== 0; });
+      else if ((code >= 30 && code <= 37) || (code >= 90 && code <= 97)) {
+        next = next.filter(function (c) { return c.indexOf("fg-") !== 0; });
+        next.push("fg-" + code);
+      }
+    });
+    return next;
+  }
+
+  function scrollIfFollowing() {
+    if (followBox.checked) terminal.scrollTop = terminal.scrollHeight;
+  }
+
+  function resetTerminal() {
+    terminal.textContent = "";
+    firstLine = true;
+    results.classList.remove("show");
+    groupOriginal.querySelector("ul").innerHTML = "";
+    groupPerformance.querySelector("ul").innerHTML = "";
+    downloadAllButton.disabled = true;
+    metricsPanel.classList.remove("show");
+    scoreRow.innerHTML = "";
+    metricsBody.innerHTML = "";
+  }
+
+  // Precision, recall and F1 come from the run's own result.csv. The headline
+  // row is the llm_with_agent one, which is what the README calls the result.
+  function renderMetrics(summary) {
+    const metrics = summary.metrics || {};
+    const rows = metrics.rows || [];
+    if (!rows.length) return;
+
+    scoreRow.innerHTML = "";
+    if (metrics.final) {
+      [["Precision", metrics.final.precision],
+       ["Recall", metrics.final.recall],
+       ["F1", metrics.final.f1]].forEach(function (pair) {
+        const box = document.createElement("div");
+        box.className = "score";
+        const label = document.createElement("div");
+        label.className = "label";
+        label.textContent = pair[0];
+        const value = document.createElement("div");
+        value.className = "value";
+        value.textContent = pair[1].toFixed(2);
+        const unit = document.createElement("span");
+        unit.className = "unit";
+        unit.textContent = "%";
+        value.appendChild(unit);
+        box.appendChild(label);
+        box.appendChild(value);
+        scoreRow.appendChild(box);
+      });
+      const note = document.createElement("p");
+      note.className = "note";
+      note.textContent = "Stage " + metrics.final.stage +
+        (metrics.final.llm ? ", " + metrics.final.llm : "");
+      scoreRow.appendChild(note);
+    }
+
+    metricsBody.innerHTML = "";
+    rows.forEach(function (row) {
+      const tr = document.createElement("tr");
+      if (metrics.final && row.stage === metrics.final.stage) tr.className = "final";
+      const stage = document.createElement("th");
+      stage.setAttribute("scope", "row");
+      stage.textContent = row.stage;
+      tr.appendChild(stage);
+      [row.precision, row.recall, row.f1].forEach(function (number) {
+        const cell = document.createElement("td");
+        cell.className = "number";
+        cell.textContent = number.toFixed(2);
+        tr.appendChild(cell);
+      });
+      metricsBody.appendChild(tr);
+    });
+    metricsPanel.classList.add("show");
+  }
+
+  // the value drives the colour class, so only the visible label is capitalised
+  const STATUS_LABELS = {
+    idle: "Idle", running: "Running", finished: "Finished",
+    failed: "Failed", cancelled: "Cancelled"
+  };
+
+  function setStatus(value) {
+    statusChip.textContent = STATUS_LABELS[value] || value;
+    statusChip.className = "status " + value;
+  }
+
+  function showError(message) {
+    banner.textContent = message;
+    banner.classList.add("show");
+  }
+
+  function clearError() {
+    banner.classList.remove("show");
+  }
+
+  // ---- running a job ------------------------------------------------------
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    clearError();
+
+    const data = new FormData();
+    let missing = null;
+    ["source", "target", "reference"].forEach(function (field) {
+      const input = document.querySelector('label.file[data-field="' + field + '"] input');
+      if (!input.files.length) { missing = missing || field; return; }
+      data.append(field, input.files[0]);
+    });
+    if (missing) { showError("Please choose a " + missing + " ontology."); return; }
+
+    // the settings live in their own card, so collect them explicitly
+    document.querySelectorAll("#settings [name]").forEach(function (control) {
+      if (control.value !== "" && control.value !== "__custom__") {
+        data.append(control.name, control.value);
+      }
+    });
+
+    startButton.disabled = true;
+    startButton.textContent = "Uploading…";
+    resetTerminal();
+    setStatus("running");
+
+    fetch("/api/jobs", { method: "POST", body: data })
+      .then(function (response) {
+        return response.json().then(function (body) { return { ok: response.ok, body: body }; });
+      })
+      .then(function (result) {
+        if (!result.ok) throw new Error(result.body.error || "Could not start the run.");
+        currentJob = result.body.id;
+        startButton.textContent = "Running…";
+        stopButton.disabled = false;
+        downloadButton.disabled = false;
+        connect(currentJob, 0);
+      })
+      .catch(function (error) {
+        showError(error.message);
+        setStatus("failed");
+        startButton.disabled = false;
+        startButton.textContent = "Start matching";
+      });
+  });
+
+  stopButton.addEventListener("click", function () {
+    if (!currentJob) return;
+    stopButton.disabled = true;
+    fetch("/api/jobs/" + currentJob + "/stop", { method: "POST" }).catch(function () {});
+  });
+
+  function connect(jobId, fromIndex) {
+    if (source) source.close();
+    source = new EventSource("/api/jobs/" + jobId + "/stream?from=" + fromIndex);
+
+    source.addEventListener("output", function (event) {
+      const payload = JSON.parse(event.data);
+      payload.lines.forEach(appendLine);
+      scrollIfFollowing();
+    });
+
+    source.addEventListener("done", function (event) {
+      const summary = JSON.parse(event.data);
+      source.close();
+      source = null;
+      finish(summary);
+    });
+
+    source.onerror = function () {
+      // the browser reconnects on its own; only report a hard failure
+      if (source && source.readyState === EventSource.CLOSED) {
+        showError("Lost the connection to the server. Reload the page to reattach.");
+      }
+    };
+  }
+
+  function finish(summary) {
+    setStatus(summary.status);
+    startButton.disabled = false;
+    startButton.textContent = "Start matching";
+    stopButton.disabled = true;
+    scrollIfFollowing();
+    renderMetrics(summary);
+    renderResults(summary);
+  }
+
+  // The files arrive already split into what the matching wrote and what
+  // summarises how it went. A group with nothing in it is hidden rather than
+  // shown empty.
+  function renderResults(summary) {
+    const groups = summary.results || {};
+    const original = groups.original || [];
+    const performance = groups.performance || [];
+    if (!original.length && !performance.length) return;
+
+    fillGroup(groupOriginal, original, summary.id);
+    fillGroup(groupPerformance, performance, summary.id);
+    downloadAllButton.disabled = false;
+    results.classList.add("show");
+  }
+
+  function fillGroup(group, files, jobId) {
+    const list = group.querySelector("ul");
+    list.innerHTML = "";
+    group.classList.toggle("empty", !files.length);
+    files.forEach(function (file) {
+      const item = document.createElement("li");
+      const link = document.createElement("a");
+      link.href = "/api/jobs/" + jobId + "/results/" + encodeURIComponent(file.name);
+      link.textContent = file.name;
+      const size = document.createElement("span");
+      size.className = "size";
+      size.textContent = formatSize(file.size);
+      item.appendChild(link);
+      item.appendChild(size);
+      list.appendChild(item);
+    });
+  }
+
+  downloadAllButton.addEventListener("click", function () {
+    if (currentJob) window.location = "/api/jobs/" + currentJob + "/results.zip";
+  });
+
+  downloadButton.addEventListener("click", function () {
+    const blob = new Blob([terminal.textContent], { type: "text/plain" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = (currentJob || "run") + ".log";
+    link.click();
+    URL.revokeObjectURL(link.href);
+  });
+
+  // ---- environment panel --------------------------------------------------
+
+  fetch("/api/health").then(function (response) { return response.json(); }).then(function (health) {
+    const checks = document.getElementById("checks");
+    checks.innerHTML = "";
+    checks.appendChild(check("API keys", health.api_keys.ok, health.api_keys.detail));
+    checks.appendChild(check("Database", health.database.ok, health.database.detail));
+    checks.appendChild(check("Interpreter", true, health.python));
+    checks.appendChild(check("Server", health.server.ok, health.server.detail));
+    buildKeys(health.api_keys);
+    buildSettings(health.options, health.current);
+    document.getElementById("reset-settings").addEventListener("click", function () {
+      buildSettings(health.options, health.current);
+    });
+  }).catch(function () {
+    document.getElementById("checks").textContent = "Could not reach the server.";
+  });
+
+  function check(name, ok, detail) {
+    const row = document.createElement("div");
+    row.className = "check";
+    const dot = document.createElement("span");
+    dot.className = "dot " + (ok ? "ok" : "bad");
+    const body = document.createElement("div");
+    const title = document.createElement("div");
+    title.textContent = name;
+    const info = document.createElement("div");
+    info.className = "detail";
+    info.textContent = detail || "";
+    body.appendChild(title);
+    body.appendChild(info);
+    row.appendChild(dot);
+    row.appendChild(body);
+    return row;
+  }
+
+  // ---- api keys -----------------------------------------------------------
+
+  // The server never sends a key back, so a configured key shows only as a row
+  // of dots in the placeholder. Leaving a box empty keeps the current key.
+  function buildKeys(state) {
+    const panel = document.getElementById("keys");
+    panel.innerHTML = "";
+    (state.keys || []).forEach(function (key) {
+      const field = document.createElement("div");
+      field.className = "field";
+
+      const label = document.createElement("label");
+      label.textContent = key.name;
+      if (key.configured) {
+        const where = document.createElement("span");
+        where.className = "changed";
+        where.textContent = "  set from " + key.source;
+        label.appendChild(where);
+      }
+
+      const input = document.createElement("input");
+      input.type = "password";
+      input.name = key.name;
+      input.autocomplete = "off";
+      input.spellcheck = false;
+      input.placeholder = key.configured ? key.masked : "not set, paste the key here";
+
+      field.appendChild(label);
+      field.appendChild(input);
+      panel.appendChild(field);
+    });
+  }
+
+  document.getElementById("save-keys").addEventListener("click", function () {
+    const status = document.getElementById("keys-status");
+    const data = new FormData();
+    let entered = 0;
+    document.querySelectorAll("#keys input[type=password]").forEach(function (input) {
+      if (input.value) { data.append(input.name, input.value); entered += 1; }
+    });
+    if (!entered) { status.textContent = "nothing to save"; return; }
+    data.append("save_to_env", document.getElementById("save-env").checked ? "true" : "false");
+
+    status.textContent = "saving…";
+    fetch("/api/keys", { method: "POST", body: data })
+      .then(function (response) {
+        return response.json().then(function (body) { return { ok: response.ok, body: body }; });
+      })
+      .then(function (result) {
+        if (!result.ok) throw new Error(result.body.error || "Could not save the keys.");
+        // clear the boxes so the key is not left sitting in the DOM
+        document.querySelectorAll("#keys input[type=password]").forEach(function (input) {
+          input.value = "";
+        });
+        buildKeys(result.body.api_keys);
+        status.textContent = "saved" + (result.body.saved_to_env ? " to .env" : " for this session");
+      })
+      .catch(function (error) {
+        status.textContent = error.message;
+      });
+  });
+
+  // ---- settings -----------------------------------------------------------
+
+  // Everything offered here was read out of run_config.py, so the page can only
+  // ever propose settings the project already knows about.
+  function buildSettings(options, current) {
+    const panel = document.getElementById("settings");
+    panel.innerHTML = "";
+
+    panel.appendChild(statementField("llm", "LLM", options.llm, current.llm));
+    panel.appendChild(statementField(
+      "embeddings_service", "Embeddings", options.embeddings_service, current.embeddings_service));
+
+    const contexts = (options.context || []).map(function (item) {
+      return { value: item.value, label: item.value };
+    });
+    panel.appendChild(selectField("context", "context", contexts, current.context, true));
+
+    const booleans = [{ value: "true", label: "True" }, { value: "false", label: "False" }];
+    panel.appendChild(selectField("o1_is_code", "o1_is_code", booleans, String(current.o1_is_code)));
+    panel.appendChild(selectField("o2_is_code", "o2_is_code", booleans, String(current.o2_is_code)));
+
+    const thresholds = (options.similarity_threshold || []).map(function (value) {
+      return { value: String(value), label: value.toFixed(2) };
+    });
+    panel.appendChild(selectField(
+      "similarity_threshold", "similarity_threshold", thresholds,
+      String(current.similarity_threshold)));
+
+    panel.appendChild(numberField("top_k", "top_k", current.top_k, 1, 1000));
+    panel.appendChild(numberField("num_matches", "num_matches", current.num_matches, 1, 1000000));
+  }
+
+  function wrapField(name, labelText, control, initial) {
+    const field = document.createElement("div");
+    field.className = "field";
+    const label = document.createElement("label");
+    label.textContent = labelText;
+    control.name = name;
+    field.appendChild(label);
+    field.appendChild(control);
+    // highlight anything the user moved away from the run_config.py value
+    control.addEventListener("change", function () {
+      field.classList.toggle("dirty", control.value !== initial);
+      label.textContent = control.value !== initial ? labelText + "  (changed)" : labelText;
+    });
+    return field;
+  }
+
+  // a dropdown whose values are whole assignment lines from run_config.py
+  function statementField(name, labelText, options, currentStatement) {
+    const select = document.createElement("select");
+    const groups = {};
+    (options || []).forEach(function (option) {
+      let group = groups[option.provider];
+      if (!group) {
+        group = document.createElement("optgroup");
+        group.label = option.provider;
+        groups[option.provider] = group;
+        select.appendChild(group);
+      }
+      const element = document.createElement("option");
+      element.value = option.statement;
+      element.textContent = option.label +
+        (option.vector_length ? "  (" + option.vector_length + ")" : "");
+      group.appendChild(element);
+    });
+    if (currentStatement) select.value = currentStatement;
+    return wrapField(name, labelText, select, currentStatement || "");
+  }
+
+  function selectField(name, labelText, options, currentValue, allowCustom) {
+    const select = document.createElement("select");
+    (options || []).forEach(function (option) {
+      const element = document.createElement("option");
+      element.value = option.value;
+      element.textContent = option.label;
+      select.appendChild(element);
+    });
+    if (allowCustom) {
+      const element = document.createElement("option");
+      element.value = "__custom__";
+      element.textContent = "Other…";
+      select.appendChild(element);
+    }
+    if (currentValue !== null && currentValue !== undefined) select.value = String(currentValue);
+
+    const field = wrapField(name, labelText, select, String(currentValue));
+    if (!allowCustom) return field;
+
+    // an uploaded ontology may need a domain word that is not in run_config.py
+    const custom = document.createElement("input");
+    custom.type = "text";
+    custom.placeholder = "domain of the ontologies, for example: finance";
+    custom.style.display = "none";
+    custom.style.marginTop = "6px";
+    field.appendChild(custom);
+    select.addEventListener("change", function () {
+      const isCustom = select.value === "__custom__";
+      custom.style.display = isCustom ? "block" : "none";
+      select.removeAttribute("name");
+      custom.removeAttribute("name");
+      // only the control in use carries the field name, so only it is submitted
+      (isCustom ? custom : select).name = name;
+      if (isCustom) custom.focus();
+    });
+    return field;
+  }
+
+  function numberField(name, labelText, currentValue, min, max) {
+    const input = document.createElement("input");
+    input.type = "number";
+    input.min = String(min);
+    input.max = String(max);
+    input.step = "1";
+    input.value = currentValue === null || currentValue === undefined ? "" : String(currentValue);
+    return wrapField(name, labelText, input, input.value);
+  }
+
+  // ---- reattach on load ---------------------------------------------------
+
+  // A run in progress is picked back up. A run that has already finished is
+  // restored too, so reloading the page does not throw away its scores.
+  fetch("/api/jobs").then(function (response) { return response.json(); }).then(function (data) {
+    const jobs = data.jobs || [];
+    const running = jobs.find(function (job) { return job.status === "running"; });
+    if (running) {
+      currentJob = running.id;
+      setStatus("running");
+      startButton.disabled = true;
+      startButton.textContent = "Running…";
+      stopButton.disabled = false;
+      downloadButton.disabled = false;
+      fetch("/api/jobs/" + running.id + "/output")
+        .then(function (response) { return response.json(); })
+        .then(function (output) {
+          resetTerminal();
+          output.lines.forEach(appendLine);
+          scrollIfFollowing();
+          connect(running.id, output.next_index);
+        });
+      return;
+    }
+    if (!jobs.length) return;
+    const last = jobs[0];
+    currentJob = last.id;
+    setStatus(last.status);
+    downloadButton.disabled = false;
+    fetch("/api/jobs/" + last.id + "/output")
+      .then(function (response) { return response.json(); })
+      .then(function (output) {
+        resetTerminal();
+        output.lines.forEach(appendLine);
+        scrollIfFollowing();
+        return fetch("/api/jobs/" + last.id).then(function (r) { return r.json(); });
+      })
+      .then(function (summary) {
+        renderMetrics(summary);
+        renderResults(summary);
+      })
+      .catch(function () {});
+  }).catch(function () {});
+})();
+</script>
+</body>
+</html>

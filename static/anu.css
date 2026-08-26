@@ -1,0 +1,335 @@
+/* ---------------------------------------------------------------------------
+   Agent-OM Design System
+   Derived from the ANU Web Style Guide, https://webpublishing.anu.edu.au/web-style-guide
+   (framework version 5, the release that made gold and black the University colours).
+
+   This is our own implementation of the published design language. It is not the
+   ANU CSS framework itself, which is served from webstyle.anu.edu.au to ANU-hosted
+   sites. Class names follow the guide's names wherever the guide names one, so the
+   markup reads the same way ANU documentation describes it.
+   --------------------------------------------------------------------------- */
+
+/* --- tokens -------------------------------------------------------------- */
+
+:root {
+  /* primary palette, /web-style-guide/colours */
+  --anu-gold: #be830e;          /* key highlight, never more than 1/8 of a page */
+  --anu-gold-tint: #f5edde;     /* background only */
+  --anu-black: #000000;
+  --anu-white: #ffffff;
+  --anu-unigrey: #333333;       /* font colour only, never a background */
+
+  /* link colours. The guide names "University blue" and "bronze" but publishes
+     no hex, so these are chosen to clear 4.5:1 on white and on the gold tint. */
+  --anu-link: #1f4e9c;
+  --anu-link-hover: #8c5f0a;
+
+  /* spacing scale, /web-style-guide/spacing: 0 1 2 3 4 5 = 0 10 20 30 40 50px */
+  --space-0: 0;
+  --space-1: 10px;
+  --space-2: 20px;
+  --space-3: 30px;
+  --space-4: 40px;
+  --space-5: 50px;
+
+  /* borders, /web-style-guide/borders */
+  --bdr-thin: 1px;
+  --bdr-thick: 3px;
+
+  /* Public Sans is the ANU web font, /web-style-guide/text. It is requested from
+     Google Fonts by the page; this stack is what a machine offline falls back to. */
+  --font-body: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+/* --- base ---------------------------------------------------------------- */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--anu-white);
+  color: var(--anu-black);
+  font-family: var(--font-body);
+  font-size: 1em;            /* 16px, /web-style-guide/text */
+  line-height: 1.6;
+  text-align: left;          /* the guide forbids justified text */
+}
+
+/* Heading scale from /web-style-guide/headings. Normal weight, 0.01em tracking
+   and a 10px bottom margin are the guide's values, not an interpretation. */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 var(--space-1);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+}
+h1 { font-size: 2.1em; }
+h2 { font-size: 1.9em; }
+h3 { font-size: 1.4em; }
+h4 { font-size: 1.2em; }
+h5 { font-size: 0.83em; }
+h6 { font-size: 0.67em; }
+
+p { margin: 0 0 var(--space-1); }
+
+/* Links carry no underline until hover, /web-style-guide/links */
+a { color: var(--anu-link); text-decoration: none; }
+a:hover { color: var(--anu-link-hover); text-decoration: underline; }
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: var(--bdr-thick) solid var(--anu-gold);
+  outline-offset: 2px;
+}
+
+/* underlining is reserved for links, so this is the only place it is set */
+.underline { text-decoration: underline; }
+.nounderline { text-decoration: none; }
+
+/* --- text utilities ------------------------------------------------------ */
+
+.large { font-size: 1.25em; }
+.small { font-size: 0.85em; }
+.caption { font-size: 0.85em; color: var(--anu-unigrey); }
+
+.text-black { color: var(--anu-black); }
+.text-unigrey { color: var(--anu-unigrey); }
+.text-white { color: var(--anu-white); }
+/* gold text needs 24px regular or 19px semibold to pass AA on white */
+.text-gold { color: var(--anu-gold); }
+
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+.scrnhide {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+/* --- layout -------------------------------------------------------------- */
+
+/* bands run the full viewport width, the container inside keeps content aligned */
+.band-black-wrap { background: var(--anu-black); color: var(--anu-white); }
+.band-tint-wrap { background: var(--anu-gold-tint); color: var(--anu-black); }
+.band-white-wrap { background: var(--anu-white); color: var(--anu-black); }
+.band-black-wrap a { color: var(--anu-gold); }
+
+.container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding-left: var(--space-2);
+  padding-right: var(--space-2);
+}
+
+/* 12 columns, Bootstrap 5 breakpoints, /web-style-guide/grid-layouts */
+.row { display: flex; flex-wrap: wrap; margin-left: -10px; margin-right: -10px; }
+.row > [class*="col"] { padding-left: 10px; padding-right: 10px; }
+.col { flex: 1 0 0%; }
+.col-12 { flex: 0 0 100%; max-width: 100%; }
+.row.equal > [class*="col"] { display: flex; flex-direction: column; }
+
+@media (min-width: 992px) {
+  .col-lg-4 { flex: 0 0 33.3333%; max-width: 33.3333%; }
+  .col-lg-8 { flex: 0 0 66.6667%; max-width: 66.6667%; }
+}
+
+/* --- spacing utilities --------------------------------------------------- */
+
+.m-0 { margin: 0; }        .p-0 { padding: 0; }
+.mt-0 { margin-top: 0; }   .mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: var(--space-1); }
+.mb-2 { margin-bottom: var(--space-2); }
+.mb-3 { margin-bottom: var(--space-3); }
+.mt-1 { margin-top: var(--space-1); }
+.mt-2 { margin-top: var(--space-2); }
+.mt-3 { margin-top: var(--space-3); }
+.p-1 { padding: var(--space-1); }
+.p-2 { padding: var(--space-2); }
+.py-2 { padding-top: var(--space-2); padding-bottom: var(--space-2); }
+.py-3 { padding-top: var(--space-3); padding-bottom: var(--space-3); }
+.py-4 { padding-top: var(--space-4); padding-bottom: var(--space-4); }
+
+/* --- boxes and borders --------------------------------------------------- */
+
+/* a plain box is 10px of padding and a 10px bottom margin, nothing else */
+.box { padding: var(--space-1); margin-bottom: var(--space-1); }
+.box-bdr-gold { border: var(--bdr-thin) solid var(--anu-gold); background: var(--anu-white); }
+.box-bdr-black { border: var(--bdr-thin) solid var(--anu-black); background: var(--anu-white); }
+.box-bdr-thick-gold { border: var(--bdr-thick) solid var(--anu-gold); background: var(--anu-white); }
+.box-bdr-thick-black { border: var(--bdr-thick) solid var(--anu-black); background: var(--anu-white); }
+
+.box-header-black {
+  background: var(--anu-black); color: var(--anu-white);
+  border: var(--bdr-thin) solid var(--anu-black);
+  padding: var(--space-1) var(--space-2);
+}
+.box-header-tint {
+  background: var(--anu-gold-tint); color: var(--anu-black);
+  border: var(--bdr-thin) solid var(--anu-gold);
+  padding: var(--space-1) var(--space-2);
+}
+
+.divider-solid { border: 0; border-top: 1px solid var(--anu-gold); margin: var(--space-2) 0; }
+.divider-gold { border: 0; border-top: var(--bdr-thick) solid var(--anu-gold); margin: var(--space-2) 0; }
+.divider-black { border: 0; border-top: var(--bdr-thick) solid var(--anu-black); margin: var(--space-2) 0; }
+
+/* --- buttons ------------------------------------------------------------- */
+
+/* 3px borders, square corners. The guide gives no radius, and ANU pages are square. */
+.anu-btn,
+.anu-btn-black,
+.anu-btn-white {
+  display: inline-block;
+  font: inherit;
+  font-weight: 600;
+  line-height: 1.3;
+  padding: 12px var(--space-2);
+  border-width: var(--bdr-thick);
+  border-style: solid;
+  border-radius: 0;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color .15s ease, color .15s ease;
+}
+.anu-btn { background: var(--anu-white); border-color: var(--anu-gold); color: var(--anu-black); }
+.anu-btn:hover:not(:disabled) { background: var(--anu-gold-tint); text-decoration: none; }
+
+.anu-btn-black { background: var(--anu-black); border-color: var(--anu-black); color: var(--anu-white); }
+.anu-btn-black:hover:not(:disabled) { background: var(--anu-unigrey); border-color: var(--anu-unigrey); color: var(--anu-white); text-decoration: none; }
+
+.anu-btn-white { background: var(--anu-white); border-color: var(--anu-black); color: var(--anu-black); }
+.anu-btn-white:hover:not(:disabled) { background: var(--anu-gold-tint); text-decoration: none; }
+
+.anu-btn:disabled,
+.anu-btn-black:disabled,
+.anu-btn-white:disabled { opacity: .4; cursor: not-allowed; }
+
+.btn-small { padding: 6px 14px; font-size: 0.85em; }
+.w100 { width: 100%; }
+
+/* --- forms --------------------------------------------------------------- */
+
+.field { margin-bottom: var(--space-2); }
+.field > label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.9em;
+  font-weight: 600;
+  color: var(--anu-black);
+}
+/* the guide's required marker: a red asterisk added to the label */
+.req::after { content: " *"; color: #c8102e; font-weight: 700; }
+
+.text,
+select,
+input[type="text"],
+input[type="number"],
+input[type="password"] {
+  width: 100%;
+  font: inherit;
+  font-size: 0.95em;
+  padding: 9px 10px;
+  color: var(--anu-black);
+  background: var(--anu-white);
+  border: var(--bdr-thin) solid var(--anu-unigrey);
+  border-radius: 0;
+}
+select:hover,
+input:hover:not(:disabled) { border-color: var(--anu-gold); }
+
+/* helper text under a field */
+.instruction { font-size: 0.85em; color: var(--anu-unigrey); margin-top: 4px; }
+
+/* --- messages ------------------------------------------------------------ */
+
+/* Colours are fixed per the guide. Gold and white text are prohibited on these. */
+.msg-error, .msg-warn, .msg-info, .msg-success {
+  padding: var(--space-1) var(--space-2);
+  margin-bottom: var(--space-2);
+  border-left: var(--bdr-thick) solid;
+  color: var(--anu-black);
+  font-size: 0.95em;
+}
+.msg-error   { background: #fdecea; border-left-color: #c8102e; }
+.msg-warn    { background: #fdf3e2; border-left-color: var(--anu-gold); }
+.msg-info    { background: var(--anu-gold-tint); border-left-color: var(--anu-unigrey); }
+.msg-success { background: #eaf5ec; border-left-color: #1e7b34; }
+
+/* --- tables -------------------------------------------------------------- */
+
+table { border-collapse: collapse; width: 100%; margin-bottom: var(--space-2); }
+table caption {
+  caption-side: top; text-align: left; font-weight: 600;
+  padding-bottom: 6px; color: var(--anu-unigrey); font-size: 0.9em;
+}
+th, td { padding: 8px 10px; text-align: left; vertical-align: top; font-size: 0.95em; }
+th { background: var(--anu-gold-tint); font-weight: 700; }
+.tbl-row-bdr th, .tbl-row-bdr td { border-bottom: 1px solid #d8d8d8; }
+.tbl-cell-bdr th, .tbl-cell-bdr td { border: 1px solid #d8d8d8; }
+
+/* --- lists --------------------------------------------------------------- */
+
+.nobullet { list-style: none; }
+.noindent { padding-left: 0; }
+.list-square { list-style: square; }
+
+/* --- information symbol -------------------------------------------------- */
+
+/* An explanation that stays out of the way until it is asked for. Hover and
+   keyboard focus both reveal it, and the same wording sits in aria-label. */
+.info {
+  position: relative; display: inline-flex; align-items: center; justify-content: center;
+  width: 16px; height: 16px; margin-left: 7px; vertical-align: middle;
+  border: 1px solid var(--anu-unigrey); border-radius: 50%;
+  font: italic 700 10px/1 Georgia, "Times New Roman", serif;
+  color: var(--anu-unigrey); cursor: help; text-transform: none; letter-spacing: 0;
+}
+.info:hover, .info:focus-visible { border-color: var(--anu-gold); color: var(--anu-gold); }
+.info .tip {
+  position: absolute; top: calc(100% + 9px); left: -9px;
+  width: max-content; max-width: 250px;
+  padding: var(--space-1); border: 1px solid var(--anu-unigrey);
+  background: var(--anu-gold-tint); color: var(--anu-black);
+  font: 400 12px/1.5 var(--font-body); text-align: left;
+  text-transform: none; letter-spacing: 0;
+  opacity: 0; visibility: hidden; transition: opacity .12s ease;
+  pointer-events: none; z-index: 20;
+}
+.info:hover .tip, .info:focus-visible .tip { opacity: 1; visibility: visible; }
+/* for a longer tip, so the paragraph does not become a narrow column */
+.info .tip-wide { max-width: 330px; }
+.info .tip-wide strong { font-weight: 700; }
+.info .tip code { background: var(--anu-white); padding: 1px 4px; font-family: var(--font-mono); font-size: 11px; }
+
+/* --- terminal ------------------------------------------------------------ */
+
+/* Black background with white text is an approved ANU combination, so a real
+   terminal view stays inside the palette instead of needing an exception. */
+.anu-terminal {
+  margin: 0;
+  background: var(--anu-black);
+  color: var(--anu-white);
+  border: var(--bdr-thin) solid var(--anu-black);
+  padding: var(--space-1) var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow: auto;
+}
+.anu-terminal .placeholder { color: #b9b9b9; }
+.b { font-weight: 700; }
+/* ANSI colours, lifted toward the bright end so each clears 4.5:1 on black */
+.fg-30 { color: #9a9a9a } .fg-31 { color: #ff8b84 } .fg-32 { color: #6fd46f }
+.fg-33 { color: #e3b341 } .fg-34 { color: #8cbcff } .fg-35 { color: #e0a6ff }
+.fg-36 { color: #56d4dd } .fg-37 { color: #ffffff }
+.fg-90 { color: #b0b0b0 } .fg-91 { color: #ff8b84 } .fg-92 { color: #8fe38f }
+.fg-93 { color: #f2cc60 } .fg-94 { color: #8cbcff } .fg-95 { color: #e0a6ff }
+.fg-96 { color: #7ae5ec } .fg-97 { color: #ffffff }

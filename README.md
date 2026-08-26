@@ -287,6 +287,24 @@ python run_config.py
 - The time evaluation will be stored in the file `time.csv`. The unit of measurement is milliseconds.
 - The matching log will be stored in the file `agent.log`. This file will be rewritten when you run a new task.
 
+### 8. Run Experiment from the Web Interface (Optional):
+- Instead of editing `alignment` in `run_config.py` by hand, you can upload a pair of ontologies from a web page and watch the run happen. Start the server:
+```
+python web_app.py
+```
+- Open http://127.0.0.1:5000, choose a `source`, `target` and `reference` file (`.xml`, `.rdf` or `.owl`), and click "Start matching". The terminal output of `run_config.py` is streamed to the page while the task runs, and the result files can be downloaded when it finishes.
+- The API keys of step 5 can be typed into the page instead of edited into `.env`. They are password fields, so a key is never displayed, and a key that is already configured shows only as a row of dots together with where it came from. The server never sends a key back to the browser and never writes one to the log. Keys are kept in memory until the server stops, unless "also save to `.env`" is ticked, in which case only those lines of `.env` are rewritten and the file is set to mode `600`. Both keys have to be available before a run starts, because `run_config.py` reads both at start-up.
+- Use `python web_app.py --port 8080` to pick another port, or `python web_app.py --host 0.0.0.0` to reach it from another machine. The server has no authentication and accepts API keys, so only run it on `127.0.0.1` unless the network is one you trust completely.
+- The uploads are saved to `data/uploads/<job_id>/component/` and the results to `alignment/uploads/<job_id>/component/`, so web runs never overwrite the OAEI data in `data/`.
+- The files a run produces are listed in two sections. "Original Files" holds what the matching wrote: `ontology_matching.csv`, `true.csv` and the six `predict*.csv` files. "Performance Summary" holds `result.csv`, `time.csv` and `cost.csv`. "Download all" gives you every one of them in a single archive, with the same two sections as folders inside it.
+- Each run writes its own `result.csv` and `cost.csv` into its result folder rather than appending to the ones in the repository root, so the scores belong to that task alone. `time.csv` cannot be redirected the same way, because `run_config.py` writes that path as a literal rather than a setting, so the row it appends is copied into the run's folder afterwards instead. When the run finishes the page shows the precision, recall and F1 of the `llm_with_agent` stage, which is the figure the section above calls the final result, with the earlier stages listed underneath and `result.csv` available to download. Running `python run_config.py` from the terminal is unchanged and still appends to the shared `result.csv` and `cost.csv`.
+- The settings from steps 5 and 6 can be chosen on the page instead of edited by hand: the LLM, the embedding model, `context`, `o1_is_code`, `o2_is_code`, `similarity_threshold`, `top_k` and `num_matches`. The dropdowns are built by reading `run_config.py`, so the LLM list is exactly the models written there, including the ones that are commented out, and each one keeps the constructor arguments it was written with. Choosing an embedding model also brings its `vector_length` along.
+- Only one run is allowed at a time, because the pipeline writes to a single database and to the shared `result.csv`, `cost.csv` and `time.csv` files.
+- Do not delete `data/uploads/<job_id>/` or `alignment/uploads/<job_id>/` while a run is using them. The pipeline reads the uploads throughout the run, and `run_config.py` passes a missing file straight to `rdflib`, which then reports `exactly one of source, location, file or data must be given` rather than saying a file is missing. The page now checks for this and says so plainly instead.
+- `web_app.py` is only read when the server starts, so edit it and then restart. The Environment panel shows when the server started and warns if `web_app.py` has changed since. The page, the stylesheet and `web_overrides.py` are all picked up without a restart.
+- The interface follows the Agent-OM Design System, derived from the [ANU Web Style Guide](https://webpublishing.anu.edu.au/web-style-guide): the ANU palette, Public Sans, the 10px spacing scale, the 12-column grid and the square 3px buttons. The notes are written up at http://127.0.0.1:5000/design-system, linked from the top of the page, and the tokens live in `static/anu.css`. Every colour pair used clears the WCAG 2.1 requirement of 4.5:1, and the page has not been through the ANU approval process because it is a local research tool rather than an ANU site.
+- `web_app.py` never writes to `run_config.py`. The alignment folder is passed in the `alignment` environment variable, the same mechanism `run_series_conference.py` and `run_series_multifarm.py` use, and the settings chosen on the page are passed in `ONTOLOGY_WEB_OVERRIDES` and applied by `web_overrides.py` while the pipeline runs. Settings you do not change keep the value written in `run_config.py`, and running `python run_config.py` from the terminal is unaffected.
+
 ## Repository Structure:
 
 ### 1. Data:
@@ -301,6 +319,11 @@ python run_config.py
 - `om_csv_to_database.py`: Retrieval Agent Part 2.
 - `om_database_matching.py`: Matching Agent.
 - `run_config.py`: main function of the project.
+- `web_app.py`: web interface to upload a pair of ontologies and run `run_config.py` from the browser.
+- `web_overrides.py`: reads the settings and their alternatives out of `run_config.py`, and applies the ones chosen in the web interface without editing the file.
+- `templates/index.html`: the page served by `web_app.py`.
+- `templates/design_system.html`: the Design System notes, served at `/design-system`.
+- `static/anu.css`: the Design System stylesheet, derived from the ANU Web Style Guide.
 - `run_series_archaeology.py`: run all the archaeology alignments at one time.
 - `run_series_conference.py`: run all the conference alignments at one time.
 - `run_series_multifarm.py`: run all the multifarm alignments at one time.

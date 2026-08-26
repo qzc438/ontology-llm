@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design System — Agent-OM Web Interface</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<link rel="stylesheet" href="{{ url_for('static', filename='anu.css') }}">
+<style>
+  .masthead { border-bottom: 3px solid var(--anu-gold); }
+  .masthead .container {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: var(--space-2); flex-wrap: wrap;
+    padding-top: var(--space-2); padding-bottom: var(--space-2);
+  }
+  .masthead h1 { margin: 0; font-size: 1.7em; color: var(--anu-white); }
+  .masthead nav a { color: var(--anu-white); font-size: 0.9em; }
+  .masthead nav a:hover { color: var(--anu-gold); }
+
+  main { padding-top: var(--space-3); padding-bottom: var(--space-5); }
+  .doc { max-width: 900px; }
+  .doc h2 {
+    font-size: 1.5em; margin-top: var(--space-4); padding-bottom: 6px;
+    border-bottom: 3px solid var(--anu-gold);
+  }
+  .doc h3 { font-size: 1.15em; font-weight: 600; margin-top: var(--space-3); }
+  .doc p, .doc li { max-width: 78ch; }
+  .doc ul { padding-left: var(--space-2); }
+  .doc li { margin-bottom: 4px; }
+  .doc code {
+    background: var(--anu-gold-tint); padding: 1px 5px;
+    font-family: var(--font-mono); font-size: 0.86em;
+  }
+
+  /* contents list */
+  .toc { border: 1px solid var(--anu-black); padding: var(--space-2); margin-bottom: var(--space-3); }
+  .toc h2 { margin: 0 0 var(--space-1); font-size: 1.05em; font-weight: 600; border: 0; padding: 0; }
+  .toc ol { margin: 0; padding-left: var(--space-2); columns: 2; column-gap: var(--space-3); }
+  @media (max-width: 700px) { .toc ol { columns: 1; } }
+
+  /* colour swatches */
+  .swatches { display: flex; flex-wrap: wrap; gap: var(--space-1); margin-bottom: var(--space-2); }
+  .swatch { border: 1px solid var(--anu-unigrey); width: 168px; }
+  .swatch .chip { height: 62px; }
+  .swatch .meta { padding: 7px 9px; font-size: 0.8em; line-height: 1.4; }
+  .swatch .meta strong { display: block; font-size: 1.05em; }
+  .swatch .meta code { background: none; padding: 0; }
+
+  /* live component demos */
+  .demo {
+    border: 1px solid var(--anu-unigrey); border-left: 3px solid var(--anu-gold);
+    padding: var(--space-2); margin-bottom: var(--space-1); background: var(--anu-white);
+  }
+  .demo + pre { margin-top: 0; }
+  pre.code {
+    background: var(--anu-black); color: var(--anu-white); padding: var(--space-1) var(--space-2);
+    overflow-x: auto; font-family: var(--font-mono); font-size: 0.8em; line-height: 1.6;
+    margin: 0 0 var(--space-2);
+  }
+  .scale-row { display: flex; align-items: center; gap: var(--space-1); margin-bottom: 6px; font-size: 0.85em; }
+  .scale-bar { background: var(--anu-gold); height: 14px; }
+
+  .pass { color: #1e7b34; font-weight: 700; }
+  .fail { color: #c8102e; font-weight: 700; }
+
+  .site-footer { border-top: 3px solid var(--anu-gold); }
+  .site-footer .container { padding-top: var(--space-2); padding-bottom: var(--space-2); font-size: 0.85em; }
+</style>
+</head>
+<body>
+
+<header class="band-black-wrap masthead">
+  <div class="container">
+    <h1>Design System</h1>
+    <nav aria-label="Site">
+      <a href="{{ url_for('index') }}">&laquo; Back to the web interface</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+<div class="doc">
+
+  <p class="large">
+    The design language for the Agent-OM web interface, taken from the
+    <a href="https://webpublishing.anu.edu.au/web-style-guide">ANU Web Style Guide</a>
+    and its sub-pages. Everything below was read from that guide; where the guide is
+    silent, the gap is marked rather than filled in quietly.
+  </p>
+
+  <p class="msg-info">
+    This is our own implementation of the published design language, not the ANU CSS
+    framework. That framework is served from <code>webstyle.anu.edu.au</code> to
+    ANU-hosted Drupal sites and is not available to a local research tool. Class names
+    below match the guide's names wherever it gives one. Nothing here has been reviewed
+    or approved by ANU Brand and Marketing Services, which the guide requires before any
+    real ANU site goes live.
+  </p>
+
+  <nav class="toc" aria-label="Contents">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#foundations">Foundations</a></li>
+      <li><a href="#colour">Colour</a></li>
+      <li><a href="#contrast">Approved contrast pairs</a></li>
+      <li><a href="#typography">Typography</a></li>
+      <li><a href="#spacing">Spacing</a></li>
+      <li><a href="#layout">Layout and grid</a></li>
+      <li><a href="#buttons">Buttons</a></li>
+      <li><a href="#boxes">Boxes and borders</a></li>
+      <li><a href="#forms">Forms</a></li>
+      <li><a href="#messages">Messages</a></li>
+      <li><a href="#tables">Tables</a></li>
+      <li><a href="#links">Links and lists</a></li>
+      <li><a href="#other">Other components</a></li>
+      <li><a href="#accessibility">Accessibility</a></li>
+      <li><a href="#writing">Writing style</a></li>
+      <li><a href="#applied">How this interface applies it</a></li>
+      <li><a href="#gaps">Gaps and departures</a></li>
+      <li><a href="#sources">Sources</a></li>
+    </ol>
+  </nav>
+
+  <!-- ------------------------------------------------------------------ -->
+  <h2 id="foundations">1. Foundations</h2>
+  <p>
+    ANU web style is at framework version 5, released November 2022. That release
+    replaced the old charcoal and platinum scheme and made <strong>gold and black the
+    University colours</strong>, widened the viewport, and introduced a new set of style
+    classes. The layout is a 12-column grid on Bootstrap 5 breakpoints, and every page
+    must pass a WCAG 2.1 check.
+  </p>
+  <p>
+    Three ideas carry through the whole guide and are worth stating before the detail:
+    gold is a <em>highlight</em> and not a surface, contrast is a hard requirement rather
+    than a preference, and colour may never be the only thing that carries meaning.
+  </p>
+
+  <!-- ------------------------------------------------------------------ -->
+  <h2 id="colour">2. Colour</h2>
+  <p>The primary palette is five colours. There is no secondary palette for websites.</p>
+
+  <div class="swatches">
+    <div class="swatch">
+      <div class="chip" style="background:#be830e"></div>
+      <div class="meta"><strong>ANU Gold</strong><code>#BE830E</code><br>Key highlight</div>
+    </div>
+    <div class="swatch">
+      <div class="chip" style="background:#f5edde"></div>
+      <div class="meta"><strong>Gold Tint</strong><code>#F5EDDE</code><br>Background only</div>
+    </div>
+    <div class="swatch">
+      <div class="chip" style="background:#000000"></div>
+      <div class="meta"><strong>Black</strong><code>#000000</code><br>Background and text</div>
+    </div>
+    <div class="swatch">
+      <div class="chip" style="background:#ffffff"></div>
+      <div class="meta"><strong>White</strong><code>#FFFFFF</code><br>Background and text</div>
+    </div>
+    <div class="swatch">
+      <div class="chip" style="background:#333333"></div>
+      <div class="meta"><strong>Unigrey</strong><code>#333333</code><br>Text only</div>
+    </div>
+  </div>
+
+  <h3>Rules</h3>
+  <ul>
+    <li>Gold should <strong>rarely be used as a background</strong> and must not cover
+      more than <strong>one eighth</strong> of a page or banner.</li>
+    <li>Unigrey is a <strong>font colour only</strong>. It is never a background.</li>
+    <li>Gold Tint is a <strong>background only</strong>. It is never a font colour.</li>
+    <li>Colour must not be the only visual means of conveying information.</li>
+    <li>Text colour classes: <code>.text-black</code>, <code>.text-unigrey</code>,
+      <code>.text-gold</code>, <code>.text-white</code>.</li>
+    <li>These are web colours. Print colours differ and need the Marketing Office.</li>
+  </ul>
+
+  <!-- ------------------------------------------------------------------ -->
+  <h2 id="contrast">3. Approved contrast pairs</h2>
+  <p>
+    Every combination must reach a contrast ratio of at least <strong>4.5:1</strong>.
+    The guide publishes a pass/fail matrix; this is the part of it that governs the
+    colours we actually use.
+  </p>
+
+  <table class="tbl-cell-bdr">
+    <caption>Font colour against each background, from the ANU accessibility page</caption>
+    <thead>
+      <tr>
+        <th scope="col">Background</th><th scope="col">Black</th><th scope="col">Gold</th>
+        <th scope="col">White</th><th scope="col">Unigrey</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">White, text 24px and over</th>
+        <td class="pass">Pass</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="pass">Pass</td>
+      </tr>
+      <tr>
+        <th scope="row">White, body text 16px</th>
+        <td class="pass">Pass</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="pass">Pass</td>
+      </tr>
+      <tr>
+        <th scope="row">Black, all sizes</th>
+        <td class="fail">Fail</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="fail">Fail</td>
+      </tr>
+      <tr>
+        <th scope="row">Gold tint, all sizes</th>
+        <td class="pass">Pass</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="pass">Pass</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="msg-warn">
+    The consequence worth remembering: <strong>gold text on white only passes at 24px
+    regular or 19px semibold and above</strong>. Gold is therefore never used for body
+    copy in this interface, only for borders, rules and large headings.
+  </p>
+
+  <!-- ------------------------------------------------------------------ -->
+  <h2 id="typography">4. Typography</h2>
+  <p>
+    <strong>Public Sans</strong> is the ANU web font, chosen for accessibility and fast
+    loading, with <code>sans-serif</code> as the fallback. Body text is
+    <strong>1em / 16px</strong>, black on white, and always left-aligned — the guide
+    rejects justified text as hard to read on screen. Underlining is reserved for links.
+  </p>
+
+  <h3>Heading scale</h3>
+  <p>
+    All headings are normal weight with <code>0.01em</code> letter spacing and a
+    <code>10px</code> bottom margin.
+  </p>
+  <table class="tbl-row-bdr">
+    <caption>Heading sizes</caption>
+    <thead><tr><th scope="col">Level</th><th scope="col">Size</th><th scope="col">Example</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">h1</th><td><code>2.1em</code></td><td><span style="font-size:2.1em;letter-spacing:.01em">Heading one</span></td></tr>
+      <tr><th scope="row">h2</th><td><code>1.9em</code></td><td><span style="font-size:1.9em;letter-spacing:.01em">Heading two</span></td></tr>
+      <tr><th scope="row">h3</th><td><code>1.4em</code></td><td><span style="font-size:1.4em;letter-spacing:.01em">Heading three</span></td></tr>
+      <tr><th scope="row">h4</th><td><code>1.2em</code></td><td><span style="font-size:1.2em;letter-spacing:.01em">Heading four</span></td></tr>
+      <tr><th scope="row">h5</th><td><code>0.83em</code></td><td><span style="font-size:.83em">Heading five</span></td></tr>
+      <tr><th scope="row">h6</th><td><code>0.67em</code></td><td><span style="font-size:.67em">Heading six</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Rules</h3>
+  <ul>
+    <li>Exactly <strong>one <code>&lt;h1&gt;</code></strong> per page, and it is the page title.</li>
+    <li>Never skip a level: sections are <code>h2</code>, subsections <code>h3</code>.</li>
+    <li>Headings use sentence case.</li>
+    <li>A class may be used to make a semantic level look like another size, so the
+      outline stays correct while the visual weight suits the layout.</li>
+    <li><code>.scrnhide</code> hides a heading visually but keeps it for screen readers.</li>
+  </ul>
+
+  <h3>Text utilities</h3>
+  <ul>
+    <li><code>.large</code> — 1.25em, for introductory text</li>
+    <li><code>.small</code> — 0.85em, for disclaimers and notes</li>
+    <li><code>.caption</code> — 0.85em, for image captions</li>
+    <li><code>.uppercase</code> — exists, but the guide says it is not recommended</li>
+  </ul>
+
+  <!-- ------------------------------------------------------------------ -->
+  <h2 id="spacing">5. Spacing</h2>
+  <p>
+    Six steps, ten pixels apart. Classes read
+    <code>{property}{sides}-{size}</code>, optionally with a breakpoint:
+    <code>{property}{sides}-{breakpoint}-{size}</code>.
+    Property is <code>m</code> or <code>p</code>; sides are
+    <code>t b l r x y</code> or blank for all four. Negative margins use an
+    <code>n</code> prefix, and grid gutters use <code>g-{size}</code>.
+  </p>
+  <div class="demo">
+    <div class="scale-row"><code>0</code><span class="scale-bar" style="width:0"></span> 0px</div>
+    <div class="scale-row"><code>1</code><span class="scale-bar" style="width:10px"></span> 10px</div>
+    <div class="scale-row"><code>2</code><span class="scale-bar" style="width:20px"></span> 20px</div>
+    <div class="scale-row"><code>3</code><span class="scale-bar" style="width:30px"></span> 30px</div>
+    <div class="scale-row"><code>4</code><span class="scale-bar" style="width:40px"></span> 40px</div>
+    <div class="scale-row"><code>5</code><span class="scale-bar" style="width:50px"></span> 50px</div>
+  </div>
+  <p class="small">
+    Padding makes space inside a border; margin makes space between two elements outside
+    their borders.
+  </p>
+
+  <!-- ------------------------------------------------------------------ -->
+  <h2 id="layout">6. Layout and grid</h2>
+  <p>
+    Twelve equal columns, nested <code>container</code> &rarr; <code>row</code> &rarr;
+    <code>col</code>. Column classes are <code>col-{breakpoint}-{1..12}</code>. The guide
+    notes that in practice widths of 3, 4, 6, 8, 9 and 12 at the <code>sm</code>,
+    <code>md</code> and <code>lg</code> breakpoints cover almost everything.
+  </p>
+  <table class="tbl-row-bdr">
+    <caption>Breakpoints, all min-width</caption>
+    <thead><tr><th scope="col">Name</th><th scope="col">Class</th><th scope="col">From</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Extra small</th><td>—</td><td>&lt; 576px</td></tr>
+      <tr><th scope="row">Small</th><td><code>sm</code></td><td>≥ 576px</td></tr>
+      <tr><th scope="row">Medium</th><td><code>md</code></td><td>≥ 768px</td></tr>
+      <tr><th scope="row">Large</th><td><code>lg</code></td><td>≥ 992px</td></tr>
+      <tr><th scope="row">Extra large</th><td><code>xl</code></td><td>≥ 1200px</td></tr>
+      <tr><th scope="row">Extra extra large</th><td><code>xxl</code></td><td>≥ 1400px</td></tr>
+    </tbody>
+  </table>
+  <p>
+    Layouts <strong>restructure</strong> at breakpoints rather than shrinking, so text
+    stays at a readable size on every device. Related utilities:
+    <code>.w10</code>–<code>.w100</code> in 5% steps for width,
+    <code>.equal</code> on a row to level column heights, and
+    <code>.text-left</code>, <code>.text-center</code>, <code>.text-right</code>
+    for alignment. Responsive width classes fall back to 100% below their breakpoint.
+  </p>
+
+  <h3>Bands</h3>
+  <p>
+    A band paints the full viewport width while the container inside keeps content
+    aligned with the rest of the page: <code>.band-black-wrap</code>,
+    <code>.band-tint-wrap</code>, <code>.band-white-wrap</code>. Text colour flips
+    automatically for contrast. The guide suggests running darker bands at the top of a
+    page and lighter ones towards the bottom.
+  </p>
+  <div class="demo p-0">
+    <div class="band-black-wrap p-1">Black band, white text</div>
+    <div class="band-tint-wrap p-1">Tint band, black text</div>
+    <div class="band-white-wrap p-1">White band, black text</div>
+  </div>
+
+  <!-- ------------------------------------------------------------------ -->
+  <h2 id="buttons">7. Buttons</h2>
+  <p>
+    Three classes, all with a <strong>3px border</strong> and square corners. The guide
+    gives no border radius, which is why nothing in this interface is rounded.
+    <code>.anu-btn-black</code> is for light backgrounds and
+    <code>.anu-btn-white</code> for dark ones. Width classes
+    <code>w20</code>…<code>w100</code> apply.
+  </p>
+  <div class="demo">
+    <button class="anu-btn">anu-btn</button>
+    <button class="anu-btn-black">anu-btn-black</button>
+    <button class="anu-btn-white">anu-btn-white</button>
+    <button class="anu-btn" disabled>disabled</button>
+  </div>
+  <pre class="code">&lt;a class="anu-btn-black"&gt;Start matching&lt;/a&gt;</pre>
+  <p class="small">
+    The guide applies these to <code>&lt;a&gt;</code> elements. This interface puts them
+    on <code>&lt;button&gt;</code> elements, because they perform actions rather than
+    navigate; the styling is identical.
+  </p>
+
+  <!-- ------------------------------------------------------------------ -->
+  <h2 id="boxes">8. Boxes and borders</h2>
+  <p>
+    A plain <code>.box</code> is nothing but 10px of padding and a 10px bottom margin.
+    Borders are added separately, 1px by default and 3px in the
+    <code>-thick-</code> variants, in gold, black or white. White borders are for dark
+    backgrounds only. Single sides use <code>bdr-{side}-{colour}</code>.
+  </p>
+  <div class="demo">
+    <div class="box box-bdr-gold">box box-bdr-gold</div>
+    <div class="box box-bdr-black">box box-bdr-black</div>
+    <div class="box box-bdr-thick-gold mb-0">box box-bdr-thick-gold</div>
+  </div>
+  <p>
+    Box headers pair with a content box: <code>.box-header-black</code> and
+    <code>.box-header-tint</code>. Width and alignment classes go on the
+    <strong>parent</strong>, never on the box itself.
+  </p>
+  <div class="demo p-0">
+    <div class="box-header-black">box-header-black</div>
+    <div class="box box-bdr-black mb-0">the content that belongs to it</div>
+  </div>
+  <p>
+    Dividers break long content into sections: <code>.divider-solid</code> (1px gold),
+    <code>.divider-gold</code>, <code>.divider-black</code> and
+    <code>.divider-white</code> (all 3px).
+  </p>
+  <div class="demo">
+    <hr class="divider-solid"><hr class="divider-gold"><hr class="divider-black">
+  </div>
+
+  <!-- ------------------------------------------------------------------ -->
+  <h2 id="forms">9. Forms</h2>
+  <p>
+    Form containers are <code>.anuform</code>, <code>.anuform-inline-tint</code> or
+    <code>.anuform-inline-black</code>. A <code>.field</code> groups a label with its
+    input, <code>.text</code> styles text inputs, and <code>.instruction</code> styles
+    helper text underneath. Required labels take <code>.req</code>, which draws the red
+    asterisk.
+  </p>
+  <div class="demo">
+    <div class="field">
+      <label class="req" for="demo-input">Similarity threshold</label>
+      <input class="text" id="demo-input" type="text" value="0.90">
+      <div class="instruction">Helper text uses the instruction class.</div>
+    </div>
+    <div class="field mb-0">
+      <label for="demo-select">Context</label>
+      <select id="demo-select"><option>conference</option><option>anatomy</option></select>
+    </div>
+  </div>
+  <p class="msg-info">
+    Accessibility requirement: the label's <code>for</code> must equal the input's
+    <code>id</code>, and required fields carry <em>both</em> <code>class="req"</code> on
+    the label and <code>required aria-required="true"</code> on the input, so the
+    requirement reaches assistive technology and not just the eye.
+  </p>
+
+  <!-- ------------------------------------------------------------------ -->
+  <h2 id="messages">10. Messages</h2>
+  <p>
+    Four message styles, plus <code>.msg-inline</code>. Their colours and icons are
+    fixed and cannot be changed. <strong>Gold and white text are prohibited</strong> on
+    every message style, because those combinations are not accessible.
+  </p>
+  <div class="demo">
+    <p class="msg-error">msg-error — something failed and needs attention.</p>
+    <p class="msg-warn">msg-warn — something needs care before continuing.</p>
+    <p class="msg-info">msg-info — background detail worth knowing.</p>
+    <p class="msg-success mb-0">msg-success — the action completed.</p>
+  </div>
+
+  <!-- ------------------------------------------------------------------ -->
+  <h2 id="tables">11. Tables</h2>
+  <p>
+    By default a table has an outer border, no inner borders and no shading. Header
+    cells use <code>&lt;th&gt;</code> with a tinted background and bold text. Border
+    variants are <code>.tbl-row-bdr</code>, <code>.tbl-col-bdr</code>,
+    <code>.tbl-cell-bdr</code> and <code>.tbl-space</code>; widths use
+    <code>.tbl10</code>–<code>.tbl100</code> rather than pixels, so tables stay
+    responsive. A wide table can be wrapped in <code>.fullwidthscroll</code>.
+  </p>
+  <p class="msg-info">
+    Every table needs a <code>&lt;caption&gt;</code> immediately after the opening tag,
+    and header cells need <code>scope="col"</code> or <code>scope="row"</code>. Both
+    tables on this page follow that rule.
+  </p>
+
+  <!-- ------------------------------------------------------------------ -->
+  <h2 id="links">12. Links and lists</h2>
+  <ul>
+    <li>Links are University blue, with no underline until hover, when they turn bronze
+      and gain one. Link colour adjusts automatically on coloured backgrounds; on black
+      it becomes gold.</li>
+    <li><code>.underline</code> and <code>.nounderline</code> force the two states.</li>
+    <li><code>.link-ext</code> marks a link that leaves ANU;
+      <code>.link-new-win</code> warns that a link opens a new window. Both should be
+      paired with a <code>title</code> attribute.</li>
+    <li><code>.readmore</code> is a smaller link prefixed with <code>&raquo;</code>.</li>
+    <li>Lists: <code>.list-circle</code>, <code>.list-square</code>,
+      <code>.list-lower-alpha</code>, <code>.list-upper-roman</code> and siblings;
+      <code>.nobullet</code> and <code>.noindent</code> strip decoration;
+      <code>.list-link</code> renders a list of links each ending in <code>&raquo;</code>;
+      <code>.hangindent</code> is for bibliographies.</li>
+  </ul>
+
+  <!-- ------------------------------------------------------------------ -->
+  <h2 id="other">13. Other components</h2>
+  <p>
+    These are part of the guide but have no role in a single-screen tool. They are
+    recorded so the system stays complete.
+  </p>
+  <ul>
+    <li><strong>Collapsible</strong> — <code>.accordion</code> on the heading,
+      <code>.panel</code> on the content. Every accordion heading needs
+      <code>tabindex="0"</code>, and every tabindex must be <code>0</code> so the reading
+      order is not scrambled.</li>
+    <li><strong>Page tabs</strong> — <code>.pagetabs-nav-tint</code> or
+      <code>-black</code>, <code>.pagetabs-select</code> for the active tab,
+      <code>.tab-content</code> and <code>.tab-pane</code>. The heading covering all tabs
+      sits above the tab bar.</li>
+    <li><strong>Breadcrumbs</strong> — <code>&lt;div id="breadcrumb"&gt;</code>,
+      separated by <code>&raquo;</code>. The current page is not a link.</li>
+    <li><strong>Dates</strong> — <code>.dateblock</code> with <code>.day</code>,
+      <code>.month</code>, <code>.year</code>; times as <code>HH.MM am</code>.</li>
+    <li><strong>Pull quotes</strong> — <code>.pullquote</code>, 50% width, centred,
+      slightly larger than body text, in quotation marks.</li>
+    <li><strong>Images</strong> — responsive by default with no width or height
+      attribute; fixed sizes use <code>w{n}px</code>; ratios use
+      <code>ratio-16-9</code> and friends. Alt text is required, empty
+      (<code>alt=""</code>) only when the image is decorative. Upload at 2× the display
+      size. Captions use <code>.caption</code> and must not repeat the alt text.</li>
+    <li><strong>Carousel</strong> — Bootstrap markup with <code>aria-label</code> on the
+      indicators and <code>visually-hidden</code> control labels.</li>
+    <li><strong>Features</strong> — homepage only, first item, up to seven, each with a
+      title, summary and image, refreshed at least monthly.</li>
+    <li><strong>Overlap</strong> — <code>.overlap</code> with <code>.overlap-child</code>,
+      positioned by <code>{side}-{size}</code>, at most two children, stacking below
+      992px.</li>
+  </ul>
+
+  <!-- ------------------------------------------------------------------ -->
+  <h2 id="accessibility">14. Accessibility</h2>
+  <p>
+    Every ANU site must pass <strong>WCAG 2.1</strong>. The rules collected across the
+    guide's pages are:
+  </p>
+  <ul>
+    <li>Contrast of at least <strong>4.5:1</strong> for text.</li>
+    <li>Colour must never be the only means of conveying information.</li>
+    <li>Gold text needs 24px regular or 19px semibold to pass on white.</li>
+    <li>Gold and white text are prohibited on message styles.</li>
+    <li>One <code>h1</code> per page and no skipped heading levels.</li>
+    <li>Labels bound to inputs by <code>for</code> and <code>id</code>; required fields
+      marked visually <em>and</em> in the accessibility tree.</li>
+    <li>Tables need captions and <code>scope</code> on header cells.</li>
+    <li>Images need <code>alt</code>; decorative images take <code>alt=""</code>; a
+      linked image's alt describes the link's function.</li>
+    <li>Interactive elements need <code>tabindex="0"</code>, never a positive value.</li>
+    <li>Link text describes its destination rather than showing a bare URL.</li>
+  </ul>
+  <p class="msg-warn">
+    The guide does not specify a focus indicator. Since a visible focus state is a WCAG
+    2.1 requirement, this system defines one: a 3px gold outline offset by 2px, applied
+    to every link, button, input, select and the information symbols.
+  </p>
+
+  <!-- ------------------------------------------------------------------ -->
+  <h2 id="writing">15. Writing style</h2>
+  <ul>
+    <li><strong>Sentence case</strong> everywhere. Only the first letter and proper nouns
+      are capitalised, in headings and titles alike. Proper nouns keep their capitals,
+      which is why <em>Agent-OM Design System</em> and <em>Agent-OM Web Interface</em>
+      are capitalised as the names of things while ordinary headings are not.</li>
+    <li><strong>Australian spelling</strong>: <em>-ise</em> not <em>-ize</em>,
+      <em>colour</em> not <em>color</em>.</li>
+    <li><strong>Active voice</strong>, plain English, no internet abbreviations.</li>
+    <li>Numbers: spell out one to nine, numerals from 10, commas in thousands.</li>
+    <li>Dates: <em>Thursday 17 March 1917</em>, no commas.</li>
+    <li>Acronyms spelled out on first use with the acronym in brackets.</li>
+    <li>Link the meaningful words, not the raw URL.</li>
+  </ul>
+  <p class="small">
+    The interface text follows this. Buttons read "Start matching" and "Save keys" in
+    sentence case, and messages are written in plain English.
+  </p>
+
+  <!-- ------------------------------------------------------------------ -->
+  <h2 id="applied">16. How this interface applies it</h2>
+  <table class="tbl-row-bdr">
+    <caption>Style guide rule mapped to what this interface does</caption>
+    <thead><tr><th scope="col">Rule</th><th scope="col">Applied as</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Gold is a highlight, under 1/8 of the page</th>
+        <td>Gold appears only in the rule under the masthead, box borders, focus
+          outlines and the active file picker. No gold surfaces.</td></tr>
+      <tr><th scope="row">Black band with white text</th>
+        <td>The masthead and every card header bar.</td></tr>
+      <tr><th scope="row">Black background, white text is approved</th>
+        <td>The terminal panel, which keeps a real terminal look inside the palette
+          rather than needing an exception. ANSI colours are shifted to their bright
+          variants so each still clears 4.5:1 on black.</td></tr>
+      <tr><th scope="row">Public Sans, 16px body, left aligned</th>
+        <td>Loaded from Google Fonts with a system fallback; body copy is never
+          justified.</td></tr>
+      <tr><th scope="row">Heading scale and one h1</th>
+        <td>One <code>h1</code> in the masthead. Card titles are semantic
+          <code>h2</code> shown at 1.05em, which the guide permits.</td></tr>
+      <tr><th scope="row">Spacing scale 0–50px</th>
+        <td>CSS custom properties <code>--space-0</code> to <code>--space-5</code>;
+          no arbitrary pixel gaps.</td></tr>
+      <tr><th scope="row">12-column grid, restructure at breakpoints</th>
+        <td>Controls in <code>col-lg-4</code>, terminal in <code>col-lg-8</code>,
+          stacking to full width below 992px.</td></tr>
+      <tr><th scope="row">3px square buttons</th>
+        <td>Start matching is <code>anu-btn-black</code>; Stop, Save keys and Reset are
+          <code>anu-btn</code>. No rounded corners anywhere.</td></tr>
+      <tr><th scope="row">Message styles</th>
+        <td>Upload errors use <code>msg-error</code>; the notes on this page use
+          <code>msg-info</code> and <code>msg-warn</code>.</td></tr>
+      <tr><th scope="row">Colour is not the only signal</th>
+        <td>Run status shows the word <em>running</em>, <em>finished</em>,
+          <em>failed</em> or <em>cancelled</em>, not just a colour. Environment checks
+          pair each dot with text.</td></tr>
+      <tr><th scope="row">Labels bound to inputs</th>
+        <td>Settings and API key fields generate a <code>label</code> with the control
+          nested inside it.</td></tr>
+      <tr><th scope="row">Tables need caption and scope</th>
+        <td>Both tables on this page have both.</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ------------------------------------------------------------------ -->
+  <h2 id="gaps">17. Gaps and departures</h2>
+  <p>Recorded honestly, so nobody has to rediscover them.</p>
+  <ul>
+    <li><strong>Link colours have no published hex.</strong> The guide names "University
+      blue" and "bronze" but gives no values. This system uses
+      <code>#1F4E9C</code> and <code>#8C5F0A</code>, both chosen to clear 4.5:1 on white
+      and on the gold tint. Replace them if ANU publishes the real values.</li>
+    <li><strong>No focus indicator is specified.</strong> Defined here as a 3px gold
+      outline, since WCAG 2.1 requires one.</li>
+    <li><strong>No border radius is specified.</strong> Read as square, matching ANU
+      pages.</li>
+    <li><strong>Button hover and focus states are not specified.</strong> Defined here.</li>
+    <li><strong>Icons.</strong> The guide points to an ANU icon gallery rather than
+      describing a class system, so this interface uses text and one drawn information
+      symbol instead of an icon font.</li>
+    <li><strong>Three guide pages 404.</strong> <code>/steps/building-site/accessibility</code>,
+      <code>/steps/building-site/tools/</code> and <code>/steps/building-site/checklist</code>
+      are linked from the guide but return Not Found, so the accessibility rules here come
+      from <code>/web-style-guide/accessibility</code> and the component pages instead.</li>
+    <li><strong>Public Sans is fetched from Google Fonts.</strong> On a machine with no
+      network the page falls back to the system sans-serif; nothing else breaks.</li>
+    <li><strong>Not an ANU site.</strong> This is a local research tool. It borrows the
+      design language for consistency and has not been through the ANU approval process,
+      which the guide requires before any real ANU site goes live.</li>
+  </ul>
+
+  <!-- ------------------------------------------------------------------ -->
+  <h2 id="sources">18. Sources</h2>
+  <p>Every page read to build this system.</p>
+  <ul class="small">
+    <li><a href="https://webpublishing.anu.edu.au/web-style-guide">Web style guide</a> (index)</li>
+    <li><a href="https://webpublishing.anu.edu.au/web-style-guide/colours">Colours</a>,
+      <a href="https://webpublishing.anu.edu.au/web-style-guide/accessibility">Accessibility</a></li>
+    <li><a href="https://webpublishing.anu.edu.au/web-style-guide/headings">Headings</a>,
+      <a href="https://webpublishing.anu.edu.au/web-style-guide/text">Text</a>,
+      <a href="https://webpublishing.anu.edu.au/web-style-guide/links">Links</a>,
+      <a href="https://webpublishing.anu.edu.au/web-style-guide/lists">Lists</a></li>
+    <li><a href="https://webpublishing.anu.edu.au/web-style-guide/layout-framework">Layout framework</a>,
+      <a href="https://webpublishing.anu.edu.au/web-style-guide/grid-layouts">Grid layouts</a>,
+      <a href="https://webpublishing.anu.edu.au/web-style-guide/responsive">Responsive</a>,
+      <a href="https://webpublishing.anu.edu.au/web-style-guide/spacing">Spacing</a>,
+      <a href="https://webpublishing.anu.edu.au/web-style-guide/width">Width</a>,
+      <a href="https://webpublishing.anu.edu.au/web-style-guide/alignment">Alignment</a>,
+      <a href="https://webpublishing.anu.edu.au/web-style-guide/equal-column-height">Equal column height</a></li>
+    <li><a href="https://webpublishing.anu.edu.au/web-style-guide/buttons">Buttons</a>,
+      <a href="https://webpublishing.anu.edu.au/web-style-guide/boxes">Boxes</a>,
+      <a href="https://webpublishing.anu.edu.au/web-style-guide/borders">Borders</a>,
+      <a href="https://webpublishing.anu.edu.au/web-style-guide/bands">Bands</a>,
+      <a href="https://webpublishing.anu.edu.au/web-style-guide/divider-lines">Divider lines</a></li>
+    <li><a href="https://webpublishing.anu.edu.au/web-style-guide/forms">Forms</a>,
+      <a href="https://webpublishing.anu.edu.au/web-style-guide/tables">Tables</a>,
+      <a href="https://webpublishing.anu.edu.au/web-style-guide/message">Messages</a>,
+      <a href="https://webpublishing.anu.edu.au/web-style-guide/collapsible">Collapsible</a>,
+      <a href="https://webpublishing.anu.edu.au/web-style-guide/page-tabs">Page tabs</a></li>
+    <li><a href="https://webpublishing.anu.edu.au/web-style-guide/breadcrumbs">Breadcrumbs</a>,
+      <a href="https://webpublishing.anu.edu.au/web-style-guide/dates">Dates</a>,
+      <a href="https://webpublishing.anu.edu.au/web-style-guide/pull-quotes">Pull quotes</a>,
+      <a href="https://webpublishing.anu.edu.au/web-style-guide/images">Images</a>,
+      <a href="https://webpublishing.anu.edu.au/web-style-guide/icons">Icons</a>,
+      <a href="https://webpublishing.anu.edu.au/web-style-guide/carousel">Carousel</a>,
+      <a href="https://webpublishing.anu.edu.au/web-style-guide/features">Features</a>,
+      <a href="https://webpublishing.anu.edu.au/web-style-guide/overlap">Overlap</a> and
+      <a href="https://webpublishing.anu.edu.au/web-style-guide/overlap/overlap-positioning">Overlap positioning</a></li>
+    <li><a href="https://webpublishing.anu.edu.au/content-writing-guide">Content writing guide</a>,
+      <a href="https://webpublishing.anu.edu.au/step-by-step-guide">Step by step guide</a>,
+      <a href="https://webpublishing.anu.edu.au/step-by-step-guide/building-site/">Building your site</a>,
+      <a href="https://webpublishing.anu.edu.au/releases">Releases</a></li>
+  </ul>
+
+</div>
+</main>
+
+<footer class="band-tint-wrap site-footer">
+  <div class="container">
+    <a href="{{ url_for('index') }}">&laquo; Back to the web interface</a>
+  </div>
+</footer>
+
+</body>
+</html>
