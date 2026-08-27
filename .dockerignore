@@ -1,0 +1,47 @@
+# The image carries the interface and the pipeline, nothing else.
+
+# secrets never go into an image; the keys are passed in at run time
+.env
+
+# the OAEI data and the reference results are mounted, not baked in, and are
+# over 400 MB between them
+data/
+alignment/
+
+# competition material, benchmarks and figures, none of which a run needs
+campaign/
+campaign_csv/
+campaign_figure/
+result_csv/
+result_figure/
+benchmark_2022/
+benchmark_2023/
+slide_presentation/
+update_note/
+
+# notebooks and the plots they make
+*.ipynb
+.ipynb_checkpoints/
+
+# local development
+.git/
+.gitignore
+.venv/
+venv/
+.idea/
+.claude/
+__pycache__/
+**/__pycache__/
+*.pyc
+
+# output from previous local runs
+agent.log
+result.csv
+cost.csv
+time.csv
+subgraph.ttl
+subgraph_complex.ttl
+
+# tests and scratch scripts
+test_function/
+test_script/

@@ -13,8 +13,16 @@ Usage:
     python web_app.py --port 8080     # pick another port
     python web_app.py --host 0.0.0.0  # expose on the local network
 
-Uploads are stored in   data/uploads/<job_id>/component/
-Results are written to  alignment/uploads/<job_id>/component/
+A run is filed the way the OAEI tracks are, <context>/<source>-<target>, with
+the time it started on the end:
+
+    Uploads are stored in   data/uploads/conference/cmt-confof-20260827-163210/component/
+    Results are written to  alignment/uploads/conference/cmt-confof-20260827-163210/component/
+
+so the alignment recorded in result.csv reads the same way. Everything stays
+under uploads/, where it cannot touch the OAEI data shipped in data/ and
+alignment/, and the timestamp keeps every run of a pair rather than replacing
+the one before it.
 """
 
 import argparse
@@ -34,6 +42,19 @@ import time
 import uuid
 import zipfile
 from collections import deque
+
+# a pseudo terminal is how the pipeline's colours are kept; none of this exists
+# on Windows, where the run still works but arrives without colour
+try:
+    import fcntl
+    import pty
+    import struct
+    import termios
+except ImportError:  # pragma: no cover - Windows
+    pty = None
+    fcntl = None
+    struct = None
+    termios = None
 from datetime import datetime
 from pathlib import Path
 
@@ -49,11 +70,42 @@ BASE_DIR = Path(__file__).resolve().parent
 UPLOAD_ROOT = BASE_DIR / "data" / "uploads"
 RESULT_ROOT = BASE_DIR / "alignment" / "uploads"
 
+# Uploading and running are separate steps, so files arrive here first and are
+# moved into their real folder when a run starts. The name begins with a dot so
+# it can never be mistaken for one of the context folders beside it.
+STAGING_ROOT = UPLOAD_ROOT / ".staging"
+
+# a staged upload nobody ran is cleared out after this long
+STAGING_MAX_AGE = 24 * 60 * 60
+
 # run_config.find_file() only looks for these extensions
 ALLOWED_EXTENSIONS = ("xml", "rdf", "owl")
 
-# the three ontologies run_config.py resolves from the alignment folder
-REQUIRED_UPLOADS = ("source", "target", "reference")
+# the two ontologies a run cannot happen without
+REQUIRED_UPLOADS = ("source", "target")
+
+# The reference alignment is the ground truth, needed only to score the result.
+# om_ontology_to_csv.py calls find_reference() whether or not one was given, and
+# that hands the path straight to rdflib, so a run without one would fail on
+# rdflib.parse(None). An empty alignment is written instead: it parses, yields no
+# cells, and the run proceeds with nothing to score against.
+OPTIONAL_UPLOADS = ("reference",)
+ALL_UPLOADS = REQUIRED_UPLOADS + OPTIONAL_UPLOADS
+
+EMPTY_ALIGNMENT = """<?xml version='1.0' encoding='utf-8'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+         xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+         xmlns:xsd='http://www.w3.org/2001/XMLSchema#'>
+<!-- No reference alignment was given for this run, so there is nothing to
+     score against. This file exists because the pipeline reads one
+     unconditionally; it deliberately contains no cells. -->
+<Alignment>
+<xml>yes</xml>
+<level>0</level>
+<type>??</type>
+</Alignment>
+</rdf:RDF>
+"""
 
 # reject upload requests larger than this
 MAX_UPLOAD_BYTES = 512 * 1024 * 1024
@@ -71,6 +123,10 @@ SCRIPT_ERROR_PATTERN = re.compile(r"^Error running (\S+\.py):")
 # run_config.py reads both of these at import time, unconditionally
 API_KEY_NAMES = ("OPENAI_API_KEY", "ANTHROPIC_API_KEY")
 
+# points the pipeline at a postgres that is not the one named in run_config.py,
+# which is how the database is reached when it runs as its own container
+DB_URL_ENV = "ONTOLOGY_DB_URL"
+
 # the header util.calculate_metrics expects but never writes, because the
 # create_document call that would have written it is commented out
 RESULT_HEADER = ("LLM", "Alignment", "Precision", "Recall", "F1")
@@ -86,6 +142,10 @@ TIME_HEADER = ("LLM", "Alignment", "Retrieving", "Embedding", "Matching", "Total
 # the files that summarise how the run performed rather than what it matched
 PERFORMANCE_FILES = ("result.csv", "time.csv", "cost.csv")
 
+# how much of an ontology name is kept in the job id, so a long one cannot
+# produce a path nothing will accept
+MAX_NAME_LENGTH = 40
+
 # util.calculate_metrics is called once per stage; the README says the final
 # figure is the row whose alignment ends with this one
 FINAL_STAGE = "llm_with_agent"
@@ -96,6 +156,10 @@ KEYS_LOCK = threading.Lock()
 
 # used to notice that the source files changed after this process started
 SERVER_STARTED_AT = time.time()
+
+# files uploaded but not yet run, by upload id
+STAGED = {}
+STAGING_LOCK = threading.Lock()
 
 
 class Job:
@@ -118,6 +182,15 @@ class Job:
         self.vanished = []
         # rows already in the shared time.csv when this job started
         self.time_rows_before = 0
+        # what the reader called the two ontologies, empty when they said nothing
+        self.ontology_names = {"source": "", "target": ""}
+        # whether a reference alignment was given, and so whether this run can
+        # be scored at all
+        self.has_reference = True
+        # where the files live, under uploads, in the OAEI shape
+        # <context>/<source>-<target>. It holds a slash, so it cannot double as
+        # the identifier, which has to survive being a single URL segment.
+        self.folder = job_id
         # `lines` is capped, `total` counts every line ever produced so that a
         # reconnecting browser can ask for output starting at an absolute index
         self.lines = deque(maxlen=MAX_LINES)
@@ -160,7 +233,10 @@ class Job:
         return {
             "id": self.id,
             "alignment": self.alignment,
+            "folder": self.folder,
             "uploads": self.uploads,
+            "ontology_names": dict(self.ontology_names),
+            "has_reference": self.has_reference,
             "overrides": web_overrides.format_overrides(self.overrides),
             "status": self.status,
             "script_errors": list(self.script_errors),
@@ -252,28 +328,41 @@ def build_environment(job):
     return environment
 
 
-def pump_output(job, stream):
+def clean_line(text):
+    """One line of terminal output as it should be stored.
+
+    A terminal ends its lines with a carriage return before the newline, so
+    that one is dropped. Any carriage return left inside the line is the child
+    rewriting what it had already written, as a progress counter does, so only
+    what follows the last one is kept.
+    """
+    if text.endswith("\r"):
+        text = text[:-1]
+    return text.rsplit("\r", maxsplit=1)[-1]
+
+
+def pump_output(job, descriptor):
     """Forward the child's combined stdout/stderr into the job, line by line."""
-    descriptor = stream.fileno()
     buffer = ""
     while True:
         try:
             chunk = os.read(descriptor, 8192)
         except OSError:
+            # a pseudo terminal reports EIO rather than end of file when the
+            # child on the other side has gone
             break
         if not chunk:
             break
         buffer += chunk.decode("utf-8", errors="replace")
         *complete, buffer = buffer.split("\n")
         for line in complete:
-            # a carriage return rewrites the line, so keep the last segment only
-            job.append(line.rsplit("\r", maxsplit=1)[-1])
+            job.append(clean_line(line))
         # flush a very long line that has not been terminated yet
         if len(buffer) > 8192:
             job.append(buffer)
             buffer = ""
     if buffer:
-        job.append(buffer.rsplit("\r", maxsplit=1)[-1])
+        job.append(clean_line(buffer))
 
 
 def missing_inputs(job):
@@ -284,7 +373,7 @@ def missing_inputs(job):
     "exactly one of source, location, file or data must be given", which says
     nothing about the real problem.
     """
-    component = UPLOAD_ROOT / job.id / "component"
+    component = UPLOAD_ROOT / job.folder / "component"
     gone = []
     for name in REQUIRED_UPLOADS:
         if not any((component / f"{name}.{ext}").is_file() for ext in ALLOWED_EXTENSIONS):
@@ -300,7 +389,7 @@ def prepare_result_files(job):
     web_overrides.py redirects them into this job's folder instead. The header
     is written here because util.calculate_metrics only ever appends rows.
     """
-    folder = RESULT_ROOT / job.id / "component"
+    folder = RESULT_ROOT / job.folder / "component"
     folder.mkdir(parents=True, exist_ok=True)
     for name, header in (("result.csv", RESULT_HEADER), ("cost.csv", COST_HEADER)):
         path = folder / name
@@ -308,8 +397,8 @@ def prepare_result_files(job):
             with open(path, "w", newline="") as handle:
                 csv.writer(handle).writerow(header)
     return {
-        "result_path": f"alignment/uploads/{job.id}/component/result.csv",
-        "cost_path": f"alignment/uploads/{job.id}/component/cost.csv",
+        "result_path": f"alignment/uploads/{job.folder}/component/result.csv",
+        "cost_path": f"alignment/uploads/{job.folder}/component/cost.csv",
     }
 
 
@@ -336,11 +425,11 @@ def write_time_summary(job):
         return
     added = [
         row for row in rows[job.time_rows_before:]
-        if len(row) > 1 and job.id in row[1]
+        if len(row) > 1 and job.folder in row[1]
     ]
     if not added:
         return
-    path = RESULT_ROOT / job.id / "component" / TIME_CSV
+    path = RESULT_ROOT / job.folder / "component" / TIME_CSV
     try:
         with open(path, "w", newline="") as handle:
             writer = csv.writer(handle)
@@ -352,7 +441,7 @@ def write_time_summary(job):
 
 def read_metrics(job):
     """The precision, recall and F1 rows this job wrote, best row last."""
-    path = RESULT_ROOT / job.id / "component" / "result.csv"
+    path = RESULT_ROOT / job.folder / "component" / "result.csv"
     if not path.is_file():
         return {"rows": [], "final": None}
     rows = []
@@ -380,6 +469,54 @@ def read_metrics(job):
     return {"rows": rows, "final": final or (rows[-1] if rows else None)}
 
 
+def start_process(job, command):
+    """Start the pipeline and return the descriptor its output arrives on.
+
+    The output goes through a pseudo terminal rather than a plain pipe. util.py
+    calls colorama.init(), and colorama removes its own escape codes when
+    stdout is not a terminal, which a pipe is not, so every colour the pipeline
+    prints would be stripped before it ever reached the page. A pseudo terminal
+    is a terminal as far as that check is concerned, and the colours survive.
+
+    Returns the descriptor to read, and the one to close afterwards, if any.
+    """
+    settings = dict(
+        cwd=str(BASE_DIR),
+        env=build_environment(job),
+        stdin=subprocess.DEVNULL,
+        # own process group, so Stop also kills the om_*.py sub-scripts
+        start_new_session=True,
+    )
+    if pty is None:
+        # Windows has no pty module; the run still works, without colour
+        job.process = subprocess.Popen(
+            command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, **settings
+        )
+        return job.process.stdout.fileno(), None
+
+    reader, writer = pty.openpty()
+    widen(writer)
+    try:
+        job.process = subprocess.Popen(
+            command, stdout=writer, stderr=writer, **settings
+        )
+    finally:
+        # the child holds the only copy that matters now
+        os.close(writer)
+    return reader, reader
+
+
+def widen(descriptor):
+    """Tell the pseudo terminal it is wide, so nothing wraps at 80 columns."""
+    if termios is None:
+        return
+    try:
+        fcntl.ioctl(descriptor, termios.TIOCSWINSZ,
+                    struct.pack("HHHH", 50, 200, 0, 0))
+    except OSError:
+        pass
+
+
 def run_job(job):
     """Run `python run_config.py` and collect its output."""
     command = [sys.executable, str(BASE_DIR / "web_overrides.py"), "run_config.py"]
@@ -387,26 +524,24 @@ def run_job(job):
     job.append(f"$ alignment={job.alignment} python run_config.py")
     job.append("")
     try:
-        job.process = subprocess.Popen(
-            command,
-            cwd=str(BASE_DIR),
-            env=build_environment(job),
-            stdout=subprocess.PIPE,
-            stderr=subprocess.STDOUT,
-            # own process group, so Stop also kills the om_*.py sub-scripts
-            start_new_session=True,
-        )
+        descriptor, to_close = start_process(job, command)
     except OSError as error:
         job.append(f"Failed to start run_config.py: {error}")
         job.finish(error=str(error))
         return
     try:
-        pump_output(job, job.process.stdout)
+        pump_output(job, descriptor)
         returncode = job.process.wait()
     except Exception as error:  # pragma: no cover - defensive
         job.append(f"Error while reading output: {error}")
         job.finish(error=str(error))
         return
+    finally:
+        if to_close is not None:
+            try:
+                os.close(to_close)
+            except OSError:
+                pass
     # take this run's timings out of the shared file while they are identifiable
     write_time_summary(job)
 
@@ -417,7 +552,7 @@ def run_job(job):
         job.append("")
         job.append(
             "The uploaded " + ", ".join(gone) + " file(s) disappeared from "
-            f"{UPLOAD_ROOT / job.id / 'component'} while the run was in progress, "
+            f"{UPLOAD_ROOT / job.folder / 'component'} while the run was in progress, "
             "so the pipeline was reading files that no longer existed. "
             "Nothing else was wrong with the run; start it again."
         )
@@ -462,6 +597,83 @@ def stop_job(job):
     return True
 
 
+def as_name(value):
+    """An ontology name reduced to what is safe in a folder and a URL.
+
+    The name becomes part of the job id, which is a path segment on disk and in
+    every request, so anything outside letters, digits, dot, dash and underscore
+    is replaced. An empty result means the run falls back to the plain
+    timestamp, which is what happened before names existed.
+    """
+    cleaned = re.sub(r"[^A-Za-z0-9._-]+", "-", (value or "").strip()).strip("-._")
+    return cleaned[:MAX_NAME_LENGTH]
+
+
+def read_uploads(files):
+    """Validate what arrived, without writing anything yet.
+
+    Returns the storages keyed by role, or raises ValueError with the message
+    the page should show.
+    """
+    accepted = {}
+    for name in ALL_UPLOADS:
+        storage = files.get(name)
+        if storage is None or not storage.filename:
+            if name in REQUIRED_UPLOADS:
+                raise ValueError(f"Please choose a {name} ontology file.")
+            # the reference is optional; without it the run simply has nothing
+            # to score itself against
+            continue
+        extension = extension_of(storage.filename)
+        if extension is None:
+            allowed = ", ".join("." + item for item in ALLOWED_EXTENSIONS)
+            raise ValueError(
+                f"'{storage.filename}' is not a supported {name} file. "
+                f"Use one of: {allowed}."
+            )
+        accepted[name] = (storage, extension)
+    return accepted
+
+
+def clear_old_staging():
+    """Forget uploads that were never run."""
+    cutoff = time.time() - STAGING_MAX_AGE
+    with STAGING_LOCK:
+        for upload_id, staged in list(STAGED.items()):
+            if staged["created_at"] < cutoff:
+                shutil.rmtree(STAGING_ROOT / upload_id, ignore_errors=True)
+                STAGED.pop(upload_id, None)
+    if STAGING_ROOT.is_dir():
+        for path in STAGING_ROOT.iterdir():
+            if path.is_dir() and path.name not in STAGED:
+                shutil.rmtree(path, ignore_errors=True)
+
+
+def archive_name(job):
+    """A filename for the whole run, from its folder."""
+    return job.folder.replace("/", "-") or job.id
+
+
+def free_folder(relative):
+    """The given folder, or the next free one beside it.
+
+    The name already ends in a timestamp taken to the second, so this only
+    matters if two runs are somehow started within the same second. It is here
+    so that could never quietly write one run over another.
+    """
+    def taken(candidate):
+        return (UPLOAD_ROOT / candidate).exists() or (RESULT_ROOT / candidate).exists()
+
+    if not taken(relative):
+        return relative
+    for attempt in range(2, 1000):
+        candidate = f"{relative}-{attempt}"
+        if not taken(candidate):
+            return candidate
+    # a thousand runs of one pair: fall back to something certainly unused
+    return f"{relative}-{uuid.uuid4().hex[:8]}"
+
+
 def extension_of(filename):
     """The uploaded file's extension, if run_config.py can resolve it."""
     suffix = Path(secure_filename(filename or "")).suffix.lower().lstrip(".")
@@ -475,7 +687,7 @@ def result_files(job):
     of how it went. They are separate because they answer different questions
     and are usually wanted separately.
     """
-    folder = RESULT_ROOT / job.id / "component"
+    folder = RESULT_ROOT / job.folder / "component"
     groups = {"original": [], "performance": []}
     if not folder.is_dir():
         return groups
@@ -498,11 +710,17 @@ def result_files(job):
 
 
 def read_connection_string():
-    """The postgres URL configured in run_config.py, without importing it.
+    """Where the pipeline should look for postgres.
 
-    Importing run_config.py would load both ontologies and require an API key,
-    which is far too much work for a health check.
+    ONTOLOGY_DB_URL wins when it is set, which is how the database is reached
+    when it is a container of its own rather than localhost. Otherwise the URL
+    written in run_config.py is used, read as text: importing run_config.py
+    would load both ontologies and require an API key, which is far too much
+    work for a health check.
     """
+    override = os.environ.get(DB_URL_ENV)
+    if override:
+        return override
     try:
         source = (BASE_DIR / "run_config.py").read_text()
     except OSError:
@@ -665,7 +883,21 @@ def check_freshness():
             "detail": f"started {started}, but web_app.py changed since. "
             "Restart the server to pick the change up.",
         }
-    return {"ok": True, "detail": f"started {started}, matching the code on disk"}
+    return {"ok": True, "detail": f"started {started}"}
+
+
+# What the page says beside a key, per source. The server environment is where
+# a key arrives from in a container, and naming it there told the reader nothing
+# they could act on, so that one just reports that the key is set.
+# Only a key read out of .env is worth a word beside it, because that names a
+# file to go and edit. A key typed into the page, or handed to the server in
+# its environment, gets nothing: the box beside the name already holds it, so
+# saying it is there again is noise.
+SOURCE_WORDING = {
+    ".env": "set from .env",
+    "entered on this page": "",
+    "server environment": "",
+}
 
 
 def describe_api_keys():
@@ -680,8 +912,12 @@ def describe_api_keys():
                 "label": name.split("_")[0].title(),
                 "configured": value is not None,
                 "source": source,
-                # a fixed-width mask, so its length says nothing about the key
-                "masked": "•" * 16 if value is not None else "",
+                "shown_as": SOURCE_WORDING.get(source, "") if source else "",
+                # The key itself, so the page can show what is in use rather
+                # than an empty box. This does put the key in the response, so
+                # a server published beyond 127.0.0.1 hands it to anyone who
+                # loads the page; the README says so.
+                "value": value or "",
             }
         )
     missing = [item["name"] for item in keys if not item["configured"]]
@@ -689,8 +925,7 @@ def describe_api_keys():
         # worth spelling out, because the run cannot start until it is fixed
         detail = "missing " + ", ".join(missing)
     else:
-        # the API keys card sits directly above and already shows each source
-        detail = "as above."
+        detail = ", ".join(f"{item['name']} from {item['source']}" for item in keys)
     return {"ok": not missing, "detail": detail, "missing": missing, "keys": keys}
 
 
@@ -804,6 +1039,47 @@ def list_jobs():
     return jsonify({"jobs": jobs})
 
 
+@app.post("/api/uploads")
+def create_upload():
+    """Take the files and hold them, without starting anything.
+
+    Choosing a file in the page does nothing but name it. This is the step that
+    actually sends it, so the two are not confused with one another. The files
+    wait in the staging area until a run claims them, at which point they move
+    into the folder that run is filed under.
+    """
+    try:
+        accepted = read_uploads(request.files)
+    except ValueError as error:
+        return jsonify({"error": str(error)}), 400
+
+    clear_old_staging()
+    upload_id = datetime.now().strftime("%Y%m%d-%H%M%S") + "-" + uuid.uuid4().hex[:8]
+    component = STAGING_ROOT / upload_id / "component"
+    stored = {}
+    try:
+        component.mkdir(parents=True, exist_ok=True)
+        for name, (storage, extension) in accepted.items():
+            storage.save(str(component / f"{name}.{extension}"))
+            stored[name] = {
+                "filename": storage.filename,
+                "stored_as": f"{name}.{extension}",
+                "size": (component / f"{name}.{extension}").stat().st_size,
+            }
+    except OSError as error:
+        shutil.rmtree(STAGING_ROOT / upload_id, ignore_errors=True)
+        return jsonify({"error": f"Could not save the uploads: {error}"}), 500
+
+    with STAGING_LOCK:
+        STAGED[upload_id] = {
+            "created_at": time.time(),
+            "files": stored,
+            "has_reference": "reference" in accepted,
+        }
+    return jsonify({"upload_id": upload_id, "files": stored,
+                    "has_reference": "reference" in accepted}), 201
+
+
 @app.post("/api/jobs")
 def create_job():
     running = active_job()
@@ -833,49 +1109,78 @@ def create_job():
             400,
         )
 
-    # validate the three uploads before writing anything to disk
-    uploaded = {}
-    for name in REQUIRED_UPLOADS:
-        storage = request.files.get(name)
-        if storage is None or not storage.filename:
-            return jsonify({"error": f"Please choose a {name} ontology."}), 400
-        extension = extension_of(storage.filename)
-        if extension is None:
-            allowed = ", ".join("." + item for item in ALLOWED_EXTENSIONS)
-            return (
-                jsonify(
-                    {
-                        "error": f"'{storage.filename}' is not a supported {name} file. "
-                        f"Use one of: {allowed}."
-                    }
-                ),
-                400,
-            )
-        uploaded[name] = (storage, extension)
+    # the files were sent by the Upload step and are waiting to be claimed
+    upload_id = (request.form.get("upload_id") or "").strip()
+    with STAGING_LOCK:
+        staged = STAGED.get(upload_id)
+    if staged is None:
+        return (
+            jsonify({"error": "Upload the ontology files before starting a run."}),
+            400,
+        )
 
     try:
         overrides = parse_settings(request.form, web_overrides.describe(BASE_DIR))
     except ValueError as error:
         return jsonify({"error": str(error)}), 400
 
-    job_id = datetime.now().strftime("%Y%m%d-%H%M%S") + "-" + uuid.uuid4().hex[:6]
-    component = UPLOAD_ROOT / job_id / "component"
-    component.mkdir(parents=True, exist_ok=True)
-    names = {}
-    try:
-        for name, (storage, extension) in uploaded.items():
-            storage.save(str(component / f"{name}.{extension}"))
-            names[name] = {
-                "filename": storage.filename,
-                "stored_as": f"{name}.{extension}",
-            }
-    except OSError as error:
-        shutil.rmtree(UPLOAD_ROOT / job_id, ignore_errors=True)
-        return jsonify({"error": f"Could not save the uploads: {error}"}), 500
+    # The run is filed the way the OAEI tracks are, <context>/<source>-<target>,
+    # so the alignment recorded in result.csv reads conference/cmt-confof rather
+    # than something only this interface understands. It sits under uploads/, so
+    # it can never touch the OAEI data shipped in data/ and alignment/.
+    ontology_names = {
+        "source": as_name(request.form.get("source_name")),
+        "target": as_name(request.form.get("target_name")),
+    }
+    for which, value in ontology_names.items():
+        if not value:
+            return (
+                jsonify(
+                    {
+                        "error": f"Please give the {which} ontology a name. It is what "
+                        "the run is filed under and what appears in result.csv."
+                    }
+                ),
+                400,
+            )
+    pair = "-".join(ontology_names.values())
+    context = as_name(request.form.get("context")
+                      or web_overrides.describe(BASE_DIR)["current"].get("context"))
+    stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+    # the time goes on the end, so every run of a pair keeps its own folder and
+    # they sort into the order they were run
+    folder = "/".join(part for part in (context, f"{pair}-{stamp}") if part)
 
-    job = Job(job_id, f"uploads/{job_id}/component/", names, overrides)
+    # the identifier stays a single URL segment and stays unique
+    job_id = f"{pair}-{stamp}-{uuid.uuid4().hex[:6]}"
+    folder = free_folder(folder)
+    destination = UPLOAD_ROOT / folder
+    names = staged["files"]
+    try:
+        # The files are already on the server. Moving them is what files the run
+        # under the name it was given, and it happens now rather than at upload
+        # time because the name depends on the context, which can still change.
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.move(str(STAGING_ROOT / upload_id), str(destination))
+        if not staged["has_reference"]:
+            # stands in for the ground truth the reader did not supply, so the
+            # pipeline's unconditional read of it succeeds and finds no cells
+            (destination / "component" / "reference.xml").write_text(EMPTY_ALIGNMENT)
+    except OSError as error:
+        return jsonify({"error": f"Could not place the uploaded files: {error}"}), 500
+    with STAGING_LOCK:
+        STAGED.pop(upload_id, None)
+
+    job = Job(job_id, f"uploads/{folder}/component/", names, overrides)
+    job.folder = folder
+    job.ontology_names = ontology_names
+    job.has_reference = staged["has_reference"]
     # keep this run's scores in its own folder rather than the shared result.csv
     job.overrides.setdefault("paths", {}).update(prepare_result_files(job))
+    # and point it at the database this server was told to use, if any
+    database = os.environ.get(DB_URL_ENV)
+    if database:
+        job.overrides["paths"]["connection_string"] = database
     with JOBS_LOCK:
         JOBS[job_id] = job
     threading.Thread(target=run_job, args=(job,), daemon=True).start()
@@ -975,7 +1280,7 @@ def download_all_results(job_id):
     job = JOBS.get(job_id)
     if job is None:
         return jsonify({"error": "Unknown job."}), 404
-    folder = (RESULT_ROOT / job_id / "component").resolve()
+    folder = (RESULT_ROOT / job.folder / "component").resolve()
     if not folder.is_dir():
         return jsonify({"error": "This job produced no files."}), 404
 
@@ -986,7 +1291,7 @@ def download_all_results(job_id):
             if not path.is_file():
                 continue
             group = "performance summary" if path.name in PERFORMANCE_FILES else "original files"
-            bundle.write(path, arcname=f"{job_id}/{group}/{path.name}")
+            bundle.write(path, arcname=f"{archive_name(job)}/{group}/{path.name}")
             written += 1
     if not written:
         return jsonify({"error": "This job produced no files."}), 404
@@ -995,7 +1300,7 @@ def download_all_results(job_id):
         archive,
         mimetype="application/zip",
         as_attachment=True,
-        download_name=f"{job_id}.zip",
+        download_name=f"{archive_name(job)}.zip",
     )
 
 
@@ -1004,7 +1309,7 @@ def download_result(job_id, filename):
     job = JOBS.get(job_id)
     if job is None:
         return jsonify({"error": "Unknown job."}), 404
-    folder = (RESULT_ROOT / job_id / "component").resolve()
+    folder = (RESULT_ROOT / job.folder / "component").resolve()
     target = (folder / filename).resolve()
     # never serve anything outside the job's own result folder
     if not target.is_file() or folder not in target.parents:
@@ -1028,6 +1333,9 @@ def main():
     options = parser.parse_args()
 
     UPLOAD_ROOT.mkdir(parents=True, exist_ok=True)
+    # anything left staged belongs to a server that is no longer running
+    shutil.rmtree(STAGING_ROOT, ignore_errors=True)
+    STAGING_ROOT.mkdir(parents=True, exist_ok=True)
     RESULT_ROOT.mkdir(parents=True, exist_ok=True)
     PYTHON_SHIM_DIR = make_python_shim()
     print(f"Ontology matching web interface: http://{options.host}:{options.port}")

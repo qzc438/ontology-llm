@@ -4,9 +4,14 @@ subgraph.ttl
 subgraph_complex.ttl
 venv/
 .venv/
-# uploads and results created by web_app.py
-data/uploads/
-alignment/uploads/
+# Uploads and results created by web_app.py. The folders themselves are kept,
+# because docker-compose.yml mounts them: if they are missing when the stack
+# starts, Docker creates them owned by root and the container, which runs as an
+# ordinary user, cannot write into them.
+data/uploads/*
+alignment/uploads/*
+!data/uploads/.gitkeep
+!alignment/uploads/.gitkeep
 .DS_Store/
 .idea/
 .ipynb_checkpoints/

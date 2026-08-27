@@ -4,25 +4,25 @@
    (framework version 5, the release that made gold and black the University colours).
 
    This is our own implementation of the published design language. It is not the
-   ANU CSS framework itself, which is served from webstyle.anu.edu.au to ANU-hosted
-   sites. Class names follow the guide's names wherever the guide names one, so the
-   markup reads the same way ANU documentation describes it.
+   ANU CSS framework itself, which is served from webstyle.anu.edu.au to
+   ANU-hosted sites. Class names follow the guide's names wherever the guide names
+   one, so the markup reads the same way ANU documentation describes it.
+
+   Colours are held in two layers. The brand colours are fixed and never change.
+   The semantic tokens below them say what a colour is *for*, and those are what
+   the day and night modes swap. Both modes stay inside the ANU palette: white on
+   black and black on white are both approved combinations, so night mode is an
+   inversion of the same palette rather than a second one.
    --------------------------------------------------------------------------- */
 
-/* --- tokens -------------------------------------------------------------- */
+/* --- brand colours, fixed ------------------------------------------------ */
 
 :root {
-  /* primary palette, /web-style-guide/colours */
   --anu-gold: #be830e;          /* key highlight, never more than 1/8 of a page */
   --anu-gold-tint: #f5edde;     /* background only */
   --anu-black: #000000;
   --anu-white: #ffffff;
   --anu-unigrey: #333333;       /* font colour only, never a background */
-
-  /* link colours. The guide names "University blue" and "bronze" but publishes
-     no hex, so these are chosen to clear 4.5:1 on white and on the gold tint. */
-  --anu-link: #1f4e9c;
-  --anu-link-hover: #8c5f0a;
 
   /* spacing scale, /web-style-guide/spacing: 0 1 2 3 4 5 = 0 10 20 30 40 50px */
   --space-0: 0;
@@ -43,14 +43,102 @@
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 }
 
+/* --- day mode, the default ----------------------------------------------- */
+
+:root,
+[data-theme="day"] {
+  --page-bg: var(--anu-white);
+  --page-fg: var(--anu-black);
+  --muted: var(--anu-unigrey);
+
+  --surface: var(--anu-white);
+  --surface-fg: var(--anu-black);
+  --surface-border: var(--anu-black);
+  --hairline: #d8d8d8;
+
+  --header-bg: var(--anu-black);
+  --header-fg: var(--anu-white);
+  --header-rule: transparent;
+
+  --accent: var(--anu-gold);
+  --accent-soft: var(--anu-gold-tint);   /* a tinted background, never text */
+
+  /* the guide names "University blue" and "bronze" but publishes no hex, so
+     these are chosen to clear 4.5:1 on every background they sit on */
+  --link: #1f4e9c;
+  --link-hover: #8c5f0a;
+
+  --field-bg: var(--anu-white);
+  --field-fg: var(--anu-black);
+  --field-border: var(--anu-unigrey);
+
+  --btn-primary-bg: var(--anu-black);
+  --btn-primary-fg: var(--anu-white);
+  --btn-primary-hover: var(--anu-unigrey);
+
+  --ok: #1e7b34;
+  --bad: #c8102e;
+  --warn: #7a5409;
+
+  --msg-error-bg: #fdecea;   --msg-error-fg: var(--anu-black);   --msg-error-rule: #c8102e;
+  --msg-warn-bg: #fdf3e2;    --msg-warn-fg: var(--anu-black);    --msg-warn-rule: var(--anu-gold);
+  --msg-info-bg: #f5edde;    --msg-info-fg: var(--anu-black);    --msg-info-rule: var(--anu-unigrey);
+  --msg-success-bg: #eaf5ec; --msg-success-fg: var(--anu-black); --msg-success-rule: #1e7b34;
+}
+
+/* --- night mode ---------------------------------------------------------- */
+
+/* Black ground with white text is an approved ANU combination, and on a black
+   background the guide turns links gold, which is what happens here. The one
+   colour that has no ANU equivalent is the dimmed text: the palette's only grey,
+   unigrey, is far too dark to read on black, so a light grey stands in. */
+[data-theme="night"] {
+  --page-bg: var(--anu-black);
+  --page-fg: var(--anu-white);
+  --muted: #c9c9c9;
+
+  --surface: var(--anu-black);
+  --surface-fg: var(--anu-white);
+  --surface-border: #c9c9c9;
+  --hairline: #4a4a4a;
+
+  --header-bg: var(--anu-black);
+  --header-fg: var(--anu-white);
+  --header-rule: var(--anu-gold);        /* separates header from body on one ground */
+
+  --accent: var(--anu-gold);
+  --accent-soft: #2a2214;                /* the tint, taken down for a dark page */
+
+  --link: var(--anu-gold);
+  --link-hover: var(--anu-white);
+
+  --field-bg: var(--anu-black);
+  --field-fg: var(--anu-white);
+  --field-border: #c9c9c9;
+
+  --btn-primary-bg: var(--anu-white);    /* on a dark ground the guide uses the
+                                            white button, not the black one */
+  --btn-primary-fg: var(--anu-black);
+  --btn-primary-hover: #d8d8d8;
+
+  --ok: #6fd46f;
+  --bad: #ff8b84;
+  --warn: #e3b341;
+
+  --msg-error-bg: #2b1210;   --msg-error-fg: #ffd9d5;   --msg-error-rule: #ff8b84;
+  --msg-warn-bg: #2a2214;    --msg-warn-fg: #f7e6c4;    --msg-warn-rule: var(--anu-gold);
+  --msg-info-bg: #1d1d1d;    --msg-info-fg: #e8e8e8;    --msg-info-rule: #c9c9c9;
+  --msg-success-bg: #11240f; --msg-success-fg: #cdebcd; --msg-success-rule: #6fd46f;
+}
+
 /* --- base ---------------------------------------------------------------- */
 
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
-  background: var(--anu-white);
-  color: var(--anu-black);
+  background: var(--page-bg);
+  color: var(--page-fg);
   font-family: var(--font-body);
   font-size: 1em;            /* 16px, /web-style-guide/text */
   line-height: 1.6;
@@ -75,8 +163,8 @@ h6 { font-size: 0.67em; }
 p { margin: 0 0 var(--space-1); }
 
 /* Links carry no underline until hover, /web-style-guide/links */
-a { color: var(--anu-link); text-decoration: none; }
-a:hover { color: var(--anu-link-hover); text-decoration: underline; }
+a { color: var(--link); text-decoration: none; }
+a:hover { color: var(--link-hover); text-decoration: underline; }
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -94,10 +182,10 @@ select:focus-visible,
 
 .large { font-size: 1.25em; }
 .small { font-size: 0.85em; }
-.caption { font-size: 0.85em; color: var(--anu-unigrey); }
+.caption { font-size: 0.85em; color: var(--muted); }
 
 .text-black { color: var(--anu-black); }
-.text-unigrey { color: var(--anu-unigrey); }
+.text-unigrey { color: var(--muted); }
 .text-white { color: var(--anu-white); }
 /* gold text needs 24px regular or 19px semibold to pass AA on white */
 .text-gold { color: var(--anu-gold); }
@@ -115,13 +203,15 @@ select:focus-visible,
 
 /* bands run the full viewport width, the container inside keeps content aligned */
 .band-black-wrap { background: var(--anu-black); color: var(--anu-white); }
-.band-tint-wrap { background: var(--anu-gold-tint); color: var(--anu-black); }
-.band-white-wrap { background: var(--anu-white); color: var(--anu-black); }
+.band-tint-wrap { background: var(--accent-soft); color: var(--page-fg); }
+.band-white-wrap { background: var(--surface); color: var(--surface-fg); }
 .band-black-wrap a { color: var(--anu-gold); }
 
+/* The cap is in rem, so it grows with the reader's font size instead of
+   pinning the page to one pixel width. */
 .container {
   width: 100%;
-  max-width: 1320px;
+  max-width: 82.5rem;
   margin: 0 auto;
   padding-left: var(--space-2);
   padding-right: var(--space-2);
@@ -159,10 +249,10 @@ select:focus-visible,
 
 /* a plain box is 10px of padding and a 10px bottom margin, nothing else */
 .box { padding: var(--space-1); margin-bottom: var(--space-1); }
-.box-bdr-gold { border: var(--bdr-thin) solid var(--anu-gold); background: var(--anu-white); }
-.box-bdr-black { border: var(--bdr-thin) solid var(--anu-black); background: var(--anu-white); }
-.box-bdr-thick-gold { border: var(--bdr-thick) solid var(--anu-gold); background: var(--anu-white); }
-.box-bdr-thick-black { border: var(--bdr-thick) solid var(--anu-black); background: var(--anu-white); }
+.box-bdr-gold { border: var(--bdr-thin) solid var(--anu-gold); background: var(--surface); }
+.box-bdr-black { border: var(--bdr-thin) solid var(--surface-border); background: var(--surface); }
+.box-bdr-thick-gold { border: var(--bdr-thick) solid var(--anu-gold); background: var(--surface); }
+.box-bdr-thick-black { border: var(--bdr-thick) solid var(--surface-border); background: var(--surface); }
 
 .box-header-black {
   background: var(--anu-black); color: var(--anu-white);
@@ -170,14 +260,14 @@ select:focus-visible,
   padding: var(--space-1) var(--space-2);
 }
 .box-header-tint {
-  background: var(--anu-gold-tint); color: var(--anu-black);
+  background: var(--accent-soft); color: var(--page-fg);
   border: var(--bdr-thin) solid var(--anu-gold);
   padding: var(--space-1) var(--space-2);
 }
 
 .divider-solid { border: 0; border-top: 1px solid var(--anu-gold); margin: var(--space-2) 0; }
 .divider-gold { border: 0; border-top: var(--bdr-thick) solid var(--anu-gold); margin: var(--space-2) 0; }
-.divider-black { border: 0; border-top: var(--bdr-thick) solid var(--anu-black); margin: var(--space-2) 0; }
+.divider-black { border: 0; border-top: var(--bdr-thick) solid var(--surface-border); margin: var(--space-2) 0; }
 
 /* --- buttons ------------------------------------------------------------- */
 
@@ -197,11 +287,19 @@ select:focus-visible,
   text-align: center;
   transition: background-color .15s ease, color .15s ease;
 }
-.anu-btn { background: var(--anu-white); border-color: var(--anu-gold); color: var(--anu-black); }
-.anu-btn:hover:not(:disabled) { background: var(--anu-gold-tint); text-decoration: none; }
+.anu-btn { background: var(--surface); border-color: var(--anu-gold); color: var(--surface-fg); }
+.anu-btn:hover:not(:disabled) { background: var(--accent-soft); text-decoration: none; }
 
-.anu-btn-black { background: var(--anu-black); border-color: var(--anu-black); color: var(--anu-white); }
-.anu-btn-black:hover:not(:disabled) { background: var(--anu-unigrey); border-color: var(--anu-unigrey); color: var(--anu-white); text-decoration: none; }
+/* the primary button follows the ground it sits on: black on a light page,
+   white on a dark one, which is what the guide asks for */
+.anu-btn-black {
+  background: var(--btn-primary-bg); border-color: var(--btn-primary-bg);
+  color: var(--btn-primary-fg);
+}
+.anu-btn-black:hover:not(:disabled) {
+  background: var(--btn-primary-hover); border-color: var(--btn-primary-hover);
+  text-decoration: none;
+}
 
 .anu-btn-white { background: var(--anu-white); border-color: var(--anu-black); color: var(--anu-black); }
 .anu-btn-white:hover:not(:disabled) { background: var(--anu-gold-tint); text-decoration: none; }
@@ -221,10 +319,10 @@ select:focus-visible,
   margin-bottom: 6px;
   font-size: 0.9em;
   font-weight: 600;
-  color: var(--anu-black);
+  color: var(--surface-fg);
 }
 /* the guide's required marker: a red asterisk added to the label */
-.req::after { content: " *"; color: #c8102e; font-weight: 700; }
+.req::after { content: " *"; color: var(--bad); font-weight: 700; }
 
 .text,
 select,
@@ -235,16 +333,16 @@ input[type="password"] {
   font: inherit;
   font-size: 0.95em;
   padding: 9px 10px;
-  color: var(--anu-black);
-  background: var(--anu-white);
-  border: var(--bdr-thin) solid var(--anu-unigrey);
+  color: var(--field-fg);
+  background: var(--field-bg);
+  border: var(--bdr-thin) solid var(--field-border);
   border-radius: 0;
 }
 select:hover,
 input:hover:not(:disabled) { border-color: var(--anu-gold); }
 
 /* helper text under a field */
-.instruction { font-size: 0.85em; color: var(--anu-unigrey); margin-top: 4px; }
+.instruction { font-size: 0.85em; color: var(--muted); margin-top: 4px; }
 
 /* --- messages ------------------------------------------------------------ */
 
@@ -253,25 +351,24 @@ input:hover:not(:disabled) { border-color: var(--anu-gold); }
   padding: var(--space-1) var(--space-2);
   margin-bottom: var(--space-2);
   border-left: var(--bdr-thick) solid;
-  color: var(--anu-black);
   font-size: 0.95em;
 }
-.msg-error   { background: #fdecea; border-left-color: #c8102e; }
-.msg-warn    { background: #fdf3e2; border-left-color: var(--anu-gold); }
-.msg-info    { background: var(--anu-gold-tint); border-left-color: var(--anu-unigrey); }
-.msg-success { background: #eaf5ec; border-left-color: #1e7b34; }
+.msg-error   { background: var(--msg-error-bg);   color: var(--msg-error-fg);   border-left-color: var(--msg-error-rule); }
+.msg-warn    { background: var(--msg-warn-bg);    color: var(--msg-warn-fg);    border-left-color: var(--msg-warn-rule); }
+.msg-info    { background: var(--msg-info-bg);    color: var(--msg-info-fg);    border-left-color: var(--msg-info-rule); }
+.msg-success { background: var(--msg-success-bg); color: var(--msg-success-fg); border-left-color: var(--msg-success-rule); }
 
 /* --- tables -------------------------------------------------------------- */
 
 table { border-collapse: collapse; width: 100%; margin-bottom: var(--space-2); }
 table caption {
   caption-side: top; text-align: left; font-weight: 600;
-  padding-bottom: 6px; color: var(--anu-unigrey); font-size: 0.9em;
+  padding-bottom: 6px; color: var(--muted); font-size: 0.9em;
 }
 th, td { padding: 8px 10px; text-align: left; vertical-align: top; font-size: 0.95em; }
-th { background: var(--anu-gold-tint); font-weight: 700; }
-.tbl-row-bdr th, .tbl-row-bdr td { border-bottom: 1px solid #d8d8d8; }
-.tbl-cell-bdr th, .tbl-cell-bdr td { border: 1px solid #d8d8d8; }
+th { background: var(--accent-soft); color: var(--page-fg); font-weight: 700; }
+.tbl-row-bdr th, .tbl-row-bdr td { border-bottom: 1px solid var(--hairline); }
+.tbl-cell-bdr th, .tbl-cell-bdr td { border: 1px solid var(--hairline); }
 
 /* --- lists --------------------------------------------------------------- */
 
@@ -286,16 +383,17 @@ th { background: var(--anu-gold-tint); font-weight: 700; }
 .info {
   position: relative; display: inline-flex; align-items: center; justify-content: center;
   width: 16px; height: 16px; margin-left: 7px; vertical-align: middle;
-  border: 1px solid var(--anu-unigrey); border-radius: 50%;
+  border: 1px solid var(--muted); border-radius: 50%;
   font: italic 700 10px/1 Georgia, "Times New Roman", serif;
-  color: var(--anu-unigrey); cursor: help; text-transform: none; letter-spacing: 0;
+  color: var(--muted); cursor: help; text-transform: none; letter-spacing: 0;
 }
 .info:hover, .info:focus-visible { border-color: var(--anu-gold); color: var(--anu-gold); }
 .info .tip {
   position: absolute; top: calc(100% + 9px); left: -9px;
-  width: max-content; max-width: 250px;
-  padding: var(--space-1); border: 1px solid var(--anu-unigrey);
-  background: var(--anu-gold-tint); color: var(--anu-black);
+  /* never wider than the window it has to fit inside */
+  width: max-content; max-width: min(88vw, 16rem);
+  padding: var(--space-1); border: 1px solid var(--surface-border);
+  background: var(--accent-soft); color: var(--page-fg);
   font: 400 12px/1.5 var(--font-body); text-align: left;
   text-transform: none; letter-spacing: 0;
   opacity: 0; visibility: hidden; transition: opacity .12s ease;
@@ -303,19 +401,19 @@ th { background: var(--anu-gold-tint); font-weight: 700; }
 }
 .info:hover .tip, .info:focus-visible .tip { opacity: 1; visibility: visible; }
 /* for a longer tip, so the paragraph does not become a narrow column */
-.info .tip-wide { max-width: 330px; }
+.info .tip-wide { max-width: min(92vw, 21rem); }
 .info .tip-wide strong { font-weight: 700; }
-.info .tip code { background: var(--anu-white); padding: 1px 4px; font-family: var(--font-mono); font-size: 11px; }
+.info .tip code { background: var(--surface); padding: 1px 4px; font-family: var(--font-mono); font-size: 11px; }
 
 /* --- terminal ------------------------------------------------------------ */
 
 /* Black background with white text is an approved ANU combination, so a real
-   terminal view stays inside the palette instead of needing an exception. */
+   terminal view stays inside the palette in either mode. */
 .anu-terminal {
   margin: 0;
   background: var(--anu-black);
   color: var(--anu-white);
-  border: var(--bdr-thin) solid var(--anu-black);
+  border: var(--bdr-thin) solid var(--surface-border);
   padding: var(--space-1) var(--space-2);
   font-family: var(--font-mono);
   font-size: 12.5px;
@@ -333,3 +431,28 @@ th { background: var(--anu-gold-tint); font-weight: 700; }
 .fg-90 { color: #b0b0b0 } .fg-91 { color: #ff8b84 } .fg-92 { color: #8fe38f }
 .fg-93 { color: #f2cc60 } .fg-94 { color: #8cbcff } .fg-95 { color: #e0a6ff }
 .fg-96 { color: #7ae5ec } .fg-97 { color: #ffffff }
+
+/* --- mode control -------------------------------------------------------- */
+
+/* One button carrying a symbol, no words. It cycles through following the
+   clock, day, and night; the wording lives in the title and aria-label so it
+   is available on hover and to a screen reader without appearing on the page. */
+.theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 2.125rem; height: 2.125rem; padding: 0;
+  background: transparent;
+  color: var(--anu-white);
+  border: 1px solid #9a9a9a;
+  border-radius: 0;
+  cursor: pointer;
+  transition: color .15s ease, border-color .15s ease;
+}
+.theme-toggle:hover { color: var(--anu-gold); border-color: var(--anu-gold); }
+.theme-toggle svg { display: none; }
+
+/* the symbol shown is the choice in force, not the mode it resolves to */
+[data-theme-choice="auto"] .theme-toggle .icon-auto,
+[data-theme-choice="day"] .theme-toggle .icon-day,
+[data-theme-choice="night"] .theme-toggle .icon-night { display: block; }
+/* before the script has run, show the automatic symbol rather than nothing */
+html:not([data-theme-choice]) .theme-toggle .icon-auto { display: block; }

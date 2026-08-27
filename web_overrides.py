@@ -42,9 +42,15 @@ ENVIRONMENT_VARIABLE = "ONTOLOGY_WEB_OVERRIDES"
 VALUE_SETTINGS = ("context", "o1_is_code", "o2_is_code", "similarity_threshold",
                   "top_k", "num_matches")
 
-# output paths that may be pointed at a single job's own folder, so a run does
-# not append its scores to the result.csv shared by every run in the repository
-PATH_SETTINGS = ("result_path", "cost_path")
+# Locations that may be redirected. The two output files so a run does not
+# append its scores to the result.csv every run shares, and the database so the
+# pipeline can reach a server that is not on localhost, which is what happens
+# as soon as postgres is a container of its own. run_config.py writes all three
+# as plain assignments, so the import hook can replace them.
+PATH_SETTINGS = ("result_path", "cost_path", "connection_string")
+
+# a database URL carries a password, so it is masked wherever it is printed
+CREDENTIALS = re.compile(r"//[^@/]+@")
 
 # only these classes are imported by run_config.py, so only these can be offered
 LLM_CLASSES = ("ChatOpenAI", "ChatAnthropic", "ChatOllama")
@@ -192,6 +198,13 @@ def describe(base_dir):
     }
 
 
+def readable(name, value):
+    """A setting as it should appear in the log, with any password removed."""
+    if name == "connection_string" and isinstance(value, str):
+        return repr(CREDENTIALS.sub("//***@", value))
+    return repr(value)
+
+
 def load():
     """The overrides handed down by web_app.py, if any."""
     raw = os.environ.get(ENVIRONMENT_VARIABLE)
@@ -225,7 +238,7 @@ def apply_to(module, overrides=None):
     for name, value in (data.get("paths") or {}).items():
         if name in PATH_SETTINGS:
             setattr(module, name, value)
-            applied.append(f"{name} = {value!r}")
+            applied.append(f"{name} = {readable(name, value)}")
     return applied
 
 
@@ -307,7 +320,7 @@ def format_overrides(data):
             lines.append(f"{name} = {value!r}")
     for name, value in (data.get("paths") or {}).items():
         if name in PATH_SETTINGS:
-            lines.append(f"{name} = {value!r}")
+            lines.append(f"{name} = {readable(name, value)}")
     return lines
 
 

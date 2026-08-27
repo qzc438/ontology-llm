@@ -9,6 +9,7 @@
 <link rel="stylesheet"
   href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap">
 <link rel="stylesheet" href="{{ url_for('static', filename='anu.css') }}">
+<script src="{{ url_for('static', filename='theme.js') }}"></script>
 <style>
   /* Page-specific pieces. Everything shared with the Design System page lives
      in anu.css; only the arrangement of this particular screen is here. */
@@ -20,81 +21,142 @@
     padding-top: var(--space-2); padding-bottom: var(--space-2);
   }
   .masthead h1 { margin: 0; font-size: 1.7em; color: var(--anu-white); }
-  .masthead nav a { color: var(--anu-white); font-size: 0.9em; }
-  .masthead nav a:hover { color: var(--anu-gold); }
+  .masthead-actions { display: flex; align-items: center; gap: var(--space-2); }
 
   main { padding-top: var(--space-3); padding-bottom: var(--space-4); }
 
+  /* The configuration cards flow into as many columns as the window can hold,
+     rather than snapping at named breakpoints. One track is never narrower
+     than 20rem, so the count follows the available width on any screen: four
+     across on a wide monitor, two on a tablet, one on a phone. min(100%, ...)
+     keeps a single track from overflowing a very narrow window. */
+  .config-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    gap: var(--space-2);
+    /* the cards line up top and bottom, so the row reads as one band rather
+       than four boxes of assorted heights */
+    align-items: stretch;
+    margin-bottom: var(--space-2);
+  }
+  .config-grid > .card { margin-bottom: 0; display: flex; flex-direction: column; }
+  .config-grid > .card > .card-body { flex: 1; }
+
   /* a card is an ANU bordered box with a black header bar */
-  .card { border: 1px solid var(--anu-black); background: var(--anu-white); margin-bottom: var(--space-2); }
+  .card { border: 1px solid var(--surface-border); background: var(--surface); margin-bottom: var(--space-2); }
   .card > .card-head {
     display: flex; align-items: center; gap: var(--space-1); flex-wrap: wrap;
-    background: var(--anu-black); color: var(--anu-white);
+    background: var(--header-bg); color: var(--header-fg);
+    border-bottom: 2px solid var(--header-rule);
     padding: 9px var(--space-2);
   }
   .card > .card-head h2 {
-    margin: 0; font-size: 1.05em; font-weight: 600; color: var(--anu-white); flex: 1;
+    margin: 0; font-size: 1.05em; font-weight: 600; color: var(--header-fg); flex: 1;
   }
-  .card > .card-head .info { border-color: #9a9a9a; color: var(--anu-white); }
+  /* A hidden tooltip still takes part in layout, so one anchored to its icon
+     can push the document wider than a narrow screen. Anchoring it to the card
+     header instead makes it exactly as wide as the card, at any screen size. */
+  .card > .card-head { position: relative; }
+  .card > .card-head .info { position: static; }
+  .card > .card-head .info .tip {
+    left: 0; right: 0; top: 100%;
+    width: auto; max-width: none; margin-top: 4px;
+  }
+  .card > .card-head .info { border-color: #9a9a9a; color: var(--header-fg); }
   .card > .card-head .info:hover, .card > .card-head .info:focus-visible { border-color: var(--anu-gold); color: var(--anu-gold); }
   .card > .card-body { padding: var(--space-2); }
 
-  .sub { font-size: 0.85em; color: var(--anu-unigrey); }
+  .sub { font-size: 0.85em; color: var(--muted); }
 
   /* file pickers */
   label.file {
     display: block; margin-bottom: var(--space-1); cursor: pointer;
-    border: 1px dashed var(--anu-unigrey); background: var(--anu-white);
+    border: 1px dashed var(--field-border); background: var(--surface);
     padding: var(--space-1) 12px;
   }
-  label.file:hover { border-color: var(--anu-gold); background: var(--anu-gold-tint); }
-  label.file.filled { border-style: solid; border-color: var(--anu-gold); background: var(--anu-gold-tint); }
-  label.file.dragover { border-color: var(--anu-gold); background: var(--anu-gold-tint); }
+  label.file:hover { border-color: var(--anu-gold); background: var(--accent-soft); }
+  label.file.filled { border-style: solid; border-color: var(--anu-gold); background: var(--accent-soft); }
+  label.file.dragover { border-color: var(--anu-gold); background: var(--accent-soft); }
   label.file .file-line { display: flex; justify-content: space-between; align-items: center; gap: var(--space-1); }
-  label.file .name { font-weight: 700; }
-  label.file .formats { font-size: 0.8em; color: var(--anu-unigrey); }
+  label.file .name { font-size: 0.9em; font-weight: 600; }
+  label.file .formats { font-size: 0.85em; color: var(--muted); }
   label.file .chosen {
-    display: block; margin-top: 3px; font-size: 0.85em; color: var(--anu-unigrey);
+    display: block; margin-top: 3px; font-size: 0.85em; color: var(--muted);
     overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
   }
   label.file input[type=file] { display: none; }
 
+  /* A name and its file belong together: the name sits close above its file
+     box, and the gap between one pair and the next is larger than the gap
+     inside a pair, so the grouping is visible without any lines. */
+  .pair { margin-bottom: var(--space-2); }
+  .pair:last-of-type { margin-bottom: var(--space-1); }
+  .pair label.file { margin-bottom: 0; }
+
+  /* the name that gives the run's folder and its result.csv a readable label */
+  .naming { margin-bottom: 5px; }
+  .optional-note { margin: 0 0 5px; }
+  .naming > label { margin-bottom: 3px; }
+  .naming-preview { margin: 0 0 var(--space-1); font-family: var(--font-mono); }
+  #upload-status.uploaded { color: var(--ok); font-weight: 600; }
+
   .buttons { display: flex; gap: var(--space-1); align-items: center; flex-wrap: wrap; }
+
+  /* The action that starts the run, after everything it depends on. The pair is
+     centred: the bar spans the full width, so buttons pushed to one end of it
+     would sit under one card and read as belonging to that card. */
+  .run-bar { margin-bottom: var(--space-2); }
+  .run-bar .buttons { justify-content: center; }
 
   /* the error banner reuses the ANU error message style */
   .banner { display: none; }
   .banner.show { display: block; }
 
   /* environment checks */
-  .check { display: flex; gap: var(--space-1); align-items: flex-start; margin-bottom: var(--space-1); font-size: 0.9em; }
+  .check { display: flex; gap: var(--space-1); align-items: flex-start; margin-bottom: var(--space-1); }
   .check:last-child { margin-bottom: 0; }
-  .dot { width: 9px; height: 9px; margin-top: 6px; flex: none; background: var(--anu-unigrey); border-radius: 50%; }
-  .dot.ok { background: #1e7b34; }
-  .dot.bad { background: #c8102e; }
-  .check .detail { font-size: 0.85em; color: var(--anu-unigrey); word-break: break-all; }
+  .dot { width: 9px; height: 9px; margin-top: 6px; flex: none; background: var(--muted); border-radius: 50%; }
+  .dot.ok { background: var(--ok); }
+  .dot.bad { background: var(--bad); }
+  .check .check-name { font-size: 0.9em; font-weight: 600; }
+  .check .detail { font-size: 0.85em; color: var(--muted); word-break: break-all; }
+
+  /* The settings fields follow the width of their own card: two columns when
+     there is room for two, one when there is not. No breakpoint decides it. */
+  #settings {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 7.5rem), 1fr));
+    gap: 0 var(--space-1);
+  }
+  /* the long values, model names and domain words, keep the full width */
+  #settings .field { grid-column: 1 / -1; margin-bottom: 12px; }
+  /* the short ones pair up whenever the card is wide enough */
+  #settings .field.half { grid-column: auto; }
+  /* a long name wraps rather than running into the field beside it */
+  #settings .field > label { overflow-wrap: anywhere; }
 
   /* settings fields, marked when moved away from the run_config.py value */
   .field.dirty > label { color: var(--anu-gold); }
-  .changed { color: var(--anu-link); font-weight: 400; }
+  .changed { color: var(--link); font-weight: 400; }
+  .missing { color: var(--bad); font-weight: 700; }
 
-  .toggle { display: inline-flex; align-items: center; gap: 6px; font-size: 0.85em; color: var(--anu-unigrey); cursor: pointer; }
+  .toggle { display: inline-flex; align-items: center; gap: 6px; font-size: 0.85em; color: var(--muted); cursor: pointer; }
 
   /* terminal panel */
   .term-head { display: flex; align-items: center; gap: var(--space-1); flex-wrap: wrap; }
-  #terminal { height: 62vh; min-height: 400px; }
-  /* the settings column is much taller than the terminal, so keep the output
-     in view while it is scrolled */
-  @media (min-width: 992px) {
-    .terminal-col .card { position: sticky; top: var(--space-2); }
-  }
+
+  /* The terminal is sized against the viewport rather than in pixels, so it
+     fills a laptop screen and a large monitor equally. clamp keeps it usable
+     on a short window and stops it becoming absurd on a very tall one. */
+  #terminal { height: clamp(16rem, 58vh, 50rem); }
   .status {
     font-size: 0.8em; font-weight: 700; padding: 2px 10px;
-    border: 1px solid var(--anu-unigrey); color: var(--anu-unigrey); background: var(--anu-white);
+    border: 1px solid var(--muted); color: var(--muted); background: var(--surface);
   }
-  .status.running { border-color: var(--anu-link); color: var(--anu-link); }
-  .status.finished { border-color: #1e7b34; color: #1e7b34; }
-  .status.failed { border-color: #c8102e; color: #c8102e; }
-  .status.cancelled { border-color: var(--anu-gold); color: #7a5409; }
+  .status.running { border-color: var(--link); color: var(--link); }
+  .status.finished { border-color: var(--ok); color: var(--ok); }
+  .status.failed { border-color: var(--bad); color: var(--bad); }
+  .status.cancelled { border-color: var(--anu-gold); color: var(--warn); }
 
   .results { display: none; margin-top: var(--space-2); }
   .results.show { display: block; }
@@ -102,9 +164,9 @@
   .results ul { list-style: none; padding: 0; margin: 0; }
   .results li {
     display: flex; justify-content: space-between; align-items: center; gap: var(--space-1);
-    border: 1px solid var(--anu-unigrey); padding: 7px var(--space-1); margin-bottom: 6px; font-size: 0.9em;
+    border: 1px solid var(--hairline); padding: 7px var(--space-1); margin-bottom: 6px; font-size: 0.9em;
   }
-  .results .size { color: var(--anu-unigrey); font-size: 0.85em; }
+  .results .size { color: var(--muted); font-size: 0.85em; }
   .results-head { display: flex; align-items: baseline; gap: var(--space-1); flex-wrap: wrap; }
   .results-head h3 { flex: 1; }
   .file-group { margin-top: var(--space-2); }
@@ -113,19 +175,24 @@
   .file-group.empty { display: none; }
 
   /* the headline precision, recall and F1 for the run */
-  .scores { display: flex; gap: var(--space-1); flex-wrap: wrap; margin-bottom: var(--space-2); }
+  .scores {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 8rem), 1fr));
+    gap: var(--space-1);
+    margin-bottom: var(--space-2);
+  }
   .score {
-    flex: 1 1 130px; border: 1px solid var(--anu-black);
+    border: 1px solid var(--surface-border);
     border-top: 3px solid var(--anu-gold); padding: var(--space-1) var(--space-2);
   }
-  .score .label { font-size: 0.8em; color: var(--anu-unigrey); }
+  .score .label { font-size: 0.8em; color: var(--muted); }
   .score .value { font-size: 1.9em; letter-spacing: 0.01em; line-height: 1.2; }
-  .score .value .unit { font-size: 0.5em; color: var(--anu-unigrey); }
-  .scores .note { font-size: 0.8em; color: var(--anu-unigrey); flex-basis: 100%; margin: 0; }
+  .score .value .unit { font-size: 0.5em; color: var(--muted); }
+  .scores .note { font-size: 0.8em; color: var(--muted); grid-column: 1 / -1; margin: 0; }
   /* only the column headers are tinted, so the final row stands out on its own */
-  #metrics-table tbody th { background: var(--anu-white); font-weight: 400; }
+  #metrics-table tbody th { background: var(--surface); color: var(--surface-fg); font-weight: 400; }
   #metrics-table tbody tr.final,
-  #metrics-table tbody tr.final th { background: var(--anu-gold-tint); font-weight: 700; }
+  #metrics-table tbody tr.final th { background: var(--accent-soft); color: var(--page-fg); font-weight: 700; }
   #metrics-table td.number { text-align: right; font-family: var(--font-mono); font-size: 0.9em; }
 
   .site-footer { border-top: 3px solid var(--anu-gold); }
@@ -137,61 +204,120 @@
 <header class="band-black-wrap masthead">
   <div class="container">
     <h1>Agent-OM Web Interface</h1>
-    <nav aria-label="Site">
-      <a href="{{ url_for('design_system') }}">Design System</a>
-    </nav>
+    <!-- Only the colour mode lives up here now; the link to the Design System
+         is in the footer. This is no longer a nav landmark, because a landmark
+         announced as site navigation with nothing to navigate to is worse than
+         no landmark at all. -->
+    <div class="masthead-actions">
+      <button type="button" class="theme-toggle" data-theme-control
+              aria-label="Colour mode follows the clock. Activate for day.">
+        <svg class="icon-auto" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <path fill="currentColor" d="M12 4a8 8 0 0 0 0 16z"/>
+        </svg>
+        <svg class="icon-day" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="4.5" fill="currentColor"/>
+          <g stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <line x1="12" y1="1.6" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22.4"/>
+            <line x1="1.6" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22.4" y2="12"/>
+            <line x1="4.4" y1="4.4" x2="6.1" y2="6.1"/><line x1="17.9" y1="17.9" x2="19.6" y2="19.6"/>
+            <line x1="19.6" y1="4.4" x2="17.9" y2="6.1"/><line x1="6.1" y1="17.9" x2="4.4" y2="19.6"/>
+          </g>
+        </svg>
+        <svg class="icon-night" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M20.7 14.6A8.6 8.6 0 0 1 9.4 3.3 8.7 8.7 0 1 0 20.7 14.6z"/>
+        </svg>
+      </button>
+    </div>
   </div>
 </header>
 
 <main class="container">
-  <div class="row">
-    <div class="col-12 col-lg-4">
 
-      <form id="form" class="card">
+  <section class="config-grid">
+
+      <!-- novalidate so the page reports a missing name in the same banner as a
+           missing file, rather than the browser's own bubble. The fields keep
+           required and aria-required, which is what assistive technology
+           reads, and the server refuses an unnamed run regardless. -->
+      <form id="form" class="card" novalidate>
         <div class="card-head">
-          <h2>Input ontologies</h2>
+          <h2>Input Files</h2>
           <span class="info" tabindex="0" role="note"
-            aria-label="Files are saved to data/uploads/&lt;job&gt;/component/ and the run is started with that folder as the alignment setting."
-            >i<span class="tip">Files are saved to <code>data/uploads/&lt;job&gt;/component/</code>
-            and the run is started with that folder as the <code>alignment</code> setting.</span></span>
+            aria-label="The run is filed the way the OAEI tracks are, as context/source-target, with the time on the end, for example conference/cmt-confof-20260827-163210. The context comes from the Matching Settings card and the two names from the boxes here. Everything stays under uploads, so the OAEI data is never touched, and the time keeps every run of a pair rather than replacing the one before it."
+            >i<span class="tip tip-wide">The run is filed the way the OAEI tracks are, as
+            <strong>context/source-target</strong> with the time on the end, for example
+            <code>conference/cmt-confof-20260827-163210</code>. The context comes from the
+            Matching Settings card and the two names from the boxes here. Everything stays under
+            <code>uploads/</code>, so the OAEI data is never touched, and the time keeps every run
+            of a pair rather than replacing the one before it.</span></span>
         </div>
         <div class="card-body">
-          <div id="banner" class="banner msg-error"></div>
 
-          <label class="file" data-field="source">
-            <span class="file-line"><span class="name">source</span><span class="formats">.xml .rdf .owl</span></span>
-            <span class="chosen">no file chosen</span>
-            <input type="file" name="source" accept=".xml,.rdf,.owl">
-          </label>
-          <label class="file" data-field="target">
-            <span class="file-line"><span class="name">target</span><span class="formats">.xml .rdf .owl</span></span>
-            <span class="chosen">no file chosen</span>
-            <input type="file" name="target" accept=".xml,.rdf,.owl">
-          </label>
-          <label class="file" data-field="reference">
-            <span class="file-line"><span class="name">reference</span><span class="formats">.xml .rdf .owl</span></span>
-            <span class="chosen">no file chosen</span>
-            <input type="file" name="reference" accept=".xml,.rdf,.owl">
-          </label>
+          <div class="pair">
+            <div class="field naming">
+              <label class="req" for="source-name">source ontology name</label>
+              <input type="text" id="source-name" name="source_name" maxlength="40"
+                     required aria-required="true"
+                     autocomplete="off" spellcheck="false" placeholder="for example: cmt">
+            </div>
+            <label class="file" data-field="source">
+              <span class="file-line"><span class="name">source ontology file</span><span class="formats">.xml .rdf .owl</span></span>
+              <span class="chosen">no file chosen</span>
+              <input type="file" name="source" accept=".xml,.rdf,.owl">
+            </label>
+          </div>
+
+          <div class="pair">
+            <div class="field naming">
+              <label class="req" for="target-name">target ontology name</label>
+              <input type="text" id="target-name" name="target_name" maxlength="40"
+                     required aria-required="true"
+                     autocomplete="off" spellcheck="false" placeholder="for example: confof">
+            </div>
+            <label class="file" data-field="target">
+              <span class="file-line"><span class="name">target ontology file</span><span class="formats">.xml .rdf .owl</span></span>
+              <span class="chosen">no file chosen</span>
+              <input type="file" name="target" accept=".xml,.rdf,.owl">
+            </label>
+          </div>
+
+          <div class="pair">
+            <p class="sub optional-note">There is nothing to score if there is no reference
+              file, so there is no precision, recall or F1.</p>
+            <label class="file" data-field="reference">
+              <span class="file-line"><span class="name">reference alignment file</span><span class="formats">optional &middot; .xml .rdf .owl</span></span>
+              <span class="chosen">no file chosen</span>
+              <input type="file" name="reference" accept=".xml,.rdf,.owl">
+            </label>
+          </div>
+
+          <p class="sub naming-preview" id="naming-preview"></p>
 
           <div class="buttons mt-1">
-            <button type="submit" class="anu-btn-black" id="start">Start matching</button>
-            <button type="button" class="anu-btn" id="stop" disabled>Stop</button>
+            <button type="button" class="anu-btn" id="upload">Upload</button>
+            <span class="sub" id="upload-status">not uploaded yet</span>
           </div>
         </div>
       </form>
 
       <div class="card">
         <div class="card-head">
-          <h2>API keys</h2>
+          <h2>Environment Variables</h2>
           <span class="info" tabindex="0" role="note"
-            aria-label="Your keys are loaded from the .env file. A key you type here is kept in memory for this session only. Tick also save to .env to keep it for future sessions. Click Save keys when you are ready."
-            >i<span class="tip tip-wide">Your keys are loaded from the <code>.env</code> file.
-            A key you type here is kept in memory for this session only. Tick
-            <strong>also save to .env</strong> to keep it for future sessions. Click
-            <strong>Save keys</strong> when you are ready.</span></span>
+            aria-label="Each box shows the key in use, filled in from your .env file. Edit one and click Save keys to use it for this session. Tick also save to .env as well to keep it for future sessions."
+            >i<span class="tip tip-wide">Each box shows the key in use, filled in from your
+            <code>.env</code> file. Edit one and click <strong>Save keys</strong> to use it for
+            this session. Tick <strong>also save to .env</strong> as well to keep it for future
+            sessions.</span></span>
         </div>
         <div class="card-body">
+          <!-- what the server found comes first, since it is read-only; the
+               keys, which are the only thing here to change, come after it -->
+          <div id="checks"><span class="sub">checking…</span></div>
+
+          <hr class="divider-solid">
+
           <div id="keys"><span class="sub">loading…</span></div>
           <label class="toggle mt-1">
             <input type="checkbox" id="save-env"> also save to <code>.env</code>
@@ -204,33 +330,43 @@
       </div>
 
       <div class="card">
-        <div class="card-head"><h2>Environment Variables</h2></div>
-        <div class="card-body">
-          <div id="checks"><span class="sub">checking…</span></div>
-        </div>
-      </div>
-
-      <div class="card">
         <div class="card-head">
-          <h2>Settings</h2>
+          <h2>Matching Settings</h2>
           <span class="info" tabindex="0" role="note"
             aria-label="Every option comes from run_config.py, including the ones commented out there. Choices apply to this run only; run_config.py is never written to."
             >i<span class="tip">Every option comes from <code>run_config.py</code>, including the
             ones commented out there. Choices apply to this run only; <code>run_config.py</code>
             is never written to.</span></span>
-          <button type="button" class="anu-btn btn-small" id="reset-settings">Reset</button>
         </div>
         <div class="card-body">
+          <!-- the button sits outside #settings, which is rebuilt whenever the
+               settings are drawn or reset -->
           <div id="settings"><span class="sub">loading…</span></div>
+          <div class="buttons mt-1">
+            <button type="button" class="anu-btn" id="reset-settings">Reset</button>
+          </div>
         </div>
       </div>
 
-    </div>
+  </section>
 
-    <div class="col-12 col-lg-8 terminal-col">
+  <!-- The run needs all three cards above to be settled, so the action that
+       starts it belongs after them rather than inside one. The button carries
+       form="form" so it still submits the upload form it now sits outside of,
+       and anything that goes wrong is reported here, beside the button that
+       was pressed. -->
+  <section class="run-bar">
+    <div id="banner" class="banner msg-error"></div>
+    <div class="buttons">
+      <button type="submit" form="form" class="anu-btn-black" id="start">Start matching</button>
+      <button type="button" class="anu-btn" id="stop" disabled>Stop</button>
+    </div>
+  </section>
+
+  <section class="output">
       <div class="card">
         <div class="card-head term-head">
-          <h2>Terminal output</h2>
+          <h2>Terminal Output</h2>
           <span class="status" id="status">Idle</span>
           <label class="toggle" style="color:#d0d0d0"><input type="checkbox" id="follow" checked> auto-scroll</label>
           <button type="button" class="anu-btn btn-small" id="download-log" disabled>Save log</button>
@@ -241,7 +377,10 @@
             <h3>Evaluation</h3>
             <div class="scores" id="score-row"></div>
             <table class="tbl-row-bdr" id="metrics-table">
-              <caption>Every stage measured by util.calculate_metrics, final row last</caption>
+              <!-- kept for screen readers, which announce a table by its
+                   caption, but not shown: the heading above already says what
+                   this is -->
+              <caption class="scrnhide">Scores for each stage of the run</caption>
               <thead>
                 <tr>
                   <th scope="col">Stage</th>
@@ -255,7 +394,7 @@
           </div>
           <div class="results" id="results">
             <div class="results-head">
-              <h3>Result files</h3>
+              <h3>Result Files</h3>
               <button type="button" class="anu-btn btn-small" id="download-all" disabled>Download all</button>
             </div>
             <div class="file-group" id="group-original">
@@ -271,16 +410,19 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
+  </section>
 </main>
 
 <footer class="band-tint-wrap site-footer">
   <div class="container">
-    Styled with the <a href="{{ url_for('design_system') }}">Agent-OM Design System</a>,
-    derived from the
-    <a href="https://webpublishing.anu.edu.au/web-style-guide" class="link-ext"
-       title="Opens the ANU Web Style Guide in this window">ANU Web Style Guide</a>.
+    <p class="mb-0">&copy; Agent-OM Team: Zhangcheng Qiang, Weiqing Wang, Kerry
+      Taylor. Licensed under
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="link-ext"
+         title="Opens the licence deed in this window">CC BY-NC-SA 4.0</a>.
+      Styled with the <a href="{{ url_for('design_system') }}">Agent-OM Design System</a>,
+      derived from the
+      <a href="https://webpublishing.anu.edu.au/web-style-guide" class="link-ext"
+         title="Opens the ANU Web Style Guide in this window">ANU Web Style Guide</a>.</p>
   </div>
 </footer>
 
@@ -303,6 +445,10 @@
   const metricsPanel = document.getElementById("metrics");
   const scoreRow = document.getElementById("score-row");
   const metricsBody = document.getElementById("metrics-body");
+  const namingPreview = document.getElementById("naming-preview");
+  const uploadButton = document.getElementById("upload");
+  const uploadStatus = document.getElementById("upload-status");
+  const metricsTable = document.getElementById("metrics-table");
 
   let currentJob = null;
   let source = null;
@@ -316,8 +462,19 @@
 
     input.addEventListener("change", function () {
       const file = input.files[0];
-      chosen.textContent = file ? file.name + "  (" + formatSize(file.size) + ")" : "no file chosen";
+      // Only what the browser will tell us about the file. It withholds the
+      // real location deliberately, so this is the name, not the path.
+      chosen.textContent = file ? file.name : "no file chosen";
       label.classList.toggle("filled", Boolean(file));
+      // choosing a different file makes anything already sent out of date
+      forgetUpload();
+      // offer the file's own name, which can then be corrected; never
+      // overwrite something already typed
+      const naming = document.getElementById(label.dataset.field + "-name");
+      if (naming && file && !naming.value.trim()) {
+        naming.value = cleanName(file.name.replace(/\.[^.]+$/, ""));
+        updateNamingPreview();
+      }
     });
 
     // dropping a file straight onto the box
@@ -338,6 +495,92 @@
       }
     });
   });
+
+  // ---- sending the files --------------------------------------------------
+
+  // Choosing a file only names it. This is the step that sends it, so the two
+  // are never confused: nothing leaves the browser until Upload is pressed.
+  let uploadId = null;
+
+  function forgetUpload() {
+    uploadId = null;
+    uploadStatus.textContent = "not uploaded yet";
+    uploadStatus.classList.remove("uploaded");
+  }
+
+  uploadButton.addEventListener("click", function () {
+    clearError();
+    const data = new FormData();
+    let missing = null;
+    ["source", "target"].forEach(function (field) {
+      const input = document.querySelector('label.file[data-field="' + field + '"] input');
+      if (!input.files.length) { missing = missing || field; return; }
+      data.append(field, input.files[0]);
+    });
+    if (missing) { showError("Please choose a " + missing + " ontology file."); return; }
+    const reference = document.querySelector('label.file[data-field="reference"] input');
+    if (reference.files.length) data.append("reference", reference.files[0]);
+
+    uploadButton.disabled = true;
+    uploadStatus.textContent = "uploading…";
+    fetch("/api/uploads", { method: "POST", body: data })
+      .then(function (response) {
+        return response.json().then(function (body) { return { ok: response.ok, body: body }; });
+      })
+      .then(function (result) {
+        if (!result.ok) throw new Error(result.body.error || "Could not upload the files.");
+        uploadId = result.body.upload_id;
+        const sent = Object.keys(result.body.files).length;
+        uploadStatus.textContent = sent + (sent === 1 ? " file" : " files") + " uploaded";
+        uploadStatus.classList.add("uploaded");
+      })
+      .catch(function (error) {
+        forgetUpload();
+        showError(error.message);
+      })
+      .then(function () { uploadButton.disabled = false; });
+  });
+
+  // ---- naming the two ontologies ------------------------------------------
+
+  // Mirrors as_name() on the server, so the preview shows what will actually
+  // be used rather than what was typed.
+  // the same stamp the server puts on the folder, so the preview shows the
+  // real shape rather than a placeholder
+  function stampNow() {
+    const now = new Date();
+    const pad = function (value) { return String(value).padStart(2, "0"); };
+    return String(now.getFullYear()) + pad(now.getMonth() + 1) + pad(now.getDate())
+      + "-" + pad(now.getHours()) + pad(now.getMinutes()) + pad(now.getSeconds());
+  }
+
+  function cleanName(value) {
+    return (value || "").trim()
+      .replace(/[^A-Za-z0-9._-]+/g, "-")
+      .replace(/^[-._]+|[-._]+$/g, "")
+      .slice(0, 40);
+  }
+
+  // Shows the folder the run will be filed under, in the same shape the OAEI
+  // tracks use: <context>/<source>-<target>. The context comes from the
+  // Matching Settings card, so the preview follows a change there too.
+  function updateNamingPreview() {
+    // a name not yet typed stands in as the word itself, so the line is always
+    // the folder the run would get and never has to explain itself
+    const pair = [["source-name", "source"], ["target-name", "target"]]
+      .map(function (field) {
+        return cleanName(document.getElementById(field[0]).value) || field[1];
+      })
+      .join("-");
+    const chosen = document.querySelector('#settings [name="context"]');
+    const context = cleanName(chosen ? chosen.value : "") || "context";
+    namingPreview.textContent = context + "/" + pair + "-" + stampNow();
+  }
+
+  ["source-name", "target-name"].forEach(function (id) {
+    document.getElementById(id).addEventListener("input", updateNamingPreview);
+  });
+  updateNamingPreview();
 
   function formatSize(bytes) {
     if (bytes < 1024) return bytes + " B";
@@ -411,7 +654,25 @@
   function renderMetrics(summary) {
     const metrics = summary.metrics || {};
     const rows = metrics.rows || [];
-    if (!rows.length) return;
+
+    // An unscored run is not a broken one, so say why the figures are absent
+    // rather than leaving the panel out and letting it look like a failure.
+    if (!rows.length) {
+      if (summary.has_reference === false) {
+        scoreRow.innerHTML = "";
+        metricsBody.innerHTML = "";
+        const note = document.createElement("p");
+        note.className = "msg-info mb-0";
+        note.textContent = "No reference alignment was given for this run, so there is "
+          + "nothing to score the result against. The matches themselves are in the "
+          + "predict files below.";
+        scoreRow.appendChild(note);
+        metricsTable.style.display = "none";
+        metricsPanel.classList.add("show");
+      }
+      return;
+    }
+    metricsTable.style.display = "";
 
     scoreRow.innerHTML = "";
     if (metrics.final) {
@@ -487,13 +748,28 @@
     clearError();
 
     const data = new FormData();
-    let missing = null;
-    ["source", "target", "reference"].forEach(function (field) {
-      const input = document.querySelector('label.file[data-field="' + field + '"] input');
-      if (!input.files.length) { missing = missing || field; return; }
-      data.append(field, input.files[0]);
+    // the files went up in their own step; this claims them
+    if (!uploadId) {
+      showError("Upload the ontology files before starting a run.");
+      return;
+    }
+    data.append("upload_id", uploadId);
+
+    // the names that give the run's folder and its result.csv a readable label
+    let unnamed = null;
+    ["source", "target"].forEach(function (field) {
+      const input = form.querySelector('[name="' + field + '_name"]');
+      const value = cleanName(input ? input.value : "");
+      if (!value) { unnamed = unnamed || field; return; }
+      data.append(field + "_name", value);
     });
-    if (missing) { showError("Please choose a " + missing + " ontology."); return; }
+    if (unnamed) {
+      showError("Please give the " + unnamed + " ontology a name. It is what the "
+                + "run is filed under and what appears in result.csv.");
+      const box = form.querySelector('[name="' + unnamed + '_name"]');
+      if (box) box.focus();
+      return;
+    }
 
     // the settings live in their own card, so collect them explicitly
     document.querySelectorAll("#settings [name]").forEach(function (control) {
@@ -514,9 +790,13 @@
       .then(function (result) {
         if (!result.ok) throw new Error(result.body.error || "Could not start the run.");
         currentJob = result.body.id;
+        // the staged files now belong to this run
+        forgetUpload();
         startButton.textContent = "Running…";
         stopButton.disabled = false;
         downloadButton.disabled = false;
+        // the output sits below the settings, so bring it into view
+        document.querySelector(".output").scrollIntoView({ behavior: "smooth", block: "start" });
         connect(currentJob, 0);
       })
       .catch(function (error) {
@@ -619,7 +899,8 @@
   fetch("/api/health").then(function (response) { return response.json(); }).then(function (health) {
     const checks = document.getElementById("checks");
     checks.innerHTML = "";
-    checks.appendChild(check("API keys", health.api_keys.ok, health.api_keys.detail));
+    // the keys are not listed here: they sit directly above with their own
+    // source shown against each field
     checks.appendChild(check("Database", health.database.ok, health.database.detail));
     checks.appendChild(check("Interpreter", true, health.python));
     checks.appendChild(check("Server", health.server.ok, health.server.detail));
@@ -639,6 +920,7 @@
     dot.className = "dot " + (ok ? "ok" : "bad");
     const body = document.createElement("div");
     const title = document.createElement("div");
+    title.className = "check-name";
     title.textContent = name;
     const info = document.createElement("div");
     info.className = "detail";
@@ -663,11 +945,18 @@
 
       const label = document.createElement("label");
       label.textContent = key.name;
-      if (key.configured) {
-        const where = document.createElement("span");
-        where.className = "changed";
-        where.textContent = "  set from " + key.source;
-        label.appendChild(where);
+      // A source worth naming is named; one that is not leaves the label as
+      // just the key's name, since the filled box already says it is set.
+      if (key.configured && key.shown_as) {
+        const state = document.createElement("span");
+        state.className = "changed";
+        state.textContent = "  " + key.shown_as;
+        label.appendChild(state);
+      } else if (!key.configured) {
+        const state = document.createElement("span");
+        state.className = "missing";
+        state.textContent = "  not set";
+        label.appendChild(state);
       }
 
       const input = document.createElement("input");
@@ -675,7 +964,12 @@
       input.name = key.name;
       input.autocomplete = "off";
       input.spellcheck = false;
-      input.placeholder = key.configured ? key.masked : "not set, paste the key here";
+      // The box holds the key that is actually in use, taken from .env or from
+      // whatever was typed earlier, so what is on screen is what will run.
+      // Editing it and pressing Save replaces it; ticking the box as well
+      // writes it back to .env for next time.
+      input.value = key.value || "";
+      input.placeholder = "paste the key here";
 
       field.appendChild(label);
       field.appendChild(input);
@@ -690,7 +984,10 @@
     document.querySelectorAll("#keys input[type=password]").forEach(function (input) {
       if (input.value) { data.append(input.name, input.value); entered += 1; }
     });
-    if (!entered) { status.textContent = "nothing to save"; return; }
+    if (!entered) {
+      status.textContent = "both boxes are empty, there is nothing to save";
+      return;
+    }
     data.append("save_to_env", document.getElementById("save-env").checked ? "true" : "false");
 
     status.textContent = "saving…";
@@ -700,10 +997,8 @@
       })
       .then(function (result) {
         if (!result.ok) throw new Error(result.body.error || "Could not save the keys.");
-        // clear the boxes so the key is not left sitting in the DOM
-        document.querySelectorAll("#keys input[type=password]").forEach(function (input) {
-          input.value = "";
-        });
+        // redrawn from what the server now holds, so the boxes keep showing
+        // the keys that are in use
         buildKeys(result.body.api_keys);
         status.textContent = "saved" + (result.body.saved_to_env ? " to .env" : " for this session");
       })
@@ -742,6 +1037,24 @@
 
     panel.appendChild(numberField("top_k", "top_k", current.top_k, 1, 1000));
     panel.appendChild(numberField("num_matches", "num_matches", current.num_matches, 1, 1000000));
+
+    // Short values can share a row; model names and domain words cannot, so
+    // they keep the full width. The CSS decides how many actually fit.
+    // similarity_threshold keeps a full row: its label is too long to sit in
+    // half a card without colliding with its neighbour
+    const SHORT = ["o1_is_code", "o2_is_code", "top_k", "num_matches"];
+    panel.querySelectorAll(".field").forEach(function (field) {
+      const control = field.querySelector("[name]");
+      if (control && SHORT.indexOf(control.name) !== -1) field.classList.add("half");
+    });
+
+    // the context is the first part of the folder name, so keep the preview
+    // in step with it
+    panel.querySelectorAll('[name="context"]').forEach(function (control) {
+      control.addEventListener("change", updateNamingPreview);
+      control.addEventListener("input", updateNamingPreview);
+    });
+    updateNamingPreview();
   }
 
   function wrapField(name, labelText, control, initial) {
