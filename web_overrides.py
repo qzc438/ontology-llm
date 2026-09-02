@@ -38,9 +38,12 @@ TARGET_MODULE = "run_config"
 # carries the chosen settings to every process in the pipeline
 ENVIRONMENT_VARIABLE = "ONTOLOGY_WEB_OVERRIDES"
 
-# settings that are a plain value rather than a whole statement
+# Settings that are a plain value rather than a whole statement. vector_length
+# is here because it belongs to the chosen embedding model rather than being
+# picked on the page: it travels as the number it is, not as a line of source
+# synthesized to carry it.
 VALUE_SETTINGS = ("context", "o1_is_code", "o2_is_code", "similarity_threshold",
-                  "top_k", "num_matches")
+                  "top_k", "num_matches", "vector_length")
 
 # Locations that may be redirected. The two output files so a run does not
 # append its scores to the result.csv every run shares, and the database so the
@@ -49,8 +52,11 @@ VALUE_SETTINGS = ("context", "o1_is_code", "o2_is_code", "similarity_threshold",
 # as plain assignments, so the import hook can replace them.
 PATH_SETTINGS = ("result_path", "cost_path", "connection_string")
 
-# a database URL carries a password, so it is masked wherever it is printed
-CREDENTIALS = re.compile(r"//[^@/]+@")
+# A database URL carries a password, so it is hidden wherever the URL is
+# printed. The user is left showing: it is part of what you check when the
+# connection is refused, and it is not a secret on its own. A URL with no
+# password in it is left exactly as it is.
+CREDENTIALS = re.compile(r"(//[^:@/]+):[^@/]*@")
 
 # only these classes are imported by run_config.py, so only these can be offered
 LLM_CLASSES = ("ChatOpenAI", "ChatAnthropic", "ChatOllama")
@@ -150,7 +156,7 @@ def _literal_options(lines, name):
     return options
 
 
-def _active_value(lines, name):
+def active_value(lines, name):
     """The value python would end up with, that is the last live assignment."""
     pattern = _assignment_pattern(name)
     result = None
@@ -179,17 +185,17 @@ def describe(base_dir):
     # the thresholds run_series_similarity.py sweeps, 1.00 down to 0.50
     thresholds = [round(1.00 - 0.05 * step, 2) for step in range(11)]
 
-    current = {name: _active_value(lines, name) for name in VALUE_SETTINGS}
-    active_llm = next((item for item in _statement_options(lines, "llm", LLM_CLASSES)
-                       if item["active"]), None)
+    llms = _statement_options(lines, "llm", LLM_CLASSES)
+
+    current = {name: active_value(lines, name) for name in VALUE_SETTINGS}
+    active_llm = next((item for item in llms if item["active"]), None)
     active_embeddings = next((item for item in embeddings if item["active"]), None)
     current["llm"] = active_llm["statement"] if active_llm else None
     current["embeddings_service"] = active_embeddings["statement"] if active_embeddings else None
-    current["vector_length"] = _active_value(lines, "vector_length")
 
     return {
         "options": {
-            "llm": _statement_options(lines, "llm", LLM_CLASSES),
+            "llm": llms,
             "embeddings_service": embeddings,
             "context": _literal_options(lines, "context"),
             "similarity_threshold": thresholds,
@@ -198,10 +204,27 @@ def describe(base_dir):
     }
 
 
+def _allowed(data):
+    """The name and value of every setting the page is permitted to change.
+
+    Both channels are allow-listed the same way, so what gets applied and what
+    gets printed in the header cannot describe different things.
+    """
+    for channel, permitted in (("values", VALUE_SETTINGS), ("paths", PATH_SETTINGS)):
+        for name, value in (data.get(channel) or {}).items():
+            if name in permitted:
+                yield name, value
+
+
+def hide_password(url):
+    """The same URL with its password replaced, ready to be shown or logged."""
+    return CREDENTIALS.sub(r"\1:***@", url)
+
+
 def readable(name, value):
     """A setting as it should appear in the log, with any password removed."""
     if name == "connection_string" and isinstance(value, str):
-        return repr(CREDENTIALS.sub("//***@", value))
+        return repr(hide_password(value))
     return repr(value)
 
 
@@ -231,14 +254,9 @@ def apply_to(module, overrides=None):
             applied.append(f"{statement}  ->  FAILED: {error}")
             continue
         applied.append(statement)
-    for name, value in (data.get("values") or {}).items():
-        if name in VALUE_SETTINGS:
-            setattr(module, name, value)
-            applied.append(f"{name} = {value!r}")
-    for name, value in (data.get("paths") or {}).items():
-        if name in PATH_SETTINGS:
-            setattr(module, name, value)
-            applied.append(f"{name} = {readable(name, value)}")
+    for name, value in _allowed(data):
+        setattr(module, name, value)
+        applied.append(f"{name} = {readable(name, value)}")
     return applied
 
 
@@ -314,14 +332,9 @@ def run_run_config(path):
 
 def format_overrides(data):
     """The chosen settings as readable lines, without applying anything."""
-    lines = list(data.get("statements", []))
-    for name, value in (data.get("values") or {}).items():
-        if name in VALUE_SETTINGS:
-            lines.append(f"{name} = {value!r}")
-    for name, value in (data.get("paths") or {}).items():
-        if name in PATH_SETTINGS:
-            lines.append(f"{name} = {readable(name, value)}")
-    return lines
+    return list(data.get("statements", [])) + [
+        f"{name} = {readable(name, value)}" for name, value in _allowed(data)
+    ]
 
 
 def main(argv):

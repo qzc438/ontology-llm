@@ -1,300 +1,253 @@
-# Running the Agent-OM web interface in Docker
+# Running Agent-OM in Docker
 
-This brings up the web interface and the PostgreSQL database it needs, so
-neither the database, nor pgvector, nor the pinned Python packages have to be
-installed by hand.
+This brings up the web interface, the PostgreSQL database it needs, and an
+Ollama for the open models. Nothing else has to be installed: no PostgreSQL, no
+pgvector, no `ontology` database, no virtual environment, no Ollama.
 
-```
+```bash
 docker compose up --build
 ```
 
 Then open **http://127.0.0.1:5000**.
 
----
-
-## Contents
-
-1. [What you get](#1-what-you-get)
-2. [Before you start](#2-before-you-start)
-3. [Starting and stopping](#3-starting-and-stopping)
-4. [Settings](#4-settings)
-5. [Where your files go](#5-where-your-files-go)
-6. [Everyday commands](#6-everyday-commands)
-7. [After changing the code](#7-after-changing-the-code)
-8. [What is in the image, and what is not](#8-what-is-in-the-image-and-what-is-not)
-9. [Troubleshooting](#9-troubleshooting)
-10. [Why it is built this way](#10-why-it-is-built-this-way)
-
----
-
-## 1. What you get
-
-Two services, defined in `docker-compose.yml`:
-
-| Service | Image | Purpose |
-| --- | --- | --- |
-| `db` | `pgvector/pgvector:pg16` | PostgreSQL 16 with the `vector` extension the pipeline stores embeddings in |
-| `web` | built from `Dockerfile` | The web interface and the matching pipeline |
-
-`web` waits until `db` reports healthy before it starts, so the first run never
-arrives before the database is accepting connections.
-
-The files involved:
-
-```
-Dockerfile                 how the web image is built
-docker-compose.yml         the two services, their volumes and settings
-.dockerignore              what is kept out of the image
-docker/init-pgvector.sql   creates the vector extension when the database is first made
-```
-
-## 2. Before you start
+You need two things beforehand:
 
 - **Docker with the Compose plugin.** Check with `docker compose version`.
-- **A `.env` file** in the project root holding your API keys, the same file
-  step 5 of the README already asks for:
+- **A `.env` file** beside `docker-compose.yml`, holding both keys:
 
   ```
   OPENAI_API_KEY=sk-...
   ANTHROPIC_API_KEY=sk-ant-...
   ```
 
-  Compose reads it and passes the keys to the container. It is never copied
-  into the image; `.dockerignore` excludes it. Both keys have to be present,
-  because `run_config.py` reads both when it starts, whichever model you use.
+  Both have to be there, because `run_config.py` reads both when it starts,
+  whichever model you use. `.env` is never copied into the image.
 
-You do **not** need to install PostgreSQL, create a database, run
-`CREATE EXTENSION vector`, or make a virtual environment. The two services
-handle all of it.
+---
 
-## 3. Starting and stopping
+## Contents
 
-Run these from the project root, the folder holding `docker-compose.yml`.
+1. [What is running](#1-what-is-running)
+2. [Everyday commands](#2-everyday-commands)
+3. [Settings](#3-settings)
+4. [Where your files go](#4-where-your-files-go)
+5. [Open models](#5-open-models)
+6. [Troubleshooting](#6-troubleshooting)
+7. [Why it is built this way](#7-why-it-is-built-this-way)
 
-```bash
-docker compose up --build          # build if needed, then run in the foreground
-docker compose up --build -d       # the same, in the background
-```
+---
 
-The first build takes a few minutes: it downloads the PostgreSQL image and
-installs the Python packages. Later starts take seconds, because both are
-cached.
+## 1. What is running
 
-```bash
-docker compose down                # stop, and keep the database
-docker compose down -v             # stop, and delete the database as well
-```
-
-`docker compose down` leaves your matching results untouched either way: they
-live on your own disk, not inside the container. See
-[Where your files go](#5-where-your-files-go).
-
-## 4. Settings
-
-All of these are ordinary environment variables. Put them in front of the
-command, or add them to `.env`.
-
-| Variable | Default | What it does |
+| Service | Image | Purpose |
 | --- | --- | --- |
-| `WEB_PORT` | `5000` | The port on your machine the interface is published on |
-| `DOCKER_UID` | `1000` | The user id the container runs as |
-| `DOCKER_GID` | `1000` | The group id the container runs as |
-| `OPENAI_API_KEY` | — | Passed through to the pipeline |
-| `ANTHROPIC_API_KEY` | — | Passed through to the pipeline |
-| `ONTOLOGY_DB_URL` | the `db` service | Where the pipeline looks for PostgreSQL |
+| `db` | `pgvector/pgvector:pg16` | PostgreSQL 16 with the `vector` extension the embeddings need |
+| `ollama` | `ollama/ollama:latest` | Runs the open models |
+| `web` | built from `Dockerfile` | The interface and the matching pipeline |
 
-**A different port**, useful when a copy is already running outside Docker:
+`web` waits until the other two report healthy, so a run never arrives before
+the database is accepting connections.
 
-```bash
-WEB_PORT=8080 docker compose up -d      # → http://127.0.0.1:8080
-```
+The first build takes a few minutes, downloading the images and installing the
+Python packages. Later starts take seconds.
 
-**A different user id.** The container runs as user id 1000, the first user id
-on a typical Linux host, so what it writes belongs to you. If your account is a
-different id, say so once:
+## 2. Everyday commands
 
 ```bash
-DOCKER_UID=$(id -u) DOCKER_GID=$(id -g) docker compose up -d
+docker compose up --build -d    # start in the background
+docker compose down             # stop, keeping the database and the models
+docker compose down -v          # stop, discarding them
+
+docker compose ps               # what is up, and healthy
+docker compose logs -f web      # follow the interface log
+docker compose exec web bash    # a shell inside the container
+docker compose exec db psql -U postgres -d ontology    # the database itself
 ```
 
-The interface is published on `127.0.0.1` only. It has no login and it accepts
-API keys, so it is deliberately not offered to the rest of the network.
-
-## 5. Where your files go
-
-Two folders are shared between the container and your machine:
-
-```
-data/uploads/<job-id>/component/        the ontologies you uploaded
-alignment/uploads/<job-id>/component/   what the run produced
-```
-
-They are on your own disk. They survive `docker compose down`, they can be
-opened in any editor, and they belong to you rather than to root. The interface
-also offers them through **Download all**, which gives you one archive with the
-original files and the performance summary in separate folders.
-
-The database keeps its data in a named Docker volume, `db-data`. That one is
-managed by Docker and is removed only by `docker compose down -v`.
-
-## 6. Everyday commands
-
-```bash
-docker compose ps                  # are both services up and healthy
-docker compose logs -f web         # follow the interface log
-docker compose logs -f db          # follow the database log
-docker compose exec web bash       # a shell inside the container, as agentom
-docker compose restart web         # restart just the interface
-```
-
-To look at the database directly:
-
-```bash
-docker compose exec db psql -U postgres -d ontology
-```
-
-## 7. After changing the code
-
-The page, the stylesheet and `web_overrides.py` are read from disk each time
-they are used, so a **refresh of the browser** is enough for those.
-
-Everything else, `web_app.py` and the `om_*.py` pipeline included, is baked
-into the image. After changing one of those:
+**After editing the code.** The page and the stylesheet are re-read on a browser
+refresh. Everything else is in the image, `web_app.py`, `web_overrides.py` and
+the `om_*.py` pipeline included, so rebuild:
 
 ```bash
 docker compose up --build -d
 ```
 
-This restarts the container. **A run in progress is lost when you do that**, so
-let it finish first.
+That restarts the container, and a run in progress is lost with it. Let it
+finish first.
 
-## 8. What is in the image, and what is not
+## 3. Settings
 
-In:
+Ordinary environment variables. Put them in front of the command, or in `.env`.
 
-- Python 3.10 and everything in `requirements.txt`
-- The interface, `run_config.py`, and the `om_*.py` pipeline
-
-Out, by way of `.dockerignore`:
-
-- `.env`, so the keys are never baked in
-- `data/` and `alignment/`, the OAEI data and the reference results, together
-  over 400 MB and needed by none of a web run, which works from what you upload
-- The competition material, benchmarks, figures and notebooks
-
-The result is a build context of about 8 MB and an image of about 1.2 GB, most
-of which is the Python packages.
-
-If you want to run the bundled OAEI alignments from inside the container, mount
-the folders yourself by adding these to the `web` service:
-
-```yaml
-      - ./data:/app/data
-      - ./alignment:/app/alignment
-```
-
-## 9. Troubleshooting
-
-**`address already in use` when starting**
-
-Something already holds port 5000, usually a copy of the interface started with
-`python web_app.py`. Stop that one, or publish elsewhere:
+| Variable | Default | What it does |
+| --- | --- | --- |
+| `WEB_PORT` | `5000` | The port published on your machine |
+| `DOCKER_UID`, `DOCKER_GID` | `1000` | The user the container runs as |
+| `OPENAI_API_KEY`, `ANTHROPIC_API_KEY` | — | Passed through to the pipeline |
+| `ONTOLOGY_DB_URL` | the `db` service | Where the pipeline looks for PostgreSQL |
+| `OLLAMA_URL` | the `ollama` service | Where it looks for Ollama, see [Open models](#5-open-models) |
 
 ```bash
-WEB_PORT=8080 docker compose up -d
+WEB_PORT=8080 docker compose up -d                              # another port
+DOCKER_UID=$(id -u) DOCKER_GID=$(id -g) docker compose up -d    # your own id
 ```
 
-**The page says a key is missing**
+Pass your own id if your account is not 1000, so that what the container writes
+into the shared folders belongs to you.
 
-Compose did not see your `.env`. It has to be in the same folder as
-`docker-compose.yml`, and both `OPENAI_API_KEY` and `ANTHROPIC_API_KEY` have to
-be in it. Check what reached the container:
+The interface is published on `127.0.0.1` only. It has no login and it holds API
+keys, so it is deliberately not offered to the rest of the network.
+
+## 4. Where your files go
+
+```
+data/uploads/…        the ontologies you uploaded    on your own disk
+alignment/uploads/…   what the run produced          on your own disk
+db-data               the database                   docker volume
+ollama-models         the models you download        docker volume
+```
+
+The first two are on your machine: they outlive the containers, open in any
+editor, and belong to you. **Download all** on the page gives you one archive of
+a run instead.
+
+The two volumes survive `docker compose down` and go only with `down -v`.
+
+## 5. Open models
+
+Ollama comes up with the stack, so the open models need nothing on the host.
+Choose one on the page and press **Download** beside it if the menu says it is
+not there; the pull runs in the `ollama` service and its progress is shown on
+the page.
+
+Every open model is marked **✓ downloaded** or **— not downloaded** once Ollama
+has answered, and pressing Start with one that cannot run is refused straight
+away rather than failing minutes later.
+
+### The GPU
+
+The service runs on the **CPU**, which works but is slow at 7b and above. To
+give it the GPU, install the
+[NVIDIA container toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
+and uncomment the `deploy` block already written in the `ollama` service. It is
+commented out because without the toolkit that block stops the stack starting.
+
+### Using the Ollama on your host instead
+
+Worth doing when your host Ollama already has the GPU and the models:
+
+```bash
+OLLAMA_URL=http://host.docker.internal:11434 docker compose up -d
+```
+
+The name resolves, but by default Ollama listens on `127.0.0.1` only and refuses
+the container anyway. The symptom is a page saying nothing answered at that
+address. On Linux with systemd, `sudo systemctl edit ollama` and add:
+
+```
+[Service]
+Environment="OLLAMA_HOST=0.0.0.0:11434"
+```
+
+then:
+
+```bash
+sudo systemctl restart ollama
+ss -ltn | grep 11434     # should no longer say 127.0.0.1
+```
+
+`0.0.0.0` means every interface, not only Docker, so put a firewall in front of
+it on a shared network. `OLLAMA_URL` points anywhere, so another machine's GPU
+works the same way. The `ollama` service still starts and sits idle, costing one
+image download and a little memory.
+
+None of this applies to the OpenAI and Anthropic models, which are called over
+the internet.
+
+## 6. Troubleshooting
+
+**`address already in use`** — something else holds port 5000, usually a copy
+started with `python web_app.py`. Stop it, or `WEB_PORT=8080 docker compose up -d`.
+
+**The page says a key is missing** — Compose did not see your `.env`. It must sit
+beside `docker-compose.yml` and hold both keys. Check what arrived:
 
 ```bash
 docker compose exec web printenv | grep API_KEY
 ```
 
-You can also type a key straight into the page, which keeps it for as long as
-the container is running.
+You can also type a key into the page, which keeps it while the container runs.
 
-**The Database check is red**
-
-Look at whether the database came up:
+**The Database check is red** — see whether it came up at all:
 
 ```bash
 docker compose ps
 docker compose logs db | tail -20
 ```
 
-If it says the extension is missing, the database volume was made before the
-init script existed. Recreate it, which **erases the database**:
+If it reports the extension is missing, the volume predates the init script.
+Recreating it **erases the database**: `docker compose down -v && docker compose up -d`.
+
+**An open model fails as the run reaches it** — find out which Ollama is being
+asked, and whether it answers:
 
 ```bash
-docker compose down -v && docker compose up -d
+docker compose exec web sh -c 'echo $OLLAMA_URL; curl -s "$OLLAMA_URL/api/tags"'
 ```
 
-**Results are owned by root and you cannot delete them**
+If it names `ollama:11434` and answers, the model is simply not downloaded:
+press **Download** on the page, or `docker compose exec ollama ollama pull llama3:8b`.
+If it names `host.docker.internal` and answers with nothing, see
+[Using the Ollama on your host instead](#using-the-ollama-on-your-host-instead).
 
-An older container ran as root. Rebuild, and pass your own id:
+**An open model runs but is very slow** — it is on the CPU. See [The GPU](#the-gpu).
+
+**Results are owned by root** — an older container ran as root. Rebuild with your
+own id, then clear what it left:
 
 ```bash
 DOCKER_UID=$(id -u) DOCKER_GID=$(id -g) docker compose up --build -d
-```
-
-To clear what the old one left behind:
-
-```bash
 docker run --rm -v "$PWD/data/uploads:/a" -v "$PWD/alignment/uploads:/b" \
   alpine sh -c "rm -rf /a/* /b/*"
 ```
 
-**The terminal output has no colours**
-
-Rebuild. The pipeline's colours are only produced when it believes it is
-talking to a terminal, and the interface arranges that; the change is in
-`web_app.py`, which lives in the image.
-
-```bash
-docker compose up --build -d
-```
-
-**A change to the code did nothing**
-
-`web_app.py` and the pipeline are in the image. See
-[After changing the code](#7-after-changing-the-code).
+**No colours in the terminal output**, or **a change to the code did nothing** —
+both live in the image. Rebuild: `docker compose up --build -d`.
 
 **Starting over completely**
 
 ```bash
-docker compose down -v                     # containers and the database
-docker rmi ontology-llm-web                # the built image
-docker compose up --build                  # from scratch
+docker compose down -v          # containers, database and models
+docker rmi ontology-llm-web     # the built image
+docker compose up --build
 ```
 
-## 10. Why it is built this way
+## 7. Why it is built this way
 
-Four decisions are worth knowing about, because each fixes something that
-otherwise breaks.
+Five decisions, each fixing something that otherwise breaks.
 
-**Python 3.10.** The version the README reports its results with. Several of
-the pinned packages publish no wheel for 3.12, so a 3.12 image tries to compile
-`pandas` during the build and fails.
+**Python 3.10**, the version the README reports its results with. Several pinned
+packages publish no wheel for 3.12, so a 3.12 image tries to compile `pandas`
+during the build and fails.
 
-**`numpy` is pinned to 1.26.4.** It used to be unpinned, so a fresh install
-took numpy 2 while `pandas==2.0.3` is built against numpy 1. The pipeline then
-could not import pandas at all, with `numpy.dtype size changed`. The pin is in
-`requirements.txt` and helps a plain local install just as much.
+**`numpy` pinned to 1.26.4.** Unpinned, a fresh install takes numpy 2 while
+`pandas==2.0.3` is built against numpy 1, and the pipeline cannot import pandas
+at all: `numpy.dtype size changed`. The pin is in `requirements.txt`, so it helps
+a local install just as much.
 
-**`ONTOLOGY_DB_URL`.** `run_config.py` names
-`postgresql://postgres:postgres@127.0.0.1/ontology`, and inside a container
-`127.0.0.1` is the container itself, not your machine. Compose sets this
-variable to the `db` service instead, and `web_overrides.py` applies it while
-the pipeline runs, so `run_config.py` is never modified. The same variable works
-outside Docker when the database is on another host. Its password is masked
-wherever the settings are printed.
+**`ONTOLOGY_DB_URL`.** `run_config.py` names `127.0.0.1`, which inside a
+container is the container itself. Compose points this at the `db` service
+instead and `web_overrides.py` applies it while the pipeline runs, so
+`run_config.py` is never modified. The same variable works outside Docker when
+the database is on another host. Its password is masked wherever it is printed.
 
-**The container is not root.** Without that, everything written into the two
-mounted folders belongs to root on your machine and you cannot delete your own
-results. For the same reason those two folders are kept in the repository with
-a `.gitkeep`: Docker creates a missing mount point owned by root, and a
-container that is not root then cannot write into it.
+**The container is not root**, or everything written into the two shared folders
+would belong to root on your machine and you could not delete your own results.
+Those folders are kept in the repository with a `.gitkeep` for the same reason:
+Docker creates a missing mount point owned by root, which a non-root container
+then cannot write into.
+
+**`/app` belongs to group 0**, and the container carries that group. The pipeline
+writes into `/app` itself, not only the mounts — `run_config.py` appends to
+`time.csv` before it starts anything — so owning it as one fixed user id would
+break every run for anyone passing a different `DOCKER_UID`.

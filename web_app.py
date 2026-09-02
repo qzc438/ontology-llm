@@ -34,14 +34,17 @@ import os
 import re
 import shutil
 import signal
+import socket
 import subprocess
 import sys
 import tempfile
 import threading
 import time
+import urllib.request
 import uuid
 import zipfile
 from collections import deque
+from concurrent.futures import ThreadPoolExecutor
 
 # a pseudo terminal is how the pipeline's colours are kept; none of this exists
 # on Windows, where the run still works but arrives without colour
@@ -127,6 +130,13 @@ API_KEY_NAMES = ("OPENAI_API_KEY", "ANTHROPIC_API_KEY")
 # which is how the database is reached when it runs as its own container
 DB_URL_ENV = "ONTOLOGY_DB_URL"
 
+# Points the pipeline at an Ollama that is not on localhost, which is what
+# localhost means inside a container. ChatOllama in langchain_community ignores
+# OLLAMA_HOST and only takes base_url as an argument, so the chosen statement
+# has the argument added to it before it runs.
+OLLAMA_URL_ENV = "OLLAMA_URL"
+OLLAMA_CLASSES = ("ChatOllama", "OllamaEmbeddings")
+
 # the header util.calculate_metrics expects but never writes, because the
 # create_document call that would have written it is commented out
 RESULT_HEADER = ("LLM", "Alignment", "Precision", "Recall", "F1")
@@ -157,18 +167,41 @@ KEYS_LOCK = threading.Lock()
 # used to notice that the source files changed after this process started
 SERVER_STARTED_AT = time.time()
 
+# what this process was told to listen on, filled in by main()
+SERVER_ADDRESS = None
+
 # files uploaded but not yet run, by upload id
 STAGED = {}
 STAGING_LOCK = threading.Lock()
+
+# Ollama model pulls in progress, by model name
+PULLS = {}
+PULL_LOCK = threading.Lock()
+
+# Held for the whole of starting a run. The check for one already in progress
+# and the registration of the new one have to be a single step, or two requests
+# arriving together both find nothing running and both start a pipeline against
+# the one database. It is not JOBS_LOCK because the work in between moves the
+# uploaded files, and no other request should wait on that.
+START_LOCK = threading.Lock()
 
 
 class Job:
     """One `python run_config.py` run and the terminal output it produced."""
 
-    def __init__(self, job_id, alignment, uploads, overrides=None):
+    def __init__(self, job_id, folder, uploads, ontology_names,
+                 has_reference, overrides=None):
         self.id = job_id
-        self.alignment = alignment
+        # where the files live, under uploads, in the OAEI shape
+        # <context>/<source>-<target>. It holds a slash, so it cannot double as
+        # the identifier, which has to survive being a single URL segment.
+        self.folder = folder
         self.uploads = uploads
+        # what the reader called the two ontologies, empty when they said nothing
+        self.ontology_names = ontology_names
+        # whether a reference alignment was given, and so whether this run can
+        # be scored at all
+        self.has_reference = has_reference
         self.overrides = overrides or {}
         self.created_at = time.time()
         self.finished_at = None
@@ -182,20 +215,18 @@ class Job:
         self.vanished = []
         # rows already in the shared time.csv when this job started
         self.time_rows_before = 0
-        # what the reader called the two ontologies, empty when they said nothing
-        self.ontology_names = {"source": "", "target": ""}
-        # whether a reference alignment was given, and so whether this run can
-        # be scored at all
-        self.has_reference = True
-        # where the files live, under uploads, in the OAEI shape
-        # <context>/<source>-<target>. It holds a slash, so it cannot double as
-        # the identifier, which has to survive being a single URL segment.
-        self.folder = job_id
         # `lines` is capped, `total` counts every line ever produced so that a
         # reconnecting browser can ask for output starting at an absolute index
         self.lines = deque(maxlen=MAX_LINES)
         self.total = 0
         self.condition = threading.Condition()
+
+    @property
+    def alignment(self):
+        """What run_config.py is given in the environment, which is the folder
+        again as a relative path. Derived rather than stored, so it cannot name
+        a different run than `folder` does."""
+        return f"uploads/{self.folder}/component/"
 
     @property
     def running(self):
@@ -365,6 +396,21 @@ def pump_output(job, descriptor):
         job.append(clean_line(buffer))
 
 
+def upload_folder(job):
+    """Where this run's ontologies were put."""
+    return UPLOAD_ROOT / job.folder / "component"
+
+
+def result_folder(job):
+    """Where this run's own result files are written.
+
+    The pipeline calls it `component` under the alignment folder, which is the
+    layout the OAEI tracks already use, so a web run is filed the same way the
+    repository's own results are.
+    """
+    return RESULT_ROOT / job.folder / "component"
+
+
 def missing_inputs(job):
     """Uploaded ontologies that are no longer on disk.
 
@@ -373,7 +419,7 @@ def missing_inputs(job):
     "exactly one of source, location, file or data must be given", which says
     nothing about the real problem.
     """
-    component = UPLOAD_ROOT / job.folder / "component"
+    component = upload_folder(job)
     gone = []
     for name in REQUIRED_UPLOADS:
         if not any((component / f"{name}.{ext}").is_file() for ext in ALLOWED_EXTENSIONS):
@@ -389,16 +435,19 @@ def prepare_result_files(job):
     web_overrides.py redirects them into this job's folder instead. The header
     is written here because util.calculate_metrics only ever appends rows.
     """
-    folder = RESULT_ROOT / job.folder / "component"
+    folder = result_folder(job)
     folder.mkdir(parents=True, exist_ok=True)
     for name, header in (("result.csv", RESULT_HEADER), ("cost.csv", COST_HEADER)):
         path = folder / name
         if not path.exists():
             with open(path, "w", newline="") as handle:
                 csv.writer(handle).writerow(header)
+    # relative to the repository root, which is where the pipeline runs, and
+    # derived from the folder above so the two cannot name different places
     return {
-        "result_path": f"alignment/uploads/{job.folder}/component/result.csv",
-        "cost_path": f"alignment/uploads/{job.folder}/component/cost.csv",
+        f"{name.removesuffix('.csv')}_path":
+            (folder / name).relative_to(BASE_DIR).as_posix()
+        for name in ("result.csv", "cost.csv")
     }
 
 
@@ -429,7 +478,7 @@ def write_time_summary(job):
     ]
     if not added:
         return
-    path = RESULT_ROOT / job.folder / "component" / TIME_CSV
+    path = result_folder(job) / TIME_CSV
     try:
         with open(path, "w", newline="") as handle:
             writer = csv.writer(handle)
@@ -441,7 +490,7 @@ def write_time_summary(job):
 
 def read_metrics(job):
     """The precision, recall and F1 rows this job wrote, best row last."""
-    path = RESULT_ROOT / job.folder / "component" / "result.csv"
+    path = result_folder(job) / "result.csv"
     if not path.is_file():
         return {"rows": [], "final": None}
     rows = []
@@ -520,6 +569,11 @@ def widen(descriptor):
 def run_job(job):
     """Run `python run_config.py` and collect its output."""
     command = [sys.executable, str(BASE_DIR / "web_overrides.py"), "run_config.py"]
+    if job.cancelled:
+        # stopped before this thread got as far as starting anything
+        job.append("Stopped before the run began.")
+        job.finish()
+        return
     job.time_rows_before = count_time_rows()
     job.append(f"$ alignment={job.alignment} python run_config.py")
     job.append("")
@@ -552,7 +606,7 @@ def run_job(job):
         job.append("")
         job.append(
             "The uploaded " + ", ".join(gone) + " file(s) disappeared from "
-            f"{UPLOAD_ROOT / job.folder / 'component'} while the run was in progress, "
+            f"{upload_folder(job)} while the run was in progress, "
             "so the pipeline was reading files that no longer existed. "
             "Nothing else was wrong with the run; start it again."
         )
@@ -575,9 +629,15 @@ def run_job(job):
 def stop_job(job):
     """Terminate the child and everything it spawned."""
     process = job.process
-    if process is None or process.poll() is not None:
+    if process is not None and process.poll() is not None:
         return False
+    # Stop can arrive in the moment between the run being registered and the
+    # worker thread reaching Popen. Recording the cancellation is what makes it
+    # count then: run_job checks it before it starts anything, so the request is
+    # honoured rather than quietly dropped.
     job.cancelled = True
+    if process is None:
+        return True
     try:
         os.killpg(os.getpgid(process.pid), signal.SIGTERM)
     except (ProcessLookupError, PermissionError):
@@ -641,8 +701,10 @@ def clear_old_staging():
     with STAGING_LOCK:
         for upload_id, staged in list(STAGED.items()):
             if staged["created_at"] < cutoff:
-                shutil.rmtree(STAGING_ROOT / upload_id, ignore_errors=True)
                 STAGED.pop(upload_id, None)
+    # One sweep does the deleting, so there is a single place in the server that
+    # removes an upload: anything on disk that no longer has an entry, which
+    # covers both the expired ones just forgotten and any left by an earlier run.
     if STAGING_ROOT.is_dir():
         for path in STAGING_ROOT.iterdir():
             if path.is_dir() and path.name not in STAGED:
@@ -687,18 +749,15 @@ def result_files(job):
     of how it went. They are separate because they answer different questions
     and are usually wanted separately.
     """
-    folder = RESULT_ROOT / job.folder / "component"
+    folder = result_folder(job)
     groups = {"original": [], "performance": []}
     if not folder.is_dir():
         return groups
     for path in sorted(folder.iterdir()):
         if not path.is_file():
             continue
-        entry = {
-            "name": path.name,
-            "size": path.stat().st_size,
-            "modified": path.stat().st_mtime,
-        }
+        info = path.stat()
+        entry = {"name": path.name, "size": info.st_size, "modified": info.st_mtime}
         if path.name in PERFORMANCE_FILES:
             groups["performance"].append(entry)
         else:
@@ -722,12 +781,56 @@ def read_connection_string():
     if override:
         return override
     try:
-        source = (BASE_DIR / "run_config.py").read_text()
+        lines = web_overrides.read_source(BASE_DIR).splitlines()
     except OSError:
         return None
-    live = [line for line in source.splitlines() if not line.lstrip().startswith("#")]
-    matches = re.findall(r"^connection_string\s*=\s*['\"](.+?)['\"]", "\n".join(live), re.M)
-    return matches[-1] if matches else None
+    return web_overrides.active_value(lines, "connection_string")
+
+
+def full_summary(job):
+    """Everything the page shows about a finished run.
+
+    Both the job endpoint and the stream's closing event send this, so a field
+    added here reaches a reader whether they waited for the run or came back to
+    it afterwards.
+    """
+    summary = job.summary()
+    summary["results"] = result_files(job)
+    summary["metrics"] = read_metrics(job)
+    return summary
+
+
+# the class being constructed on the right of an assignment
+CONSTRUCTED = re.compile(r"=\s*(\w+)\s*\(")
+
+
+def uses_ollama(statement):
+    """Whether this assignment builds one of the Ollama classes.
+
+    Matched on the name being called rather than on a fixed amount of space
+    around it, so a line written `llm=ChatOllama(...)` is recognised too.
+    """
+    found = CONSTRUCTED.search(statement)
+    return bool(found) and found.group(1) in OLLAMA_CLASSES
+
+
+def with_base_url(statement, url):
+    """The same assignment, told where Ollama is.
+
+    The statement is one of run_config.py's own lines, already matched against
+    the file, so the only thing being added here is the argument.
+    """
+    # Some of these lines carry a trailing comment, so the argument goes in
+    # before the last bracket rather than at the end of the line.
+    opened = statement.find("(")
+    closed = statement.rfind(")")
+    if opened == -1 or closed < opened:
+        return statement
+    inner = statement[opened + 1:closed].strip().rstrip(",")
+    if "base_url" in inner:
+        return statement
+    joined = f"{inner}, base_url={url!r}" if inner else f"base_url={url!r}"
+    return statement[:opened + 1] + joined + statement[closed:]
 
 
 def parse_settings(form, options):
@@ -742,22 +845,22 @@ def parse_settings(form, options):
     current = options["current"]
     choices = options["options"]
 
-    chosen = form.get("llm")
-    if chosen and chosen != current.get("llm"):
-        if not any(item["statement"] == chosen for item in choices["llm"]):
-            raise ValueError("That LLM is not one of the options in run_config.py.")
-        statements.append(chosen)
-
-    chosen = form.get("embeddings_service")
-    if chosen and chosen != current.get("embeddings_service"):
-        option = next((item for item in choices["embeddings_service"]
+    for name, complaint in (
+        ("llm", "That LLM is not one of the options in run_config.py."),
+        ("embeddings_service",
+         "That embedding model is not one of the options in run_config.py."),
+    ):
+        chosen = form.get(name)
+        if not chosen or chosen == current.get(name):
+            continue
+        option = next((item for item in choices[name]
                        if item["statement"] == chosen), None)
         if option is None:
-            raise ValueError("That embedding model is not one of the options in run_config.py.")
+            raise ValueError(complaint)
         statements.append(chosen)
         # the dimension belongs to the model, the database table uses it
         if option.get("vector_length"):
-            statements.append(f"vector_length = {option['vector_length']}")
+            values["vector_length"] = option["vector_length"]
 
     context = (form.get("context") or "").strip()
     if context and context != current.get("context"):
@@ -799,6 +902,19 @@ def parse_settings(form, options):
         if number != current.get(name):
             values[name] = number
 
+    # An Ollama model has to be told where Ollama is, and localhost is not it
+    # once this is running in a container. This covers the model that is
+    # already selected in run_config.py as well as one chosen on the page,
+    # since the first produces no statement of its own.
+    ollama_url = os.environ.get(OLLAMA_URL_ENV)
+    if ollama_url:
+        for setting in ("llm", "embeddings_service"):
+            effective = form.get(setting) or current.get(setting) or ""
+            if not uses_ollama(effective):
+                continue
+            statements = [item for item in statements if not item.startswith(f"{setting} =")]
+            statements.append(with_base_url(effective, ollama_url))
+
     payload = {}
     if statements:
         payload["statements"] = statements
@@ -807,11 +923,133 @@ def parse_settings(form, options):
     return payload
 
 
+def ollama_url():
+    """Where Ollama is expected to be answering."""
+    return (os.environ.get(OLLAMA_URL_ENV) or "http://localhost:11434").rstrip("/")
+
+
+def ollama_models(statements):
+    """The Ollama models named by these assignments, if any."""
+    wanted = []
+    for statement in statements:
+        if statement and uses_ollama(statement):
+            match = web_overrides.MODEL_ARGUMENT.search(statement)
+            if match:
+                wanted.append(match.group(1))
+    return wanted
+
+
+def check_ollama(wanted=()):
+    """Whether Ollama is answering, and has the models a run is about to use.
+
+    Ollama is not part of the image and neither are its models: they are
+    installed on the machine and pulled there. Without this check a run starts,
+    spends minutes loading both ontologies, and only then fails on a refused
+    connection or a model that was never pulled.
+    """
+    url = ollama_url()
+    try:
+        with urllib.request.urlopen(f"{url}/api/tags", timeout=5) as response:
+            payload = json.load(response)
+    except Exception as error:  # any failure here means it cannot be used
+        reason = str(error).strip() or error.__class__.__name__
+        return {
+            "ok": not wanted,
+            "reachable": False,
+            "url": url,
+            "installed": [],
+            "missing": list(wanted),
+            "detail": f"no answer from {url} ({reason})",
+        }
+
+    installed = sorted(
+        str(item.get("name", "")) for item in payload.get("models", []) if item.get("name")
+    )
+    missing = [name for name in wanted if name not in installed]
+    return {
+        "ok": not missing,
+        "reachable": True,
+        "url": url,
+        "installed": installed,
+        "missing": missing,
+        # Just the address, like the database and the server rows. How many
+        # models are installed is not something to act on: which ones are is,
+        # and the menu already marks each one downloaded or not.
+        "detail": (f"{url} has no " + ", ".join(missing)) if missing else url,
+    }
+
+
+def known_ollama_models():
+    """Every Ollama model named in run_config.py, pulled or not.
+
+    A pull may only ask for one of these. Passing a model name to Ollama makes
+    it fetch from the internet, so the name has to come from the project's own
+    file rather than from the request.
+    """
+    options = web_overrides.describe(BASE_DIR)["options"]
+    names = set()
+    for group in ("llm", "embeddings_service"):
+        for option in options.get(group, []):
+            if uses_ollama(option["statement"]):
+                names.add(option["label"])
+    return names
+
+
+def pull_ollama_model(model):
+    """Ask Ollama to fetch a model, following its progress as it goes."""
+    body = json.dumps({"model": model}).encode()
+    request_ = urllib.request.Request(
+        f"{ollama_url()}/api/pull", data=body,
+        headers={"Content-Type": "application/json"},
+    )
+    try:
+        with urllib.request.urlopen(request_, timeout=None) as response:
+            for line in response:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    update = json.loads(line)
+                except ValueError:
+                    continue
+                if update.get("error"):
+                    raise RuntimeError(update["error"])
+                with PULL_LOCK:
+                    state = PULLS.setdefault(model, {})
+                    state["status"] = update.get("status", "")
+                    state["completed"] = update.get("completed", 0)
+                    state["total"] = update.get("total", 0)
+    except Exception as error:
+        with PULL_LOCK:
+            PULLS.setdefault(model, {}).update(
+                {"done": True, "ok": False, "error": str(error)}
+            )
+        return
+    with PULL_LOCK:
+        PULLS.setdefault(model, {}).update(
+            {"done": True, "ok": True, "status": "ready", "error": None}
+        )
+
+
+def pull_state(model):
+    """What to tell the page about a pull, including how far along it is."""
+    with PULL_LOCK:
+        state = dict(PULLS.get(model) or {})
+    if not state:
+        return None
+    total = state.get("total") or 0
+    completed = state.get("completed") or 0
+    state["percent"] = round(completed * 100 / total) if total else None
+    state["model"] = model
+    return state
+
+
 def check_database(url):
     """Whether the pipeline's postgres database is reachable."""
     if not url:
         return {"ok": False, "detail": "no connection_string found in run_config.py"}
-    masked = re.sub(r"//[^@/]+@", "//***@", url)
+    # the same masking that keeps the password out of the run's log line
+    masked = web_overrides.hide_password(url)
     try:
         import psycopg2
     except ImportError:
@@ -821,10 +1059,19 @@ def check_database(url):
     except Exception as error:
         message = str(error).strip()
         return {"ok": False, "detail": message.splitlines()[0] if message else "connection failed"}
+    # A failure here is still only this one check failing. Letting it escape
+    # would return 500 for the whole health reply, and the page builds the
+    # settings and the key fields from that same reply, so a database that
+    # answered and then faltered would leave the reader with an empty form.
     try:
         with connection.cursor() as cursor:
             cursor.execute("select extname from pg_extension where extname = 'vector'")
             has_vector = cursor.fetchone() is not None
+    except Exception as error:
+        message = str(error).strip()
+        return {"ok": False,
+                "detail": f"{masked} answered, but "
+                          f"{message.splitlines()[0] if message else 'the query failed'}"}
     finally:
         connection.close()
     if not has_vector:
@@ -869,21 +1116,57 @@ def resolve_api_keys():
 def check_freshness():
     """Whether this server process is still running the code that is on disk.
 
-    web_app.py is imported once, so editing it changes nothing until the server
-    is restarted, and the page can then disagree with the source in a way that
-    is very hard to notice.
+    Both modules here are imported once, so editing them changes nothing until
+    the server is restarted, and the page can then disagree with the source in a
+    way that is very hard to notice.
     """
-    # templates and the stylesheet reload on their own, so only this module,
-    # which python imports exactly once, needs a restart to take effect
-    path = BASE_DIR / "web_app.py"
-    started = datetime.fromtimestamp(SERVER_STARTED_AT).strftime("%d %b %Y at %H.%M")
-    if path.is_file() and path.stat().st_mtime > SERVER_STARTED_AT:
+    # Templates and the stylesheet reload on their own. These two do not: python
+    # imports each exactly once. web_overrides.py is included because the server
+    # calls describe(), parse_settings() and format_overrides() from its own
+    # copy; the pipeline's own processes re-run the file and so do pick an edit
+    # up, which is exactly what makes a stale server here easy to miss.
+    changed = [
+        name for name in ("web_app.py", "web_overrides.py")
+        if (BASE_DIR / name).is_file()
+        and (BASE_DIR / name).stat().st_mtime > SERVER_STARTED_AT
+    ]
+    if changed:
         return {
             "ok": False,
-            "detail": f"started {started}, but web_app.py changed since. "
-            "Restart the server to pick the change up.",
+            "detail": f"{server_address()}. {' and '.join(changed)} changed since "
+            "this server started; restart it to pick the change up.",
         }
-    return {"ok": True, "detail": f"started {started}"}
+    return {"ok": True, "detail": server_address()}
+
+
+def server_address():
+    """Where this process is listening, as it would be typed into a browser."""
+    if not SERVER_ADDRESS:
+        return "address unknown"
+    host, port = SERVER_ADDRESS
+    # 0.0.0.0 means every interface, which is not something anyone can type in,
+    # so the address of the interface this machine actually answers on is used
+    if host in ("0.0.0.0", "::"):
+        host = own_address() or host
+    return f"http://{host}:{port}"
+
+
+def own_address():
+    """This machine's address on the network it can reach.
+
+    Inside a container that is the container's own address on the docker
+    network, which is what you would use to reach it from another container.
+    Nothing is sent: connecting a UDP socket only picks the route, and the
+    local end of it is the answer.
+    """
+    probe = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    try:
+        probe.connect(("8.8.8.8", 80))
+        return probe.getsockname()[0]
+    except OSError:
+        return None
+    finally:
+        probe.close()
 
 
 # What the page says beside a key, per source. The server environment is where
@@ -998,22 +1281,41 @@ def design_system():
 @app.get("/api/health")
 def health():
     settings = web_overrides.describe(BASE_DIR)
-    return jsonify(
-        {
-            "python": sys.executable,
-            "base_dir": str(BASE_DIR),
-            "options": settings["options"],
-            "current": settings["current"],
-            "api_keys": describe_api_keys(),
-            "database": check_database(read_connection_string()),
-            "server": check_freshness(),
-        }
-    )
+    # The database and Ollama checks each wait on a machine that may not answer,
+    # three and five seconds respectively, and the page builds its whole settings
+    # form from this one reply. They share nothing, so waiting on them one after
+    # the other only adds the two silences together.
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        database = pool.submit(check_database, read_connection_string())
+        ollama = pool.submit(check_ollama)
+        return jsonify(
+            {
+                # the version first: it is what decides whether the pipeline's
+                # pinned packages will install at all, and the path only says
+                # which environment answered
+                "python": f"Python {'.'.join(str(part) for part in sys.version_info[:3])}"
+                          f", {sys.executable}",
+                "base_dir": str(BASE_DIR),
+                "options": settings["options"],
+                "current": settings["current"],
+                "api_keys": describe_api_keys(),
+                "database": database.result(),
+                "server": check_freshness(),
+                # reported whether or not an open model is selected; the page
+                # shows it only when one is, since it means nothing otherwise
+                "ollama": ollama.result(),
+            }
+        )
 
 
 @app.post("/api/keys")
 def set_api_keys():
-    """Accept keys typed on the page. They are never sent back to the browser."""
+    """Accept keys typed on the page.
+
+    The reply carries the keys now in use, because the page refills its boxes
+    from it so that what is shown is what a run would use. They are never
+    written to the log, and never leave this machine.
+    """
     submitted = {name: request.form.get(name) for name in API_KEY_NAMES}
     save_to_env = request.form.get("save_to_env") == "true"
     try:
@@ -1029,6 +1331,50 @@ def set_api_keys():
             "api_keys": describe_api_keys(),
         }
     )
+
+
+@app.post("/api/ollama/pull")
+def start_pull():
+    """Fetch a model into the Ollama on this machine."""
+    model = (request.form.get("model") or "").strip()
+    if model not in known_ollama_models():
+        return (
+            jsonify({"error": "That is not one of the models in run_config.py."}),
+            400,
+        )
+    ollama = check_ollama()
+    if not ollama["reachable"]:
+        return (
+            jsonify(
+                {
+                    "error": f"Nothing answered at {ollama['url']}. Ollama has to "
+                    "be installed and running there, and listening on more than "
+                    "127.0.0.1 if this is in Docker: see the open models section "
+                    "of DOCKER.md."
+                }
+            ),
+            400,
+        )
+    with PULL_LOCK:
+        running = PULLS.get(model)
+        if running and not running.get("done"):
+            return jsonify(pull_state(model)), 202
+        PULLS[model] = {"status": "starting", "completed": 0, "total": 0,
+                        "done": False, "ok": None, "error": None}
+    threading.Thread(target=pull_ollama_model, args=(model,), daemon=True).start()
+    return jsonify(pull_state(model)), 202
+
+
+@app.get("/api/ollama/pull")
+def read_pull():
+    """How a download is getting on, and what is installed now."""
+    model = (request.args.get("model") or "").strip()
+    state = pull_state(model) if model else None
+    # This is polled once a second for as long as a download runs, and listing
+    # the installed models means another request to Ollama each time. The list
+    # only changes when a download ends, so it is fetched then and not before.
+    installed = check_ollama() if state is None or state.get("done") else None
+    return jsonify({"pull": state, "ollama": installed})
 
 
 @app.get("/api/jobs")
@@ -1056,6 +1402,18 @@ def create_upload():
     clear_old_staging()
     upload_id = datetime.now().strftime("%Y%m%d-%H%M%S") + "-" + uuid.uuid4().hex[:8]
     component = STAGING_ROOT / upload_id / "component"
+    # Claim the id before a single byte is written. clear_old_staging() removes
+    # any directory no entry accounts for, and a second upload arriving while
+    # this one is still saving would otherwise sweep away its half-written
+    # files. `complete` stays false until they are all on disk, so a run cannot
+    # claim an upload that is still arriving either.
+    with STAGING_LOCK:
+        STAGED[upload_id] = {
+            "created_at": time.time(),
+            "files": {},
+            "has_reference": "reference" in accepted,
+            "complete": False,
+        }
     stored = {}
     try:
         component.mkdir(parents=True, exist_ok=True)
@@ -1067,21 +1425,24 @@ def create_upload():
                 "size": (component / f"{name}.{extension}").stat().st_size,
             }
     except OSError as error:
+        with STAGING_LOCK:
+            STAGED.pop(upload_id, None)
         shutil.rmtree(STAGING_ROOT / upload_id, ignore_errors=True)
         return jsonify({"error": f"Could not save the uploads: {error}"}), 500
 
     with STAGING_LOCK:
-        STAGED[upload_id] = {
-            "created_at": time.time(),
-            "files": stored,
-            "has_reference": "reference" in accepted,
-        }
+        STAGED[upload_id].update({"files": stored, "complete": True})
     return jsonify({"upload_id": upload_id, "files": stored,
                     "has_reference": "reference" in accepted}), 201
 
 
 @app.post("/api/jobs")
 def create_job():
+    with START_LOCK:
+        return start_one_job()
+
+
+def start_one_job():
     running = active_job()
     if running is not None:
         return (
@@ -1109,10 +1470,46 @@ def create_job():
             400,
         )
 
+    # An open model runs on the Ollama installed on this machine, with the
+    # model pulled there. Neither is part of the image, so check both are
+    # actually present before a run spends minutes getting to the first call.
+    settings = web_overrides.describe(BASE_DIR)
+    chosen = [
+        request.form.get(name) or settings["current"].get(name) or ""
+        for name in ("llm", "embeddings_service")
+    ]
+    wanted = ollama_models(chosen)
+    if wanted:
+        ollama = check_ollama(wanted)
+        if not ollama["reachable"]:
+            return (
+                jsonify(
+                    {
+                        "error": "An open model was chosen, but nothing answered at "
+                        f"{ollama['url']}. Install Ollama on this machine and start "
+                        "it, then pull the model."
+                    }
+                ),
+                400,
+            )
+        if ollama["missing"]:
+            first = ollama["missing"][0]
+            return (
+                jsonify(
+                    {
+                        "error": f"Ollama has not got {', '.join(ollama['missing'])}. "
+                        f"Pull it on this machine first: ollama pull {first}"
+                    }
+                ),
+                400,
+            )
+
     # the files were sent by the Upload step and are waiting to be claimed
     upload_id = (request.form.get("upload_id") or "").strip()
     with STAGING_LOCK:
         staged = STAGED.get(upload_id)
+        if staged is not None and not staged.get("complete"):
+            staged = None
     if staged is None:
         return (
             jsonify({"error": "Upload the ontology files before starting a run."}),
@@ -1120,7 +1517,7 @@ def create_job():
         )
 
     try:
-        overrides = parse_settings(request.form, web_overrides.describe(BASE_DIR))
+        overrides = parse_settings(request.form, settings)
     except ValueError as error:
         return jsonify({"error": str(error)}), 400
 
@@ -1145,7 +1542,7 @@ def create_job():
             )
     pair = "-".join(ontology_names.values())
     context = as_name(request.form.get("context")
-                      or web_overrides.describe(BASE_DIR)["current"].get("context"))
+                      or settings["current"].get("context"))
     stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
     # the time goes on the end, so every run of a pair keeps its own folder and
     # they sort into the order they were run
@@ -1171,10 +1568,8 @@ def create_job():
     with STAGING_LOCK:
         STAGED.pop(upload_id, None)
 
-    job = Job(job_id, f"uploads/{folder}/component/", names, overrides)
-    job.folder = folder
-    job.ontology_names = ontology_names
-    job.has_reference = staged["has_reference"]
+    job = Job(job_id, folder, names, ontology_names, staged["has_reference"],
+              overrides)
     # keep this run's scores in its own folder rather than the shared result.csv
     job.overrides.setdefault("paths", {}).update(prepare_result_files(job))
     # and point it at the database this server was told to use, if any
@@ -1192,10 +1587,7 @@ def get_job(job_id):
     job = JOBS.get(job_id)
     if job is None:
         return jsonify({"error": "Unknown job."}), 404
-    summary = job.summary()
-    summary["results"] = result_files(job)
-    summary["metrics"] = read_metrics(job)
-    return jsonify(summary)
+    return jsonify(full_summary(job))
 
 
 @app.post("/api/jobs/<job_id>/stop")
@@ -1225,8 +1617,14 @@ def job_stream(job_id):
     job = JOBS.get(job_id)
     if job is None:
         return jsonify({"error": "Unknown job."}), 404
+    # A dropped connection is reopened by the browser on its own, and it sends
+    # back the id of the last event it saw. Resuming from that rather than from
+    # the query string is what stops a reconnect replaying output the reader
+    # already has, which for a long run means the whole log a second time.
+    resumed = request.headers.get("Last-Event-ID")
     try:
-        start_index = int(request.args.get("from", 0))
+        start_index = int(resumed if resumed is not None
+                          else request.args.get("from", 0))
     except ValueError:
         start_index = 0
 
@@ -1235,28 +1633,29 @@ def job_stream(job_id):
         while True:
             # collect a batch under the lock, but never yield while holding it
             with job.condition:
-                earliest = job.total - len(job.lines)
-                if index < earliest:
-                    index = earliest
                 if index >= job.total and job.running:
                     job.condition.wait(timeout=KEEP_ALIVE_SECONDS)
-                    earliest = job.total - len(job.lines)
-                    if index < earliest:
-                        index = earliest
-                batch = list(job.lines)[index - earliest:] if index < job.total else []
+                # the buffer is capped, so a reader that fell far behind starts
+                # again at the oldest line still held rather than at its own
+                earliest = job.total - len(job.lines)
+                index = max(index, earliest)
+                # indexed from the near end, which a deque does in constant
+                # time; listing the whole buffer to slice off the tail costs
+                # the length of the buffer on every wake-up instead
+                batch = [job.lines[position - earliest]
+                         for position in range(index, job.total)]
                 if batch:
                     index = job.total
                 finished = not job.running and index >= job.total
             if batch:
                 payload = json.dumps({"index": index, "lines": batch})
-                yield f"event: output\ndata: {payload}\n\n"
+                # the id is where a reconnect should pick up from
+                yield f"id: {index}\nevent: output\ndata: {payload}\n\n"
             else:
                 yield ": keep-alive\n\n"
             if finished:
-                summary = job.summary()
-                summary["results"] = result_files(job)
-                summary["metrics"] = read_metrics(job)
-                yield f"event: done\ndata: {json.dumps(summary)}\n\n"
+                yield ("event: done\n"
+                       f"data: {json.dumps(full_summary(job))}\n\n")
                 return
 
     return Response(
@@ -1280,7 +1679,7 @@ def download_all_results(job_id):
     job = JOBS.get(job_id)
     if job is None:
         return jsonify({"error": "Unknown job."}), 404
-    folder = (RESULT_ROOT / job.folder / "component").resolve()
+    folder = result_folder(job).resolve()
     if not folder.is_dir():
         return jsonify({"error": "This job produced no files."}), 404
 
@@ -1290,7 +1689,7 @@ def download_all_results(job_id):
         for path in sorted(folder.iterdir()):
             if not path.is_file():
                 continue
-            group = "performance summary" if path.name in PERFORMANCE_FILES else "original files"
+            group = "scoring files" if path.name in PERFORMANCE_FILES else "original files"
             bundle.write(path, arcname=f"{archive_name(job)}/{group}/{path.name}")
             written += 1
     if not written:
@@ -1309,7 +1708,7 @@ def download_result(job_id, filename):
     job = JOBS.get(job_id)
     if job is None:
         return jsonify({"error": "Unknown job."}), 404
-    folder = (RESULT_ROOT / job.folder / "component").resolve()
+    folder = result_folder(job).resolve()
     target = (folder / filename).resolve()
     # never serve anything outside the job's own result folder
     if not target.is_file() or folder not in target.parents:
@@ -1324,13 +1723,14 @@ def too_large(_error):
 
 
 def main():
-    global PYTHON_SHIM_DIR
+    global PYTHON_SHIM_DIR, SERVER_ADDRESS
 
     parser = argparse.ArgumentParser(description="Ontology matching web interface.")
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=5000)
     parser.add_argument("--debug", action="store_true")
     options = parser.parse_args()
+    SERVER_ADDRESS = (options.host, options.port)
 
     UPLOAD_ROOT.mkdir(parents=True, exist_ok=True)
     # anything left staged belongs to a server that is no longer running

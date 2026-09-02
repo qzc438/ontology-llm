@@ -29,22 +29,72 @@ services:
       retries: 20
     restart: unless-stopped
 
+  ollama:
+    # Ollama is not built into the web image. Compose fetches the official one
+    # when the stack first starts, so the container always has an Ollama it can
+    # reach, without the host's own having to accept outside connections.
+    image: ollama/ollama:latest
+    volumes:
+      # A store of its own, so a pull here cannot disturb the models the host's
+      # Ollama is using, and no permission has to be shared with it. The models
+      # survive docker compose down; only down -v discards them.
+      - ollama-models:/root/.ollama
+    # Uncomment to hand Ollama the GPU. This needs the NVIDIA container toolkit
+    # on the host: install it first, or the stack will refuse to start. Without
+    # it Ollama runs on the CPU, which works but is slow for the larger models.
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]
+    healthcheck:
+      # the web container waits for this, so the models list on the page is
+      # asked for only once Ollama is answering
+      test: ["CMD-SHELL", "ollama list > /dev/null 2>&1"]
+      interval: 5s
+      timeout: 10s
+      retries: 30
+      start_period: 10s
+    restart: unless-stopped
+
   web:
     build: .
     depends_on:
       db:
         condition: service_healthy
+      ollama:
+        condition: service_healthy
     # The image already runs as uid 1000. If your account is a different id,
     # start it with DOCKER_UID=$(id -u) DOCKER_GID=$(id -g) docker compose up,
     # so uploads and results on the host belong to you and not to root.
     user: "${DOCKER_UID:-1000}:${DOCKER_GID:-1000}"
+    group_add:
+      # /app belongs to group 0 in the image, and the pipeline writes files into
+      # it directly. Carrying that group means any user id above can write there,
+      # while what lands in the mounted folders still belongs to that id on the
+      # host, which is the point of setting it.
+      - "0"
     environment:
       # run_config.py names 127.0.0.1, which inside a container is the container
       # itself. This points the pipeline at the database service instead, and is
       # applied by web_overrides.py without run_config.py being touched.
       ONTOLOGY_DB_URL: postgresql://postgres:postgres@db:5432/ontology
+      # The open models run on the ollama service above, which is reachable
+      # without anything being configured on the host. To use the Ollama already
+      # installed on this machine instead, which is worth doing when it has the
+      # GPU and the models, start with
+      #   OLLAMA_URL=http://host.docker.internal:11434 docker compose up
+      # and make sure it listens on more than 127.0.0.1, or the container will
+      # resolve the name and then reach nothing. See DOCKER.md section 9.
+      OLLAMA_URL: ${OLLAMA_URL:-http://ollama:11434}
+      OLLAMA_HOST: ${OLLAMA_URL:-http://ollama:11434}
       OPENAI_API_KEY: ${OPENAI_API_KEY:-}
       ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+    extra_hosts:
+      # Docker Desktop defines this name already; on Linux it has to be asked for
+      - "host.docker.internal:host-gateway"
     ports:
       # Bound to the loopback address: the interface has no authentication and
       # accepts API keys, so it should not be offered to the network. Set
@@ -66,3 +116,4 @@ services:
 
 volumes:
   db-data:
+  ollama-models:

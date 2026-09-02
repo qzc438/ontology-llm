@@ -37,8 +37,16 @@ RUN mkdir -p data/uploads alignment/uploads
 # root on the host, and the person who started the stack cannot delete their own
 # results. 1000 is the first user id on a typical Linux host; docker-compose.yml
 # passes the real one through if it differs.
+#
+# That override is the reason /app is handed to group 0 rather than to the user.
+# The pipeline writes into /app itself, not only into the mounts: run_config.py
+# appends to time.csv before it starts anything, om_database_matching.py writes
+# agent.log and om_ontology_to_csv.py writes subgraph.ttl. Owning it as uid 1000
+# would leave every one of those failing for anyone whose host id is not 1000.
+# Group 0 is added to whatever user compose asks for, so any id can write here.
 RUN useradd --create-home --uid 1000 agentom \
-    && chown -R agentom:agentom /app
+    && chown -R agentom:0 /app \
+    && chmod -R g=u /app
 USER agentom
 
 # stream the pipeline's output instead of holding it in an 8 KB buffer

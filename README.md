@@ -40,6 +40,18 @@
 - pgAdmin: https://www.pgadmin.org/download/ (optional for GUI access to the database)
 - pgvector: https://github.com/pgvector/pgvector
 - Create a database and name it `ontology`.
+- **That is all you create.** The database has to exist and be empty; the tables
+  are not yours to make. `om_csv_to_database.py` runs
+  `CREATE EXTENSION IF NOT EXISTS vector` itself, and it drops and recreates its
+  four tables at the start of every run: `ontology_matching`,
+  `syntactic_matching`, `lexical_matching` and `semantic_matching`. Do not
+  create them by hand, and do not keep anything else in this database, since a
+  run will drop those four tables whatever is in them.
+- pgvector still has to be **installed on the PostgreSQL server**, even though
+  the run enables it: `CREATE EXTENSION` can only switch on an extension that is
+  already present. Without it a run stops at
+  `ERROR: extension "vector" is not available`, whose own hint is that the
+  extension must first be installed on the system where PostgreSQL is running.
 - Install PostgreSQL, pgAdmin, and pgvector on Ubuntu and CUDA 12.2:
   - Install PostgreSQL: https://www.postgresql.org/download/linux/ubuntu/
   - Install pgAdmin: https://www.pgadmin.org/download/pgadmin-4-apt/
@@ -277,6 +289,9 @@ num_matches = 50
 ```
 
 ### 7. Run Experiment:
+The same pipeline, three ways to start it. They produce the same results and read the same `run_config.py`; they differ in how much you set up by hand.
+
+#### (1) Run on Local Machine
 - Run the script:
 ```
 python run_config.py
@@ -287,38 +302,60 @@ python run_config.py
 - The time evaluation will be stored in the file `time.csv`. The unit of measurement is milliseconds.
 - The matching log will be stored in the file `agent.log`. This file will be rewritten when you run a new task.
 
-### 8. Run Experiment from the Web Interface (Optional):
-- Instead of editing `alignment` in `run_config.py` by hand, you can upload a pair of ontologies from a web page and watch the run happen. Start the server:
+#### (2) Run on Web Interface
+Instead of editing `run_config.py` by hand, you can upload a pair of ontologies from a web page and watch the run happen.
 ```
 python web_app.py
 ```
-- Open http://127.0.0.1:5000. There are three sections to settle, and only then does the run start. "Start matching" sits below all three, because it needs all three.
-  1. **Input Files.** Name the source and target ontologies, choose their files (`.xml`, `.rdf` or `.owl`), optionally add a reference alignment, and click "Upload". Choosing a file only names it in the page; nothing is sent until you press Upload, and choosing a different file afterwards means uploading again.
-  2. **Environment Variables.** Check that the database is reachable and that both API keys are set. A key that is not in `.env` can be typed in here.
-  3. **Matching Settings.** Choose the LLM, the embedding model, the context, and the thresholds this run should use. Anything left alone keeps the value in `run_config.py`.
-- Then click **Start matching**. The terminal output of `run_config.py` is streamed to the page while the task runs, and the result files can be downloaded when it finishes.
-- The **reference alignment file is optional**. It is the ground truth, so a run without one still matches the two ontologies and writes its `predict` files, but has nothing to score itself against and produces no precision, recall or F1. The page says so in place of the figures. `om_ontology_to_csv.py` reads a reference whether or not one exists, so an empty alignment is written in its place rather than changing the pipeline.
-- The API keys of step 5 sit in the Environment Variables card, since that is what they are, alongside the read-only checks for the database, the interpreter and the server. They can be typed into the page instead of edited into `.env`. Each box is filled in with the key that is actually in use, so what is on screen is what the run will use. They are password fields, so the key shows as dots on screen, but the page does hold it: **anyone who can load the page can read the keys**, which is one more reason to leave the server on `127.0.0.1`. A key is never written to the log. Keys are kept in memory until the server stops, unless "also save to `.env`" is ticked, in which case only those lines of `.env` are rewritten and the file is set to mode `600`. Both keys have to be available before a run starts, because `run_config.py` reads both at start-up.
-- Use `python web_app.py --port 8080` to pick another port, or `python web_app.py --host 0.0.0.0` to reach it from another machine. The server has no authentication and accepts API keys, so only run it on `127.0.0.1` unless the network is one you trust completely.
-- Name the two ontologies in the boxes under the file pickers. **Both names are required**, because they are what the run is filed under: a run is stored the way the OAEI tracks are, `<context>/<source>-<target>-<timestamp>`. Naming them `cmt` and `confof` with the context `conference` files the run as `conference/cmt-confof-20260827-163210`, and the `Alignment` column of its `result.csv` reads `uploads/conference/cmt-confof-20260827-163210/component/llm_with_agent`. Each box is filled in from the file you choose and can be corrected, and the line above the button shows the name as you type.
-- The uploads are saved to `data/uploads/<context>/<pair>-<timestamp>/component/` and the results to `alignment/uploads/<context>/<pair>-<timestamp>/component/`. Everything stays under `uploads/`, so a web run can never overwrite the OAEI data in `data/` or the reference results in `alignment/`, and the timestamp keeps every run of a pair instead of replacing the one before it.
-- The files a run produces are listed in two sections. "Original Files" holds what the matching wrote: `ontology_matching.csv`, `true.csv` and the six `predict*.csv` files. "Performance Summary" holds `result.csv`, `time.csv` and `cost.csv`. "Download all" gives you every one of them in a single archive, with the same two sections as folders inside it.
-- Each run writes its own `result.csv` and `cost.csv` into its result folder rather than appending to the ones in the repository root, so the scores belong to that task alone. `time.csv` cannot be redirected the same way, because `run_config.py` writes that path as a literal rather than a setting, so the row it appends is copied into the run's folder afterwards instead. When the run finishes the page shows the precision, recall and F1 of the `llm_with_agent` stage, which is the figure the section above calls the final result, with the earlier stages listed underneath and `result.csv` available to download. Running `python run_config.py` from the terminal is unchanged and still appends to the shared `result.csv` and `cost.csv`.
-- The settings from steps 5 and 6 can be chosen on the page instead of edited by hand: the LLM, the embedding model, `context`, `o1_is_code`, `o2_is_code`, `similarity_threshold`, `top_k` and `num_matches`. The dropdowns are built by reading `run_config.py`, so the LLM list is exactly the models written there, including the ones that are commented out, and each one keeps the constructor arguments it was written with. Choosing an embedding model also brings its `vector_length` along.
-- Only one run is allowed at a time, because the pipeline writes to a single database and to the shared `result.csv`, `cost.csv` and `time.csv` files.
-- Do not delete `data/uploads/<job_id>/` or `alignment/uploads/<job_id>/` while a run is using them. The pipeline reads the uploads throughout the run, and `run_config.py` passes a missing file straight to `rdflib`, which then reports `exactly one of source, location, file or data must be given` rather than saying a file is missing. The page now checks for this and says so plainly instead.
-- `web_app.py` is only read when the server starts, so edit it and then restart. The Environment Variables card shows when the server started and warns if `web_app.py` has changed since. The page, the stylesheet and `web_overrides.py` are all picked up without a restart.
-- The page has a day mode and a night mode. It follows the clock on your own machine, night from 18.00 to 06.00, and the symbol in the top right overrides it: one button cycling a half circle for automatic, a sun for day and a moon for night. The choice is remembered in the browser and applies to both pages; cycle back to the half circle to hand the decision back to the clock. Both modes are the same ANU palette, since black on white and white on black are both approved, and every colour pair in both was checked against the WCAG 2.1 requirement of 4.5:1.
-- The interface follows the Agent-OM Design System, derived from the [ANU Web Style Guide](https://webpublishing.anu.edu.au/web-style-guide): the ANU palette, Public Sans, the 10px spacing scale, the 12-column grid and the square 3px buttons. The notes are written up at http://127.0.0.1:5000/design-system, linked from the top of the page, and the tokens live in `static/anu.css`. Every colour pair used clears the WCAG 2.1 requirement of 4.5:1, and the page has not been through the ANU approval process because it is a local research tool rather than an ANU site.
-- `web_app.py` never writes to `run_config.py`. The alignment folder is passed in the `alignment` environment variable, the same mechanism `run_series_conference.py` and `run_series_multifarm.py` use, and the settings chosen on the page are passed in `ONTOLOGY_WEB_OVERRIDES` and applied by `web_overrides.py` while the pipeline runs. Settings you do not change keep the value written in `run_config.py`, and running `python run_config.py` from the terminal is unaffected.
+Open http://127.0.0.1:5000 and work down the three cards. **Start matching** sits below all three, because it needs all three.
 
-### 9. Run the Web Interface in Docker (Optional):
-- The web interface and the database it needs can be brought up together, without installing PostgreSQL, pgvector or the Python packages by hand. You need Docker with the Compose plugin, and the `.env` file from step 5 beside `docker-compose.yml`.
+1. **Input Files.** Name the source and target ontologies, choose their files (`.xml`, `.rdf` or `.owl`), then click **Upload**. Choosing a file only names it on the page; nothing is sent until you press Upload. Both names are required, because they are what the run is filed under. A reference alignment is optional: without one the run still matches the two ontologies, but there is nothing to score it against, so it produces no precision, recall or F1.
+2. **Environment Variables.** Check that the database and the other lines are green, and that both API keys are set. A key that is not in `.env` can be typed in here.
+3. **Matching Settings.** Choose the LLM, the embedding model, the context and the thresholds for this run. Anything you leave alone keeps the value already written in `run_config.py`.
+
+Then press **Start matching**. The terminal output of `run_config.py` streams to the page while it runs. When it finishes the page shows the precision, recall and F1 of the `llm_with_agent` stage, with the earlier stages underneath, and every file the run produced is listed for download: "Original Files" for what the matching wrote, "Scoring Files" for `result.csv`, `time.csv` and `cost.csv`.
+
+**Where the files go.** A run is filed the way the OAEI tracks are, `<context>/<source>-<target>-<timestamp>`. Naming the ontologies `cmt` and `confof` with the context `conference` files the run as `conference/cmt-confof-20260827-163210`:
+
+```
+Uploads     data/uploads/conference/cmt-confof-20260827-163210/component/
+Results     alignment/uploads/conference/cmt-confof-20260827-163210/component/
+```
+
+Everything stays under `uploads/`, so a web run can never overwrite the OAEI data in `data/` or the reference results in `alignment/`, and the timestamp keeps every run of a pair rather than replacing the one before it. Each run also writes its own `result.csv`, `cost.csv` and `time.csv` into its own folder, so its scores are not mixed in with every other run's.
+
+**Worth knowing**
+- **One run at a time.** The pipeline writes to a single database and to shared CSV files, so a second run is refused while one is in progress.
+- **Do not delete a run's folders while it is running.** It reads the uploads throughout.
+- **The keys are readable by anyone who can open the page.** They are held in memory for the session, or written to `.env` if you tick "also save to .env". This is why the server listens on `127.0.0.1` and has no login. `--port 8080` picks another port and `--host 0.0.0.0` exposes it to the network, which you should only do on a network you trust completely.
+- **Restart after editing `web_app.py` or `web_overrides.py`.** Python reads both once, at start-up. The Server line turns red when either has changed since. The page and the stylesheet reload on their own.
+- **Day and night modes.** The page follows the clock on your machine, night from 18.00 to 06.00, and the symbol in the top right overrides it: one button cycling automatic, day and night. The design notes are at http://127.0.0.1:5000/design-system.
+- **`run_config.py` is never written to.** The chosen settings travel to the pipeline in an environment variable and are applied while it runs, so `python run_config.py` from the terminal behaves exactly as it did before.
+
+#### (3) Run on Docker
+The same web interface, with the database and an Ollama for the open models brought up beside it. You need Docker with the Compose plugin, and the `.env` file from step 5 beside `docker-compose.yml`.
 ```
 docker compose up --build
 ```
-- Then open http://127.0.0.1:5000.
+Then open http://127.0.0.1:5000.
+- **Nothing from steps 1 to 4 is needed on your machine for this.** No
+  PostgreSQL, no pgvector, no `ontology` database, no virtual environment, no
+  Ollama. Compose runs PostgreSQL 16 with pgvector as its own `db` container and
+  Ollama as its own `ollama` container, and the web container reaches them by
+  name. The database lives in a Docker volume, `db-data`, not on your machine
+  and not inside the image, so it survives `docker compose down` and is
+  discarded only by `docker compose down -v`. All you provide is Docker itself
+  and the `.env` file from step 5 holding your API keys.
+- Ollama is not built into the image: compose fetches the official `ollama/ollama` image on the first start and runs it as a service, so the open models work without anything on the host. Choose one and press **Download** beside it to pull it, which happens in that service and is kept in the `ollama-models` volume. It runs on the CPU unless you install the NVIDIA container toolkit and uncomment the `deploy` block in `docker-compose.yml`; to use the Ollama already on your machine instead, which is faster when it has the GPU and the models, start with `OLLAMA_URL=http://host.docker.internal:11434 docker compose up` and see the open models section of [DOCKER.md](DOCKER.md), since it also has to listen on more than `127.0.0.1`.
 - **[DOCKER.md](DOCKER.md) is the full guide**: settings, where your files go, everyday commands, troubleshooting, and why it is put together the way it is.
+
+**In summary**
+
+| | Set up on your machine | Settings chosen by |
+| --- | --- | --- |
+| (1) Local machine | steps 1-4 | editing `run_config.py` |
+| (2) Web interface | steps 1-4 | the page |
+| (3) Docker | Docker only | the page |
 
 ## Repository Structure:
 

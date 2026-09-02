@@ -96,13 +96,4 @@
   } else {
     wire();
   }
-
-  // exposed so a page, or a test, can ask what the clock would choose
-  window.AgentOMTheme = {
-    apply: apply,
-    readChoice: readChoice,
-    modeForClock: modeForClock,
-    nightFrom: NIGHT_FROM,
-    nightUntil: NIGHT_UNTIL
-  };
 })();
