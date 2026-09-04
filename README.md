@@ -442,6 +442,11 @@ step = -0.05
 ### Code Acknowledgements:
 - Our data-driven application architecture is inspired by: https://colab.research.google.com/github/GoogleCloudPlatform/python-docs-samples/blob/main/cloud-sql/postgres/pgvector/notebooks/pgvector_gen_ai_demo.ipynb
 
+### Code Acknowledgements (Since 2026):
+- Claude Code: https://github.com/anthropics/claude-code
+- Codex Plugin for Claude Code: https://github.com/openai/codex-plugin-cc
+- Karpathy-Inspired Claude Code Guidelines: https://github.com/forrestchang/andrej-karpathy-skills
+
 ### License:
 
 <!-- Which licence is best for your work? Check with the CC License chooser: https://chooser-beta.creativecommons.org/ -->
