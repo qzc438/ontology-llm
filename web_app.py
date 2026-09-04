@@ -40,6 +40,7 @@ import sys
 import tempfile
 import threading
 import time
+import urllib.error
 import urllib.request
 import uuid
 import zipfile
@@ -512,10 +513,12 @@ def read_metrics(job):
                     continue
     except OSError:
         return {"rows": [], "final": None}
-    # the last llm_with_agent row is the headline figure; fall back to the last
-    # row so a partial run still shows whatever it managed to measure
+    # The headline figure is the llm_with_agent row and nothing else. A run that
+    # stopped early leaves whatever stages it reached, and the last of those is
+    # not the result: showing it as one reports the score of an intermediate
+    # stage, source say, as though the matching had finished.
     final = next((row for row in reversed(rows) if row["stage"] == FINAL_STAGE), None)
-    return {"rows": rows, "final": final or (rows[-1] if rows else None)}
+    return {"rows": rows, "final": final}
 
 
 def start_process(job, command):
@@ -977,6 +980,46 @@ def check_ollama(wanted=()):
         # and the menu already marks each one downloaded or not.
         "detail": (f"{url} has no " + ", ".join(missing)) if missing else url,
     }
+
+
+def embeddings_refused(statement):
+    """Why this Ollama will not embed with the chosen model, or None if it will.
+
+    The model being installed is not enough. Whether a chat model can produce
+    embeddings depends on the Ollama version: 0.15 will do it for llama3:8b and
+    0.33 refuses, and both report the same capabilities for it, so the answer
+    cannot be worked out from what the model says about itself. The only honest
+    test is to ask for one embedding and see what comes back.
+
+    It costs one short request, and loading the model, which the run is about to
+    do anyway. Without it the refusal arrives at the first real embedding call,
+    where om_csv_to_database.py retries it ten times over about six hours before
+    giving up.
+    """
+    models = ollama_models([statement])
+    if not models:
+        return None
+    model = models[0]
+    body = json.dumps({"model": model, "input": "test"}).encode()
+    request_ = urllib.request.Request(
+        f"{ollama_url()}/api/embed", data=body,
+        headers={"Content-Type": "application/json"})
+    try:
+        with urllib.request.urlopen(request_, timeout=120) as response:
+            answer = json.load(response)
+    except urllib.error.HTTPError as error:
+        try:
+            detail = json.load(error).get("error", "")
+        except Exception:
+            detail = ""
+        return f"{model} cannot be used for embeddings: {detail or error}"
+    except Exception as error:
+        # unreachable or too slow: the checks above already cover reachability,
+        # so this is not the place to fail a run
+        return None
+    if not answer.get("embeddings") and not answer.get("embedding"):
+        return f"{model} returned no embeddings: {answer.get('error', answer)}"
+    return None
 
 
 def known_ollama_models():
@@ -1499,6 +1542,21 @@ def start_one_job():
                     {
                         "error": f"Ollama has not got {', '.join(ollama['missing'])}. "
                         f"Pull it on this machine first: ollama pull {first}"
+                    }
+                ),
+                400,
+            )
+        # Present is not the same as usable. Without this the run reaches the
+        # first embedding call minutes later, and om_csv_to_database.py then
+        # retries a refusal that will never succeed, ten times, for hours.
+        refused = embeddings_refused(chosen[1])
+        if refused:
+            return (
+                jsonify(
+                    {
+                        "error": refused + ". Choose a model built for embeddings, "
+                        "such as nomic-embed-text, adding it to run_config.py if "
+                        "it is not offered."
                     }
                 ),
                 400,

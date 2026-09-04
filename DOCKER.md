@@ -42,7 +42,7 @@ You need two things beforehand:
 | Service | Image | Purpose |
 | --- | --- | --- |
 | `db` | `pgvector/pgvector:pg16` | PostgreSQL 16 with the `vector` extension the embeddings need |
-| `ollama` | `ollama/ollama:latest` | Runs the open models |
+| `ollama` | `ollama/ollama:0.33.2` | Runs the open models |
 | `web` | built from `Dockerfile` | The interface and the matching pipeline |
 
 `web` waits until the other two report healthy, so a run never arrives before
@@ -123,6 +123,28 @@ the page.
 Every open model is marked **✓ downloaded** or **— not downloaded** once Ollama
 has answered, and pressing Start with one that cannot run is refused straight
 away rather than failing minutes later.
+
+### Embeddings need a model built for them
+
+`run_config.py` offers `OllamaEmbeddings(model="llama3:8b")`. That works on
+older Ollama versions and is refused by current ones, which check that a model
+declares the embedding capability before using it for embeddings:
+
+```
+This server does not support embeddings. Start it with `--embeddings`
+```
+
+`llama3:8b` is a chat model, so pick one built for embeddings instead. Adding
+these two lines to `run_config.py` puts it in the Embeddings menu, commented out
+like the other alternatives there, and the **Download** button will fetch it:
+
+```python
+# embeddings_service = OllamaEmbeddings(model="nomic-embed-text")
+# vector_length = 768
+```
+
+The interface asks Ollama for one embedding before a run starts, so a model that
+cannot do it is refused at the button rather than several minutes in.
 
 ### The GPU
 

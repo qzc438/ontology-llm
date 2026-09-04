@@ -720,6 +720,17 @@
     }
     metricsTable.style.display = "";
 
+    // Stages were measured but the run never reached llm_with_agent, so there
+    // is no final score. Say that, rather than leaving the panel looking as
+    // though the figures below are the answer.
+    if (!metrics.final) {
+      const note = document.createElement("p");
+      note.className = "msg-info mb-0";
+      note.textContent = "This run did not reach the llm_with_agent stage, so it "
+        + "has no final score. The stages it did measure are below.";
+      scoreRow.appendChild(note);
+    }
+
     if (metrics.final) {
       [["Precision", metrics.final.precision],
        ["Recall", metrics.final.recall],
