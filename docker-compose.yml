@@ -34,26 +34,29 @@ services:
     # when the stack first starts, so the container always has an Ollama it can
     # reach, without the host's own having to accept outside connections.
     #
-    # Pinned, like the database image above. On `latest` this container quietly
-    # moved to a version that refuses to embed with a chat model, while the
-    # Ollama on the host stayed where it was, and the same settings then behaved
-    # differently in the two places. Raise it deliberately, not by restarting.
-    image: ollama/ollama:0.33.2
+    # Pinned, like the database image above, and pinned to this version for a
+    # reason: from somewhere after 0.15 Ollama refuses to produce embeddings
+    # from a model that does not declare the embedding capability, which is
+    # every chat model. run_config.py offers OllamaEmbeddings(llama3:8b), so on
+    # a newer Ollama that choice cannot run at all. This version still allows
+    # it, and matches the Ollama the project was developed against.
+    #
+    # The cost of staying here is that models released since need a newer
+    # Ollama. Raise it deliberately, and switch to a model built for embeddings,
+    # nomic-embed-text say, at the same time.
+    image: ollama/ollama:0.15.0
     volumes:
       # A store of its own, so a pull here cannot disturb the models the host's
       # Ollama is using, and no permission has to be shared with it. The models
       # survive docker compose down; only down -v discards them.
       - ollama-models:/root/.ollama
-    # Uncomment to hand Ollama the GPU. This needs the NVIDIA container toolkit
-    # on the host: install it first, or the stack will refuse to start. Without
-    # it Ollama runs on the CPU, which works but is slow for the larger models.
-    # deploy:
-    #   resources:
-    #     reservations:
-    #       devices:
-    #         - driver: nvidia
-    #           count: all
-    #           capabilities: [gpu]
+    # Runs on the CPU here. A machine with an NVIDIA card can hand the GPU over
+    # without editing anything, by adding the override file beside this one:
+    #
+    #   docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d
+    #
+    # It is a separate file because a host without the NVIDIA container toolkit
+    # cannot start a service that reserves a GPU.
     healthcheck:
       # the web container waits for this, so the models list on the page is
       # asked for only once Ollama is answering

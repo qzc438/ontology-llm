@@ -5,10 +5,14 @@ Ollama for the open models. Nothing else has to be installed: no PostgreSQL, no
 pgvector, no `ontology` database, no virtual environment, no Ollama.
 
 ```bash
-docker compose up --build
+./start.sh --build
 ```
 
 Then open **http://127.0.0.1:5000**.
+
+`start.sh` uses an NVIDIA GPU if the machine has a usable one and the CPU if it
+does not, so the same command works everywhere. `docker compose up --build` does
+the same thing without ever looking for a GPU.
 
 You need two things beforehand:
 
@@ -42,7 +46,7 @@ You need two things beforehand:
 | Service | Image | Purpose |
 | --- | --- | --- |
 | `db` | `pgvector/pgvector:pg16` | PostgreSQL 16 with the `vector` extension the embeddings need |
-| `ollama` | `ollama/ollama:0.33.2` | Runs the open models |
+| `ollama` | `ollama/ollama:0.15.0` | Runs the open models |
 | `web` | built from `Dockerfile` | The interface and the matching pipeline |
 
 `web` waits until the other two report healthy, so a run never arrives before
@@ -124,35 +128,82 @@ Every open model is marked **✓ downloaded** or **— not downloaded** once Oll
 has answered, and pressing Start with one that cannot run is refused straight
 away rather than failing minutes later.
 
-### Embeddings need a model built for them
+### Why Ollama is pinned to 0.15.0
 
-`run_config.py` offers `OllamaEmbeddings(model="llama3:8b")`. That works on
-older Ollama versions and is refused by current ones, which check that a model
-declares the embedding capability before using it for embeddings:
+`run_config.py` offers `OllamaEmbeddings(model="llama3:8b")`, and the project's
+results were produced with it. Somewhere after 0.15, Ollama stopped producing
+embeddings from a model that does not declare the embedding capability, which
+every chat model fails, and answers instead with:
 
 ```
 This server does not support embeddings. Start it with `--embeddings`
 ```
 
-`llama3:8b` is a chat model, so pick one built for embeddings instead. Adding
-these two lines to `run_config.py` puts it in the Embeddings menu, commented out
-like the other alternatives there, and the **Download** button will fetch it:
+So the `ollama` service is pinned to `0.15.0`, where `llama3:8b` embeds as it
+always did. Left on `latest` it silently moved to a version that refuses, and a
+setting that worked on the host stopped working in the container.
+
+The cost is that models released since need a newer Ollama. If you raise the
+pin, switch to a model built for embeddings at the same time. Adding these two
+lines to `run_config.py` puts one in the Embeddings menu, commented out like the
+other alternatives there, and the **Download** button fetches it:
 
 ```python
 # embeddings_service = OllamaEmbeddings(model="nomic-embed-text")
 # vector_length = 768
 ```
 
-The interface asks Ollama for one embedding before a run starts, so a model that
-cannot do it is refused at the button rather than several minutes in.
+Either way the interface asks Ollama for one embedding before a run starts, so a
+combination that cannot work is refused at the button rather than minutes in.
+That check tests the server rather than trusting what a model says about itself,
+because 0.15.0 reports `llama3:8b` as completion-only and then embeds with it
+anyway.
 
-### The GPU
+### Using an NVIDIA GPU
 
-The service runs on the **CPU**, which works but is slow at 7b and above. To
-give it the GPU, install the
-[NVIDIA container toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
-and uncomment the `deploy` block already written in the `ollama` service. It is
-commented out because without the toolkit that block stops the stack starting.
+The open models are far quicker on a GPU than on a CPU, which is slow at 7b and
+above. `./start.sh` looks for one and uses it, so on a machine with a card there
+is nothing to do:
+
+```bash
+./start.sh              # GPU if there is one, CPU if not
+./start.sh --cpu        # ignore the card
+```
+
+It says which it chose, and if the driver is there but Docker cannot hand the
+card over it says that too, and starts on the CPU rather than not starting.
+
+To skip the detection and ask for the GPU directly:
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d
+```
+
+Either way the host needs the NVIDIA driver and the
+[NVIDIA container toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html);
+check both before you start:
+
+```bash
+nvidia-smi                                    # the driver sees the card
+docker run --rm --gpus all ubuntu nvidia-smi  # docker can reach it too
+```
+
+Then confirm Ollama picked it up:
+
+```bash
+docker compose exec ollama nvidia-smi
+```
+
+Without the toolkit the stack refuses to start, and says so plainly:
+
+```
+Error response from daemon: could not select device driver "nvidia" with capabilities: [[gpu]]
+```
+
+which is why the GPU lives in its own file: leaving the reservation in
+`docker-compose.yml` would break every machine that has no card. Only the open
+models benefit. The database and the interface do not use a GPU, and the OpenAI
+and Anthropic models run on somebody else's hardware either way.
 
 ### Using the Ollama on your host instead
 
@@ -222,7 +273,7 @@ press **Download** on the page, or `docker compose exec ollama ollama pull llama
 If it names `host.docker.internal` and answers with nothing, see
 [Using the Ollama on your host instead](#using-the-ollama-on-your-host-instead).
 
-**An open model runs but is very slow** — it is on the CPU. See [The GPU](#the-gpu).
+**An open model runs but is very slow** — it is on the CPU. See [Using an NVIDIA GPU](#using-an-nvidia-gpu).
 
 **Results are owned by root** — an older container ran as root. Rebuild with your
 own id, then clear what it left:

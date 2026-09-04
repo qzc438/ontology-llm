@@ -1,0 +1,35 @@
+# Give Ollama an NVIDIA GPU.
+#
+#   docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d
+#
+# The open models then run on the card instead of the CPU, which is the
+# difference between a few tokens a second and a usable speed for anything at
+# 7b or above. Nothing else in the stack changes: the database and the web
+# interface do not use a GPU, and the OpenAI and Anthropic models run on
+# somebody else's hardware either way.
+#
+# The host needs the NVIDIA driver and the NVIDIA container toolkit:
+#
+#   nvidia-smi                                    # the driver sees the card
+#   docker run --rm --gpus all ubuntu nvidia-smi  # docker can reach it too
+#
+# This lives in its own file rather than in docker-compose.yml because a host
+# without the toolkit cannot start a service that reserves a GPU. Kept in the
+# main file, even commented out, it would be one uncomment away from breaking
+# every machine that has no card; kept here, it is opt-in and costs those
+# machines nothing.
+#
+# Check it took effect, once the stack is up:
+#
+#   docker compose exec ollama nvidia-smi
+#   docker compose logs ollama | grep -i "cuda\|gpu"
+
+services:
+  ollama:
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
