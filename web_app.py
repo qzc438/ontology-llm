@@ -29,6 +29,7 @@ import argparse
 import atexit
 import csv
 import io
+import itertools
 import json
 import os
 import re
@@ -117,6 +118,15 @@ MAX_UPLOAD_BYTES = 512 * 1024 * 1024
 # output lines kept in memory per job
 MAX_LINES = 100000
 
+# above this many lines to send at once, walk the buffer rather than index into
+# it: see the batching in the stream below
+REPLAY_THRESHOLD = 256
+
+# finished runs kept in memory. Each holds up to MAX_LINES of output, and the
+# server is long-lived, so they cannot all be kept. The page only ever reattaches
+# to the most recent one.
+MAX_JOBS = 50
+
 # seconds an idle stream waits before sending a keep-alive comment
 KEEP_ALIVE_SECONDS = 10
 
@@ -168,7 +178,7 @@ KEYS_LOCK = threading.Lock()
 # used to notice that the source files changed after this process started
 SERVER_STARTED_AT = time.time()
 
-# what this process was told to listen on, filled in by main()
+# where this process is listening, worked out once by main()
 SERVER_ADDRESS = None
 
 # files uploaded but not yet run, by upload id
@@ -518,7 +528,9 @@ def read_metrics(job):
     # not the result: showing it as one reports the score of an intermediate
     # stage, source say, as though the matching had finished.
     final = next((row for row in reversed(rows) if row["stage"] == FINAL_STAGE), None)
-    return {"rows": rows, "final": final}
+    # the stage name travels with the figures, so the page can say which stage
+    # it is waiting for without spelling it out a second time
+    return {"rows": rows, "final": final, "final_stage": FINAL_STAGE}
 
 
 def start_process(job, command):
@@ -586,6 +598,12 @@ def run_job(job):
         job.append(f"Failed to start run_config.py: {error}")
         job.finish(error=str(error))
         return
+    # A Stop arriving while the process was starting found job.process still
+    # None, so it recorded the cancellation and had nothing to signal. Now that
+    # there is something to signal, honour it: without this the reader is told
+    # the run stopped while it carries on for hours, holding the database.
+    if job.cancelled:
+        stop_job(job)
     try:
         pump_output(job, descriptor)
         returncode = job.process.wait()
@@ -642,8 +660,10 @@ def stop_job(job):
     if process is None:
         return True
     try:
+        # the whole group, so the om_*.py scripts run_config.py spawned go too;
+        # neither call exists on Windows, where terminate() is all there is
         os.killpg(os.getpgid(process.pid), signal.SIGTERM)
-    except (ProcessLookupError, PermissionError):
+    except (AttributeError, ProcessLookupError, PermissionError):
         process.terminate()
 
     # give the pipeline a moment to shut down before forcing it
@@ -653,7 +673,7 @@ def stop_job(job):
         except subprocess.TimeoutExpired:
             try:
                 os.killpg(os.getpgid(process.pid), signal.SIGKILL)
-            except (ProcessLookupError, PermissionError):
+            except (AttributeError, ProcessLookupError, PermissionError):
                 process.kill()
 
     threading.Thread(target=force_kill, daemon=True).start()
@@ -942,6 +962,21 @@ def ollama_models(statements):
     return wanted
 
 
+def ollama_request(path, payload=None):
+    """A request to Ollama, built the one way. Send it with urlopen.
+
+    Only the addressing lives here. Each caller keeps its own error handling,
+    which genuinely differs: the health check swallows everything, the pre-run
+    probe wants the body of an HTTPError, and the pull reads a stream. What they
+    should not each decide is where Ollama is and how a JSON body is framed.
+    """
+    if payload is None:
+        return urllib.request.Request(f"{ollama_url()}{path}")
+    return urllib.request.Request(
+        f"{ollama_url()}{path}", data=json.dumps(payload).encode(),
+        headers={"Content-Type": "application/json"})
+
+
 def check_ollama(wanted=()):
     """Whether Ollama is answering, and has the models a run is about to use.
 
@@ -952,17 +987,18 @@ def check_ollama(wanted=()):
     """
     url = ollama_url()
     try:
-        with urllib.request.urlopen(f"{url}/api/tags", timeout=5) as response:
+        with urllib.request.urlopen(ollama_request("/api/tags"), timeout=5) as response:
             payload = json.load(response)
     except Exception as error:  # any failure here means it cannot be used
         reason = str(error).strip() or error.__class__.__name__
         return {
-            "ok": not wanted,
             "reachable": False,
             "url": url,
             "installed": [],
             "missing": list(wanted),
-            "detail": f"no answer from {url} ({reason})",
+            # a refused connection, an unknown host and a timeout all mean
+            # "no answer", and which one it was is the whole diagnosis
+            "reason": reason,
         }
 
     installed = sorted(
@@ -970,15 +1006,10 @@ def check_ollama(wanted=()):
     )
     missing = [name for name in wanted if name not in installed]
     return {
-        "ok": not missing,
         "reachable": True,
         "url": url,
         "installed": installed,
         "missing": missing,
-        # Just the address, like the database and the server rows. How many
-        # models are installed is not something to act on: which ones are is,
-        # and the menu already marks each one downloaded or not.
-        "detail": (f"{url} has no " + ", ".join(missing)) if missing else url,
     }
 
 
@@ -1000,10 +1031,7 @@ def embeddings_refused(statement):
     if not models:
         return None
     model = models[0]
-    body = json.dumps({"model": model, "input": "test"}).encode()
-    request_ = urllib.request.Request(
-        f"{ollama_url()}/api/embed", data=body,
-        headers={"Content-Type": "application/json"})
+    request_ = ollama_request("/api/embed", {"model": model, "input": "test"})
     try:
         with urllib.request.urlopen(request_, timeout=120) as response:
             answer = json.load(response)
@@ -1013,7 +1041,7 @@ def embeddings_refused(statement):
         except Exception:
             detail = ""
         return f"{model} cannot be used for embeddings: {detail or error}"
-    except Exception as error:
+    except Exception:
         # unreachable or too slow: the checks above already cover reachability,
         # so this is not the place to fail a run
         return None
@@ -1040,11 +1068,7 @@ def known_ollama_models():
 
 def pull_ollama_model(model):
     """Ask Ollama to fetch a model, following its progress as it goes."""
-    body = json.dumps({"model": model}).encode()
-    request_ = urllib.request.Request(
-        f"{ollama_url()}/api/pull", data=body,
-        headers={"Content-Type": "application/json"},
-    )
+    request_ = ollama_request("/api/pull", {"model": model})
     try:
         with urllib.request.urlopen(request_, timeout=None) as response:
             for line in response:
@@ -1173,20 +1197,23 @@ def check_freshness():
         if (BASE_DIR / name).is_file()
         and (BASE_DIR / name).stat().st_mtime > SERVER_STARTED_AT
     ]
+    where = SERVER_ADDRESS or "address unknown"
     if changed:
         return {
             "ok": False,
-            "detail": f"{server_address()}. {' and '.join(changed)} changed since "
+            "detail": f"{where}. {' and '.join(changed)} changed since "
             "this server started; restart it to pick the change up.",
         }
-    return {"ok": True, "detail": server_address()}
+    return {"ok": True, "detail": where}
 
 
-def server_address():
-    """Where this process is listening, as it would be typed into a browser."""
-    if not SERVER_ADDRESS:
-        return "address unknown"
-    host, port = SERVER_ADDRESS
+def server_url(host, port):
+    """Where this process is listening, as it would be typed into a browser.
+
+    Worked out once, by main(). Nothing it reads can change afterwards, and in
+    a container it opens a socket to find the answer, which is not something to
+    repeat on every request that asks where the server is.
+    """
     # 0.0.0.0 means every interface, which is not something anyone can type in,
     # so the address of the interface this machine actually answers on is used
     if host in ("0.0.0.0", "::"):
@@ -1202,14 +1229,12 @@ def own_address():
     Nothing is sent: connecting a UDP socket only picks the route, and the
     local end of it is the answer.
     """
-    probe = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     try:
-        probe.connect(("8.8.8.8", 80))
-        return probe.getsockname()[0]
+        with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as probe:
+            probe.connect(("8.8.8.8", 80))
+            return probe.getsockname()[0]
     except OSError:
         return None
-    finally:
-        probe.close()
 
 
 # What the page says beside a key, per source. The server environment is where
@@ -1308,6 +1333,30 @@ app.config["MAX_CONTENT_LENGTH"] = MAX_UPLOAD_BYTES
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 # and the same for the stylesheet
 app.config["SEND_FILE_MAX_AGE_DEFAULT"] = 0
+
+
+@app.before_request
+def refuse_cross_site():
+    """Refuse a request another website told the browser to make.
+
+    Listening on 127.0.0.1 keeps other machines out; it does not keep other
+    pages out. A form post is a simple request, so any site the reader visits
+    while this is running could post to /api/keys and overwrite the keys in
+    .env, or start runs, without ever seeing a reply. Browsers say where a
+    request came from and that is enough to refuse it.
+
+    Requests with neither header are left alone: curl and the tests send
+    neither, and a browser always sends at least one.
+    """
+    if request.method in ("GET", "HEAD", "OPTIONS"):
+        return None
+    site = request.headers.get("Sec-Fetch-Site")
+    if site is not None and site not in ("same-origin", "same-site", "none"):
+        return jsonify({"error": "This request did not come from the interface."}), 403
+    origin = request.headers.get("Origin")
+    if origin and origin.rstrip("/") != request.host_url.rstrip("/"):
+        return jsonify({"error": "This request did not come from the interface."}), 403
+    return None
 
 
 @app.get("/")
@@ -1517,51 +1566,10 @@ def start_one_job():
     # model pulled there. Neither is part of the image, so check both are
     # actually present before a run spends minutes getting to the first call.
     settings = web_overrides.describe(BASE_DIR)
-    chosen = [
-        request.form.get(name) or settings["current"].get(name) or ""
+    chosen = {
+        name: request.form.get(name) or settings["current"].get(name) or ""
         for name in ("llm", "embeddings_service")
-    ]
-    wanted = ollama_models(chosen)
-    if wanted:
-        ollama = check_ollama(wanted)
-        if not ollama["reachable"]:
-            return (
-                jsonify(
-                    {
-                        "error": "An open model was chosen, but nothing answered at "
-                        f"{ollama['url']}. Install Ollama on this machine and start "
-                        "it, then pull the model."
-                    }
-                ),
-                400,
-            )
-        if ollama["missing"]:
-            first = ollama["missing"][0]
-            return (
-                jsonify(
-                    {
-                        "error": f"Ollama has not got {', '.join(ollama['missing'])}. "
-                        f"Pull it on this machine first: ollama pull {first}"
-                    }
-                ),
-                400,
-            )
-        # Present is not the same as usable. Without this the run reaches the
-        # first embedding call minutes later, and om_csv_to_database.py then
-        # retries a refusal that will never succeed, ten times, for hours.
-        refused = embeddings_refused(chosen[1])
-        if refused:
-            return (
-                jsonify(
-                    {
-                        "error": refused + ". Choose a model built for embeddings, "
-                        "such as nomic-embed-text, adding it to run_config.py if "
-                        "it is not offered."
-                    }
-                ),
-                400,
-            )
-
+    }
     # the files were sent by the Upload step and are waiting to be claimed
     upload_id = (request.form.get("upload_id") or "").strip()
     with STAGING_LOCK:
@@ -1598,6 +1606,52 @@ def start_one_job():
                 ),
                 400,
             )
+    # Last, because it is the only check here that costs anything: it asks
+    # Ollama to embed one word, which loads the model. Everything above is a
+    # dict lookup, and pressing Start before uploading or before naming the
+    # ontologies are the two commonest first attempts, so they answer at once
+    # rather than after a model has been pulled into memory.
+    wanted = ollama_models(chosen.values())
+    if wanted:
+        ollama = check_ollama(wanted)
+        if not ollama["reachable"]:
+            return (
+                jsonify(
+                    {
+                        "error": "An open model was chosen, but nothing answered at "
+                        f"{ollama['url']}. Install Ollama on this machine and start "
+                        "it, then pull the model."
+                    }
+                ),
+                400,
+            )
+        if ollama["missing"]:
+            first = ollama["missing"][0]
+            return (
+                jsonify(
+                    {
+                        "error": f"Ollama has not got {', '.join(ollama['missing'])}. "
+                        f"Pull it on this machine first: ollama pull {first}"
+                    }
+                ),
+                400,
+            )
+        # Present is not the same as usable. Without this the run reaches the
+        # first embedding call minutes later, and om_csv_to_database.py then
+        # retries a refusal that will never succeed, ten times, for hours.
+        refused = embeddings_refused(chosen["embeddings_service"])
+        if refused:
+            return (
+                jsonify(
+                    {
+                        "error": refused + ". Choose a model built for embeddings, "
+                        "such as nomic-embed-text, adding it to run_config.py if "
+                        "it is not offered."
+                    }
+                ),
+                400,
+            )
+
     pair = "-".join(ontology_names.values())
     context = as_name(request.form.get("context")
                       or settings["current"].get("context"))
@@ -1636,6 +1690,12 @@ def start_one_job():
         job.overrides["paths"]["connection_string"] = database
     with JOBS_LOCK:
         JOBS[job_id] = job
+        # keep the newest finished runs and let the rest go, so a server left
+        # running for weeks does not hold every line of every run it ever did
+        done = sorted((item for item in JOBS.values() if not item.running),
+                      key=lambda item: item.created_at)
+        for old in done[:max(0, len(done) - MAX_JOBS)]:
+            JOBS.pop(old.id, None)
     threading.Thread(target=run_job, args=(job,), daemon=True).start()
     return jsonify(job.summary()), 201
 
@@ -1697,11 +1757,16 @@ def job_stream(job_id):
                 # again at the oldest line still held rather than at its own
                 earliest = job.total - len(job.lines)
                 index = max(index, earliest)
-                # indexed from the near end, which a deque does in constant
-                # time; listing the whole buffer to slice off the tail costs
-                # the length of the buffer on every wake-up instead
-                batch = [job.lines[position - earliest]
-                         for position in range(index, job.total)]
+                # Indexing a deque costs O(min(i, n - i)), so plucking a few
+                # lines off the end is nearly free while doing that for the
+                # whole buffer would be quadratic. The usual case is a handful
+                # of new lines; a reader starting from the beginning walks it
+                # once instead.
+                if job.total - index > REPLAY_THRESHOLD:
+                    batch = list(itertools.islice(job.lines, index - earliest, None))
+                else:
+                    batch = [job.lines[position - earliest]
+                             for position in range(index, job.total)]
                 if batch:
                     index = job.total
                 finished = not job.running and index >= job.total
@@ -1788,7 +1853,7 @@ def main():
     parser.add_argument("--port", type=int, default=5000)
     parser.add_argument("--debug", action="store_true")
     options = parser.parse_args()
-    SERVER_ADDRESS = (options.host, options.port)
+    SERVER_ADDRESS = server_url(options.host, options.port)
 
     UPLOAD_ROOT.mkdir(parents=True, exist_ok=True)
     # anything left staged belongs to a server that is no longer running
@@ -1796,7 +1861,7 @@ def main():
     STAGING_ROOT.mkdir(parents=True, exist_ok=True)
     RESULT_ROOT.mkdir(parents=True, exist_ok=True)
     PYTHON_SHIM_DIR = make_python_shim()
-    print(f"Ontology matching web interface: http://{options.host}:{options.port}")
+    print(f"Ontology matching web interface: {SERVER_ADDRESS}")
     print(f"Uploads: {UPLOAD_ROOT}")
     print(f"Results: {RESULT_ROOT}")
     # threaded=True keeps the event streams from blocking other requests

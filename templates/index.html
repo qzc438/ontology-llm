@@ -481,6 +481,18 @@
   let currentJob = null;
   let source = null;
 
+  // The settings panel is redrawn whenever Reset is pressed, so nothing inside
+  // it can hold a listener for long. The panel itself is in the markup and
+  // outlives every rebuild, so both listeners live here and are registered once.
+  // Delegating also survives the context field moving its name onto the text box
+  // beside the menu when "Other…" is chosen.
+  ["change", "input"].forEach(function (kind) {
+    document.getElementById("settings").addEventListener(kind, function (event) {
+      if (event.target.name === "context") updateNamingPreview();
+      if (MODEL_FIELDS.indexOf(event.target.name) !== -1) showOllamaCheck();
+    });
+  });
+
   // ---- talking to the server ----------------------------------------------
 
   // Post a form and resolve with the parsed reply, or reject with the message
@@ -694,8 +706,16 @@
     metricsBody.innerHTML = "";
   }
 
+  function infoNote(text) {
+    const note = document.createElement("p");
+    note.className = "msg-info mb-0";
+    note.textContent = text;
+    return note;
+  }
+
   // Precision, recall and F1 come from the run's own result.csv. The headline
-  // row is the llm_with_agent one, which is what the README calls the result.
+  // row is the one the server calls final, which is what the README calls the
+  // result.
   function renderMetrics(summary) {
     const metrics = summary.metrics || {};
     const rows = metrics.rows || [];
@@ -707,12 +727,10 @@
     // rather than leaving the panel out and letting it look like a failure.
     if (!rows.length) {
       if (summary.has_reference === false) {
-        const note = document.createElement("p");
-        note.className = "msg-info mb-0";
-        note.textContent = "No reference alignment was given for this run, so there is "
-          + "nothing to score the result against. The matches themselves are in the "
-          + "predict files below.";
-        scoreRow.appendChild(note);
+        scoreRow.appendChild(infoNote(
+          "No reference alignment was given for this run, so there is nothing "
+          + "to score the result against. The matches themselves are in the "
+          + "predict files below."));
         metricsTable.style.display = "none";
         metricsPanel.classList.add("show");
       }
@@ -720,18 +738,15 @@
     }
     metricsTable.style.display = "";
 
-    // Stages were measured but the run never reached llm_with_agent, so there
-    // is no final score. Say that, rather than leaving the panel looking as
+    // Stages were measured but the run never reached the final one, so there is
+    // no headline score. Say that, rather than leaving the panel looking as
     // though the figures below are the answer.
     if (!metrics.final) {
-      const note = document.createElement("p");
-      note.className = "msg-info mb-0";
-      note.textContent = "This run did not reach the llm_with_agent stage, so it "
-        + "has no final score. The stages it did measure are below.";
-      scoreRow.appendChild(note);
-    }
-
-    if (metrics.final) {
+      scoreRow.appendChild(infoNote(
+        "This run did not reach the " + (metrics.final_stage || "final")
+        + " stage, so it has no final score. The stages it did measure are "
+        + "below."));
+    } else {
       [["Precision", metrics.final.precision],
        ["Recall", metrics.final.recall],
        ["F1", metrics.final.f1]].forEach(function (pair) {
@@ -818,6 +833,17 @@
                 + "run is filed under and what appears in result.csv.");
       const box = form.querySelector('[name="' + unnamed + '_name"]');
       if (box) box.focus();
+      return;
+    }
+
+    // Choosing "Other…" moves the context field's name onto the empty box
+    // beside the menu. Left empty it is dropped by the loop below, the server
+    // falls back to the context in run_config.py, and the run is filed under a
+    // word the reader did not choose while the preview showed neither.
+    const custom = document.querySelector('#settings input[name="context"]');
+    if (custom && !custom.value.trim()) {
+      showError("Type a context, or choose one from the list.");
+      custom.focus();
       return;
     }
 
@@ -932,12 +958,16 @@
   });
 
   downloadButton.addEventListener("click", function () {
-    const blob = new Blob([terminal.textContent], { type: "text/plain" });
+    // one div per line, and textContent would run them together with nothing
+    // between, so the whole log arrived as a single unreadable line
+    const lines = [...terminal.children].map(function (line) { return line.textContent; });
+    const blob = new Blob([lines.join("\n") + "\n"], { type: "text/plain" });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
     link.download = (currentJob || "run") + ".log";
     link.click();
-    URL.revokeObjectURL(link.href);
+    // let the download start before the url stops meaning anything
+    setTimeout(function () { URL.revokeObjectURL(link.href); }, 0);
   });
 
   // ---- environment panel --------------------------------------------------
@@ -977,8 +1007,7 @@
   function selectedOllamaModels() {
     return MODEL_FIELDS
       .map(function (setting) {
-        const control = settingControl(setting);
-        return control ? modelOf(control.value) : null;
+        return selectedModel(settingControl(setting));
       })
       .filter(Boolean);
   }
@@ -999,7 +1028,10 @@
 
     let state, detail;
     if (!ollamaHealth.reachable) {
+      // the reason separates a refused connection from an unknown host or a
+      // timeout, which want different things done about them
       detail = "nothing answered at " + ollamaHealth.url
+        + (ollamaHealth.reason ? " (" + ollamaHealth.reason + ")" : "")
         + ". Install Ollama on this machine and start it"
         + (wanted.length
             ? ", or the model you chose has nothing to run on."
@@ -1010,12 +1042,11 @@
       detail = "running at " + ollamaHealth.url + ", but not downloaded: "
         + missing.join(", ") + ". Use the Download button beside the model.";
       state = false;
-    } else if (wanted.length) {
-      detail = wanted.join(", ") + " ready at " + ollamaHealth.url;
-      state = true;
     } else {
-      detail = ollamaHealth.detail;
       state = true;
+      detail = wanted.length
+        ? wanted.join(", ") + " ready at " + ollamaHealth.url
+        : "running at " + ollamaHealth.url;
     }
 
     const row = check("LLM Container", state, detail);
@@ -1158,28 +1189,7 @@
       if (control && SHORT.indexOf(control.name) !== -1) field.classList.add("half");
     });
 
-    // The context is the first part of the folder name, so keep the preview in
-    // step with it. Listened for on the panel rather than on the menu, because
-    // choosing "Other…" moves the field name onto the text box beside it, and a
-    // listener bound to the menu would then be watching the wrong control.
-    // the panel outlives a rebuild, so it is only wired once however many times
-    // Reset redraws the fields inside it
-    if (!panel.dataset.wired) {
-      ["change", "input"].forEach(function (kind) {
-        panel.addEventListener(kind, function (event) {
-          if (event.target.name === "context") updateNamingPreview();
-        });
-      });
-      panel.dataset.wired = "yes";
-    }
     updateNamingPreview();
-
-    // choosing an open model brings the Ollama check into view, and choosing a
-    // hosted one takes it away again
-    panel.querySelectorAll('[name="llm"], [name="embeddings_service"]')
-      .forEach(function (control) {
-        control.addEventListener("change", showOllamaCheck);
-      });
     showOllamaCheck();
   }
 
@@ -1217,6 +1227,9 @@
       // back off the end of the text
       element.dataset.base = option.label +
         (option.vector_length ? "  (" + option.vector_length + ")" : "");
+      // what the server already worked out about this line, so the page never
+      // has to parse a python statement to find out
+      if (option.provider.indexOf("Ollama") !== -1) element.dataset.model = option.label;
       // An open model only runs if it has been pulled onto this machine, so
       // say which ones have been. The hosted models need nothing downloaded.
       element.textContent = element.dataset.base +
@@ -1253,16 +1266,22 @@
       const select = settingControl(field);
       if (!select) return;
       [...select.options].forEach(function (option) {
-        const name = modelOf(option.value);
+        const name = modelOf(option);
         if (name) option.textContent = option.dataset.base + modelSuffix(name);
       });
     });
   }
 
-  function modelOf(statement) {
-    if (!statement || statement.indexOf("Ollama(") === -1) return null;
-    const found = statement.match(/model(?:_name)?\s*=\s*['"]([^'"]+)['"]/);
-    return found ? found[1] : null;
+  // The Ollama model this option runs, or null for a hosted one. Read from
+  // the option rather than parsed out of the statement: web_overrides.py
+  // already did that work and /api/health carried the answer here.
+  function modelOf(option) {
+    return (option && option.dataset && option.dataset.model) || null;
+  }
+
+  function selectedModel(select) {
+    return select && select.selectedOptions.length
+      ? modelOf(select.selectedOptions[0]) : null;
   }
 
   // A model that has not been pulled cannot run, so offer to pull it here
@@ -1281,7 +1300,7 @@
     field.appendChild(bar);
 
     function refresh() {
-      const model = modelOf(select.value);
+      const model = selectedModel(select);
       // Nothing to offer for a hosted model, or for one already here.
       if (!model || isPulled(model)) {
         bar.style.display = "none";
@@ -1298,7 +1317,7 @@
     }
 
     button.addEventListener("click", function () {
-      const model = modelOf(select.value);
+      const model = selectedModel(select);
       if (!model) return;
       button.disabled = true;
       const data = new FormData();

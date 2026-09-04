@@ -162,7 +162,7 @@ anyway.
 ### Using an NVIDIA GPU
 
 The open models are far quicker on a GPU than on a CPU, which is slow at 7b and
-above. `./start.sh` looks for one and uses it, so on a machine with a card there
+above. `./start.sh` looks for a card and uses it, so on a machine with one there
 is nothing to do:
 
 ```bash
@@ -170,8 +170,8 @@ is nothing to do:
 ./start.sh --cpu        # ignore the card
 ```
 
-It says which it chose, and if the driver is there but Docker cannot hand the
-card over it says that too, and starts on the CPU rather than not starting.
+It says which it chose. If the driver is there but Docker cannot hand the card
+over, it says that too and starts on the CPU rather than not starting at all.
 
 To skip the detection and ask for the GPU directly:
 
@@ -180,30 +180,22 @@ docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d
 ```
 
 Either way the host needs the NVIDIA driver and the
-[NVIDIA container toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html);
-check both before you start:
+[NVIDIA container toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
+
+**If you have a card and it is not being used**, run:
 
 ```bash
-nvidia-smi                                    # the driver sees the card
-docker run --rm --gpus all ubuntu nvidia-smi  # docker can reach it too
+./check-gpu.sh
 ```
 
-Then confirm Ollama picked it up:
+It tests the four links in turn — the driver seeing the card, Docker being able
+to pass it through, the running container having been given it, and Ollama
+seeing it — and stops at the first that is broken, with what to do about that
+one. The commonest answer is the third, because a plain `docker compose up`
+starts the container with no GPU reservation and looks entirely normal doing it.
 
-```bash
-docker compose exec ollama nvidia-smi
-```
-
-Without the toolkit the stack refuses to start, and says so plainly:
-
-```
-Error response from daemon: could not select device driver "nvidia" with capabilities: [[gpu]]
-```
-
-which is why the GPU lives in its own file: leaving the reservation in
-`docker-compose.yml` would break every machine that has no card. Only the open
-models benefit. The database and the interface do not use a GPU, and the OpenAI
-and Anthropic models run on somebody else's hardware either way.
+The script also says how to check which processor a model actually loaded onto,
+which is the only direct answer to whether the card is being used.
 
 ### Using the Ollama on your host instead
 

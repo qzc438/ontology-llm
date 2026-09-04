@@ -188,8 +188,12 @@ def describe(base_dir):
     llms = _statement_options(lines, "llm", LLM_CLASSES)
 
     current = {name: active_value(lines, name) for name in VALUE_SETTINGS}
-    active_llm = next((item for item in llms if item["active"]), None)
-    active_embeddings = next((item for item in embeddings if item["active"]), None)
+    # the last live assignment is the one python ends up with, which is what
+    # active_value does for every other setting; taking the first would show a
+    # model the run is not going to use
+    active_llm = next((item for item in reversed(llms) if item["active"]), None)
+    active_embeddings = next(
+        (item for item in reversed(embeddings) if item["active"]), None)
     current["llm"] = active_llm["statement"] if active_llm else None
     current["embeddings_service"] = active_embeddings["statement"] if active_embeddings else None
 
