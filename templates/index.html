@@ -114,7 +114,7 @@
   .run-bar { margin-bottom: var(--space-2); }
   /* What the run about to start will be filed under, on the same line as the
      button that starts it. It sits here rather than in Input Files because it
-     is built from two cards at once: the context from Matching Settings and
+     is built from two cards at once: the context from Hyperparameter Settings and
      the two names from Input Files. The row centres as a whole, so the id and
      the buttons stay together and wrap onto two centred lines when the window
      is too narrow to hold them side by side. */
@@ -275,11 +275,11 @@
         <div class="card-head">
           <h2>Input Files</h2>
           <span class="info" tabindex="0" role="note"
-            aria-label="Each run is conducted with the OAEI format (context/source-target, with a time on the end), for example conference/cmt-confof-20260827-163210. The context comes from the Matching Settings card and the two names from the boxes here. Files are stored under /uploads."
+            aria-label="Each run is conducted with the OAEI format (context/source-target, with a time on the end), for example conference/cmt-confof-20260827-163210. The context comes from the Hyperparameter Settings card and the two names from the boxes here. Files are stored under /uploads."
             >i<span class="tip tip-wide">Each run is conducted with the OAEI format
             (<strong>context/source-target</strong>, with a time on the end), for example
             <code>conference/cmt-confof-20260827-163210</code>. The context comes from the
-            Matching Settings card and the two names from the boxes here. Files are stored under
+            Hyperparameter Settings card and the two names from the boxes here. Files are stored under
             <code>/uploads</code>.</span></span>
         </div>
         <div class="card-body">
@@ -359,7 +359,7 @@
 
       <div class="card">
         <div class="card-head">
-          <h2>Matching Settings</h2>
+          <h2>Hyperparameter Settings</h2>
           <span class="info" tabindex="0" role="note"
             aria-label="Every option comes from run_config.py, including the ones commented out there. Choices apply to this run only; run_config.py is never written to."
             >i<span class="tip">Every option comes from <code>run_config.py</code>, including the
@@ -431,8 +431,16 @@
               <h3>Result Files</h3>
               <button type="button" class="anu-btn btn-small" id="download-all" disabled>Download all</button>
             </div>
+            <div class="file-group" id="group-input">
+              <h4>Input Files</h4>
+              <ul></ul>
+            </div>
+            <div class="file-group" id="group-settings">
+              <h4>Hyperparameter Files</h4>
+              <ul></ul>
+            </div>
             <div class="file-group" id="group-original">
-              <h4>Original Files</h4>
+              <h4>Matching Files</h4>
               <ul></ul>
             </div>
             <div class="file-group" id="group-performance">
@@ -474,6 +482,8 @@
   const groupOriginal = document.getElementById("group-original");
   const groupPerformance = document.getElementById("group-performance");
   const downloadAllButton = document.getElementById("download-all");
+  const groupInput = document.getElementById("group-input");
+  const groupSettings = document.getElementById("group-settings");
   const metricsPanel = document.getElementById("metrics");
   const scoreRow = document.getElementById("score-row");
   const metricsBody = document.getElementById("metrics-body");
@@ -623,7 +633,7 @@
 
   // Shows the folder the run will be filed under, in the same shape the OAEI
   // tracks use: <context>/<source>-<target>. The context comes from the
-  // Matching Settings card, so the preview follows a change there too.
+  // Hyperparameter Settings card, so the preview follows a change there too.
   function updateNamingPreview() {
     // a name not yet typed stands in as the word itself, so the line is always
     // the folder the run would get and never has to explain itself
@@ -929,24 +939,29 @@
   // shown empty.
   function renderResults(summary) {
     const groups = summary.results || {};
+    const input = groups.input || [];
     const original = groups.original || [];
     const performance = groups.performance || [];
-    if (!original.length && !performance.length) return;
+    const settings = groups.settings || [];
+    if (!input.length && !original.length && !performance.length
+        && !settings.length) return;
 
-    fillGroup(groupOriginal, original, summary.id);
-    fillGroup(groupPerformance, performance, summary.id);
+    fillGroup(groupInput, input, summary.id, "inputs");
+    fillGroup(groupOriginal, original, summary.id, "results");
+    fillGroup(groupPerformance, performance, summary.id, "results");
+    fillGroup(groupSettings, settings, summary.id, "results");
     downloadAllButton.disabled = false;
     results.classList.add("show");
   }
 
-  function fillGroup(group, files, jobId) {
+  function fillGroup(group, files, jobId, kind) {
     const list = group.querySelector("ul");
     list.innerHTML = "";
     group.classList.toggle("empty", !files.length);
     files.forEach(function (file) {
       const item = document.createElement("li");
       const link = document.createElement("a");
-      link.href = "/api/jobs/" + jobId + "/results/" + encodeURIComponent(file.name);
+      link.href = "/api/jobs/" + jobId + "/" + kind + "/" + encodeURIComponent(file.name);
       link.textContent = file.name;
       const size = document.createElement("span");
       size.className = "size";

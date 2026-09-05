@@ -164,6 +164,10 @@ TIME_HEADER = ("LLM", "Alignment", "Retrieving", "Embedding", "Matching", "Total
 # the files that summarise how the run performed rather than what it matched
 PERFORMANCE_FILES = ("result.csv", "time.csv", "cost.csv")
 
+# the settings this run was given, written once at the start so they are on
+# record even for a run that fails part way
+SETTINGS_CSV = "settings.csv"
+
 # how much of an ontology name is kept in the job id, so a long one cannot
 # produce a path nothing will accept
 MAX_NAME_LENGTH = 40
@@ -790,12 +794,21 @@ def extension_of(filename):
 def result_files(job):
     """The files this job produced, split into the two groups the page shows.
 
-    "original" is what the matching itself wrote; "performance" is the summary
-    of how it went. They are separate because they answer different questions
-    and are usually wanted separately.
+    "input" is what the run was given; "original" is what the matching itself
+    wrote; "performance" is the summary of how it went. They are separate
+    because they answer different questions and are usually wanted separately.
     """
     folder = result_folder(job)
-    groups = {"original": [], "performance": []}
+    groups = {"input": [], "original": [], "performance": [], "settings": []}
+    uploads = upload_folder(job)
+    if uploads.is_dir():
+        for path in sorted(uploads.iterdir()):
+            if not path.is_file():
+                continue
+            info = path.stat()
+            groups["input"].append(
+                {"name": path.name, "size": info.st_size, "modified": info.st_mtime}
+            )
     if not folder.is_dir():
         return groups
     for path in sorted(folder.iterdir()):
@@ -803,7 +816,9 @@ def result_files(job):
             continue
         info = path.stat()
         entry = {"name": path.name, "size": info.st_size, "modified": info.st_mtime}
-        if path.name in PERFORMANCE_FILES:
+        if path.name == SETTINGS_CSV:
+            groups["settings"].append(entry)
+        elif path.name in PERFORMANCE_FILES:
             groups["performance"].append(entry)
         else:
             groups["original"].append(entry)
@@ -811,6 +826,28 @@ def result_files(job):
     order = {name: index for index, name in enumerate(PERFORMANCE_FILES)}
     groups["performance"].sort(key=lambda item: order.get(item["name"], 99))
     return groups
+
+
+def write_settings_csv(job):
+    """Record the hyperparameters this run was given, beside its results.
+
+    web_overrides.format_overrides() already renders them the way the log shows
+    them, one "name = value" per line, with any database password removed, so
+    the two can never disagree. Splitting each line gives the two columns.
+    """
+    folder = result_folder(job)
+    folder.mkdir(parents=True, exist_ok=True)
+    rows = []
+    for line in web_overrides.format_overrides(job.overrides):
+        name, separator, value = line.partition(" = ")
+        rows.append([name, value] if separator else [line, ""])
+    try:
+        with open(folder / SETTINGS_CSV, "w", newline="") as handle:
+            writer = csv.writer(handle)
+            writer.writerow(("Setting", "Value"))
+            writer.writerows(rows)
+    except OSError:
+        pass
 
 
 class PastRun:
@@ -1787,6 +1824,7 @@ def start_one_job():
               overrides)
     # keep this run's scores in its own folder rather than the shared result.csv
     job.overrides.setdefault("paths", {}).update(prepare_result_files(job))
+    write_settings_csv(job)
     # and point it at the database this server was told to use, if any
     database = os.environ.get(DB_URL_ENV)
     if database:
@@ -2048,6 +2086,20 @@ def delete_run(folder):
         except OSError:
             pass
     return jsonify({"deleted": removed})
+
+
+@app.get("/api/jobs/<job_id>/inputs/<path:filename>")
+def download_input(job_id, filename):
+    """One of the ontologies this run was given."""
+    job = JOBS.get(job_id)
+    if job is None:
+        return jsonify({"error": "Unknown job."}), 404
+    folder = upload_folder(job).resolve()
+    target = (folder / filename).resolve()
+    # never serve anything outside the job's own upload folder
+    if not target.is_file() or folder not in target.parents:
+        return jsonify({"error": "Unknown input file."}), 404
+    return send_file(target, as_attachment=True, download_name=target.name)
 
 
 @app.errorhandler(413)
