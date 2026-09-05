@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Previous Runs — Agent-OM Web Interface</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<link rel="stylesheet" href="{{ url_for('static', filename='anu.css') }}">
+<script src="{{ url_for('static', filename='theme.js') }}"></script>
+<style>
+  .masthead { border-bottom: 3px solid var(--anu-gold); }
+  .masthead .container {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: var(--space-2); flex-wrap: wrap;
+    padding-top: var(--space-2); padding-bottom: var(--space-2);
+  }
+  .masthead h1 { flex: 1; margin: 0; font-size: 1.7em; color: var(--anu-white); }
+  .masthead nav { display: flex; align-items: center; gap: var(--space-2); flex-wrap: wrap; }
+  /* :not() so the back button keeps its own size; a plain nav link is unaffected */
+  .masthead nav a:not(.masthead-btn) { color: var(--anu-white); font-size: 0.9em; }
+  .masthead nav a:not(.masthead-btn):hover { color: var(--anu-gold); }
+
+  main { padding-top: var(--space-3); padding-bottom: var(--space-5); }
+  /* a narrow window scrolls the table rather than squeezing the run name */
+  .table-scroll { overflow-x: auto; margin-top: var(--space-2); }
+  /* the three scores centre together, header and figure, as on the main page */
+  #runs-table td.number { text-align: center; font-family: var(--font-mono); font-size: 0.9em; }
+  #runs-table thead th:not(:first-child) { text-align: center; }
+  #runs-table td.stage { text-align: center; font-family: var(--font-mono); font-size: 0.85em; }
+  #runs-table td.run-name { font-family: var(--font-mono); font-size: 0.85em; word-break: break-all; }
+  #runs-table td.run-name .context { color: var(--muted); }
+  #runs-table td.actions { white-space: nowrap; text-align: center; }
+  #runs-table td.actions button + button { margin-left: 6px; }
+  #runs-table tr.going td { opacity: 0.55; }
+
+  .site-footer { border-top: 3px solid var(--anu-gold); }
+  .site-footer .container { padding-top: var(--space-2); padding-bottom: var(--space-2); font-size: 0.85em; }
+</style>
+</head>
+<body>
+
+<header class="band-black-wrap masthead">
+  <div class="container">
+    <button type="button" class="theme-toggle" data-theme-control
+              aria-label="Colour mode follows the clock. Activate for day.">
+        <svg class="icon-auto" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <path fill="currentColor" d="M12 4a8 8 0 0 0 0 16z"/>
+        </svg>
+        <svg class="icon-day" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+          <circle cx="12" cy="12" r="4.5" fill="currentColor"/>
+          <g stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <line x1="12" y1="1.6" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22.4"/>
+            <line x1="1.6" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22.4" y2="12"/>
+            <line x1="4.4" y1="4.4" x2="6.1" y2="6.1"/><line x1="17.9" y1="17.9" x2="19.6" y2="19.6"/>
+            <line x1="19.6" y1="4.4" x2="17.9" y2="6.1"/><line x1="6.1" y1="17.9" x2="4.4" y2="19.6"/>
+          </g>
+        </svg>
+        <svg class="icon-night" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M20.7 14.6A8.6 8.6 0 0 1 9.4 3.3 8.7 8.7 0 1 0 20.7 14.6z"/>
+        </svg>
+      </button>
+    <h1>Previous Runs</h1>
+    <nav aria-label="Site">
+      <button type="button" class="masthead-btn" id="runs-download-all">Download all</button>
+      <button type="button" class="masthead-btn" id="runs-refresh">Refresh</button>
+      <a class="masthead-btn icon" href="{{ url_for('index') }}"
+         aria-label="Back to the Agent-OM web interface"
+         title="Back to the Agent-OM web interface">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+          <g fill="none" stroke="currentColor" stroke-width="1.8"
+             stroke-linecap="round" stroke-linejoin="round">
+            <line x1="20" y1="12" x2="5" y2="12"/>
+            <polyline points="11,6 5,12 11,18"/>
+          </g>
+        </svg>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <p class="msg-info">
+    Every run is stored in a result folder. These are read from disk rather than
+    from the server's memory, so they outlive a refresh and a restart.
+    <strong>Delete</strong> removes both the results and input files, and this
+    action cannot be undone.
+  </p>
+
+  <p class="msg-info" id="runs-empty" hidden>No finished runs on disk yet.</p>
+
+  <div class="table-scroll">
+    <table class="tbl-row-bdr" id="runs-table" hidden>
+      <caption class="scrnhide">Finished runs, newest first</caption>
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Stage</th>
+          <th scope="col">Precision</th>
+          <th scope="col">Recall</th>
+          <th scope="col">F1</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="runs-body"></tbody>
+    </table>
+  </div>
+
+</main>
+
+<dialog class="anu-dialog" id="dialog" aria-labelledby="dialog-title">
+  <div class="dialog-head"><h2 id="dialog-title">Delete run</h2></div>
+  <div class="dialog-body">
+    <p id="dialog-text"></p>
+    <div class="dialog-actions">
+      <button type="button" class="anu-btn" id="dialog-cancel">Cancel</button>
+      <button type="button" class="anu-btn-black" id="dialog-ok">Delete</button>
+    </div>
+  </div>
+</dialog>
+
+<footer class="band-tint-wrap site-footer">
+  <div class="container">
+    <p class="mb-0">&copy; 2026 Agent-OM Team: Zhangcheng Qiang, Weiqing Wang, Kerry
+      Taylor. Licensed under
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="link-ext"
+         title="Opens the licence deed in this window">CC BY-NC-SA 4.0</a>.
+      Styled with the <a href="{{ url_for('design_system') }}">Agent-OM Design System</a>,
+      derived from the
+      <a href="https://webpublishing.anu.edu.au/web-style-guide" class="link-ext"
+         title="Opens the ANU Web Style Guide in this window">ANU Web Style Guide</a>.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  const body = document.getElementById("runs-body");
+  const empty = document.getElementById("runs-empty");
+  const table = document.getElementById("runs-table");
+  const refresh = document.getElementById("runs-refresh");
+  const downloadAll = document.getElementById("runs-download-all");
+
+  // window.confirm and window.alert cannot be styled, so they arrive looking
+  // like nothing else on the page. This is the same question in a <dialog>,
+  // which the design system does style.
+  const dialog = document.getElementById("dialog");
+  const dialogTitle = document.getElementById("dialog-title");
+  const dialogText = document.getElementById("dialog-text");
+  const dialogOk = document.getElementById("dialog-ok");
+  const dialogCancel = document.getElementById("dialog-cancel");
+  let onSettle = null;
+
+  function settle(answer) {
+    const done = onSettle;
+    onSettle = null;
+    if (dialog.open) dialog.close();
+    if (done) done(answer);
+  }
+
+  dialogOk.addEventListener("click", function () { settle(true); });
+  dialogCancel.addEventListener("click", function () { settle(false); });
+  // Esc closes the dialog itself; this keeps the promise from hanging
+  dialog.addEventListener("close", function () { settle(false); });
+
+  function ask(title, text) {
+    return new Promise(function (resolve) {
+      dialogTitle.textContent = title;
+      dialogText.textContent = text;
+      dialogOk.hidden = false;
+      dialogCancel.textContent = "Cancel";
+      onSettle = resolve;
+      dialog.showModal();
+    });
+  }
+
+  function tell(title, text) {
+    dialogTitle.textContent = title;
+    dialogText.textContent = text;
+    // nothing to confirm, so the only way out is to dismiss it
+    dialogOk.hidden = true;
+    dialogCancel.textContent = "Close";
+    onSettle = null;
+    dialog.showModal();
+  }
+
+  function scoreCell(value) {
+    const cell = document.createElement("td");
+    cell.className = "number";
+    // a run that never reached the final stage has no score, and a dash says
+    // that more honestly than 0.00 would
+    cell.textContent = (value === null || value === undefined) ? "—" : value.toFixed(2);
+    return cell;
+  }
+
+  function runRow(run) {
+    const tr = document.createElement("tr");
+
+    const name = document.createElement("td");
+    name.className = "run-name";
+    const context = document.createElement("span");
+    context.className = "context";
+    context.textContent = run.context + "/";
+    name.appendChild(context);
+    name.appendChild(document.createTextNode(run.name));
+    tr.appendChild(name);
+
+    const final = run.final || {};
+
+    // which stage the three figures below are for. A run that stopped early has
+    // no final stage, and the scores are dashes to match.
+    const stage = document.createElement("td");
+    stage.className = "stage";
+    stage.textContent = final.stage || "\u2014";
+    tr.appendChild(stage);
+
+    tr.appendChild(scoreCell(final.precision));
+    tr.appendChild(scoreCell(final.recall));
+    tr.appendChild(scoreCell(final.f1));
+
+    const actions = document.createElement("td");
+    actions.className = "actions";
+
+    const download = document.createElement("button");
+    download.type = "button";
+    download.className = "anu-btn btn-small";
+    download.textContent = "Download";
+    download.disabled = !run.files;
+    download.addEventListener("click", function () {
+      window.location = "/api/runs/" + encodeURI(run.folder) + "/results.zip";
+    });
+
+    const remove = document.createElement("button");
+    remove.type = "button";
+    remove.className = "anu-btn btn-small";
+    remove.textContent = "Delete";
+    remove.addEventListener("click", function () {
+      // deleting takes the input files with it, so it is worth asking
+      ask("Delete run",
+          "Delete " + run.folder + "? This action removes both the results and "
+          + "input files, and cannot be undone.").then(function (yes) {
+        if (!yes) return;
+        remove.disabled = true;
+        download.disabled = true;
+        tr.className = "going";
+        fetch("/api/runs/" + encodeURI(run.folder), { method: "DELETE" })
+          .then(function (response) {
+            return response.json().then(function (data) {
+              if (!response.ok) throw new Error(data.error || "Could not delete that run.");
+            });
+          })
+          .then(load)
+          .catch(function (error) {
+            tell("Could not delete", error.message);
+            tr.className = "";
+            remove.disabled = false;
+            download.disabled = !run.files;
+          });
+      });
+    });
+
+    actions.appendChild(download);
+    actions.appendChild(remove);
+    tr.appendChild(actions);
+    return tr;
+  }
+
+  function load() {
+    return fetch("/api/runs")
+      .then(function (response) { return response.json(); })
+      .then(function (data) {
+        const runs = data.runs || [];
+        body.textContent = "";
+        runs.forEach(function (run) { body.appendChild(runRow(run)); });
+        empty.hidden = runs.length > 0;
+        table.hidden = runs.length === 0;
+        // nothing to bundle when the list is empty, or when every run's folder is
+        downloadAll.disabled = !runs.some(function (run) { return run.files; });
+      })
+      .catch(function () {
+        empty.textContent = "Could not read the runs on disk.";
+        empty.hidden = false;
+        table.hidden = true;
+        downloadAll.disabled = true;
+      });
+  }
+
+  downloadAll.addEventListener("click", function () {
+    window.location = "/api/runs.zip";
+  });
+
+  refresh.addEventListener("click", load);
+  load();
+})();
+</script>
+
+</body>
+</html>

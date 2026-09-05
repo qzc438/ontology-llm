@@ -370,6 +370,30 @@ th { background: var(--accent-soft); color: var(--page-fg); font-weight: 700; }
 .tbl-row-bdr th, .tbl-row-bdr td { border-bottom: 1px solid var(--hairline); }
 .tbl-cell-bdr th, .tbl-cell-bdr td { border: 1px solid var(--hairline); }
 
+/* --- dialog -------------------------------------------------------------- */
+/* A native <dialog>, so the browser supplies the focus trap, Esc to close and
+   the backdrop, and only the surface has to be styled. Shaped like .card: the
+   header band on top, the body beneath, actions right-aligned at the foot. */
+.anu-dialog {
+  padding: 0;
+  max-width: min(92vw, 32rem);
+  background: var(--surface); color: var(--surface-fg);
+  border: 1px solid var(--surface-border);
+}
+.anu-dialog::backdrop { background: rgba(0, 0, 0, 0.55); }
+.anu-dialog .dialog-head {
+  background: var(--header-bg); color: var(--header-fg);
+  border-bottom: 2px solid var(--header-rule);
+  padding: 9px var(--space-2);
+}
+.anu-dialog .dialog-head h2 { margin: 0; font-size: 1.15em; }
+.anu-dialog .dialog-body { padding: var(--space-2); }
+.anu-dialog .dialog-body p { margin-top: 0; }
+.anu-dialog .dialog-actions {
+  display: flex; justify-content: flex-end; gap: var(--space-1);
+  margin-top: var(--space-2);
+}
+
 /* --- lists --------------------------------------------------------------- */
 
 .nobullet { list-style: none; }
@@ -449,6 +473,23 @@ th { background: var(--accent-soft); color: var(--page-fg); font-weight: 700; }
 }
 .theme-toggle:hover { color: var(--anu-gold); border-color: var(--anu-gold); }
 .theme-toggle svg { display: none; }
+
+/* Same shell as .theme-toggle, for a masthead control that carries a word
+   rather than a symbol. Works as a button or as a link. */
+.masthead-btn {
+  display: inline-flex; align-items: center; text-decoration: none;
+  height: 2.125rem; padding: 0 var(--space-1);
+  background: transparent;
+  color: var(--anu-white);
+  border: 1px solid #9a9a9a;
+  border-radius: 0;
+  cursor: pointer;
+  font: inherit; font-size: 0.85em; letter-spacing: 0.01em;
+  transition: color .15s ease, border-color .15s ease;
+}
+.masthead-btn:hover, .masthead-btn:focus-visible { color: var(--anu-gold); border-color: var(--anu-gold); }
+/* carries a symbol instead of a word, so it is square like .theme-toggle */
+.masthead-btn.icon { width: 2.125rem; padding: 0; justify-content: center; }
 
 /* the symbol shown is the choice in force, not the mode it resolves to */
 [data-theme-choice="auto"] .theme-toggle .icon-auto,

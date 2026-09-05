@@ -1,9 +1,9 @@
 #!/bin/sh
 # Bring the stack up, using an NVIDIA GPU if this machine has a usable one.
 #
-#   ./start.sh                 start in the background
-#   ./start.sh --build         rebuild the web image first
-#   ./start.sh --cpu           ignore the GPU even if there is one
+#   ./docker-start.sh                 start in the background
+#   ./docker-start.sh --build         rebuild the web image first
+#   ./docker-start.sh --cpu           ignore the GPU even if there is one
 #
 # Anything else is passed through to `docker compose up`.
 #
@@ -54,7 +54,9 @@ else
     if grep -q "could not select device driver" "$log"; then
         echo
         echo "The card is there but Docker cannot hand it over, which means the"
-        echo "NVIDIA container toolkit is not installed:"
+        echo "NVIDIA container toolkit is not installed. The Debian and Ubuntu"
+        echo "steps are in DOCKER.md, \"Installing the NVIDIA container toolkit\";"
+        echo "for any other distribution:"
         echo "  https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html"
         echo "Starting on the CPU instead."
         echo

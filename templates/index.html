@@ -20,7 +20,7 @@
     gap: var(--space-2); flex-wrap: wrap;
     padding-top: var(--space-2); padding-bottom: var(--space-2);
   }
-  .masthead h1 { margin: 0; font-size: 1.7em; color: var(--anu-white); }
+  .masthead h1 { flex: 1; margin: 0; font-size: 1.7em; color: var(--anu-white); }
   .masthead-actions { display: flex; align-items: center; gap: var(--space-2); }
 
   main { padding-top: var(--space-3); padding-bottom: var(--space-4); }
@@ -189,7 +189,7 @@
 
   .results { display: none; margin-top: var(--space-2); }
   .results.show { display: block; }
-  .results h3 { font-size: 1.05em; font-weight: 600; }
+  .results h3 { font-size: 1.05em; font-weight: 700; }
   .results ul { list-style: none; padding: 0; margin: 0; }
   .results li {
     display: flex; justify-content: space-between; align-items: center; gap: var(--space-1);
@@ -220,7 +220,10 @@
   #metrics-table tbody th { background: var(--surface); color: var(--surface-fg); font-weight: 400; }
   #metrics-table tbody tr.final,
   #metrics-table tbody tr.final th { background: var(--accent-soft); color: var(--page-fg); font-weight: 700; }
-  #metrics-table td.number { text-align: right; font-family: var(--font-mono); font-size: 0.9em; }
+  #metrics-table td.number { text-align: center; font-family: var(--font-mono); font-size: 0.9em; }
+  /* the three score columns centre together, header and figure, so each number
+     sits under its own heading; the Stage column stays left with its labels */
+  #metrics-table thead th:not(:first-child) { text-align: center; }
 
   .site-footer { border-top: 3px solid var(--anu-gold); }
   .site-footer .container { padding-top: var(--space-2); padding-bottom: var(--space-2); font-size: 0.85em; }
@@ -230,13 +233,7 @@
 
 <header class="band-black-wrap masthead">
   <div class="container">
-    <h1>Agent-OM Web Interface</h1>
-    <!-- Only the colour mode lives up here now; the link to the Design System
-         is in the footer. This is no longer a nav landmark, because a landmark
-         announced as site navigation with nothing to navigate to is worse than
-         no landmark at all. -->
-    <div class="masthead-actions">
-      <button type="button" class="theme-toggle" data-theme-control
+    <button type="button" class="theme-toggle" data-theme-control
               aria-label="Colour mode follows the clock. Activate for day.">
         <svg class="icon-auto" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
           <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.8"/>
@@ -255,6 +252,13 @@
           <path fill="currentColor" d="M20.7 14.6A8.6 8.6 0 0 1 9.4 3.3 8.7 8.7 0 1 0 20.7 14.6z"/>
         </svg>
       </button>
+    <h1>Agent-OM Web Interface</h1>
+    <!-- Only the colour mode lives up here now; the link to the Design System
+         is in the footer. This is no longer a nav landmark, because a landmark
+         announced as site navigation with nothing to navigate to is worse than
+         no landmark at all. -->
+    <div class="masthead-actions">
+      <a class="masthead-btn" href="{{ url_for('runs_page') }}">Previous runs</a>
     </div>
   </div>
 </header>
@@ -1463,6 +1467,7 @@
       })
       .catch(function () {});
   }).catch(function () {});
+
 })();
 </script>
 </body>

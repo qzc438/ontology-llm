@@ -17,10 +17,11 @@
     gap: var(--space-2); flex-wrap: wrap;
     padding-top: var(--space-2); padding-bottom: var(--space-2);
   }
-  .masthead h1 { margin: 0; font-size: 1.7em; color: var(--anu-white); }
+  .masthead h1 { flex: 1; margin: 0; font-size: 1.7em; color: var(--anu-white); }
   .masthead nav { display: flex; align-items: center; gap: var(--space-2); flex-wrap: wrap; }
-  .masthead nav a { color: var(--anu-white); font-size: 0.9em; }
-  .masthead nav a:hover { color: var(--anu-gold); }
+  /* :not() so the back button keeps its own size; a plain nav link is unaffected */
+  .masthead nav a:not(.masthead-btn) { color: var(--anu-white); font-size: 0.9em; }
+  .masthead nav a:not(.masthead-btn):hover { color: var(--anu-gold); }
 
   main { padding-top: var(--space-3); padding-bottom: var(--space-5); }
   .doc { max-width: 900px; }
@@ -80,9 +81,7 @@
 
 <header class="band-black-wrap masthead">
   <div class="container">
-    <h1>Design System</h1>
-    <nav aria-label="Site">
-      <button type="button" class="theme-toggle" data-theme-control
+    <button type="button" class="theme-toggle" data-theme-control
               aria-label="Colour mode follows the clock. Activate for day.">
         <svg class="icon-auto" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
           <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.8"/>
@@ -101,7 +100,19 @@
           <path fill="currentColor" d="M20.7 14.6A8.6 8.6 0 0 1 9.4 3.3 8.7 8.7 0 1 0 20.7 14.6z"/>
         </svg>
       </button>
-      <a href="{{ url_for('index') }}">&laquo; Back to the web interface</a>
+    <h1>Design System</h1>
+    <nav aria-label="Site">
+      <a class="masthead-btn icon" href="{{ url_for('index') }}"
+         aria-label="Back to the Agent-OM web interface"
+         title="Back to the Agent-OM web interface">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+          <g fill="none" stroke="currentColor" stroke-width="1.8"
+             stroke-linecap="round" stroke-linejoin="round">
+            <line x1="20" y1="12" x2="5" y2="12"/>
+            <polyline points="11,6 5,12 11,18"/>
+          </g>
+        </svg>
+      </a>
     </nav>
   </div>
 </header>
@@ -739,7 +750,10 @@
       Taylor. Licensed under
       <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="link-ext"
          title="Opens the licence deed in this window">CC BY-NC-SA 4.0</a>.
-      <a href="{{ url_for('index') }}">&laquo; Back to the web interface</a></p>
+      Styled with the <a href="{{ url_for('design_system') }}">Agent-OM Design System</a>,
+      derived from the
+      <a href="https://webpublishing.anu.edu.au/web-style-guide" class="link-ext"
+         title="Opens the ANU Web Style Guide in this window">ANU Web Style Guide</a>.</p>
   </div>
 </footer>
 

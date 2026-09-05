@@ -5,21 +5,21 @@ Ollama for the open models. Nothing else has to be installed: no PostgreSQL, no
 pgvector, no `ontology` database, no virtual environment, no Ollama.
 
 ```bash
-./start.sh --build
+./docker-start.sh --build
 ```
 
 Then open **http://127.0.0.1:5000**.
 
-`start.sh` uses an NVIDIA GPU if the machine has a usable one and the CPU if it
-does not, so the same command works everywhere. `docker compose up --build` does
-the same thing without ever looking for a GPU.
+`docker-start.sh` uses an NVIDIA GPU if the machine has a usable one and the
+CPU if it does not, so the same command works everywhere.
+`docker compose up --build` does the same thing without ever looking for a GPU.
 
 ### Before you start
 
 | You need | Check it with |
 | --- | --- |
 | **Docker, with the Compose plugin** | `docker compose version` |
-| **A `.env` file** beside `docker-compose.yml` | see below |
+| **A `.env` file** beside `docker-compose.yml` | `ls .env` |
 
 `.env` holds both keys:
 
@@ -224,12 +224,12 @@ above.
 
 ### Starting with the card
 
-`./start.sh` looks for a card and uses it, so on a machine with one there is
-nothing to do:
+`./docker-start.sh` looks for a card and uses it, so on a machine with one
+there is nothing to do:
 
 ```bash
-./start.sh              # GPU if there is one, CPU if not
-./start.sh --cpu        # ignore the card
+./docker-start.sh              # GPU if there is one, CPU if not
+./docker-start.sh --cpu        # ignore the card
 ```
 
 It says which it chose. If the driver is there but Docker cannot hand the card
@@ -246,9 +246,10 @@ container toolkit.
 
 ### Installing the NVIDIA container toolkit
 
-The driver on its own is not enough. Without the toolkit, `./start.sh` quietly
-starts on the CPU and `./check-gpu.sh` stops at step 2. Installing it is a
-one-off, and takes three steps:
+The driver on its own is not enough. Without the toolkit,
+`./docker-start.sh` says the card cannot be handed over and falls back to the
+CPU, and `./docker-check-gpu.sh` stops at step 2. Installing it is a one-off,
+and takes three steps:
 
 ```bash
 # 1. add NVIDIA's package repository
@@ -273,13 +274,15 @@ Step 3 writes `/etc/docker/daemon.json` and adds `nvidia` to Docker's runtimes,
 which is the part that actually lets a container reach the card. Check both:
 
 ```bash
-docker info | grep -i -A3 Runtimes                 # should list nvidia
-docker run --rm --gpus all ubuntu nvidia-smi -L    # should name your card
+docker info | grep -i -A3 Runtimes    # nvidia should be in the list
+
+# should name your card; uses the ollama image, which the stack pulls anyway
+docker run --rm --gpus all --entrypoint nvidia-smi ollama/ollama:0.15.0 -L
 ```
 
-Then start the stack with `./start.sh`. A container keeps whatever it was
+Then start the stack with `./docker-start.sh`. A container keeps whatever it was
 started with, so one that is already up will not pick up the card on its own;
-`./start.sh` recreates it.
+`./docker-start.sh` recreates it.
 
 The upstream instructions, for a distribution other than Debian or Ubuntu, are
 in the [NVIDIA container toolkit install guide](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
@@ -287,7 +290,7 @@ in the [NVIDIA container toolkit install guide](https://docs.nvidia.com/datacent
 ### If you have a card and it is not being used
 
 ```bash
-./check-gpu.sh
+./docker-check-gpu.sh
 ```
 
 It tests four links in turn, stopping at the first one that is broken and
@@ -329,8 +332,8 @@ Verified working on 4 September 2026:
 | `ollama` image | `ollama/ollama:0.15.0` |
 | `db` image | `pgvector/pgvector:pg16` |
 
-With that in place, `./check-gpu.sh` reports all four links holding, and Ollama
-names the card as it starts:
+With that in place, `./docker-check-gpu.sh` reports all four links holding, and
+Ollama names the card as it starts:
 
 ```bash
 docker compose logs ollama | grep "inference compute"
@@ -474,7 +477,7 @@ then cannot write into.
 
 ### `/app` belongs to group 0
 
-The container carries that group as well. The pipeline writes into `/app` itself,
-not only the mounts — `run_config.py` appends to `time.csv` before it starts
-anything — so owning it as one fixed user id would break every run for anyone
-passing a different `DOCKER_UID`.
+The container carries that group as well. The pipeline writes into `/app`
+itself, not only the mounts — `run_config.py` appends to `time.csv` before it
+starts anything — so owning it as one fixed user id would break every run for
+anyone passing a different `DOCKER_UID`.

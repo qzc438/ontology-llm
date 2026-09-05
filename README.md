@@ -335,9 +335,9 @@ Everything stays under `uploads/`, so a web run can never overwrite the OAEI dat
 #### (3) Run on Docker
 The same web interface, with the database and an Ollama for the open models brought up beside it. You need Docker with the Compose plugin, and the `.env` file from step 5 beside `docker-compose.yml`.
 ```
-./start.sh --build
+./docker-start.sh --build
 ```
-Then open http://127.0.0.1:5000. `start.sh` uses an NVIDIA GPU if the machine has one and the CPU if it does not; `docker compose up --build` also works and never looks for a GPU.
+Then open http://127.0.0.1:5000. `docker-start.sh` uses an NVIDIA GPU if the machine has one and the CPU if it does not; `docker compose up --build` also works and never looks for a GPU.
 - **Nothing from steps 1 to 4 is needed on your machine for this.** No
   PostgreSQL, no pgvector, no `ontology` database, no virtual environment, no
   Ollama. Compose runs PostgreSQL 16 with pgvector as its own `db` container and
@@ -346,8 +346,8 @@ Then open http://127.0.0.1:5000. `start.sh` uses an NVIDIA GPU if the machine ha
   and not inside the image, so it survives `docker compose down` and is
   discarded only by `docker compose down -v`. All you provide is Docker itself
   and the `.env` file from step 5 holding your API keys.
-- Ollama is not built into the image: compose fetches the official `ollama/ollama` image on the first start and runs it as a service, so the open models work without anything on the host. Choose one and press **Download** beside it to pull it, which happens in that service and is kept in the `ollama-models` volume. It runs on the CPU unless the machine has an NVIDIA card, in which case `docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d` hands the GPU over, needing the NVIDIA container toolkit but no editing; to use the Ollama already on your machine instead, which is faster when it has the GPU and the models, start with `OLLAMA_URL=http://host.docker.internal:11434 docker compose up` and see the open models section of [DOCKER.md](DOCKER.md), since it also has to listen on more than `127.0.0.1`.
-- **[DOCKER.md](DOCKER.md) is the full guide**: settings, where your files go, everyday commands, troubleshooting, and why it is put together the way it is.
+- Ollama is not built into the image: compose fetches the official `ollama/ollama` image on the first start and runs it as a service, so the open models work without anything on the host. Choose one and press **Download** beside it to pull it, which happens in that service and is kept in the `ollama-models` volume. It runs on the CPU unless the machine has an NVIDIA card, in which case `./docker-start.sh` hands the GPU over on its own, given the NVIDIA driver and container toolkit — see [Running with NVIDIA GPUs](DOCKER.md#6-running-with-nvidia-gpus) to install the toolkit, and run `./docker-check-gpu.sh` if a card is present but unused; to use the Ollama already on your machine instead, which is faster when it has the GPU and the models, start with `OLLAMA_URL=http://host.docker.internal:11434 docker compose up` and see [Using open models with Ollama](DOCKER.md#5-using-open-models-with-ollama), since it also has to listen on more than `127.0.0.1`.
+- **[DOCKER.md](DOCKER.md) is the full guide**: settings, file locations, starting and stopping, troubleshooting, and why it is put together the way it is.
 
 **In summary**
 

@@ -1,7 +1,7 @@
 #!/bin/sh
 # Why is the GPU not being used? Walks the chain and stops at the first break.
 #
-#   ./check-gpu.sh
+#   ./docker-check-gpu.sh
 #
 # There are four links, and all four have to hold: the driver has to see the
 # card, Docker has to be able to hand it over, the ollama container has to have
@@ -31,7 +31,9 @@ if docker run --rm --gpus all ubuntu nvidia-smi -L > /dev/null 2>&1; then
 else
     echo "NO"
     echo "   The card is there but Docker cannot pass it through, which means"
-    echo "   the NVIDIA container toolkit is missing or not registered:"
+    echo "   the NVIDIA container toolkit is missing or not registered. The"
+    echo "   Debian and Ubuntu steps are in DOCKER.md, under \"Installing the"
+    echo "   NVIDIA container toolkit\". For any other distribution:"
     echo "     https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html"
     echo "     sudo nvidia-ctk runtime configure --runtime=docker"
     echo "     sudo systemctl restart docker"
@@ -43,7 +45,7 @@ printf '3. The running ollama container was given it: '
 container=$(docker compose ps -q ollama 2>/dev/null)
 if [ -z "$container" ]; then
     echo "the ollama container is not running."
-    echo "   Start the stack with ./start.sh"
+    echo "   Start the stack with ./docker-start.sh"
     exit 1
 fi
 if docker inspect "$container" \
@@ -53,7 +55,7 @@ else
     echo "NO"
     echo "   It is running without a GPU reservation, which is what happens"
     echo "   after a plain 'docker compose up'. Recreate it with:"
-    echo "     ./start.sh"
+    echo "     ./docker-start.sh"
     echo "   or: docker compose -f docker-compose.yml -f docker-compose.gpu.yml up -d"
     exit 1
 fi

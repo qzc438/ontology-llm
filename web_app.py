@@ -67,6 +67,7 @@ from flask import Flask, Response, jsonify, render_template, request, send_file
 from werkzeug.utils import secure_filename
 
 import web_overrides
+from csv_to_alignment_api import csv_to_alignment_api
 
 # repository root: run_config.py and the om_*.py scripts live here
 BASE_DIR = Path(__file__).resolve().parent
@@ -499,6 +500,26 @@ def write_time_summary(job):
         pass
 
 
+def write_alignment_xml(job):
+    """Write this run's predict.csv out again as Alignment API RDF/XML.
+
+    The OAEI wants an alignment in that format and the pipeline only writes CSV.
+    It is done here rather than in om_database_matching.py so that the matching
+    scripts are untouched: a terminal run of run_config.py behaves exactly as it
+    did, and only a run started from this interface gains the extra file.
+    """
+    source = result_folder(job) / "predict.csv"
+    if not source.is_file():
+        return
+    target = source.with_suffix(".xml")
+    try:
+        csv_to_alignment_api(str(source), str(target), relation="=")
+    except Exception as error:  # the run itself succeeded and predict.csv is intact
+        job.append(f"Could not write {target.name}: {error}")
+        return
+    job.append(f"Wrote {target.name}, the same alignment in the Alignment API format.")
+
+
 def read_metrics(job):
     """The precision, recall and F1 rows this job wrote, best row last."""
     path = result_folder(job) / "result.csv"
@@ -642,6 +663,7 @@ def run_job(job):
         job.append(f"run_config.py completed, but these steps failed: {failed}")
     elif returncode == 0:
         job.append("run_config.py finished successfully.")
+        write_alignment_xml(job)
     else:
         job.append(f"run_config.py exited with code {returncode}.")
     job.finish(returncode=returncode)
@@ -789,6 +811,77 @@ def result_files(job):
     order = {name: index for index, name in enumerate(PERFORMANCE_FILES)}
     groups["performance"].sort(key=lambda item: order.get(item["name"], 99))
     return groups
+
+
+class PastRun:
+    """A finished run found on disk rather than held in memory.
+
+    result_folder(), result_files(), read_metrics() and archive_name() all only
+    ever look at .folder, so a run recovered from disk can be passed to them
+    exactly as a live job is, and none of them needed changing.
+    """
+
+    def __init__(self, folder):
+        self.folder = folder
+        self.id = folder
+
+
+def run_folder_is_safe(folder):
+    """Whether this URL-supplied folder names a real run under the result root.
+
+    The name arrives from the client, so it is resolved and checked to be inside
+    the root rather than trusted: "../.." would otherwise reach the repository.
+    """
+    if not folder or folder.startswith("/"):
+        return False
+    try:
+        target = (RESULT_ROOT / folder).resolve()
+    except (OSError, ValueError):
+        return False
+    root = RESULT_ROOT.resolve()
+    return target != root and root in target.parents and (target / "component").is_dir()
+
+
+def discover_runs():
+    """Every run with a result folder on disk, newest first.
+
+    The page's own results panel is built from the job in memory, so it empties
+    on a refresh and is gone entirely after a restart, while the files it listed
+    are still there. This reads the same folders back off disk, which is what
+    makes a run outlive the browser tab that started it.
+    """
+    runs = []
+    if not RESULT_ROOT.is_dir():
+        return runs
+    for context in sorted(RESULT_ROOT.iterdir()):
+        if not context.is_dir() or context.name.startswith("."):
+            continue
+        for entry in sorted(context.iterdir()):
+            component = entry / "component"
+            if not component.is_dir():
+                continue
+            folder = f"{context.name}/{entry.name}"
+            run = PastRun(folder)
+            metrics = read_metrics(run)
+            files = [path for path in component.iterdir() if path.is_file()]
+            try:
+                modified = component.stat().st_mtime
+            except OSError:
+                modified = 0
+            runs.append({
+                "folder": folder,
+                "context": context.name,
+                "name": entry.name,
+                "modified": modified,
+                "files": len(files),
+                "bytes": sum(path.stat().st_size for path in files),
+                # None when the run never reached the final stage, which the
+                # page shows as a dash rather than inventing a zero
+                "final": metrics.get("final"),
+                "stages": len(metrics.get("rows") or []),
+            })
+    runs.sort(key=lambda item: item["modified"], reverse=True)
+    return runs
 
 
 def read_connection_string():
@@ -1370,6 +1463,16 @@ def design_system():
     return render_template("design_system.html")
 
 
+@app.get("/runs")
+def runs_page():
+    """Runs already on disk, on their own page.
+
+    Separate from the interface rather than a panel inside it: the results panel
+    there belongs to the run in front of you, and this is the history behind it.
+    """
+    return render_template("runs.html")
+
+
 @app.get("/api/health")
 def health():
     settings = web_overrides.describe(BASE_DIR)
@@ -1837,6 +1940,114 @@ def download_result(job_id, filename):
     if not target.is_file() or folder not in target.parents:
         return jsonify({"error": "Unknown result file."}), 404
     return send_file(target, as_attachment=True, download_name=target.name)
+
+
+@app.get("/api/runs")
+def list_runs():
+    """Every run still on disk, so the page can show them after a refresh."""
+    return jsonify({"runs": discover_runs()})
+
+
+@app.get("/api/runs/<path:folder>/results.zip")
+def download_run(folder):
+    """Every file a past run produced, in one archive.
+
+    The same two folders as the live download, so an old run and a fresh one
+    unzip to the same shape.
+    """
+    if not run_folder_is_safe(folder):
+        return jsonify({"error": "Unknown run."}), 404
+    run = PastRun(folder)
+    component = result_folder(run)
+    archive = io.BytesIO()
+    written = 0
+    with zipfile.ZipFile(archive, "w", zipfile.ZIP_DEFLATED) as bundle:
+        for path in sorted(component.iterdir()):
+            if not path.is_file():
+                continue
+            group = "scoring files" if path.name in PERFORMANCE_FILES else "original files"
+            bundle.write(path, arcname=f"{archive_name(run)}/{group}/{path.name}")
+            written += 1
+    if not written:
+        return jsonify({"error": "This run produced no files."}), 404
+    archive.seek(0)
+    return send_file(
+        archive,
+        mimetype="application/zip",
+        as_attachment=True,
+        download_name=f"{archive_name(run)}.zip",
+    )
+
+
+@app.get("/api/runs.zip")
+def download_all_runs():
+    """Every run on disk, in one archive.
+
+    Its own path rather than a folder named "all" under /api/runs/, so a real
+    run could never shadow it. Each run keeps the two-folder shape it has on its
+    own, under a folder named after the run.
+    """
+    archive = io.BytesIO()
+    written = 0
+    with zipfile.ZipFile(archive, "w", zipfile.ZIP_DEFLATED) as bundle:
+        for run in discover_runs():
+            component = result_folder(PastRun(run["folder"]))
+            for path in sorted(component.iterdir()):
+                if not path.is_file():
+                    continue
+                group = "scoring files" if path.name in PERFORMANCE_FILES else "original files"
+                bundle.write(
+                    path,
+                    arcname=f"{run['folder'].replace('/', '-')}/{group}/{path.name}",
+                )
+                written += 1
+    if not written:
+        return jsonify({"error": "There are no runs to download."}), 404
+    archive.seek(0)
+    return send_file(
+        archive,
+        mimetype="application/zip",
+        as_attachment=True,
+        download_name="agent-om-runs.zip",
+    )
+
+
+@app.delete("/api/runs/<path:folder>")
+def delete_run(folder):
+    """Remove a past run: its results and the ontologies it was given.
+
+    Both folders go, so nothing is left behind under a name a new run could
+    collide with. A run still in progress is refused rather than deleted out
+    from under the pipeline writing into it.
+    """
+    if not run_folder_is_safe(folder):
+        return jsonify({"error": "Unknown run."}), 404
+    with JOBS_LOCK:
+        running = [
+            job for job in JOBS.values()
+            if job.folder == folder and job.finished_at is None
+        ]
+    if running:
+        return jsonify({"error": "That run is still going. Stop it first."}), 409
+
+    removed = []
+    for root in (RESULT_ROOT, UPLOAD_ROOT):
+        target = (root / folder).resolve()
+        if root.resolve() not in target.parents or not target.is_dir():
+            continue
+        try:
+            shutil.rmtree(target)
+            removed.append(str(target.relative_to(BASE_DIR)))
+        except OSError as error:
+            return jsonify({"error": f"Could not delete {target.name}: {error}"}), 500
+        # an emptied context folder is noise on the next listing
+        parent = target.parent
+        try:
+            if parent != root.resolve() and not any(parent.iterdir()):
+                parent.rmdir()
+        except OSError:
+            pass
+    return jsonify({"deleted": removed})
 
 
 @app.errorhandler(413)
