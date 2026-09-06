@@ -163,15 +163,20 @@ TIME_CSV = "time.csv"
 TIME_HEADER = ("LLM", "Alignment", "Retrieving", "Embedding", "Matching", "Total")
 
 # the files that summarise how the run performed rather than what it matched
-PERFORMANCE_FILES = ("result.csv", "time.csv", "cost.csv", "run.log")
+PERFORMANCE_FILES = ("result.csv", "time.csv", "cost.csv")
 
 # the settings this run was given, written once at the start so they are on
 # record even for a run that fails part way
 SETTINGS_CSV = "settings.csv"
 
-# the run's terminal output, kept beside its results. Until this was written the
+# The run's terminal output, kept beside its results. Until this was written the
 # only copy was job.lines, a deque in process memory, so the header web_overrides
 # prints — the database URL among it — was gone the moment the server restarted.
+#
+# Named run.log rather than agent.log because om_database_matching.py already
+# writes an agent.log of its own into /app. Two different files sharing a name —
+# the matcher's own logging there, everything the terminal showed here — would be
+# read as one thing.
 RUN_LOG = "run.log"
 
 # how much of an ontology name is kept in the job id, so a long one cannot
@@ -883,6 +888,9 @@ def result_files(job):
     # keep the summary in the order it is usually read
     order = {name: index for index, name in enumerate(PERFORMANCE_FILES)}
     groups["performance"].sort(key=lambda item: order.get(item["name"], 99))
+    # the log goes last: it is the record of the run rather than one of its
+    # outputs, and alphabetically it would otherwise lead the group
+    groups["original"].sort(key=lambda item: item["name"] == RUN_LOG)
     return groups
 
 

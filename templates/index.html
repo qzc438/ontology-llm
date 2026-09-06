@@ -183,7 +183,15 @@
   .results-head { display: flex; align-items: baseline; gap: var(--space-1); flex-wrap: wrap; }
   .results-head h3 { flex: 1; }
   .file-group { margin-top: var(--space-2); }
-  .file-group h4 { font-size: 1em; font-weight: 700; margin-bottom: 6px; }
+  /* the heading is the toggle. h4 inside summary keeps the outline intact, and
+     display:inline stops it taking a line of its own beside the marker. */
+  .file-group > summary {
+    cursor: pointer; list-style-position: outside; padding: 2px 0;
+  }
+  .file-group > summary:hover h4,
+  .file-group > summary:focus-visible h4 { color: var(--anu-gold); }
+  .file-group h4 { display: inline; font-size: 1em; font-weight: 700; }
+  .file-group > summary + ul { margin-top: 6px; }
   .file-group.empty { display: none; }
 
   /* the headline precision, recall and F1 for the run */
@@ -383,22 +391,22 @@
               <h3>Result Files</h3>
               <button type="button" class="anu-btn btn-small" id="download-all" disabled>Download all</button>
             </div>
-            <div class="file-group" id="group-input">
-              <h4>Input Files</h4>
+            <details class="file-group" id="group-input" open>
+              <summary><h4>Input Files</h4></summary>
               <ul></ul>
-            </div>
-            <div class="file-group" id="group-settings">
-              <h4>Hyperparameter Files</h4>
+            </details>
+            <details class="file-group" id="group-settings" open>
+              <summary><h4>Hyperparameter Files</h4></summary>
               <ul></ul>
-            </div>
-            <div class="file-group" id="group-original">
-              <h4>Matching Files</h4>
+            </details>
+            <details class="file-group" id="group-original" open>
+              <summary><h4>Matching Files</h4></summary>
               <ul></ul>
-            </div>
-            <div class="file-group" id="group-performance">
-              <h4>Scoring Files</h4>
+            </details>
+            <details class="file-group" id="group-performance" open>
+              <summary><h4>Scoring Files</h4></summary>
               <ul></ul>
-            </div>
+            </details>
           </div>
         </div>
       </div>
@@ -653,8 +661,9 @@
   function resetTerminal() {
     terminal.textContent = "";
     results.classList.remove("show");
-    groupOriginal.querySelector("ul").innerHTML = "";
-    groupPerformance.querySelector("ul").innerHTML = "";
+    // all four, or the groups added later keep the last run's files on screen
+    [groupInput, groupSettings, groupOriginal, groupPerformance].forEach(
+      function (group) { group.querySelector("ul").innerHTML = ""; });
     downloadAllButton.disabled = true;
     metricsPanel.classList.remove("show");
     scoreRow.innerHTML = "";
