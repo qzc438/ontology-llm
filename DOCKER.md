@@ -79,10 +79,12 @@ docker compose exec db psql -U postgres -d ontology    # the database itself
 
 ### After editing the code
 
-The page and the stylesheet are re-read on a browser refresh.
+The page and the stylesheet are re-read on a browser refresh: `templates/` and
+`static/` are mounted from the host, read-only, so an edit to either is live
+straight away.
 
-Everything else is in the image — `web_app.py`, `web_overrides.py` and the
-`om_*.py` pipeline included — so rebuild:
+The Python is not. `web_app.py`, `web_overrides.py` and the `om_*.py` pipeline
+are read once at start-up and come from the image, so rebuild for those:
 
 ```bash
 docker compose up --build -d

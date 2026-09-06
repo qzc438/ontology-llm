@@ -63,7 +63,8 @@ except ImportError:  # pragma: no cover - Windows
 from datetime import datetime
 from pathlib import Path
 
-from flask import Flask, Response, jsonify, render_template, request, send_file
+from flask import (Flask, Response, jsonify, render_template, request, send_file,
+                   send_from_directory)
 from werkzeug.utils import secure_filename
 
 import web_overrides
@@ -162,11 +163,16 @@ TIME_CSV = "time.csv"
 TIME_HEADER = ("LLM", "Alignment", "Retrieving", "Embedding", "Matching", "Total")
 
 # the files that summarise how the run performed rather than what it matched
-PERFORMANCE_FILES = ("result.csv", "time.csv", "cost.csv")
+PERFORMANCE_FILES = ("result.csv", "time.csv", "cost.csv", "run.log")
 
 # the settings this run was given, written once at the start so they are on
 # record even for a run that fails part way
 SETTINGS_CSV = "settings.csv"
+
+# the run's terminal output, kept beside its results. Until this was written the
+# only copy was job.lines, a deque in process memory, so the header web_overrides
+# prints — the database URL among it — was gone the moment the server restarted.
+RUN_LOG = "run.log"
 
 # how much of an ontology name is kept in the job id, so a long one cannot
 # produce a path nothing will accept
@@ -236,6 +242,10 @@ class Job:
         self.lines = deque(maxlen=MAX_LINES)
         self.total = 0
         self.condition = threading.Condition()
+        # the same output written straight to disk. `lines` is capped for the
+        # browser, so a long run loses its beginning — including the settings
+        # header — and that is exactly the part worth keeping.
+        self.log = None
 
     @property
     def alignment(self):
@@ -260,6 +270,29 @@ class Job:
             return "failed"
         return "finished"
 
+    def open_log(self, path):
+        """Start writing this run's output to `path` as well as to memory.
+
+        Line buffered, so the log on disk is current if the server is killed
+        rather than shut down.
+        """
+        try:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            self.log = open(path, "w", buffering=1)
+        except OSError:
+            self.log = None
+
+    def close_log(self):
+        """Close the log if it is open. Safe to call more than once."""
+        with self.condition:
+            if self.log is None:
+                return
+            try:
+                self.log.close()
+            except OSError:
+                pass
+            self.log = None
+
     def append(self, text):
         match = SCRIPT_ERROR_PATTERN.match(text)
         with self.condition:
@@ -267,6 +300,13 @@ class Job:
                 self.script_errors.append(match.group(1))
             self.lines.append(text)
             self.total += 1
+            # written here rather than rebuilt from `lines` at the end, which
+            # would only ever hold the last MAX_LINES of a long run
+            if self.log is not None:
+                try:
+                    self.log.write(text + "\n")
+                except OSError:
+                    self.log = None
             self.condition.notify_all()
 
     def finish(self, returncode=None, error=None):
@@ -275,6 +315,7 @@ class Job:
             self.error = error
             self.finished_at = time.time()
             self.condition.notify_all()
+        self.close_log()
 
     def summary(self):
         return {
@@ -607,8 +648,26 @@ def widen(descriptor):
 
 
 def run_job(job):
-    """Run `python run_config.py` and collect its output."""
+    """Run `python run_config.py` and collect its output.
+
+    Wrapped so that however it ends the job is finished and its log is closed.
+    Without that an exception on the way out — a malformed shared time.csv is
+    enough — leaves finished_at as None, which means a job that is "running" for
+    ever: never deletable, never listed with its buttons, holding a file handle.
+    """
+    try:
+        _run_job(job)
+    except Exception as error:  # pragma: no cover - defensive
+        job.append(f"The run ended unexpectedly: {error}")
+        job.finish(error=str(error))
+    finally:
+        # finish() closes the log, but only if it was reached at all
+        job.close_log()
+
+
+def _run_job(job):
     command = [sys.executable, str(BASE_DIR / "web_overrides.py"), "run_config.py"]
+    job.open_log(result_folder(job) / RUN_LOG)
     if job.cancelled:
         # stopped before this thread got as far as starting anything
         job.append("Stopped before the run began.")
@@ -761,8 +820,12 @@ def clear_old_staging():
 
 
 def archive_name(job):
-    """A filename for the whole run, from its folder."""
-    return job.folder.replace("/", "-") or job.id
+    """A filename for the whole run, from its folder.
+
+    Both callers always have one: a live job takes it from free_folder(), and a
+    PastRun is only ever built from a folder that is on disk.
+    """
+    return job.folder.replace("/", "-")
 
 
 def free_folder(relative):
@@ -816,31 +879,123 @@ def result_files(job):
             continue
         info = path.stat()
         entry = {"name": path.name, "size": info.st_size, "modified": info.st_mtime}
-        if path.name == SETTINGS_CSV:
-            groups["settings"].append(entry)
-        elif path.name in PERFORMANCE_FILES:
-            groups["performance"].append(entry)
-        else:
-            groups["original"].append(entry)
+        groups[file_group(path.name)].append(entry)
     # keep the summary in the order it is usually read
     order = {name: index for index, name in enumerate(PERFORMANCE_FILES)}
     groups["performance"].sort(key=lambda item: order.get(item["name"], 99))
     return groups
 
 
-def write_settings_csv(job):
-    """Record the hyperparameters this run was given, beside its results.
+def file_group(name):
+    """Which group a result file belongs to.
 
-    web_overrides.format_overrides() already renders them the way the log shows
-    them, one "name = value" per line, with any database password removed, so
-    the two can never disagree. Splitting each line gives the two columns.
+    One classifier for the page and the archive both. They were two, in two
+    vocabularies, which is how settings.csv came to be filed under the heading
+    the page had stopped using.
+    """
+    if name == SETTINGS_CSV:
+        return "settings"
+    if name in PERFORMANCE_FILES:
+        return "performance"
+    return "original"
+
+
+# what each group is called inside a downloaded archive
+ARCHIVE_FOLDERS = {
+    "input": "input files",
+    "settings": "hyperparameter files",
+    "performance": "scoring files",
+    "original": "matching files",
+}
+
+
+def bundle_run(bundle, run):
+    """Write one run's files into an open archive. Returns how many.
+
+    The ontologies it was given go in as well as what it produced, under the same
+    groups the results panel shows, so an unpacked archive holds the whole run
+    rather than only half of it.
+    """
+    prefix = archive_name(run)
+    written = 0
+    for folder, group in ((upload_folder(run), "input"), (result_folder(run), None)):
+        if not folder.is_dir():
+            continue
+        for path in sorted(folder.iterdir()):
+            if not path.is_file():
+                continue
+            where = ARCHIVE_FOLDERS[group or file_group(path.name)]
+            bundle.write(path, arcname=f"{prefix}/{where}/{path.name}")
+            written += 1
+    return written
+
+
+def open_archive():
+    """Somewhere to build a zip that is not the server's memory.
+
+    An archive now carries the run's ontologies as well as its results, and an
+    upload is allowed to be MAX_UPLOAD_BYTES on its own, so "Download all" over
+    a full disk would otherwise allocate the lot at once. A temp file costs a
+    little disk for the length of one request and cannot exhaust anything; the
+    file is unlinked as soon as it is closed.
+    """
+    return tempfile.TemporaryFile()
+
+
+def zip_response(archive, name):
+    """Hand a finished archive to the browser, and close it afterwards."""
+    archive.seek(0)
+    return send_file(
+        archive, mimetype="application/zip",
+        as_attachment=True, download_name=f"{name}.zip",
+    )
+
+
+def write_settings_csv(job, settings=None):
+    """Record the hyperparameters this run used, beside its results.
+
+    Every setting, not only the ones chosen on the page. web_overrides.describe()
+    reports what run_config.py would resolve to, and the run's own overrides are
+    laid over the top, so a setting left alone is still written down. A file that
+    recorded only the differences would say nothing about a run that changed
+    nothing, and could not be read back months later without knowing which commit
+    of run_config.py was checked out at the time.
+
+    The redirected paths are left out: result_path, cost_path and the database
+    URL are how this server files the run, not settings that shaped the matching,
+    and the folder they name is the folder this file is sitting in.
+
+    readable() renders the values the same way the header printed into the run
+    log does, so the two cannot disagree.
     """
     folder = result_folder(job)
     folder.mkdir(parents=True, exist_ok=True)
-    rows = []
-    for line in web_overrides.format_overrides(job.overrides):
-        name, separator, value = line.partition(" = ")
-        rows.append([name, value] if separator else [line, ""])
+    # describe() reads run_config.py through read_source(), which returns "" if
+    # the file cannot be read, so this is {} rather than an exception in that case
+    # describe() returns llm and embeddings_service as whole assignments and
+    # everything else as a value, so each is rendered as it arrives and the dict
+    # holds finished strings from there on
+    def rendered(name, value):
+        # describe() hands back llm and embeddings_service as whole assignments,
+        # spaced however run_config.py wrote them, so the name is compared rather
+        # than a fixed "name =" prefix
+        if isinstance(value, str) and value.partition("=")[0].strip() == name:
+            return value.partition("=")[2].strip()
+        return web_overrides.readable(name, value)
+
+    if settings is None:
+        settings = web_overrides.describe(BASE_DIR)
+    current = settings.get("current") or {}
+    effective = {name: rendered(name, value) for name, value in current.items()}
+    effective.update({
+        name: web_overrides.readable(name, value)
+        for name, value in (job.overrides.get("values") or {}).items()
+    })
+    for statement in job.overrides.get("statements") or []:
+        name, separator, value = statement.partition("=")
+        if separator:
+            effective[name.strip()] = value.strip()
+    rows = list(effective.items())
     try:
         with open(folder / SETTINGS_CSV, "w", newline="") as handle:
             writer = csv.writer(handle)
@@ -860,7 +1015,6 @@ class PastRun:
 
     def __init__(self, folder):
         self.folder = folder
-        self.id = folder
 
 
 def run_folder_is_safe(folder):
@@ -879,13 +1033,20 @@ def run_folder_is_safe(folder):
     return target != root and root in target.parents and (target / "component").is_dir()
 
 
+def run_is_going(folder):
+    """Whether the pipeline is still writing into this run's folder."""
+    with JOBS_LOCK:
+        return any(job.folder == folder and job.running for job in JOBS.values())
+
+
 def discover_runs():
     """Every run with a result folder on disk, newest first.
 
-    The page's own results panel is built from the job in memory, so it empties
-    on a refresh and is gone entirely after a restart, while the files it listed
-    are still there. This reads the same folders back off disk, which is what
-    makes a run outlive the browser tab that started it.
+    The main page's results panel is served from JOBS, which is process memory:
+    it reattaches to the newest job on a reload, but only that one, it is capped
+    at MAX_JOBS, and after a restart every per-file URL 404s while the files sit
+    on disk untouched. This reads the folders back instead, so a run outlives the
+    process that produced it.
     """
     runs = []
     if not RESULT_ROOT.is_dir():
@@ -900,7 +1061,16 @@ def discover_runs():
             folder = f"{context.name}/{entry.name}"
             run = PastRun(folder)
             metrics = read_metrics(run)
-            files = [path for path in component.iterdir() if path.is_file()]
+            # counted across both folders because bundle_run archives both: a
+            # run that died before writing results still has its ontologies, and
+            # the button must not be disabled over an archive with files in it
+            files = [
+                path
+                for folder in (component, upload_folder(run))
+                if folder.is_dir()
+                for path in folder.iterdir()
+                if path.is_file()
+            ]
             try:
                 modified = component.stat().st_mtime
             except OSError:
@@ -911,11 +1081,12 @@ def discover_runs():
                 "name": entry.name,
                 "modified": modified,
                 "files": len(files),
-                "bytes": sum(path.stat().st_size for path in files),
                 # None when the run never reached the final stage, which the
                 # page shows as a dash rather than inventing a zero
                 "final": metrics.get("final"),
-                "stages": len(metrics.get("rows") or []),
+                # a run being written to cannot be deleted, and the page leaves
+                # the button out rather than offering one that gets refused
+                "running": run_is_going(folder),
             })
     runs.sort(key=lambda item: item["modified"], reverse=True)
     return runs
@@ -1824,11 +1995,11 @@ def start_one_job():
               overrides)
     # keep this run's scores in its own folder rather than the shared result.csv
     job.overrides.setdefault("paths", {}).update(prepare_result_files(job))
-    write_settings_csv(job)
     # and point it at the database this server was told to use, if any
     database = os.environ.get(DB_URL_ENV)
     if database:
         job.overrides["paths"]["connection_string"] = database
+    write_settings_csv(job, settings)
     with JOBS_LOCK:
         JOBS[job_id] = job
         # keep the newest finished runs and let the rest go, so a server left
@@ -1937,34 +2108,36 @@ def job_stream(job_id):
 def download_all_results(job_id):
     """Every file this job produced, in one archive.
 
-    The two groups the page shows become two folders inside the archive, so
-    the download keeps the same shape as the page.
+    The groups the page shows become folders inside the archive, so the download
+    keeps the same shape as the page.
     """
     job = JOBS.get(job_id)
     if job is None:
         return jsonify({"error": "Unknown job."}), 404
-    folder = result_folder(job).resolve()
-    if not folder.is_dir():
-        return jsonify({"error": "This job produced no files."}), 404
-
-    archive = io.BytesIO()
-    written = 0
+    archive = open_archive()
     with zipfile.ZipFile(archive, "w", zipfile.ZIP_DEFLATED) as bundle:
-        for path in sorted(folder.iterdir()):
-            if not path.is_file():
-                continue
-            group = "scoring files" if path.name in PERFORMANCE_FILES else "original files"
-            bundle.write(path, arcname=f"{archive_name(job)}/{group}/{path.name}")
-            written += 1
+        written = bundle_run(bundle, job)
     if not written:
         return jsonify({"error": "This job produced no files."}), 404
-    archive.seek(0)
-    return send_file(
-        archive,
-        mimetype="application/zip",
-        as_attachment=True,
-        download_name=f"{archive_name(job)}.zip",
-    )
+    return zip_response(archive, archive_name(job))
+
+
+def serve_from(folder, filename):
+    """One file from inside `folder`, or a 404 — never anything outside it.
+
+    safe_join, inside send_from_directory, drops a filename that climbs out with
+    .. or arrives absolute. It does not resolve symlinks, and these folders are
+    bind-mounted from the host, so a link dropped in from outside would other-
+    wise be followed wherever it points; resolving both ends first refuses that.
+    """
+    folder = Path(folder).resolve()
+    try:
+        target = (folder / filename).resolve()
+    except (OSError, ValueError):
+        return jsonify({"error": "Unknown file."}), 404
+    if not target.is_file() or folder not in target.parents:
+        return jsonify({"error": "Unknown file."}), 404
+    return send_from_directory(folder, filename, as_attachment=True)
 
 
 @app.get("/api/jobs/<job_id>/results/<path:filename>")
@@ -1972,12 +2145,7 @@ def download_result(job_id, filename):
     job = JOBS.get(job_id)
     if job is None:
         return jsonify({"error": "Unknown job."}), 404
-    folder = result_folder(job).resolve()
-    target = (folder / filename).resolve()
-    # never serve anything outside the job's own result folder
-    if not target.is_file() or folder not in target.parents:
-        return jsonify({"error": "Unknown result file."}), 404
-    return send_file(target, as_attachment=True, download_name=target.name)
+    return serve_from(result_folder(job), filename)
 
 
 @app.get("/api/runs")
@@ -1990,31 +2158,21 @@ def list_runs():
 def download_run(folder):
     """Every file a past run produced, in one archive.
 
-    The same two folders as the live download, so an old run and a fresh one
-    unzip to the same shape.
+    The same groups as the live download, so an old run and a fresh one unzip to
+    the same shape.
     """
     if not run_folder_is_safe(folder):
         return jsonify({"error": "Unknown run."}), 404
+    if run_is_going(folder):
+        return jsonify({"error": "That run is still going. Its files are not "
+                                 "finished yet."}), 409
     run = PastRun(folder)
-    component = result_folder(run)
-    archive = io.BytesIO()
-    written = 0
+    archive = open_archive()
     with zipfile.ZipFile(archive, "w", zipfile.ZIP_DEFLATED) as bundle:
-        for path in sorted(component.iterdir()):
-            if not path.is_file():
-                continue
-            group = "scoring files" if path.name in PERFORMANCE_FILES else "original files"
-            bundle.write(path, arcname=f"{archive_name(run)}/{group}/{path.name}")
-            written += 1
+        written = bundle_run(bundle, run)
     if not written:
         return jsonify({"error": "This run produced no files."}), 404
-    archive.seek(0)
-    return send_file(
-        archive,
-        mimetype="application/zip",
-        as_attachment=True,
-        download_name=f"{archive_name(run)}.zip",
-    )
+    return zip_response(archive, archive_name(run))
 
 
 @app.get("/api/runs.zip")
@@ -2025,29 +2183,17 @@ def download_all_runs():
     run could never shadow it. Each run keeps the two-folder shape it has on its
     own, under a folder named after the run.
     """
-    archive = io.BytesIO()
+    archive = open_archive()
     written = 0
     with zipfile.ZipFile(archive, "w", zipfile.ZIP_DEFLATED) as bundle:
         for run in discover_runs():
-            component = result_folder(PastRun(run["folder"]))
-            for path in sorted(component.iterdir()):
-                if not path.is_file():
-                    continue
-                group = "scoring files" if path.name in PERFORMANCE_FILES else "original files"
-                bundle.write(
-                    path,
-                    arcname=f"{run['folder'].replace('/', '-')}/{group}/{path.name}",
-                )
-                written += 1
+            # a run still being written to would go in half finished
+            if run["running"]:
+                continue
+            written += bundle_run(bundle, PastRun(run["folder"]))
     if not written:
         return jsonify({"error": "There are no runs to download."}), 404
-    archive.seek(0)
-    return send_file(
-        archive,
-        mimetype="application/zip",
-        as_attachment=True,
-        download_name="agent-om-runs.zip",
-    )
+    return zip_response(archive, "agent-om-runs")
 
 
 @app.delete("/api/runs/<path:folder>")
@@ -2060,12 +2206,9 @@ def delete_run(folder):
     """
     if not run_folder_is_safe(folder):
         return jsonify({"error": "Unknown run."}), 404
-    with JOBS_LOCK:
-        running = [
-            job for job in JOBS.values()
-            if job.folder == folder and job.finished_at is None
-        ]
-    if running:
+    # still checked here as well as on the page: a run can start between the
+    # listing being drawn and the button being pressed
+    if run_is_going(folder):
         return jsonify({"error": "That run is still going. Stop it first."}), 409
 
     removed = []
@@ -2094,12 +2237,7 @@ def download_input(job_id, filename):
     job = JOBS.get(job_id)
     if job is None:
         return jsonify({"error": "Unknown job."}), 404
-    folder = upload_folder(job).resolve()
-    target = (folder / filename).resolve()
-    # never serve anything outside the job's own upload folder
-    if not target.is_file() or folder not in target.parents:
-        return jsonify({"error": "Unknown input file."}), 404
-    return send_file(target, as_attachment=True, download_name=target.name)
+    return serve_from(upload_folder(job), filename)
 
 
 @app.errorhandler(413)

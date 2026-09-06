@@ -114,6 +114,17 @@ services:
       # can be opened without going through the interface
       - ./data/uploads:/app/data/uploads
       - ./alignment/uploads:/app/alignment/uploads
+      # The interface itself, read-only. web_app.py already sets
+      # TEMPLATES_AUTO_RELOAD and SEND_FILE_MAX_AGE_DEFAULT=0, so with these
+      # mounted a template or stylesheet edit needs a browser refresh and
+      # nothing else; without them the image's baked copy is served and every
+      # CSS tweak costs a rebuild. The trade is that the running container no
+      # longer serves exactly what its image holds, which is the right way round
+      # for a tool you run on your own machine and the wrong way round for one
+      # you hand to someone else as a fixed artefact. Python is not mounted:
+      # web_app.py and the om_*.py pipeline are read once at start-up.
+      - ./templates:/app/templates:ro
+      - ./static:/app/static:ro
     healthcheck:
       test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:5000/api/health > /dev/null"]
       interval: 15s

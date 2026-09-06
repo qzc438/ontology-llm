@@ -370,6 +370,12 @@ th { background: var(--accent-soft); color: var(--page-fg); font-weight: 700; }
 .tbl-row-bdr th, .tbl-row-bdr td { border-bottom: 1px solid var(--hairline); }
 .tbl-cell-bdr th, .tbl-cell-bdr td { border: 1px solid var(--hairline); }
 
+/* Score columns: the figures and the headings above them centre together, so
+   each number sits under its own heading. Used by the metrics table on the main
+   page and the runs table on the history page. */
+.tbl-scores td.number { text-align: center; font-family: var(--font-mono); font-size: 0.9em; }
+.tbl-scores thead th:not(:first-child) { text-align: center; }
+
 /* --- dialog -------------------------------------------------------------- */
 /* A native <dialog>, so the browser supplies the focus trap, Esc to close and
    the backdrop, and only the surface has to be styled. Shaped like .card: the
@@ -488,8 +494,6 @@ th { background: var(--accent-soft); color: var(--page-fg); font-weight: 700; }
   transition: color .15s ease, border-color .15s ease;
 }
 .masthead-btn:hover, .masthead-btn:focus-visible { color: var(--anu-gold); border-color: var(--anu-gold); }
-/* carries a symbol instead of a word, so it is square like .theme-toggle */
-.masthead-btn.icon { width: 2.125rem; padding: 0; justify-content: center; }
 
 /* the symbol shown is the choice in force, not the mode it resolves to */
 [data-theme-choice="auto"] .theme-toggle .icon-auto,
