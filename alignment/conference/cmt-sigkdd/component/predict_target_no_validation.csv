@@ -1,5 +1,4 @@
 Entity2,Entity1
-http://sigkdd#ACM_SIGKDD,http://cmt#Paper
 http://sigkdd#Abstract,http://cmt#PaperAbstract
 http://sigkdd#Author,http://cmt#Author
 http://sigkdd#Author_of_paper,http://cmt#Author
@@ -15,8 +14,10 @@ http://sigkdd#Deadline_Author_notification,http://cmt#Author
 http://sigkdd#Document,http://cmt#Document
 http://sigkdd#General_Chair,http://cmt#ConferenceChair
 http://sigkdd#Organizator,http://cmt#Administrator
+http://sigkdd#Organizator,http://cmt#Person
 http://sigkdd#Organizing_Committee,http://cmt#ConferenceChair
 http://sigkdd#Organizing_Committee,http://cmt#ProgramCommittee
+http://sigkdd#Organizing_Committee_member,http://cmt#ConferenceChair
 http://sigkdd#Organizing_Committee_member,http://cmt#ProgramCommitteeMember
 http://sigkdd#Paper,http://cmt#Paper
 http://sigkdd#Person,http://cmt#Person
@@ -26,13 +27,14 @@ http://sigkdd#Program_Committee,http://cmt#ProgramCommittee
 http://sigkdd#Program_Committee_member,http://cmt#ProgramCommitteeMember
 http://sigkdd#Review,http://cmt#Review
 http://sigkdd#Speaker,http://cmt#Author
+http://sigkdd#Speaker,http://cmt#Person
 http://sigkdd#City_of_conference,http://cmt#hasConferenceMember
 http://sigkdd#Date,http://cmt#date
 http://sigkdd#E-mail,http://cmt#email
-http://sigkdd#End_of_conference,http://cmt#date
+http://sigkdd#End_of_conference,http://cmt#hasConferenceMember
 http://sigkdd#Name,http://cmt#name
 http://sigkdd#Name_of_conference,http://cmt#hasConferenceMember
 http://sigkdd#Name_of_conference,http://cmt#name
-http://sigkdd#Start_of_conference,http://cmt#date
+http://sigkdd#Start_of_conference,http://cmt#hasConferenceMember
 http://sigkdd#presentation,http://cmt#readPaper
 http://sigkdd#submit,http://cmt#submitPaper

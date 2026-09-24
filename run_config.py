@@ -88,10 +88,10 @@ num_matches = 50
 # alignment settings
 
 # conference track
-context = "conference"
-o1_is_code = False
-o2_is_code = False
-alignment = "conference/cmt-conference/component/"
+# context = "conference"
+# o1_is_code = False
+# o2_is_code = False
+# alignment = "conference/cmt-conference/component/"
 # alignment = "conference/cmt-confof/component/"
 # alignment = "conference/cmt-edas/component/"
 # alignment = "conference/cmt-ekaw/component/"
@@ -165,18 +165,18 @@ alignment = "conference/cmt-conference/component/"
 # alignment = "multifarm/cmt-cmt-fr-ar/component/"
 
 # activate when execute run_series_multifarm.py
-if os.environ.get('alignment'):
-    alignment = os.environ['alignment']
-
-# archaeology track
-# context = "archaeology"
-# alignment = "archaeology/de-en/component/"
-# o1_is_code = True
-# o2_is_code = True
-
-# activate when execute run_series_archaeology.py
 # if os.environ.get('alignment'):
 #     alignment = os.environ['alignment']
+
+# archaeology track
+context = "archaeology"
+alignment = "archaeology/de-en/component/"
+o1_is_code = True
+o2_is_code = True
+
+# activate when execute run_series_archaeology.py
+if os.environ.get('alignment'):
+    alignment = os.environ['alignment']
 
 # ce track
 # context = "circular economy"

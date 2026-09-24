@@ -21,6 +21,12 @@ psycopg2_binary==2.9.9
 pgvector==0.1.8
 commentjson==0.9.0
 transformers==4.41.1
+# torch is the backend transformers needs to load models. Without it,
+# transformers exposes only tokenizers/configs and logs "None of PyTorch,
+# TensorFlow >= 2.0, or Flax have been found" on every run. The default
+# PyPI wheel bundles CUDA; pip install --index-url
+# https://download.pytorch.org/whl/cpu for a CPU-only (~200MB) install.
+torch==2.14.0
 colorama==0.4.6
 # install web interface packages:
 flask==3.1.3
