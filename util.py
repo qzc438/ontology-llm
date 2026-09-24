@@ -215,6 +215,19 @@ def common_member(a, b):
 
 
 def calculate_cost(total_tokens, total_cost, cost_path, llm, alignment):
+    # The OpenAI callback prices a request by looking the model up in a table
+    # hardcoded inside langchain_community, and charges 0 without complaint when
+    # the name is not in it. That is how gpt-5 runs were logged at $0.00 before
+    # langchain_community 0.3.31 added its prices. Only OpenAI names are checked
+    # because the table holds nothing else: Ollama models are local and free, and
+    # Anthropic is not priced by this callback at all, so a 0 there is expected
+    # and warning about it would be noise.
+    if total_tokens and not total_cost and str(llm).startswith(("gpt-", "o1", "o3", "o4")):
+        print_colored_text(
+            f"WARNING: no price for '{llm}' in langchain_community, so its "
+            f"{total_tokens} tokens are logged as $0.00. Upgrade "
+            f"langchain_community, or read the cost of this run as unknown "
+            f"rather than free.", "red")
     # write to file
     with open(cost_path, "a+", newline='') as f:
         writer = csv.writer(f)
