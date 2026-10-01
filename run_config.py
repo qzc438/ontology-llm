@@ -88,10 +88,10 @@ num_matches = 50
 # alignment settings
 
 # conference track
-context = "conference"
-o1_is_code = False
-o2_is_code = False
-alignment = "conference/cmt-conference/component/"
+# context = "conference"
+# o1_is_code = False
+# o2_is_code = False
+# alignment = "conference/cmt-conference/component/"
 # alignment = "conference/cmt-confof/component/"
 # alignment = "conference/cmt-edas/component/"
 # alignment = "conference/cmt-ekaw/component/"
@@ -170,7 +170,7 @@ alignment = "conference/cmt-conference/component/"
 
 # archaeology track
 # context = "archaeology"
-# alignment = "archaeology/de-en/component/"
+# alignment = "archaeology/de-fr/component/"
 # o1_is_code = True
 # o2_is_code = True
 
@@ -186,17 +186,21 @@ alignment = "conference/cmt-conference/component/"
 # o2_is_code = False
 
 # dh track
-# context = "digial humanities"
+context = "digial humanities"
 # alignment = "dh/defc-pactols/component/"
 # alignment = "dh/dha-unesco/component/"
 # alignment = "dh/idai-pactols/component/"
 # alignment = "dh/idai-parthenos/component/"
-# alignment = "dh/ironagedanube-pactols/component/"
+alignment = "dh/ironagedanube-pactols/component/"
 # alignment = "dh/oeai-parthenos/component/"
 # alignment = "dh/pactols-parthenos/component/"
 # alignment = "dh/tadirah-unesco/component/"
-# o1_is_code = True
-# o2_is_code = True
+o1_is_code = True
+o2_is_code = True
+
+# activate when execute run_series_archaeology.py
+# if os.environ.get('alignment'):
+#     alignment = os.environ['alignment']
 
 # large datasets
 
