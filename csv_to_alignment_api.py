@@ -119,7 +119,7 @@ def batch_convert_predict_csv_to_xml(
 
 if __name__ == "__main__":
     batch_convert_predict_csv_to_xml(
-        root_dir="campaign/OAEI_2025",
+        root_dir="campaign/OAEI_2026/author_version",
         source_file="predict.csv",
         target_file="predict.xml",
         relation="=",
